@@ -13,6 +13,7 @@
 | 옵션 복기 / 어제 복기 | **[Path-O]** |
 | 실적 성적표 | **[Path-S]** |
 | 실적 프롬프트 개선 | **[Path-I]** |
+| 뉴스 검색해줘 / 뉴스 찾아줘 | **[Path-N]** |
 | 기타 | **[Path-Q]** |
 
 ---
@@ -27,6 +28,7 @@
 | **Path-O** | `docs/options_system.md` | ① 어제 로그 vs 오늘 가격 매칭 → ② Top/Bottom 평균 수익률 계산 → ③ 역전 Top 3 각각 WebSearch 돌발 호재 확인 → ④ Tier-1/2/3 분류 후 결론 | 돌발 호재 확인 없이 가중치 변경 제안 |
 | **Path-S** | `docs/earnings_framework.md` | 전체 누적 로그 적중률 + 평균 수익률 집계 출력 | — |
 | **Path-I** | `docs/earnings_framework.md` | 5건 이상 누적 시 개선 후보 제안 → 사용자 확정 후 CLAUDE.md 수정 | 5건 미만 시 개선 제안 |
+| **Path-N** | 없음 | WebSearch 섹터별 4회 (빅테크/AI반도체/메모리/AI인프라 순) → 한글 번역 출력 | — |
 | **Path-Q** | 없음 | — | — |
 
 ---
@@ -56,6 +58,7 @@
 - **스크립트**: `daily_analysis.py` / `options_scanner.py` / `options_tracker.py` / `earnings_prefill.py`
 - **로그**: `data/options_log/YYYY-MM-DD.json` / `data/earnings_log/YYYY-MM-DD_<TICKER>.json`
 - **뉴스 검색 순서**: 오늘 → 어제 → 이번 주
+- **정량 데이터 갱신**: 주 1회 또는 요청 시 — 평소엔 캐시(`data/estimates_cache.json`) 호출
 
 ## 📋 워치리스트
 
