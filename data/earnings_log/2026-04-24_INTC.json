@@ -1,0 +1,53 @@
+{
+  "ticker": "INTC",
+  "analysis_date": "2026-04-24",
+  "fiscal_period": "FY26 Q1",
+  "price_at_analysis": 66.78,
+  "market_cap_at_analysis": "337B",
+  "source_material": "Intel Q1 2026 Earnings Release: Revenue $13.58B (+7.2% YoY, beat $12.42B est), Non-GAAP EPS $0.29 (beat $0.01 est by 29x), DCAI $5.1B (+22% YoY), Foundry $5.4B (+16% YoY), Non-GAAP Op margin 12.3% (vs 5.4% YoY), Q2 guidance revenue $13.8-14.8B (beat $13.07B est) / EPS $0.20 (beat $0.09 est), Diluted shares 5,083M (+17% YoY dilution), Restructuring $4.07B (Mobileye goodwill impairment), After-hours +20%",
+  "key_numbers": {
+    "revenue_yoy": 7.2,
+    "dcai_yoy": 22.4,
+    "foundry_yoy": 16.2,
+    "guidance_q2_revenue_mid_yoy_est": 12.0,
+    "non_gaap_op_margin": 12.3,
+    "non_gaap_op_margin_prev": 5.4,
+    "sbc_to_revenue": 4.57,
+    "sbc_to_gp": 11.6,
+    "fcf_margin": -14.9,
+    "rule_of_40": -7.7,
+    "shares_dilution_yoy": 17.0
+  },
+  "sn_score": {
+    "total": 27,
+    "breakdown": {
+      "1_earnings_strength": 5,
+      "2_momentum": 5,
+      "3_outlook": 7,
+      "4_sbc_health": 4,
+      "5_financial_resilience": 3,
+      "6_narrative": 3
+    }
+  },
+  "quant_tier": "메가캡 중앙값 바로 위 (약 상위 45~50%, DCAI 세그먼트는 상위 25%)",
+  "market_reaction_prediction": {
+    "initial": "매우 긍정적",
+    "mid_long_term": "다소 긍정적"
+  },
+  "investment_opinion": "신중한 비중 확대",
+  "key_thesis": "Non-GAAP 영업이익 12.3% 턴어라운드 + DCAI +22% 가속 + Q2 가이던스 122% 비트로 Lip-Bu Tan 체제 신뢰 구축. Google·NVIDIA·SpaceX 3대 파트너십으로 AI CPU+Foundry 다축 서사 성립. 단 주식수 +17% 희석이 중장기 상방 제한.",
+  "key_risks": [
+    "주식수 YoY +17% 희석 (CHIPS Act Escrow + SCIP + US 정부 지분 복합)",
+    "GAAP 영업손실 구조적 지속 ($3.1B Q1, Mobileye $4.07B 손상)",
+    "Intel 14A 수요 미확정 (10-Q 포워드 리스크 언급)",
+    "Adj FCF 여전히 -$2B (설비투자 $5B 속도)"
+  ],
+  "options_context_at_analysis": {
+    "score": 30,
+    "flow_type": "약세 방향성",
+    "pc_ratio": 1.35,
+    "term_structure": 0.13,
+    "interpretation": "옵션 시장은 실적 전 악재 예상해 풋 집중 → 방향성 오판했으나 Term 0.13 단기 이벤트 임박은 적중"
+  },
+  "verification": null
+}
