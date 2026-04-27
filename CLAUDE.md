@@ -11,6 +11,8 @@
 | 실적 분석 / 어닝 분석 / `<티커> 실적` / 실적 자료 첨부 | **[Path-E]** |
 | 실적 복기 / `<티커> 복기` / 실적 검증 | **[Path-V]** |
 | 옵션 복기 / 어제 복기 | **[Path-O]** |
+| 실적 성적표 | **[Path-S]** |
+| 실적 프롬프트 개선 | **[Path-I]** |
 | 기타 | **[Path-Q]** |
 
 ---
@@ -23,6 +25,8 @@
 | **Path-E** | `docs/earnings_framework.md` | ① `py earnings_prefill.py <TICKER>` → ② WebSearch 누락 보완 → ③ 6단계 분석 출력 → ④ `data/earnings_log/YYYY-MM-DD_<TICKER>.json` 저장 | 시총·컨센서스·전년 데이터 가정으로 채운 채 분석 진입 |
 | **Path-V** | `docs/earnings_framework.md` | ① 해당 JSON 로드 → ② yfinance D+1/D+5/D+30 수익률 계산 → ③ 오차 큰 종목 WebSearch 돌발 호재 확인 → ④ verification 필드 업데이트 | WebSearch 없이 "분석 실패" 단정 |
 | **Path-O** | `docs/options_system.md` | ① 어제 로그 vs 오늘 가격 매칭 → ② Top/Bottom 평균 수익률 계산 → ③ 역전 Top 3 각각 WebSearch 돌발 호재 확인 → ④ Tier-1/2/3 분류 후 결론 | 돌발 호재 확인 없이 가중치 변경 제안 |
+| **Path-S** | `docs/earnings_framework.md` | 전체 누적 로그 적중률 + 평균 수익률 집계 출력 | — |
+| **Path-I** | `docs/earnings_framework.md` | 5건 이상 누적 시 개선 후보 제안 → 사용자 확정 후 CLAUDE.md 수정 | 5건 미만 시 개선 제안 |
 | **Path-Q** | 없음 | — | — |
 
 ---
