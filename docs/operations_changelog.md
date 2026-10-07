@@ -31,6 +31,11 @@
   - 6개 브랜치의 커밋은 모두 GitHub에 있다. 1개는 원격이 더 앞서 있었다.
   - 로컬에만 있던 것은 그 저장소 규칙상 커밋하지 않는 중간 실험 산출물이다.
 - 연구 스크립트 `data/derived/analysis/strategy_lab/code/holdout_fetch.py`도 새 수집 API로 고쳤다(Git 제외 파일).
+- 참조가 0건인 파일을 지웠다.
+  - `data/valuation/`: 지운 `daily_analysis.py`의 2026-04-29~06-04 산출물 27개
+  - `requirements.txt`: `pyproject.toml`과 중복
+  - 테스트·린트 도구(pytest·ruff)는 `pyproject.toml`의 `dev` 선택 의존성으로 적었다.
+- `automation/daily_briefing_prompt.md`에 새 검증 스냅샷 커밋 단계(5번)를 넣었다. 루틴 데이터가 커밋되지 않고 쌓이면 두 에이전트가 시작할 때마다 `git status`에 남의 작업처럼 보인다.
 
 ## 2026-10-07 — Codex·Claude 공동 작업 정비: 기준 커밋, 공유 규칙, 테스트 묶음
 

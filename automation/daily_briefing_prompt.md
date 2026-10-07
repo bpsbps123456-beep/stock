@@ -8,7 +8,8 @@
 2. `py gbrc.py briefing`을 실행한다.
 3. 출력된 run manifest를 읽고 `status`, 두 펀드의 `as_of_date`, `quality_status`, `performance_status`를 확인한다.
 4. `status`가 `success`가 아니면 최신 자료인 것처럼 해석하지 않는다. 첫 줄에 `데이터 지연/부분 실패`를 표시하고 실패 원인과 재확인할 항목만 보고한다.
-5. 성공이면 생성된 `data/derived/briefings/YYYY-MM-DD.md`를 읽고 아래 순서로 한국어 브리핑을 작성한다.
+5. `git status --short data/normalized/etf_holdings/`에 보이는 새 검증 스냅샷만 경로를 지정해 커밋한다: `git add <경로…>` → `git commit -m "data: YYYY-MM-DD TIME·KoAct 스냅샷 (codex)" -- <경로…>`. 새 파일이 없거나 커밋이 실패하면 브리핑은 그대로 진행하고 그 사실만 한 줄로 적는다.
+6. 성공이면 생성된 `data/derived/briefings/YYYY-MM-DD.md`를 읽고 아래 순서로 한국어 브리핑을 작성한다.
 
 출력 순서:
 
