@@ -1,6 +1,6 @@
 # 성장기반 리서치 센터(GBRC) 운영 라우터
 
-> 활성 기준일: **2026-10-07**  
+> 활성 기준일: **2026-10-08**  
 > Codex와 Claude가 함께 따르는 유일한 운영 규칙이다. Codex는 이 파일을 직접 읽고, Claude는 `CLAUDE.md`가 이 파일을 불러와 읽는다.  
 > 이 파일은 트리거·라우팅·공동 작업 규칙만 관리한다. 계산·출력·검증 세부 규칙은 각 도메인 문서를 정본(SSoT)으로 삼는다.
 
@@ -25,7 +25,7 @@
 | 섹터·종목 매핑 | `watchlist.py` |
 | 운영 규칙 변경 이력 | `docs/operations_changelog.md` |
 | 투자 브리핑 전달·활용 | `docs/investment_briefing_playbook.md` |
-| 사용자 매매 조건, 야간 데스크(7종목 규칙·주문 계산·매매 기록·멈춤 규칙), AI 탐방·거인의 어깨 탭 | `docs/desk_system.md` |
+| 사용자 매매 조건, 야간 데스크(7종목 규칙·주문 계산·매매 기록·멈춤 규칙), AI 탐방·거인의 어깨·급락 후 담기 탭 | `docs/desk_system.md` |
 
 규칙이 부딪히면 ① 사용자의 현재 요청 ② 이 파일 ③ 해당 Path 정본 ④ `docs/operations_changelog.md`의 과거 이력 순으로 따른다. `docs/archive/`는 명시적으로 요청받지 않으면 활성 규칙으로 쓰지 않는다.
 
@@ -58,7 +58,7 @@
 | **Path-I** | `docs/earnings_framework.md` | 검증 5건 이상일 때만 개선 후보 제안 → 사용자 확정 후 관련 정본과 변경 이력 갱신. `CLAUDE.md`에 독립 규칙을 추가하지 않는다. |
 | **Path-N** | 없음 | WebSearch 4회: 빅테크 → AI반도체 → 메모리 → AI인프라. 오늘 → 어제 → 이번 주 순으로 확인하고 한글로 출력. |
 | **Path-A** | `docs/analyst_system.md` | 업데이트: WebSearch로 3인(가브리엘·윌슨·카토네) 신규 발언 수집 → 신규 콜 `data/analyst_log/` 기록 → `py analyst_tracker.py verify` → 이전 전망 대비 변화·행동 조건 표 출력. 신규 없으면 "신규 없음" 종결. 성적표: `py analyst_tracker.py scorecard`. 3인 의견만으로 매도 제안을 하지 않는다. |
-| **Path-Q** | 해당 영역 정본 | 요청 자체를 수행한다. 다루는 영역에 정본이 있으면 먼저 읽고 그 검증을 통과시킨다: AI 종목 전고점 거리 `py ai_ath_gap.py`(유니버스 `watchlist.AI_UNIVERSE`, 결과 `data/derived/analysis/ai_ath_gap/`), AI 탐방 갱신 `docs/desk_system.md` §8.1, 거인의 어깨 §9. 연구·백테스트는 아래 연구 보고 규칙을 따른다. 매수 추천·주문 계산은 하지 않는다. |
+| **Path-Q** | 해당 영역 정본 | 요청 자체를 수행한다. 다루는 영역에 정본이 있으면 먼저 읽고 그 검증을 통과시킨다: AI 종목 전고점 거리 `py ai_ath_gap.py`(유니버스 `watchlist.AI_UNIVERSE`, 결과 `data/derived/analysis/ai_ath_gap/`), AI 탐방 갱신 `docs/desk_system.md` §8.1, 거인의 어깨 §9, 급락 후 담기 §10. 연구·백테스트는 아래 연구 보고 규칙을 따른다. 매수 추천·주문 계산은 하지 않는다. |
 
 ## Gate C. 응답 종결 자기검증
 
@@ -87,7 +87,7 @@
 | 사실·결정 기록 | 사용자가 알려 준 사실(매매 조건 등)과 결정은 해당 정본 한 곳에 쓴다. 에이전트 개인 메모리(Claude 자동 메모리, Codex 메모리)에만 두지 않는다. 다른 에이전트는 그 메모리를 보지 못한다. |
 | 코드 | 실행 경로에 미구현 자리표시(`NotImplementedError`, 사용자 작성 대기 TODO)를 남기지 않는다. 설계 선택은 근거로 직접 정해 구현하고 기준값과 근거를 정본에 남긴다. 손실 한도처럼 사용자 개인 사실이 필요한 값만 묻는다. |
 | 정리 | 참조 0건·중복·빈 템플릿인 문서와 코드는 발견한 작업에서 `git rm`으로 지운다. 되살릴 때는 git 이력을 쓰고, 보관용 사본을 만들지 않는다. |
-| 검증 | 코드를 바꿨으면 `py -m unittest`가 전부 통과해야 한다. `py -m pytest`와 같은 테스트를 모으며, 모듈 함수 방식 테스트 파일에 `load_tests` 훅이 빠지면 `tests/test_suite_contract.py`가 실패한다. 영역별 추가 검증은 해당 정본을 따른다(데스크 §6, 탐방 §8.1, 거인의 어깨 §9). |
+| 검증 | 코드를 바꿨으면 `py -m unittest`가 전부 통과해야 한다. `py -m pytest`와 같은 테스트를 모으며, 모듈 함수 방식 테스트 파일에 `load_tests` 훅이 빠지면 `tests/test_suite_contract.py`가 실패한다. 영역별 추가 검증은 해당 정본을 따른다(데스크 §6, 탐방 §8.1, 거인의 어깨 §9, 급락 후 담기 §10). |
 | 종결 | 바꾼 파일만 경로를 지정해 커밋한다: 새 파일은 `git add <경로>`, 그다음 `git commit -m "<영역>: <요약> (codex\|claude)" -- <바꾼 경로…>`. 루틴 실행이 만든 추적 데이터(`data/normalized/` 스냅샷 등)는 `data: <날짜> <내용>` 커밋으로 따로 넣는다. `git add -A`, `git add .`, 푸시, `reset --hard`·`checkout -- .`·`clean`은 쓰지 않는다. |
 
 ## 연구 보고 규칙

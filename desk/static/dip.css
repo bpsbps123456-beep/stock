@@ -1,0 +1,96 @@
+/* 급락 후 담기 — style.css 토큰만 써서 두 테마를 그대로 따른다. 거인의 어깨의 타일(gi-kpi)·구간 버튼(gi-seg)
+   모양을 같이 쓴다. 상승 = --up(빨강), 하락 = --down(파랑), 기준선 = --muted, VWAP·매수 지점 = --accent(브라스). */
+
+.dp-page .muted { color: var(--muted); }
+.dp-busy > section, .dp-busy > footer { opacity: 0.6; transition: opacity 0.2s; }
+.dp-wait p { color: var(--ink-2); margin: 10px 0 0; font-size: 13.5px; }
+.dp-sub { color: var(--muted); font-size: 11.5px; font-weight: 400; }
+.dp-name { color: var(--ink-2); font-size: 12px; max-width: 220px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* head: 다시 찾기 + 종목·날짜 다시 보기 */
+.dp-head .page-meta { align-items: end; }
+.dp-replay { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; justify-content: flex-end; }
+.dp-replay label { display: grid; gap: 6px; }
+.dp-replay input { border: 1px solid var(--line-2); border-radius: 9px; background: var(--surface-2); color: var(--ink);
+  padding: 7px 10px; font: 13px var(--sans); min-width: 0; }
+.dp-replay input[name="t"] { width: 92px; text-transform: uppercase; font-family: var(--mono); }
+
+/* 타일 */
+.dp-kpis { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.dp-kpis .gi-kpi-value { font-size: 22px; }
+
+/* 급락 표 */
+.dp-scroll { max-height: 560px; }
+.dp-list tbody tr { cursor: pointer; }
+.dp-list tbody tr:hover td { background: var(--surface-2); }
+.dp-list tr.dp-sel td { background: var(--accent-soft); }
+.dp-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.dp-flag { display: inline-block; padding: 2px 7px; border-radius: 6px; font: 600 11px var(--mono); color: var(--muted);
+  border: 1px dashed var(--line-2); white-space: nowrap; }
+.dp-flag.on { color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 55%, var(--line)); background: var(--accent-soft); }
+.dp-flag.wait { border-style: dotted; }
+
+/* 3분봉 */
+.dp-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(128px, 1fr)); gap: 8px 12px; margin-bottom: 12px; }
+.dp-facts > div { display: grid; gap: 2px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface-2); }
+.dp-facts span { color: var(--muted); font-size: 11.5px; }
+.dp-facts b { font-size: 13.5px; font-weight: 600; }
+.dp-facts.small { grid-template-columns: repeat(auto-fit, minmax(92px, 1fr)); gap: 6px; margin: 8px 0; }
+.dp-facts.small > div { padding: 6px 8px; }
+.dp-key { display: inline-block; width: 14px; height: 10px; border-radius: 2px; }
+.dp-key.up { background: var(--up); }
+.dp-key.down { background: var(--down); }
+.dp-key.c0 { height: 0; border-top: 2px dashed var(--muted); border-radius: 0; }
+.dp-key.pml { height: 0; border-top: 2px dotted var(--down); border-radius: 0; }
+.dp-key.vwap { height: 2px; background: var(--accent); }
+.dp-key.ext { background: color-mix(in srgb, var(--line) 70%, transparent); }
+.dp-chart { margin-bottom: 18px; outline: none; }
+.dp-chart:focus-visible { box-shadow: 0 0 0 2px var(--accent-soft); border-radius: 8px; }
+.dp-chart .dp-ext { fill: color-mix(in srgb, var(--line) 55%, transparent); }
+.dp-chart .dp-c0 { stroke: var(--muted); stroke-width: 1.2; stroke-dasharray: 5 4; }
+.dp-chart .dp-pml { stroke: var(--down); stroke-width: 1.2; stroke-dasharray: 2 3; }
+.dp-chart .dp-vwap { fill: none; stroke: var(--accent); stroke-width: 1.6; stroke-linejoin: round; }
+.dp-chart line.dp-up { stroke: var(--up); stroke-width: 1; }
+.dp-chart line.dp-down { stroke: var(--down); stroke-width: 1; }
+.dp-chart rect.dp-up { fill: var(--up); }
+.dp-chart rect.dp-down { fill: var(--down); }
+.dp-chart .dp-mark { fill: var(--accent); stroke: var(--surface); stroke-width: 1.2; }
+.dp-two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; margin-bottom: 8px; }
+.dp-detail h3, .dp-evidence h3 { font-size: 13.5px; font-weight: 600; margin: 18px 0 8px; color: var(--ink); }
+.dp-two h3:first-child { margin-top: 0; }
+.dp-checks { margin: 0; padding-left: 18px; display: grid; gap: 5px; color: var(--ink-2); font-size: 13px; }
+.dp-checks b { color: var(--ink); font-weight: 600; }
+.dp-news { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; font-size: 13px; }
+.dp-news a { color: var(--ink); text-decoration: none; }
+.dp-news a:hover { color: var(--accent); text-decoration: underline; }
+.dp-foot { color: var(--muted); font-size: 12px; line-height: 1.6; margin: 12px 0 0; }
+
+/* 과거 성적 */
+.dp-lede { margin: 0 0 6px; padding-left: 18px; display: grid; gap: 6px; color: var(--ink-2); font-size: 13.5px; line-height: 1.6; }
+.dp-lede b { color: var(--ink); }
+.dp-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 24px; }
+.dp-grid h3 { line-height: 1.5; }
+tr.dp-hl td { background: var(--accent-soft); }
+
+/* 사례 */
+.dp-cases-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.dp-case { border: 1px solid var(--line); border-radius: 12px; padding: 14px; background: var(--surface-2); display: grid; align-content: start; gap: 6px; min-width: 0; }
+.dp-case > header { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+.dp-case > header b { font-size: 16px; }
+.dp-case > header .linkbtn { margin-left: auto; }
+.dp-case p { margin: 0; font-size: 12.5px; color: var(--ink-2); line-height: 1.55; }
+.dp-case .dp-case-news { color: var(--ink); font-weight: 500; }
+
+@media (max-width: 1400px) {
+  .dp-kpis { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .dp-cases-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 1020px) {
+  .dp-grid, .dp-two { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .dp-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .dp-cases-grid { grid-template-columns: 1fr; }
+  .dp-replay { justify-content: flex-start; }
+  .dp-name { max-width: 140px; }
+}
