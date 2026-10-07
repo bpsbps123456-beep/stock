@@ -25,8 +25,19 @@ warnings.filterwarnings("ignore")
 
 from watchlist import SECTOR_MAP, TICKER_TO_SECTOR, PROFIT_TICKERS, LOSS_TICKERS
 
-try:
-    from etf_crawler import load_snapshot, list_snapshot_dates, get_us_ticker
+try:  # ⑩ ETF 디버전스: TIME 검증 스냅샷(docs/options_system.md)
+    from gbrc.config import load_fund_configs
+    from gbrc.etf.market import us_ticker as get_us_ticker
+    from gbrc.etf.storage import load_snapshot as load_fund_snapshot, snapshot_dates
+
+    ETF_FUND_ID = load_fund_configs()["time"].snapshot_ticker
+
+    def list_snapshot_dates():
+        return snapshot_dates(ETF_FUND_ID)
+
+    def load_snapshot(date_str):
+        return load_fund_snapshot(ETF_FUND_ID, date_str)
+
     ETF_AVAILABLE = True
 except Exception:
     ETF_AVAILABLE = False

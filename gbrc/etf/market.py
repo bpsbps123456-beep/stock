@@ -95,6 +95,23 @@ def is_us_listed(code: Any) -> bool:
     return listing_market(code) == "US"
 
 
+US_CODE_RE = re.compile(r"^([A-Z0-9./-]+)\s+US\s+EQUITY$")
+
+
+def us_ticker(code: Any) -> str | None:
+    """'INTC US EQUITY' → 'INTC'; anything not in that exact provider form → None."""
+    match = US_CODE_RE.match(code or "")
+    return match.group(1) if match else None
+
+
+def listing_key(code: Any) -> str:
+    """Sector-mapping key for watchlist.py: the US ticker, else the code's first token."""
+    code = (code or "").strip()
+    if not code:
+        return ""
+    return us_ticker(code) or code.split()[0]
+
+
 def _futures_year(digits: str, as_of: str | None) -> int:
     if len(digits) == 2:
         return 2000 + int(digits)

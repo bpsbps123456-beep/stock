@@ -53,8 +53,11 @@ def create_baseline_manifest() -> tuple[Path, dict[str, Any]]:
     critical_names = [
         "AGENTS.md",
         "CLAUDE.md",
-        "etf_crawler.py",
-        "cumulative_briefing.py",
+        "gbrc/etf/providers.py",
+        "gbrc/etf/report.py",
+        "gbrc/etf/digest.py",
+        "gbrc/etf/performance.py",
+        "gbrc/etf/cumulative.py",
         "config/etfs.json",
         "options_scanner.py",
         "options_tracker.py",

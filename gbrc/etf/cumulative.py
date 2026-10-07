@@ -1,59 +1,71 @@
-"""마지막 전달 브리핑 이후 구간을 하나로 묶는 ETF 누적 브리핑 생성기.
+"""Cumulative ETF briefing: one report for the span since the last delivered briefing.
 
-Path-B 보조 도구다. `py gbrc.py briefing`이 만든 검증 스냅샷만 입력으로 쓰며
-수집·검증을 다시 하지 않는다. 계산·출력 규칙 정본은 docs/etf_system.md다.
+    py gbrc.py etf cumulative                      # latest common snapshot vs the one before
+    py gbrc.py etf cumulative --start 2026-09-04   # explicit start
 
-    py cumulative_briefing.py                      # 최신 스냅샷 기준 직전 구간
-    py cumulative_briefing.py --start 2026-09-04   # 시작일 지정
+A Path-B helper (docs/etf_system.md §9). It reuses the validated snapshots the daily
+briefing stored and never collects. Output: data/derived/briefings/<END>_cumulative.md
+and a summary JSON of the same name.
 """
 
 from __future__ import annotations
 
-import argparse
 import dataclasses
 import hashlib
 import json
-import sys
 from datetime import date, datetime, time, timedelta
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent
-sys.path.insert(0, str(ROOT))
+from gbrc.config import FundConfig, load_fund_configs
 
-import etf_crawler as c  # noqa: E402
-from gbrc.etf import flows as qty_flows  # noqa: E402
-from gbrc.etf import market  # noqa: E402
+from . import flows as qty_flows
+from . import market, providers, storage
+from .digest import fund_label
+from .market import is_cash_holding
+from .report import (
+    DIFF_THRESHOLD,
+    aggregate_sector_weights,
+    build_entry_date_map,
+    classify_cash_regime,
+    diff_holdings,
+    find_cash_holding,
+    format_new_marker,
+    format_previous_change_review,
+    format_sector_rotation,
+    get_cash_weight,
+    get_holding_sector,
+    top_five_security_weight,
+)
+from .storage import DERIVED_BRIEFINGS_DIR, NORMALIZED_HOLDINGS_DIR, PROJECT_ROOT
 
-FUNDS = {"time": "456600", "koact": "2ETFQ1"}
-PRICE_IDS = {"time": "456600.KS", "koact": "0015B0.KS"}
-SOURCE_URLS = {
-    "time": "https://timeetf.co.kr/m11_view.php?idx=6&cate=&pdfDate={compact}",
-    "koact": ("https://www.samsungactive.co.kr/api/v1/product/etf-pdf/"
-              "2ETFQ1.do?gijunYMD={compact}"),
-}
 HORIZONS = (1, 3, 5, 20)
-OUT_DIR = ROOT / "data/derived/briefings"
+PRICE_HISTORY_START = "2026-01-02"  # first validated snapshot of both funds
+
+
+def _funds() -> dict[str, FundConfig]:
+    return load_fund_configs()
+
+
+def _display_path(path: Path) -> str:
+    try:
+        return str(path.relative_to(PROJECT_ROOT))
+    except ValueError:  # a test store outside the project
+        return str(path)
 
 
 # --------------------------------------------------------------------------
 # 입력 적재
 # --------------------------------------------------------------------------
 
-def load_corpus(end):
+def load_corpus(end, root=NORMALIZED_HOLDINGS_DIR):
     """두 펀드의 END 이하 검증 스냅샷 전부와 입력 checksum을 적재한다."""
-    c.HOLDINGS_DIR = str(ROOT / "data/normalized/etf_holdings")
     corpus, entry_maps, input_hashes = {}, {}, {}
-    for alias, fund_id in FUNDS.items():
-        c.set_active_etf(alias)
-        corpus[alias] = {}
-        for date_str in c.list_snapshot_dates():
-            if date_str > end:
-                continue
-            path = Path(c.HOLDINGS_DIR) / f"{date_str}_{fund_id}.json"
-            corpus[alias][date_str] = c.load_snapshot(date_str)
-            input_hashes[str(path.relative_to(ROOT))] = hashlib.sha256(
-                path.read_bytes()).hexdigest()
-        entry_maps[alias] = c.build_entry_date_map(list(corpus[alias]), end)
+    for alias, fund in _funds().items():
+        corpus[alias] = storage.load_fund_snapshots(fund.snapshot_ticker, end, root)
+        for date_str in corpus[alias]:
+            path = Path(root) / f"{date_str}_{fund.snapshot_ticker}.json"
+            input_hashes[_display_path(path)] = hashlib.sha256(path.read_bytes()).hexdigest()
+        entry_maps[alias] = build_entry_date_map(corpus[alias], end)
     return corpus, entry_maps, input_hashes
 
 
@@ -62,7 +74,7 @@ def load_prices(corpus, end, cache_path):
     if cache_path.exists():
         return json.loads(cache_path.read_text(encoding="utf-8"))["close"]
 
-    tickers = set(PRICE_IDS.values())
+    tickers = {fund.listing_ticker for fund in _funds().values()}
     for snaps in corpus.values():
         for holding in snaps[end]["holdings"]:
             tickers.update(market.yahoo_ticker_candidates(holding.get("code"), end))
@@ -70,7 +82,7 @@ def load_prices(corpus, end, cache_path):
     import yfinance as yf
 
     stop = (date.fromisoformat(end) + timedelta(days=1)).isoformat()
-    frame = yf.download(sorted(tickers), start="2026-01-02", end=stop,
+    frame = yf.download(sorted(tickers), start=PRICE_HISTORY_START, end=stop,
                         auto_adjust=False, progress=False)["Close"]
     prices = {
         ticker: {str(idx.date()): float(v) for idx, v in frame[ticker].dropna().items()}
@@ -108,11 +120,12 @@ def resolve_horizons(prices, corpus, end):
     구성종목 스냅샷이 없는 날은 가장 가까운 과거 스냅샷으로 물러서되,
     물러선 사실과 실제 비교일을 함께 남긴다(docs/etf_system.md §3).
     """
-    sessions = sorted(set(prices[PRICE_IDS["time"]]) & set(prices[PRICE_IDS["koact"]]))
+    sessions = sorted(set.intersection(*(set(prices[fund.listing_ticker])
+                                         for fund in _funds().values())))
     sessions = [d for d in sessions if d <= end]
     if sessions[-1] != end:
         raise SystemExit(f"가격 세션 마지막이 {sessions[-1]}이라 {end} 기준을 만들 수 없습니다")
-    snapshot_dates = sorted(set(corpus["time"]) & set(corpus["koact"]))
+    snapshot_dates = sorted(set.intersection(*(set(snaps) for snaps in corpus.values())))
 
     resolved = {}
     for n in HORIZONS:
@@ -130,7 +143,7 @@ def resolve_horizons(prices, corpus, end):
 
 
 def validate_snapshots(corpus, dates):
-    for alias in FUNDS:
+    for alias in _funds():
         for date_str in dates:
             snap = corpus[alias].get(date_str)
             if snap is None:
@@ -209,12 +222,12 @@ def diff_against(corpus, entry_maps, alias, end, base):
     """
     curr, prev = corpus[alias][end], corpus[alias][base]
     flow_result = qty_flows.flows_between(corpus[alias], base, end)
-    result = c.diff_holdings(curr, prev, entry_date_map=entry_maps[alias],
-                             flow_result=flow_result)
+    result = diff_holdings(curr, prev, entry_date_map=entry_maps[alias],
+                           flow_result=flow_result)
     already_new = {x["code"] for x in result["new_in"]}
     for holding in curr["holdings"]:
         code = holding["code"]
-        if (c.is_cash_holding(holding) or code in already_new
+        if (is_cash_holding(holding) or code in already_new
                 or entry_maps[alias].get(code, "") <= base):
             continue
         result["new_in"].append({
@@ -256,12 +269,13 @@ def build_holding_return_fn(prices, end, sessions):
 
 
 def performance_rows(ret, horizons, start, end, cumulative_sessions):
+    funds = _funds()
     rows = []
     plan = [(f"D-{n}", horizons[n]["price_base"]) for n in sorted(horizons)]
     plan.append((f"누적 {cumulative_sessions}거래일", start))
     for label, base in plan:
-        time_ret = ret(PRICE_IDS["time"], base)
-        koact_ret = ret(PRICE_IDS["koact"], base)
+        time_ret = ret(funds["time"].listing_ticker, base)
+        koact_ret = ret(funds["koact"].listing_ticker, base)
         gap = None if time_ret is None or koact_ret is None else time_ret - koact_ret
         winner = "N/A" if gap is None else (
             "TIME" if gap > 0 else "KoAct" if gap < 0 else "동률")
@@ -276,29 +290,28 @@ def performance_rows(ret, horizons, start, end, cumulative_sessions):
 
 def fund_section(rep, corpus, entry_maps, holding_ret, alias, start, end, horizons,
                  sessions=None):
-    c.set_active_etf(alias)
-    curr, old = corpus[alias][end], corpus[alias][start]
-    dates = list(corpus[alias])
+    snaps = corpus[alias]
+    curr, old = snaps[end], snaps[start]
     bases = {n: horizons[n]["snapshot_base"] for n in horizons}
-    horizon_snaps = {n: (bases[n], corpus[alias][bases[n]]) for n in horizons}
+    horizon_snaps = {n: (bases[n], snaps[bases[n]]) for n in horizons}
     diffs = {n: diff_against(corpus, entry_maps, alias, end, bases[n]) for n in horizons}
     cumulative = diff_against(corpus, entry_maps, alias, end, start)
 
-    sectors, members = c.aggregate_sector_weights(curr)
-    prev_sectors = {n: c.aggregate_sector_weights(s)[0] for n, (_, s) in horizon_snaps.items()}
-    old_sectors = c.aggregate_sector_weights(old)[0]
-    cash, old_cash = c.find_cash_holding(curr), c.find_cash_holding(old)
-    regime = c.classify_cash_regime(dates, end)
+    sectors, members = aggregate_sector_weights(curr)
+    prev_sectors = {n: aggregate_sector_weights(s)[0] for n, (_, s) in horizon_snaps.items()}
+    old_sectors = aggregate_sector_weights(old)[0]
+    cash, old_cash = find_cash_holding(curr), find_cash_holding(old)
+    regime = classify_cash_regime(snaps, end)
     order = sorted(horizons)
 
-    rep.add(f"## {curr['etf_name']} ({FUNDS[alias]})\n")
+    rep.add(f"## {curr['etf_name']} ({_funds()[alias].snapshot_ticker})\n")
     rep.add(f"기준일 {end}, 현금 포함 {curr['holdings_count']}행, NAV 비중 합계 "
             f"{sum(h['weight'] for h in curr['holdings']):.8f}%. "
             f"누적 구간 {start} → {end}.\n")
 
     rep.add("### 1. 현재 비중 Top 10\n")
     ranked = sorted(curr["holdings"], key=lambda h: -h["weight"])
-    securities = [h for h in ranked if not c.is_cash_holding(h)]
+    securities = [h for h in ranked if not is_cash_holding(h)]
     rep.table(["Rank", "Code", "Name", "Weight"],
               ([i, h["code"], h["name"], f"{h['weight']:.2f}%"]
                for i, h in enumerate(securities[:10], 1)))
@@ -307,7 +320,7 @@ def fund_section(rep, corpus, entry_maps, holding_ret, alias, start, end, horizo
     rep.table(["원천 구성단위 현금 평가액", "현재 비중",
                *[f"D-{n}" for n in order], "누적"],
               [[f"{cash['value_krw']:,}원", f"{cash['weight']:.2f}%",
-                *[pp(cash["weight"] - c.get_cash_weight(horizon_snaps[n][1])) for n in order],
+                *[pp(cash["weight"] - get_cash_weight(horizon_snaps[n][1])) for n in order],
                 pp(cash["weight"] - old_cash["weight"])]])
     rep.add(f"판정: **{regime[0]}** — {regime[1]}. "
             "원천 구성단위의 평가액이며 펀드 전체 현금 총액이 아닙니다.\n")
@@ -320,7 +333,7 @@ def fund_section(rep, corpus, entry_maps, holding_ret, alias, start, end, horizo
               ([s, f"{sectors.get(s, 0):.2f}%",
                 *[pp(sectors.get(s, 0) - prev_sectors[n].get(s, 0)) for n in order],
                 pp(sectors.get(s, 0) - old_sectors.get(s, 0)),
-                ", ".join(c.get_listing_key(h["code"]) for h in members.get(s, [])[:3]) or "해당 없음"]
+                ", ".join(market.listing_key(h["code"]) for h in members.get(s, [])[:3]) or "해당 없음"]
                for s in sorted(all_sectors, key=lambda s: (-sectors.get(s, 0), s))))
     rep.add("분류는 watchlist.py를 사용했습니다. 미분류는 추정 배정하지 않았습니다.\n")
 
@@ -347,15 +360,15 @@ def fund_section(rep, corpus, entry_maps, holding_ret, alias, start, end, horizo
             f" (거래일 기준 D-{n}은 {horizons[n]['price_base']}이나 "
             f"구성종목 스냅샷이 없어 {base} 사용)")
         rep.add(f"#### D-{n}: {base} → {end}{note}\n")
-        curr_map, prev_map = weight_map(curr), weight_map(corpus[alias][base])
+        curr_map, prev_map = weight_map(curr), weight_map(snaps[base])
         rows = []
         for key in set(curr_map) | set(prev_map):
             holding = curr_map.get(key, prev_map.get(key))
-            if c.is_cash_holding(holding):
+            if is_cash_holding(holding):
                 continue
             before = prev_map.get(key, {}).get("weight", 0)
             after = curr_map.get(key, {}).get("weight", 0)
-            if abs(after - before) < c.DIFF_THRESHOLD:
+            if abs(after - before) < DIFF_THRESHOLD:
                 continue
             code = holding["code"]
             status = ("편출" if key not in curr_map
@@ -369,10 +382,10 @@ def fund_section(rep, corpus, entry_maps, holding_ret, alias, start, end, horizo
 
     rep.add(f"### 8. D-20({bases[20]}) 신규 편입 클러스터\n")
     rep.table(["섹터", "Code", "Name", "현재 연속 보유 편입일", "현재 비중"],
-              ([c.get_holding_sector(x), x["code"], x["name"], x["entry_date"],
+              ([get_holding_sector(x), x["code"], x["name"], x["entry_date"],
                 f"{x['weight']:.2f}%"]
                for x in sorted(diffs[20]["new_in"],
-                               key=lambda x: (c.get_holding_sector(x), x["entry_date"], x["code"]))))
+                               key=lambda x: (get_holding_sector(x), x["entry_date"], x["code"]))))
 
     rep.add("### 9. 전 보유종목 한눈에 표\n")
     rep.add(f"dW 단위는 %p, 괄호 안은 같은 비교일 종가 → {end} 종가 수익률입니다. "
@@ -385,9 +398,9 @@ def fund_section(rep, corpus, entry_maps, holding_ret, alias, start, end, horizo
     def cell(holding, n):
         base = bases[n]
         entry = entry_maps[alias].get(holding["code"])
-        if not c.is_cash_holding(holding) and entry and base < entry:
-            return c.format_new_marker(entry)
-        prior = weight_map(corpus[alias][base]).get(market.holding_key(holding["code"]))
+        if not is_cash_holding(holding) and entry and base < entry:
+            return format_new_marker(entry)
+        prior = weight_map(snaps[base]).get(market.holding_key(holding["code"]))
         value = holding_ret(holding, base)
         if prior is None or value is None:
             return "N/A"
@@ -403,12 +416,12 @@ def fund_section(rep, corpus, entry_maps, holding_ret, alias, start, end, horizo
     rep.table(["Rank", "Code", "Name", "Weight", *[f"D-{n} dW(ret)" for n in order]], rows)
 
     rep.add("### 10. 포트폴리오 해석\n")
-    top5_old = c._top_five_security_weight(old)
-    top5_now = c._top_five_security_weight(curr)
+    top5_old = top_five_security_weight(old)
+    top5_now = top_five_security_weight(curr)
     rep.add(f"누적 현금 {old_cash['weight']:.2f}% → {cash['weight']:.2f}% "
             f"({pp(cash['weight'] - old_cash['weight'])}); 상위 5개 증권 집중도 "
             f"{top5_old:.2f}% → {top5_now:.2f}% ({pp(top5_now - top5_old)}).\n")
-    rep.add(c._format_sector_rotation(curr, old) + "\n")
+    rep.add(format_sector_rotation(curr, old) + "\n")
     rep.add(f"누적 확대 {len(cumulative['increased'])}개, 축소 {len(cumulative['decreased'])}개, "
             f"신규 편입 {len(cumulative['new_in'])}개, 편출 {len(cumulative['new_out'])}개 "
             "(±0.10%p 기준).\n")
@@ -425,8 +438,8 @@ def fund_section(rep, corpus, entry_maps, holding_ret, alias, start, end, horizo
               ([x["code"], x["name"], f"{x['weight']:.2f}%"] for x in cumulative["new_out"]))
 
     rep.add("### 11. 직전 변화 복기\n")
-    for line in c.format_previous_change_review(
-            curr, dates, horizon_snaps, diffs[1], sessions).splitlines():
+    for line in format_previous_change_review(
+            curr, snaps, horizon_snaps, diffs[1], sessions).splitlines():
         if line.strip() and not line.startswith("###"):
             rep.add(line.strip() + "\n")
 
@@ -439,7 +452,7 @@ def fund_section(rep, corpus, entry_maps, holding_ret, alias, start, end, horizo
     trade_windows.append(("누적", start))
     trade_summary = {}
     for label, base in trade_windows:
-        result = qty_flows.flows_between(corpus[alias], base, end)
+        result = qty_flows.flows_between(snaps, base, end)
         if result is None:
             rep.add(f"#### {label}: {base} → {end} — 비교 스냅샷 없음\n")
             continue
@@ -459,8 +472,8 @@ def fund_section(rep, corpus, entry_maps, holding_ret, alias, start, end, horizo
     return {
         "holdings_count": curr["holdings_count"],
         "cash_regime": list(regime),
-        "cash_series": [[d, c.get_cash_weight(corpus[alias][d])]
-                        for d in sorted(corpus[alias]) if start <= d <= end],
+        "cash_series": [[d, get_cash_weight(snaps[d])]
+                        for d in sorted(snaps) if start <= d <= end],
         "top5_start": top5_old,
         "top5_current": top5_now,
         "sectors": {s: {"start": old_sectors.get(s, 0), "current": sectors.get(s, 0),
@@ -477,9 +490,10 @@ def fund_section(rep, corpus, entry_maps, holding_ret, alias, start, end, horizo
 # 조립
 # --------------------------------------------------------------------------
 
-def build(start, end, out_dir):
-    corpus, entry_maps, input_hashes = load_corpus(end)
-    snapshot_dates = sorted(set(corpus["time"]) & set(corpus["koact"]))
+def build(start, end, out_dir, root=NORMALIZED_HOLDINGS_DIR):
+    funds = _funds()
+    corpus, entry_maps, input_hashes = load_corpus(end, root)
+    snapshot_dates = sorted(set.intersection(*(set(snaps) for snaps in corpus.values())))
     if end not in snapshot_dates:
         raise SystemExit(f"{end} 두 펀드 공통 스냅샷 없음")
     if start is None:
@@ -503,6 +517,8 @@ def build(start, end, out_dir):
     missing = [d for d in span if d not in snapshot_dates]
     ret = build_return_fn(prices, end)
     performance = performance_rows(ret, horizons, start, end, len(span))
+    price_ids = ", ".join(f"{fund_label(alias)}={fund.listing_ticker}"
+                          for alias, fund in funds.items())
 
     rep = Report()
     rep.add(f"# ETF 누적 브리핑 — {start} → {end}\n")
@@ -527,7 +543,7 @@ def build(start, end, out_dir):
               ([r["period"], r["base"], pct(r["time_return"]), pct(r["koact_return"]),
                 pp(r["gap_pp"]), r["winner"]] for r in performance))
     rep.add("수익률은 해당 날짜의 시장 종가 간 변화이며 배당 재투자 수익률이 아닙니다. "
-            "가격 티커는 TIME=456600.KS, KoAct=0015B0.KS입니다. "
+            f"가격 티커는 {price_ids}입니다. "
             "D-n 비교일은 두 ETF의 실제 공통 거래 세션으로 셌습니다.\n")
     fallbacks = [n for n in sorted(horizons) if horizons[n]["snapshot_fallback"]]
     if fallbacks:
@@ -546,16 +562,15 @@ def build(start, end, out_dir):
         "intraday_price_warning": warning, "funds": {},
     }
     holding_ret = build_holding_return_fn(prices, end, sessions)
-    for alias in FUNDS:
+    for alias in funds:
         summary["funds"][alias] = fund_section(
             rep, corpus, entry_maps, holding_ret, alias, start, end, horizons, sessions)
 
-    compact = end.replace("-", "")
     rep.add("## 원천과 검증 기록\n")
-    rep.add(f"- [TIME 운용사 구성종목]({SOURCE_URLS['time'].format(compact=end)})\n"
-            f"- [KoAct 운용사 구성종목 API]({SOURCE_URLS['koact'].format(compact=compact)})\n"
-            "- [TIME 시장가격](https://finance.yahoo.com/quote/456600.KS/history/) · "
-            "[KoAct 시장가격](https://finance.yahoo.com/quote/0015B0.KS/history/)\n")
+    rep.add(f"- [TIME 운용사 구성종목]({providers.source_url(funds['time'], end)})\n"
+            f"- [KoAct 운용사 구성종목 API]({providers.source_url(funds['koact'], end)})\n"
+            f"- [TIME 시장가격](https://finance.yahoo.com/quote/{funds['time'].listing_ticker}/history/) · "
+            f"[KoAct 시장가격](https://finance.yahoo.com/quote/{funds['koact'].listing_ticker}/history/)\n")
     rep.add("입력은 `data/normalized/etf_holdings/`의 검증 스냅샷 정본이며 v1 원본은 보존했습니다. "
             "이 보고서는 새 수집을 하지 않고 저장된 스냅샷만 재사용합니다.\n")
 
@@ -582,8 +597,8 @@ def _json_default(value):
 def validate_report(report, corpus, end):
     """모든 행이 살아 있는지 보고서 텍스트에서 직접 검증한다."""
     checks = {}
-    for alias, fund_id in FUNDS.items():
-        heading = f"## {corpus[alias][end]['etf_name']} ({fund_id})"
+    for alias, fund in _funds().items():
+        heading = f"## {corpus[alias][end]['etf_name']} ({fund.snapshot_ticker})"
         section = report.split(heading, 1)[1].split("\n## ", 1)[0]
         glance = section.split("### 9.", 1)[1].split("### 10.", 1)[0]
         data_rows = [line for line in glance.splitlines() if line.startswith("| ")][2:]
@@ -602,36 +617,24 @@ def validate_report(report, corpus, end):
     return checks
 
 
-def main(argv=None):
-    parser = argparse.ArgumentParser(description="ETF 누적 브리핑 생성")
-    parser.add_argument("--start", help="누적 시작 기준일 YYYY-MM-DD (기본: 직전 공통 스냅샷)")
-    parser.add_argument("--end", help="누적 종료 기준일 YYYY-MM-DD (기본: 최신 공통 스냅샷)")
-    parser.add_argument("--out-dir", default=str(OUT_DIR))
-    args = parser.parse_args(argv)
+def latest_common_date(root=NORMALIZED_HOLDINGS_DIR) -> str:
+    per_fund = [set(storage.snapshot_dates(fund.snapshot_ticker, root))
+                for fund in _funds().values()]
+    return sorted(set.intersection(*per_fund))[-1]
 
-    end = args.end
-    if end is None:
-        c.HOLDINGS_DIR = str(ROOT / "data/normalized/etf_holdings")
-        per_fund = []
-        for alias in FUNDS:
-            c.set_active_etf(alias)
-            per_fund.append(set(c.list_snapshot_dates()))
-        end = sorted(set.intersection(*per_fund))[-1]
 
-    report_path, summary, report = build(args.start, end, Path(args.out_dir))
-    print(json.dumps({
+def run(start=None, end=None, out_dir=DERIVED_BRIEFINGS_DIR, root=NORMALIZED_HOLDINGS_DIR):
+    """Build the report and return the summary the CLI prints."""
+    end = end or latest_common_date(root)
+    report_path, summary, report = build(start, end, Path(out_dir), root)
+    return {
         "report": str(report_path),
         "start": summary["start"], "end": summary["end"],
         "span_sessions": summary["span_sessions"],
         "missing_snapshot_dates": summary["missing_snapshot_dates"],
         "horizons": summary["horizons"],
         "performance": summary["performance"],
-        "holdings": {a: summary["funds"][a]["holdings_count"] for a in FUNDS},
+        "holdings": {a: summary["funds"][a]["holdings_count"] for a in _funds()},
         "lines": len(report.splitlines()),
         "validation": "passed",
-    }, ensure_ascii=False, indent=2))
-    return 0
-
-
-if __name__ == "__main__":
-    raise SystemExit(main())
+    }

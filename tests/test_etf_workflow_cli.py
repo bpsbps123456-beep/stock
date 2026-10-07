@@ -13,7 +13,7 @@ from typing import Any
 from unittest import mock
 
 from gbrc import cli
-from gbrc.config import load_fund_configs
+from gbrc.config import FundConfig, load_fund_configs
 from gbrc.etf import workflow
 from gbrc.etf.snapshot import normalize_snapshot
 from gbrc.etf.storage import save_normalized_snapshot as save_to_root
@@ -24,8 +24,8 @@ PERFORMANCE_MARKER = "PERFORMANCE_FIXTURE_TABLE"
 DIGEST_MARKER = "DIGEST_FIXTURE_CONSENSUS"
 
 
-class FakeCrawler:
-    """Small deterministic replacement for the network-backed crawler."""
+class FakeEngine:
+    """Small deterministic replacement for the network-backed briefing engine."""
 
     def __init__(
         self,
@@ -36,28 +36,21 @@ class FakeCrawler:
         digest_error: Exception | None = None,
     ) -> None:
         self.failing_alias = failing_alias
-        self.snapshot_dates = snapshot_dates or {"time": [], "koact": []}
+        self.dates_by_alias = snapshot_dates or {"time": [], "koact": []}
         self.performance_error = performance_error
         self.digest_error = digest_error
         self.digest_calls: list[str] = []
-        self.active_alias: str | None = None
         self.holdings_count = {"time": 2, "koact": 2}
         self.fetch_calls: list[tuple[str, str]] = []
         self.compare_calls: list[tuple[str, str]] = []
         self.performance_calls: list[str | None] = []
 
-    def set_active_etf(self, alias: str) -> None:
-        self.active_alias = alias
-
-    def fetch_holdings(self, requested_date: str) -> dict[str, Any]:
-        if self.active_alias is None:
-            raise AssertionError("set_active_etf must be called before fetch_holdings")
-        alias = self.active_alias
+    def fetch_holdings(self, fund: FundConfig, requested_date: str) -> dict[str, Any]:
+        alias = fund.alias
         self.fetch_calls.append((alias, requested_date))
         if self.failing_alias in {alias, "*"}:
             raise RuntimeError(f"fixture provider failure: {alias}")
 
-        fund = load_fund_configs()[alias]
         return {
             "date": requested_date,
             "actual_date": requested_date,
@@ -84,71 +77,65 @@ class FakeCrawler:
             ],
         }
 
-    def list_snapshot_dates(self) -> list[str]:
-        if self.active_alias is None:
-            raise AssertionError("set_active_etf must be called before list_snapshot_dates")
-        return list(self.snapshot_dates.get(self.active_alias, []))
+    def snapshot_dates(self, fund: FundConfig) -> list[str]:
+        return list(self.dates_by_alias.get(fund.alias, []))
 
-    def compare_report(self, report_date: str) -> None:
-        if self.active_alias is None:
-            raise AssertionError("set_active_etf must be called before compare_report")
-        self.compare_calls.append((self.active_alias, report_date))
-        print(f"### [현재 비중 Top 10] — {report_date}")
-        print("  1  FIXTURE1  Security  90.00%")
-        print("### [현금 보유액 별도 점검]")
-        print("Cash  10.00%")
-        print("### [섹터별 비중/변화 요약]")
-        print("AI 반도체  90.00%")
-        print("### [수량 기준 실매매]")
-        print("  D-5 실매매 없음")
-        print("### [D-20 신규 편입 클러스터]")
-        print("신규 편입 없음")
-        print("### [One-glance table]")
-        print(
+    def fund_report(self, fund: FundConfig, report_date: str) -> str:
+        self.compare_calls.append((fund.alias, report_date))
+        lines = [
+            f"### [현재 비중 Top 10] — {report_date}",
+            "  1  FIXTURE1  Security  90.00%",
+            "### [현금 보유액 별도 점검]",
+            "Cash  10.00%",
+            "### [섹터별 비중/변화 요약]",
+            "AI 반도체  90.00%",
+            "### [수량 기준 실매매]",
+            "  D-5 실매매 없음",
+            "### [D-20 신규 편입 클러스터]",
+            "신규 편입 없음",
+            "### [One-glance table]",
             "  Rank  Code  Name  Weight  D-1 dW(ret)  D-3 dW(ret)  "
-            "D-5 dW(ret)  D-20 dW(ret)"
-        )
-        print("  ----  ----  ----  ------  -----------  -----------  -----------  ------------")
-        for rank in range(1, self.holdings_count[self.active_alias] + 1):
-            code = "CASH" if rank == self.holdings_count[self.active_alias] else "SECURITY"
+            "D-5 dW(ret)  D-20 dW(ret)",
+            "  ----  ----  ----  ------  -----------  -----------  -----------  ------------",
+        ]
+        for rank in range(1, self.holdings_count[fund.alias] + 1):
+            code = "CASH" if rank == self.holdings_count[fund.alias] else "SECURITY"
             name = "Cash" if code == "CASH" else f"Fixture {rank}"
-            print(
-                f"{rank:6d}  {code}  {name}  "
-                "50.00%  +0.00  +0.00  +0.00  +0.00"
-            )
-        print()
-        print("### [포트폴리오 해석]")
-        print("합성 포트폴리오 해석")
-        print("### [직전 변화 복기]")
-        print("합성 직전 변화 복기")
+            lines.append(f"{rank:6d}  {code}  {name}  50.00%  +0.00  +0.00  +0.00  +0.00")
+        lines += [
+            "",
+            "### [포트폴리오 해석]",
+            "합성 포트폴리오 해석",
+            "### [직전 변화 복기]",
+            "합성 직전 변화 복기",
+        ]
+        return "\n".join(lines)
 
-    def core_digest_report(self, report_date: str) -> None:
+    def core_digest(self, report_date: str) -> str:
         self.digest_calls.append(report_date)
         if self.digest_error is not None:
             raise self.digest_error
-        print("### [두 펀드 실매매 합의] — fixture")
-        print(DIGEST_MARKER)
+        return "\n".join(["### [두 펀드 실매매 합의] — fixture", DIGEST_MARKER])
 
-    def fund_performance_report(self, report_date: str | None = None) -> None:
+    def performance_report(self, report_date: str | None = None) -> str:
         self.performance_calls.append(report_date)
         if self.performance_error is not None:
             raise self.performance_error
-        print("### [두 펀드 성과 비교] — fixture")
-        print(PERFORMANCE_MARKER)
-        for horizon in ("D-1", "D-3", "D-5", "D-20"):
-            print(f"{horizon}  TIME +0.00%  KoAct +0.00%  SAME")
+        lines = ["### [두 펀드 성과 비교] — fixture", PERFORMANCE_MARKER]
+        lines += [f"{horizon}  TIME +0.00%  KoAct +0.00%  SAME"
+                  for horizon in ("D-1", "D-3", "D-5", "D-20")]
+        return "\n".join(lines)
 
 
 def seed_normalized_snapshots(root: Path, snapshot_date: str) -> None:
-    crawler = FakeCrawler()
-    for alias in ("time", "koact"):
-        crawler.set_active_etf(alias)
-        raw = crawler.fetch_holdings(snapshot_date)
+    engine = FakeEngine()
+    for fund in load_fund_configs().values():
+        raw = engine.fetch_holdings(fund, snapshot_date)
         save_to_root(normalize_snapshot(raw), root=root)
 
 
 def run_isolated_workflow(
-    crawler: FakeCrawler,
+    engine: FakeEngine,
     base: Path,
     requested_date: str,
     *,
@@ -166,7 +153,7 @@ def run_isolated_workflow(
         return save_raw_to_root(snapshot, root=raw_root)
 
     with (
-        mock.patch.object(workflow, "_crawler", return_value=crawler),
+        mock.patch.object(workflow, "_engine", return_value=engine),
         mock.patch.object(
             workflow, "save_normalized_snapshot", side_effect=isolated_save
         ),
@@ -197,7 +184,7 @@ class DailyWorkflowTests(unittest.TestCase):
     def test_two_fund_success_generates_performance_manifest_and_atomic_report(
         self,
     ) -> None:
-        crawler = FakeCrawler()
+        engine = FakeEngine()
         funds = load_fund_configs()
 
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -217,7 +204,7 @@ class DailyWorkflowTests(unittest.TestCase):
 
             original_replace = os.replace
             with (
-                mock.patch.object(workflow, "_crawler", return_value=crawler),
+                mock.patch.object(workflow, "_engine", return_value=engine),
                 mock.patch.object(
                     workflow, "save_normalized_snapshot", side_effect=isolated_save
                 ),
@@ -249,20 +236,20 @@ class DailyWorkflowTests(unittest.TestCase):
                 )
             )
             self.assertEqual(
-                crawler.fetch_calls,
+                engine.fetch_calls,
                 [
                     ("time", self.requested_date),
                     ("koact", self.requested_date),
                 ],
             )
             self.assertEqual(
-                crawler.compare_calls,
+                engine.compare_calls,
                 [
                     ("time", self.requested_date),
                     ("koact", self.requested_date),
                 ],
             )
-            self.assertEqual(crawler.performance_calls, [self.requested_date])
+            self.assertEqual(engine.performance_calls, [self.requested_date])
 
             report_path = Path(manifest["report_path"])
             manifest_path = Path(manifest["manifest_path"])
@@ -295,16 +282,16 @@ class DailyWorkflowTests(unittest.TestCase):
             self.assertIn(PERFORMANCE_MARKER, report)
             assert_etf_only_headings(self, report)
             self.assertEqual(manifest["core_digest_status"], "generated")
-            self.assertEqual(crawler.digest_calls, [self.requested_date])
+            self.assertEqual(engine.digest_calls, [self.requested_date])
             core = report.split("## 핵심 결론", 1)[1].split("## 두 펀드 가격 성과 비교", 1)[0]
             self.assertIn(DIGEST_MARKER, core)
 
     def test_digest_failure_keeps_success_report_and_logs_the_stage(self) -> None:
-        crawler = FakeCrawler(digest_error=RuntimeError("fixture digest failure"))
+        engine = FakeEngine(digest_error=RuntimeError("fixture digest failure"))
 
         with tempfile.TemporaryDirectory() as temp_dir:
             exit_code, manifest = run_isolated_workflow(
-                crawler,
+                engine,
                 Path(temp_dir),
                 self.requested_date,
                 fetch=True,
@@ -323,7 +310,7 @@ class DailyWorkflowTests(unittest.TestCase):
     def test_one_fund_failure_is_partial_exit_two_without_performance_table(
         self,
     ) -> None:
-        crawler = FakeCrawler(failing_alias="koact")
+        engine = FakeEngine(failing_alias="koact")
 
         with tempfile.TemporaryDirectory() as temp_dir:
             base = Path(temp_dir)
@@ -341,7 +328,7 @@ class DailyWorkflowTests(unittest.TestCase):
                 return save_raw_to_root(snapshot, root=raw_root)
 
             with (
-                mock.patch.object(workflow, "_crawler", return_value=crawler),
+                mock.patch.object(workflow, "_engine", return_value=engine),
                 mock.patch.object(
                     workflow, "save_normalized_snapshot", side_effect=isolated_save
                 ),
@@ -370,8 +357,8 @@ class DailyWorkflowTests(unittest.TestCase):
             self.assertEqual(manifest["funds"]["koact"]["quality_status"], "failed")
             self.assertEqual(len(manifest["errors"]), 1)
             self.assertEqual(manifest["errors"][0]["fund"], "koact")
-            self.assertEqual(crawler.performance_calls, [])
-            self.assertEqual(crawler.compare_calls, [("time", self.requested_date)])
+            self.assertEqual(engine.performance_calls, [])
+            self.assertEqual(engine.compare_calls, [("time", self.requested_date)])
 
             report = Path(manifest["report_path"]).read_text(encoding="utf-8")
             self.assertNotIn(PERFORMANCE_MARKER, report)
@@ -390,7 +377,7 @@ class DailyWorkflowTests(unittest.TestCase):
         self,
     ) -> None:
         snapshot_date = "2026-07-09"
-        crawler = FakeCrawler(
+        engine = FakeEngine(
             snapshot_dates={
                 "time": [snapshot_date, "2026-07-11"],
                 "koact": [snapshot_date, "2026-07-11"],
@@ -402,7 +389,7 @@ class DailyWorkflowTests(unittest.TestCase):
             seed_normalized_snapshots(base / "normalized", snapshot_date)
 
             exit_code, manifest = run_isolated_workflow(
-                crawler,
+                engine,
                 base,
                 self.requested_date,
                 fetch=False,
@@ -411,12 +398,12 @@ class DailyWorkflowTests(unittest.TestCase):
             self.assertEqual(exit_code, 2)
             self.assertEqual(manifest["status"], "stale")
             self.assertEqual(manifest["performance_status"], "generated_stale")
-            self.assertEqual(crawler.fetch_calls, [])
+            self.assertEqual(engine.fetch_calls, [])
             self.assertEqual(
-                crawler.compare_calls,
+                engine.compare_calls,
                 [("time", snapshot_date), ("koact", snapshot_date)],
             )
-            self.assertEqual(crawler.performance_calls, [snapshot_date])
+            self.assertEqual(engine.performance_calls, [snapshot_date])
             for fund_run in manifest["funds"].values():
                 self.assertEqual(fund_run["quality_status"], "existing_stale")
                 self.assertEqual(fund_run["as_of_date"], snapshot_date)
@@ -435,7 +422,7 @@ class DailyWorkflowTests(unittest.TestCase):
     def test_performance_exception_is_partial_and_preserves_success_report(
         self,
     ) -> None:
-        crawler = FakeCrawler(
+        engine = FakeEngine(
             performance_error=RuntimeError("fixture performance failure")
         )
 
@@ -447,7 +434,7 @@ class DailyWorkflowTests(unittest.TestCase):
             canonical_report.write_bytes(original_report)
 
             exit_code, manifest = run_isolated_workflow(
-                crawler,
+                engine,
                 base,
                 self.requested_date,
                 fetch=True,
@@ -456,7 +443,7 @@ class DailyWorkflowTests(unittest.TestCase):
             self.assertEqual(exit_code, 2)
             self.assertEqual(manifest["status"], "partial_success")
             self.assertEqual(manifest["performance_status"], "failed")
-            self.assertEqual(crawler.performance_calls, [self.requested_date])
+            self.assertEqual(engine.performance_calls, [self.requested_date])
             self.assertEqual(len(manifest["errors"]), 1)
             self.assertEqual(manifest["errors"][0]["stage"], "performance")
             self.assertIn("fixture performance failure", manifest["errors"][0]["error"])
@@ -481,7 +468,7 @@ class DailyWorkflowTests(unittest.TestCase):
     def test_failed_run_preserves_success_report_and_uses_run_id_suffix(
         self,
     ) -> None:
-        crawler = FakeCrawler(failing_alias="*")
+        engine = FakeEngine(failing_alias="*")
 
         with tempfile.TemporaryDirectory() as temp_dir:
             base = Path(temp_dir)
@@ -491,7 +478,7 @@ class DailyWorkflowTests(unittest.TestCase):
             canonical_report.write_bytes(original_report)
 
             exit_code, manifest = run_isolated_workflow(
-                crawler,
+                engine,
                 base,
                 self.requested_date,
                 fetch=True,
@@ -503,7 +490,7 @@ class DailyWorkflowTests(unittest.TestCase):
                 manifest["performance_status"], "not_generated_partial_run"
             )
             self.assertEqual(len(manifest["errors"]), 2)
-            self.assertEqual(crawler.performance_calls, [])
+            self.assertEqual(engine.performance_calls, [])
 
             report_path = Path(manifest["report_path"])
             self.assertNotEqual(report_path, canonical_report)
@@ -553,6 +540,21 @@ class CliParserTests(unittest.TestCase):
             (
                 ["etf", "trades"],
                 {"command": "etf", "etf_command": "trades", "fund": "time", "top": 10},
+            ),
+            (
+                ["etf", "report", "--fund", "koact", "--date", "2026-10-06"],
+                {"command": "etf", "etf_command": "report", "fund": "koact",
+                 "date": "2026-10-06"},
+            ),
+            (
+                ["etf", "backfill", "2026-04-27", "2026-05-05"],
+                {"command": "etf", "etf_command": "backfill", "start": "2026-04-27",
+                 "end": "2026-05-05", "fund": "time"},
+            ),
+            (
+                ["etf", "cumulative", "--start", "2026-09-04"],
+                {"command": "etf", "etf_command": "cumulative", "start": "2026-09-04",
+                 "end": None, "out_dir": None},
             ),
             (
                 ["system", "baseline"],
@@ -664,15 +666,15 @@ class ExistingNoFetchReportTests(unittest.TestCase):
         assert_etf_only_headings(self, report)
 
 
-class HolidayCrawler(FakeCrawler):
+class HolidayEngine(FakeEngine):
     """Answers a holiday with the previous session's basket, as the providers do."""
 
     def __init__(self, holidays: set[str], **kwargs: Any) -> None:
         super().__init__(**kwargs)
         self.holidays = holidays
 
-    def fetch_holdings(self, requested_date: str) -> dict[str, Any]:
-        raw = super().fetch_holdings(requested_date)
+    def fetch_holdings(self, fund: FundConfig, requested_date: str) -> dict[str, Any]:
+        raw = super().fetch_holdings(fund, requested_date)
         if requested_date in self.holidays:
             raw["date"] = raw["actual_date"] = "2026-09-23"
         return raw
@@ -688,7 +690,7 @@ class TodayRunTests(unittest.TestCase):
         self.assertEqual(workflow._missing_weekdays(None, "2026-09-29"), [])
 
     def test_backfill_stores_only_days_the_provider_really_published(self) -> None:
-        crawler = HolidayCrawler({"2026-09-24", "2026-09-25"},
+        engine = HolidayEngine({"2026-09-24", "2026-09-25"},
                                  snapshot_dates={"time": ["2026-09-23"], "koact": ["2026-09-23"]})
         manifest: dict[str, Any] = {}
         with tempfile.TemporaryDirectory() as temp_dir, \
@@ -697,7 +699,7 @@ class TodayRunTests(unittest.TestCase):
                                   side_effect=lambda s: save_to_root(s, root=Path(temp_dir))), \
                 mock.patch.object(workflow, "save_raw_capture",
                                   side_effect=lambda s: save_raw_to_root(s, root=Path(temp_dir) / "raw")):
-            workflow._backfill_missing(crawler, "2026-09-29", manifest)
+            workflow._backfill_missing(engine, "2026-09-29", manifest)
             stored = sorted(p.name for p in Path(temp_dir).glob("*.json"))
         self.assertEqual({(r["fund"], r["date"], r["status"]) for r in manifest["backfill"]}, {
             ("time", "2026-09-24", "not_published"), ("time", "2026-09-25", "not_published"),
@@ -707,7 +709,7 @@ class TodayRunTests(unittest.TestCase):
         self.assertEqual(stored, sorted(f"2026-09-28_{funds[a].snapshot_ticker}.json" for a in ("time", "koact")))
 
     def test_backfill_stops_a_fund_at_its_first_provider_error(self) -> None:
-        crawler = FakeCrawler(failing_alias="koact",
+        engine = FakeEngine(failing_alias="koact",
                               snapshot_dates={"time": ["2026-09-24"], "koact": ["2026-09-23"]})
         manifest: dict[str, Any] = {}
         with tempfile.TemporaryDirectory() as temp_dir, \
@@ -716,7 +718,7 @@ class TodayRunTests(unittest.TestCase):
                                   side_effect=lambda s: save_to_root(s, root=Path(temp_dir))), \
                 mock.patch.object(workflow, "save_raw_capture",
                                   side_effect=lambda s: save_raw_to_root(s, root=Path(temp_dir) / "raw")):
-            workflow._backfill_missing(crawler, "2026-09-29", manifest)
+            workflow._backfill_missing(engine, "2026-09-29", manifest)
         koact = [r for r in manifest["backfill"] if r["fund"] == "koact"]
         self.assertEqual([r["status"] for r in koact], ["failed"])
         self.assertEqual([r["date"] for r in manifest["backfill"] if r["fund"] == "time"],
@@ -729,7 +731,7 @@ class TodayRunTests(unittest.TestCase):
 
         with tempfile.TemporaryDirectory() as temp_dir, \
                 mock.patch.object(workflow, "_desk_digest", side_effect=fake_desk):
-            code, manifest = run_isolated_workflow(FakeCrawler(), Path(temp_dir), None, fetch=True)
+            code, manifest = run_isolated_workflow(FakeEngine(), Path(temp_dir), None, fetch=True)
             report = Path(manifest["report_path"]).read_text(encoding="utf-8")
         self.assertEqual((code, manifest["status"], manifest["report_contract_status"]), (0, "success", "passed"))
         core = report.split("## 두 펀드 가격 성과 비교")[0]
@@ -739,19 +741,19 @@ class TodayRunTests(unittest.TestCase):
     def test_a_failing_desk_block_leaves_the_briefing_standing(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir, \
                 mock.patch("desk.digest.briefing_block", side_effect=RuntimeError("no prices")):
-            code, manifest = run_isolated_workflow(FakeCrawler(), Path(temp_dir), None, fetch=True)
+            code, manifest = run_isolated_workflow(FakeEngine(), Path(temp_dir), None, fetch=True)
             report = Path(manifest["report_path"]).read_text(encoding="utf-8")
         self.assertEqual((code, manifest["status"], manifest["desk_digest_status"]), (0, "success", "failed"))
         self.assertEqual([e["stage"] for e in manifest["errors"]], ["desk_digest"])
         self.assertNotIn("[내 7종목 점검]", report)
 
     def test_explicit_date_reruns_neither_backfill_nor_add_the_desk_block(self) -> None:
-        crawler = FakeCrawler(snapshot_dates={"time": ["2026-07-01"], "koact": ["2026-07-01"]})
+        engine = FakeEngine(snapshot_dates={"time": ["2026-07-01"], "koact": ["2026-07-01"]})
         with tempfile.TemporaryDirectory() as temp_dir, \
                 mock.patch.object(workflow, "_desk_digest") as desk:
-            run_isolated_workflow(crawler, Path(temp_dir), "2026-07-10", fetch=True)
+            run_isolated_workflow(engine, Path(temp_dir), "2026-07-10", fetch=True)
         desk.assert_not_called()
-        self.assertEqual(crawler.fetch_calls, [("time", "2026-07-10"), ("koact", "2026-07-10")])
+        self.assertEqual(engine.fetch_calls, [("time", "2026-07-10"), ("koact", "2026-07-10")])
 
 
 if __name__ == "__main__":

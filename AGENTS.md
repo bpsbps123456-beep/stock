@@ -50,7 +50,7 @@
 
 | Path | 선행 문서 | 필수 작업 |
 |---|---|---|
-| **Path-B / Path-F** | `docs/etf_system.md` | `py gbrc.py briefing` 단일 명령으로 건너뛴 평일 채우기→TIME·KoAct 수집→검증→비교→내 7종목 점검·실매매 합의·관찰군 요약→가격 성과 비교를 수행하고 ETF-only 보고서를 출력한다. 누적 브리핑 요청이면 이어서 `py cumulative_briefing.py`로 마지막 전달 브리핑 이후 구간을 한 보고서로 묶는다. 실매매·매매 타이밍·수익 구간 분석 요청이면 `py gbrc.py etf trades --fund <time\|koact>`를 실행한다. 매매는 비중이 아니라 수량 기준 실매매로만 말한다. 세부 순서와 전 항목은 ETF 정본을 따른다. 야간 데스크 요청이면 `docs/desk_system.md`도 읽고, 데스크 코드만 고칠 때는 briefing 대신 그 §6 검증을 통과시킨다. |
+| **Path-B / Path-F** | `docs/etf_system.md` | `py gbrc.py briefing` 단일 명령으로 건너뛴 평일 채우기→TIME·KoAct 수집→검증→비교→내 7종목 점검·실매매 합의·관찰군 요약→가격 성과 비교를 수행하고 ETF-only 보고서를 출력한다. 누적 브리핑 요청이면 이어서 `py gbrc.py etf cumulative`로 마지막 전달 브리핑 이후 구간을 한 보고서로 묶는다. 실매매·매매 타이밍·수익 구간 분석 요청이면 `py gbrc.py etf trades --fund <time\|koact>`를 실행한다. 매매는 비중이 아니라 수량 기준 실매매로만 말한다. 세부 순서와 전 항목은 ETF 정본을 따른다. 야간 데스크 요청이면 `docs/desk_system.md`도 읽고, 데스크 코드만 고칠 때는 briefing 대신 그 §6 검증을 통과시킨다. |
 | **Path-E** | `docs/earnings_framework.md` | `py earnings_prefill.py <TICKER>` → 누락값을 정본의 데이터 소스 순서대로 보완 → 6단계 분석 → `data/earnings_log/YYYY-MM-DD_<TICKER>.json` 저장. 시총·컨센서스·전년값을 가정으로 채운 채 분석하지 않는다. |
 | **Path-V** | `docs/earnings_framework.md` | 해당 로그 로드 → yfinance D+1/D+5/D+30 수익률 → 오차가 큰 종목의 돌발 재료 WebSearch → `verification` 갱신. 검색 없이 분석 실패로 단정하지 않는다. |
 | **Path-O** | `docs/options_system.md` | 전일 로그와 현재 가격 매칭 → Top/Bottom 평균 수익률 → 역전 Top 3 각각 WebSearch → Tier-1/2/3 분류와 결론. 돌발 재료 확인 없이 가중치 변경을 제안하지 않는다. |

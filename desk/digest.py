@@ -41,8 +41,8 @@ def rebalance_changes(preview: list[str], held: set[str]) -> tuple[list[str], li
     return [k for k in preview if k not in held], sorted(k for k in held if k not in preview)
 
 
-def _flow_labels(crawler, fund: str, target: str, sessions, n: int) -> dict[str, str]:
-    snaps = crawler._load_fund_snapshots(fund, target)
+def _flow_labels(engine, fund: str, target: str, sessions, n: int) -> dict[str, str]:
+    snaps = engine.fund_snapshots(fund, target)
     if target not in snaps:
         return {}
     _, used = market.select_base_date(sorted(snaps), target, n, sessions)
@@ -52,10 +52,10 @@ def _flow_labels(crawler, fund: str, target: str, sessions, n: int) -> dict[str,
     return {S.research_key(flow.code): format_flow_label(flow) for flow in result.flows.values()}
 
 
-def briefing_block(crawler=None) -> list[str]:
-    if crawler is None:
-        from gbrc.etf.workflow import _crawler  # the crawler pointed at the validated snapshots
-        crawler = _crawler()
+def briefing_block(engine=None) -> list[str]:
+    if engine is None:
+        from gbrc.etf.engine import BriefingEngine  # the validated snapshots the briefing uses
+        engine = BriefingEngine()
     book = S.load_book()
     path = S.run_model(book)
     session, _ = config.next_us_session()
@@ -68,10 +68,10 @@ def briefing_block(crawler=None) -> list[str]:
     entering, leaving = rebalance_changes(preview, held)
 
     latest = book.pdfs[-1]
-    sessions = crawler.get_krx_sessions(latest)
-    t5 = _flow_labels(crawler, S.TIME_FUND, latest, sessions, 5)
-    t20 = _flow_labels(crawler, S.TIME_FUND, latest, sessions, 20)
-    k20 = _flow_labels(crawler, KOACT_FUND, latest, sessions, 20)
+    sessions = engine.krx_sessions(latest)
+    t5 = _flow_labels(engine, S.TIME_FUND, latest, sessions, 5)
+    t20 = _flow_labels(engine, S.TIME_FUND, latest, sessions, 20)
+    k20 = _flow_labels(engine, KOACT_FUND, latest, sessions, 20)
 
     when = "오늘 밤" if tg["rebalance_day"] else _label(rebalance_on)
     lines = [f"### [내 7종목 점검] — 순위 기준 TIME PDF {pdf} · 다음 재조정 {when}",

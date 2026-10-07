@@ -7,12 +7,14 @@ import json
 from pathlib import Path
 from typing import Sequence
 
+from .config import resolve_fund
 from .data_quality import audit_all
+from .etf.engine import BriefingEngine
 from .etf.migration import (
     migrate_legacy_snapshots,
     validate_normalized_directory,
 )
-from .etf.workflow import manifest_as_text, run_daily_etf_workflow
+from .etf.workflow import backfill_range, manifest_as_text, run_daily_etf_workflow
 from .system import create_baseline_manifest
 
 
@@ -52,6 +54,26 @@ def build_parser() -> argparse.ArgumentParser:
     trades.add_argument("--fund", default="time", help="fund alias (default: time)")
     trades.add_argument("--end", help="last snapshot date YYYY-MM-DD (default: latest)")
     trades.add_argument("--top", type=int, default=10, help="US-listed Top N (default: 10)")
+    report = etf_commands.add_parser(
+        "report",
+        help="print one fund's report section from stored snapshots (no collection)",
+    )
+    report.add_argument("--fund", default="time", help="fund alias (default: time)")
+    report.add_argument("--date", help="snapshot date YYYY-MM-DD (default: latest)")
+    backfill = etf_commands.add_parser(
+        "backfill",
+        help="fill weekdays without a validated snapshot (provider calls)",
+    )
+    backfill.add_argument("start", help="first date YYYY-MM-DD")
+    backfill.add_argument("end", help="last date YYYY-MM-DD")
+    backfill.add_argument("--fund", default="time", help="fund alias (default: time)")
+    cumulative = etf_commands.add_parser(
+        "cumulative",
+        help="one report for the span since the last delivered briefing",
+    )
+    cumulative.add_argument("--start", help="start date (default: previous common snapshot)")
+    cumulative.add_argument("--end", help="end date (default: latest common snapshot)")
+    cumulative.add_argument("--out-dir", help="output folder (default: data/derived/briefings)")
 
     system = commands.add_parser("system", help="system maintenance commands")
     system_commands = system.add_subparsers(dest="system_command", required=True)
@@ -86,6 +108,23 @@ def main(argv: Sequence[str] | None = None) -> int:
         summary = validate_normalized_directory()
         print(json.dumps(summary, ensure_ascii=False, indent=2))
         return 0 if summary["invalid"] == 0 and summary["valid"] > 0 else 2
+
+    if args.command == "etf" and args.etf_command == "report":
+        print(BriefingEngine().fund_report(resolve_fund(args.fund), args.date))
+        return 0
+
+    if args.command == "etf" and args.etf_command == "backfill":
+        records = backfill_range(resolve_fund(args.fund), args.start, args.end)
+        print(json.dumps(records, ensure_ascii=False, indent=2))
+        return 0 if all(record["status"] != "failed" for record in records) else 2
+
+    if args.command == "etf" and args.etf_command == "cumulative":
+        from .etf.cumulative import run as run_cumulative  # prices may need the network
+
+        options = {"out_dir": args.out_dir} if args.out_dir else {}
+        print(json.dumps(run_cumulative(args.start, args.end, **options),
+                         ensure_ascii=False, indent=2))
+        return 0
 
     if args.command == "etf" and args.etf_command == "trades":
         from .etf.trades import write_analysis  # network (yfinance) only on demand

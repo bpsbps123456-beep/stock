@@ -139,3 +139,35 @@ def load_normalized_snapshot(path: Path) -> dict[str, Any]:
     if issues:
         raise ValueError(f"Invalid snapshot {path}: {'; '.join(issues)}")
     return snapshot
+
+
+# Read side: every module looks validated snapshots up through these three.
+
+def snapshot_dates(fund_id: str, root: Path = NORMALIZED_HOLDINGS_DIR) -> list[str]:
+    """As-of dates of the fund's validated snapshots, oldest first."""
+    if not os.path.isdir(root):
+        return []
+    suffix = f"_{fund_id}.json"
+    return sorted(name[:10] for name in os.listdir(root) if name.endswith(suffix))
+
+
+def load_snapshot(
+    fund_id: str,
+    as_of_date: str,
+    root: Path = NORMALIZED_HOLDINGS_DIR,
+) -> dict[str, Any] | None:
+    path = Path(root) / f"{as_of_date}_{fund_id}.json"
+    return load_normalized_snapshot(path) if path.exists() else None
+
+
+def load_fund_snapshots(
+    fund_id: str,
+    through_date: str,
+    root: Path = NORMALIZED_HOLDINGS_DIR,
+) -> dict[str, dict[str, Any]]:
+    """{as_of_date: snapshot} for every snapshot on or before through_date."""
+    return {
+        as_of: load_normalized_snapshot(Path(root) / f"{as_of}_{fund_id}.json")
+        for as_of in snapshot_dates(fund_id, root)
+        if as_of <= through_date
+    }

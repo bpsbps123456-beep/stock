@@ -2,16 +2,16 @@
 
 from __future__ import annotations
 
-import io
 import tempfile
 import unittest
-from contextlib import redirect_stdout
 from pathlib import Path
 from unittest import mock
 
 import pandas as pd
 
-import etf_crawler
+from gbrc.config import load_fund_configs
+from gbrc.etf import prices
+from gbrc.etf.engine import BriefingEngine
 from gbrc.etf.report_contract import validate_fund_report
 from gbrc.etf.snapshot import normalize_snapshot
 from gbrc.etf.storage import save_normalized_snapshot
@@ -67,29 +67,19 @@ class BriefingIntegrationTests(unittest.TestCase):
         self.temp = tempfile.TemporaryDirectory()
         root = Path(self.temp.name)
         seed(root)
-        self.patches = [
-            mock.patch.object(etf_crawler, "HOLDINGS_DIR", str(root)),
-            mock.patch.object(etf_crawler, "load_close_history", side_effect=fake_close_history),
-        ]
-        for patch in self.patches:
-            patch.start()
-        etf_crawler._SESSION_CACHE.clear()
+        self.engine = BriefingEngine(root)
+        self.time = load_fund_configs()["time"]
+        self.patch = mock.patch.object(prices, "load_close_history", side_effect=fake_close_history)
+        self.patch.start()
+        prices._SESSION_CACHE.clear()
 
     def tearDown(self) -> None:
-        for patch in reversed(self.patches):
-            patch.stop()
-        etf_crawler.set_active_etf("time")
+        self.patch.stop()
+        prices._SESSION_CACHE.clear()
         self.temp.cleanup()
 
-    def render(self, func, *args) -> str:
-        buffer = io.StringIO()
-        with redirect_stdout(buffer):
-            func(*args)
-        return buffer.getvalue()
-
     def test_fund_report_separates_real_trades_from_creation_scaling(self) -> None:
-        etf_crawler.set_active_etf("time")
-        report = self.render(etf_crawler.compare_report, TARGET)
+        report = self.engine.fund_report(self.time, TARGET)
         validate_fund_report(report.strip(), len(US_NAMES) + 2)
 
         flow_section = report.split("[수량 기준 실매매]", 1)[1].split("### D-1 compare", 1)[0]
@@ -99,8 +89,7 @@ class BriefingIntegrationTests(unittest.TestCase):
         self.assertIn("공통 배율 x1.1000", flow_section)
 
     def test_one_glance_returns_follow_the_nav_valuation_dates(self) -> None:
-        etf_crawler.set_active_etf("time")
-        report = self.render(etf_crawler.compare_report, TARGET)
+        report = self.engine.fund_report(self.time, TARGET)
         glance = report.split("[One-glance table]", 1)[1].split("[포트폴리오 해석]", 1)[0]
         aaa = next(line for line in glance.splitlines() if " AAA US EQUITY " in line)
         # 해외: 9/22 PDF=9/18 종가, 9/23 PDF=9/21 종가 → 21/18-1 = +16.7%
@@ -110,7 +99,7 @@ class BriefingIntegrationTests(unittest.TestCase):
         self.assertIn("(+4.8%)", kr)
 
     def test_digest_lists_common_buy_and_us_watch_list(self) -> None:
-        digest = self.render(etf_crawler.core_digest_report, TARGET)
+        digest = self.engine.core_digest(TARGET)
         self.assertIn("공통 실매수 1: AAA (TIME 매수 +30%, KoAct 매수 +20%)", digest)
         self.assertIn("[TIME 미국 상장 Top 10 관찰군]", digest)
         self.assertNotIn("009150", digest.split("관찰군]", 1)[1])

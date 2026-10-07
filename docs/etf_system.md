@@ -150,15 +150,30 @@ py gbrc.py briefing
 py gbrc.py etf migrate
 py gbrc.py etf validate
 py gbrc.py etf daily --no-fetch --date 2026-07-08
-py etf_crawler.py --compare 2026-07-08
-py etf_crawler.py --backfill 2026-04-27 2026-05-05
-py cumulative_briefing.py --start 2026-09-04 --end 2026-09-09
+py gbrc.py etf report --fund time --date 2026-07-08
+py gbrc.py etf backfill 2026-04-27 2026-05-05 --fund time
+py gbrc.py etf cumulative --start 2026-09-04 --end 2026-09-09
 py gbrc.py etf trades --fund time --end 2026-09-23 --top 10
 ```
 
-`cumulative_briefing.py`는 마지막 전달 브리핑 이후 구간을 한 보고서로 묶는 누적 브리핑 생성기다. 수집을 하지 않고 `data/normalized/etf_holdings/`의 검증 스냅샷만 재사용하며, 인자를 생략하면 최신 공통 스냅샷과 그 직전 공통 스냅샷을 쓴다. 출력은 `data/derived/briefings/<END>_cumulative.md`와 같은 이름의 요약 JSON이다. 일일 보고서와 같은 12개 섹션·전 보유종목·임계값·가격 기준일 규칙을 그대로 따르고(12번은 D-5·D-20·누적 구간의 실매매), D-n은 두 ETF의 실제 공통 거래 세션으로 센다. 해당 거래일의 구성종목 스냅샷이 없으면 가장 가까운 과거 스냅샷으로 물러서되 물러선 사실과 거래일 기준 D-n을 보고서에 함께 남긴다. END가 당일이고 KRX 정규장 마감 전이면 종가 미확정 경고를 보고서 머리에 넣는다.
+`etf cumulative`는 마지막 전달 브리핑 이후 구간을 한 보고서로 묶는 누적 브리핑 생성기다. 수집을 하지 않고 `data/normalized/etf_holdings/`의 검증 스냅샷만 재사용하며, 인자를 생략하면 최신 공통 스냅샷과 그 직전 공통 스냅샷을 쓴다. 출력은 `data/derived/briefings/<END>_cumulative.md`와 같은 이름의 요약 JSON이다. 일일 보고서와 같은 12개 섹션·전 보유종목·임계값·가격 기준일 규칙을 그대로 따르고(12번은 D-5·D-20·누적 구간의 실매매), D-n은 두 ETF의 실제 공통 거래 세션으로 센다. 해당 거래일의 구성종목 스냅샷이 없으면 가장 가까운 과거 스냅샷으로 물러서되 물러선 사실과 거래일 기준 D-n을 보고서에 함께 남긴다. END가 당일이고 KRX 정규장 마감 전이면 종가 미확정 경고를 보고서 머리에 넣는다.
 
-`etf_crawler.py`는 두 운용사 수집기이자 일일 보고서 생성 엔진이며, `gbrc` 워크플로가 내부에서 호출한다. 이 파일을 직접 실행하는 명령은 기존 호출 호환·백필용이고, 일일 운영 명령의 정본은 `gbrc.py`다. 백필 결과도 동일한 날짜·검증·격리 규칙을 따른다. 기존 `data/etf_holdings/` v1 파일을 제자리에서 수정하지 않는다.
+`etf report`는 저장된 검증 스냅샷으로 한 펀드의 보고서 구역만 출력한다(수집 없음). `etf backfill`은 구간 안에서 검증 스냅샷이 없는 평일을 운용사에서 받는다. 날짜 없는 `briefing`의 자동 채우기와 같이 운용사 기준일이 요청일과 같을 때만 저장한다. 기존 `data/etf_holdings/` v1 파일을 제자리에서 수정하지 않는다.
+
+브리핑 엔진 코드는 `gbrc/etf/`에 있다.
+
+| 역할 | 모듈 |
+|---|---|
+| 운용사 수집 | `providers.py` |
+| 검증 스냅샷 조회 | `storage.py` |
+| 종가·KRX 세션 | `prices.py` |
+| 펀드별 보고서(§5~7) | `report.py` |
+| 두 펀드 실매매 합의·관찰군 | `digest.py` |
+| 가격 성과(§8) | `performance.py` |
+| 누적 브리핑 | `cumulative.py` |
+| 실행 순서 | `workflow.py` |
+
+워크플로와 야간 데스크는 `engine.py`의 `BriefingEngine` 하나로 이 모듈들을 쓰고, 모든 함수는 펀드를 인자로 받는다.
 
 ## 10. 실매매·수익 구간 심화 분석
 

@@ -3,9 +3,8 @@
 from __future__ import annotations
 
 import unittest
-from unittest import mock
 
-import etf_crawler
+from gbrc.etf import report
 
 
 def snapshot(
@@ -109,19 +108,14 @@ class PreviousChangeReviewTests(unittest.TestCase):
             current_date: current,
         }
 
-        with mock.patch.object(
-            etf_crawler,
-            "load_snapshot",
-            side_effect=snapshots.get,
-        ) as load_snapshot:
-            review = etf_crawler.format_previous_change_review(
-                current,
-                dates,
-                {1: (previous_date, previous)},
-                d1_diff(previous_date, current_date),
-            )
+        self.assertEqual(sorted(snapshots), dates)
+        review = report.format_previous_change_review(
+            current,
+            snapshots,
+            {1: (previous_date, previous)},
+            d1_diff(previous_date, current_date),
+        )
 
-        self.assertGreaterEqual(load_snapshot.call_count, 7)
         self.assertIn("리스크온 → 다음 날 -1.00%p (일치)", review)
         self.assertIn("AI 반도체 +10.00%p→+5.00%p 일치", review)
         self.assertIn("빅테크 -10.00%p→+5.00%p 불일치", review)
@@ -137,21 +131,19 @@ class PreviousChangeReviewTests(unittest.TestCase):
             security_weights={"NVDA": 96.0},
         )
 
-        with mock.patch.object(etf_crawler, "load_snapshot") as load_snapshot:
-            no_diff = etf_crawler.format_previous_change_review(
-                current,
-                ["2026-07-10"],
-                {},
-                None,
-            )
-            no_previous = etf_crawler.format_previous_change_review(
-                current,
-                ["2026-07-09", "2026-07-10"],
-                {1: (None, None)},
-                d1_diff("2026-07-09", "2026-07-10"),
-            )
+        no_diff = report.format_previous_change_review(
+            current,
+            {"2026-07-10": current},
+            {},
+            None,
+        )
+        no_previous = report.format_previous_change_review(
+            current,
+            {"2026-07-10": current},
+            {1: (None, None)},
+            d1_diff("2026-07-09", "2026-07-10"),
+        )
 
-        load_snapshot.assert_not_called()
         self.assertIn("D-1 비교 스냅샷 없음", no_diff)
         self.assertIn("전일 해석 검증: 비교 스냅샷 없음", no_previous)
 
@@ -170,17 +162,12 @@ class PreviousChangeReviewTests(unittest.TestCase):
         )
         snapshots = {previous_date: previous, current_date: current}
 
-        with mock.patch.object(
-            etf_crawler,
-            "load_snapshot",
-            side_effect=snapshots.get,
-        ):
-            review = etf_crawler.format_previous_change_review(
-                current,
-                [previous_date, current_date],
-                {1: (previous_date, previous)},
-                d1_diff(previous_date, current_date),
-            )
+        review = report.format_previous_change_review(
+            current,
+            snapshots,
+            {1: (previous_date, previous)},
+            d1_diff(previous_date, current_date),
+        )
 
         self.assertIn("전일 현금 해석 검증: N/A", review)
         self.assertIn("전일 섹터 해석 검증: 유의미한 D-5 선행 방향 없음", review)

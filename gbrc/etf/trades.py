@@ -21,12 +21,11 @@ from typing import Any, Callable, Mapping, Sequence
 
 from . import flows as qty_flows
 from . import market
-from .storage import (
-    NORMALIZED_HOLDINGS_DIR,
+from .storage import (  # load_fund_snapshots: desk/ imports it from here too
     PROJECT_ROOT,
     atomic_write_json,
     atomic_write_text,
-    load_normalized_snapshot,
+    load_fund_snapshots,
 )
 
 ANALYSIS_DIR = PROJECT_ROOT / "data" / "derived" / "analysis"
@@ -43,18 +42,6 @@ Prices = Mapping[str, Mapping[str, float]]  # ticker -> {YYYY-MM-DD: close}
 # --------------------------------------------------------------------------
 # 입력
 # --------------------------------------------------------------------------
-
-def load_fund_snapshots(
-    fund_id: str,
-    through_date: str,
-    root: Path = NORMALIZED_HOLDINGS_DIR,
-) -> dict[str, dict[str, Any]]:
-    snapshots = {}
-    for path in sorted(Path(root).glob(f"*_{fund_id}.json")):
-        if path.name[:10] <= through_date:
-            snapshots[path.name[:10]] = load_normalized_snapshot(path)
-    return snapshots
-
 
 def required_tickers(snapshots: Mapping[str, Mapping[str, Any]], listing_ticker: str) -> set[str]:
     tickers = {BENCHMARK, FX_USD, listing_ticker}

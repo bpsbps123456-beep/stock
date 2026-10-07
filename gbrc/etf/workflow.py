@@ -1,15 +1,14 @@
-"""Orchestrate the two-fund daily ETF workflow."""
+"""Orchestrate the two-fund daily ETF workflow (docs/etf_system.md §2)."""
 
 from __future__ import annotations
 
-import io
 import time
-from contextlib import redirect_stdout
 from datetime import date, datetime, timedelta, timezone
 from typing import Any
 
-from gbrc.config import load_fund_configs
+from gbrc.config import FundConfig, load_fund_configs
 
+from .engine import BriefingEngine
 from .report_contract import (
     validate_daily_report,
     validate_fund_report,
@@ -33,21 +32,17 @@ BACKFILL_LIMIT = 10        # weekdays; a longer gap is filled from the most rece
 BACKFILL_PAUSE_SEC = 1.0   # between provider calls (KoAct has answered HTTP 429 before)
 
 
-def _crawler():
-    # Imported lazily to keep schema/migration commands network-independent.
-    import etf_crawler
-
-    etf_crawler.HOLDINGS_DIR = str(NORMALIZED_HOLDINGS_DIR)
-    return etf_crawler
+def _engine() -> BriefingEngine:
+    """The engine every stage of a run shares; tests replace it with a fake."""
+    return BriefingEngine(NORMALIZED_HOLDINGS_DIR)
 
 
 def _latest_date(
-    crawler: Any,
-    alias: str,
+    engine: BriefingEngine,
+    fund: FundConfig,
     through_date: str | None = None,
 ) -> str | None:
-    crawler.set_active_etf(alias)
-    dates = crawler.list_snapshot_dates()
+    dates = engine.snapshot_dates(fund)
     if through_date:
         dates = [date for date in dates if date <= through_date]
     return dates[-1] if dates else None
@@ -67,37 +62,58 @@ def _missing_weekdays(latest: str | None, today: str, limit: int = BACKFILL_LIMI
     return days[-limit:]
 
 
-def _backfill_missing(crawler: Any, today: str, manifest: dict[str, Any]) -> None:
-    """Store validated snapshots for sessions a skipped briefing left empty.
+def _store_published_day(engine: BriefingEngine, fund: FundConfig, day: str) -> dict[str, Any]:
+    """Fetch one provider day; store it only if the provider really published that day.
 
-    Only a provider answer whose as-of date equals the requested day is saved, so a
-    holiday's fallback copy never poses as that day. The first provider error stops that
-    fund's backfill (usually rate limiting) and today's run carries on.
+    A holiday's answer is the previous basket (as-of differs) and is never saved as that day.
     """
+    raw = engine.fetch_holdings(fund, day)
+    if not raw or not raw.get("holdings"):
+        return {"fund": fund.alias, "date": day, "status": "not_published"}
+    normalized = normalize_snapshot(raw)
+    if normalized["as_of_date"] != day:
+        return {"fund": fund.alias, "date": day, "status": "not_published",
+                "provider_as_of": normalized["as_of_date"]}
+    save_raw_capture(raw)
+    _, storage_status = save_normalized_snapshot(normalized)
+    return {"fund": fund.alias, "date": day, "status": "stored", "storage_status": storage_status}
+
+
+def _fill_days(engine: BriefingEngine, fund: FundConfig, days: list[str],
+               records: list[dict[str, Any]]) -> None:
+    """The first provider error stops this fund (usually rate limiting)."""
+    for day in days:
+        try:
+            records.append(_store_published_day(engine, fund, day))
+        except Exception as exc:
+            records.append({"fund": fund.alias, "date": day, "status": "failed",
+                            "error_type": type(exc).__name__, "error": str(exc)})
+            break
+        finally:
+            time.sleep(BACKFILL_PAUSE_SEC)
+
+
+def _backfill_missing(engine: BriefingEngine, today: str, manifest: dict[str, Any]) -> None:
+    """Store validated snapshots for sessions a skipped briefing left empty; today's run
+    carries on whatever happens."""
     records = manifest.setdefault("backfill", [])
-    for alias in load_fund_configs():
-        for day in _missing_weekdays(_latest_date(crawler, alias), today):
-            crawler.set_active_etf(alias)
-            try:
-                raw = crawler.fetch_holdings(day)
-                if not raw or not raw.get("holdings"):
-                    records.append({"fund": alias, "date": day, "status": "not_published"})
-                    continue
-                normalized = normalize_snapshot(raw)
-                if normalized["as_of_date"] != day:
-                    records.append({"fund": alias, "date": day, "status": "not_published",
-                                    "provider_as_of": normalized["as_of_date"]})
-                    continue
-                save_raw_capture(raw)
-                _, storage_status = save_normalized_snapshot(normalized)
-                records.append({"fund": alias, "date": day, "status": "stored",
-                                "storage_status": storage_status})
-            except Exception as exc:
-                records.append({"fund": alias, "date": day, "status": "failed",
-                                "error_type": type(exc).__name__, "error": str(exc)})
-                break
-            finally:
-                time.sleep(BACKFILL_PAUSE_SEC)
+    for fund in load_fund_configs().values():
+        _fill_days(engine, fund, _missing_weekdays(_latest_date(engine, fund), today), records)
+
+
+def backfill_range(fund: FundConfig, start: str, end: str,
+                   engine: BriefingEngine | None = None) -> list[dict[str, Any]]:
+    """Manual restore: every weekday in [start, end] without a validated snapshot."""
+    engine = engine or _engine()
+    have = set(engine.snapshot_dates(fund))
+    days, day = [], date.fromisoformat(start)
+    while day <= date.fromisoformat(end):
+        if day.weekday() < 5 and day.isoformat() not in have:
+            days.append(day.isoformat())
+        day += timedelta(days=1)
+    records: list[dict[str, Any]] = []
+    _fill_days(engine, fund, days, records)
+    return records
 
 
 def _desk_digest(manifest: dict[str, Any]) -> list[str]:
@@ -112,7 +128,7 @@ def _desk_digest(manifest: dict[str, Any]) -> list[str]:
         manifest["desk_digest_status"] = "unavailable"
         return []
     try:
-        lines = briefing_block(_crawler())
+        lines = briefing_block(_engine())
     except Exception as exc:
         manifest["desk_digest_status"] = "failed"
         manifest["errors"].append({
@@ -172,17 +188,10 @@ def _assemble_report(
     ]
 
 
-def _core_digest(crawler: Any, target: str, manifest: dict[str, Any]) -> list[str]:
+def _core_digest(engine: BriefingEngine, target: str, manifest: dict[str, Any]) -> list[str]:
     """Cross-fund real-trade consensus and the US-listed watch list."""
-    render = getattr(crawler, "core_digest_report", None)
-    if render is None:
-        manifest["core_digest_status"] = "unsupported"
-        return []
     try:
-        buffer = io.StringIO()
-        with redirect_stdout(buffer):
-            render(target)
-        text = buffer.getvalue().strip()
+        text = engine.core_digest(target).strip()
     except Exception as exc:  # the briefing stands without the digest
         manifest["core_digest_status"] = "failed"
         manifest["errors"].append({
@@ -200,7 +209,7 @@ def run_daily_etf_workflow(
     *,
     fetch: bool = True,
 ) -> tuple[int, dict[str, Any]]:
-    crawler = _crawler()
+    engine = _engine()
     run_started = datetime.now(KST)
     # Today's run (no --date) also fills skipped sessions and adds the desk block;
     # explicit-date reruns reproduce the historical report and do neither.
@@ -226,7 +235,7 @@ def run_daily_etf_workflow(
     fund_parts: list[str] = []
     performance_parts: list[str] = []
     if today_run and fetch:
-        _backfill_missing(crawler, requested_date, manifest)
+        _backfill_missing(engine, requested_date, manifest)
 
     report_aliases: list[str] = []
     current_aliases: list[str] = []
@@ -238,9 +247,8 @@ def run_daily_etf_workflow(
         }
         manifest["funds"][alias] = fund_run
         try:
-            crawler.set_active_etf(alias)
             if fetch:
-                raw = crawler.fetch_holdings(requested_date)
+                raw = engine.fetch_holdings(fund, requested_date)
                 if not raw or not raw.get("holdings"):
                     raise RuntimeError("provider returned no holdings")
                 raw_path, raw_status = save_raw_capture(raw)
@@ -257,7 +265,7 @@ def run_daily_etf_workflow(
                 else:
                     fund_run["stale_for_requested_date"] = True
             else:
-                report_date = _latest_date(crawler, alias, requested_date)
+                report_date = _latest_date(engine, fund, requested_date)
                 if not report_date:
                     raise RuntimeError("no normalized snapshot available")
                 fund_run.update({
@@ -272,10 +280,7 @@ def run_daily_etf_workflow(
                 else:
                     fund_run["stale_for_requested_date"] = True
 
-            buffer = io.StringIO()
-            with redirect_stdout(buffer):
-                crawler.compare_report(report_date)
-            fund_report = buffer.getvalue().strip()
+            fund_report = engine.fund_report(fund, report_date).strip()
             expected_holdings = fund_run.get("holdings_count")
             if expected_holdings is None:
                 snapshot_path = (
@@ -326,12 +331,9 @@ def run_daily_etf_workflow(
             if performance_dates[0] == performance_dates[1]
             else min(date for date in performance_dates if date)
         )
-        digest_parts = _core_digest(crawler, performance_target, manifest)
+        digest_parts = _core_digest(engine, performance_target, manifest)
         try:
-            buffer = io.StringIO()
-            with redirect_stdout(buffer):
-                crawler.fund_performance_report(performance_target)
-            performance_report = buffer.getvalue().strip()
+            performance_report = engine.performance_report(performance_target).strip()
             validate_performance_report(performance_report)
             performance_parts.extend([
                 "## 두 펀드 가격 성과 비교",
