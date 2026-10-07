@@ -98,6 +98,15 @@ class SelectEarningsEventContractTests(unittest.TestCase):
     def test_no_events_returns_none(self) -> None:
         self.assertIsNone(ep.select_earnings_event([], TODAY))
 
+    def test_equal_distance_picks_past_report(self) -> None:
+        events = [event(+45, reported=False), event(-45, reported=True)]
+        self.assertEqual(ep.select_earnings_event(events, TODAY), events[1])
+
+    def test_past_report_without_eps_yet_still_counts_as_past(self) -> None:
+        # yfinance가 실제치를 늦게 채우는 날에도 방금 발표한 분기를 고른다
+        events = [event(+90, reported=False), event(-2, reported=False)]
+        self.assertEqual(ep.select_earnings_event(events, TODAY), events[1])
+
 
 if __name__ == "__main__":
     unittest.main()

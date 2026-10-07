@@ -9,8 +9,9 @@ dependencies = [
   "numba>=0.64,<0.65",
 ]
 
-[tool.unittest]
-start-directory = "tests"
+[tool.pytest.ini_options]
+# data/derived/ 아래 내려받은 도구의 테스트까지 모으지 않도록 tests/만 본다.
+testpaths = ["tests"]
 
 [tool.ruff]
 line-length = 100

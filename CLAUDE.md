@@ -1,14 +1,8 @@
-# GBRC Claude Code 호환 진입점
+# GBRC Claude Code 진입점
 
-이 프로젝트의 독립 운영 규칙은 이 파일에 두지 않는다.
+@AGENTS.md
 
-작업을 시작하기 전에 저장소 루트의 `AGENTS.md`를 전부 읽고, 그 파일이 지정한 Path의 정본 문서를 전부 읽어 그대로 따른다. 섹터·종목 매핑은 `watchlist.py`가 정본이다.
+위에서 불러온 `AGENTS.md`가 Codex와 함께 쓰는 유일한 운영 규칙이다. Path가 지정한 정본 문서를 전부 읽고 그대로 따른다. 이 파일에는 Claude에만 해당하는 사항만 둔다.
 
-우선순위는 다음과 같다.
-
-1. 사용자의 현재 요청
-2. `AGENTS.md`의 활성 라우팅과 금지사항
-3. 해당 Path의 `docs/*_system.md` 또는 `docs/earnings_framework.md`
-4. `docs/operations_changelog.md`의 과거 이력
-
-`docs/v40_handoff.md`와 `docs/archive/`는 명시적으로 요청받지 않는 한 활성 규칙으로 사용하지 않는다. 규칙을 바꿀 때도 이 파일에 복제하지 말고 정본 한 곳만 수정한다.
+- 자동 메모리에는 Claude 전용 사항(도구 사용 한도, 응답 방식)만 남긴다. 사용자 사실·결정·프로젝트 규칙은 `AGENTS.md` 공동 작업 규칙대로 저장소 정본에 쓴다. Codex는 Claude 메모리를 보지 못한다.
+- 출력 스타일이 학습 모드여도 실행 경로에 사용자 작성 대기 TODO를 남기지 않는다(2026-09-27 TODO가 `earnings_prefill.py`를 10일간 멈춤). 사용자가 직접 바꿔 볼 만한 값이 있으면 동작하는 기본값을 둔 뒤 한 줄로 안내한다.

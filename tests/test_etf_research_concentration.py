@@ -87,3 +87,12 @@ def test_fresh_start_resets_momentum_buffer():
     np.testing.assert_allclose(full[2][-1],[1.,0.])
     np.testing.assert_allclose(fresh[2][-1],[0.,1.])
     np.testing.assert_allclose(fresh[0],[1.])
+
+
+def load_tests(loader, tests, pattern):
+    """`py -m unittest`도 이 모듈의 pytest 방식 함수(test_*)를 실행하게 한다."""
+    import unittest
+    for name, func in sorted(globals().items()):
+        if name.startswith("test_") and callable(func):
+            tests.addTest(unittest.FunctionTestCase(func, description=name))
+    return tests

@@ -71,3 +71,12 @@ def test_time_clone_does_not_require_120_day_momentum_history():
     np.testing.assert_array_equal(s['ranks'],[[0,1]])
     h=claude_signals(a,np.array([0]),np.array([[.3,np.nan]]),'H6')
     np.testing.assert_array_equal(h['ranks'],[[0,-1]])
+
+
+def load_tests(loader, tests, pattern):
+    """`py -m unittest`도 이 모듈의 pytest 방식 함수(test_*)를 실행하게 한다."""
+    import unittest
+    for name, func in sorted(globals().items()):
+        if name.startswith("test_") and callable(func):
+            tests.addTest(unittest.FunctionTestCase(func, description=name))
+    return tests

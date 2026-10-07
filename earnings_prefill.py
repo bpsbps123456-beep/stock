@@ -7,7 +7,7 @@ GBRC 실적 분석 사전 데이터 확보 스크립트 (하네스 엔지니어�
 
 출력:
   - 콘솔: 6단계 분석에 필요한 모든 지표 요약
-  - data/earnings_prefill/<TICKER>_<DATE>.json: 후속 분석 입력용
+  - data/earnings_prefill/<DATE>_<TICKER>.json: 후속 분석 입력용
 """
 
 import sys
@@ -122,9 +122,15 @@ def select_earnings_event(events: list[dict], today: date) -> dict | None:
 
     배경: 기존 .calendar는 '다음' 발표일만 줘서 발표 다음 날 실행하면 다음 분기
           날짜가 저장됐다(2026-04 RMBS·GOOGL·META·STX 4건).
+
+    규칙: 오늘에 가장 가까운 발표. 직전 발표와 다음 발표의 중간 지점까지는 방금 발표한
+          분기를 분석하는 중으로 본다(고정 일수 없이 회사별 발표 간격에 맞춰진다).
+          거리가 같으면 지난 발표를 고른다. 실제치 유무가 아니라 날짜로 가려서,
+          yfinance 반영이 늦어 실제치가 빈 지난 발표도 같은 분기로 잡는다.
     """
-    # TODO(사용자): 발표 후 며칠까지를 '이번 분기'로 볼지 정해서 구현
-    raise NotImplementedError("select_earnings_event: 날짜 선택 규칙을 구현하세요")
+    if not events:
+        return None
+    return min(events, key=lambda e: (abs((e["date"] - today).days), e["date"] > today))
 
 
 def collect(ticker: str) -> dict:

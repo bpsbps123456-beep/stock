@@ -2,6 +2,32 @@
 
 이 문서는 변경의 시행일과 이유를 보존한다. 현재 실행 규칙은 `AGENTS.md`와 해당 도메인 정본 문서를 따른다. 과거 항목이 활성 정본보다 우선하지 않는다.
 
+## 2026-10-07 — Codex·Claude 공동 작업 정비: 기준 커밋, 공유 규칙, 테스트 묶음
+
+- 배경: 사용자가 Codex와 Claude를 함께 쓴다며 전반적인 리팩토링을 요청했다.
+- 진단:
+  - git: 마지막 커밋이 2026-04였고 파일 약 720개가 추적되지 않았다. 두 에이전트 모두 승인 없이 편집하는데, 덮어쓰거나 지운 파일을 되살릴 수 없었다.
+  - 규칙 분산: Codex 전역 메모리와 전역 AGENTS.md는 비어 있어 Codex는 저장소만 본다. 그런데 사용자 결정 일부가 Claude 메모리에만 있었다. 주문 가능 시간은 9/28 08:00~24:00으로 정정됐지만 정본은 08:00~23:00이었다. 연구 보고 원칙 3개(평가 구간·변수 시점·탐색 범위)도 저장소에 없었다.
+  - 테스트 실행: `py -m unittest`는 0개를 돌았다. `[tool.unittest]`는 unittest가 읽지 않는 설정이다. `pytest`는 `data/derived/` 안 외부 도구의 테스트까지 모아 오류 15개로 멈췄다. 연구 엔진(#774) 테스트 17개는 pytest 방식이라 unittest로 돌리면 빠졌다.
+  - 고장: `earnings_prefill.py`가 미구현 `select_earnings_event`(2026-09-27 사용자 작성 대기 TODO)에서 바로 멈췄다. Path-E 1단계가 10일간 실행되지 않았고, 그동안 변경 이력에는 "기존 오류 3개"로만 남았다.
+- 변경:
+  - 기준 커밋 `9fc4fa0`을 만들었다(내용 변경 없음). `.gitignore`에 `.claude/settings.local.json`·`.omx/`·`.pytest_cache/`·`.codex-worktrees/`(다른 저장소 복제본)를 더했다.
+  - `CLAUDE.md`는 `@AGENTS.md`로 같은 규칙을 불러오고, Claude 전용 두 줄만 둔다. 우선순위 목록은 `AGENTS.md`로 옮겼다.
+  - `AGENTS.md`에 공동 작업 규칙과 연구 보고 규칙을 넣었다. 공동 작업 규칙: 시작할 때 `git status` 확인, 공유 파일 재확인, 사실은 정본 한 곳에, 미구현 자리표시 금지, 미사용 파일 `git rm`, 전체 테스트, 경로를 지정한 커밋. Gate C에 커밋 줄을 더했고, Path-Q는 영역 정본을 가리키도록 줄였다.
+  - 사용자 매매 조건을 `docs/desk_system.md` §1 한 곳으로 모았다(08:00~24:00, 프리장·주간거래 가능, 밤에는 지정가만). `docs/etf_system.md` §11-1은 이곳을 가리킨다.
+  - `select_earnings_event`는 오늘에 가장 가까운 발표를 고르고, 거리가 같으면 지난 발표를 고른다. 실측 결과 MU는 9/30(-7일), ORCL은 9/10(-27일), NVDA는 11/17(+41일)을 골랐다.
+  - 테스트 실행을 하나로 맞췄다: `tests/__init__.py`, pytest `testpaths`, 두 연구 테스트 파일의 `load_tests` 훅, 묶음 계약 `tests/test_suite_contract.py`.
+  - 지운 파일(기준 커밋에 보존):
+    - `daily_analysis.py`와 그 입력 `data/estimates_cache.json`·`data/simplywall_urls.json`: 2026-07-02 이후 어느 Path도 실행하지 않는다.
+    - `backtest_v34.py`: 옵션 v4.0 계획이 중단됐다.
+    - `docs/v40_handoff.md`: `docs/archive/` 사본과 중복이다.
+    - 과거 산출물 `data/valuation/`은 그대로 둔다.
+  - `docs/etf_system.md` §9는 `etf_crawler.py`를 "호환용"이 아니라 워크플로가 호출하는 수집·보고서 엔진으로 바로잡았다.
+- 검증: `py -m unittest`·`py -m unittest discover -s tests`·`py -m pytest`가 모두 같은 194개를 돌고 통과했다(이전 unittest는 174개 중 오류 3).
+- 바꾸지 않은 것:
+  - `etf_crawler.py`의 위치와 모듈 전역 상태(`set_active_etf`). 패키지로 옮기면 브리핑 엔진 전체를 건드리므로 별도 작업으로 남긴다.
+  - `.codex-worktrees/`. 무시 파일로만 있는 실험 보고서가 있어 지우지 않았다.
+
 ## 2026-10-07 — 데스크 세 탭의 화면 폭과 탐색 UI 정리
 
 - 배경: 사용자가 화면을 더 꽉 활용하고 전반적인 UI를 직관적으로 다듬어 달라고 했다.
