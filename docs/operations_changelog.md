@@ -15,6 +15,8 @@
   - `CLAUDE.md`는 `@AGENTS.md`로 같은 규칙을 불러오고, Claude 전용 두 줄만 둔다. 우선순위 목록은 `AGENTS.md`로 옮겼다.
   - `AGENTS.md`에 공동 작업 규칙과 연구 보고 규칙을 넣었다. 공동 작업 규칙: 시작할 때 `git status` 확인, 공유 파일 재확인, 사실은 정본 한 곳에, 미구현 자리표시 금지, 미사용 파일 `git rm`, 전체 테스트, 경로를 지정한 커밋. Gate C에 커밋 줄을 더했고, Path-Q는 영역 정본을 가리키도록 줄였다.
   - 사용자 매매 조건을 `docs/desk_system.md` §1 한 곳으로 모았다(08:00~24:00, 프리장·주간거래 가능, 밤에는 지정가만). `docs/etf_system.md` §11-1은 이곳을 가리킨다.
+  - Claude 메모리에만 있던 사용자 요청 두 가지를 정본으로 옮겼다. 보유 종목 질문에는 TIME 미국 상장 Top 10의 구체적 티커로 답한다(`docs/investment_briefing_playbook.md`). 옵션 표의 실적일은 옮기기 전에 확인한다(`docs/options_system.md` 운영 방침).
+  - Claude 메모리 정리: 저장소 규칙과 중복되거나 낡은 13개를 지웠다. 낡은 예로, P/C 점수가 v3.4 값으로 남아 정본 v3.5와 달랐다. 메모리에는 Claude 전용 사항(도구 한도, 응답 길이, 화면 환경)과 진행 중 연구 메모만 남긴다.
   - `select_earnings_event`는 오늘에 가장 가까운 발표를 고르고, 거리가 같으면 지난 발표를 고른다. 실측 결과 MU는 9/30(-7일), ORCL은 9/10(-27일), NVDA는 11/17(+41일)을 골랐다.
   - 테스트 실행을 하나로 맞췄다: `tests/__init__.py`, pytest `testpaths`, 두 연구 테스트 파일의 `load_tests` 훅, 묶음 계약 `tests/test_suite_contract.py`.
   - 지운 파일(기준 커밋에 보존):
