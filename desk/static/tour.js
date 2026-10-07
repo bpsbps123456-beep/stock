@@ -97,7 +97,7 @@ async function trLoad(force) {
     // A desk started before this tab existed serves the new page but not /api/tour.
     const old = /not found/i.test(e.message);
     mount($("#tr-visit"), h("p", { class: "err" }, old
-      ? "AI 탐방을 열려면 데스크를 재시작하세요. 실행 창을 닫고 ‘야간데스크.cmd’를 다시 실행하면 됩니다."
+      ? "AI 산업 지도를 열려면 데스크를 재시작하세요. 실행 창을 닫고 ‘야간데스크.cmd’를 다시 실행하면 됩니다."
       : "탐방 지도를 불러오지 못했습니다. " + e.message));
   }).finally(() => { TR.loading = null; });
   return TR.loading;
@@ -152,11 +152,11 @@ function trRenderAlerts() {
   if (d.problems.length)
     out.push(banner(`탐방 지도에서 확인이 필요한 항목 ${d.problems.length}건을 발견했습니다: ${d.problems.slice(0, 3).join(" · ")}${d.problems.length > 3 ? " …" : ""}`));
   if (d.stale)
-    out.push(banner(`지도 기준일(${d.map.as_of})로부터 ${d.age_days}일이 지났습니다. 계약 관계를 다시 확인하도록 ‘AI 탐방 갱신’을 요청하세요. 점검 주기는 ${d.map.review_days}일입니다.`));
+    out.push(banner(`지도 기준일(${d.map.as_of})로부터 ${d.age_days}일이 지났습니다. 계약 관계를 다시 확인하도록 ‘AI 산업 지도 갱신’을 요청하세요. 점검 주기는 ${d.map.review_days}일입니다.`));
   if ((d.universe_missing || []).length)
-    out.push(banner(`AI 분석 대상 중 ${d.universe_missing.length}종목이 탐방 지도에 없습니다: ${d.universe_missing.slice(0, 8).join(", ")}. ‘AI 탐방 갱신’을 요청하면 방문지를 배정합니다.`));
+    out.push(banner(`AI 분석 대상 중 ${d.universe_missing.length}종목이 탐방 지도에 없습니다: ${d.universe_missing.slice(0, 8).join(", ")}. ‘AI 산업 지도 갱신’을 요청하면 방문지를 배정합니다.`));
   if (d.unplaced.length)
-    out.push(banner(`두 펀드의 새 보유 종목 중 ${d.unplaced.length}종목이 아직 탐방 지도에 없습니다: ${d.unplaced.slice(0, 6).map((r) => `${r.t}(${r.name})`).join(", ")}. ‘AI 탐방 갱신’을 요청하면 방문지를 배정합니다.`));
+    out.push(banner(`두 펀드의 새 보유 종목 중 ${d.unplaced.length}종목이 아직 탐방 지도에 없습니다: ${d.unplaced.slice(0, 6).map((r) => `${r.t}(${r.name})`).join(", ")}. ‘AI 산업 지도 갱신’을 요청하면 방문지를 배정합니다.`));
   mount($("#tr-alerts"), out);
 }
 
@@ -238,7 +238,7 @@ function trRenderFlow() {
   const maxSum = Math.max(1e-9, ...Object.values(sums));
   const cols = Math.max(...stops.map((s) => s.at[0])) + 1, rows = Math.max(...stops.map((s) => s.at[1])) + 1;
   const W = TR_FLOW.X0 * 2 + (cols - 1) * TR_FLOW.DX + NW, H = TR_FLOW.Y0 + (rows - 1) * TR_FLOW.DY + NH + 30;
-  const root = svg("svg", { class: "tr-flow-svg", viewBox: `0 0 ${W} ${H}`, role: "group", "aria-label": "AI 공정 흐름도" });
+  const root = svg("svg", { class: "tr-flow-svg", viewBox: `0 0 ${W} ${H}`, role: "group", "aria-label": "AI 공급망 한눈에 보기" });
   const marker = svg("marker", { id: "trArrow", viewBox: "0 0 8 8", refX: 7, refY: 4, markerWidth: 7, markerHeight: 7, orient: "auto-start-reverse" }, svg("defs", {}, root));
   svg("path", { class: "tr-arrowhead", d: "M0,0 L8,4 L0,8 Z" }, marker);
   const here = TR.idx.stopById[TR.stop];
@@ -285,7 +285,7 @@ function trRenderFlow() {
     : `오른쪽 아래 숫자·노란 막대 = 해당 단계의 ${TR_LENS_KO[TR.lens]} 합계`;
   mount($("#tr-flow"),
     h("header", null,
-      h("div", null, h("h2", null, "AI 공정 흐름도"),
+      h("div", null, h("h2", null, "AI 공급망 한눈에 보기"),
         h("span", { class: "sub" }, "전력·소재·장비부터 AI 모델·서비스까지 이어지는 공급망 · 상자를 누르면 해당 단계를 살펴봅니다")),
       h("div", { class: "tr-progress", title: "한 번 열어 본 방문지에 ✓가 찍힙니다(이 브라우저에만 저장)" },
         `방문 ${TR.visited.size}/${stops.length}`, h("span", { class: "bar" }, h("i", { style: `width:${(TR.visited.size / stops.length) * 100}%` })))),
@@ -498,7 +498,7 @@ function trSelectZone(zid, focus = null) {
 function trGoto(zid, t) { trSelectZone(zid, t); }
 function trFocus(t) {
   const sp = TR.idx.main[t];
-  if (!sp) { toast(`${t}는 탐방 경로에 포함되지 않은 종목입니다. ‘보유 종목의 자리’에서 이유를 확인하세요.`); $("#tr-mine").scrollIntoView({ behavior: "smooth" }); return; }
+  if (!sp) { toast(`${t}는 탐방 경로에 포함되지 않은 종목입니다. ‘보유 종목의 사업 역할’에서 이유를 확인하세요.`); $("#tr-mine").scrollIntoView({ behavior: "smooth" }); return; }
   trSelectZone(sp.z.id, t);
   $("#tr-visit").scrollIntoView({ behavior: "smooth", block: "start" });
 }
@@ -745,13 +745,13 @@ function trRenderMine() {
       h("td", { class: "r mono" }, pctAbs(w || 0, 1)),
       h("td", null, sp ? h("span", { class: "tr-stopchip" }, `${sp.s.no}. ${sp.s.name}`) : h("span", { class: "muted" }, o ? "경로 밖" : "배정 전")),
       h("td", null, sp ? sp.z.name : (o && o.group) || ""),
-      h("td", { class: "role" }, sp ? sp.mem.role : (o ? o.why : "방문지가 아직 없습니다. ‘AI 탐방 갱신’을 요청하면 배정합니다.")),
+      h("td", { class: "role" }, sp ? sp.mem.role : (o ? o.why : "방문지가 아직 없습니다. ‘AI 산업 지도 갱신’을 요청하면 배정합니다.")),
       h("td", { class: "axes" }, ax.has("openai") ? h("i", { class: "ax oa", title: "OpenAI와 계약·투자" }) : null,
         ax.has("anthropic") ? h("i", { class: "ax an", title: "Anthropic과 계약·투자" }) : null));
   });
   const note = TR.lens === key ? "" : " · 보유 비중 표는 TIME 기준으로 표시합니다";
   mount($("#tr-mine"),
-    h("header", null, h("h2", null, "보유 종목의 자리"),
+    h("header", null, h("h2", null, "보유 종목의 사업 역할"),
       h("span", { class: "sub" }, `${TR_LENS_KO[key]}이 높은 순서 · 각 종목이 공급망에서 맡는 역할${note}`),
       h("div", { class: "right" },
         h("span", { class: "chip" }, "공정 안 ", h("b", null, pctAbs(inFlow, 1))),
@@ -760,7 +760,7 @@ function trRenderMine() {
       h("thead", null, h("tr", null, h("th", null, "종목"), h("th", { class: "r" }, "비중"), h("th", null, "방문지"),
         h("th", null, "사업 분야"), h("th", null, "하는 일"), h("th", null, "연결 관계"))),
       h("tbody", null, body)))
-      : h("p", { class: "muted" }, key === "mine" ? "기록된 보유 종목이 없습니다. 주문 데스크에서 매매 내역을 기록하세요." : "표시할 보유 종목이 없습니다."));
+      : h("p", { class: "muted" }, key === "mine" ? "기록된 보유 종목이 없습니다. ‘내 계좌·주문’에서 매매 내역을 기록하세요." : "표시할 보유 종목이 없습니다."));
 }
 
 function trRenderNotes() {
@@ -770,7 +770,7 @@ function trRenderNotes() {
     "각 기업은 주요 역할을 맡는 방문지에 배치하고, 다른 역할은 기업 소개의 ‘다른 단계에서의 역할’로 연결합니다. ",
     "‘병목’은 공급이 수요를 따라가기 어려운 분야, ‘독점·선두·추격’은 경쟁 구도에서의 위치입니다. ★는 분야별 대표 기업이며, 주가 강세를 나타내는 거인의 어깨의 ◆와 구분합니다.", h("br"),
     h("b", null, "자료 출처"), ` — 공급망 배치와 계약·투자 관계는 회사 발표와 주요 언론 보도를 정리한 것입니다. 각 항목의 ‘출처’에서 확인할 수 있습니다. ‘의향서(LOI)’와 ‘언론 보도’는 계약 확정을 뜻하지 않습니다. 지도 기준일 ${m.as_of}. `,
-    `보유 비중은 검증한 펀드 PDF(${["TIME", "KoAct"].filter((k) => d.funds[k]).map((k) => `${k} ${d.funds[k].date}`).join(" · ")})를 사용합니다. 7종목·내 보유·수익률 순위는 주문 데스크와 같은 자료입니다. 보유 표시는 매수 추천이 아닙니다.`);
+    `보유 비중은 검증한 펀드 PDF(${["TIME", "KoAct"].filter((k) => d.funds[k]).map((k) => `${k} ${d.funds[k].date}`).join(" · ")})를 사용합니다. 7종목·내 보유·수익률 순위는 ‘내 계좌·주문’과 같은 자료입니다. 보유 표시는 매수 추천이 아닙니다.`);
 }
 
 /* ----------------------------------------------------------------- tooltip */

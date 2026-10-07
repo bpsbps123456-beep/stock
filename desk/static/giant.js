@@ -10,7 +10,7 @@ const GI = { data: null, loading: null, lens: "since_low", level: "tour", sel: n
   sort: null, starsAll: false, ready: false };
 const GI_BUY = new Set(["매수", "신규"]);
 const GI_SELL = new Set(["매도", "편출"]);
-const GI_CHECKS = ["기존 분야 강세", "기존 분야 내 상위권", "전고점 근접", "상승일 거래량 우세"];
+const GI_CHECKS = ["대표 분야 강세", "대표 분야 내 상위권", "전고점 근접", "상승일 거래량 우세"];
 
 const giPct = (v, d = 0) => (v == null ? "—" : `${v > 0 ? "+" : ""}${v.toFixed(d)}%`);
 const giDir = (v) => (v == null || v === 0 ? "" : v > 0 ? "up" : "down");
@@ -152,7 +152,7 @@ function giStockUniverse() {
 const giStockRows = () => giStockUniverse().filter((s) => giMatchesGrade(s, GI.stockGrade)
   && `${s.name} ${s.symbol}`.toLocaleLowerCase().includes(GI.stockQuery.trim().toLocaleLowerCase()));
 function giStockScopeLabel() {
-  const scope = GI.stockScope === "all" ? "AI 전체 분야" : GI.stockScope === "fields" ? "표시 분야 전체" : giSelected().row.label;
+  const scope = GI.stockScope === "all" ? "전체 AI 종목" : GI.stockScope === "fields" ? "표시된 모든 분야" : giSelected().row.label;
   return scope + (GI.stockGrade === "all" ? "" : ` · ${GI.stockGrade === "none" ? "등급 미산정" : GI.stockGrade + "등급 종목"}`);
 }
 function giSelect(key, scroll) {
@@ -177,7 +177,7 @@ function giRender() {
     mount(root,
       h("section", { class: "gi-head", id: "gi-head" }),
       sectionNav("거인의 어깨 바로가기", [["gi-kpis", "시장 요약"], ["gi-stars", "주도주 후보"],
-        ["gi-sectors", "세부 분야"], ["gi-members", "종목 비교"], ["gi-whale", "큰손 매매"], ["gi-charts", "비교 차트"]]),
+        ["gi-sectors", "세부 분야"], ["gi-members", "종목 비교"], ["gi-whale", "펀드·투자자 수급"], ["gi-charts", "비교 차트"]]),
       h("section", { class: "gi-kpis", id: "gi-kpis", "aria-label": "기준 구간 요약" }),
       h("section", { class: "card gi-stars", id: "gi-stars" }),
       h("div", { class: "gi-explorer" },
@@ -198,10 +198,10 @@ function giRenderHead() {
   const d = GI.data, a = d.anchor;
   mount($("#gi-head"),
     h("div", { class: "gi-title" },
-      h("div", { class: "eyebrow" }, `AI 주도주·큰손 수급 · 시세 기준 ${md(a.last_date)} · 계산 ${d.computed_at.slice(5, 16).replace("T", " ")} (한국시간)`),
+      h("div", { class: "eyebrow" }, `AI 섹터·주도주 분석 · 시세 기준 ${md(a.last_date)} · 분석 갱신 ${d.computed_at.slice(5, 16).replace("T", " ")} (한국시간)`),
       h("h1", {}, "거인의 어깨 ", h("span", {}, `AI ${d.universe.n}종목의 강세와 수급 흐름`)),
       h("p", { class: "gi-lede" },
-        "분야를 고른 뒤 종목의 회복 등급과 수급을 비교하세요. ‘AI 전체’에서는 모든 분야의 S등급 종목을 함께 볼 수 있습니다.")),
+        "분야를 고른 뒤 종목의 회복 등급과 수급을 비교하세요. ‘전체 AI 종목’에서는 모든 분야의 S등급 종목을 함께 볼 수 있습니다.")),
     h("div", { class: "gi-controls", id: "gi-controls" }));
   giRenderControls();
 }
@@ -212,10 +212,10 @@ function giRenderControls() {
       GI.lens = k; GI.sort = null;
       giRenderControls(); giRenderStars(); giRenderSectors(); giRenderCharts(); giRenderMembers(); giRenderWhale();
     }),
-    giSegment("섹터 구분", [
-      ...(GI.data.tour_sectors?.length ? [["tour", `탐방 세부 분야 ${GI.data.tour_sectors.length}`]] : []),
-      ["sub", `기존 세부 분야 ${GI.data.groups.reduce((n, g) => n + g.subs.length, 0)}`],
-      ["group", `대분류 ${GI.data.groups.length}`],
+    giSegment("분류 기준", [
+      ...(GI.data.tour_sectors?.length ? [["tour", `사업 분야 ${GI.data.tour_sectors.length}`, "AI 산업 지도의 사업 역할로 나눕니다. CPU·GPU처럼 같은 회사가 여러 분야에 속할 수 있습니다."]] : []),
+      ["sub", `대표 사업 분류 ${GI.data.groups.reduce((n, g) => n + g.subs.length, 0)}`, "회사별 대표 사업 한 곳으로 분류합니다. ◆ 주도주 후보의 비교 기준입니다."],
+      ["group", `산업 대분류 ${GI.data.groups.length}`, "칩·메모리·전력 등 큰 산업 단위로 비교합니다."],
     ], GI.level, (k) => {
       if (k === GI.level) return;
       const members = new Set(giSelected().row.members);
@@ -227,7 +227,7 @@ function giRenderControls() {
     }),
     h("button", { class: "btn", title: "최신 가격·실적·수급을 불러와 다시 계산합니다(약 30~60초)", onclick: (e) => {
       e.currentTarget.disabled = true; giLoad(true);
-    } }, "↻ 다시 계산"));
+    } }, "↻ 분석 갱신"));
 }
 
 function giRenderKpis() {
@@ -239,8 +239,8 @@ function giRenderKpis() {
   mount($("#gi-kpis"),
     tile(`${a.index} 급락기 수익률`, giPct(a.crash, 1), `${md(a.peak_date)} → ${md(a.low_date)}`, giDir(a.crash)),
     tile(`${a.index} 저점 이후 수익률`, giPct(a.since_low, 1), `${md(a.low_date)} → ${md(a.last_date)} · 급락 전 대비 ${giPct(a.vs_peak, 1)}`, giDir(a.since_low)),
-    tile("AI 전체 중앙값", giPct(d.universe.since_low, 1), `저점 이후 · 급락 전 대비 ${giPct(d.universe.cycle, 1)}`, giDir(d.universe.since_low)),
-    tile("◆ 네 조건을 모두 충족", `${stars}종목`, "기존 분야 강세·상위권·전고점 근접·거래량"),
+    tile("AI 종목 저점 이후 수익률", giPct(d.universe.since_low, 1), `중앙값 · 급락 전 대비 ${giPct(d.universe.cycle, 1)}`, giDir(d.universe.since_low)),
+    tile("◆ 주도주 후보", `${stars}종목`, "4개 기준 충족 · 대표 분야 강세·순위·전고점·거래량"),
     giBreadthTile(d.breadth));
 }
 
@@ -252,13 +252,13 @@ function giBreadthTile(b) {
   const lo = Math.min(...vals, c.split), hi = Math.max(...vals, c.split);
   const X = (i) => (i / Math.max(1, vals.length - 1)) * (W - 4) + 2, Y = (v) => H - 2 - ((v - lo) / (hi - lo || 1)) * (H - 4);
   const spark = svg("svg", { viewBox: `0 0 ${W} ${H}`, class: "gi-spark", role: "img",
-    "aria-label": `최근 1년 시장 폭, 지금 ${b.now}%, 기준선 ${c.split}%` });
+    "aria-label": `최근 1년 전고점 근접 비율, 지금 ${b.now}%, 기준선 ${c.split}%` });
   svg("line", { x1: 0, x2: W, y1: Y(c.split), y2: Y(c.split), class: "gi-spark-ref" }, spark);
   svg("polyline", { points: vals.map((v, i) => `${X(i).toFixed(1)},${Y(v).toFixed(1)}`).join(" "), class: "gi-spark-line" }, spark);
   svg("circle", { cx: X(vals.length - 1), cy: Y(vals[vals.length - 1]), r: 3, class: "gi-spark-dot" }, spark);
   return h("div", { class: "gi-kpi gi-breadth", title:
       `${c.period} 주간 재현 검증(${c.dates}개 시점): 시장 폭이 ${c.split}% 이상일 때 ◆ 종목의 20거래일 초과수익은 평균 ${c.wide_excess > 0 ? "+" : ""}${c.wide_excess}%p(적중 ${c.wide_hit}%), 미만일 때 ${c.narrow_excess}%p(적중 ${c.narrow_hit}%)였습니다.` },
-    h("div", { class: "gi-kpi-label" }, "시장 폭"),
+    h("div", { class: "gi-kpi-label" }, "전고점 근접 비율"),
     h("div", { class: "gi-kpi-value" }, `${b.now.toFixed(0)}%`, spark),
     h("div", { class: "gi-kpi-sub" }, `AI 종목 중 전고점 -10% 이내 · 1년 중앙값 ${b.median_1y.toFixed(0)}%`),
     h("div", { class: `gi-regime ${edge ? "edge" : wide ? "wide" : "narrow"}` },
@@ -294,9 +294,9 @@ function giRenderStars() {
       : giHoldNote(d),
     d.anchor.age != null && d.anchor.age <= d.rules.fresh_low_days && list.length
       ? h("p", { class: "gi-hold" }, `≈ 기준 저점이 ${d.anchor.age}거래일 전이라 ‘저점 이후’ 순위가 아직 짧습니다. 지금 후보는 참고만 하세요.`) : null,
-    h("p", { class: "gi-foot" }, "선정 조건(기존 대표 소분류 기준): ① 분야의 저점 이후 수익률 중앙값이 AI 전체보다 높음 ② 같은 분야에서 저점 이후 수익률 상위 ",
+    h("p", { class: "gi-foot" }, "선정 조건(대표 사업 분류 기준): ① 분야의 저점 이후 수익률 중앙값이 AI 전체보다 높음 ② 같은 분야에서 저점 이후 수익률 상위 ",
       String(d.rules.leaders_per_sub), "위 이내 ③ 전고점 대비 하락폭 ", String(d.rules.near_high_pct), "% 이내 ④ 최근 ",
-      String(d.rules.ud_days), "거래일의 상승일 거래량 합계가 하락일 이상. 2026년 재현 검증 결과는 ‘시장 폭’ 칸과 아래 설명에 있습니다."));
+      String(d.rules.ud_days), "거래일의 상승일 거래량 합계가 하락일 이상. 2026년 재현 검증 결과는 상단의 ‘전고점 근접 비율’과 아래 설명에 있습니다."));
 }
 
 /* ◆가 비는 때(대개 지수가 막 바닥을 만든 때)의 보류 안내. 근거 수치는 giant.py HOLD_CHECK. */
@@ -330,11 +330,11 @@ function giRenderSectors() {
       h("div", { class: "right" },
         h("button", { class: "linkbtn", "aria-pressed": String(GI.sectorDetails), onclick: () => {
           GI.sectorDetails = !GI.sectorDetails; giRenderSectors();
-        } }, GI.sectorDetails ? "기본 지표 보기" : "시장 폭·실적 지표 보기"),
+        } }, GI.sectorDetails ? "기본 지표 보기" : "전고점·50일선·실적 보기"),
         h("button", { class: "btn primary", onclick: () => {
         GI.stockScope = "all"; GI.stockGrade = "S"; GI.stockQuery = ""; GI.sort = null;
         giRenderMembers(); giRenderCharts(); jumpTo("gi-members");
-      } }, "전체 분야 S종목 보기"))),
+      } }, "전체 S등급 종목 보기"))),
     h("div", { class: "gi-filters" },
       giSearch("gi-sector-search", "분야 찾기", "CPU, 메모리, 냉각…", GI.sectorQuery, (query) => {
         GI.sectorQuery = query; giEnsureSelection(); GI.sort = null;
@@ -349,13 +349,13 @@ function giRenderSectors() {
       : "검색어와 등급에 맞는 분야가 없습니다"),
     h("div", { class: "gi-scroll" }, h("table", { class: "gi-table gi-sector-table" + (GI.sectorDetails ? " details" : "") },
       h("thead", {}, h("tr", {},
-        h("th", {}, "섹터"), h("th", { class: "r", title: "급락 직전 전고점 -15% 안이었고 그 급락에서 15% 넘게 빠진 종목이 빠진 폭 중 되찾은 비율(중앙값)" }, "회복 등급"),
+        h("th", {}, "분야"), h("th", { class: "r", title: "급락 직전 전고점 -15% 안이었고 그 급락에서 15% 넘게 빠진 종목이 빠진 폭 중 되찾은 비율(중앙값)" }, "회복 등급"),
         h("th", { class: "r" }, "종목 수"),
         cols.map(([k, t]) => h("th", { class: "r" + (k === GI.lens ? " lens" : ""), title: giLensLabel(k) }, t)),
         h("th", { class: "r", title: "전고점 대비 하락폭이 10% 이내인 종목의 비율" }, "전고점 근접 비율"),
         h("th", { class: "r", title: "종가가 50일 이동평균보다 높은 종목의 비율" }, "50일선 위 비율"),
         h("th", { class: "r", title: "최근 분기 매출 증가율(전년 대비)의 중앙값" }, "매출 증가율"),
-        h("th", { title: "선택한 섹터에서 저점 이후 수익률이 가장 높은 종목" }, "주가 선두"))),
+        h("th", { title: "이 분야에서 기준 저점일 이후 주가 수익률이 가장 높은 종목입니다. 위 비교 기간을 바꿔도 이 열의 기준은 저점 이후입니다." }, "저점 이후 1위"))),
       h("tbody", {},
         h("tr", { class: "gi-base" }, h("td", {}, "AI 전체"), d.rules.grades ? giGradeCell(u, d.rules) : h("td", {}),
           h("td", { class: "r" }, String(u.n)),
@@ -376,7 +376,7 @@ function giRenderSectors() {
           h("td", {}, d.stocks[r.leader] ? d.stocks[r.leader].name : r.leader))),
         !rows.length ? h("tr", {}, h("td", { colspan: "11", class: "gi-empty" }, "검색어와 등급에 맞는 분야가 없습니다. 검색어를 지우거나 다른 등급을 선택하세요.")) : null))),
     h("p", { class: "gi-foot" }, GI.level === "tour"
-      ? `AI 탐방(${d.tour_as_of})의 사업 역할로 나눴습니다. CPU·GPU처럼 역할이 겹치는 회사는 여러 분야에 표시됩니다. 분야 수익률은 해당 회사들의 주가 중앙값이며, 해당 제품 사업만의 수익률은 아닙니다. `
+      ? `AI 산업 지도(${d.tour_as_of})의 사업 역할로 나눴습니다. CPU·GPU처럼 역할이 겹치는 회사는 여러 분야에 표시됩니다. 분야 수익률은 해당 회사들의 주가 중앙값이며, 해당 제품 사업만의 수익률은 아닙니다. `
       : "대표 사업으로 묶은 분류입니다. ",
       `회복 등급은 급락을 맞은 ${d.rules.grade_min}종목 이상일 때 계산합니다. ‘미산정’은 D등급과 다릅니다. 배경색은 AI 전체 중앙값과의 차이입니다.`));
   const nextScroll = $("#gi-sectors .gi-scroll");
@@ -406,7 +406,7 @@ function giScatter(opts) {
   const padX = (x1 - x0) * 0.06 || 1, padY = (y1 - y0) * 0.08 || 1;
   const X = giScale(x0 - padX, x1 + padX, M.l, W - M.r), Y = giScale(y0 - padY, y1 + padY, H - M.b, M.t);
   const clampX = (v) => Math.min(W - M.r, Math.max(M.l, X(v))), clampY = (v) => Math.min(H - M.b, Math.max(M.t, Y(v)));
-  const root = svg("svg", { viewBox: `0 0 ${W} ${H}`, class: "gi-plot", role: "img", "aria-label": `${opts.title}. 값은 아래 종목 표에 있습니다.` });
+  const root = svg("svg", { viewBox: `0 0 ${W} ${H}`, class: "gi-plot", role: "img", "aria-label": `${opts.title}. 값은 종목 비교 표에서 확인할 수 있습니다.` });
   const grid = svg("g", { class: "gi-grid-lines" }, root);
   (opts.xTicks || giTicks(x0 - padX, x1 + padX)).forEach((t) => {
     const x = X(t);
@@ -569,7 +569,7 @@ function giRenderMembers() {
     ["checks", "조건 충족", ""], ["name", "종목", ""], ["recovery", "종목 회복 등급", "r"],
     ["since_low", "저점 이후", "r"], ["crash", "급락기", "r"],
     ["cycle", "급락 전 대비", "r"], ["r1m", "1개월", "r"], ["gap_pct", "전고점 대비", "r"],
-    ["mcap_usd", "시총", "r"], ["impact", "1억 달러당 변동", "r"], ["ud", "상승/하락 거래량", "r"],
+    ["mcap_usd", "시가총액", "r"], ["impact", "1억 달러당 변동", "r"], ["ud", "상승/하락 거래량 비율", "r"],
     [null, "펀드 실매매", ""], [null, "국내 수급·미국 공매도", ""], ["rev_growth", "매출 증가율", "r"],
     ["op_margin", "영업이익률", "r"], ["fwd_pe", "선행 PER", "r"], [null, "근거", ""],
   ];
@@ -592,8 +592,8 @@ function giRenderMembers() {
       h("h2", {}, "종목 비교"),
       h("span", { class: "sub gi-scope" }, `${giStockScopeLabel()} · ${list.length}/${giStockUniverse().length}종목`)),
     h("div", { class: "gi-filters" },
-      giSegment("종목 비교 범위", [["selected", "선택 분야"], ["fields", "표시 분야 전체", "위 분야 등급 필터에 남은 모든 분야의 종목을 중복 없이 비교합니다."],
-        ["all", "AI 전체", "분야 등급과 관계없이 AI 유니버스 전체에서 종목 등급을 비교합니다."]], GI.stockScope, (scope) => {
+      giSegment("종목 비교 범위", [["selected", "선택한 분야"], ["fields", "표시된 모든 분야", "분야 검색·등급 필터에 남은 모든 분야의 종목을 중복 없이 비교합니다."],
+        ["all", "전체 AI 종목", "분야 필터와 관계없이 AI 분석 대상 전체에서 종목 등급을 비교합니다."]], GI.stockScope, (scope) => {
         GI.stockScope = scope; GI.sort = null; giRenderMembers(); giRenderCharts();
       }),
       giSegment("종목 회복 등급", giGradeOptions(giStockUniverse()), GI.stockGrade, (grade) => {
@@ -642,7 +642,7 @@ function giRenderMembers() {
         ];
         return h("tr", { class: s.star ? "star" : "" }, indices.map((i) => cells[i]));
       }),
-        !list.length ? h("tr", {}, h("td", { colspan: String(cols.length), class: "gi-empty" }, "검색어와 등급에 맞는 종목이 없습니다. 검색어를 지우거나 ‘AI 전체’와 다른 등급을 선택하세요.")) : null))),
+        !list.length ? h("tr", {}, h("td", { colspan: String(cols.length), class: "gi-empty" }, "검색어와 등급에 맞는 종목이 없습니다. 검색어를 지우거나 ‘전체 AI 종목’과 다른 등급을 선택하세요.")) : null))),
     h("p", { class: "gi-foot" }, `종목 등급은 각 회사의 회복률로 따로 계산하므로 분야 등급과 다를 수 있습니다. 분야가 겹쳐도 이 목록에서는 회사당 한 번만 표시합니다. S등급은 급락에서 빠진 폭의 ${d.rules.grades.find(([g]) => g === "S")[1]}% 이상을 되찾았다는 뜻이며, 향후 수익률 순위는 아닙니다.`));
 }
 
@@ -658,11 +658,11 @@ function giRenderWhale() {
   const sw = d.short_window;
   mount($("#gi-whale"),
     h("header", {},
-      h("h2", {}, "큰손의 매매 흐름"),
+      h("h2", {}, "펀드 매매·투자자 수급"),
       h("span", { class: "sub" }, `펀드 실매매 건수 · TIME 기준 기간: 저점 이후 ${win("TIME_since_low")} / 최근 20일 ${win("TIME_d20")}${sw ? ` · 미국 공매도 ${md(sw[0])}→${md(sw[1])}` : ""}`)),
     h("div", { class: "gi-scroll" }, h("table", { class: "gi-table" },
       h("thead", {}, h("tr", {},
-        h("th", {}, "섹터"), h("th", { class: "r" }, "펀드 저점 이후"), h("th", { class: "r" }, "펀드 최근 20일"),
+        h("th", {}, "분야"), h("th", { class: "r" }, "펀드 저점 이후"), h("th", { class: "r" }, "펀드 최근 20일"),
         h("th", { class: "r" }, "국내 외국인"), h("th", { class: "r" }, "국내 기관"), h("th", { class: "r" }, "국내 개인"),
         h("th", { class: "r" }, "국내 종목"), h("th", { class: "r" }, "미국 공매도 환매"), h("th", { class: "r" }, "미국 종목"))),
       h("tbody", {}, rows.map((r) => h("tr", {
@@ -686,12 +686,12 @@ function giRenderNotes() {
   mount($("#gi-notes"),
     h("p", {}, `비교 기준은 ${a.index}의 최근 ${d.rules.anchor_lookback}거래일 중 하락폭이 가장 컸던 구간(${md(a.peak_date)} 고점 → ${md(a.low_date)} 저점)입니다. 모든 종목을 이 날짜에 맞춰 비교하며, 아시아 종목은 해당 날짜 또는 직전 거래일 종가를 사용합니다. ‘급락 전 대비’는 기준 고점일의 종가와 비교하고, ‘전고점 대비’는 각 종목의 역대 최고가와 비교합니다.`),
     h("p", {}, "섹터 수익률은 소속 종목의 중앙값입니다. 중앙값은 수치를 순서대로 나열했을 때 가운데에 있는 값으로, 일부 종목의 급등락 영향을 줄입니다. 매출 증가율은 최근 분기를 전년 같은 분기와 비교한 값이며, 선행 PER은 예상 이익 기준 주가수익비율입니다."),
-    d.tour_sectors?.length ? h("p", {}, `탐방 세부 분야는 AI 탐방의 사업 역할을 AI 유니버스 안에서 연결한 ${d.tour_sectors.length}개 비교 단위입니다. 같은 회사가 여러 분야에 들어갈 수 있어 분야별 종목 수·매매 건수를 더해 전체 합계로 읽지 않습니다. ‘AI 전체’ 종목 비교에서는 중복을 없앱니다. ◆ 조건과 위 재현 검증은 기존 대표 소분류를 기준으로 하며 탐방 분야 등급으로 다시 검증한 결과는 아닙니다.`) : null,
+    d.tour_sectors?.length ? h("p", {}, `‘사업 분야’는 AI 산업 지도의 사업 역할을 AI 분석 대상 안에서 연결한 ${d.tour_sectors.length}개 비교 단위입니다. 같은 회사가 여러 분야에 들어갈 수 있어 분야별 종목 수·매매 건수를 더해 전체 합계로 읽지 않습니다. ‘전체 AI 종목’ 비교에서는 중복을 없앱니다. ◆ 조건과 위 재현 검증은 ‘대표 사업 분류’를 기준으로 하며 사업 분야 등급으로 다시 검증한 결과는 아닙니다.`) : null,
     h("p", {}, "가격·실적은 Yahoo Finance, 국내 외국인·기관 매매는 네이버 증권, 펀드 실매매는 검증한 보유 내역 PDF에서 계산합니다. 자료가 없으면 ‘—’로 표시합니다. 국내 수급은 최근 60거래일 안에서 수집하므로 저점이 더 오래전이면 일부 기간만 반영됩니다."),
-    h("p", {}, "◆는 주가·거래량 조건을 충족한 주도주 후보이고, AI 탐방의 ★는 사업 분야별 대표 기업입니다. 이 화면은 매수 추천이나 주문 수량을 제공하지 않습니다."),
+    h("p", {}, "◆는 주가·거래량 조건을 충족한 주도주 후보이고, AI 산업 지도의 ★는 사업 분야별 대표 기업입니다. 이 화면은 매수 추천이나 주문 수량을 제공하지 않습니다."),
     d.breadth ? h("p", {}, `검증(${d.breadth.check.period}, 매주 그 시점 자료로 ◆를 다시 고른 ${d.breadth.check.dates}개 시점): ◆ 종목의 20거래일 수익은 시장 폭이 ${d.breadth.check.split}% 이상일 때 AI 전체보다 평균 +${d.breadth.check.wide_excess}%p(적중 ${d.breadth.check.wide_hit}%), 미만일 때 ${d.breadth.check.narrow_excess}%p(적중 ${d.breadth.check.narrow_hit}%)였습니다. 지수가 바닥을 만드는 날에는 ‘저점 이후’가 모두 0이 되어 ◆가 비고, 급락 직후 반등은 많이 빠진 종목이 이끌었습니다. 시점이 적고 기간이 겹치므로 참고용입니다.`) : null,
     h("p", {}, "국내 수급의 ‘기타 주체’는 개인·외국인·기관 합의 반대편(기타법인·자사주·ADR 원주 전환 등)입니다. 이 값이 크면 외국인 순매도를 큰손의 이탈로만 해석하지 마세요."),
-    d.rules.impact_days ? h("p", {}, `‘시총’은 Yahoo Finance 시가총액을 최근 환율로 달러 환산한 값입니다. ‘1억 달러당 변동’은 최근 ${d.rules.impact_days}거래일 동안 하루 주가 변동폭을 그날 달러 거래대금으로 나눠 1억 달러 기준으로 바꾼 값의 중앙값입니다. 클수록 같은 돈이 들어오거나 나갈 때 주가가 크게 움직입니다. 7월 급락 때 작은 종목은 더 크게 빠졌고 반등도 더 컸습니다. 실제로 1억 달러를 사면 작은 종목은 이보다 훨씬 크게 움직이거나 그만큼 살 수 없으므로 종목끼리 비교하는 데만 쓰세요.`) : null,
+    d.rules.impact_days ? h("p", {}, `‘시가총액’은 Yahoo Finance 시가총액을 최근 환율로 달러 환산한 값입니다. ‘1억 달러당 변동’은 최근 ${d.rules.impact_days}거래일 동안 하루 주가 변동폭을 그날 달러 거래대금으로 나눠 1억 달러 기준으로 바꾼 값의 중앙값입니다. 클수록 같은 돈이 들어오거나 나갈 때 주가가 크게 움직입니다. 7월 급락 때 작은 종목은 더 크게 빠졌고 반등도 더 컸습니다. 실제로 1억 달러를 사면 작은 종목은 이보다 훨씬 크게 움직이거나 그만큼 살 수 없으므로 종목끼리 비교하는 데만 쓰세요.`) : null,
     h("p", {}, "미국 거래소는 개인·기관·외국인별 매매를 공개하지 않습니다. 그래서 공매도 잔고(FINRA, 한 달에 두 번 집계하고 약 2주 뒤 공개)의 한 달 변화를 보여 줍니다. 잔고가 줄면 공매도 세력이 주식을 되사들인 것이고, 늘면 새로 판 것입니다. 기관 보유(13F)는 분기 말 보유를 45일 뒤에 공개하므로 저점 이후 매매를 아직 보여 주지 못해 넣지 않았습니다."));
   let warnings = $("#gi-alerts");
   if (!warnings) {

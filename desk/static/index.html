@@ -15,9 +15,9 @@
   <header class="topbar">
     <div class="brand"><span class="lamp-dot"></span><b>야간 데스크</b><small id="brand-sub">TIME 7종목</small></div>
     <nav class="tabs" role="tablist" aria-label="화면 선택">
-      <a href="#desk" class="tab" role="tab" id="tab-desk" aria-controls="app" aria-selected="true" data-sub="TIME 7종목">주문 데스크</a>
-      <a href="#tour" class="tab" role="tab" id="tab-tour" aria-controls="tour-view" aria-selected="false">AI 탐방</a>
-      <a href="#giant" class="tab" role="tab" id="tab-giant" aria-controls="giant-view" aria-selected="false" data-sub="AI 주도주·큰손 수급">거인의 어깨</a>
+      <a href="#desk" class="tab" role="tab" id="tab-desk" aria-controls="app" aria-selected="true" data-sub="TIME 7종목">내 계좌·주문</a>
+      <a href="#tour" class="tab" role="tab" id="tab-tour" aria-controls="tour-view" aria-selected="false" data-sub="AI 공급망과 대표 기업">AI 산업 지도</a>
+      <a href="#giant" class="tab" role="tab" id="tab-giant" aria-controls="giant-view" aria-selected="false" data-sub="AI 섹터·주도주 분석">거인의 어깨</a>
     </nav>
     <div class="tools">
       <button class="btn ghost" id="btn-theme" aria-label="밝은 화면·어두운 화면 전환">◐</button>
@@ -35,7 +35,7 @@
   <main id="app" class="loading" role="tabpanel" aria-labelledby="tab-desk">
     <section class="page-heading">
       <div><div class="eyebrow">TIME 7종목 · 계좌와 매매 기록</div>
-        <h1>주문 데스크</h1><p>다음 거래일 주문을 확인하고, 내 계좌와 체결 내역을 관리하세요.</p></div>
+        <h1>내 계좌·주문</h1><p>다음 거래일 주문을 확인하고, 내 계좌와 체결 내역을 관리하세요.</p></div>
       <div class="page-meta">
         <div class="desk-actions">
           <button class="btn" id="btn-refresh" title="최신 시세를 불러옵니다">↻ 시세 갱신</button>
@@ -44,13 +44,13 @@
         <div class="chips" id="chips" aria-label="자료 기준과 시장 상태"></div>
       </div>
     </section>
-    <nav class="section-nav" aria-label="주문 데스크 바로가기">
+    <nav class="section-nav" aria-label="내 계좌·주문 바로가기">
       <button type="button" data-jump="ticket">주문·계좌 요약</button>
       <button type="button" data-jump="alloc">비중·순위</button>
       <button type="button" data-jump="model">성과·차트</button>
       <button type="button" data-jump="positions">내 보유 종목</button>
       <button type="button" data-jump="journal">매매 기록</button>
-      <button type="button" data-jump="risk">점검 신호</button>
+      <button type="button" data-jump="risk">투자 점검</button>
     </nav>
     <section id="warnings" class="alerts" aria-live="polite"></section>
 
@@ -63,7 +63,7 @@
           <div id="pos-body"></div>
         </article>
         <section class="card" id="risk">
-          <header><h2>점검 신호</h2><span class="sub">매매 지속 여부와 투자 금액 점검</span></header>
+          <header><h2>투자 점검</h2><span class="sub">매매 지속 여부와 투자 금액 점검</span></header>
           <div class="alerts" id="risk-body"></div>
         </section>
       </aside>
@@ -88,7 +88,7 @@
 
     <section class="card" id="model">
       <header>
-        <h2>7종목 모델과 TIME ETF 수익률</h2><span class="sub" id="model-sub"></span>
+        <h2>7종목 전략 모의 성과와 TIME ETF</h2><span class="sub" id="model-sub"></span>
         <div class="right"><button class="linkbtn" id="model-table">표로 보기</button></div>
       </header>
       <div class="chart" id="model-chart"></div>
@@ -138,38 +138,38 @@
   <main id="tour-view" class="tr-page" role="tabpanel" aria-labelledby="tab-tour" hidden>
     <section class="tr-head">
       <div class="tr-title">
-        <div class="eyebrow">AI 공급망 탐방 · 지도 기준일 <b id="tr-asof">—</b> · 펀드 보유 내역 <b id="tr-pdf">—</b></div>
-        <h1>AI 탐방 <span>전력·소재부터 ChatGPT·Claude까지</span></h1>
+        <div class="eyebrow">AI 공급망과 대표 기업 · 지도 기준일 <b id="tr-asof">—</b> · 펀드 보유 내역 <b id="tr-pdf">—</b></div>
+        <h1>AI 산업 지도 <span>전력·소재부터 ChatGPT·Claude까지</span></h1>
         <p class="tr-lede">공급망에서 방문할 단계를 고르고, 분야별 대표 기업과 보유 종목이 맡는 역할을 확인하세요.</p>
       </div>
       <div class="tr-controls">
         <div class="tr-ctl">
-          <span class="tr-ctl-label">연결 관계</span>
+          <span class="tr-ctl-label">AI 개발사와의 관계</span>
           <div class="seg" id="tr-axis" role="radiogroup" aria-label="OpenAI·Anthropic과 연결된 기업 표시"></div>
         </div>
         <div class="tr-ctl">
-          <span class="tr-ctl-label">보유 표시</span>
+          <span class="tr-ctl-label">강조할 종목</span>
           <div class="seg" id="tr-lens" role="radiogroup" aria-label="표시할 보유 종목"></div>
         </div>
-        <label class="tr-find"><span class="tr-ctl-label">찾기</span>
+        <label class="tr-find"><span class="tr-ctl-label">기업 찾기</span>
           <input type="search" id="tr-find" list="tr-names" placeholder="종목 코드·회사명 (예: NVDA, 하이닉스)" autocomplete="off">
         </label>
         <datalist id="tr-names"></datalist>
       </div>
     </section>
-    <nav class="section-nav" aria-label="AI 탐방 바로가기">
+    <nav class="section-nav" aria-label="AI 산업 지도 바로가기">
       <button type="button" data-jump="tr-flow">공급망 지도</button>
       <button type="button" data-jump="tr-visit">선택한 방문지</button>
       <button type="button" data-jump="tr-leads">분야별 대표 기업</button>
-      <button type="button" data-jump="tr-mine">보유 종목의 자리</button>
+      <button type="button" data-jump="tr-mine">보유 종목의 사업 역할</button>
       <button type="button" data-jump="tr-axes">계약·투자 관계</button>
     </nav>
     <section id="tr-alerts" class="alerts" aria-live="polite"></section>
 
-    <section class="card tr-flow" id="tr-flow" aria-label="AI 공정 흐름도"></section>
+    <section class="card tr-flow" id="tr-flow" aria-label="AI 공급망 한눈에 보기"></section>
     <article class="card tr-visit" id="tr-visit" aria-label="방문 보고서"></article>
     <section class="card tr-leads" id="tr-leads" aria-label="분야별 대표 기업"></section>
-    <section class="card tr-mine" id="tr-mine" aria-label="보유 종목의 자리"></section>
+    <section class="card tr-mine" id="tr-mine" aria-label="보유 종목의 사업 역할"></section>
     <section class="card tr-axes" id="tr-axes"></section>
     <details class="notes-panel"><summary>탐방 읽는 법·자료 출처</summary><footer class="notes" id="tr-notes"></footer></details>
   </main>

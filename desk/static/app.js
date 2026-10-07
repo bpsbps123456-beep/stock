@@ -184,7 +184,7 @@ function orderLine(a, i, hasBook) {
     h("span", { class: `stamp ${buy ? "buy" : "sell"}` }, buy ? "▲ 매수" : "▼ 매도", h("small", null, buy ? "BUY" : "SELL")),
     h("div", null,
       h("div", null, h("span", { class: "o-ticker" }, a.ticker), h("span", { class: "o-name" }, r ? r.name : "")),
-      h("div", { class: "o-why" }, why, r && r.since ? h("span", { class: "muted" }, ` · 모델 편입일 ${md(r.since)}`) : null),
+      h("div", { class: "o-why" }, why, r && r.since ? h("span", { class: "muted" }, ` · 전략 편입일 ${md(r.since)}`) : null),
       h("div", { class: "o-price" }, priceLine(r), ` · 목표 ${pctAbs(a.target_weight, 0)}`)),
     h("div", { class: "o-qty" }, qty));
 }
@@ -272,13 +272,13 @@ function renderTiles() {
     tile(120, "전체 손익 (매도 손익 + 보유 손익)",
       [arw(pnl) + usd(pnl), a.contributed > 0 ? h("small", null, pct(pnl / a.contributed)) : null],
       `매도한 종목 ${usd(a.realized)} · 보유 종목 ${usd(a.unrealized)}`, cls(pnl)),
-    tile(180, [swatch("var(--s-strategy)"), `7종목 모델 · ${md(S.model.start)} 이후 원화`],
+    tile(180, [swatch("var(--s-strategy)"), `7종목 전략 모의 성과 · ${md(S.model.start)} 이후 원화`],
       [pct(st.total), h("small", null, `TIME ETF ${pct(S.model.etf_total)} (${md(S.model.etf_through)}까지)`)],
-      `모델 최대 하락폭 ${pct(st.mdd)} · 과거 자료로 계산한 성과입니다`),
-    tile(240, "모델의 고점 대비 하락폭",
+      `전략 최대 하락폭 ${pct(st.mdd)} · 과거 자료로 계산한 성과입니다`),
+    tile(240, "전략의 고점 대비 하락폭",
       [st.dd_now > -0.0005 ? "고점" : pct(st.dd_now),
        h("small", null, `최근 20거래일 ETF 대비 ${S.model.vs_etf_20d == null ? "—" : pct(S.model.vs_etf_20d) + "p"}`)],
-      "하락폭이 커지면 아래 ‘점검 신호’를 확인하세요"));
+      "하락폭이 커지면 아래 ‘투자 점검’을 확인하세요"));
 }
 
 /* ------------------------------------------------------------- allocation */
@@ -472,7 +472,7 @@ function tableView(host, dates, cols) {
 function renderModel() {
   const ser = S.model.series;
   const series = [
-    { label: "7종목 모델", values: ser.model, color: "var(--s-strategy)" },
+    { label: "7종목 전략(모의)", values: ser.model, color: "var(--s-strategy)" },
     { label: "TIME ETF", values: ser.etf, color: "var(--s-etf)" },
   ];
   $("#model-sub").textContent = `${md(S.model.start)}부터 누적 수익률 · 원화·종가 기준 · ETF는 해당 미국장 이후의 한국 종가로 비교`;
@@ -482,7 +482,7 @@ function renderModel() {
     return;
   }
   lineChart(host, { dates: S.model.dates, series, fmtY: (v) => pct(v / 100 - 1, 0), fmtTip: (v) => pct(v / 100 - 1),
-    endLabels: true, baseline: 100, height: 300, aria: "7종목 모델과 TIME ETF 누적 수익률" });
+    endLabels: true, baseline: 100, height: 300, aria: "7종목 전략 모의 성과와 TIME ETF 누적 수익률" });
 }
 
 function renderPrice() {
@@ -492,7 +492,7 @@ function renderPrice() {
   const tri = (fill, stroke) => { const s = svg("svg", { width: 12, height: 10 }); svg("polygon", { points: "6,1 1,9 11,9", style: `fill:${fill};stroke:${stroke};stroke-width:1.6` }, s); return s; };
   mount($("#price-legend"),
     h("span", null, tri("var(--s-account)", "var(--s-account)"), "내 매수(▲)·매도(▼)"),
-    h("span", null, tri("var(--surface)", "var(--s-strategy)"), "7종목 모델 편입·편출"));
+    h("span", null, tri("var(--surface)", "var(--s-strategy)"), "7종목 전략 편입·편출"));
   const s = S.series[priceTicker];
   if (!s) { mount($("#price-chart"), h("p", { class: "muted" }, "표시할 종목이 없습니다.")); return; }
   $("#price-title").textContent = `${priceTicker} 차트`;
@@ -500,7 +500,7 @@ function renderPrice() {
     const me = mk.kind.startsWith("me_"), buy = mk.kind.endsWith("buy");
     return { date: mk.date, value: mk.price, shape: buy ? "up" : "down",
              fill: me ? "var(--s-account)" : "var(--surface)", stroke: me ? "var(--s-account)" : "var(--s-strategy)",
-             label: `${me ? "내" : "모델"} ${buy ? "매수" : "매도"}${mk.qty ? ` ${qtyFmt(mk.qty)}주` : ""} @ ${usd(mk.price)}` };
+             label: `${me ? "내" : "전략(모의)"} ${buy ? "매수" : "매도"}${mk.qty ? ` ${qtyFmt(mk.qty)}주` : ""} @ ${usd(mk.price)}` };
   });
   lineChart($("#price-chart"), { dates: s.dates, series: [{ label: priceTicker, values: s.close, color: "var(--ink-2)", width: 1.8 }],
     markers, fmtY: (v) => usd(v, v < 20 ? 2 : 0), fmtTip: (v) => usd(v), height: 280, aria: `${priceTicker} 종가와 매매 시점` });
@@ -580,7 +580,7 @@ function renderRisk() {
     const [ico, word] = LV[a.level] || LV.warning;
     return h("div", { class: `alert ${a.level}` }, h("span", { class: "ico", "aria-hidden": "true" }, ico),
       h("div", null, h("div", { class: "t" }, `${word} · ${a.title}`), h("div", { class: "b" }, a.body)));
-  }) : h("p", { class: "muted" }, "지금은 표시할 점검 신호가 없습니다."),
+  }) : h("p", { class: "muted" }, "현재 주의·경고 기준에 해당하는 항목이 없습니다."),
   (S.risk_rules || []).length ? h("div", { class: "rules" }, h("div", { class: "t" }, "매매 지속·투자 금액 점검 기준 · 2026-09-27 확정"),
     h("ol", null, S.risk_rules.map((r) => h("li", null, r)))) : null);
 }
@@ -590,7 +590,7 @@ function renderNotes() {
   mount($("#notes"),
     h("b", null, "운용 규칙"), " — TIME이 보유한 미국 종목의 최근 120거래일 수익률을 기준으로 7종목을 구성합니다. 기존 종목은 12위 이내면 유지하고, 빈자리를 높은 순위부터 채웁니다. 매주 첫 미국 거래일 개장가를 기준으로 조정하며, 기본 비중은 TIME 보유 비중에 비례합니다. ",
     "비중 상한은 한 종목 25%, 같은 섹터 60%, 반도체(미분류 포함) 합계 60%입니다. 배분하고 남은 금액은 현금으로 둡니다. 판단에는 해당 거래일 이전의 PDF와 전일 종가만 사용합니다.", h("br"),
-    h("b", null, `모델 성과 (${md(S.model.start)} 이후, 원화, 수수료 0원, 개장가 체결 가정)`),
+    h("b", null, `전략 모의 성과 (${md(S.model.start)} 이후, 원화, 수수료 0원, 개장가 체결 가정)`),
     ` — 7종목 ${pct(st.total)} (최대 하락폭 ${pct(st.mdd)}), TIME ETF ${pct(S.model.etf_total)}. `,
     "과거 성과가 좋았던 규칙을 801개 중에서 골랐으므로 결과가 유리하게 보일 수 있습니다. 2023~2025년 수익률은 TIME ETF의 0.9~1.1배였습니다. 미래 수익을 보장하지 않습니다.", h("br"),
     h("b", null, "자료 출처"), " — 검증한 TIME 운용사 PDF와 Yahoo Finance 일별·1분 시세를 사용합니다. 장전·장후 시세를 포함하며 지연될 수 있습니다. 주문은 증권사에서 직접 실행하세요. ",
