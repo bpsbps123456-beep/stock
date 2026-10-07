@@ -1,0 +1,51 @@
+{
+  "ticker": "DDOG",
+  "analysis_date": "2026-05-07",
+  "fiscal_period": "FY26 Q1",
+  "price_at_analysis": 144.0,
+  "market_cap_at_analysis": "51.15B",
+  "source_material": "사용자 제공 1Q26 earnings release: 매출 $1,006M (+32% YoY vs $762M, 컨센 $959.6M = +4.9% 비트), Non-GAAP Op Inc $223M (22% margin, vs $167M / 22% margin), GAAP Op Inc $7M (1% margin, vs -$12M), GAAP NI $53M / EPS $0.15, Non-GAAP NI $218M / EPS $0.60 (vs 컨센 $0.51 = +18.3% 비트), OCF $335M, FCF $289M (29% margin vs 32% 1Q25), SBC $197M (19.6% of rev), $100K+ ARR 고객 4,550 (+21% YoY), Cash + 마켓 시큐리티 $4.8B (Net Cash $3.2B), Diluted Shares 364.7M (+0.5% YoY). 가이던스 raise: 2Q26 매출 $1.07-$1.08B (mid +8.3% 컨센 상회), FY26 매출 $4.30-$4.34B (mid $4.32B vs 직전 $4.08B mid = +5.9% raise), FY26 Non-GAAP Op Inc $940-$980M, FY26 Non-GAAP EPS $2.36-$2.44, FY26 diluted shares ~372M. 제품: MCP Server·Bits AI Security Agent·GPU Monitoring·Datadog Experiments GA, FedRAMP High 인증, Sakana AI 파트너십, DASH 2026 6/9-10 예정. 주가 장전 +20~23% 급등 보고됨.",
+  "key_numbers": {
+    "revenue_yoy": 32.2,
+    "revenue_beat_pct": 4.9,
+    "eps_beat_pct": 18.3,
+    "guidance_action": "raise",
+    "guidance_raise_pct": 5.9,
+    "fcf_margin_q": 29.0,
+    "fcf_margin_ttm": 25.67,
+    "rule_of_40_q": 61.0,
+    "sbc_to_revenue": 19.6,
+    "sbc_to_gp": 24.7,
+    "diluted_shares_yoy": 0.5,
+    "100k_arr_customers_yoy": 21,
+    "yoy_growth_streak_quarters": 5
+  },
+  "sn_score": {
+    "total": 28,
+    "breakdown": {
+      "①": 4,
+      "②": 5,
+      "③": 7,
+      "④": 2,
+      "⑤": 6,
+      "⑥": 4
+    },
+    "sub_score_135_sum": 15,
+    "sub_score_135_max": 17
+  },
+  "quant_tier": "대형주 상위 14~16% (알파 성장 — 5분기 연속 monotonic 가속)",
+  "market_reaction_prediction": {
+    "initial": "매우 긍정적",
+    "mid_long_term": "다소 긍정적"
+  },
+  "investment_opinion": "신중한 비중 확대",
+  "key_thesis": "5분기 연속 매출 가속(25→32%) + 가이던스 +5.9% raise는 직전 보수 가이던스의 deliberate sandbagging 증거. AI observability 카테고리 리더로 GPU Monitoring·MCP Server·Bits AI Security GA로 차세대 AI workload 수익화 본격화. ①③⑥ 합산 15/17점으로 단기 주가 반응 강함.",
+  "key_risks": [
+    "Largest AI customer 의존도 — 회사 자체가 가이던스에서 인지한 단일 리스크",
+    "Forward PER 60x (장전 +20% 후 가격 기준) — valuation re-rating 부담",
+    "SBC 19.6% / GP 24.7% — [Op Inc - SBC] = -$190M, ④ B+ 머무름. 누적 희석 압력",
+    "FCF margin 둔화 (32% → 29%) — capex/capitalized software 사이클 일시 압축",
+    "GAAP Op Margin 1% — SBC 빼면 거의 break-even, GAAP 기준 실적 강도 의문"
+  ],
+  "verification": null
+}

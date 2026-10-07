@@ -1,0 +1,32 @@
+{
+  "analyst": "catone",
+  "published": "2026-06-26",
+  "date_precision": "day",
+  "target": "^SOX",
+  "direction": "bearish",
+  "relative": false,
+  "horizon": "months",
+  "scoreable": true,
+  "thesis": "본인이 AI·반도체 익스포저 축소를 명시. 대체처: MCD, SPGI, NFLX, 에르메스, 페라리, BKNG, ACN",
+  "action_condition": "AI·반도체 비중 축소 (본인 실행)",
+  "levels": null,
+  "invalidation": null,
+  "source": "user_provided_summary",
+  "verification": {
+    "status": "partial",
+    "entry_date": "2026-06-26",
+    "entry_close": 13203.57,
+    "d5": {
+      "target_pct": -2.3,
+      "bench_pct": 2.49,
+      "excess_pct": -4.79
+    },
+    "d20": null,
+    "mfe_pct": 11.59,
+    "mae_pct": 7.9,
+    "missed_upside_pct": 7.9,
+    "hit_20d": null,
+    "flag": null,
+    "verified_at": "2026-07-18"
+  }
+}

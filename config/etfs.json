@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "observation_primary": "time",
+  "funds": {
+    "time": {
+      "aliases": ["time", "456600"],
+      "display_name": "TIME 글로벌AI인공지능액티브",
+      "snapshot_ticker": "456600",
+      "listing_ticker": "456600.KS",
+      "provider": "time",
+      "provider_id": "6",
+      "source_url": "https://timeetf.co.kr/m11_view.php"
+    },
+    "koact": {
+      "aliases": ["koact", "samsung", "2etfq1", "koact-growth"],
+      "display_name": "KoAct 미국나스닥성장기업액티브",
+      "snapshot_ticker": "2ETFQ1",
+      "listing_ticker": "0015B0.KS",
+      "provider": "samsung_koact",
+      "provider_id": "2ETFQ1",
+      "source_url": "https://www.samsungactive.co.kr"
+    }
+  }
+}

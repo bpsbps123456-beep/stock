@@ -1,0 +1,931 @@
+{
+  "date": "2026-05-07",
+  "scan_time": "2026-05-07 21:39",
+  "rankings": [
+    {
+      "rank": 1,
+      "group": "profit",
+      "ticker": "MSFT",
+      "price": 413.96,
+      "score": 66,
+      "flow_type": "강세 방향성",
+      "cap_label": "대형",
+      "factors": {
+        "pc_ratio": 0.3767222729124704,
+        "hot_dollar": 14914591.0,
+        "opt_intensity": 0.006939128453865725,
+        "iv_skew": 0.0,
+        "term_structure": 0.25095878234642,
+        "ret_5d": -0.035620287815776086,
+        "etf_diff_1w": -0.7000000000000001
+      },
+      "forward_returns": {
+        "1d": -0.01343,
+        "3d": -0.0309,
+        "5d": -0.02695
+      },
+      "hot_dollar_streak": false,
+      "etf_adjustment": -10
+    },
+    {
+      "rank": 2,
+      "group": "profit",
+      "ticker": "ORCL",
+      "price": 194.03,
+      "score": 66,
+      "flow_type": "강세 방향성",
+      "cap_label": "대형",
+      "factors": {
+        "pc_ratio": 0.30651838942958554,
+        "hot_dollar": 38668487.0,
+        "opt_intensity": 0.009217391545951855,
+        "iv_skew": 0.062499374999999996,
+        "term_structure": 0.25047969779039203,
+        "ret_5d": 0.16913708682734252,
+        "etf_diff_1w": null
+      },
+      "forward_returns": {
+        "1d": 0.00699,
+        "3d": -0.03988,
+        "5d": 0.00524
+      },
+      "hot_dollar_streak": false,
+      "etf_adjustment": 0
+    },
+    {
+      "rank": 3,
+      "group": "profit",
+      "ticker": "GLW",
+      "price": 181.57,
+      "score": 65,
+      "flow_type": "강세 방향성",
+      "cap_label": "대형",
+      "factors": {
+        "pc_ratio": 0.5303299743133768,
+        "hot_dollar": 12213094.0,
+        "opt_intensity": 0.00858184446418004,
+        "iv_skew": null,
+        "term_structure": 0.0006395970538560707,
+        "ret_5d": 0.18634435611749822,
+        "etf_diff_1w": null
+      },
+      "forward_returns": {
+        "1d": 0.02489,
+        "3d": 0.08684,
+        "5d": 0.14189
+      },
+      "hot_dollar_streak": false,
+      "etf_adjustment": 0
+    },
+    {
+      "rank": 4,
+      "group": "profit",
+      "ticker": "AMZN",
+      "price": 274.99,
+      "score": 63,
+      "flow_type": "강세 방향성",
+      "cap_label": "대형",
+      "factors": {
+        "pc_ratio": 0.41023002136696324,
+        "hot_dollar": 78755465.0,
+        "opt_intensity": 0.005377645087416964,
+        "iv_skew": 0.062499374999999996,
+        "term_structure": 0.14256053583152864,
+        "ret_5d": 0.05887553834673942,
+        "etf_diff_1w": -0.43999999999999995
+      },
+      "forward_returns": {
+        "1d": 0.00557,
+        "3d": -0.01973,
+        "5d": -0.01457
+      },
+      "hot_dollar_streak": false,
+      "etf_adjustment": -10
+    },
+    {
+      "rank": 5,
+      "group": "profit",
+      "ticker": "NVDA",
+      "price": 207.83,
+      "score": 60,
+      "flow_type": "강세 방향성",
+      "cap_label": "대형",
+      "factors": {
+        "pc_ratio": 0.27700909941571306,
+        "hot_dollar": 248417006.0,
+        "opt_intensity": 0.01269906970930022,
+        "iv_skew": 0.031249687499999998,
+        "term_structure": 782.2421874999999,
+        "ret_5d": -0.025050412270766542,
+        "etf_diff_1w": -1.6799999999999997
+      },
+      "forward_returns": {
+        "1d": 0.01749,
+        "3d": 0.04388,
+        "5d": 0.11461
+      },
+      "hot_dollar_streak": true,
+      "etf_adjustment": -10
+    },
+    {
+      "rank": 6,
+      "group": "profit",
+      "ticker": "AAPL",
+      "price": 287.51,
+      "score": 58,
+      "flow_type": "강세 방향성",
+      "cap_label": "대형",
+      "factors": {
+        "pc_ratio": 0.34820858828941575,
+        "hot_dollar": 44912055.0,
+        "opt_intensity": 0.01232279392589265,
+        "iv_skew": 0.031249687499999998,
+        "term_structure": 782.2421874999999,
+        "ret_5d": 0.06205909955611921,
+        "etf_diff_1w": null
+      },
+      "forward_returns": {
+        "1d": 0.02046,
+        "3d": 0.02655,
+        "5d": 0.03842
+      },
+      "hot_dollar_streak": false,
+      "etf_adjustment": 0
+    },
+    {
+      "rank": 7,
+      "group": "profit",
+      "ticker": "GOOGL",
+      "price": 398.04,
+      "score": 58,
+      "flow_type": "강세 방향성",
+      "cap_label": "대형",
+      "factors": {
+        "pc_ratio": 0.3457663518933771,
+        "hot_dollar": 55317851.0,
+        "opt_intensity": 0.009716594310516524,
+        "iv_skew": 0.046874531250000004,
+        "term_structure": 391.62109374999994,
+        "ret_5d": 0.1379724682201624,
+        "etf_diff_1w": null
+      },
+      "forward_returns": {
+        "1d": 0.00706,
+        "3d": -0.02673,
+        "5d": 0.00774
+      },
+      "hot_dollar_streak": false,
+      "etf_adjustment": 0
+    },
+    {
+      "rank": 8,
+      "group": "profit",
+      "ticker": "AVGO",
+      "price": 425.44,
+      "score": 48,
+      "flow_type": "혼조",
+      "cap_label": "대형",
+      "factors": {
+        "pc_ratio": 0.9942161395494483,
+        "hot_dollar": 5669274.0,
+        "opt_intensity": 0.0044789551289071035,
+        "iv_skew": -0.1886577813720704,
+        "term_structure": 1.0,
+        "ret_5d": 0.06405226403525854,
+        "etf_diff_1w": -0.15999999999999992
+      },
+      "forward_returns": {
+        "1d": 0.04227,
+        "3d": 0.01634,
+        "5d": 0.066
+      },
+      "hot_dollar_streak": false,
+      "etf_adjustment": 0
+    },
+    {
+      "rank": 9,
+      "group": "profit",
+      "ticker": "AMD",
+      "price": 421.39,
+      "score": 46,
+      "flow_type": "이벤트 변동성",
+      "cap_label": "대형",
+      "factors": {
+        "pc_ratio": 0.8143249707299605,
+        "hot_dollar": 175601265.0,
+        "opt_intensity": 0.02564002250117977,
+        "iv_skew": 0.0,
+        "term_structure": 0.0012783764618933956,
+        "ret_5d": 0.3037654335850106,
+        "etf_diff_1w": -0.1499999999999999
+      },
+      "forward_returns": {
+        "1d": 0.11441,
+        "3d": 0.09751,
+        "5d": 0.10096
+      },
+      "hot_dollar_streak": true,
+      "etf_adjustment": 0
+    },
+    {
+      "rank": 10,
+      "group": "profit",
+      "ticker": "MRVL",
+      "price": 172.15,
+      "score": 45,
+      "flow_type": "헤지+콜 유입",
+      "cap_label": "대형",
+      "factors": {
+        "pc_ratio": 0.6393923959612907,
+        "hot_dollar": 3722433.0,
+        "opt_intensity": 0.0023967672595232273,
+        "iv_skew": 0.04687953125000001,
+        "term_structure": 0.0012783764618933956,
+        "ret_5d": 0.12347450692739881,
+        "etf_diff_1w": null
+      },
+      "forward_returns": {
+        "1d": 0.06325,
+        "3d": 0.02806,
+        "5d": 0.14105
+      },
+      "hot_dollar_streak": false,
+      "etf_adjustment": 0
+    },
+    {
+      "rank": 11,
+      "group": "profit",
+      "ticker": "META",
+      "price": 612.88,
+      "score": 44,
+      "flow_type": "강세 방향성",
+      "cap_label": "대형",
+      "factors": {
+        "pc_ratio": 0.5073930692545836,
+        "hot_dollar": 21184699.0,
+        "opt_intensity": 0.016628201111294358,
+        "iv_skew": 0.0,
+        "term_structure": 391.62109374999994,
+        "ret_5d": -0.08707960144500959,
+        "etf_diff_1w": -0.94
+      },
+      "forward_returns": {
+        "1d": -0.01164,
+        "3d": -0.02239,
+        "5d": 0.00263
+      },
+      "hot_dollar_streak": false,
+      "etf_adjustment": -10
+    },
+    {
+      "rank": 12,
+      "group": "profit",
+      "ticker": "LRCX",
+      "price": 297.17,
+      "score": 44,
+      "flow_type": "이벤트 변동성",
+      "cap_label": "대형",
+      "factors": {
+        "pc_ratio": 0.9472064094454986,
+        "hot_dollar": 8347694.0,
+        "opt_intensity": 0.004623758174784027,
+        "iv_skew": null,
+        "term_structure": 0.0025534886040596482,
+        "ret_5d": 0.18286040075412657,
+        "etf_diff_1w": null
+      },
+      "forward_returns": {
+        "1d": 0.02628,
+        "3d": 0.00949,
+        "5d": 0.04408
+      },
+      "hot_dollar_streak": false,
+      "etf_adjustment": 0
+    },
+    {
+      "rank": 13,
+      "group": "profit",
+      "ticker": "ALAB",
+      "price": 213.91,
+      "score": 43,
+      "flow_type": "이벤트 변동성",
+      "cap_label": "대형",
+      "factors": {
+        "pc_ratio": 0.9540249826509368,
+        "hot_dollar": 3131375.0,
+        "opt_intensity": 0.006083321465794392,
+        "iv_skew": null,
+        "term_structure": 0.25047969779039203,
+        "ret_5d": 0.16693037210768913,
+        "etf_diff_1w": null
+      },
+      "forward_returns": {
+        "1d": 0.02116,
+        "3d": 0.04482,
+        "5d": 0.16862
+      },
+      "hot_dollar_streak": false,
+      "etf_adjustment": 0
+    },
+    {
+      "rank": 14,
+      "group": "profit",
+      "ticker": "LITE",
+      "price": 944.28,
+      "score": 42,
+      "flow_type": "혼조",
+      "cap_label": "대형",
+      "factors": {
+        "pc_ratio": 1.0216184501511938,
+        "hot_dollar": 10297577.0,
+        "opt_intensity": 0.007197143701378549,
+        "iv_skew": null,
+        "term_structure": null,
+        "ret_5d": 0.1932219254244587,
+        "etf_diff_1w": 3.62
+      },
+      "forward_returns": {
+        "1d": 0.01257,
+        "3d": 0.1118,
+        "5d": 0.12238
+      },
+      "hot_dollar_streak": false,
+      "etf_adjustment": 10
+    },
+    {
+      "rank": 15,
+      "group": "profit",
+      "ticker": "MU",
+      "price": 666.59,
+      "score": 29,
+      "flow_type": "헤지+콜 유입",
+      "cap_label": "대형",
+      "factors": {
+        "pc_ratio": 0.6962546842567182,
+        "hot_dollar": 171892170.0,
+        "opt_intensity": 0.011615952196889804,
+        "iv_skew": null,
+        "term_structure": null,
+        "ret_5d": 0.32183865545709955,
+        "etf_diff_1w": null
+      },
+      "forward_returns": {
+        "1d": 0.15493,
+        "3d": 0.1855,
+        "5d": 0.20008
+      },
+      "hot_dollar_streak": true,
+      "etf_adjustment": 0
+    },
+    {
+      "rank": 16,
+      "group": "profit",
+      "ticker": "ANET",
+      "price": 147.06,
+      "score": 28,
+      "flow_type": "혼조",
+      "cap_label": "대형",
+      "factors": {
+        "pc_ratio": 0.676088237460411,
+        "hot_dollar": 3612618.0,
+        "opt_intensity": 0.011365348927137281,
+        "iv_skew": null,
+        "term_structure": 1.0,
+        "ret_5d": -0.11029098232208889,
+        "etf_diff_1w": null
+      },
+      "forward_returns": {
+        "1d": 0.00014,
+        "3d": 0.00557,
+        "5d": 0.04275
+      },
+      "hot_dollar_streak": false,
+      "etf_adjustment": 0
+    },
+    {
+      "rank": 17,
+      "group": "profit",
+      "ticker": "SNDK",
+      "price": 1409.98,
+      "score": 21,
+      "flow_type": "약세 방향성",
+      "cap_label": "대형",
+      "factors": {
+        "pc_ratio": 1.2969860934690443,
+        "hot_dollar": 68282094.0,
+        "opt_intensity": 0.007670254998891942,
+        "iv_skew": null,
+        "term_structure": null,
+        "ret_5d": 0.4066743301355664,
+        "etf_diff_1w": 1.0899999999999999
+      },
+      "forward_returns": {
+        "1d": 0.16596,
+        "3d": 0.08363,
+        "5d": 0.03191
+      },
+      "hot_dollar_streak": true,
+      "etf_adjustment": 10
+    },
+    {
+      "rank": 18,
+      "group": "profit",
+      "ticker": "TER",
+      "price": 382.48,
+      "score": 16,
+      "flow_type": "혼조",
+      "cap_label": "대형",
+      "factors": {
+        "pc_ratio": 1.0007155635062612,
+        "hot_dollar": 0,
+        "opt_intensity": 0.0016291873932593828,
+        "iv_skew": null,
+        "term_structure": null,
+        "ret_5d": 0.006182111575854465,
+        "etf_diff_1w": null
+      },
+      "forward_returns": {
+        "1d": 0.01598,
+        "3d": 0.01226,
+        "5d": 0.00689
+      },
+      "hot_dollar_streak": false,
+      "etf_adjustment": 0
+    },
+    {
+      "rank": 19,
+      "group": "profit",
+      "ticker": "CRDO",
+      "price": 198.29,
+      "score": 14,
+      "flow_type": "혼조",
+      "cap_label": "대형",
+      "factors": {
+        "pc_ratio": 0.9797804737146159,
+        "hot_dollar": 905410.0,
+        "opt_intensity": 0.0019012487936889858,
+        "iv_skew": 0.031249687500000005,
+        "term_structure": 1.0,
+        "ret_5d": 0.1950939939393399,
+        "etf_diff_1w": null
+      },
+      "forward_returns": {
+        "1d": 0.00114,
+        "3d": 0.0546,
+        "5d": -0.01992
+      },
+      "hot_dollar_streak": false,
+      "etf_adjustment": 0
+    },
+    {
+      "rank": 20,
+      "group": "profit",
+      "ticker": "STX",
+      "price": 786.42,
+      "score": 10,
+      "flow_type": "약세 방향성",
+      "cap_label": "대형",
+      "factors": {
+        "pc_ratio": 1.927891595418616,
+        "hot_dollar": 829794.0,
+        "opt_intensity": 0.004612862643437155,
+        "iv_skew": null,
+        "term_structure": null,
+        "ret_5d": 0.3581678723383621,
+        "etf_diff_1w": 0.5499999999999998
+      },
+      "forward_returns": {
+        "1d": 0.02114,
+        "3d": 0.05527,
+        "5d": 0.05
+      },
+      "hot_dollar_streak": false,
+      "etf_adjustment": 10
+    },
+    {
+      "rank": 21,
+      "group": "profit",
+      "ticker": "CIEN",
+      "price": 576.79,
+      "score": 5,
+      "flow_type": "약세 방향성",
+      "cap_label": "대형",
+      "factors": {
+        "pc_ratio": 1.4492753623188406,
+        "hot_dollar": 415800.0,
+        "opt_intensity": 0.0031882436746062995,
+        "iv_skew": null,
+        "term_structure": null,
+        "ret_5d": 0.21765284269154606,
+        "etf_diff_1w": -0.09999999999999964
+      },
+      "forward_returns": {
+        "1d": 0.01735,
+        "3d": 0.07126,
+        "5d": 0.09802
+      },
+      "hot_dollar_streak": false,
+      "etf_adjustment": 0
+    },
+    {
+      "rank": 22,
+      "group": "profit",
+      "ticker": "WDC",
+      "price": 483.15,
+      "score": 3,
+      "flow_type": "약세 방향성",
+      "cap_label": "대형",
+      "factors": {
+        "pc_ratio": 1.4043499409353069,
+        "hot_dollar": 11589150.0,
+        "opt_intensity": 0.003958869224022273,
+        "iv_skew": 0.0,
+        "term_structure": 1.0,
+        "ret_5d": 0.23570936843386958,
+        "etf_diff_1w": 0.03000000000000025
+      },
+      "forward_returns": {
+        "1d": 0.03468,
+        "3d": 0.05352,
+        "5d": 0.05441
+      },
+      "hot_dollar_streak": false,
+      "etf_adjustment": 0
+    },
+    {
+      "rank": 1,
+      "group": "loss",
+      "ticker": "JOBY",
+      "price": 10.52,
+      "score": 56,
+      "flow_type": "강세 방향성",
+      "cap_label": "대형",
+      "factors": {
+        "pc_ratio": 0.2389086940705711,
+        "hot_dollar": 3227366.0,
+        "opt_intensity": 0.003424810164056548,
+        "iv_skew": 0.0,
+        "term_structure": 1.0,
+        "ret_5d": 0.17805152276045666,
+        "etf_diff_1w": null
+      },
+      "forward_returns": {
+        "1d": 0.08591,
+        "3d": 0.04795,
+        "5d": 0.06294
+      },
+      "hot_dollar_streak": false,
+      "etf_adjustment": 0
+    },
+    {
+      "rank": 2,
+      "group": "loss",
+      "ticker": "OKLO",
+      "price": 79.62,
+      "score": 55,
+      "flow_type": "헤지+콜 유입",
+      "cap_label": "대형",
+      "factors": {
+        "pc_ratio": 0.5307545422983451,
+        "hot_dollar": 12631116.0,
+        "opt_intensity": 0.010066701003055076,
+        "iv_skew": 0.0,
+        "term_structure": 0.0006395970538560707,
+        "ret_5d": 0.1524100009673397,
+        "etf_diff_1w": null
+      },
+      "forward_returns": {
+        "1d": 0.00947,
+        "3d": 0.02506,
+        "5d": -0.06432
+      },
+      "hot_dollar_streak": false,
+      "etf_adjustment": 0
+    },
+    {
+      "rank": 3,
+      "group": "loss",
+      "ticker": "SMR",
+      "price": 13.52,
+      "score": 53,
+      "flow_type": "강세 방향성",
+      "cap_label": "중형",
+      "factors": {
+        "pc_ratio": 0.49442590195944874,
+        "hot_dollar": 2061350.0,
+        "opt_intensity": 0.0024028901125082223,
+        "iv_skew": 0.0,
+        "term_structure": 1.0,
+        "ret_5d": 0.1438240953325789,
+        "etf_diff_1w": null
+      },
+      "forward_returns": {
+        "1d": -0.00238,
+        "3d": -0.0461,
+        "5d": -0.04134
+      },
+      "hot_dollar_streak": false,
+      "etf_adjustment": 0
+    },
+    {
+      "rank": 4,
+      "group": "loss",
+      "ticker": "UUUU",
+      "price": 23.52,
+      "score": 52,
+      "flow_type": "강세 방향성",
+      "cap_label": "중형",
+      "factors": {
+        "pc_ratio": 0.3963769678671555,
+        "hot_dollar": 1089763.0,
+        "opt_intensity": 0.0037804828800565176,
+        "iv_skew": 0.0937540625,
+        "term_structure": null,
+        "ret_5d": 0.14230210215940775,
+        "etf_diff_1w": null
+      },
+      "forward_returns": {
+        "1d": -0.08437,
+        "3d": -0.10278,
+        "5d": -0.16488
+      },
+      "hot_dollar_streak": false,
+      "etf_adjustment": 0
+    },
+    {
+      "rank": 5,
+      "group": "loss",
+      "ticker": "IREN",
+      "price": 60.98,
+      "score": 49,
+      "flow_type": "강세 방향성",
+      "cap_label": "대형",
+      "factors": {
+        "pc_ratio": 0.5557209013070952,
+        "hot_dollar": 37802870.0,
+        "opt_intensity": 0.008078890869921368,
+        "iv_skew": null,
+        "term_structure": 0.005093969814249188,
+        "ret_5d": 0.3721872508246793,
+        "etf_diff_1w": null
+      },
+      "forward_returns": {
+        "1d": 0.07652,
+        "3d": -0.0051,
+        "5d": 0.02726
+      },
+      "hot_dollar_streak": false,
+      "etf_adjustment": 0
+    },
+    {
+      "rank": 6,
+      "group": "loss",
+      "ticker": "CIFR",
+      "price": 21.91,
+      "score": 47,
+      "flow_type": "강세 방향성",
+      "cap_label": "중형",
+      "factors": {
+        "pc_ratio": 0.4578944271170482,
+        "hot_dollar": 3120129.0,
+        "opt_intensity": 0.0027715073737937163,
+        "iv_skew": null,
+        "term_structure": null,
+        "ret_5d": 0.2694090125647419,
+        "etf_diff_1w": null
+      },
+      "forward_returns": {
+        "1d": -0.00653,
+        "3d": -0.03022,
+        "5d": 0.07759
+      },
+      "hot_dollar_streak": false,
+      "etf_adjustment": 0
+    },
+    {
+      "rank": 7,
+      "group": "loss",
+      "ticker": "RGTI",
+      "price": 20.09,
+      "score": 47,
+      "flow_type": "강세 방향성",
+      "cap_label": "중형",
+      "factors": {
+        "pc_ratio": 0.2715764863059452,
+        "hot_dollar": 2507615.0,
+        "opt_intensity": 0.002681925319605317,
+        "iv_skew": null,
+        "term_structure": 1.0,
+        "ret_5d": 0.2257474619112123,
+        "etf_diff_1w": null
+      },
+      "forward_returns": {
+        "1d": 0.03272,
+        "3d": 0.0398,
+        "5d": 0.05071
+      },
+      "hot_dollar_streak": false,
+      "etf_adjustment": 0
+    },
+    {
+      "rank": 8,
+      "group": "loss",
+      "ticker": "APLD",
+      "price": 44.24,
+      "score": 46,
+      "flow_type": "강세 방향성",
+      "cap_label": "대형",
+      "factors": {
+        "pc_ratio": 0.35544629004289496,
+        "hot_dollar": 9571260.0,
+        "opt_intensity": 0.00552835367541785,
+        "iv_skew": null,
+        "term_structure": null,
+        "ret_5d": 0.3777639625520526,
+        "etf_diff_1w": null
+      },
+      "forward_returns": {
+        "1d": -0.00674,
+        "3d": 0.05779,
+        "5d": 0.12473
+      },
+      "hot_dollar_streak": false,
+      "etf_adjustment": 0
+    },
+    {
+      "rank": 9,
+      "group": "loss",
+      "ticker": "TEM",
+      "price": 53.5,
+      "score": 39,
+      "flow_type": "혼조",
+      "cap_label": "중형",
+      "factors": {
+        "pc_ratio": 0.6075060657684167,
+        "hot_dollar": 1200835.0,
+        "opt_intensity": 0.005878394131233606,
+        "iv_skew": -0.0312546875,
+        "term_structure": null,
+        "ret_5d": 0.04696676316134041,
+        "etf_diff_1w": null
+      },
+      "forward_returns": {
+        "1d": 0.00788,
+        "3d": -0.05094,
+        "5d": -0.08065
+      },
+      "hot_dollar_streak": false,
+      "etf_adjustment": 0
+    },
+    {
+      "rank": 10,
+      "group": "loss",
+      "ticker": "IONQ",
+      "price": 52.57,
+      "score": 38,
+      "flow_type": "헤지+콜 유입",
+      "cap_label": "대형",
+      "factors": {
+        "pc_ratio": 0.4070607325905844,
+        "hot_dollar": 14601315.0,
+        "opt_intensity": 0.005506998724420693,
+        "iv_skew": null,
+        "term_structure": null,
+        "ret_5d": 0.22028777763255714,
+        "etf_diff_1w": null
+      },
+      "forward_returns": {
+        "1d": 0.03272,
+        "3d": 0.17177,
+        "5d": 0.20533
+      },
+      "hot_dollar_streak": false,
+      "etf_adjustment": 0
+    },
+    {
+      "rank": 11,
+      "group": "loss",
+      "ticker": "AEHR",
+      "price": 96.73,
+      "score": 34,
+      "flow_type": "복권성 콜",
+      "cap_label": "중형",
+      "factors": {
+        "pc_ratio": 0.5714285714285714,
+        "hot_dollar": 1872266.0,
+        "opt_intensity": 0.00278817243686271,
+        "iv_skew": null,
+        "term_structure": null,
+        "ret_5d": 0.17348056531379052,
+        "etf_diff_1w": null
+      },
+      "forward_returns": {
+        "1d": 0.06542,
+        "3d": 0.05983,
+        "5d": 0.16524
+      },
+      "hot_dollar_streak": false,
+      "etf_adjustment": 0
+    },
+    {
+      "rank": 12,
+      "group": "loss",
+      "ticker": "NBIS",
+      "price": 195.09,
+      "score": 24,
+      "flow_type": "헤지+콜 유입",
+      "cap_label": "대형",
+      "factors": {
+        "pc_ratio": 0.6147091520003997,
+        "hot_dollar": 33991210.0,
+        "opt_intensity": 0.007903915021785718,
+        "iv_skew": null,
+        "term_structure": 1.0,
+        "ret_5d": 0.4396723802394451,
+        "etf_diff_1w": 0.08000000000000007
+      },
+      "forward_returns": {
+        "1d": -0.04178,
+        "3d": -0.03063,
+        "5d": 0.19689
+      },
+      "hot_dollar_streak": false,
+      "etf_adjustment": 0
+    },
+    {
+      "rank": 13,
+      "group": "loss",
+      "ticker": "NVTS",
+      "price": 16.68,
+      "score": 17,
+      "flow_type": "혼조",
+      "cap_label": "중형",
+      "factors": {
+        "pc_ratio": 0.719239110553683,
+        "hot_dollar": 740293.0,
+        "opt_intensity": 0.0025763703489010887,
+        "iv_skew": null,
+        "term_structure": 1.0,
+        "ret_5d": 0.10317463170794294,
+        "etf_diff_1w": null
+      },
+      "forward_returns": {
+        "1d": 0.15263,
+        "3d": 0.21913,
+        "5d": 0.41355
+      },
+      "hot_dollar_streak": false,
+      "etf_adjustment": 0
+    },
+    {
+      "rank": 14,
+      "group": "loss",
+      "ticker": "CRWV",
+      "price": 137.98,
+      "score": 10,
+      "flow_type": "혼조",
+      "cap_label": "대형",
+      "factors": {
+        "pc_ratio": 0.9161721868594239,
+        "hot_dollar": 14857380.0,
+        "opt_intensity": 0.005227217377164733,
+        "iv_skew": 0.031249687500000005,
+        "term_structure": null,
+        "ret_5d": 0.30749547354878115,
+        "etf_diff_1w": null
+      },
+      "forward_returns": {
+        "1d": -0.11402,
+        "3d": -0.16369,
+        "5d": -0.11351
+      },
+      "hot_dollar_streak": false,
+      "etf_adjustment": 0
+    },
+    {
+      "rank": 15,
+      "group": "loss",
+      "ticker": "INTC",
+      "price": 113.01,
+      "score": 10,
+      "flow_type": "약세 방향성",
+      "cap_label": "대형",
+      "factors": {
+        "pc_ratio": 1.3889656058319149,
+        "hot_dollar": 50813328.0,
+        "opt_intensity": 0.007644477080876053,
+        "iv_skew": null,
+        "term_structure": null,
+        "ret_5d": 0.33708005945006425,
+        "etf_diff_1w": 0.5499999999999998
+      },
+      "forward_returns": {
+        "1d": 0.13957,
+        "3d": 0.10026,
+        "5d": 0.05756
+      },
+      "hot_dollar_streak": false,
+      "etf_adjustment": 10
+    }
+  ]
+}

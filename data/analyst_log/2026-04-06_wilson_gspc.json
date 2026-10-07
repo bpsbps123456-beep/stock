@@ -1,0 +1,32 @@
+{
+  "analyst": "wilson",
+  "published": "2026-04-06",
+  "date_precision": "day",
+  "target": "^GSPC",
+  "direction": "bullish",
+  "relative": false,
+  "horizon": "weeks",
+  "scoreable": true,
+  "thesis": "조정이 후반부에 진입했다고 판단",
+  "action_condition": null,
+  "levels": null,
+  "invalidation": null,
+  "source": "user_provided_summary",
+  "verification": {
+    "status": "complete",
+    "entry_date": "2026-04-06",
+    "entry_close": 6611.83,
+    "d5": {
+      "target_pct": 4.15
+    },
+    "d20": {
+      "target_pct": 8.91
+    },
+    "mfe_pct": 9.35,
+    "mae_pct": -0.08,
+    "missed_upside_pct": null,
+    "hit_20d": "hit",
+    "flag": null,
+    "verified_at": "2026-07-18"
+  }
+}

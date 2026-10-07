@@ -1,0 +1,60 @@
+{
+  "ticker": "RMBS",
+  "analysis_date": "2026-04-29",
+  "fiscal_period": "FY26 Q1",
+  "price_at_analysis": 107,
+  "market_cap_at_analysis": "11.52B",
+  "source_material": "사용자 제공 원문 실적 공시 (Q1 2026 Press Release) + earnings_prefill.py yfinance + WebSearch 컨센서스",
+  "key_numbers": {
+    "revenue_actual": 180.2,
+    "revenue_guidance_mid": 175.0,
+    "revenue_beat_pct": 3.0,
+    "revenue_yoy": 8.1,
+    "product_revenue_yoy": 15.3,
+    "royalty_revenue_yoy": -5.9,
+    "contract_other_yoy": 37.8,
+    "nongaap_eps_actual": 0.63,
+    "nongaap_eps_consensus": 0.61,
+    "nongaap_eps_beat": 0.02,
+    "gaap_op_income_yoy": -2.1,
+    "ocf": 83.2,
+    "capex": 17.0,
+    "fcf": 66.2,
+    "fcf_margin": 36.7,
+    "sbc": 11.5,
+    "sbc_to_revenue": 6.4,
+    "sbc_to_gross_profit": 8.0,
+    "gaap_op_income_minus_sbc": 50.3,
+    "net_cash": 762.7,
+    "nd_ebitda": -2.53,
+    "diluted_shares_yoy": 1.0,
+    "q2_guidance_revenue_mid": 195.0,
+    "q2_guidance_yoy": 13.2,
+    "second_derivative_pp": 5.1,
+    "rule_of_40": 44.8
+  },
+  "sn_score": {
+    "total": 26,
+    "breakdown": {
+      "①실적강도": 3,
+      "②비즈니스모멘텀": 4,
+      "③미래전망": 6,
+      "④SBC건전성": 4,
+      "⑤재무자생력": 6,
+      "⑥내러티브리스크": 3
+    }
+  },
+  "quant_tier": "중형주 상위 35~40% (중상위권)",
+  "market_reaction_prediction": {
+    "initial": "다소 부정적",
+    "mid_long_term": "중립~다소 긍정적"
+  },
+  "investment_opinion": "신중한 비중 확대",
+  "key_thesis": "AI 인퍼런스·에이전틱 수요 → HBM4E·LPDDR5X SOCAMM2로 메모리 대역폭 병목 직접 수혜. Product +15.3% YoY 재가속 + FCF 36.7%로 재무 탁월. Q2 Product 재가속($95-101M)·Royalty 회복($72-78M) 동시 확인 시 비중 확대 정당화.",
+  "key_risks": [
+    "Royalty 구조적 감소 여부 (-5.9% YoY, 매 분기 추적 필요)",
+    "R&D 비용 급증 (+17.8% YoY vs 매출 +8.1%) → 이익 레버리지 역방향",
+    "Forward PER 30x: 매출 성장률 8%에 프리미엄, 재가속 지속 미확인 시 밸류에이션 부담"
+  ],
+  "verification": null
+}

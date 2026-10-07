@@ -1,0 +1,84 @@
+{
+  "ticker": "TER",
+  "analysis_date": "2026-04-29",
+  "fiscal_period": "FY26 Q1",
+  "price_at_analysis": 323,
+  "market_cap_at_analysis": "50.54B",
+  "source_material": "사용자 제공 TER Q1 2026 보도자료 — 매출 $1,282M(+87% YoY, 사상 최고), Semi Test $1,111M, Robotics $91M, Product Test $80M, GAAP EPS $2.53(+315%), non-GAAP EPS $2.56(+241%), Op Margin GAAP 36.9%(전년 17.6%), Net Margin 31.1%, AI 노출 70%, 자사주 매입 $5.5M·차입금 $250M 상환, Q2 가이던스 매출 $1.15-1.25B(미드 -6.4% QoQ, +84% YoY)/non-GAAP EPS $1.86-2.15(미드 -22% QoQ)",
+  "consensus_context": {
+    "q1_eps_consensus": 2.04,
+    "q1_eps_actual_non_gaap": 2.56,
+    "eps_surprise_pct": 25.5,
+    "q1_revenue_consensus": 1210,
+    "q1_revenue_actual": 1282,
+    "revenue_surprise_pct": 5.6,
+    "ter_avg_surprise_4q": 17.47,
+    "q2_eps_consensus": 1.92,
+    "q2_eps_guide_mid": 2.005,
+    "q2_revenue_consensus": 1200,
+    "q2_revenue_guide_mid": 1200,
+    "guidance_pattern": "Q1은 가이던스 raise 패턴 있었으나 Q2는 컨센 살짝 상회 + 풀이어 reaffirm + 'H2 슬로다운' 명시 — raise 기대 미달",
+    "ytd_return_pct": 96.3,
+    "prior_year_return_pct": 242,
+    "short_interest_float_pct": 3.3,
+    "sentiment": "사상 최고치 권역, AI 노출 70% 모멘텀 종목, 사전 raise 기대 사상 최고"
+  },
+  "key_numbers": {
+    "revenue_yoy": 87.0,
+    "guidance_next_q_yoy": 84.1,
+    "growth_acceleration": -2.9,
+    "guidance_qoq": -6.4,
+    "rule_of_40": 118.1,
+    "gross_margin": 60.9,
+    "op_margin_gaap": 36.9,
+    "op_margin_yoy_change_pp": 19.3,
+    "net_margin": 31.1,
+    "fcf_margin": 8.48,
+    "net_debt_to_ebitda": -0.05,
+    "ai_revenue_share": 70,
+    "fy26_eps_consensus": 6.38,
+    "fy27_eps_consensus": 8.50,
+    "fy28_eps_simplywall": 12.40,
+    "fy26_per": 50.6,
+    "fy27_per": 38.0,
+    "fy28_per": 26.0,
+    "fy28_target_20x": 248
+  },
+  "sn_score": {
+    "total": 23,
+    "breakdown": {"①": 4, "②": 4, "③": 5, "④": 2, "⑤": 5, "⑥": 3},
+    "rationale": {
+      "①_실적강도": "컨센 EPS $2.04 vs 실제 $2.56 = +25.5% 비트 (확실 비트). 단 TER 평균 비트 +17.47%보다 약간만 위 — '확실 4점' (SOFI 교훈: YoY +241%로는 5점 자동 부여 안함)",
+      "②_매출가속": "Q1 +87% 압도적, Q2 가이던스 +84% 여전히 강함. 단 시퀀셜 -6.4% 감속 시그널 — 4점",
+      "③_마진수익성": "Op Margin GAAP 36.9% (전년 17.6%에서 거의 2배 점프), R40 118 — 5점",
+      "④_가이던스": "Q2 매출 미드 $1.20B = 컨센 정확히 일치 (raise 없음). 풀이어 reaffirm + 'H2 슬로다운' 자인. SOFI 교훈: 매분기 raise 패턴 있는 종목이 reaffirm하면 사실상 미스 — 2점",
+      "⑤_재무건전성": "Net Debt -$38.76M, 차입 $250M 상환, ND/EBITDA -0.05x — 5점",
+      "⑥_텍스트톤리스크": "CEO 'H2 슬로다운' 자인, AI 70% 집중 리스크, FY26 Forward PER 50.6x 부담 — 3점"
+    }
+  },
+  "quant_tier": "대형주 ($50.54B), 반도체 장비 섹터 알파 성장 — Forward PER 37x는 동종 LRCX 대비 프리미엄",
+  "valuation_view": "FY26 PER 50.6x는 부담, FY27 38x도 여전히 비쌈. FY28 PER 26x ×20 = $248 → 현재 $323은 FY28 목표가 +30% 위",
+  "market_reaction_prediction": {
+    "initial": "다소 부정적",
+    "mid_long_term": "보합 (펀더멘털 강하지만 가격이 모든 좋은 뉴스 반영)",
+    "reasoning": "(1) 컨센 비트 강하지만 YTD +96% 폭등으로 사전 기대치 사상 최고 (2) Q2 시퀀셜 -6.4% 감속 + H2 슬로다운 자인이 매도 트리거 (3) 가이던스 raise 부재로 모멘텀 둔화 우려 (4) 사후 -8% 애프터마켓 -14.93% 일중 하락 보고됨"
+  },
+  "investment_opinion": "분할 매수 보류 — 펀더멘털은 강함, 그러나 밸류·기대치·단기 모멘텀 둔화 3중 부담",
+  "key_thesis": "Q1 실적 자체는 압도적 비트 + AI 노출 70% + R40 118로 펀더멘털은 흠잡을 데 없음. 그러나 (a) YTD +96% (b) Forward PER 37x (c) Q2 시퀀셜 -6.4% (d) raise 부재 (e) FY28 목표가 $248 < 현재 $323 = 5중 가격 부담 — 조정 후 재진입 권장.",
+  "key_risks": [
+    "Q2 가이던스 미드 $1.20B = QoQ -6.4% 시퀀셜 감속 + non-GAAP EPS 미드 $2.005 = QoQ -22%",
+    "풀이어 reaffirm + 'H2 슬로다운' 자인 (raise 기대 미달)",
+    "YTD +96% / 작년 +242% 누적 — 사상 최고치 권역, 모든 좋은 뉴스 반영",
+    "AI 노출 70% 집중 — AI capex 둔화 시 직격탄",
+    "Forward PER 50.6x (FY26), 26x (FY28) 까지 PER 정상화 필요",
+    "FY28 목표가 $248 (FY28 EPS $12.40 × 20) < 현재 $323"
+  ],
+  "verification": {
+    "premarket_return": null,
+    "afterhours_return_reported": -8,
+    "intraday_return_reported": -14.93,
+    "initial_hit": null,
+    "mid_long_hit": null,
+    "framework_check": "SOFI 교훈 직접 적용 사례 — 컨센서스 비트 강도(+25.5%) 명시 + 가이던스 raise 패턴 명시(reaffirm) + 사전 분위기(YTD +96%) 명시. 결과: '다소 부정적' 예측 → 시장 사후반응 -8~-15% 보고로 일치"
+  }
+}

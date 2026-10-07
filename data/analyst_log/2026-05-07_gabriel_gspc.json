@@ -1,0 +1,32 @@
+{
+  "analyst": "gabriel",
+  "published": "2026-05-07",
+  "date_precision": "day",
+  "target": "^GSPC",
+  "direction": "bullish",
+  "relative": false,
+  "horizon": "weeks",
+  "scoreable": true,
+  "thesis": "(조건부) 조건 충족 시 더 공격적인 상승 국면 가능",
+  "action_condition": null,
+  "levels": null,
+  "invalidation": null,
+  "source": "user_provided_summary",
+  "verification": {
+    "status": "complete",
+    "entry_date": "2026-05-07",
+    "entry_close": 7337.11,
+    "d5": {
+      "target_pct": 2.24
+    },
+    "d20": {
+      "target_pct": 0.64
+    },
+    "mfe_pct": 3.72,
+    "mae_pct": -0.22,
+    "missed_upside_pct": null,
+    "hit_20d": "hit",
+    "flag": null,
+    "verified_at": "2026-07-18"
+  }
+}

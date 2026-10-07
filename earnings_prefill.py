@@ -14,7 +14,7 @@ import sys
 import os
 import json
 import warnings
-from datetime import datetime
+from datetime import date, datetime
 
 import yfinance as yf
 
@@ -70,6 +70,61 @@ def tier_from_mcap(mcap):
     if mcap >= 2e9:
         return "소형주 ($2~10B)"
     return "마이크로캡 (<$2B)"
+
+
+def _num(v):
+    v = safe(v, None)
+    return float(v) if v is not None else None
+
+
+def classify_session(ts) -> str:
+    """발표 시각(미 동부) → 장전/장중/장후. 장후 발표면 첫 가격 반응은 다음 거래일."""
+    minutes = ts.hour * 60 + ts.minute
+    if minutes < 9 * 60 + 30:
+        return "장전"
+    if minutes < 12 * 60:
+        return "장중"
+    return "장후"
+
+
+def fetch_earnings_events(t, limit: int = 12) -> list[dict]:
+    """yfinance get_earnings_dates → 최신순 실적 이벤트 목록.
+
+    .calendar는 다음 발표일만 주고 장후 발표를 하루 늦게 준다
+    (2026-09-27 실측: MU 공식 9/30 → calendar 10/1). 옵션 스캐너와 같은 함수를 쓴다.
+    """
+    try:
+        frame = t.get_earnings_dates(limit=limit)
+    except Exception:
+        return []
+    if frame is None or frame.empty:
+        return []
+    events = [
+        {
+            "date": ts.date(),
+            "time_et": ts.strftime("%H:%M"),
+            "session": classify_session(ts),
+            "eps_estimate": _num(row.get("EPS Estimate")),
+            "eps_reported": _num(row.get("Reported EPS")),
+            "eps_surprise_pct": _num(row.get("Surprise(%)")),
+        }
+        for ts, row in frame.iterrows()
+    ]
+    return sorted(events, key=lambda e: e["date"], reverse=True)
+
+
+def select_earnings_event(events: list[dict], today: date) -> dict | None:
+    """이번 분석 대상 실적 이벤트를 고른다.
+
+    events: fetch_earnings_events() 결과(최신순). 과거 이벤트는 eps_reported가 있고
+            미래 이벤트는 None이다.
+    반환: 고른 이벤트, 고를 것이 없으면 None.
+
+    배경: 기존 .calendar는 '다음' 발표일만 줘서 발표 다음 날 실행하면 다음 분기
+          날짜가 저장됐다(2026-04 RMBS·GOOGL·META·STX 4건).
+    """
+    # TODO(사용자): 발표 후 며칠까지를 '이번 분기'로 볼지 정해서 구현
+    raise NotImplementedError("select_earnings_event: 날짜 선택 규칙을 구현하세요")
 
 
 def collect(ticker: str) -> dict:
@@ -129,16 +184,17 @@ def collect(ticker: str) -> dict:
     recommendation = safe(info.get("recommendationKey"))
     num_analysts = safe(info.get("numberOfAnalystOpinions"))
 
-    # 실적 일정
-    earnings_date = None
-    try:
-        cal = t.calendar
-        if cal is not None and hasattr(cal, "get"):
-            edt = cal.get("Earnings Date")
-            if isinstance(edt, (list, tuple)) and edt:
-                earnings_date = str(edt[0])
-    except Exception:
-        pass
+    # 실적 일정 + EPS 컨센서스 (발표 시각·추정치·실제치·서프라이즈)
+    today = date.today()
+    event = select_earnings_event(fetch_earnings_events(t), today)
+    earnings_event = None
+    if event:
+        earnings_event = {
+            **event,
+            "date": event["date"].isoformat(),
+            "days_from_collection": (event["date"] - today).days,
+            "source": "yfinance.get_earnings_dates",
+        }
 
     # 최근 분기별 매출/EPS
     quarterly = {}
@@ -206,7 +262,8 @@ def collect(ticker: str) -> dict:
         "analyst_target_low": target_low,
         "analyst_recommendation": recommendation,
         "num_analysts": num_analysts,
-        "earnings_date": earnings_date,
+        "earnings_date": earnings_event["date"] if earnings_event else None,
+        "earnings_event": earnings_event,
         "quarterly_financials": quarterly,
         "annual_financials": annual,
         "rule_of_40_estimate": (
@@ -230,7 +287,12 @@ def print_report(data: dict) -> None:
     print(f"  현재가         : {fmt_money(data['price'])}")
     print(f"  시가총액       : {fmt_money(data['market_cap'])}  [{data['market_cap_tier']}]")
     print(f"  유통주식수     : {fmt_money(data['shares_outstanding']).replace('$', '')}")
-    print(f"  실적 발표일    : {data['earnings_date']}")
+    ev = data.get("earnings_event")
+    if ev:
+        print(f"  실적 발표일    : {ev['date']} {ev['time_et']} ET ({ev['session']}, "
+              f"수집일 기준 {ev['days_from_collection']:+d}일)")
+    else:
+        print("  실적 발표일    : N/A")
 
     print(f"\n[밸류에이션 — 황금률 #1 필수]")
     print(f"  Trailing EPS   : ${data['trailing_eps']}")
@@ -262,6 +324,16 @@ def print_report(data: dict) -> None:
     print(f"  Recommendation : {data['analyst_recommendation']}")
     print(f"  # Analysts     : {data['num_analysts']}")
 
+    print("\n[EPS 컨센서스 — S&N ① 실적의 강도]")
+    if ev:
+        surprise = ev["eps_surprise_pct"]
+        print(f"  EPS Estimate   : {safe(ev['eps_estimate'])}")
+        print(f"  Reported EPS   : {safe(ev['eps_reported'])}")
+        print(f"  Surprise       : {f'{surprise:+.2f}%' if surprise is not None else 'N/A'}")
+        print(f"  출처           : {ev['source']}")
+    else:
+        print("  N/A")
+
     if data['quarterly_financials']:
         print(f"\n[최근 분기별 매출 (Revenue)]")
         for k, v in data['quarterly_financials'].get('revenue', {}).items():
@@ -274,11 +346,68 @@ def print_report(data: dict) -> None:
 
     print()
     print("=" * 80)
-    print("  ⚠️  누락된 데이터는 반드시 WebSearch 로 추가 확보 후 분석 진입할 것")
-    print("      - Q1 컨센서스 EPS (yfinance 미제공 — WebSearch 필요)")
+    print("  ⚠️  누락된 데이터는 반드시 보완 후 분석 진입할 것 (순서: earnings_framework.md 데이터 소스)")
+    if not ev or ev["eps_estimate"] is None:
+        print("      - EPS 컨센서스 (TradingView earnings_per_share_forecast_fq → WebSearch)")
+    print("      - 매출 컨센서스 (yfinance 미제공 — TradingView revenue_forecast_fq → WebSearch)")
     print("      - 전년 동기 실제 실적 (분기별 YoY 비교용)")
-    print("      - 기존 가이던스 (이번 발표의 raise/cut 판정용)")
+    print("      - 기존 가이던스 (raise/cut 판정용 — TradingView 실적콜 녹취록 → WebSearch)")
     print("=" * 80)
+
+
+def earnings_log_to_md(json_path: str) -> str:
+    """실적 분석 JSON → 마크다운 요약"""
+    with open(json_path, encoding="utf-8") as f:
+        d = json.load(f)
+
+    sn = d.get("sn_score", {})
+    vr = d.get("verification") or {}
+    lines = [
+        f"# {d['ticker']} 실적 분석 — {d.get('analysis_date', '')}",
+        f"**분석 기간**: {d.get('fiscal_period', '')}  |  **분석 시 주가**: ${d.get('price_at_analysis', 'N/A')}  |  **시총**: {d.get('market_cap_at_analysis', 'N/A')}",
+        "",
+        "## 핵심 지표",
+        "| 항목 | 값 |",
+        "|---|---|",
+    ]
+    kn = d.get("key_numbers", {})
+    for k, v in kn.items():
+        lines.append(f"| {k} | {v} |")
+
+    lines += [
+        "",
+        "## S&N 스코어",
+        f"**총점: {sn.get('total', 'N/A')}/33**",
+        "",
+        "| 항목 | 점수 |",
+        "|---|---|",
+    ]
+    for k, v in sn.get("breakdown", {}).items():
+        lines.append(f"| {k} | {v} |")
+
+    lines += [
+        "",
+        f"**퀀트 등급**: {d.get('quant_tier', 'N/A')}",
+        "",
+        "## 시장 반응 예측",
+        f"- 초반: {d.get('market_reaction_prediction', {}).get('initial', 'N/A')}",
+        f"- 중장기: {d.get('market_reaction_prediction', {}).get('mid_long_term', 'N/A')}",
+        "",
+        f"## 투자의견: {d.get('investment_opinion', 'N/A')}",
+        "",
+        f"**핵심 논리**: {d.get('key_thesis', 'N/A')}",
+        "",
+        "**리스크**:",
+    ]
+    for r in d.get("key_risks", []):
+        lines.append(f"- {r}")
+
+    if vr:
+        lines += ["", "## 검증 결과"]
+        for k, v in vr.items():
+            lines.append(f"- **{k}**: {v}")
+
+    return "\n".join(lines)
 
 
 def main():
@@ -292,7 +421,7 @@ def main():
 
     out_dir = os.path.join("data", "earnings_prefill")
     os.makedirs(out_dir, exist_ok=True)
-    out_path = os.path.join(out_dir, f"{ticker}_{datetime.now().strftime('%Y-%m-%d')}.json")
+    out_path = os.path.join(out_dir, f"{datetime.now().strftime('%Y-%m-%d')}_{ticker}.json")
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False, default=str)
 

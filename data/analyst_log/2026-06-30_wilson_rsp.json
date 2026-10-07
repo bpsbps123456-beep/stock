@@ -1,0 +1,32 @@
+{
+  "analyst": "wilson",
+  "published": "2026-06-30",
+  "date_precision": "day",
+  "target": "RSP",
+  "direction": "bullish",
+  "relative": true,
+  "horizon": "months",
+  "scoreable": true,
+  "thesis": "시장 리더십이 더 많은 섹터로 확장 (시장 폭 확대 → RSP의 SPX 대비 초과수익으로 채점)",
+  "action_condition": null,
+  "levels": null,
+  "invalidation": null,
+  "source": "user_provided_summary",
+  "verification": {
+    "status": "partial",
+    "entry_date": "2026-06-30",
+    "entry_close": 212.77,
+    "d5": {
+      "target_pct": -0.27,
+      "bench_pct": -0.22,
+      "excess_pct": -0.05
+    },
+    "d20": null,
+    "mfe_pct": 1.08,
+    "mae_pct": 0.27,
+    "missed_upside_pct": null,
+    "hit_20d": null,
+    "flag": null,
+    "verified_at": "2026-07-18"
+  }
+}

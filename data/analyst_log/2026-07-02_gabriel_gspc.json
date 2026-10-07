@@ -1,0 +1,30 @@
+{
+  "analyst": "gabriel",
+  "published": "2026-07-02",
+  "date_precision": "day",
+  "target": "^GSPC",
+  "direction": "bullish",
+  "relative": false,
+  "horizon": "weeks",
+  "scoreable": true,
+  "thesis": "S&P 500의 큰 흐름은 여전히 긍정적",
+  "action_condition": null,
+  "levels": null,
+  "invalidation": null,
+  "source": "user_provided_summary",
+  "verification": {
+    "status": "partial",
+    "entry_date": "2026-07-02",
+    "entry_close": 7483.24,
+    "d5": {
+      "target_pct": 1.23
+    },
+    "d20": null,
+    "mfe_pct": 1.23,
+    "mae_pct": 0.34,
+    "missed_upside_pct": null,
+    "hit_20d": null,
+    "flag": null,
+    "verified_at": "2026-07-18"
+  }
+}

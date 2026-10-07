@@ -1,0 +1,32 @@
+{
+  "analyst": "wilson",
+  "published": "2026-04-13",
+  "date_precision": "day",
+  "target": "^GSPC",
+  "direction": "bullish",
+  "relative": false,
+  "horizon": "weeks",
+  "scoreable": true,
+  "thesis": "시장 회복을 준비해야 한다",
+  "action_condition": null,
+  "levels": null,
+  "invalidation": null,
+  "source": "user_provided_summary",
+  "verification": {
+    "status": "complete",
+    "entry_date": "2026-04-13",
+    "entry_close": 6886.24,
+    "d5": {
+      "target_pct": 3.24
+    },
+    "d20": {
+      "target_pct": 7.65
+    },
+    "mfe_pct": 7.65,
+    "mae_pct": -1.18,
+    "missed_upside_pct": null,
+    "hit_20d": "hit",
+    "flag": null,
+    "verified_at": "2026-07-18"
+  }
+}

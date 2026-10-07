@@ -1,0 +1,32 @@
+{
+  "analyst": "wilson",
+  "published": "2026-06-15",
+  "date_precision": "day",
+  "target": "^GSPC",
+  "direction": "bullish",
+  "relative": false,
+  "horizon": "weeks",
+  "scoreable": true,
+  "thesis": "조정은 추세 반전이 아니라 리셋",
+  "action_condition": null,
+  "levels": null,
+  "invalidation": null,
+  "source": "user_provided_summary",
+  "verification": {
+    "status": "complete",
+    "entry_date": "2026-06-15",
+    "entry_close": 7554.29,
+    "d5": {
+      "target_pct": -2.5
+    },
+    "d20": {
+      "target_pct": 0.24
+    },
+    "mfe_pct": 0.28,
+    "mae_pct": 2.65,
+    "missed_upside_pct": null,
+    "hit_20d": "hit",
+    "flag": null,
+    "verified_at": "2026-07-18"
+  }
+}

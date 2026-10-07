@@ -21,6 +21,8 @@ import warnings
 
 warnings.filterwarnings("ignore")
 
+from watchlist import TICKER_TO_SECTOR
+
 LOG_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "options_log")
 TODAY = datetime.now().date()
 
@@ -52,10 +54,10 @@ def get_return(ticker, base_date_str, days_forward):
         base_date = datetime.strptime(base_date_str, "%Y-%m-%d").date()
         # 충분한 범위로 히스토리 가져오기
         start = base_date - timedelta(days=1)
-        end = base_date + timedelta(days=days_forward + 5)  # 주말/공휴일 여유
+        end = min(base_date + timedelta(days=days_forward + 5), TODAY + timedelta(days=1))
 
-        if end > TODAY:
-            return None  # 아직 미래
+        if end <= base_date:
+            return None
 
         t = yf.Ticker(ticker)
         h = t.history(start=start.strftime("%Y-%m-%d"), end=end.strftime("%Y-%m-%d"))
@@ -372,6 +374,11 @@ CATALYST_KEYWORDS = [
     # 실적 서프라이즈
     "beats estimates", "raises guidance", "preannounces",
     "earnings beat", "q1 beat", "q2 beat", "q3 beat", "q4 beat",
+    # 거버넌스 (Tier-2) — CEO/이사진/전략 변경
+    "appoints new", "names new ceo", "names new cfo", "names new chairman",
+    "board appoints", "joins board", "elected to board", "to the board",
+    "ceo transition", "ceo succession", "leadership change",
+    "strategic review", "activist investor",
 ]
 
 # 제외 키워드 — 구체적 사건 아닌 것
@@ -381,6 +388,17 @@ EXCLUDE_KEYWORDS = [
     "could", "might", "may ", "predict", "forecast",
     "5 stocks", "3 stocks", "top stocks", "best stocks",
 ]
+
+
+def calc_window_hours(prev_date_str, curr_date_str):
+    """
+    docs/options_system.md: 평일 36h 기본, 휴장(주말/공휴일) 포함 시 자동 확장.
+    캘린더 일수 1일이면 36h, 2일+이면 24*gap + 24 (여유분).
+    """
+    prev = datetime.strptime(prev_date_str, "%Y-%m-%d").date()
+    curr = datetime.strptime(curr_date_str, "%Y-%m-%d").date()
+    gap_days = max(1, (curr - prev).days)
+    return 36 if gap_days <= 1 else 24 * gap_days + 24
 
 
 def detect_breaking_catalyst(ticker, window_hours=36):
@@ -450,10 +468,12 @@ def detect_breaking_catalyst(ticker, window_hours=36):
         return []
 
 
-def classify_miss(ticker, predicted_score, actual_return, threshold_pct=3.0):
+def classify_miss(ticker, predicted_score, actual_return, threshold_pct=3.0,
+                  window_hours=36, prev_5d_return=None, trend_threshold_pct=20.0):
     """
     예측 실패 케이스를 분류:
-      - "catalyst": 돌발 호재로 상승 (분석 실패 아님)
+      - "catalyst": 돌발 호재로 상승 (Tier-1, 분석 실패 아님)
+      - "trend_continuation": 직전 5D 수익률이 trend_threshold_pct 초과 → 모멘텀 추세 지속 (Tier-2, 분석 실패 아님)
       - "analysis_miss": 돌발 호재 없는데 예측 빗나감 (진짜 실패)
       - None: 실패 아님
     """
@@ -463,59 +483,107 @@ def classify_miss(ticker, predicted_score, actual_return, threshold_pct=3.0):
 
     # 낮은 점수인데 크게 상승 = 놓친 기회
     if predicted_score < 40 and actual_pct > threshold_pct:
-        catalysts = detect_breaking_catalyst(ticker)
+        catalysts = detect_breaking_catalyst(ticker, window_hours=window_hours)
         if catalysts:
             return {"type": "catalyst", "catalysts": catalysts, "actual": actual_pct}
+        # 추세 지속 체크 — 옵션 스캔 시점 5D 수익률이 이미 +20% 초과면 모멘텀 지속
+        if prev_5d_return is not None and prev_5d_return * 100 > trend_threshold_pct:
+            return {"type": "trend_continuation", "actual": actual_pct,
+                    "prev_5d": prev_5d_return * 100}
         return {"type": "analysis_miss", "actual": actual_pct}
 
     return None
 
 
+def is_sector_rally(ticker, all_returns, threshold_pct=3.0, min_stocks=3):
+    """같은 섹터 종목 중 threshold_pct% 이상 상승한 종목이 min_stocks개 이상 → Tier-2 섹터 랠리"""
+    sector = TICKER_TO_SECTOR.get(ticker)
+    if not sector:
+        return False, []
+    rising = [t for t, r in all_returns.items()
+              if TICKER_TO_SECTOR.get(t) == sector and r * 100 >= threshold_pct]
+    return len(rising) >= min_stocks, rising
+
+
 def report_catalyst_analysis():
-    """최신 로그의 misses를 돌발 호재 여부로 분류"""
+    """최신 로그의 misses를 돌발 호재 여부로 분류 (Tier-1: 구체적 이벤트 / Tier-2: 섹터 랠리)"""
     files = get_log_files()
     if len(files) < 2:
         print("  로그 2개 이상 필요 (실제 수익률 비교를 위해)")
         return
 
-    # 가장 오래된 로그와 그 다음날 로그 가격 비교
     prev_log = load_log(files[-2])
     curr_log = load_log(files[-1])
     curr_prices = {r["ticker"]: r.get("price", 0) for r in curr_log.get("rankings", [])}
 
+    # 전체 종목 수익률 사전 계산 (Tier-2 섹터 랠리 판정용)
+    all_returns = {}
+    for entry in prev_log.get("rankings", []):
+        t = entry["ticker"]
+        pp = entry.get("price", 0)
+        cp = curr_prices.get(t, 0)
+        if pp and cp:
+            all_returns[t] = (cp - pp) / pp
+
+    window_h = calc_window_hours(prev_log["date"], curr_log["date"])
+
     print()
     print("=" * 100)
-    print(f"  돌발 호재 분석 — {prev_log['date']} 점수 vs {curr_log['date']} 실제")
+    print(f"  돌발 호재 분석 — {prev_log['date']} 점수 vs {curr_log['date']} 실제 (윈도우 {window_h}h)")
     print("=" * 100)
 
     genuine_misses = []
-    catalyst_misses = []
+    catalyst_misses = []     # Tier-1
+    sector_rally_misses = [] # Tier-2 섹터
+    trend_misses = []        # Tier-2 추세 지속
 
     for entry in prev_log.get("rankings", []):
         ticker = entry["ticker"]
         score = entry.get("score", 0)
-        prev_price = entry.get("price", 0)
-        curr_price = curr_prices.get(ticker, 0)
-        if not prev_price or not curr_price:
+        ret = all_returns.get(ticker)
+        if ret is None:
             continue
-        ret = (curr_price - prev_price) / prev_price
 
-        result = classify_miss(ticker, score, ret)
+        prev_5d = entry.get("factors", {}).get("ret_5d")
+        result = classify_miss(ticker, score, ret,
+                               window_hours=window_h, prev_5d_return=prev_5d)
         if result is None:
             continue
 
         if result["type"] == "catalyst":
             catalyst_misses.append((ticker, score, result))
+        elif result["type"] == "trend_continuation":
+            trend_misses.append((ticker, score, result))
         else:
-            genuine_misses.append((ticker, score, result))
+            # Tier-1/추세 아니면 Tier-2 섹터 랠리 체크
+            rally, rally_stocks = is_sector_rally(ticker, all_returns)
+            if rally:
+                sector_rally_misses.append((ticker, score, result["actual"], rally_stocks))
+            else:
+                genuine_misses.append((ticker, score, result))
 
-    print(f"\n  [돌발 호재로 상승한 종목 — 분석 실패 아님]")
+    print(f"\n  [Tier-1 돌발 호재 — 분석 실패 아님]")
     if catalyst_misses:
         for ticker, score, r in catalyst_misses:
             print(f"    {ticker:>5} | 점수 {score:>3} | 실제 +{r['actual']:>5.2f}%")
             for c in r["catalysts"]:
                 print(f"         └ [{c['source']}] {c['title'][:80]}")
                 print(f"             ↳ 매칭: {', '.join(c['matched_keywords'])}")
+    else:
+        print(f"    (해당 없음)")
+
+    print(f"\n  [Tier-2 섹터 랠리 — 분석 실패 아님]")
+    if sector_rally_misses:
+        for ticker, score, actual, rally_stocks in sector_rally_misses:
+            others = [t for t in rally_stocks if t != ticker]
+            print(f"    {ticker:>5} | 점수 {score:>3} | 실제 +{actual:>5.2f}% | 섹터 동반 상승: {', '.join(others[:4])}")
+    else:
+        print(f"    (해당 없음)")
+
+    print(f"\n  [Tier-2 추세 지속 — 분석 실패 아님]")
+    if trend_misses:
+        for ticker, score, r in trend_misses:
+            print(f"    {ticker:>5} | 점수 {score:>3} | 실제 +{r['actual']:>5.2f}% | 직전 5D +{r['prev_5d']:>5.1f}% (모멘텀)")
     else:
         print(f"    (해당 없음)")
 
@@ -527,8 +595,9 @@ def report_catalyst_analysis():
         print(f"    (해당 없음)")
 
     print()
-    print("  ※ 돌발 호재 = 오늘/어제 발생한 구체적 이벤트(계약·M&A·FDA·대형 주문)")
-    print("     섹터 랠리, 애널리스트 의견, 추측성 기사는 제외")
+    print("  ※ Tier-1 = 계약·M&A·FDA·대형 주문·거버넌스 변경 등 구체적 이벤트")
+    print("  ※ Tier-2 (섹터) = 같은 섹터 3개 이상 동날 +3% 동반 상승 (섹터 베타)")
+    print("  ※ Tier-2 (추세) = 직전 5D +20% 초과 (이미 오른 종목의 모멘텀 지속)")
     print("=" * 100)
 
 

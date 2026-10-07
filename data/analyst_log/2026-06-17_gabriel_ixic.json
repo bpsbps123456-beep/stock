@@ -1,0 +1,36 @@
+{
+  "analyst": "gabriel",
+  "published": "2026-06-17",
+  "date_precision": "day",
+  "target": "^IXIC",
+  "direction": "bullish",
+  "relative": false,
+  "horizon": "weeks",
+  "scoreable": true,
+  "thesis": "나스닥의 최소 저항 경로는 위쪽",
+  "action_condition": null,
+  "levels": null,
+  "invalidation": null,
+  "source": "user_provided_summary",
+  "verification": {
+    "status": "complete",
+    "entry_date": "2026-06-17",
+    "entry_close": 26021.66,
+    "d5": {
+      "target_pct": -2.55,
+      "bench_pct": -0.84,
+      "excess_pct": -1.7
+    },
+    "d20": {
+      "target_pct": -1.93,
+      "bench_pct": 0.51,
+      "excess_pct": -2.43
+    },
+    "mfe_pct": 1.91,
+    "mae_pct": 2.78,
+    "missed_upside_pct": null,
+    "hit_20d": "miss",
+    "flag": null,
+    "verified_at": "2026-07-18"
+  }
+}

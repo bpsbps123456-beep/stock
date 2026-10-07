@@ -1,0 +1,21 @@
+{
+  "analyst": "catone",
+  "published": "2026-07",
+  "date_precision": "month",
+  "target": "^GSPC",
+  "direction": "bearish",
+  "relative": false,
+  "horizon": "years",
+  "scoreable": false,
+  "thesis": "장기 시나리오(발표일 미상, 2026년 중반): 2026년 9월 S&P 500 7,800 부근 고점 → 2029년 4,400 하락. 매매 신호로 사용 금지",
+  "action_condition": null,
+  "levels": {
+    "top_2026_09": 7800,
+    "low_2029": 4400
+  },
+  "invalidation": null,
+  "source": "user_provided_summary",
+  "verification": {
+    "status": "pending"
+  }
+}

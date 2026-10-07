@@ -1,0 +1,72 @@
+{
+  "ticker": "META",
+  "analysis_date": "2026-04-30",
+  "fiscal_period": "FY26 Q1",
+  "price_at_analysis": 669.12,
+  "market_cap_at_analysis": "1.70T",
+  "source_material": "사용자 제공 실적 원문 + earnings_prefill.py + WebSearch 컨센서스",
+  "key_numbers": {
+    "revenue_q1_2026": 56310,
+    "revenue_q1_2025": 42314,
+    "revenue_yoy": 33.0,
+    "revenue_consensus": 55450,
+    "revenue_beat_pct": 1.6,
+    "adj_eps": 7.31,
+    "adj_eps_consensus": 6.78,
+    "adj_eps_beat_pct": 7.8,
+    "gaap_eps_incl_tax_benefit": 10.44,
+    "tax_benefit_per_share": 3.13,
+    "op_income": 22872,
+    "op_margin_pct": 40.6,
+    "sbc": 6032,
+    "sbc_to_revenue_pct": 10.7,
+    "sbc_to_gp_pct": 13.1,
+    "op_income_minus_sbc": 16840,
+    "ocf": 32226,
+    "fcf_q1": 12386,
+    "fcf_margin_q1_pct": 22.0,
+    "capex_q1": 19840,
+    "capex_fy26_guide_midpoint": 135000,
+    "q2_guide_revenue_midpoint": 59500,
+    "q2_guide_yoy_pct": 25.2,
+    "rule_of_40_q1": 55.0,
+    "dap_billions": 3.56,
+    "dap_yoy_pct": 4.0,
+    "ad_impressions_yoy_pct": 19.0,
+    "ad_price_yoy_pct": 12.0,
+    "diluted_shares_q1_2026": 2564,
+    "diluted_shares_q1_2025": 2590,
+    "diluted_shares_yoy_pct": -1.0,
+    "cash_and_securities": 81180,
+    "rl_op_loss": -4028,
+    "foa_op_margin_pct": 48.1,
+    "growth_2nd_derivative_q1": 9.2,
+    "growth_2nd_derivative_q2_guide": -7.8
+  },
+  "sn_score": {
+    "total": 28,
+    "breakdown": {
+      "①실적강도": 4,
+      "②모멘텀": 5,
+      "③미래전망": 6,
+      "④SBC건전성": 3,
+      "⑤재무자생력": 6,
+      "⑥내러티브균형": 4
+    }
+  },
+  "quant_tier": "메가캡 상위 7~8% (알파 성장, YoY +33%)",
+  "market_reaction_prediction": {
+    "initial": "다소 부정적 (CapEx raise 쇼크 → AH 급락 후 pre-market 거의 회복)",
+    "mid_long_term": "다소 긍정적"
+  },
+  "investment_opinion": "신중한 비중 확대",
+  "key_thesis": "AI 광고 플라이휠이 매출 가속(+33% YoY)으로 증명됨. CapEx $135B는 2026년 FCF를 소멸시키나 2027+ 반등의 선행 투자. $669 = CapEx 쇼크 할인 구간, 컨센서스 $855 12-18개월 도달 전망.",
+  "key_risks": [
+    "CapEx $125-145B FY26 → 연간 FCF 사실상 소멸 예상 (2027 반등 베팅 필요)",
+    "EU·미국 청소년 소송 진행 중 → 최악 시 수십억 달러 벌금",
+    "Reality Labs -$4B/분기 손실 무한 지속",
+    "Q1 2026 자사주 매입 $0 → SBC 희석 점진적 진행",
+    "H2 2026 비용 급증 ($44B/분기) → 마진 일시 압축"
+  ],
+  "verification": null
+}

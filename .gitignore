@@ -2,3 +2,17 @@ __pycache__/
 *.pyc
 *.pyo
 .env
+config.json
+data/raw/
+data/derived/
+data/state/
+data/quarantine/
+.codex/schedule/
+# 야간 데스크 매매 기록(개인 데이터)
+data/journal/
+# 에이전트·도구의 로컬 상태
+.claude/settings.local.json
+.omx/
+.pytest_cache/
+# 다른 저장소(sector-top2-trading-assistant)의 Codex 연구 복제본
+.codex-worktrees/

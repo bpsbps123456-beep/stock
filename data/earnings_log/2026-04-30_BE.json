@@ -1,0 +1,93 @@
+{
+  "ticker": "BE",
+  "analysis_date": "2026-04-30",
+  "fiscal_period": "FY26 Q1 (March quarter, ended Mar 31, 2026)",
+  "watchlist_status": "워치리스트 외 종목 — 적자기업(원자력/에너지 인근) 사용자 요청 1회성 분석",
+  "price_at_analysis": 277,
+  "market_cap_at_analysis": "78.77B",
+  "source_material": "사용자 제공 BE Q1 2026 보도자료 — 매출 $751.1M(+130.4% YoY $326M → $751M), Product 매출 $653.3M(+208.4%), GAAP 영업이익 $72.2M(전년 -$19M, +$91M 스윙), Non-GAAP 영업이익 $129.7M(+$116.5M YoY), GAAP 영업마진 9.6%(전년 -5.8%), Non-GAAP 영업마진 17.3%(전년 4.0%), GAAP Gross 30.0%(전년 27.2%), Service Gross 13.3%(전년 1.3% +12%p), GAAP EPS $0.23(전년 -$0.10), Non-GAAP 희석 EPS $0.44(전년 $0.03), Adj EBITDA $143M(전년 $25M), 영업CF +$73.6M(전년 -$110.7M), 캐시 $2.49B, FY26 풀이어 raise — 매출 $3.4-3.8B(전 ~60%→~80% YoY)/Non-GAAP Gross ~34%/Op Income $600-750M/Non-GAAP EPS $1.85-2.25",
+  "consensus_context": {
+    "q1_eps_consensus": 0.13,
+    "q1_eps_actual_non_gaap": 0.44,
+    "eps_surprise_pct": 238,
+    "q1_revenue_consensus": 529,
+    "q1_revenue_actual": 751,
+    "revenue_surprise_pct": 42,
+    "fy26_revenue_guide_prior_mid": 3230,
+    "fy26_revenue_guide_new_mid": 3600,
+    "fy26_revenue_guide_raise_pct": 11.5,
+    "fy26_eps_guide_new_mid": 2.05,
+    "fy26_growth_guide_prior_pct": 60,
+    "fy26_growth_guide_new_pct": 80,
+    "guidance_pattern": "정석 Beat & Raise — 매출 가이던스 풀이어 mid +12% 상향, 성장률 60% → 80%로 명시. 직전 분기 Q4'25에도 컨센 비트(+18%) 패턴 반복",
+    "ytd_return_pct": 170,
+    "prior_year_return_pct": 291,
+    "rsi": 72.68,
+    "sentiment": "52주 신고가 권역, AI 데이터센터 파워의 'go-to' 내러티브, JPMorgan·Susquehanna 가격 타겟 인상, Brookfield $5B 파트너십, Oracle Project Jupiter 2.45GW 단독 파워 공급자 지정 — 강세 모멘텀 극대화"
+  },
+  "key_numbers": {
+    "revenue_yoy": 130.4,
+    "product_revenue_yoy": 208.4,
+    "revenue_qoq": -3.4,
+    "guidance_fy26_yoy_mid": 78,
+    "rule_of_40": 145.4,
+    "gross_margin_gaap": 30.0,
+    "gross_margin_yoy_change_pp": 2.8,
+    "service_gross_margin_yoy_change_pp": 12.0,
+    "op_margin_gaap": 9.6,
+    "op_margin_yoy_change_pp": 15.4,
+    "op_margin_non_gaap": 17.3,
+    "op_margin_non_gaap_yoy_change_pp": 13.3,
+    "op_income_yoy_swing_million": 91.3,
+    "operating_cash_flow_yoy_swing_million": 184.3,
+    "cash_position": 2491,
+    "recourse_debt": 2599,
+    "net_debt": 542,
+    "nd_ebitda": 3.9,
+    "accumulated_deficit": -3917,
+    "earnings_transition_status": "Q1'26 GAAP 흑자 전환 본격화 (전년 -$23M → +$71M)",
+    "fy26_eps_guide_mid_new": 2.05,
+    "fy26_per_at_277": 135,
+    "fy27_forward_eps_yfinance": 3.41,
+    "fy27_per": 81,
+    "yfinance_target_mean": 173,
+    "current_price_vs_target": "현재 $277 > 평균 타겟 $173 — 분석가 평균 +60% 위"
+  },
+  "sn_score": {
+    "total": 26,
+    "breakdown": {"①": 5, "②": 4, "③": 5, "④": 5, "⑤": 3, "⑥": 4},
+    "rationale": {
+      "①_실적강도": "EPS 컨센 $0.13 vs 실제 $0.44 = +238% 비트 (sample 압도적). 매출 +42% 비트. Product 매출 +208% YoY — 5점",
+      "②_매출가속": "YoY +130% 압도적, 단 QoQ -3.4% (계절성). 풀이어 가이던스 60% → 80%로 raise — 4점 (QoQ 감점)",
+      "③_마진수익성": "GAAP Op Margin -5.8% → +9.6% (+15.4%p 흑자 전환), Non-GAAP Op +13.3%p, Service GM +12%p — 운영 레버리지 폭발 5점",
+      "④_가이던스": "풀이어 매출 mid +12% raise (60% → 80% YoY), EPS 가이던스 신규 명시 ($1.85-2.25). SOFI/TER 교훈 정반대의 정석 raise — 5점",
+      "⑤_재무건전성": "캐시 $2.49B 강력 / Recourse debt $2.60B + Net Debt $542M / ND/EBITDA 3.9x 부담 / 누적 deficit -$3.92B — 흑자 전환 초기 단계. 3점",
+      "⑥_텍스트톤리스크": "CEO 'generational company' / Oracle Project Jupiter / Brookfield $5B / 분석가 타겟 인상 — 톤 강세. 단 RSI 72.68 오버보트 + 현재가 $277 > 평균 타겟 $173 — 4점"
+    }
+  },
+  "quant_tier": "대형주 ($78.77B), 적자→흑자 전환 산업재(전기설비) 알파 성장 — Forward PER 81x는 동종 OKLO/SMR 대비 프리미엄이지만 흑자 전환 + AI 데이터센터 단독 파워 내러티브가 정당화 시도",
+  "valuation_view": "FY26 가이던스 mid EPS $2.05 → PER 135x. Forward EPS $3.41 (yfinance) → PER 81x. 분석가 평균 타겟 $173 (-37% 아래). 단기는 모멘텀이 PER 정당화하지만 장기 가치 기준으로 이미 정점 위 — cyclical/AI capex 둔화 위험 존재",
+  "market_reaction_prediction": {
+    "initial": "강한 긍정 (이미 보고됨)",
+    "mid_long_term": "긍정 (Oracle 2.45GW + Brookfield 파트너십 가시성 + 흑자 전환 본격화)",
+    "reasoning": "(1) EPS 컨센 +238% 비트 + 매출 +42% 비트 + 풀이어 +12% raise — 6중 호재 (2) Oracle Project Jupiter 단독 파워 공급자 카탈리스트 (3) 흑자 전환 본격화 시점 (4) 분석가 톤 일관 강세 (JPM/Susquehanna 타겟 인상) (5) **사후 보고**: 시간외 +24.25%, 시초 갭상승 후 추세 지속 / 일중 +24% 보고됨"
+  },
+  "investment_opinion": "비중 확대 — 단, $277은 이미 +24% 갭 반영. 추격 비권장. 1차 갭상승 후 매물 소화 / RSI 정상화(60 미만) 후 분할 진입 권장. FY26 EPS $2.05 × 100x = $205 라인이 보수적 분할 매수 영역",
+  "key_thesis": "AI 데이터센터의 그리드 우회용 온사이트 전력 솔루션이 Oracle Project Jupiter(2.45GW) + Brookfield $5B 파트너십으로 구조적 수요 확정. Q1'26 매출 +130% + 풀이어 가이던스 60% → 80% raise + GAAP 흑자 본격 전환 + 운영 레버리지 +15.4%p 점프 — 5중 호재. 단, YTD +170% / RSI 72 / 평균 타겟 $173 < 현재 $277 = 단기 추격 위험. STX 케이스와 매우 유사한 '비트&레이즈+AI구조수요' 정석.",
+  "key_risks": [
+    "YTD +170% / 작년 +291% 누적 — RSI 72 오버보트, 단기 차익실현 매물 가능",
+    "현재가 $277 vs 평균 분석가 타겟 $173 (-37%) — 단기 갭 큼",
+    "Recourse debt $2.60B + 누적 deficit -$3.92B — 흑자 전환 초기, 부채 부담",
+    "Forward PER 81x / FY26 PER 135x — 가이던스 의존 밸류, 가이던스 미달 시 PER 정상화 리스크",
+    "Oracle 의존도 — 단일 고객 대형 계약의 양면성 (집중 리스크)",
+    "AI 데이터센터 capex 둔화 시 직격탄 (수요 사이클성)"
+  ],
+  "verification": {
+    "premarket_return_reported": null,
+    "intraday_return_reported": 24.25,
+    "afterhours_return_reported": 16,
+    "initial_hit": true,
+    "mid_long_hit": null,
+    "framework_check": "SOFI/TER/STX 교훈 직접 적용 — 컨센 비트(+238%), 매출 비트(+42%), 가이던스 raise(60%→80%), 시퀀셜은 QoQ 약간 감속(-3.4% 계절성), 사전 분위기(YTD +170% RSI 72), 사후 반응(+24.25%) 모두 명시. 결과: '강한 긍정' 예측 → 시장 사후반응 +24.25% 일중 일치 (initial_hit: true)"
+  }
+}

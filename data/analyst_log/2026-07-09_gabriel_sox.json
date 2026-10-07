@@ -1,0 +1,36 @@
+{
+  "analyst": "gabriel",
+  "published": "2026-07-09",
+  "date_precision": "day",
+  "target": "^SOX",
+  "direction": "bearish",
+  "relative": false,
+  "horizon": "weeks",
+  "scoreable": true,
+  "thesis": "반도체(SOX) 10주 이동평균선 하향 이탈로 추가 하락 위험",
+  "action_condition": "10주선(~12,675) 하회 유지 시 반도체 비중 축소",
+  "levels": {
+    "ma_10w": 12675,
+    "prior_trendline": 12465,
+    "next_support": 11794
+  },
+  "invalidation": "10주선 회복 후 유지 시 약세 전망 무효",
+  "source": "user_provided_summary",
+  "verification": {
+    "status": "partial",
+    "entry_date": "2026-07-09",
+    "entry_close": 12960.0,
+    "d5": {
+      "target_pct": -8.43,
+      "bench_pct": -0.13,
+      "excess_pct": -8.3
+    },
+    "d20": null,
+    "mfe_pct": 9.92,
+    "mae_pct": 0.06,
+    "missed_upside_pct": 0.06,
+    "hit_20d": null,
+    "flag": null,
+    "verified_at": "2026-07-18"
+  }
+}

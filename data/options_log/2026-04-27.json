@@ -1,6 +1,6 @@
 {
   "date": "2026-04-27",
-  "scan_time": "2026-04-27 20:16",
+  "scan_time": "2026-04-27 21:07",
   "rankings": [
     {
       "rank": 1,
@@ -12,16 +12,17 @@
       "cap_label": "대형",
       "factors": {
         "pc_ratio": 0.33902496032673546,
-        "hot_dollar": 38648922.0,
+        "hot_dollar": 38507476.0,
         "opt_intensity": 0.00860136858967968,
         "iv_skew": 0.062499374999999996,
         "term_structure": 0.12611857940415672
       },
       "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
+        "1d": 0.01043,
+        "3d": -0.04011,
+        "5d": -0.02636
+      },
+      "hot_dollar_streak": false
     },
     {
       "rank": 2,
@@ -39,13 +40,36 @@
         "term_structure": 0.25047969779039203
       },
       "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
+        "1d": -0.00544,
+        "3d": 0.01509,
+        "5d": 0.04186
+      },
+      "hot_dollar_streak": false
     },
     {
       "rank": 3,
+      "group": "profit",
+      "ticker": "NVDA",
+      "price": 208.26,
+      "score": 63,
+      "flow_type": "강세 방향성",
+      "cap_label": "대형",
+      "factors": {
+        "pc_ratio": 0.35489992500443335,
+        "hot_dollar": 191071229.0,
+        "opt_intensity": 0.015615099814931085,
+        "iv_skew": 0.031249687499999998,
+        "term_structure": 782.2421874999999
+      },
+      "forward_returns": {
+        "1d": -0.01588,
+        "3d": -0.07867,
+        "5d": -0.0837
+      },
+      "hot_dollar_streak": true
+    },
+    {
+      "rank": 4,
       "group": "profit",
       "ticker": "GOOGL",
       "price": 344.4,
@@ -60,13 +84,14 @@
         "term_structure": 0.25095878234642
       },
       "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
+        "1d": -0.0016,
+        "3d": 0.09836,
+        "5d": 0.09394
+      },
+      "hot_dollar_streak": false
     },
     {
-      "rank": 4,
+      "rank": 5,
       "group": "profit",
       "ticker": "ORCL",
       "price": 173.28,
@@ -75,19 +100,20 @@
       "cap_label": "대형",
       "factors": {
         "pc_ratio": 0.32243357603019096,
-        "hot_dollar": 15391987.0,
+        "hot_dollar": 14513069.0,
         "opt_intensity": 0.00570458087147876,
         "iv_skew": 0.062499374999999996,
         "term_structure": 1.0
       },
       "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
+        "1d": -0.04047,
+        "3d": -0.06689,
+        "5d": 0.04238
+      },
+      "hot_dollar_streak": false
     },
     {
-      "rank": 5,
+      "rank": 6,
       "group": "profit",
       "ticker": "AAPL",
       "price": 271.06,
@@ -102,13 +128,14 @@
         "term_structure": 1.0
       },
       "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
+        "1d": 0.01158,
+        "3d": 0.01398,
+        "5d": 0.03445
+      },
+      "hot_dollar_streak": false
     },
     {
-      "rank": 6,
+      "rank": 7,
       "group": "profit",
       "ticker": "META",
       "price": 675.05,
@@ -117,37 +144,17 @@
       "cap_label": "대형",
       "factors": {
         "pc_ratio": 0.5913744133933619,
-        "hot_dollar": 26938633.0,
+        "hot_dollar": 25795853.0,
         "opt_intensity": 0.014828739997562857,
         "iv_skew": 0.031249687499999998,
         "term_structure": 1.0
       },
       "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
-    },
-    {
-      "rank": 7,
-      "group": "profit",
-      "ticker": "NVDA",
-      "price": 208.26,
-      "score": 53,
-      "flow_type": "강세 방향성",
-      "cap_label": "대형",
-      "factors": {
-        "pc_ratio": 0.35489992500443335,
-        "hot_dollar": 191071229.0,
-        "opt_intensity": 0.015615099814931085,
-        "iv_skew": 0.031249687499999998,
-        "term_structure": 782.2421874999999
+        "1d": -0.01073,
+        "3d": -0.0983,
+        "5d": -0.10051
       },
-      "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
+      "hot_dollar_streak": false
     },
     {
       "rank": 8,
@@ -165,10 +172,11 @@
         "term_structure": 0.005093969814249188
       },
       "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
+        "1d": -0.07946,
+        "3d": 0.0496,
+        "5d": 0.13552
+      },
+      "hot_dollar_streak": false
     },
     {
       "rank": 9,
@@ -186,17 +194,18 @@
         "term_structure": 1.0
       },
       "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
+        "1d": -0.08904,
+        "3d": -0.02244,
+        "5d": -0.04791
+      },
+      "hot_dollar_streak": false
     },
     {
       "rank": 10,
       "group": "profit",
       "ticker": "MU",
       "price": 496.72,
-      "score": 40,
+      "score": 50,
       "flow_type": "이벤트 변동성",
       "cap_label": "대형",
       "factors": {
@@ -207,10 +216,11 @@
         "term_structure": 0.0025534886040596482
       },
       "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
+        "1d": -0.03864,
+        "3d": -0.01411,
+        "5d": 0.09892
+      },
+      "hot_dollar_streak": true
     },
     {
       "rank": 11,
@@ -222,16 +232,17 @@
       "cap_label": "대형",
       "factors": {
         "pc_ratio": 0.7201172433514441,
-        "hot_dollar": 2245845.0,
+        "hot_dollar": 2111340.0,
         "opt_intensity": 0.0031388865660586184,
         "iv_skew": 0.062499374999999996,
         "term_structure": 0.5006391882309467
       },
       "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
+        "1d": -0.04163,
+        "3d": 0.00139,
+        "5d": 0.00087
+      },
+      "hot_dollar_streak": false
     },
     {
       "rank": 12,
@@ -249,10 +260,11 @@
         "term_structure": 0.5006391882309467
       },
       "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
+        "1d": -0.03148,
+        "3d": 0.04387,
+        "5d": 0.03445
+      },
+      "hot_dollar_streak": false
     },
     {
       "rank": 13,
@@ -270,10 +282,11 @@
         "term_structure": 13.206909179687498
       },
       "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
+        "1d": -0.0634,
+        "3d": 0.02458,
+        "5d": 0.17348
+      },
+      "hot_dollar_streak": false
     },
     {
       "rank": 14,
@@ -291,10 +304,11 @@
         "term_structure": 782.2421874999999
       },
       "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
+        "1d": -0.06779,
+        "3d": -0.00966,
+        "5d": 0.02344
+      },
+      "hot_dollar_streak": false
     },
     {
       "rank": 15,
@@ -306,16 +320,17 @@
       "cap_label": "대형",
       "factors": {
         "pc_ratio": 0.8820260517775373,
-        "hot_dollar": 17129981.0,
+        "hot_dollar": 16882775.0,
         "opt_intensity": 0.004934832743903937,
         "iv_skew": 0.062499374999999996,
         "term_structure": 391.62109374999994
       },
       "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
+        "1d": -0.04393,
+        "3d": -0.00184,
+        "5d": -0.00407
+      },
+      "hot_dollar_streak": false
     },
     {
       "rank": 16,
@@ -333,10 +348,11 @@
         "term_structure": 0.25095878234642
       },
       "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
+        "1d": -0.02431,
+        "3d": 0.08432,
+        "5d": 0.10389
+      },
+      "hot_dollar_streak": false
     },
     {
       "rank": 17,
@@ -348,16 +364,17 @@
       "cap_label": "대형",
       "factors": {
         "pc_ratio": 0.8046830421665134,
-        "hot_dollar": 90313227.0,
+        "hot_dollar": 78423559.0,
         "opt_intensity": 0.013828634186543584,
         "iv_skew": 0.062499374999999996,
         "term_structure": 782.2421874999999
       },
       "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
+        "1d": -0.03413,
+        "3d": 0.05935,
+        "5d": 0.02065
+      },
+      "hot_dollar_streak": false
     },
     {
       "rank": 18,
@@ -369,16 +386,17 @@
       "cap_label": "대형",
       "factors": {
         "pc_ratio": 2.2604043807919125,
-        "hot_dollar": 2324538.0,
+        "hot_dollar": 1953898.0,
         "opt_intensity": 0.003630011748928236,
         "iv_skew": 0.031249687499999998,
         "term_structure": 782.2421874999999
       },
       "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
+        "1d": -0.03176,
+        "3d": -0.00621,
+        "5d": -0.00347
+      },
+      "hot_dollar_streak": false
     },
     {
       "rank": 19,
@@ -396,10 +414,11 @@
         "term_structure": 1.0
       },
       "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
+        "1d": -0.08078,
+        "3d": -0.03596,
+        "5d": -0.00244
+      },
+      "hot_dollar_streak": false
     },
     {
       "rank": 20,
@@ -417,10 +436,11 @@
         "term_structure": 1.0
       },
       "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
+        "1d": -0.02824,
+        "3d": 0.13053,
+        "5d": 0.23945
+      },
+      "hot_dollar_streak": false
     },
     {
       "rank": 21,
@@ -438,10 +458,11 @@
         "term_structure": 1.0
       },
       "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
+        "1d": -0.06448,
+        "3d": 0.04195,
+        "5d": 0.06353
+      },
+      "hot_dollar_streak": false
     },
     {
       "rank": 22,
@@ -459,39 +480,19 @@
         "term_structure": 391.62109374999994
       },
       "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
+        "1d": -0.0544,
+        "3d": -0.1456,
+        "5d": -0.1606
+      },
+      "hot_dollar_streak": false
     },
     {
       "rank": 1,
       "group": "loss",
-      "ticker": "SMR",
-      "price": 11.96,
-      "score": 57,
-      "flow_type": "강세 방향성",
-      "cap_label": "중형",
-      "factors": {
-        "pc_ratio": 0.5015988163986064,
-        "hot_dollar": 416191.0,
-        "opt_intensity": 0.0011512734446227338,
-        "iv_skew": 0.0,
-        "term_structure": 0.500319798526928
-      },
-      "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
-    },
-    {
-      "rank": 2,
-      "group": "loss",
       "ticker": "APLD",
       "price": 34.98,
-      "score": 51,
-      "flow_type": "헤지+콜 유입",
+      "score": 66,
+      "flow_type": "강세 방향성",
       "cap_label": "중형",
       "factors": {
         "pc_ratio": 0.44424887607091357,
@@ -501,10 +502,33 @@
         "term_structure": 0.2519151164530447
       },
       "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
+        "1d": -0.04633,
+        "3d": 0.01723,
+        "5d": 0.05821
+      },
+      "hot_dollar_streak": false
+    },
+    {
+      "rank": 2,
+      "group": "loss",
+      "ticker": "SMR",
+      "price": 11.96,
+      "score": 57,
+      "flow_type": "강세 방향성",
+      "cap_label": "중형",
+      "factors": {
+        "pc_ratio": 0.5015988163986064,
+        "hot_dollar": 326818.0,
+        "opt_intensity": 0.0011512734446227338,
+        "iv_skew": 0.0,
+        "term_structure": 0.500319798526928
+      },
+      "forward_returns": {
+        "1d": -0.06561,
+        "3d": -0.01502,
+        "5d": -0.03715
+      },
+      "hot_dollar_streak": false
     },
     {
       "rank": 3,
@@ -512,7 +536,7 @@
       "ticker": "OKLO",
       "price": 71.0,
       "score": 45,
-      "flow_type": "혼조",
+      "flow_type": "헤지+콜 유입",
       "cap_label": "대형",
       "factors": {
         "pc_ratio": 0.6360827564629044,
@@ -522,10 +546,11 @@
         "term_structure": 0.2795115039146933
       },
       "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
+        "1d": -0.09008,
+        "3d": -0.04517,
+        "5d": -0.09654
+      },
+      "hot_dollar_streak": false
     },
     {
       "rank": 4,
@@ -543,10 +568,11 @@
         "term_structure": 0.2519151164530447
       },
       "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
+        "1d": -0.06838,
+        "3d": 0.02351,
+        "5d": -0.03244
+      },
+      "hot_dollar_streak": false
     },
     {
       "rank": 5,
@@ -564,10 +590,11 @@
         "term_structure": 0.25023992562305686
       },
       "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
+        "1d": -0.03424,
+        "3d": 0.01501,
+        "5d": 0.01407
+      },
+      "hot_dollar_streak": false
     },
     {
       "rank": 6,
@@ -585,10 +612,11 @@
         "term_structure": 1.0
       },
       "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
+        "1d": -0.04956,
+        "3d": -0.02313,
+        "5d": -0.01487
+      },
+      "hot_dollar_streak": false
     },
     {
       "rank": 7,
@@ -606,10 +634,11 @@
         "term_structure": 1.0
       },
       "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
+        "1d": -0.02999,
+        "3d": 0.05315,
+        "5d": 0.05942
+      },
+      "hot_dollar_streak": false
     },
     {
       "rank": 8,
@@ -627,10 +656,11 @@
         "term_structure": 0.500319798526928
       },
       "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
+        "1d": -0.00553,
+        "3d": 0.11166,
+        "5d": 0.12696
+      },
+      "hot_dollar_streak": false
     },
     {
       "rank": 9,
@@ -648,10 +678,11 @@
         "term_structure": 782.2421874999999
       },
       "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
+        "1d": -0.08106,
+        "3d": -0.05893,
+        "5d": 0.02316
+      },
+      "hot_dollar_streak": false
     },
     {
       "rank": 10,
@@ -669,10 +700,11 @@
         "term_structure": 782.2421874999999
       },
       "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
+        "1d": -0.01734,
+        "3d": 0.0292,
+        "5d": 0.04357
+      },
+      "hot_dollar_streak": false
     },
     {
       "rank": 11,
@@ -684,16 +716,17 @@
       "cap_label": "대형",
       "factors": {
         "pc_ratio": 0.7489475698430922,
-        "hot_dollar": 6396584.0,
+        "hot_dollar": 6134484.0,
         "opt_intensity": 0.005962029383604314,
         "iv_skew": 0.062499374999999996,
         "term_structure": 1.0
       },
       "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
+        "1d": -0.06519,
+        "3d": -0.04643,
+        "5d": 0.21703
+      },
+      "hot_dollar_streak": false
     },
     {
       "rank": 12,
@@ -701,20 +734,21 @@
       "ticker": "RGTI",
       "price": 16.605,
       "score": 17,
-      "flow_type": "헤지+콜 유입",
+      "flow_type": "혼조",
       "cap_label": "중형",
       "factors": {
         "pc_ratio": 0.672120628809753,
-        "hot_dollar": 355672.0,
+        "hot_dollar": 351196.0,
         "opt_intensity": 0.0015858073822802219,
         "iv_skew": 0.0,
         "term_structure": 1.0
       },
       "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
+        "1d": -0.03075,
+        "3d": 0.03193,
+        "5d": 0.04672
+      },
+      "hot_dollar_streak": false
     },
     {
       "rank": 13,
@@ -726,16 +760,17 @@
       "cap_label": "대형",
       "factors": {
         "pc_ratio": 1.5834142551951835,
-        "hot_dollar": 5487758.0,
+        "hot_dollar": 5344658.0,
         "opt_intensity": 0.006338655439390818,
         "iv_skew": 0.0,
         "term_structure": 1.0
       },
       "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
+        "1d": -0.05827,
+        "3d": -0.0041,
+        "5d": 0.11931
+      },
+      "hot_dollar_streak": false
     },
     {
       "rank": 14,
@@ -747,16 +782,17 @@
       "cap_label": "중형",
       "factors": {
         "pc_ratio": 2.1363636363636362,
-        "hot_dollar": 47831.0,
+        "hot_dollar": 43291.0,
         "opt_intensity": 0.0006605565499876905,
         "iv_skew": 0.0,
         "term_structure": 0.2538204773606869
       },
       "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
+        "1d": -0.01217,
+        "3d": 0.01659,
+        "5d": -0.01991
+      },
+      "hot_dollar_streak": false
     },
     {
       "rank": 15,
@@ -774,10 +810,11 @@
         "term_structure": 0.0003199008307424699
       },
       "forward_returns": {
-        "1d": null,
-        "3d": null,
-        "5d": null
-      }
+        "1d": -0.17377,
+        "3d": -0.09836,
+        "5d": -0.13005
+      },
+      "hot_dollar_streak": false
     }
   ]
 }
