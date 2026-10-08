@@ -102,7 +102,7 @@ INTRADAY_STATS = [  # (규칙, +익절, 앞 닿음%, 앞 평균%, 앞 건, 뒤 �
     ("VWAP 회복", 3, 44, -0.3, 78, 33, -0.0, 81),
     ("15분 고가 돌파", 3, 36, 0.5, 47, 14, -0.5, 66),
 ]
-# 그날 바닥일 확률(2026-10-08 연구 lowfind): 15분마다 그 순간 -7% 이하인 종목의 지금까지 저가가 그날 끝까지 버틴 비율.
+# 그날 바닥일 확률(2026-10-08 연구 lowfind): 15분마다 그 순간 -7% 이하인 종목의 지금까지 저가가 그날 끝까지 버틴 비율(종목·날마다 한 번).
 # (저가 뒤 지난 시간, 앞 8/10~9/5 5분봉 %, 뒤 9/8~10/6 5분봉 %, 뒤 3분봉 %, 깨진 날 더 빠진 폭 중앙, 그 하위 10%)
 SURVIVAL = [
     ("0~14분", 13, 12, 12, "−1.3~−1.7%", "−4.4~−5.4%"),
@@ -112,6 +112,16 @@ SURVIVAL = [
     ("120분 이상", 63, 59, 59, "−0.8~−1.3%", "−2.5~−3.4%"),
 ]
 SURVIVAL_EDGES = [(0, 15), (15, 30), (30, 60), (60, 120), (120, 10_000)]
+# 같은 확률을 지금 저가 대비 위치로 나눈 표(연구 lowfind waiting). 같은 시간이어도 저가에 붙어 있으면 낮고 떠 있으면 높다.
+# 열은 (이름, 저가 대비 % 상한), 행은 SURVIVAL_EDGES 순서. 칸은 (앞 5분봉 %, 뒤 5분봉 %, 뒤 3분봉 %, 뒤 3분봉 건), 뒤 3분봉 15건 미만은 None.
+SURVIVAL_NEAR = [("저가 +1% 안", 1.0), ("+1~2%", 2.0), ("+2~4%", 4.0), ("+4% 이상", None)]
+SURVIVAL_GRID = [
+    [(11, 10, 9, 597), (31, 32, 32, 173), (45, 42, 40, 65), None],
+    [(25, 19, 20, 313), (44, 37, 37, 171), (60, 54, 54, 105), (75, 82, 79, 34)],
+    [(25, 19, 19, 232), (55, 45, 46, 202), (64, 69, 67, 130), (83, 78, 78, 49)],
+    [(25, 24, 26, 186), (58, 49, 50, 176), (82, 74, 74, 137), (87, 88, 88, 48)],
+    [(39, 28, 27, 126), (72, 58, 56, 136), (88, 82, 81, 119), (92, 98, 98, 50)],
+]
 # 바닥 15분 매수(11:00 ET 전 신호, +2% 지정가, 못 닿으면 다음 날 시가). 60개 조합 중 세 칸 모두 플러스였던 6개의 대표.
 # (손절, [(기간·봉, 평균%, 승률%, 익절%, 손절%, 최악%, 건)])
 BOTTOM_STATS = [
@@ -290,13 +300,15 @@ def closed_bars(b: pd.DataFrame, minutes: int, now_m: int) -> pd.DataFrame:
     return b[_minutes(b.index) + minutes <= now_m]
 
 
-def survival_of(since: float | None) -> int | None:
-    """저가 뒤 지난 분 → 연구(뒤 3분봉)의 그날 바닥일 확률(%)."""
-    if since is None:
+def survival_of(since: float | None, near: float | None) -> int | None:
+    """저가 뒤 지난 분·지금 저가 대비(%) → 연구(뒤 3분봉)의 그날 바닥일 확률(%). 표본이 적은 칸은 None."""
+    if since is None or near is None:
         return None
-    for (lo_, hi_), row in zip(SURVIVAL_EDGES, SURVIVAL):
+    for (lo_, hi_), row in zip(SURVIVAL_EDGES, SURVIVAL_GRID):
         if lo_ <= since < hi_:
-            return row[3]
+            for (_, top), cell in zip(SURVIVAL_NEAR, row):
+                if top is None or near <= top:
+                    return cell[2] if cell else None
     return None
 
 
@@ -326,7 +338,7 @@ def bottom_hold(b: pd.DataFrame, c0: float, minutes: int) -> dict:
     last = len(b) - 1
     out.update(since=int(end[last] - low_end[last]), near=_pct(cl[last] / run_low[last]), dd=_pct(cl[last] / c0),
                low=float(run_low[last]), now_end=int(end[last]))
-    out["survival"] = survival_of(out["since"])
+    out["survival"] = survival_of(out["since"], out["near"])
     return out
 
 
@@ -541,7 +553,8 @@ def compute() -> dict:
 def research() -> dict:
     return {"study": STUDY, "time": TIME_STATS, "time_08": TIME_REBOUND_08, "rebound": REBOUND_STATS,
             "limit": LIMIT_STATS, "hold": HOLD_STATS, "intraday_low": INTRADAY_LOW, "intraday": INTRADAY_STATS,
-            "survival": SURVIVAL, "bottom": BOTTOM_STATS,
+            "survival": SURVIVAL, "survival_near": [lab for lab, _ in SURVIVAL_NEAR], "survival_grid": SURVIVAL_GRID,
+            "bottom": BOTTOM_STATS,
             "cases": CASES}
 
 

@@ -179,12 +179,18 @@ class BottomHoldTest(unittest.TestCase):
                          date(2026, 10, 2), 100.0, earnings=False, now_et=datetime(2026, 10, 2, 10, 4, tzinfo=NY))
         self.assertIsNone(f["flag_hold"])                     # 10:03에 끝난 봉까지는 저가 뒤 15분이 안 됐다
 
-    def test_survival_lookup_follows_the_table(self):
-        self.assertEqual(dip.survival_of(5), 12)
-        self.assertEqual(dip.survival_of(20), 31)
-        self.assertEqual(dip.survival_of(90), 50)
-        self.assertEqual(dip.survival_of(300), 59)
-        self.assertIsNone(dip.survival_of(None))
+    def test_survival_lookup_uses_time_and_distance_from_low(self):
+        self.assertEqual(dip.survival_of(5, 0.5), 9)
+        self.assertEqual(dip.survival_of(20, 1.0), 20)          # +1%는 '저가 +1% 안' 칸
+        self.assertEqual(dip.survival_of(20, 1.01), 37)
+        self.assertEqual(dip.survival_of(90, 3.0), 74)
+        self.assertEqual(dip.survival_of(300, 0.2), 27)         # 오래 버텨도 저가에 붙어 있으면 낮다
+        self.assertEqual(dip.survival_of(300, 6.0), 98)
+        self.assertIsNone(dip.survival_of(5, 6.0))              # 뒤 3분봉 15건 미만 칸
+        self.assertIsNone(dip.survival_of(None, 1.0))
+        self.assertIsNone(dip.survival_of(20, None))
+        h = dip.bottom_hold(self.reg3([("09:30", "09:50", 100, 88), ("09:51", "15:59", 88.3, 88.6)]), 100.0, 3)
+        self.assertEqual(h["survival"], dip.survival_of(h["since"], h["near"]))
 
 
 class GuardTest(unittest.TestCase):

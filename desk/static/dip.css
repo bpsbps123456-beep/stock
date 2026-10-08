@@ -70,6 +70,7 @@
 .dp-lede b { color: var(--ink); }
 .dp-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 24px; }
 .dp-grid h3 { line-height: 1.5; }
+.dp-tw { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 tr.dp-hl td { background: var(--accent-soft); }
 
 /* 사례 */
@@ -86,7 +87,7 @@ tr.dp-hl td { background: var(--accent-soft); }
   .dp-cases-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 1020px) {
-  .dp-grid, .dp-two { grid-template-columns: 1fr; }
+  .dp-grid, .dp-two { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 640px) {
   .dp-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
