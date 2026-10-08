@@ -142,6 +142,7 @@ function dpRenderKpis() {
   const d = DP.data, rows = d.rows, ru = d.rules;
   const deep = rows.filter((r) => r.chg <= -ru.deep).length;
   const f08 = rows.filter((r) => r.flag08).length, f0929 = rows.filter((r) => r.flag0929).length;
+  const fHold = rows.filter((r) => r.flag_hold).length;
   const shift = d.kst_shift, open = dpKst("09:30", shift);
   const tile = (label, value, sub, cls = "") => h("div", { class: "gi-kpi" },
     h("div", { class: "gi-kpi-label" }, label), h("div", { class: `gi-kpi-value ${cls}` }, value), h("div", { class: "gi-kpi-sub" }, sub));
@@ -149,7 +150,7 @@ function dpRenderKpis() {
     tile("지금 미국장", d.session || "—", `뉴욕 ${d.now_et.slice(11)} · 한국 ${dpKst(d.now_et.slice(11), shift)} · 정규장 ${open} 시작(한국)`),
     tile("시장(SPY)", dpPct(d.spy?.chg, 2), d.spy && d.spy.chg <= ru.market ? `시장 동반 급락(${ru.market}% 이하)` : `전일 종가 대비 · ${ru.market}% 이하면 시장 동반 급락`, dpDir(d.spy?.chg)),
     tile("급락 종목", `${rows.length}개`, `-${ru.drop}% 이하 · -${ru.deep}% 이하 ${deep}개 · ${d.scanned.toLocaleString("ko-KR")}종목 확인`),
-    tile("과거 플러스였던 조건", `${f08 + f0929}개`, `08:00 반등 중 ${f08} · 09:29 반등 10~20% ${f0929} (관찰 후보)`),
+    tile("과거 플러스였던 조건", `${f08 + f0929 + fHold}개`, `08:00 반등 중 ${f08} · 09:29 반등 10~20% ${f0929} · 바닥 15분 ${fHold} (관찰 후보)`),
     tile("내가 볼 수 있는 정규장", `${open}~24:00`, d.dst ? `서머타임: 뉴욕 09:30~${ru.window_end}, 정규장 첫 1시간 30분` : "표준시: 정규장 첫 30분만 깨어 있음"));
   mount($("#dp-alerts"), d.warnings?.length ? h("div", { class: "banner" }, "자료 확인 필요: " + d.warnings.join(" · ")) : null);
 }
@@ -159,7 +160,7 @@ function dpRows() {
   const rows = DP.data.rows;
   if (DP.filter === "noearn") return rows.filter((r) => !r.earnings);
   if (DP.filter === "deep") return rows.filter((r) => r.pm_low != null && r.pm_low <= -DP.data.rules.deep);
-  if (DP.filter === "flag") return rows.filter((r) => r.flag08 || r.flag0929);
+  if (DP.filter === "flag") return rows.filter((r) => r.flag08 || r.flag0929 || r.flag_hold);
   return rows;
 }
 
@@ -169,7 +170,7 @@ function dpRenderList() {
   const seg = dpSegment("보기", [
     ["all", `전체 ${DP.data.rows.length}`], ["noearn", `실적 제외 ${DP.data.rows.filter((r) => !r.earnings).length}`],
     ["deep", `프리장 -${ru.deep}% 이하 ${DP.data.rows.filter((r) => r.pm_low != null && r.pm_low <= -ru.deep).length}`],
-    ["flag", `조건 충족 ${DP.data.rows.filter((r) => r.flag08 || r.flag0929).length}`],
+    ["flag", `조건 충족 ${DP.data.rows.filter((r) => r.flag08 || r.flag0929 || r.flag_hold).length}`],
   ], DP.filter, (k) => { DP.filter = k; dpRenderList(); });
   const head = ["종목", ["시총", 1], ["지금", 1], ["프리장 저가", 1], ["저점 대비 반등", 1], ["시가 · 장중 저가", 1], "뉴스 시점 · 구분", "과거 플러스였던 조건", ""];
   const body = rows.map((r) => {
@@ -189,7 +190,10 @@ function dpRenderList() {
         r.market ? dpTag("시장 동반", "semi", "SPY도 크게 빠졌습니다. 시장 전체 급락일은 개별 악재와 다르게 움직였습니다.") : null)),
       h("td", {}, h("div", { class: "dp-tags" },
         dpFlag(r.flag08, "08:00", "08:00(뉴욕)에 -15% 이하였고 프리장 저점에서 5% 이상 반등 중이었습니다. 과거 +5% 닿음 74~76%, 평균 +1%(t<1).", "08:00 조건이 맞지 않았습니다."),
-        dpFlag(r.flag0929, "09:29", "당일 뉴스·실적 외 급락이 09:29에 프리장 저점에서 10~20% 반등했습니다. 2026년 시가 매수 → 첫 1시간 평균 +6%(19건, 대부분 바이오).", "09:29 조건이 맞지 않았습니다."))),
+        dpFlag(r.flag0929, "09:29", "당일 뉴스·실적 외 급락이 09:29에 프리장 저점에서 10~20% 반등했습니다. 2026년 시가 매수 → 첫 1시간 평균 +6%(19건, 대부분 바이오).", "09:29 조건이 맞지 않았습니다."),
+        dpFlag(r.flag_hold, "바닥15", `${r.hold?.signal_at || ""} 그날 저가가 15분 동안 안 깨졌고 아직 저가 +2% 안, 전일 대비 −7% 이하였습니다(11:00 전). 과거 +2% 익절 승률 63~66%, 평균 +0.1~0.4%(뒤 기간 t≈0).`, "11:00 전까지 바닥 15분 조건이 맞지 않았습니다.")),
+        r.hold && r.flag_hold == null && r.hold.since != null ? h("div", { class: "dp-sub" },
+          `저가 뒤 ${r.hold.since}분 · 저가 ${dpPct(r.hold.near)} · 그날 바닥일 확률 ${r.hold.survival ?? "—"}%`) : null),
       h("td", {}, h("button", { class: "linkbtn", onclick: (e) => { e.stopPropagation(); dpSelect(r.symbol, null); } }, "3분봉")));
   });
   mount($("#dp-list"),
@@ -227,6 +231,8 @@ function dpRenderDetail() {
     ["장중 저가", f.reg_low == null ? "—" : `${dpPct(f.reg_low)} · ${f.reg_low_at} 뉴욕`],
     [d.live ? "지금" : "종가", f.reg_last == null ? "—" : dpPct(f.reg_last)],
     ["다음 날 시가", f.next_open == null ? "—" : dpPct(f.next_open)],
+    ...(f.hold && f.hold.since != null ? [[d.live ? "지금 저가 뒤" : "마감 때 저가 뒤", `${f.hold.since}분 · 저가 ${dpPct(f.hold.near)} · 그날 바닥일 확률 ${f.hold.survival ?? "—"}%`],
+      ["바닥 15분 신호", f.hold.signal_at ? `${f.hold.signal_at} 뉴욕 · ${dpKst(f.hold.signal_at, d.kst_shift)} 한국` : f.flag_hold === null ? "지켜보는 중(11:00까지)" : "11:00 전까지 없음"]] : []),
   ];
   const band = f.reb == null ? null : f.reb < 5 ? "5% 미만" : f.reb < 10 ? "5~10%" : f.reb < 20 ? "10~20%" : "20% 이상";
   mount(host,
@@ -265,17 +271,18 @@ function dpRenderDetail() {
       : h("p", { class: "muted" }, "프리장에서 −15% 이하(직전 봉 −10% 이하) 조건이 맞은 시각이 없습니다."),
     h("h3", {}, "정규장 규칙 재생 (09:30~11:00 뉴욕에 3분봉 종가로 매수)"),
     d.rules.length
-      ? h("div", { class: "dp-tw" }, dpTable(["규칙", "매수 시각(뉴욕 · 한국)", ["시가 대비", 1], "+3% 닿음", "+5% 닿음", "11시 전 손절 신호", ["종가", 1], ["다음 날 시가", 1]],
-        d.rules.map((r) => h("tr", {}, h("td", {}, r.name),
+      ? h("div", { class: "dp-tw" }, dpTable(["규칙", "매수 시각(뉴욕 · 한국)", ["시가 대비", 1], "+2% 닿음", "+3% 닿음", "+5% 닿음", "11시 전 손절 신호", ["종가", 1], ["다음 날 시가", 1]],
+        d.rules.map((r) => h("tr", { class: r.rule === "hold15" ? "dp-hl" : null }, h("td", {}, r.name),
           r.at ? [h("td", { class: "mono" }, `${r.at} · ${dpKst(r.at, shift)}`), h("td", { class: "r num" }, dpPct(r.entry_vs_open)),
+            h("td", { class: "mono" }, r.tp2_at || h("span", { class: "muted" }, "—")),
             h("td", { class: "mono" }, r.tp3_at || h("span", { class: "muted" }, "—")),
             h("td", { class: "mono" }, r.tp5_at || h("span", { class: "muted" }, "—")),
             h("td", { class: "mono" }, r.stop_at || h("span", { class: "muted" }, "없음")),
             h("td", { class: "r num" }, h("span", { class: dpDir(r.close) }, dpPct(r.close))),
             h("td", { class: "r num" }, h("span", { class: dpDir(r.next_open) }, dpPct(r.next_open)))]
-            : h("td", { colspan: 7, class: "muted" }, "11:00 전까지 신호가 없었습니다")))))
+            : h("td", { colspan: 8, class: "muted" }, "11:00 전까지 신호가 없었습니다")))))
       : h("p", { class: "muted" }, "정규장 자료가 아직 없습니다."),
-    h("p", { class: "dp-foot" }, "규칙: 시가 = 첫 거래 / 10:00 = 10:00에 끝나는 봉 / 저점+2% 반등 = 시가 아래로 내려간 뒤 그때까지 저가의 +2% 이상에서 마감 / VWAP 회복 = VWAP 아래 마감 다음 위로 마감 / 15분 고가 돌파 = 09:45 이후 첫 15분 고가 위로 마감. 익절은 다음 봉부터 그날 마감까지 고가로 판정하고, 손절 신호는 11:00까지 봉 종가가 매수 전 저가(시가 매수는 −5%) 아래인 시각입니다. 표의 시각은 모두 그 일이 일어난 봉이 끝나는 시각입니다. 장전·장후 봉의 긴 꼬리는 한 번 찍고 사라진 오류 체결일 수 있습니다(프리장 저가는 이런 체결을 걸러서 잽니다)."));
+    h("p", { class: "dp-foot" }, "규칙: 시가 = 첫 거래 / 10:00 = 10:00에 끝나는 봉 / 저점+2% 반등 = 시가 아래로 내려간 뒤 그때까지 저가의 +2% 이상에서 마감 / VWAP 회복 = VWAP 아래 마감 다음 위로 마감 / 15분 고가 돌파 = 09:45 이후 첫 15분 고가 위로 마감 / 바닥 15분 유지 = 그날 저가가 15분 동안 안 깨졌고 종가가 저가 +2% 안, 전일 대비 −7% 이하(손절은 매수 전 저가 −1%를 봉 저가가 닿은 시각). 익절은 다음 봉부터 그날 마감까지 고가로 판정하고, 손절 신호는 11:00까지 봉 종가가 매수 전 저가(시가 매수는 −5%) 아래인 시각입니다. 표의 시각은 모두 그 일이 일어난 봉이 끝나는 시각입니다. 장전·장후 봉의 긴 꼬리는 한 번 찍고 사라진 오류 체결일 수 있습니다(프리장 저가는 이런 체결을 걸러서 잽니다)."));
   dpDrawChart();
   dpRenderNews();
 }
@@ -432,6 +439,8 @@ function dpRenderEvidence() {
       h("li", {}, h("b", {}, "저점을 맞혀 사는 규칙은 손해였습니다. "), `정해 둔 하락률(−15~−35%)에 지정가로 사면 2024~2026 모두 평균 마이너스였고, 정규장이 프리장 저가를 다시 깬 비율이 ${R.hold.broke}, 5일 안에 더 낮은 저가가 나온 비율이 ${R.hold.new_low_5d}입니다.`),
       h("li", {}, h("b", {}, "+5% 익절 확률이 확실히 높은 시각은 없습니다. "), "어느 시각이든 47~62%이고, 늦게 살수록(개장 직전·시가) 덜 잃었습니다."),
       h("li", {}, h("b", {}, "두 해 모두 플러스였던 건 ‘반등을 확인하고 사기’뿐입니다. "), "08:00에 저점 대비 5% 이상 반등 중(+5% 닿음 74~76%, 평균 +1%), 09:29에 10~20% 반등한 당일 뉴스(2026년 첫 1시간 평균 +6%). 표본이 작고 여러 조합 중 고른 것이라 관찰 후보입니다."),
+      h("li", {}, h("b", {}, "마지막 하락 지점은 시간이 알려 줍니다. "), "저가가 15분 안 깨지면 그날 바닥일 확률 31~35%, 1시간이면 48~50%, 2시간이면 59~63%입니다. 깨져도 대개 1~1.5% 더 빠지는 정도입니다."),
+      h("li", {}, h("b", {}, "깨어 있는 시간(11:00 전)의 ‘바닥 15분 유지 + 2% 익절’만 두 기간 모두 플러스였습니다. "), "승률 63~66%, 평균 +0.1~0.4%. 최근 기간은 우연과 구별되지 않을 만큼 얇고(t≈0), 못 닿으면 다음 날 크게 잃는 날이 있습니다(최악 −11~−21%). 11:00까지 저가 −1% 손절을 함께 쓰면 최악이 −7%로 줄고 평균은 +0.1% 안팎입니다."),
       h("li", {}, h("b", {}, "갭 하락일 장중 3분봉 규칙은 본전입니다. "), `그날 저점이 첫 15분에 나온 비율 ${lowL[0]}~${lowE[0]}%, 13시 이후 ${lowE[3]}~${lowL[3]}%. 시가 매수 +3% 익절은 닿음 50~65%에 평균 +0.1~0.7%였습니다.`)),
     h("div", { class: "dp-grid" },
       h("div", {}, h("h3", {}, "프리장 매수 시각별 (실적 외 개별 악재 · 그 시각 −15% 이하에서 사서 당일 +5% 지정가)"),
@@ -440,6 +449,15 @@ function dpRenderEvidence() {
         h("div", { class: "dp-tw" }, dpTable(["반등 폭", ["2026 상반기", 1], ["2026 하반기", 1], ["2025", 1], ["2024", 1]], reb))),
       h("div", {}, h("h3", {}, "정해 둔 하락률 지정가 → 시가 매도 (실적 외 개별 악재)"),
         h("div", { class: "dp-tw" }, dpTable(["매수", ["2026 상반기", 1], ["2026 하반기", 1], ["2025", 1], ["2024", 1]], lim))),
+      h("div", {}, h("h3", {}, "그날 바닥일 확률 (그 순간 −7% 이하인 종목 · 지금까지 저가가 끝까지 버틴 비율)"),
+        h("div", { class: "dp-tw" }, dpTable(["저가 뒤 지난 시간", ["앞 5분봉", 1], ["뒤 5분봉", 1], ["뒤 3분봉", 1], ["깨진 날 더 빠진 폭(중앙)", 1], ["하위 10%", 1]],
+          R.survival.map(([lab, a, b5, b3, med, p10]) => h("tr", {}, h("td", {}, lab), h("td", { class: "r num" }, `${a}%`),
+            h("td", { class: "r num" }, `${b5}%`), h("td", { class: "r num" }, `${b3}%`), h("td", { class: "r num down" }, med), h("td", { class: "r num down" }, p10)))))),
+      h("div", {}, h("h3", {}, "바닥 15분 유지 매수 (11:00 전 신호 · +2% 지정가 · 못 닿으면 다음 날 시가)"),
+        h("div", { class: "dp-tw" }, dpTable(["손절 · 기간", ["평균", 1], ["승률", 1], ["익절", 1], ["손절", 1], ["최악", 1], ["건", 1]],
+          R.bottom.flatMap(([stop, cells]) => cells.map(([win, avg, wr, tp, st, worst, n]) => h("tr", {},
+            h("td", {}, `${stop} · ${win}`), cell(avg, 2), h("td", { class: "r num" }, `${wr}%`), h("td", { class: "r num" }, `${tp}%`),
+            h("td", { class: "r num" }, `${st}%`), cell(worst), h("td", { class: "r num muted" }, n))))))),
       h("div", {}, h("h3", {}, "갭 하락(시가 −7% 이하)일 정규장 규칙 (앞 8/10~9/5 5분봉 · 뒤 9/8~10/6 3분봉)"),
         h("div", { class: "dp-tw" }, dpTable(["규칙 · 익절", ["앞 닿음", 1], ["평균", 1], ["건", 1], ["뒤 닿음", 1], ["평균", 1], ["건", 1]], intra)))));
 }
@@ -467,7 +485,8 @@ function dpRenderNotes() {
   mount($("#dp-notes"),
     h("p", {}, `급락 종목은 나스닥 공개 종목표에서 시총 10억 달러 이상인 미국 상장 보통주(워런트·우선주 제외)를 골라 Yahoo 시세로 훑습니다. ‘지금’은 장전이면 전일 종가, 장중·장후면 전전일 종가 대비 등락입니다. 장후에는 정규장 등락에 장후 등락을 더합니다. 미국 시각 20:00~04:00(한국 낮)에는 Yahoo에 새 시세가 없어 지난 세션을 보여 줍니다.`),
     h("p", {}, `프리장 저가는 5분봉 종가가 −${7}% 이하인 봉의 저가로만 잽니다. Yahoo 프리장 봉에는 한 번 찍고 사라지는 오류 체결이 많기 때문입니다. 시각별 조건은 1시간봉 종가가 −${ru.deep}% 이하이고 직전 봉도 −10% 이하이며 두 봉 모두 가격 폭이 있을 때만 맞습니다(연구와 같은 정의).`),
-    h("p", {}, `‘과거 플러스였던 조건’ 두 가지는 연구에서 두 기간 모두 플러스였던 칸입니다. 08:00 조건은 68개 후보, 09:29 조건은 48개 후보 중에서 골랐고 표본이 작아(17~19건, 13·6건) 우연일 수 있습니다. 매수 신호가 아니라 관찰 표시입니다.`),
+    h("p", {}, `‘과거 플러스였던 조건’ 세 가지는 연구에서 두 기간 모두 플러스였던 칸입니다. 08:00 조건은 68개 후보, 09:29 조건은 48개 후보, 바닥 15분은 60개 조합 중에서 골랐습니다. 앞의 둘은 표본이 작고(17~19건, 13·6건), 바닥 15분은 표본은 크지만(222~250건) 최근 기간의 플러스 폭이 우연과 구별되지 않을 만큼 얇습니다. 매수 신호가 아니라 관찰 표시입니다.`),
+    h("p", {}, `바닥 15분은 정규장 3분봉 마감 때 판단합니다: 그날 저가가 15분 동안 새로 나오지 않았고, 종가가 그 저가의 +2% 안이며, 전일 종가 대비 −7% 이하인 첫 봉(09:45~11:00 뉴욕). 그날 바닥일 확률은 같은 연구에서 저가 뒤 지난 시간별로 잰 값입니다(그 순간 −7% 이하인 종목 2,331건, 2026-08-10~10-06).`),
     h("p", {}, `정규장 규칙 재생은 3분봉 종가로 판단하고 체결한 것으로 계산합니다. 실제 체결은 호가 차이만큼 나쁠 수 있고, 급락주는 장전 호가가 0.5~2% 벌어지기도 합니다. 수수료는 0입니다(§1).`),
     h("p", {}, `사용자 주문 가능 시간은 한국 08:00~24:00입니다. 서머타임이면 정규장 첫 1시간 30분(뉴욕 09:30~11:00), 표준시(11월 첫 일요일부터)면 첫 30분만 볼 수 있습니다. 자는 동안에는 현재가보다 높은 지정가 매도만 걸어 둘 수 있으므로, 익절은 지정가로, 손절은 깨어 있는 시간에만 판단합니다.`),
     h("p", {}, `자료: 종목표·뉴스는 나스닥(api.nasdaq.com), 시세·1분봉은 Yahoo Finance(yfinance). 1분봉은 최근 30일만 있어 그보다 오래된 날은 다시 볼 수 없습니다. 연구 보고서: ${R.study.report}.`));

@@ -145,6 +145,48 @@ class IntradayRuleTest(unittest.TestCase):
         self.assertIsNone(rows["open"]["stop_at"])
 
 
+class BottomHoldTest(unittest.TestCase):
+    """바닥 15분 유지(연구 lowfind NL15_2): 저가 15분 무갱신 + 저가 +2% 안 + 전일 대비 -7% 이하, 09:45~11:00."""
+
+    def reg3(self, segs, day="2026-10-02"):
+        bars = minute_bars(day, segs)
+        s = dip.split_sessions(bars, date.fromisoformat(day))
+        return dip.resample(s["reg"], 3)
+
+    def test_fires_after_fifteen_flat_minutes_near_the_low(self):
+        # 09:30~09:50 100 → 88(-12%)로 빠진 뒤 88.5 근처에서 평평
+        b = self.reg3([("09:30", "09:50", 100, 88), ("09:51", "15:59", 88.3, 88.6)])
+        h = dip.bottom_hold(b, 100.0, 3)
+        self.assertIsNotNone(h["signal_i"])
+        self.assertGreaterEqual(h["signal_at"], "10:05")      # 저가 뒤 15분
+        self.assertLessEqual(h["signal_at"], "11:00")
+        rows = {r["rule"]: r for r in dip.intraday_rules(b, 3, None, 100.0)}
+        self.assertEqual(rows["hold15"]["at"], h["signal_at"])
+
+    def test_no_signal_when_far_from_low_shallow_or_after_eleven(self):
+        far = self.reg3([("09:30", "09:40", 100, 88), ("09:41", "10:00", 88, 92), ("10:01", "15:59", 92, 93)])
+        self.assertIsNone(dip.bottom_hold(far, 100.0, 3)["signal_i"])       # 저가 +4% 위
+        shallow = self.reg3([("09:30", "09:50", 100, 96), ("09:51", "15:59", 96.2, 96.4)])
+        self.assertIsNone(dip.bottom_hold(shallow, 100.0, 3)["signal_i"])   # -4%뿐
+        late = self.reg3([("09:30", "11:20", 100, 99), ("11:21", "11:40", 99, 88), ("11:41", "15:59", 88.2, 88.4)])
+        self.assertIsNone(dip.bottom_hold(late, 100.0, 3)["signal_i"])      # 11:00 뒤에야 바닥
+        self.assertIsNone(dip.intraday_rules(late, 3, None, 100.0)[-1]["at"])
+
+    def test_live_state_ignores_the_bar_still_forming(self):
+        b = self.reg3([("09:30", "09:50", 100, 88), ("09:51", "15:59", 88.3, 88.6)])
+        self.assertEqual(len(dip.closed_bars(b, 3, 10 * 60 + 44)), len(b[b.index.strftime("%H:%M") <= "10:41"]))
+        f = dip.features(minute_bars("2026-10-02", [("09:30", "09:50", 100, 88), ("09:51", "10:04", 88.3, 88.6)]),
+                         date(2026, 10, 2), 100.0, earnings=False, now_et=datetime(2026, 10, 2, 10, 4, tzinfo=NY))
+        self.assertIsNone(f["flag_hold"])                     # 10:03에 끝난 봉까지는 저가 뒤 15분이 안 됐다
+
+    def test_survival_lookup_follows_the_table(self):
+        self.assertEqual(dip.survival_of(5), 12)
+        self.assertEqual(dip.survival_of(20), 31)
+        self.assertEqual(dip.survival_of(90), 50)
+        self.assertEqual(dip.survival_of(300), 59)
+        self.assertIsNone(dip.survival_of(None))
+
+
 class GuardTest(unittest.TestCase):
     def test_symbol_and_date_are_checked_before_any_download(self):
         with mock.patch.object(dip, "minute_bars", side_effect=AssertionError("network")):

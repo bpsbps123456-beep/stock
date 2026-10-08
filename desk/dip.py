@@ -39,7 +39,12 @@ REBOUND_08 = 5.0                # 08:00 조건: 그 시각 프리장 저점 대�
 BAND_0929 = (10.0, 20.0)        # 09:29 조건: 프리장 저점 대비 반등 10~20%
 AH_NEWS = -5.0                  # 전날 애프터 종가가 이만큼 빠졌으면 '전날 애프터 뉴스'
 MARKET = -1.5                   # SPY가 이만큼 빠졌으면 '시장 동반 급락'
-TPS = (3.0, 5.0)                # 장중 규칙 재생의 익절 폭
+TPS = (2.0, 3.0, 5.0)           # 장중 규칙 재생의 익절 폭
+HOLD_MIN = 15                   # 바닥 15분: 그날 저가가 15분 동안 새로 나오지 않음
+HOLD_NEAR = 2.0                 # 그리고 종가가 그 저가의 +2% 안(아직 바닥 근처)
+HOLD_DD = -7.0                  # 그리고 그 순간 전일 종가 대비 -7% 이하
+HOLD_START = 9 * 60 + 45        # 09:45 이후 마감한 봉부터(연구와 같다)
+HOLD_STOP = 1.0                 # 바닥 15분 매수의 손절: 매수 전 저가 -1%(봉 저가가 닿으면)
 WINDOW_END = 11 * 60            # 11:00 ET = 서머타임 24:00 KST, 사용자 주문 가능 시간 끝
 OPEN_STOP = 5.0                 # 시가 매수 손절 기준(그 전 장중 저가가 없으므로)
 DETAIL_DAYS = 29                # Yahoo 1분봉은 최근 30일, 한 요청 8일
@@ -96,6 +101,24 @@ INTRADAY_STATS = [  # (규칙, +익절, 앞 닿음%, 앞 평균%, 앞 건, 뒤 �
     ("저점+2% 반등", 3, 48, -0.6, 108, 35, -0.4, 98),
     ("VWAP 회복", 3, 44, -0.3, 78, 33, -0.0, 81),
     ("15분 고가 돌파", 3, 36, 0.5, 47, 14, -0.5, 66),
+]
+# 그날 바닥일 확률(2026-10-08 연구 lowfind): 15분마다 그 순간 -7% 이하인 종목의 지금까지 저가가 그날 끝까지 버틴 비율.
+# (저가 뒤 지난 시간, 앞 8/10~9/5 5분봉 %, 뒤 9/8~10/6 5분봉 %, 뒤 3분봉 %, 깨진 날 더 빠진 폭 중앙, 그 하위 10%)
+SURVIVAL = [
+    ("0~14분", 13, 12, 12, "−1.3~−1.7%", "−4.4~−5.4%"),
+    ("15~29분", 35, 31, 31, "−1.2~−1.5%", "−4.2~−4.4%"),
+    ("30~59분", 40, 40, 40, "−1.0~−1.4%", "−3.8~−4.0%"),
+    ("60~119분", 50, 48, 50, "−0.9~−1.4%", "−3.3~−3.6%"),
+    ("120분 이상", 63, 59, 59, "−0.8~−1.3%", "−2.5~−3.4%"),
+]
+SURVIVAL_EDGES = [(0, 15), (15, 30), (30, 60), (60, 120), (120, 10_000)]
+# 바닥 15분 매수(11:00 ET 전 신호, +2% 지정가, 못 닿으면 다음 날 시가). 60개 조합 중 세 칸 모두 플러스였던 6개의 대표.
+# (손절, [(기간·봉, 평균%, 승률%, 익절%, 손절%, 최악%, 건)])
+BOTTOM_STATS = [
+    ("손절 없음", [("앞 5분봉", 0.41, 66, 52, 0, -21.2, 250), ("뒤 5분봉", 0.14, 63, 49, 0, -11.1, 226),
+                ("뒤 3분봉", 0.10, 64, 49, 0, -15.8, 222)]),
+    ("11:00까지 저가 −1% 손절", [("앞 5분봉", 0.31, 57, 47, 22, -11.4, 250), ("뒤 5분봉", 0.06, 57, 45, 15, -6.9, 226),
+                           ("뒤 3분봉", 0.12, 57, 44, 18, -6.9, 222)]),
 ]
 CASES = [
     {"t": "SMCI", "day": "2026-03-20", "news": "공동창업자 대중국 엔비디아 칩 밀수 기소(법무부)", "when": "전날 18:00 ET(애프터)",
@@ -247,6 +270,10 @@ def features(bars: pd.DataFrame, day: date, ref: float | None, earnings: bool, n
         out.update(open=_pct(o / c0), reg_low=_pct(reg.Low.min() / c0), reg_low_at=low_ts.strftime("%H:%M"),
                    reg_last=_pct(reg.Close.iloc[-1] / c0), vwap=_pct(_vwap(reg).iloc[-1] / c0),
                    from_low=_pct(reg.Close.iloc[-1] / reg.Low.min()))
+        bh = bottom_hold(closed_bars(resample(reg, 3), 3, now_m), c0, 3)
+        out["hold"] = {k: bh.get(k) for k in ("signal_at", "since", "near", "dd", "survival")}
+        # 바닥 15분: 신호가 났으면 True, 11:00가 지났는데 없으면 False, 그 전이면 None(지켜보는 중)
+        out["flag_hold"] = True if bh.get("signal_at") else (False if now_m > WINDOW_END else None)
     return out
 
 
@@ -256,7 +283,54 @@ def _vwap(reg: pd.DataFrame) -> pd.Series:
     return ((tp * reg.Volume).cumsum() / vol).ffill().fillna(reg.Close)
 
 
-def intraday_rules(b: pd.DataFrame, minutes: int, next_open: float | None) -> list[dict]:
+def closed_bars(b: pd.DataFrame, minutes: int, now_m: int) -> pd.DataFrame:
+    """실시간에는 아직 끝나지 않은 봉을 뺀다(봉 마감 때 판단하는 규칙이 중간 가격으로 신호를 내지 않게)."""
+    if b.empty:
+        return b
+    return b[_minutes(b.index) + minutes <= now_m]
+
+
+def survival_of(since: float | None) -> int | None:
+    """저가 뒤 지난 분 → 연구(뒤 3분봉)의 그날 바닥일 확률(%)."""
+    if since is None:
+        return None
+    for (lo_, hi_), row in zip(SURVIVAL_EDGES, SURVIVAL):
+        if lo_ <= since < hi_:
+            return row[3]
+    return None
+
+
+def bottom_hold(b: pd.DataFrame, c0: float, minutes: int) -> dict:
+    """바닥 15분(연구 lowfind의 NL15_2): 봉 마감 때 그날 저가가 15분 동안 새로 안 나왔고, 종가가 저가 +2% 안이며,
+    전일 종가 대비 -7% 이하면 신호. 신호는 09:45~11:00에 마감한 봉에서 첫 번째만 센다(사용자가 깨어 있는 시간).
+    마지막 봉 기준의 지금 상태(저가 뒤 지난 분, 저가 대비, 전일 대비)도 함께 돌려준다."""
+    out = {"signal_i": None}
+    if b.empty or not c0:
+        return out
+    mins = _minutes(b.index)
+    end = mins + minutes
+    lo, cl = b.Low.to_numpy(), b.Close.to_numpy()
+    run_low = np.minimum.accumulate(lo)
+    low_end = np.zeros(len(b), int)                    # 그때까지 저가가 나온 봉이 끝난 시각
+    for i in range(len(b)):
+        low_end[i] = end[i] if i == 0 or lo[i] <= run_low[i - 1] else low_end[i - 1]
+    for i in range(len(b)):
+        if end[i] < HOLD_START or end[i] > WINDOW_END:
+            continue
+        since = end[i] - low_end[i]
+        if (since >= HOLD_MIN and (cl[i] / run_low[i] - 1) * 100 <= HOLD_NEAR
+                and (cl[i] / c0 - 1) * 100 <= HOLD_DD):
+            out["signal_i"] = i
+            out["signal_at"] = f"{end[i] // 60:02d}:{end[i] % 60:02d}"
+            break
+    last = len(b) - 1
+    out.update(since=int(end[last] - low_end[last]), near=_pct(cl[last] / run_low[last]), dd=_pct(cl[last] / c0),
+               low=float(run_low[last]), now_end=int(end[last]))
+    out["survival"] = survival_of(out["since"])
+    return out
+
+
+def intraday_rules(b: pd.DataFrame, minutes: int, next_open: float | None, c0: float | None = None) -> list[dict]:
     """연구(intraday.py)의 정규장 매수 규칙 재생: 09:30~11:00 ET에 봉 종가로 판단·체결, +3%·+5% 지정가는
     다음 봉부터 그날 마감까지 고가로 판정, 못 닿으면 다음 날 시가. 손절은 11:00까지 봉 종가가 매수 전 저가 아래."""
     if b.empty:
@@ -280,7 +354,12 @@ def intraday_rules(b: pd.DataFrame, minutes: int, next_open: float | None) -> li
             entries["vwap"] = (i, c, float(run_low.iloc[i]))
         if "orb15" not in entries and mins[i] >= 585 and c > orb:
             entries["orb15"] = (i, c, float(run_low.iloc[i]))
-    names = {"open": "시가", "t1000": "10:00", "rev2": "저점+2% 반등", "vwap": "VWAP 회복", "orb15": "15분 고가 돌파"}
+    bh = bottom_hold(b, c0, minutes) if c0 else {"signal_i": None}
+    if bh["signal_i"] is not None:
+        i = bh["signal_i"]
+        entries["hold15"] = (i, float(b.Close.iloc[i]), float(run_low.iloc[i]))
+    names = {"open": "시가", "t1000": "10:00", "rev2": "저점+2% 반등", "vwap": "VWAP 회복", "orb15": "15분 고가 돌파",
+             "hold15": "바닥 15분 유지"}
     out = []
     for key in names:
         if key not in entries:
@@ -296,7 +375,9 @@ def intraday_rules(b: pd.DataFrame, minutes: int, next_open: float | None) -> li
         for j in range(len(after)):
             if end[i0 + 1 + j] > WINDOW_END:
                 break
-            if after.Close.iloc[j] < stop:
+            # 바닥 15분은 연구대로 매수 전 저가 -1%를 봉 저가가 닿으면, 나머지는 봉 종가가 매수 전 저가 아래면
+            hit_stop = (after.Low.iloc[j] <= low_before * (1 - HOLD_STOP / 100)) if key == "hold15" else after.Close.iloc[j] < stop
+            if hit_stop:
                 stopped = (after.index[j] + pd.Timedelta(minutes=minutes)).strftime("%H:%M")
                 break
         row["stop_at"] = stopped
@@ -460,6 +541,7 @@ def compute() -> dict:
 def research() -> dict:
     return {"study": STUDY, "time": TIME_STATS, "time_08": TIME_REBOUND_08, "rebound": REBOUND_STATS,
             "limit": LIMIT_STATS, "hold": HOLD_STATS, "intraday_low": INTRADAY_LOW, "intraday": INTRADAY_STATS,
+            "survival": SURVIVAL, "bottom": BOTTOM_STATS,
             "cases": CASES}
 
 
@@ -525,6 +607,8 @@ def detail(t: str, day: str | None = None, minutes: int = 3) -> dict:
     b3 = resample(day_bars, minutes)
     m3 = _minutes(b3.index)
     reg3 = b3[(m3 >= 570) & (m3 < 960)]
+    if live:                                           # 진행 중인 봉은 규칙 판단에서 뺀다(차트에는 그린다)
+        reg3 = closed_bars(reg3, minutes, now.hour * 60 + now.minute)
     vw = _vwap(s["reg"]).resample(f"{minutes}min", origin="start_day").last() if len(s["reg"]) else pd.Series(dtype=float)
     c0 = f.get("c0")
     candles = [{"t": ts.strftime("%H:%M"), "o": float(r.Open), "h": float(r.High), "l": float(r.Low), "c": float(r.Close),
@@ -535,7 +619,7 @@ def detail(t: str, day: str | None = None, minutes: int = 3) -> dict:
            "kst_shift": kst_shift(target),
            "name": (q or {}).get("name") or t, "candles": candles, "features": f,
            "hour_replay": hour_replay(day_bars, s, f),
-           "rules": intraday_rules(reg3, minutes, s["next_open"]) if len(reg3) else [],
+           "rules": intraday_rules(reg3, minutes, s["next_open"], c0) if len(reg3) else [],
            "next_open": s["next_open"], "now_et": now.strftime("%H:%M") if live else None}
     out = clean(out)
     if len(_DETAIL) > 200:
