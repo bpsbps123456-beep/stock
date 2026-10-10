@@ -25,7 +25,7 @@ import pandas as pd
 from gbrc.etf.market import company_key, is_cash_holding, listing_market, yahoo_ticker
 from gbrc.etf.research_data import CORPORATE_ALIASES, exclusion_reason
 from gbrc.etf.trades import load_fund_snapshots
-from watchlist import resolve_sector
+from watchlist import resolve_sector, resolve_subsector
 
 from . import config, marketdata
 
@@ -58,6 +58,16 @@ def sector_of(key: str, ticker: str) -> str:
         if label != UNKNOWN:
             return label
     return UNKNOWN
+
+
+def subsector_of(key: str, ticker: str) -> str:
+    """Finer display label: the AI_UNIVERSE sub-sector, else the cap sector. Never used for caps."""
+    renamed = [old for old, new in CORPORATE_ALIASES.items() if new == key]
+    for symbol in (ticker, key.split()[0], *(old.split()[0] for old in renamed)):
+        label = resolve_subsector(symbol)
+        if label:
+            return label
+    return sector_of(key, ticker)
 
 
 def in_semis_budget(sector: str) -> bool:

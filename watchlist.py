@@ -259,3 +259,12 @@ AI_UNIVERSE = {
         "피지컬·헬스케어 AI": ["TSLA", "TEM"],
     },
 }
+
+# 펀드 PDF에 있는 같은 회사의 다른 상장을 AI_UNIVERSE 심볼로 잇는다(위 주석의 '이력이 긴 쪽').
+AI_UNIVERSE_ALIASES = {"SKHY": "000660.KS", "SKHYV": "000660.KS", "GOOG": "GOOGL"}
+AI_SUBSECTOR = {sym: sub for subs in AI_UNIVERSE.values() for sub, syms in subs.items() for sym in syms}
+
+
+def resolve_subsector(symbol, default=None):
+    """AI_UNIVERSE 소분류(대표 사업 분류). 표시용이며 섹터 상한(SECTOR_MAP)에는 쓰지 않는다."""
+    return AI_SUBSECTOR.get(AI_UNIVERSE_ALIASES.get(symbol, symbol), default)

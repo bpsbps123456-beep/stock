@@ -118,6 +118,16 @@ class RuleTest(unittest.TestCase):
         self.assertEqual(S.sector_of("MOG/A US EQUITY", "MOG-A"), "우주/방산")  # source code spelling
         self.assertEqual(S.sector_of("ZZZZ US EQUITY", "ZZZZ"), S.UNKNOWN)
 
+    def test_subsector_is_display_only_and_falls_back_to_cap_sector(self):
+        self.assertEqual(S.subsector_of("SNDK US EQUITY", "SNDK"), "NAND·SSD")
+        self.assertEqual(S.subsector_of("GOOG US EQUITY", "GOOG"), "미국 빅테크")  # other listing of GOOGL
+        self.assertEqual(S.subsector_of("SKHY US EQUITY", "SKHY"), "DRAM·HBM")   # SK hynix ADR
+        self.assertEqual(S.subsector_of("COIN US EQUITY", "COIN"), "핀테크/디지털자산")  # outside AI
+        self.assertEqual(S.subsector_of("ZZZZ US EQUITY", "ZZZZ"), S.UNKNOWN)
+        # caps keep grouping by the broader watchlist sector
+        self.assertEqual(S.sector_of("SNDK US EQUITY", "SNDK"), "메모리")
+        self.assertEqual(S.sector_of("MU US EQUITY", "MU"), "메모리")
+
 
 class DigestTest(unittest.TestCase):
     def test_holding_notes_flag_the_hold_line_exits_and_joint_selling(self):

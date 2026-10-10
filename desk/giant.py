@@ -75,7 +75,7 @@ FX_TICKERS = {"KRW": "KRW=X", "JPY": "JPY=X", "TWD": "TWD=X", "CNY": "CNY=X", "H
               "EUR": "EURUSD=X"}
 MARKET_CURRENCY = {"미국": "USD", "한국": "KRW", "일본": "JPY", "대만": "TWD", "중국": "CNY",
                    "홍콩": "HKD", "오스트리아": "EUR", "독일": "EUR", "프랑스": "EUR"}
-FUND_ALIASES = {"SKHY": "000660.KS", "SKHYV": "000660.KS", "GOOG": "GOOGL"}
+FUND_ALIASES = watchlist.AI_UNIVERSE_ALIASES
 _FUND_EXCHANGES = {"US": ("",), "JP": (".T",), "HK": (".HK",), "TT": (".TW", ".TWO"), "AV": (".VI",)}
 _LOCK = threading.Lock()
 

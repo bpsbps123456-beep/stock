@@ -83,6 +83,9 @@ py -m unittest tests.test_desk tests.test_desk_launch
 
 - 신호 시점: 그 미국 거래일보다 앞선 날짜의 PDF와 전일 종가만 쓴다. PDF D는 D-1 KRX 바스켓이며 21:45 KST에 공개된다(`docs/etf_system.md` §3). 미국 휴장 다음 날에는 한국장이 연 날의 PDF를 쓰므로 Codex 연구의 "공시 1일 지연"보다 PDF가 하루 새롭다.
 - 섹터는 `watchlist.resolve_sector`로 찾고 기록된 티커 변경(SATS→ECHO)과 원천 표기(MOG/A)를 함께 조회한다. 코드 정본은 `desk/strategies.py`다.
+- 순위 표의 `세부 섹터`(2026-10-10 사용자 요청)는 표시용이다. `watchlist.resolve_subsector`로 `AI_UNIVERSE` 소분류(거인의 어깨 '대표 사업 분류')를 찾는다. 같은 회사의 다른 상장은 `AI_UNIVERSE_ALIASES`로 잇는다(GOOG→GOOGL, SKHY→SK하이닉스).
+  - AI 밖 종목(COIN·MELI 등)은 위 섹터를 그대로 보인다.
+  - 상한은 계속 위 섹터로 계산한다. 화면에서 이름에 마우스를 올리면 상한 섹터를 보여 준다.
 
 ## 4. 주문 계산과 매매 기록
 

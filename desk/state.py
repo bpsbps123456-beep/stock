@@ -266,6 +266,7 @@ class Desk:
             "actions": actions,
             "rankings": [{"ticker": r["ticker"], "rank": r["rank"], "mom120": r["mom120"],
                           "time_weight": r["time_weight"], "sector": r["sector"],
+                          "detail": S.subsector_of(r["key"], r["ticker"]),
                           "semis": S.in_semis_budget(r["sector"]), "in_target": r["key"] in target}
                          for r in ranked[:15]],
             "account": {**acct, "history": acct_hist},
