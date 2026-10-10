@@ -114,6 +114,17 @@ class RuleTest(unittest.TestCase):
                 raise RuntimeError("replay failed")
         self.assertEqual(config.RULE, before)
 
+    def test_codex_caps_restore_the_book_sector_labels(self):
+        from types import SimpleNamespace
+        from desk.validate import codex_caps
+        live = {"K1": "원자력/에너지", "K2": "메모리"}
+        book = SimpleNamespace(sector=live)
+        with self.assertRaises(RuntimeError):
+            with codex_caps(book):
+                self.assertEqual(set(book.sector), set(live))
+                raise RuntimeError("replay failed")
+        self.assertIs(book.sector, live)
+
     def test_cap_notes_read_the_live_rule(self):
         from desk.state import _cap_note
         self.assertIn("반도체 합계 50% 상한", _cap_note(0.10, 0.20, "메모리"))

@@ -1,6 +1,7 @@
 """Check the desk's 7-stock engine against Codex's #774 paths and its own frozen evidence.
 
-- Engine check, with #774's own caps (config.CODEX_774_RULE, semiconductor budget 60%):
+- Engine check, with #774's own caps (config.CODEX_774_RULE, semiconductor budget 60%) and the
+  sector labels it was tested with (Codex sector_map.json, frozen 2026-09-27):
   replayed with Codex's timing ("publication lag 1": a PDF is usable one US session after
   the first session on/after its date), every weekly target must equal Codex's #774
   projected targets, stock by stock, 2026-01-02..09-23. The desk itself uses any PDF
@@ -78,22 +79,42 @@ def pause_evidence(book, path) -> bool:
     return same
 
 
+def codex_sectors(book) -> dict[str, str]:
+    """The watchlist sectors #774 was tested with (Codex sector_map.json, 2026-09-27).
+    watchlist.py keeps growing (e.g. TIME's unclassified names classified on 2026-10-10), so
+    the engine check replays with the frozen labels; names Codex never saw keep today's."""
+    path = CODEX / "sector_map.json"
+    if not path.exists():
+        return dict(book.sector)
+    frozen = {r["company_key"]: r["sector"] for r in json.loads(path.read_text(encoding="utf-8"))["records"]}
+    return {k: frozen.get(k, s) for k, s in book.sector.items()}
+
+
 class codex_caps:
-    """Temporarily run the engine with #774's caps (config.RULE is restored afterwards)."""
+    """Temporarily run the engine as #774: its caps (config.RULE) and, given a book, the sector
+    labels it was tested with. Both are restored afterwards, even on errors."""
+
+    def __init__(self, book=None):
+        self.book = book
 
     def __enter__(self):
         self.saved = dict(config.RULE)
         config.RULE.clear()
         config.RULE.update(config.CODEX_774_RULE)
+        if self.book is not None:
+            self.saved_sector = self.book.sector
+            self.book.sector = codex_sectors(self.book)
 
     def __exit__(self, *exc):
         config.RULE.clear()
         config.RULE.update(self.saved)
+        if self.book is not None:
+            self.book.sector = self.saved_sector
 
 
 def main() -> int:
     book = S.load_book()
-    with codex_caps():
+    with codex_caps(book):
         path = S.run_model(book)
     live = S.run_model(book)
     ok = True
@@ -102,7 +123,7 @@ def main() -> int:
         original = S.latest_before
         S.latest_before = codex_timing(book)
         try:
-            with codex_caps():
+            with codex_caps(book):
                 replay = _weekly(book, S.run_model(book))
         finally:
             S.latest_before = original

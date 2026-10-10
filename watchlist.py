@@ -50,19 +50,26 @@ LOSS_SECTORS = {
 
 # 두 펀드에는 들어오지만 옵션·실적 워치리스트에는 포함되지 않는 종목의
 # 분류도 이 파일에서만 관리한다. PROFIT_TICKERS/LOSS_TICKERS에는 섞지 않는다.
+# TIME이 2023-05~2026-10에 담은 미국 회사 137개 중 미분류 56개를 2026-10-10에
+# 사업 기준으로 넣었다(각 목록 끝에 덧붙임). 반도체 사업은 AMKR(후공정 외주)·
+# AMBA·MBLY(차량·엣지 칩 팹리스)뿐이고, P(구 PSTG)는 낸드를 사서 쓰는 스토리지
+# 시스템이라 메모리가 아니다. 핵심광물은 산업재, 가스·LNG·전력장비·ESS는
+# 원자력/에너지에 둔다. 폐쇄형 펀드 DXYZ는 회사가 아니라 넣지 않는다.
 ETF_SECTORS = {
     "빅테크": ["GOOG"],
     "AI 반도체": [
         "ARM", "QCOM", "TSM", "TSEM", "GFS", "ON", "SIMO", "TXN",
         "ADI", "NXPI", "MCHP", "MPWR", "STM",
+        "AMKR", "AMBA", "MBLY",
     ],
     "반도체 장비": ["ASML", "AMAT", "KLAC", "FORM"],
     "엔터프라이즈 SW": [
         "NOW", "CRM", "SNOW", "DDOG", "PANW", "PLTR", "CRWD", "IBM",
         "ACN", "ROP", "SAP", "FTNT",
         "MDB", "DT", "OKTA", "GTLB",
+        "AI", "ADBE", "PATH", "WDAY", "SOUN", "TWLO", "BBAI", "RELX", "CXM", "INOD",
     ],
-    "AI 인프라": ["NTAP", "DELL", "VRT"],
+    "AI 인프라": ["NTAP", "DELL", "VRT", "SMCI", "P", "CORZ"],
     "네트워크/광통신": [
         "COHR", "AAOI", "CSCO", "VIAV", "IPGP",
         "5803", "300502", "300308",
@@ -75,21 +82,25 @@ ETF_SECTORS = {
     "원자력/에너지": [
         "BE", "GEV", "034020", "UEC", "FSLR",
         "010120", "267260", "298040",
+        "CEG", "VST", "CCJ", "LEU", "BWXT", "ETN", "POWL", "GNRC", "FLNC", "EOSE",
+        "NXT", "RUN", "KMI", "LNG", "EQT", "BKR",
     ],
-    "핀테크/디지털자산": ["COIN", "HOOD", "MSTR", "CRCL", "IBKR"],
-    "이커머스/플랫폼": ["EBAY", "MELI"],
-    "우주/방산": ["RKLB", "SPCX", "MOG/A", "ASTS", "SATS"],
-    "전기차/자율주행": ["TSLA"],
+    "핀테크/디지털자산": ["COIN", "HOOD", "MSTR", "CRCL", "IBKR", "LMND"],
+    "이커머스/플랫폼": ["EBAY", "MELI", "SE", "CPNG", "APP", "RDDT", "PINS", "PERI", "NRDY"],
+    "우주/방산": ["RKLB", "SPCX", "MOG/A", "ASTS", "SATS", "PL"],
+    "전기차/자율주행": ["TSLA", "SERV"],
+    "양자컴퓨팅": ["QBTS", "QUBT"],
+    "헬스케어 AI": ["SDGR", "RXRX"],
     "헬스케어": [
         "LLY", "BIIB", "NTRA", "ILMN", "GILD", "JAZZ", "ONC", "LBRX", "ORKA",
-        "VRTX",
+        "VRTX", "ISRG",
     ],
     "메모리": ["000660", "005930", "285A", "440110", "SKHY", "SKHYV"],
     "전자부품/AI 하드웨어": ["009150", "006400", "6981", "FLEX", "VICR"],
-    "중국 AI/플랫폼": ["9988", "700", "0043Y0", "2513", "PDD", "BABA", "100"],
-    "산업재": ["TKR", "CRS"],
+    "중국 AI/플랫폼": ["9988", "700", "0043Y0", "2513", "PDD", "BABA", "100", "BIDU"],
+    "산업재": ["TKR", "CRS", "MP", "USAR", "CRML", "UAMY"],
     "필수소비재": ["KO"],
-    "미디어/게임": ["TTWO"],
+    "미디어/게임": ["TTWO", "RBLX", "GETY", "SSTK", "BZFD"],
 }
 
 # 만기마다 코드가 바뀌는 파생상품은 고정 티커로 관리할 수 없다. 정규식으로 잡지
