@@ -77,6 +77,20 @@ class AimapTest(unittest.TestCase):
                     self.assertIn(mem["t"], data["companies"])
         self.assertEqual(data["counts"]["zones"], sum(len(st["zones"]) for st in self.m["stops"]))
 
+    def test_value_section_carries_only_verdicts_and_numbers(self):
+        v = {"price_date": "2026-10-09", "computed_at": "x", "window": {"days": 30}, "universe": {"n": 3, "V": 0.0512345, "R": 0.01},
+             "zones": {"hbm": {"n": 3, "V": -0.08, "flag": True}},
+             "companies": {"MU": {"R": 0.2, "P": 0.05, "V": -0.125, "flag": True, "zone": "hbm", "symbol": "MU"},
+                           "NOPE": {"flag": False}},
+             "check": {"period": "p"}, "rules": {}, "_epoch": 1}
+        data = build.payload(self.m, self.sc, self.g, {"zones": {}, "heroes": {}, "thumbs": {}}, v)
+        sec = data["value"]
+        self.assertEqual(set(sec), {"price_date", "computed_at", "window", "universe", "zones", "companies", "check", "rules"})
+        self.assertEqual(sec["companies"]["MU"], {"R": 0.2, "P": 0.05, "V": -0.125, "flag": True, "zone": "hbm"})
+        self.assertNotIn("NOPE", sec["companies"])            # not a company on the site
+        self.assertEqual(sec["universe"]["V"], 0.0512)
+        self.assertIsNone(build.payload(self.m, self.sc, self.g, {"zones": {}, "heroes": {}, "thumbs": {}})["value"])
+
     def test_page_loads_no_third_party_script(self):
         html = (build.WEB / "index.html").read_text(encoding="utf-8")
         self.assertIn("app.js?v=__V__", html)

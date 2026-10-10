@@ -17,7 +17,7 @@ import webbrowser
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import parse_qs, urlparse
 
-from . import config, dip, giant, journal, tour
+from . import config, dip, giant, journal, tour, value
 from .state import Desk, clean
 
 DESK = Desk()
@@ -84,6 +84,9 @@ class Handler(BaseHTTPRequestHandler):
             return self._guard(lambda: self._json(DESK.state()))
         if path == "/api/tour":  # AI 탐방: hand-made route + latest fund PDFs, no prices needed
             return self._guard(lambda: self._json(tour.payload()))
+        if path == "/api/value":  # 저평가 표시(§8.4): 6시간 캐시, ?refresh=1이면 다시 계산(20~40초)
+            force = parse_qs(urlparse(self.path).query).get("refresh") == ["1"]
+            return self._guard(lambda: self._json(value.payload(force=force)))
         if path == "/api/giant":  # 거인의 어깨: 60분 캐시, ?refresh=1이면 다시 계산(30~60초)
             force = parse_qs(urlparse(self.path).query).get("refresh") == ["1"]
             return self._guard(lambda: self._json(giant.payload(force=force)))

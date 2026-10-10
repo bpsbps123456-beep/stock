@@ -93,6 +93,7 @@ async function trLoad(force) {
     if (!TR.idx.stopById[TR.stop]) TR.stop = d.map.stops[0].id;
     trVisited(TR.stop);
     trRenderAll();
+    trLoadValue();
   }).catch((e) => {
     // A desk started before this tab existed serves the new page but not /api/tour.
     const old = /not found/i.test(e.message);
@@ -102,6 +103,22 @@ async function trLoad(force) {
   }).finally(() => { TR.loading = null; });
   return TR.loading;
 }
+
+/* 저평가 표시(docs/desk_system.md §8.4, desk/value.py): 지도는 바로 그리고, Yahoo 전망을 받는
+   20~40초(6시간 캐시) 뒤에 분야·회사 표시를 덧붙인다. */
+function trLoadValue(force = false) {
+  if (TR.valueLoading) return;
+  TR.valueError = null;
+  TR.valueLoading = api("/api/value" + (force ? "?refresh=1" : "")).then((v) => { TR.value = v; })
+    .catch((e) => { TR.valueError = e.message; })
+    .finally(() => { TR.valueLoading = null; if (TR.data) { trRenderLeads(); trRenderVisit(); trRenderNotes(); } });
+  if (TR.data) trRenderNotes();
+}
+const trPct = (x, d = 1) => (x == null ? "—" : `${x >= 0 ? "+" : "−"}${Math.abs(x * 100).toFixed(d)}%`);
+const trPP = (x) => `${x >= 0 ? "+" : "−"}${Math.abs(x).toFixed(1)}`;   // 이미 %p 단위인 검증 숫자
+const trUV = (zid) => (TR.value && TR.value.zones[zid]) || null;
+const trUVco = (t) => (TR.value && TR.value.companies[t]) || null;
+const trUVtag = (cls = "tag uv") => h("span", { class: cls, title: "최근 30일 이익 전망은 그대로이거나 올랐는데 주가가 덜 따라가 선행 PER이 내려간 곳(아래 읽는 법)" }, "저평가");
 
 function trRenderAll() {
   const d = TR.data;
@@ -170,6 +187,7 @@ function trWin(t, lensMap, maxW) {
   if (on === false) cls.push("dim");
   if (on === true) cls.push(TR.axis === "both" ? "ring-both" : TR.axis === "openai" ? "ring-oa" : "ring-an");
   if (TR.focus === t) cls.push("found");
+  if (trUVco(t) && trUVco(t).flag) cls.push("uv");
   const l = w != null ? Math.max(0.3, Math.min(1, maxW > 0 ? w / maxW : 1)) : null;
   return h("span", { class: cls.join(" "), "data-t": t, style: l != null ? `--l:${l.toFixed(2)}` : null },
     h("span", null, trShort(t)),
@@ -312,7 +330,7 @@ function trRenderLeads() {
                         title: "비상장 기업입니다. 두 회사와 계약·투자 관계가 있는 상장사를 함께 살펴볼 수 있습니다" },
             h("i", { class: "ax oa" }), "OpenAI", h("i", { class: "ax an" }), "Anthropic"))
         : z.lead ? h("li", null,
-          h("span", { class: "zn" }, z.name),
+          h("span", { class: "zn" }, z.name, trUV(z.id) && trUV(z.id).flag ? h("i", { class: "uv-dot", title: "저평가 분야" }) : null),
           h("button", {
             type: "button", title: z.lead_why,
             class: "lead-chip" + (/[가-힣]/.test(trShort(z.lead)) ? " kr" : "") + (TR.lens !== "none" && z.lead in lens ? " lit" : "")
@@ -387,7 +405,8 @@ function trRenderVisit() {
 function trRoom(s, z, k) {
   const lensMap = trLensMap(), vals = Object.values(lensMap), maxW = vals.length ? Math.max(...vals) : 0;
   return h("button", { class: "room", "aria-pressed": String(z.id === TR.zone), "data-zone": z.id },
-    h("span", { class: "rn" }, `${s.no}-${k + 1}`, z.bottleneck ? h("span", { class: "bn" }, "병목") : null),
+    h("span", { class: "rn" }, `${s.no}-${k + 1}`, z.bottleneck ? h("span", { class: "bn" }, "병목") : null,
+      trUV(z.id) && trUV(z.id).flag ? trUVtag("uv") : null),
     h("b", null, z.name),
     z.special === "axes" ? h("span", { class: "muted", style: "font-size:11px" }, "비상장 두 회사 · 기업가치·컴퓨팅 확보 계획")
       : h("span", { class: "rm" }, trLeadFirst(z).map((mem) => {
@@ -401,13 +420,26 @@ function trZone(s, z) {
   if (z.special === "axes") return trAxesRoom(z);
   return h("section", { class: "tr-zone" },
     h("header", null, h("h3", null, z.name), z.bottleneck ? h("span", { class: "tag bn" }, "병목") : null,
+      trUV(z.id) && trUV(z.id).flag ? trUVtag() : null,
       h("span", { class: "muted", style: "font-size:12px" }, `${z.members.length}곳 · ${s.no}. ${s.name}`)),
     h("dl", { class: "zfacts" },
       z.lead ? trLeadRow(z) : null,
       h("dt", null, "필요한 것"), h("dd", null, z.need),
       z.race ? [h("dt", null, "경쟁 구도"), h("dd", null, z.race, z.src && !z.bottleneck ? trSrc(z.src) : null)] : null,
-      z.bottleneck ? [h("dt", null, "병목인 이유"), h("dd", null, z.bottleneck, z.src ? trSrc(z.src) : null)] : null),
+      z.bottleneck ? [h("dt", null, "병목인 이유"), h("dd", null, z.bottleneck, z.src ? trSrc(z.src) : null)] : null,
+      trValueRow(z)),
     h("div", { class: "cos" }, trLeadFirst(z).map((mem, i) => trCard(mem, z, i))));
+}
+
+function trValueRow(z) {  // 저평가 판정의 숫자: 분야 중앙값의 최근 30일 전망·주가·선행 PER 변화
+  const V = TR.value, v = trUV(z.id);
+  if (!V) return null;
+  if (!v) return [h("dt", null, "전망 대비 주가"),
+    h("dd", { class: "muted" }, "흑자이고 애널리스트가 3명 이상인 회사가 3곳 미만이라 판단하지 않습니다.")];
+  return [h("dt", null, v.flag ? "저평가인 이유" : "전망 대비 주가"),
+    h("dd", null, `최근 ${V.window.days}일 이익 전망 ${trPct(v.R)}, 주가 ${trPct(v.P)} → 선행 PER ${trPct(v.V)}`,
+      h("span", { class: "muted" }, ` (AI 전체 ${trPct(V.universe.V)}, ${v.n}곳 중앙값, 싸진 순서 ${v.rank}/${v.of}위)`),
+      v.flag && v.cycle ? h("div", { class: "uv-warn" }, "메모리·저장은 경기순환 업종입니다. 이익이 정점일 때 PER이 가장 낮아 보이므로, 전망이 오르는데 주가가 빠지는 것은 업황이 꺾이는 신호일 수도 있습니다.") : null)];
 }
 
 const trSrc = (href) => h("a", { class: "src", href, target: "_blank", rel: "noopener noreferrer" }, "출처");
@@ -430,6 +462,7 @@ function trCard(mem, z, i) {
   const seven = trLensMap("seven")[t], mine = trLensMap("mine")[t], rank = trRank(t);
   const others = (TR.idx.spots[t] || []).filter((x) => x.z !== z);
   const sector = d.sectors[t];
+  const uv = trUVco(t);
   const hv = (label, v, lensKey) => (v == null ? null
     : h("span", { class: "h" + (TR.lens === lensKey ? " lamp" : "") }, label, " ", h("b", null, pctAbs(v, 1))));
   const mk = { US: null, private: "비상장", fund: "펀드", KR: "한국", JP: "일본", HK: "홍콩", CN: "중국", TW: "대만", EU: "유럽", IN: "인도" }[c.market];
@@ -442,6 +475,7 @@ function trCard(mem, z, i) {
       h("span", { class: "nm" }, c.ko !== trShort(t) ? c.ko : c.name),
       h("span", { class: "badges" },
         z.lead === t ? h("span", { class: "tag lead", title: z.lead_why }, "★ 대표") : null,
+        uv && uv.flag ? trUVtag() : null,
         mem.pos && (z.lead !== t || mem.pos === "독점") ? h("span", { class: `tag pos-${mem.pos}` }, mem.pos) : null,
         mk ? h("span", { class: "tag" + (c.market === "private" ? " priv" : "") }, mk) : null)),
     h("p", { class: "role" }, mem.role, mem.src ? trSrc(mem.src) : null),
@@ -450,6 +484,9 @@ function trCard(mem, z, i) {
       hv("TIME", w("TIME"), "time"), hv("KoAct", w("KoAct"), "koact"),
       hv("7종목", seven, "seven"), hv("내 보유", mine, "mine"),
       rank ? h("span", { class: "h" + (TR.lens === "momentum" ? " lamp" : "") }, "120일 수익률 ", h("b", null, `${rank.rank}위`)) : null,
+      uv && uv.V != null ? h("span", { class: "h", title: "최근 30일 다음 회계연도 EPS 컨센서스 변화와 주가 변화. 선행 PER 변화 = (1+주가)/(1+전망) − 1" },
+        "30일 전망 ", h("b", null, trPct(uv.R)), " · 주가 ", h("b", null, trPct(uv.P)), " · PER ", h("b", null, trPct(uv.V)))
+        : uv && uv.skip === "loss" ? h("span", null, "적자 — PER로 판단 안 함") : null,
       sector && sector !== "미분류" ? h("span", null, sector) : null,
       (d.universe || {})[t] ? h("span", { title: `AI 분석 대상 · ${d.universe[t]}` }, "AI 분석 대상") : null,
       w("TIME") == null && w("KoAct") == null && c.market !== "private" && c.market !== "fund" ? h("span", null, "두 펀드 미보유") : null),
@@ -770,7 +807,22 @@ function trRenderNotes() {
     "각 기업은 주요 역할을 맡는 방문지에 배치하고, 다른 역할은 기업 소개의 ‘다른 단계에서의 역할’로 연결합니다. ",
     "‘병목’은 공급이 수요를 따라가기 어려운 분야, ‘독점·선두·추격’은 경쟁 구도에서의 위치입니다. ★는 분야별 대표 기업이며, 주가 강세를 나타내는 거인의 어깨의 ◆와 구분합니다.", h("br"),
     h("b", null, "자료 출처"), ` — 공급망 배치와 계약·투자 관계는 회사 발표와 주요 언론 보도를 정리한 것입니다. 각 항목의 ‘출처’에서 확인할 수 있습니다. ‘의향서(LOI)’와 ‘언론 보도’는 계약 확정을 뜻하지 않습니다. 지도 기준일 ${m.as_of}. `,
-    `보유 비중은 검증한 펀드 PDF(${["TIME", "KoAct"].filter((k) => d.funds[k]).map((k) => `${k} ${d.funds[k].date}`).join(" · ")})를 사용합니다. 7종목·내 보유·수익률 순위는 ‘내 계좌·주문’과 같은 자료입니다. 보유 표시는 매수 추천이 아닙니다.`);
+    `보유 비중은 검증한 펀드 PDF(${["TIME", "KoAct"].filter((k) => d.funds[k]).map((k) => `${k} ${d.funds[k].date}`).join(" · ")})를 사용합니다. 7종목·내 보유·수익률 순위는 ‘내 계좌·주문’과 같은 자료입니다. 보유 표시는 매수 추천이 아닙니다.`,
+    h("br"), trValueNote());
+}
+function trValueNote() {
+  const V = TR.value;
+  const head = [h("b", null, "저평가"), " — "];
+  if (!V) return [...head, TR.valueLoading ? "Yahoo 이익 전망을 받아 계산하는 중입니다(첫 계산 20~40초)." : `계산하지 못했습니다. ${TR.valueError || ""} `,
+    TR.valueLoading ? null : h("button", { type: "button", class: "linkbtn", onclick: () => trLoadValue(true) }, "다시 계산")];
+  const c = V.check, flagged = Object.values(V.zones).filter((z) => z.flag).length;
+  return [...head,
+    `최근 ${V.window.days}일 동안 다음 회계연도 이익 전망(EPS 컨센서스)은 그대로이거나 올랐는데 주가가 덜 따라가 선행 PER이 내려간 정도를 회사마다 잽니다. `,
+    `분야 중앙값을 AI 전체와 비교해 하위 1/3이면서 전망은 오르고 PER은 내린 분야가 ‘저평가 분야’(지금 ${flagged}곳), 그 분야에서 자기 전망은 오르고 PER은 내린 회사가 ‘저평가 회사’입니다. `,
+    "PER 수준이나 미래 이익만으로 줄 세우면 이익이 정점인 메모리가 늘 싸 보여서 쓰지 않습니다(순환매 전제). 적자 회사와 애널리스트 3명 미만은 판단하지 않습니다. ",
+    `${c.period} 두 달 검증에서 저평가 분야는 ${c.horizon} AI 전체보다 ${c.zone_flag.map(trPP).join("·")}%p(적중 ${c.zone_hit.join("·")}%), 가장 비싸진 1/3은 ${c.zone_dear.map(trPP).join("·")}%p였습니다. `,
+    `${c.fades}. 한 달 단위 관찰이며 매수 추천이 아닙니다. 가격 ${V.price_date} · 계산 ${V.computed_at.slice(0, 16).replace("T", " ")} `,
+    h("button", { type: "button", class: "linkbtn", onclick: () => trLoadValue(true) }, "다시 계산")];
 }
 
 /* ----------------------------------------------------------------- tooltip */

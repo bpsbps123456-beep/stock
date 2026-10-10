@@ -181,7 +181,22 @@ def _pick(d: dict, keys) -> dict:
     return {k: d[k] for k in keys if d.get(k) not in (None, "")}
 
 
-def payload(m: dict, sc: dict, guide: dict, pictures: dict) -> dict:
+def value_section(v: dict | None, companies: dict) -> dict | None:
+    """저평가 표시(desk/value.py, docs/desk_system.md §8.4)에서 사이트가 쓰는 판정과 숫자만 옮긴다."""
+    if not v:
+        return None
+    r4 = lambda x: round(x, 4) if isinstance(x, float) else x  # noqa: E731
+    return {
+        "price_date": v.get("price_date"), "computed_at": v.get("computed_at"), "window": v.get("window"),
+        "universe": {k: r4(v["universe"].get(k)) for k in ("n", "V", "R")},
+        "zones": {z: {k: r4(x) for k, x in row.items()} for z, row in v["zones"].items()},
+        "companies": {t: {k: r4(c[k]) for k in ("R", "P", "V", "flag", "skip", "zone") if k in c}
+                      for t, c in v["companies"].items() if t in companies},
+        "check": v.get("check"), "rules": v.get("rules"),
+    }
+
+
+def payload(m: dict, sc: dict, guide: dict, pictures: dict, value: dict | None = None) -> dict:
     companies = {t: _pick(c, COMPANY_KEYS) for t, c in m["companies"].items() if c.get("market") not in HIDE_MARKETS}
     stops = []
     for s in m["stops"]:
@@ -214,7 +229,7 @@ def payload(m: dict, sc: dict, guide: dict, pictures: dict) -> dict:
         "as_of": m["as_of"], "built": date.today().isoformat(), "title": guide["title"],
         "intro": guide["intro"], "legs": guide["legs"], "kinds": guide["kinds"], "statuses": guide["statuses"],
         "glossary": guide["glossary"], "axes": m["axes"], "links": m["links"],
-        "companies": companies, "stops": stops, "panels": panels,
+        "companies": companies, "stops": stops, "panels": panels, "value": value_section(value, companies),
         "counts": {"stops": len(stops), "zones": sum(len(st["zones"]) for st in stops),
                    "companies": len((placed | linked) & set(companies))},
     }
@@ -257,8 +272,12 @@ def bake(m: dict, sc: dict, out: Path) -> dict:
 
 
 def _bake_key(m: dict, sc: dict) -> str:
-    """Changes when a render, the label layout, a stop's zones or this script change."""
-    h = hashlib.sha1(Path(__file__).read_bytes())
+    """Changes when a render, the label layout, a stop's zones or the baking code change."""
+    import inspect
+
+    code = [inspect.getsource(f) for f in (Panel, _grow, crop_box, hero_panels, zone_panels, bake)]
+    consts = [PLATE, FADE, GLOW, SMALL, ZONE_CROP, THUMB_CROP, HERO_W]
+    h = hashlib.sha1(json.dumps([code, repr(consts)], ensure_ascii=False).encode("utf-8"))
     h.update(json.dumps(sc, sort_keys=True, ensure_ascii=False).encode("utf-8"))
     h.update(json.dumps([(s["id"], s.get("scene"), [z["id"] for z in s["zones"]]) for s in m["stops"]]).encode("utf-8"))
     for p in sorted(desk_scenes.STATIC.glob("*.webp")):
@@ -314,9 +333,16 @@ def _clean(out: Path) -> None:
 def build(out: Path = DIST) -> dict:
     m, sc, guide = tour.load_map(), desk_scenes.load(), load_guide()
     problems = check(m, sc, guide)
+    try:  # 저평가 표시: 데스크와 같은 6시간 캐시(없거나 낡았으면 Yahoo에서 다시 계산, 20~40초)
+        from desk import value as desk_value
+
+        val = desk_value.payload()
+    except Exception as exc:  # 오프라인이어도 사이트는 만들되, 표시 없이 배포하지 않도록 문제로 남긴다
+        val = None
+        problems.append(f"저평가: 계산하지 못했습니다 ({type(exc).__name__}: {exc})")
     _clean(out)
     pics = pictures(m, sc, out)
-    data = payload(m, sc, guide, pics)
+    data = payload(m, sc, guide, pics, val)
     leaked = PRIVATE_KEYS & set(data)
     if leaked:
         raise RuntimeError(f"개인 자료 키가 섞였습니다: {sorted(leaked)}")

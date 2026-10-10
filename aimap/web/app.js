@@ -61,6 +61,12 @@ const codeTag = (t) => (code(t) === koName(t) ? null : h("span", { class: "tk" }
 const axesOf = (t) => I.axesOf[t] || new Set();
 const usd = (bn) => (bn >= 1000 ? `${+(bn / 1000).toFixed(bn % 1000 ? 1 : 0)}조 달러` : `${Math.round(bn * 10).toLocaleString("ko-KR")}억 달러`);
 const leadFirst = (z) => [...z.members].sort((a, b) => (b.t === z.lead) - (a.t === z.lead));
+/* 저평가 표시(desk/value.py, docs/desk_system.md §8.4). 빌드가 오프라인이면 D.value가 없고 표시도 없다. */
+const uvZone = (zid) => (D.value && D.value.zones[zid]) || null;
+const uvCo = (t) => (D.value && D.value.companies[t]) || null;
+const pct = (x, d = 1) => (x == null ? "—" : `${x >= 0 ? "+" : "−"}${Math.abs(x * 100).toFixed(d)}%`);
+const pp = (x) => `${x >= 0 ? "+" : "−"}${Math.abs(x).toFixed(1)}`;   // 이미 %p 단위인 검증 숫자
+const CYCLE_NOTE = "메모리·저장은 경기순환 업종입니다. 이익이 정점일 때 PER이 가장 낮아 보이므로, 전망이 오르는데 주가가 빠지는 것은 업황이 꺾이는 신호일 수도 있습니다.";
 
 /* ------------------------------------------------------------- glossary */
 const PARTICLE = "(?:으로는|으로도|으로|에서|에게|까지|부터|보다|처럼|이나|이며|이고|이자|과의|와의|에도|에는|로는|로도|은|는|이|가|을|를|와|과|도|로|의|에|만|나)";
@@ -201,6 +207,7 @@ function route() {
   else if (a === "words") { key = "words"; render = viewWords; after = () => b && toId("w-" + slug(b)); }
   else if (a === "axes") { key = "axes"; render = viewAxes; }
   else if (a === "quiz") { key = "quiz"; render = viewQuiz; }
+  else if (a === "value") { key = "value"; render = viewValue; }
   const same = key === shownKey;
   if (!same) {
     closeViewer();
@@ -259,6 +266,7 @@ function viewHome() {
     h("section", { class: "wrap sec-block" },
       h("h2", { class: "sec" }, "읽는 법"),
       h("ol", { class: "how" }, D.intro.how.map((t) => h("li", null, t)))),
+    uvHome(),
     h("section", { class: "wrap sec-block" },
       h("h2", { class: "sec" }, "노선도", h("small", null, "번호 = 만드는 순서")),
       routeList(visited, legs)),
@@ -268,7 +276,8 @@ function viewHome() {
         tile("#/find", "회사 찾기", `${D.counts.companies}개 회사를 이름·티커로 찾고, 어느 일터에서 무슨 일을 하는지 봅니다.`),
         tile("#/words", "용어 사전", `HBM, CoWoS, EUV처럼 자주 나오는 말 ${D.glossary.length}개를 쉬운 말로 풀었습니다.`),
         tile("#/axes", "OpenAI·Anthropic의 돈 흐름", "두 회사가 누구와 어떤 계약을 맺었는지 한눈에 봅니다."),
-        tile("#/quiz", "퀴즈로 익히기", "이 회사는 어느 일터에서 일할까? 맞히며 외웁니다."))),
+        tile("#/quiz", "퀴즈로 익히기", "이 회사는 어느 일터에서 일할까? 맞히며 외웁니다."),
+        D.value ? tile("#/value", "저평가 표시는 이렇게 정했습니다", "PER 수준 대신 '전망 대비 주가'의 30일 변화를 분야끼리 비교합니다. 검증과 한계도 함께.") : null)),
     foot());
 }
 function tile(href, title, text) {
@@ -289,6 +298,7 @@ function routeList(visited, legs) {
         h("span", { class: "leg-name" }, leg), h("span", { class: "leg-title" }, D.legs[leg].title), h("p", null, D.legs[leg].text)));
     }
     const nCo = new Set(st.zones.flatMap((z) => z.members.map((m) => m.t))).size;
+    const nUV = st.zones.filter((z) => uvZone(z.id) && uvZone(z.id).flag).length;
     ol.append(h("li", { class: "station" + (visited.has(st.id) ? " seen" : "") + (st.id === "labs" ? " product" : ""), style: `--i:${st.no}` },
       h("a", { href: "#/s/" + st.id },
         h("span", { class: "dot" }, st.no),
@@ -296,7 +306,8 @@ function routeList(visited, legs) {
           h("b", { class: "st-name" }, st.name, visited.has(st.id) ? h("i", { class: "seen-mark", "aria-label": "읽음" }, "✓") : null),
           h("span", { class: "st-site" }, st.site),
           h("span", { class: "st-easy" }, st.easy),
-          h("span", { class: "st-meta" }, h("span", null, `만드는 것 · ${st.makes}`), h("span", null, `분야 ${st.zones.length} · 회사 ${nCo}`))),
+          h("span", { class: "st-meta" }, h("span", null, `만드는 것 · ${st.makes}`), h("span", null, `분야 ${st.zones.length} · 회사 ${nCo}`),
+            nUV ? h("span", { class: "uv-tag sm" }, `저평가 ${nUV}`) : null)),
         st.thumb ? h("img", { class: "st-thumb", src: st.thumb, alt: "", loading: "lazy", decoding: "async", width: 360, height: 270 })
           : h("span", { class: "st-thumb is-icon" }, icon(st.id)))));
   }
@@ -305,7 +316,7 @@ function routeList(visited, legs) {
 }
 function foot() {
   return h("footer", { class: "foot wrap" },
-    h("p", null, `지도 기준일 ${D.as_of} · 사이트 빌드 ${D.built}`),
+    h("p", null, `지도 기준일 ${D.as_of} · 사이트 빌드 ${D.built}`, D.value ? ` · 저평가 ${D.value.price_date} 종가 기준` : ""),
     h("p", null, "회사 역할과 숫자는 원문 출처를 함께 적었습니다. 그림은 이해를 돕는 일러스트로 실제 크기·개수·배치와 다르며 특정 회사 제품이 아닙니다."),
     h("p", null, "투자 권유가 아니라 산업 구조를 이해하기 위한 자료입니다. ★ 대표 기업은 점유율·매출·대표성으로 고른 것이며 모두 점유율 1위라는 뜻은 아닙니다."));
 }
@@ -345,7 +356,9 @@ function viewStop(st) {
           h("h2", { class: "sec" }, "이곳의 분야", h("small", null, `${st.zones.length}개`)),
           h("ul", null, st.zones.map((z) => h("li", null,
             h("a", { href: `#/s/${st.id}/${z.id}` }, h("span", { class: "zn" }, z.n), z.name,
-              z.bottleneck ? h("span", { class: "bn-dot", title: "병목" }, "병목") : null)))))),
+              h("span", { class: "flags" },
+                z.bottleneck ? h("span", { class: "bn-dot", title: "병목" }, "병목") : null,
+                uvZone(z.id) && uvZone(z.id).flag ? h("span", { class: "uv-tag sm" }, "저평가") : null))))))),
       st.zones.map((z) => zoneSection(st, z)),
       h("nav", { class: "wrap next-nav" },
         prev ? h("a", { class: "btn", href: "#/s/" + prev.id }, `← ${prev.no}. ${prev.name}`) : h("span"),
@@ -421,7 +434,8 @@ function zoneSection(st, z) {
     h("header", { class: "zone-head" },
       h("span", { class: "zn" }, z.n),
       h("h2", null, z.name),
-      z.bottleneck ? h("span", { class: "bn-tag" }, "병목") : null),
+      z.bottleneck ? h("span", { class: "bn-tag" }, "병목") : null,
+      uvZone(z.id) && uvZone(z.id).flag ? h("span", { class: "uv-tag" }, "저평가") : null),
     z.crops && z.crops.length ? h("div", { class: "crops" + (z.crops.length > 1 ? " many" : "") }, z.crops.map((c) =>
       h("figure", { class: "crop" },
         h("a", { href: `#/s/${st.id}/view/${c.panel}`, "aria-label": `${D.panels[c.panel].title} 크게 보기` },
@@ -431,6 +445,7 @@ function zoneSection(st, z) {
     h("p", { class: "easy" }, rich(z.easy)),
     z.need && z.special !== "axes" ? h("p", { class: "need" }, rich(z.need)) : null,
     z.bottleneck ? h("div", { class: "bn-box" }, h("b", null, "병목인 이유"), h("p", null, rich(z.bottleneck), z.src ? src(z.src) : null)) : null,
+    uvBox(z),
     lead ? h("div", { class: "lead-card" },
       h("span", { class: "tag-label" }, alone ? "★ 대표 기업 · 이 분야의 유일한 회사" : "★ 대표 기업"),
       h("a", { class: "lead-co", href: "#/c/" + encodeURIComponent(z.lead) },
@@ -446,6 +461,59 @@ function zoneSection(st, z) {
 }
 const src = (href) => h("a", { class: "src", href, target: "_blank", rel: "noopener noreferrer" }, "출처");
 
+function uvBox(z) {
+  const V = D.value, v = uvZone(z.id);
+  if (!V || !v) return null;
+  const head = `최근 ${V.window.days}일 이익 전망 ${pct(v.R)}, 주가 ${pct(v.P)} → 선행 PER ${pct(v.V)}`;
+  if (!v.flag) return h("p", { class: "uv-line" }, `전망 대비 주가 · ${head} (AI 전체 ${pct(V.universe.V)})`);
+  return h("div", { class: "uv-box" },
+    h("b", null, "저평가인 이유"),
+    h("p", null, `${head}. 같은 기간 AI 전체(중앙값)의 선행 PER은 ${pct(V.universe.V)}였습니다. ${v.of}개 분야 중 ${v.rank}번째로 싸졌습니다(${v.n}곳 중앙값).`),
+    v.cycle ? h("p", { class: "uv-warn" }, CYCLE_NOTE) : null,
+    h("a", { class: "uv-more", href: "#/value" }, "기준과 검증 보기 →"));
+}
+function uvRows(rows) {
+  return h("ul", { class: "uv-list" }, rows.map(({ st, z, v }) => h("li", { class: v.flag ? "on" : null },
+    h("a", { href: `#/s/${st.id}/${z.id}` },
+      h("span", { class: "zn" }, z.n),
+      h("span", { class: "uv-name" }, h("b", null, z.name), h("small", null, `${st.no}. ${st.name} · ${v.n}곳${v.cycle ? " · 경기순환" : ""}`)),
+      h("span", { class: "uv-num" }, `PER ${pct(v.V)}`, h("small", null, `전망 ${pct(v.R)} · 주가 ${pct(v.P)}`))))));
+}
+const uvZonesAll = () => D.stops.flatMap((st) => st.zones.map((z) => ({ st, z, v: uvZone(z.id) })))
+  .filter((x) => x.v).sort((a, b) => a.v.rank - b.v.rank);
+function uvHome() {
+  const V = D.value;
+  if (!V) return null;
+  const flagged = uvZonesAll().filter((x) => x.v.flag);
+  return h("section", { class: "wrap sec-block" },
+    h("h2", { class: "sec" }, "지금 저평가 분야", h("small", null, `최근 ${V.window.days}일 · ${V.price_date} 종가`)),
+    h("p", { class: "uv-intro" }, "이익 전망은 그대로이거나 올랐는데 주가가 덜 따라가 선행 PER이 내려간 분야입니다. 한 달 단위로 바뀝니다.",
+      ` 같은 기간 AI 전체(중앙값)의 선행 PER은 ${pct(V.universe.V)}였습니다.`),
+    flagged.length ? uvRows(flagged) : h("p", { class: "muted" }, "지금은 조건을 채운 분야가 없습니다."),
+    h("a", { class: "uv-more", href: "#/value" }, "기준·검증·저평가 회사 보기 →"));
+}
+function uvCompany(t) {
+  const V = D.value, c = uvCo(t);
+  if (!V || !c) return null;
+  const hit = c.zone && I.zoneById[c.zone], zname = hit ? `「${hit.z.name}」` : "", zv = c.zone ? uvZone(c.zone) : null;
+  const verdict = c.skip === "loss" ? "적자라 PER로 판단하지 않습니다."
+    : c.skip === "thin" ? "애널리스트가 3명 미만이라 판단하지 않습니다."
+      : c.skip === "no_data" ? "이익 전망 자료가 없어 판단하지 않습니다."
+        : c.flag ? `저평가로 표시합니다. 대표 분야 ${zname}가 저평가 분야이고, 이 회사도 전망은 오르고 PER은 내렸습니다.`
+          : !zv ? `대표 분야 ${zname}는 잴 수 있는 회사가 3곳 미만이라 분야 판정이 없습니다.`
+            : !zv.flag ? `대표 분야 ${zname}가 지금 저평가 분야가 아닙니다(${zv.of}개 중 싸진 순서 ${zv.rank}위).`
+              : c.R <= 0 ? `대표 분야 ${zname}는 저평가지만 이 회사의 이익 전망은 오르지 않았습니다.`
+                : `대표 분야 ${zname}는 저평가지만 이 회사의 선행 PER은 내려가지 않았습니다.`;
+  const cell = (label, val) => h("div", null, h("span", null, label), h("b", null, val));
+  return h("section", { class: "co-sec" },
+    h("h2", { class: "sec" }, "전망 대비 주가", h("small", null, `최근 ${V.window.days}일 · ${V.price_date} 종가`),
+      c.flag ? h("span", { class: "uv-tag" }, "저평가") : null),
+    c.V != null ? h("div", { class: "uv-stats" },
+      cell("이익 전망", pct(c.R)), cell("주가", pct(c.P)), cell("선행 PER", pct(c.V)), cell("AI 전체 PER", pct(V.universe.V))) : null,
+    h("p", { class: "uv-verdict" }, verdict, " ", h("a", { href: "#/value" }, "기준 보기")),
+    c.flag && zv && zv.cycle ? h("p", { class: "uv-warn" }, CYCLE_NOTE) : null);
+}
+
 function coRow(m, z, hidden) {
   const t = m.t, c = co(t), ax = axesOf(t), mk = MARKET[c.market];
   return h("li", { class: hidden ? "extra" : null },
@@ -455,6 +523,7 @@ function coRow(m, z, hidden) {
         codeTag(t),
         h("span", { class: "co-tags" },
           z.lead === t ? h("span", { class: "tag lead" }, "★ 대표") : null,
+          uvCo(t) && uvCo(t).flag ? h("span", { class: "uv-tag sm" }, "저평가") : null,
           m.pos && z.lead !== t ? h("span", { class: "tag pos" }, m.pos) : null,
           mk && c.market !== "US" && c.market !== "private" ? h("span", { class: "tag mk" }, mk) : null,
           ax.has("openai") ? h("i", { class: "pip oa", title: "OpenAI와 계약·투자 관계" }) : null,
@@ -685,6 +754,7 @@ function viewCompany(t) {
             mainZ && mainZ.z === x.z && here.length > 1 ? h("span", { class: "tag" }, "대표 분야") : null),
           h("p", null, x.m.role, x.m.src ? src(x.m.src) : null),
           x.z.lead === t && x.z.lead_why !== x.m.role ? h("p", { class: "muted" }, `대표로 고른 이유: ${x.z.lead_why}`) : null)))) : null,
+      uvCompany(t),
       links.length ? h("section", { class: "co-sec" },
         h("h2", { class: "sec" }, "OpenAI·Anthropic과의 관계", h("small", null, `${links.length}건`)),
         h("ul", { class: "deals" }, links.map(dealLi))) : null,
@@ -820,6 +890,50 @@ function viewAxes() {
       seg, body),
     foot());
   draw();
+}
+
+/* ------------------------------------------------------------- 저평가 기준 */
+function viewValue() {
+  bar({ back: { href: "#/", label: "노선도" }, title: "저평가 기준" });
+  const V = D.value;
+  if (!V) {
+    mount($("#app"), h("section", { class: "wrap" }, h("h1", { class: "page-title" }, "저평가 표시"),
+      h("p", { class: "lede" }, "이번 빌드에는 저평가 자료가 없습니다.")), foot());
+    return;
+  }
+  const c = V.check, all = uvZonesAll(), flagged = all.filter((x) => x.v.flag);
+  const cos = Object.entries(V.companies).filter(([, x]) => x.flag).sort((a, b) => a[1].V - b[1].V);
+  mount($("#app"),
+    h("article", { class: "wrap value-page" },
+      h("p", { class: "kicker" }, `저평가 표시 기준 · ${V.price_date} 종가`),
+      h("h1", { class: "page-title" }, "싸 보이는 것과 싸진 것은 다릅니다"),
+      h("p", { class: "lede" }, "PER이 낮다고 싼 것은 아닙니다. 메모리처럼 이익이 정점인 업종은 PER이 늘 낮아 보이고, 미래 이익만 보면 언제나 메모리를 사야 할 것처럼 보입니다. 그래서 이 사이트는 회사마다 '자기 이익 전망에 비해 주가가 얼마나 덜 올랐나'를 재고, 그 변화를 분야끼리 비교합니다. 돈이 분야 사이를 옮겨 다닌다는(순환매) 전제입니다."),
+      h("ol", { class: "uv-steps" },
+        h("li", null, h("b", null, "이익 전망 변화"), ` 최근 ${V.window.days}일 동안 다음 회계연도 EPS 컨센서스가 몇 % 바뀌었나`),
+        h("li", null, h("b", null, "주가 변화"), " 같은 기간 주가가 몇 % 바뀌었나"),
+        h("li", null, h("b", null, "선행 PER 변화"), " = (1 + 주가 변화) ÷ (1 + 전망 변화) − 1. 마이너스면 전망만큼 주가가 따라가지 못해 이익 대비 싸진 것입니다"),
+        h("li", null, h("b", null, "저평가 분야"), " 분야 중앙값을 AI 전체와 비교해 가장 많이 싸진 1/3 가운데, 전망은 오르고 PER은 실제로 내린 분야. 흑자이고 애널리스트가 3명 이상인 회사가 3곳 이상인 분야만 잽니다"),
+        h("li", null, h("b", null, "저평가 회사"), " 저평가 분야가 대표 분야이고, 자기 전망은 오르고 PER은 내린 회사")),
+      h("h2", { class: "sec" }, "지금 저평가 분야", h("small", null, `${flagged.length}곳 · AI 전체 PER ${pct(V.universe.V)}`)),
+      flagged.length ? uvRows(flagged) : h("p", { class: "muted" }, "지금은 조건을 채운 분야가 없습니다."),
+      h("h2", { class: "sec" }, "지금 저평가 회사", h("small", null, `${cos.length}곳`)),
+      cos.length ? h("ul", { class: "co-list" }, cos.map(([t, x]) => {
+        const hit = I.zoneById[x.zone];
+        return h("li", null, h("a", { href: "#/c/" + encodeURIComponent(t) }, h("b", null, koName(t)), codeTag(t),
+          h("span", { class: "muted" }, `${hit ? hit.z.name : ""} — 전망 ${pct(x.R)} · 주가 ${pct(x.P)} · PER ${pct(x.V)}`)));
+      })) : h("p", { class: "muted" }, "없습니다."),
+      h("h2", { class: "sec" }, "2026년에 맞았나"),
+      h("p", null, `그때 미리 알 수 있던 전망만으로 ${c.period}의 두 달을 다시 재 봤습니다. 저평가 분야는 ${c.horizon} 동안 AI 전체(중앙값)보다 ${c.zone_flag.map(pp).join(" · ")}%p 더 올랐고 분야의 ${c.zone_hit.join(" · ")}%가 앞섰습니다. 가장 비싸진 1/3은 ${c.zone_dear.map(pp).join(" · ")}%p였습니다.`),
+      h("p", null, `저평가 회사는 평균 ${c.company_mean.map(pp).join(" · ")}%p, 중앙값 ${c.company_median.map(pp).join(" · ")}%p였고 ${c.company_hit.join(" · ")}%가 앞섰습니다. ${c.fades}. 지금 PER 수준, 성장 대비 PER, 전망 상향만으로 고른 방식은 같은 시험에서 앞서지 못해 쓰지 않았습니다.`),
+      h("h2", { class: "sec" }, "한계"),
+      h("ul", { class: "how" },
+        h("li", null, "검증은 두 달뿐이고 여러 방식 중에서 골랐습니다. 효과가 작아서 회사 하나하나로는 동전 던지기에 가깝습니다. 분야 단위로 보세요."),
+        h("li", null, CYCLE_NOTE),
+        h("li", null, "적자 회사, 애널리스트 3명 미만, 전망 자료가 없는 회사는 판단하지 않습니다. 전망은 Yahoo 집계라 국내 증권사 컨센서스와 다를 수 있습니다."),
+        h("li", null, `${V.price_date} 종가로 계산한 한 달 단위 관찰입니다. 매수 추천이 아닙니다.`)),
+      h("h2", { class: "sec" }, "모든 분야", h("small", null, "가장 많이 싸진 순서")),
+      uvRows(all)),
+    foot());
 }
 
 /* ------------------------------------------------------------- quiz */

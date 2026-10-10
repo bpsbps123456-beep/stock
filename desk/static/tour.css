@@ -184,6 +184,14 @@
 .room .rm .win { font-size: 9px; padding: 3px 4px 2px; }
 .room .bn, .tag.bn { color: var(--serious); border-color: color-mix(in srgb, var(--serious) 45%, var(--line)); }
 .room .rn .bn { font-family: var(--sans); letter-spacing: 0; font-size: 9.5px; padding: 0 4px; border: 1px solid; border-radius: 4px; }
+/* 저평가(§8.4): 병목(주황)·★(브라스)·상승/하락(빨강/파랑)과 겹치지 않는 청록 */
+:root { --uv: #4cc59d; }
+:root[data-theme="light"] { --uv: #13795b; }
+.room .rn .uv, .tag.uv { color: var(--uv); border-color: color-mix(in srgb, var(--uv) 45%, var(--line)); }
+.room .rn .uv { font-family: var(--sans); letter-spacing: 0; font-size: 9.5px; padding: 0 4px; border: 1px solid; border-radius: 4px; }
+.win.uv { box-shadow: inset 0 -2px 0 var(--uv); }
+.uv-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--uv); margin-left: 5px; vertical-align: 2px; }
+.uv-warn { color: var(--muted); font-size: 12px; margin-top: 3px; }
 
 .tr-zone > header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; margin-bottom: 8px; }
 .tr-zone > header h3 { margin: 0; font-size: 16px; letter-spacing: -0.01em; }

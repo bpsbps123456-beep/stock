@@ -25,6 +25,9 @@
   --an: #c2603f;
   --ok: #2f7d4f;
   --no: #b2402a;
+  --uv: #13795b;
+  --uv-bg: #e3f1ea;
+  --uv-line: #b5d9c7;
   --shadow: 0 1px 0 rgba(34, 30, 25, 0.04), 0 10px 26px -18px rgba(34, 30, 25, 0.45);
   --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .13 0 0 0 0 .11 0 0 0 0 .08 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   --serif: "Hahmlet", "Noto Serif KR", "AppleMyungjo", serif;
@@ -37,7 +40,7 @@
     --paper: #16130f; --paper-2: #26211a; --card: #1f1b16; --ink: #efe7d9; --ink-2: #d2c7b6; --muted: #a09482;
     --rule: #342d24; --rule-2: #4a4134; --bar-bg: rgba(22, 19, 15, 0.86); --gold-soft: #4a3a14; --gold-ink: #f2c45a;
     --lead-bg: #2a2214; --lead-line: #4f3f1c; --bn-bg: #2c1d17; --bn-line: #553326; --bn-ink: #f0a48a;
-    --oa: #6aa6e8; --an: #e48d6c; --ok: #6cc28f; --no: #f08a72; --shadow: 0 10px 26px -18px rgba(0, 0, 0, 0.8); --grain: none;
+    --oa: #6aa6e8; --an: #e48d6c; --ok: #6cc28f; --no: #f08a72; --uv: #5ccfa8; --uv-bg: #13261f; --uv-line: #24503f; --shadow: 0 10px 26px -18px rgba(0, 0, 0, 0.8); --grain: none;
     color-scheme: dark;
   }
 }
@@ -45,7 +48,7 @@
   --paper: #16130f; --paper-2: #26211a; --card: #1f1b16; --ink: #efe7d9; --ink-2: #d2c7b6; --muted: #a09482;
   --rule: #342d24; --rule-2: #4a4134; --bar-bg: rgba(22, 19, 15, 0.86); --gold-soft: #4a3a14; --gold-ink: #f2c45a;
   --lead-bg: #2a2214; --lead-line: #4f3f1c; --bn-bg: #2c1d17; --bn-line: #553326; --bn-ink: #f0a48a;
-  --oa: #6aa6e8; --an: #e48d6c; --ok: #6cc28f; --no: #f08a72; --shadow: 0 10px 26px -18px rgba(0, 0, 0, 0.8); --grain: none;
+  --oa: #6aa6e8; --an: #e48d6c; --ok: #6cc28f; --no: #f08a72; --uv: #5ccfa8; --uv-bg: #13261f; --uv-line: #24503f; --shadow: 0 10px 26px -18px rgba(0, 0, 0, 0.8); --grain: none;
   color-scheme: dark;
 }
 
@@ -235,7 +238,8 @@ button { font: inherit; color: inherit; }
 .zone-index ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
 .zone-index a { display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 8px 14px; border-radius: 12px; background: var(--card); border: 1px solid var(--rule); text-decoration: none; font-weight: 600; font-size: 15px; }
 .zn { font: 600 12px/1 var(--mono); color: var(--gold-ink); min-width: 30px; }
-.bn-dot { margin-left: auto; font: 600 11px/1 var(--sans); color: var(--bn-ink); background: var(--bn-bg); border: 1px solid var(--bn-line); padding: 4px 7px; border-radius: 6px; }
+.zone-index .flags { margin-left: auto; display: inline-flex; gap: 5px; }
+.bn-dot { font: 600 11px/1 var(--sans); color: var(--bn-ink); background: var(--bn-bg); border: 1px solid var(--bn-line); padding: 4px 7px; border-radius: 6px; }
 
 .zone { padding-top: 40px; scroll-margin-top: calc(56px + env(safe-area-inset-top)); }
 .zone + .zone::before { content: ""; display: block; height: 1px; background: var(--rule); margin: 0 0 36px; }
@@ -439,6 +443,38 @@ details.race p { padding: 0 14px 14px; margin: 0; color: var(--ink-2); font-size
 .q-res .ok { color: var(--ok); font-weight: 700; }
 .q-res .no { color: var(--no); font-weight: 700; }
 .q-res .btn { margin-top: 14px; width: 100%; }
+
+/* ---------------------------------------------------------------- 저평가 (desk/value.py, §8.4) */
+.uv-tag { flex: none; display: inline-flex; align-items: center; font: 600 11.5px/1 var(--sans); padding: 5px 8px; border-radius: 6px; background: var(--uv-bg); color: var(--uv); border: 1px solid var(--uv-line); align-self: center; white-space: nowrap; }
+.uv-tag.sm { font-size: 11px; padding: 4px 7px; }
+.sec .uv-tag { font-family: var(--sans); }
+.uv-box { border-radius: 14px; padding: 12px 14px; background: var(--uv-bg); border: 1px solid var(--uv-line); margin: 14px 0; }
+.uv-box b { font: 600 12.5px/1.4 var(--sans); letter-spacing: 0.04em; color: var(--uv); }
+.uv-box p { margin: 4px 0 0; font-size: 15px; line-height: 1.65; }
+.uv-line { font-size: 13.5px; color: var(--muted); margin: 0 0 12px; font-variant-numeric: tabular-nums; }
+.uv-warn { font-size: 13.5px !important; color: var(--muted); line-height: 1.6; }
+.uv-more { display: inline-block; margin-top: 8px; font-weight: 600; font-size: 14px; color: var(--uv); text-underline-offset: 3px; }
+.uv-intro { margin: 0 0 12px; color: var(--ink-2); font-size: 15px; }
+.uv-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+.uv-list li { border-bottom: 1px solid var(--rule); }
+.uv-list li.on { background: linear-gradient(90deg, var(--uv-bg), transparent 70%); }
+.uv-list a { display: grid; grid-template-columns: 40px 1fr auto; gap: 10px; align-items: center; padding: 11px 4px; text-decoration: none; }
+.uv-list .zn { font-size: 12px; }
+.uv-name b { display: block; font-weight: 600; font-size: 15px; line-height: 1.35; }
+.uv-name small, .uv-num small { display: block; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.uv-num { text-align: right; font: 600 14px/1.3 var(--sans); font-variant-numeric: tabular-nums; color: var(--ink); white-space: nowrap; }
+.uv-list li.on .uv-num { color: var(--uv); }
+.uv-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin: 4px 0 10px; }
+.uv-stats div { padding: 10px 8px; border-radius: 12px; background: var(--card); border: 1px solid var(--rule); text-align: center; }
+.uv-stats span { display: block; font-size: 11.5px; color: var(--muted); }
+.uv-stats b { font: 700 16px/1.3 var(--sans); font-variant-numeric: tabular-nums; }
+.uv-verdict { font-size: 15px; line-height: 1.65; color: var(--ink-2); margin: 0; }
+.uv-verdict a { color: var(--uv); font-weight: 600; }
+.uv-steps { margin: 6px 0 22px; padding-left: 22px; }
+.uv-steps li { margin: 7px 0; line-height: 1.65; }
+.uv-steps li::marker { font: 600 13px var(--mono); color: var(--uv); }
+.value-page .sec { margin-top: 30px; }
+.st-meta .uv-tag { padding: 2px 6px; font-size: 10.5px; }
 
 /* ---------------------------------------------------------------- motion */
 @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
