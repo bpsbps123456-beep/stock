@@ -96,8 +96,29 @@ class RuleTest(unittest.TestCase):
     def test_semiconductor_budget_leaves_cash(self):
         sector = {"S1": "메모리", "S2": "메모리", "S3": "AI 반도체", "S4": "반도체(적자)", "N": "AI 인프라"}
         got = S.project_caps({k: 0.2 for k in sector}, sector)
-        # four semis share 60%; the other name stops at the 25% stock cap; 15% stays cash
-        self.assertWeights(got, {"S1": 0.15, "S2": 0.15, "S3": 0.15, "S4": 0.15, "N": 0.25})
+        # four semis share the 50% budget; the other name stops at the 25% stock cap; 25% stays cash
+        self.assertWeights(got, {"S1": 0.125, "S2": 0.125, "S3": 0.125, "S4": 0.125, "N": 0.25})
+
+    def test_semiconductor_budget_is_50_percent_and_774_keeps_60(self):
+        # user decision 2026-10-10 (docs/desk_system.md §3); `desk validate` replays #774 with 60%
+        self.assertEqual(config.RULE["semis_cap"], 0.50)
+        self.assertEqual(config.CODEX_774_RULE, {"lookback": 120, "n": 7, "buffer": 5, "stock_cap": 0.25,
+                                                 "sector_cap": 0.60, "semis_cap": 0.60})
+
+    def test_codex_caps_switch_to_774_and_always_restore(self):
+        from desk.validate import codex_caps
+        before = dict(config.RULE)
+        with self.assertRaises(RuntimeError):
+            with codex_caps():
+                self.assertEqual(config.RULE, config.CODEX_774_RULE)
+                raise RuntimeError("replay failed")
+        self.assertEqual(config.RULE, before)
+
+    def test_cap_notes_read_the_live_rule(self):
+        from desk.state import _cap_note
+        self.assertIn("반도체 합계 50% 상한", _cap_note(0.10, 0.20, "메모리"))
+        self.assertIn("같은 섹터 60% 상한", _cap_note(0.10, 0.20, "엔터프라이즈 SW"))
+        self.assertIn("한 종목 25% 상한", _cap_note(0.25, 0.40, "AI 인프라"))
 
     def test_stock_cap_redistributes_then_leaves_cash(self):
         sector = {"A": "빅테크", "B": "엔터프라이즈 SW", "C": "우주/방산"}
@@ -111,7 +132,7 @@ class RuleTest(unittest.TestCase):
 
     def test_unclassified_names_share_the_semiconductor_budget(self):
         got = S.project_caps({k: 0.25 for k in "WXYZ"}, {})
-        self.assertWeights(got, {k: 0.15 for k in "WXYZ"})
+        self.assertWeights(got, {k: 0.125 for k in "WXYZ"})
 
     def test_sector_lookup_follows_recorded_renames(self):
         self.assertEqual(S.sector_of("ECHO US EQUITY", "ECHO"), "우주/방산")   # formerly SATS

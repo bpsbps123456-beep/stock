@@ -11,6 +11,8 @@ let planAmount = null;
 let offline = false;
 const tableMode = { model: false, account: false };
 const tabScroll = new Map();
+// 비중 상한은 서버의 config.RULE을 그대로 보여 준다(2026-10-10 반도체 60%→50%).
+const capPct = (key) => (S && S.rule && S.rule[key] != null ? `${Math.round(S.rule[key] * 100)}%` : "—");
 
 /* ------------------------------------------------------------------ dom */
 function h(tag, props, ...kids) {
@@ -317,7 +319,7 @@ function renderRank() {
     h("td", { class: "num" }, r.rank), h("td", { class: "mono" }, r.ticker),
     h("td", { class: `r ${cls(r.mom120)}` }, pct(r.mom120, 0)), h("td", { class: "r" }, pctAbs(r.time_weight)),
     h("td", null, h("span", { class: r.semis ? "tag semi" : "tag",
-      title: `상한 계산 섹터: ${r.sector}${r.semis ? " · 반도체 60% 한도에 포함" : ""}` }, r.detail || r.sector)),
+      title: `상한 계산 섹터: ${r.sector}${r.semis ? ` · 반도체 ${capPct("semis_cap")} 한도에 포함` : ""}` }, r.detail || r.sector)),
     h("td", null, r.in_target ? h("span", { class: "tag in" }, "목표")
       : r.rank <= 7 ? h("span", { class: "tag", title: "기존 종목이 유지 기준을 충족해 새로 편입할 자리가 없습니다" }, "편입 대기") : null,
       r.rank === 7 ? h("span", { class: "cut-label" }, " — 신규 편입 기준") : null,
@@ -325,7 +327,7 @@ function renderRank() {
   mount($("#rank-body"), table([["순위"], ["종목 코드"], ["120일 수익률", 1], ["TIME 비중", 1], ["세부 섹터"], [""]], rows),
     h("p", { class: "muted", style: "font-size:12px;margin:10px 0 0" },
       "매주 첫 미국 거래일에 기존 7종목 중 12위 이내인 종목을 유지하고, 빈자리는 수익률 순위가 높은 종목으로 채웁니다. 기본 비중은 TIME의 보유 비중에 비례합니다. ",
-      "한 종목 25%, 같은 섹터 60%, 반도체(점선 표시, 미분류 포함) 합계 60%를 상한으로 적용합니다. 상한을 넘는 금액은 나머지 종목에 배분하고, 배분하지 못한 금액은 현금으로 둡니다. ",
+      `한 종목 ${capPct("stock_cap")}, 같은 섹터 ${capPct("sector_cap")}, 반도체(점선 표시, 미분류 포함) 합계 ${capPct("semis_cap")}를 상한으로 적용합니다. 상한을 넘는 금액은 나머지 종목에 배분하고, 배분하지 못한 금액은 현금으로 둡니다. `,
       "세부 섹터는 거인의 어깨의 대표 사업 분류이며, 상한은 이보다 큰 섹터로 계산합니다(이름에 마우스를 올리면 표시)."));
 }
 
@@ -591,10 +593,10 @@ function renderNotes() {
   const st = S.model.stats;
   mount($("#notes"),
     h("b", null, "운용 규칙"), " — TIME이 보유한 미국 종목의 최근 120거래일 수익률을 기준으로 7종목을 구성합니다. 기존 종목은 12위 이내면 유지하고, 빈자리를 높은 순위부터 채웁니다. 매주 첫 미국 거래일 개장가를 기준으로 조정하며, 기본 비중은 TIME 보유 비중에 비례합니다. ",
-    "비중 상한은 한 종목 25%, 같은 섹터 60%, 반도체(미분류 포함) 합계 60%입니다. 배분하고 남은 금액은 현금으로 둡니다. 판단에는 해당 거래일 이전의 PDF와 전일 종가만 사용합니다.", h("br"),
+    `비중 상한은 한 종목 ${capPct("stock_cap")}, 같은 섹터 ${capPct("sector_cap")}, 반도체(미분류 포함) 합계 ${capPct("semis_cap")}입니다(반도체는 2026-10-10에 60%에서 낮춤). 배분하고 남은 금액은 현금으로 둡니다. 판단에는 해당 거래일 이전의 PDF와 전일 종가만 사용합니다.`, h("br"),
     h("b", null, `전략 모의 성과 (${md(S.model.start)} 이후, 원화, 수수료 0원, 개장가 체결 가정)`),
     ` — 7종목 ${pct(st.total)} (최대 하락폭 ${pct(st.mdd)}), TIME ETF ${pct(S.model.etf_total)}. `,
-    "과거 성과가 좋았던 규칙을 801개 중에서 골랐으므로 결과가 유리하게 보일 수 있습니다. 2023~2025년 수익률은 TIME ETF의 0.9~1.1배였습니다. 미래 수익을 보장하지 않습니다.", h("br"),
+    "과거 성과가 좋았던 규칙을 801개 중에서 골랐고(#774·반도체 60%), 반도체 50%는 2026-10-10에 변형 20개를 더 비교해 골랐으므로 결과가 유리하게 보일 수 있습니다. 2023~2025년 수익률은 #774 기준 TIME ETF의 0.9~1.1배였습니다(50%는 다시 재지 않음). 미래 수익을 보장하지 않습니다.", h("br"),
     h("b", null, "자료 출처"), " — 검증한 TIME 운용사 PDF와 Yahoo Finance 일별·1분 시세를 사용합니다. 장전·장후 시세를 포함하며 지연될 수 있습니다. 주문은 증권사에서 직접 실행하세요. ",
     `화면 생성 ${S.generated_at} (한국시간)`);
 }

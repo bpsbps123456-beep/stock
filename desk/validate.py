@@ -1,12 +1,15 @@
-"""Check the desk's 7-stock rule against Codex's #774 paths and its own frozen evidence.
+"""Check the desk's 7-stock engine against Codex's #774 paths and its own frozen evidence.
 
-- Replayed with Codex's timing ("publication lag 1": a PDF is usable one US session after
+- Engine check, with #774's own caps (config.CODEX_774_RULE, semiconductor budget 60%):
+  replayed with Codex's timing ("publication lag 1": a PDF is usable one US session after
   the first session on/after its date), every weekly target must equal Codex's #774
   projected targets, stock by stock, 2026-01-02..09-23. The desk itself uses any PDF
   dated before the session, which is one PDF newer after US holidays; those days are
   listed, not failed.
-- The frozen pause-rule numbers in alerts.BACKTEST_2026 must still describe the model
-  through 2026-09-25; a rule change that moves them fails here.
+- The frozen pause-rule numbers in alerts.BACKTEST_2026 were measured on #774 (60%) and
+  must still describe that path through 2026-09-25; an engine change that moves them fails.
+- The live rule (config.RULE, semiconductor budget 50% since 2026-10-10) is then reported
+  with the same measures for comparison; it does not fail the check.
 """
 
 from __future__ import annotations
@@ -57,29 +60,50 @@ def _fmt(weights: dict[str, float]) -> str:
     return ", ".join(f"{t} {v:.1%}" for t, v in sorted(weights.items(), key=lambda x: -x[1])) or "현금"
 
 
-def pause_evidence(book, path) -> bool:
+def pause_measures(book, path) -> tuple[float, float]:
     end = path.days.index(FROZEN_END) + 1
     m = np.concatenate([[100.0], S.model_index(book, path)[:end]])
     e = np.concatenate([[np.nan], S.etf_index(book, path.days)[:end]])
     mdd = float((m / np.maximum.accumulate(m) - 1).min())
     gap20 = float(np.nanmin(m[21:] / m[1:-20] - e[21:] / e[1:-20]))
+    return mdd, gap20
+
+
+def pause_evidence(book, path) -> bool:
+    mdd, gap20 = pause_measures(book, path)
     want = alerts.BACKTEST_2026
     same = abs(mdd - want["mdd"]) < 0.005 and abs(gap20 - want["gap20"]) < 0.005
-    print(f"pause rule: worst drawdown {mdd:.1%} (frozen {want['mdd']:.1%}), worst 20-session gap "
+    print(f"pause rule (#774 caps): worst drawdown {mdd:.1%} (frozen {want['mdd']:.1%}), worst 20-session gap "
           f"{gap20:+.1%} (frozen {want['gap20']:+.1%}) {'ok' if same else 'CHANGED'}")
     return same
 
 
+class codex_caps:
+    """Temporarily run the engine with #774's caps (config.RULE is restored afterwards)."""
+
+    def __enter__(self):
+        self.saved = dict(config.RULE)
+        config.RULE.clear()
+        config.RULE.update(config.CODEX_774_RULE)
+
+    def __exit__(self, *exc):
+        config.RULE.clear()
+        config.RULE.update(self.saved)
+
+
 def main() -> int:
     book = S.load_book()
-    path = S.run_model(book)
+    with codex_caps():
+        path = S.run_model(book)
+    live = S.run_model(book)
     ok = True
     if (CODEX / "representative_paths.npz").exists():
         expected, codex_total = codex_targets()
         original = S.latest_before
         S.latest_before = codex_timing(book)
         try:
-            replay = _weekly(book, S.run_model(book))
+            with codex_caps():
+                replay = _weekly(book, S.run_model(book))
         finally:
             S.latest_before = original
         days = sorted(set(expected) | set(replay))
@@ -94,9 +118,14 @@ def main() -> int:
         print(f"desk timing: {len(desk) - len(newer)}/{len(desk)} identical; newer PDF after US holidays on "
               + (", ".join(newer) or "none"))
         model = S.model_index(book, path)
-        print(f"model 2026-01-02..{CODEX_END}: KRW {model[path.days.index(CODEX_END)] / 100 - 1:+.1%} "
+        print(f"model #774 caps 2026-01-02..{CODEX_END}: KRW {model[path.days.index(CODEX_END)] / 100 - 1:+.1%} "
               f"(Codex {codex_total:+.1%}; FX timing and cash currency differ)")
     else:
         print("Codex #774 paths not found; skipped")
     ok &= pause_evidence(book, path)
+    lm = S.model_index(book, live)
+    mdd, gap20 = pause_measures(book, live)
+    print(f"live rule (semiconductors {config.RULE['semis_cap']:.0%}) 2026-01-02..{CODEX_END}: KRW "
+          f"{lm[live.days.index(CODEX_END)] / 100 - 1:+.1%}, through {FROZEN_END}: worst drawdown {mdd:.1%}, "
+          f"worst 20-session gap {gap20:+.1%}; through {live.days[-1]}: KRW {lm[-1] / 100 - 1:+.1%} (reported, not checked)")
     return 0 if ok else 1

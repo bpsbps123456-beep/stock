@@ -9,7 +9,8 @@ US session t is compared with the first KRX close after it (the one that prices 
 Rule (docs/desk_system.md §3): on the first US session of each ISO week rank TIME's US
 holdings by 120-session adjusted-close return, keep last week's names while they stay in
 the top 12 and fill to 7 from the top, weight them by TIME's NAV weights, then cap each
-name at 25%, each watchlist sector at 60% and known semiconductors + unclassified at 60%.
+name at 25%, each watchlist sector at 60% and known semiconductors + unclassified at 50%
+(#774's 60% until 2026-10-10; the caps live in config.RULE).
 Capped-out weight is re-spread over the chosen names; what still does not fit stays cash.
 """
 

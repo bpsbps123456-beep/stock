@@ -23,9 +23,13 @@ PRICE_MAX_AGE_MIN = 30            # reuse the daily price cache for this long
 QUOTE_MAX_AGE_SEC = 90
 
 # The one strategy (docs/desk_system.md §3): Codex concentration study #774, chosen by
-# the user on 2026-09-27.
+# the user on 2026-09-27. The semiconductor budget was lowered from #774's 60% to 50% on
+# 2026-10-10 (user decision; evidence in docs/operations_changelog.md).
 STRATEGY_NAME = "7종목 · 120일 수익률 · TIME 비중 · 주간 조정"
-RULE = {"lookback": 120, "n": 7, "buffer": 5, "stock_cap": 0.25, "sector_cap": 0.60, "semis_cap": 0.60}
+RULE = {"lookback": 120, "n": 7, "buffer": 5, "stock_cap": 0.25, "sector_cap": 0.60, "semis_cap": 0.50}
+# #774 exactly as Codex tested it (a literal, so later RULE edits cannot drift it);
+# `desk validate` replays the engine with these caps.
+CODEX_774_RULE = {"lookback": 120, "n": 7, "buffer": 5, "stock_cap": 0.25, "sector_cap": 0.60, "semis_cap": 0.60}
 # watchlist.py labels that share the semiconductor budget (unclassified names count too).
 SEMIS_SECTORS = {"AI 반도체", "메모리", "반도체 장비", "반도체 장비(적자)", "반도체(적자)", "반도체 소재"}
 DEFAULT_SETTINGS = {"tolerance": 0.02}

@@ -66,11 +66,12 @@ def _cap_note(weight: float, raw: float | None, sector: str) -> str | None:
         return None
     if weight > raw:
         return f"다른 종목의 상한 초과분을 배분받아 {raw:.0%}→{weight:.0%}"
-    if abs(weight - config.RULE["stock_cap"]) < 1e-6:
-        return f"한 종목 25% 상한 적용: {raw:.0%}→{weight:.0%}"
+    rule = config.RULE
+    if abs(weight - rule["stock_cap"]) < 1e-6:
+        return f"한 종목 {rule['stock_cap']:.0%} 상한 적용: {raw:.0%}→{weight:.0%}"
     if S.in_semis_budget(sector):
-        return f"반도체 합계 60% 상한 적용: {raw:.0%}→{weight:.0%}"
-    return f"같은 섹터 60% 상한 적용: {raw:.0%}→{weight:.0%}"
+        return f"반도체 합계 {rule['semis_cap']:.0%} 상한 적용: {raw:.0%}→{weight:.0%}"
+    return f"같은 섹터 {rule['sector_cap']:.0%} 상한 적용: {raw:.0%}→{weight:.0%}"
 
 
 class Desk:
@@ -254,6 +255,7 @@ class Desk:
             "busy": self.busy,
             "settings": settings,
             "strategy": config.STRATEGY_NAME,
+            "rule": dict(config.RULE),
             "session": {"date": session, "label": _label(session),
                         "open_kst": open_kst.strftime("%m월 %d일 %H:%M"),
                         "rebalance_day": tg["rebalance_day"], "next_rebalance": _label(rebalance_on)},
