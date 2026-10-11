@@ -17,7 +17,7 @@ import webbrowser
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import parse_qs, urlparse
 
-from . import config, dip, giant, journal, tour, value
+from . import config, dip, giant, journal, tour, trend, value
 from .state import Desk, clean
 
 DESK = Desk()
@@ -68,7 +68,7 @@ class Handler(BaseHTTPRequestHandler):
     def _guard(self, fn) -> None:
         try:
             fn()
-        except (journal.JournalError, dip.DipError) as exc:
+        except (journal.JournalError, dip.DipError, trend.TrendError) as exc:
             self._json({"error": str(exc)}, 400)
         except Exception as exc:
             traceback.print_exc()
@@ -90,6 +90,12 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/api/giant":  # 거인의 어깨: 60분 캐시, ?refresh=1이면 다시 계산(30~60초)
             force = parse_qs(urlparse(self.path).query).get("refresh") == ["1"]
             return self._guard(lambda: self._json(giant.payload(force=force)))
+        if path.startswith("/api/trend"):  # 추세 등급(§11): 60분 캐시, ?refresh=1이면 다시 계산(10~20초)
+            q = parse_qs(urlparse(self.path).query)
+            if path == "/api/trend":
+                return self._guard(lambda: self._json(trend.payload(force=q.get("refresh") == ["1"])))
+            if path == "/api/trend/chart":
+                return self._guard(lambda: self._json(trend.chart((q.get("t") or [""])[0])))
         if path.startswith("/api/dip"):  # 급락 후 담기: 목록 2분 캐시, 종목 3분봉 재생, 뉴스
             q = parse_qs(urlparse(self.path).query)
             arg = lambda k: (q.get(k) or [None])[0]

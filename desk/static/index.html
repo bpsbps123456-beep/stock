@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="/static/tour.css">
   <link rel="stylesheet" href="/static/giant.css">
   <link rel="stylesheet" href="/static/dip.css">
+  <link rel="stylesheet" href="/static/trend.css">
 </head>
 <body>
   <header class="topbar">
@@ -20,6 +21,7 @@
       <a href="#tour" class="tab" role="tab" id="tab-tour" aria-controls="tour-view" aria-selected="false" data-sub="AI 공급망과 대표 기업">AI 산업 지도</a>
       <a href="#giant" class="tab" role="tab" id="tab-giant" aria-controls="giant-view" aria-selected="false" data-sub="AI 섹터·주도주 분석">거인의 어깨</a>
       <a href="#dip" class="tab" role="tab" id="tab-dip" aria-controls="dip-view" aria-selected="false" data-sub="급락 종목 관찰·3분봉">급락 후 담기</a>
+      <a href="#trend" class="tab" role="tab" id="tab-trend" aria-controls="trend-view" aria-selected="false" data-sub="두 펀드 보유 종목 이평선 추세">추세 등급</a>
     </nav>
     <div class="tools">
       <button class="btn ghost" id="btn-theme" aria-label="밝은 화면·어두운 화면 전환">◐</button>
@@ -180,11 +182,14 @@
 
   <main id="dip-view" class="dp-page" role="tabpanel" aria-labelledby="tab-dip" hidden></main>
 
+  <main id="trend-view" class="tg-page" role="tabpanel" aria-labelledby="tab-trend" hidden></main>
+
   <div class="toast" id="toast" role="status"></div>
   <div class="tr-tip" id="tr-tip" role="presentation"></div>
   <script src="/static/app.js"></script>
   <script src="/static/tour.js"></script>
   <script src="/static/giant.js"></script>
   <script src="/static/dip.js"></script>
+  <script src="/static/trend.js"></script>
 </body>
 </html>

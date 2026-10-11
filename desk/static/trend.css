@@ -1,0 +1,112 @@
+/* 추세 등급 — style.css 토큰과 거인의 어깨의 타일(gi-kpi)·구간 버튼(gi-seg)·표(gi-table)를 같이 쓴다.
+   등급은 순서가 있는 값이라 브라스 한 색조 5단계(S가 가장 진함)로 칠한다. 두 테마 모두 dataviz
+   validate_palette --ordinal 통과(밝기 단조·인접 간격·가장 옅은 칸 2:1 이상): 어두운 화면은 밝을수록 강함,
+   밝은 화면은 어두울수록 강함. 색만으로 읽지 않게 칸·칩에는 S~D 글자나 마우스 설명을 함께 단다.
+   이평선 색은 데스크 검증 팔레트(청록·주황·보라)를 빌려 쓰고 범례로 이름을 단다. */
+
+#trend-view {
+  --tg-S: #ffd166; --tg-A: #e0a823; --tg-B: #b98a1f; --tg-C: #8f6a1c; --tg-D: #65491a;
+  --tg-ma20: var(--s-strategy); --tg-ma50: var(--s-etf); --tg-ma200: var(--s-account);
+}
+:root[data-theme="light"] #trend-view {
+  --tg-S: #553803; --tg-A: #785206; --tg-B: #9a6d0c; --tg-C: #bb8a1e; --tg-D: #d9a640;
+}
+
+.tg-page .muted { color: var(--muted); }
+.tg-busy > section, .tg-busy > footer { opacity: 0.6; transition: opacity 0.2s; }
+.tg-wait p { color: var(--ink-2); margin: 10px 0 0; font-size: 13.5px; }
+.tg-h1-sub { font-size: 15px; font-weight: 500; color: var(--muted); margin-left: 6px; }
+.tg-head .page-meta { align-items: end; }
+
+/* 등급 글자: 테두리는 등급 색, 글자는 잉크(색만으로 읽지 않는다) */
+.tg-g {
+  display: inline-grid; place-items: center; min-width: 22px; height: 20px; padding: 0 5px; border-radius: 6px;
+  font: 700 12px/1 var(--mono); color: var(--ink); border: 1.5px solid var(--line-2); background: var(--surface-2);
+}
+.tg-g.g-S { border-color: var(--tg-S); box-shadow: inset 0 0 0 20px color-mix(in srgb, var(--tg-S) 22%, transparent); }
+.tg-g.g-A { border-color: var(--tg-A); box-shadow: inset 0 0 0 20px color-mix(in srgb, var(--tg-A) 16%, transparent); }
+.tg-g.g-B { border-color: var(--tg-B); }
+.tg-g.g-C { border-color: var(--tg-C); }
+.tg-g.g-D { border-color: var(--tg-D); color: var(--ink-2); }
+.tg-g.none { color: var(--muted); border-style: dashed; }
+.tg-g.big { min-width: 30px; height: 28px; font-size: 16px; vertical-align: 2px; }
+.tg-move { font: 600 11px var(--mono); white-space: nowrap; }
+.tg-move.up { color: var(--up); }
+.tg-move.down { color: var(--down); }
+.tag.tg-mine { color: var(--s-account); border-color: color-mix(in srgb, var(--s-account) 45%, var(--line)); }
+
+/* 등급 이력 띠 */
+.tg-strip { display: inline-flex; gap: 1px; vertical-align: middle; }
+.tg-strip i { width: 6px; height: 14px; border-radius: 1.5px; background: var(--line); }
+.tg-strip.wide { display: flex; gap: 0; }  /* 칸이 160개라 간격을 두면 휴대폰에서 칸이 사라진다 */
+.tg-strip.wide i { flex: 1; width: auto; height: 10px; border-radius: 0; }
+.tg-strip i.g-S, .tg-distbar i.g-S { background: var(--tg-S); }
+.tg-strip i.g-A, .tg-distbar i.g-A { background: var(--tg-A); }
+.tg-strip i.g-B, .tg-distbar i.g-B { background: var(--tg-B); }
+.tg-strip i.g-C, .tg-distbar i.g-C { background: var(--tg-C); }
+.tg-strip i.g-D, .tg-distbar i.g-D { background: var(--tg-D); }
+.tg-strip i.none { background: transparent; box-shadow: inset 0 0 0 1px var(--line-2); }
+
+/* 요약 타일 */
+.tg-kpis .gi-kpi-value { font-size: 20px; }
+.tg-distbar { display: flex; gap: 2px; height: 8px; margin-top: 8px; }
+.tg-distbar i { border-radius: 2px; min-width: 2px; }
+
+/* 등급별 종목: 다섯 칸 */
+.tg-cols { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.tg-col { border: 1px solid var(--line); border-radius: 12px; background: var(--surface-2); padding: 10px; min-width: 0; }
+.tg-col-head { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+.tg-col-head .muted { font-size: 11.5px; width: 100%; }
+.tg-col-list { display: grid; gap: 6px; max-height: 420px; overflow: auto; }
+.tg-chip {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; padding: 7px 9px; border-radius: 9px; cursor: pointer;
+  border: 1px solid var(--line-2); background: var(--surface); color: var(--ink); font: 12.5px var(--sans); text-align: left;
+}
+.tg-chip:hover { background: var(--raise); }
+.tg-chip.sel { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.tg-chip-name { color: var(--ink-2); font-size: 11.5px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; }
+.tg-none { margin: 4px 2px; font-size: 12px; }
+
+/* 종목 차트 */
+.tg-h2-name { color: var(--ink-2); font-size: 14px; font-weight: 500; }
+.tg-facts { grid-template-columns: repeat(auto-fit, minmax(112px, 1fr)); }
+.tg-parts { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; margin: 4px 0 10px; }
+.tg-part { font-size: 12px; color: var(--ink-2); border: 1px solid var(--line); border-radius: 7px; padding: 2px 7px; }
+.tg-part b { color: var(--ink); font-family: var(--mono); }
+.tg-hist { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 10px; }
+.tg-legend { margin: 4px 0 6px; }
+.tg-chart { position: relative; min-height: 300px; }
+.tg-chart-strip { display: grid; gap: 4px; margin-top: 6px; }
+
+/* 전체 표 */
+.tg-scroll { max-height: 640px; }
+.tg-tbl tbody tr { cursor: pointer; }
+.tg-tbl tbody tr:hover td { background: var(--surface-2); }
+.tg-tbl tr.tg-sel td { background: var(--accent-soft); }
+.tg-tbl tr.tg-sel td:first-child { background: color-mix(in srgb, var(--accent) 12%, var(--surface)); box-shadow: inset 3px 0 0 var(--accent); }
+.tg-tbl tbody tr:focus-visible td { outline: 2px solid var(--accent); outline-offset: -2px; }
+.tg-cell-name { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; max-width: 260px; }
+.tg-cell-name > span:not(.tag) { color: var(--ink-2); font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 150px; }
+.tg-sort { border: 0; background: transparent; color: inherit; font: inherit; cursor: pointer; padding: 0; white-space: nowrap; }
+
+/* 검증 */
+.tg-verdict { margin: 0 0 12px; padding: 10px 12px; border-radius: 10px; font-size: 13.5px; line-height: 1.6; color: var(--ink-2);
+  background: var(--accent-soft); border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--line-2)); }
+.tg-points { margin: 12px 0 0; padding-left: 18px; color: var(--ink-2); font-size: 13px; line-height: 1.6; }
+
+@media (max-width: 1100px) {
+  .tg-cols { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+}
+@media (max-width: 640px) {
+  .tg-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* 검증 표·최근 성적 */
+.tg-check { margin-top: 14px; }
+.tg-check .gi-ctl-label { display: block; margin-bottom: 6px; }
+.tg-realized { margin: 4px 0 6px; }
+.tg-realized .gi-ctl-label { display: block; margin-bottom: 6px; }
+.tg-risk { margin: 0 0 10px; font-size: 12.5px; color: var(--ink-2); padding-left: 10px; border-left: 3px solid var(--warn); }
+.tg-raw { font: 500 11px var(--mono); white-space: nowrap; border: 1px dashed var(--line-2); border-radius: 5px; padding: 0 4px; }
+.tg-raw.up { color: var(--up); }
+.tg-raw.down { color: var(--down); }
