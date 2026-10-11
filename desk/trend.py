@@ -11,11 +11,14 @@
 from __future__ import annotations
 
 import json
+import logging
 import os
 import threading
 import time as _time
-from datetime import datetime
+from concurrent.futures import ThreadPoolExecutor
+from datetime import date, datetime
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 import numpy as np
 import pandas as pd
@@ -28,9 +31,12 @@ from . import config, strategies
 from .state import clean
 
 # 계산 방식이 바뀌면 올린다. 캐시의 방식이 다르면 60분 안이어도 다시 계산한다(설명란과 데이터가 어긋나지 않게).
-SPEC = "2026-10-12 미국 기준 순위·당일 점수"
+SPEC = "2026-10-12 미국 기준 순위·당일 점수·주간 등급·실적 일정"
 CACHE_PATH = config.CACHE / "trend.json"
 CHART_PATH = config.CACHE / "trend_chart.json"
+EARN_PATH = config.CACHE / "trend_earnings.json"
+EARN_MAX_AGE_H = 12       # 실적 일정은 하루 한두 번만 바뀐다
+NY = ZoneInfo("America/New_York")
 MAX_AGE_MIN = 60
 FUNDS = (("456600", "TIME"), ("2ETFQ1", "KoAct"))
 MARKETS = {"US": "미국", "KR": "한국", "JP": "일본", "HK": "홍콩", "CN": "중국"}
@@ -349,15 +355,102 @@ def stock_row(row: dict, d: pd.DataFrame | None, letters: list, pct_now, parts_n
     return out
 
 
-def chart_of(d: pd.DataFrame, grades: pd.Series, start=None) -> dict:
+def chart_of(d: pd.DataFrame, grades: pd.Series, start=None, weekly: pd.Series | None = None) -> dict:
     """종목 자신의 거래일로 그린 종가·이평선과, 그날(또는 직전 미국 거래일) 등급. start가 있으면 그날부터
     (미국 기준 최근 CHART_DAYS거래일), 없으면 최근 CHART_DAYS봉."""
     tail = d.loc[start:] if start is not None else d.iloc[-CHART_DAYS:]
-    g = grades.reindex(tail.index, method="ffill")
+    letters = lambda s: [v if isinstance(v, str) else None for v in s.reindex(tail.index, method="ffill")]  # noqa: E731
     num = lambda s: [None if pd.isna(v) else round(float(v), 4) for v in s]  # noqa: E731
     return {"dates": [t.date().isoformat() for t in tail.index], "close": num(tail["close"]),
             **{f"ma{n}": num(tail[f"ma{n}"]) for n in MAS},
-            "grades": [None if pd.isna(v) else v for v in g]}
+            "grades": letters(grades), "wgrades": letters(weekly) if weekly is not None else None}
+
+
+# ----------------------------------------------------------------------------- weekly grade
+# 판단 단위는 '주'(2026-10-12 연구: S 반감기 3~4주, 일·주·월 갱신 수익은 구별되지 않고 월·분기는 S 구간의 절반 이상을
+# 놓친다). 등급은 매일 계산하고, 주간 등급은 직전 주 마지막 거래일 종가의 등급을 그 주 내내 쓴다.
+def week_done(as_of: pd.Timestamp, now: datetime | None = None) -> bool:
+    """as_of(미국 마지막 확정일)가 그 주의 마지막 거래일인가: 금요일이거나, 그 주 금요일 장 마감 정산(뉴욕 16:15)이
+    이미 지났다(성금요일처럼 금요일이 휴장이면 목요일이 그 주 마지막 날)."""
+    if as_of.weekday() == 4:
+        return True
+    friday = (pd.Timestamp(as_of) + pd.Timedelta(days=4 - as_of.weekday())).date()
+    ny = (now or datetime.now(config.KST)).astimezone(NY)
+    return (ny.date(), ny.strftime("%H:%M")) >= (friday, SESSION["미국"][1])
+
+
+def weekly_table(letters: pd.DataFrame, done: bool) -> tuple[pd.DataFrame, list]:
+    """(날짜 × 종목 그날 쓰던 주간 등급, 주간 결정일 목록). 주간 등급 = 직전 주 마지막 거래일 종가의 등급.
+    마지막 주가 끝났으면(done) 그 주 마지막 날도 결정일이 된다(다음 주에 쓸 등급)."""
+    idx = letters.index
+    weeks = idx.to_period("W-SUN")
+    last = pd.Series(idx, index=idx).groupby(weeks).max()
+    prev_last = last.shift(1).reindex(weeks).to_numpy()
+    vals = letters.to_numpy(object)
+    pos = {d: i for i, d in enumerate(idx)}
+    rows = [list(vals[pos[pd.Timestamp(d)]]) if not pd.isna(d) else [None] * len(letters.columns) for d in prev_last]
+    eff = pd.DataFrame(rows, index=idx, columns=letters.columns, dtype=object)
+    decisions = list(last.iloc[:-1]) + ([last.iloc[-1]] if done else [])
+    return eff, decisions
+
+
+def weekly_fields(letters: pd.Series, eff: pd.Series, decisions: list) -> dict:
+    """한 종목의 주간 등급(지금 쓸 등급)·지난주 등급·이어진 주 수·결정일·최근 이력."""
+    seq = [letters.get(d) if isinstance(letters.get(d), str) else None for d in decisions]
+    hist = [g if isinstance(g, str) else None for g in eff.iloc[-HISTORY_DAYS:]]
+    return {"wgrade": seq[-1] if seq else None, "wprev": seq[-2] if len(seq) > 1 else None,
+            "wstreak": _streak(seq), "wfrom": decisions[-1].date().isoformat() if decisions else None, "whist": hist}
+
+
+# ----------------------------------------------------------------------------- earnings
+# S 등급이 바뀌는 때는 분기 경계가 아니라 종목별 실적 발표 무렵이다(2026-10-12 연구: 실적 창 이탈 1.19배·진입
+# 1.37배, 반응일 당일 이탈 3.8배). 그래서 다음·지난 실적 날짜를 함께 보인다. 자료는 yfinance get_earnings_dates.
+def _earnings_of(sym: str) -> list[str]:
+    import yfinance as yf
+
+    try:
+        df = yf.Ticker(sym).get_earnings_dates(limit=8)
+    except Exception:
+        return []
+    if df is None or df.empty:
+        return []
+    return sorted({ts.date().isoformat() for ts in df.index})
+
+
+def earnings(symbols: list[str], force: bool = False) -> dict[str, list[str]]:
+    """종목별 실적 발표일(지난 것과 예정된 것). EARN_MAX_AGE_H 동안 저장해 둔다. 받지 못하면 빈 목록."""
+    cached = {}
+    if not force and EARN_PATH.exists():
+        try:
+            data = json.loads(EARN_PATH.read_text(encoding="utf-8"))
+        except ValueError:
+            data = {}
+        if _time.time() - data.get("_epoch", 0) < EARN_MAX_AGE_H * 3600:
+            cached = data.get("dates", {})
+    todo = [s for s in symbols if s not in cached]
+    if todo:
+        log = logging.getLogger("yfinance")
+        level = log.level
+        log.setLevel(logging.CRITICAL)  # 실적이 없는 ETF·신규 상장마다 찍는 경고를 서버 창에 남기지 않는다
+        try:
+            with ThreadPoolExecutor(max_workers=8) as pool:
+                cached.update(zip(todo, pool.map(_earnings_of, todo)))
+        finally:
+            log.setLevel(level)
+        config.CACHE.mkdir(parents=True, exist_ok=True)
+        _write(EARN_PATH, {"_epoch": _time.time(), "dates": cached})
+    return {s: cached.get(s, []) for s in symbols}
+
+
+def earnings_info(dates: list[str], today: date) -> dict | None:
+    """다음 실적(오늘 포함 이후 첫 날)과 지난 실적, 오늘부터의 달력 일수."""
+    if not dates:
+        return None
+    days = [date.fromisoformat(d) for d in dates]
+    nxt = [d for d in days if d >= today]
+    past = [d for d in days if d < today]
+    return {"next": nxt[0].isoformat() if nxt else None, "next_in": (nxt[0] - today).days if nxt else None,
+            "last": past[-1].isoformat() if past else None, "last_ago": (today - past[-1]).days if past else None}
 
 
 REALIZED_DAYS = 20       # '최근 성적': 이 거래일 전 등급별로 그 뒤 종가 수익을 본다(사후 확인용)
@@ -411,6 +504,9 @@ def compute(now: datetime | None = None) -> dict:
     pct, raw_pct, parts = score_table(ind, cal, ref)
     letters = grade_table(pct, ind, cal)
     raw_today = grade_table(raw_pct.iloc[-1:], ind, cal[-1:]).iloc[-1]
+    weekly, decisions = weekly_table(letters, week_done(cal[-1], now))
+    today_ny = (now or datetime.now(config.KST)).astimezone(NY).date()
+    earn = earnings([r["symbol"] for r in rows])
     stocks, charts = [], {}
     for r in rows:
         sym = r["symbol"]
@@ -421,6 +517,9 @@ def compute(now: datetime | None = None) -> dict:
         d = ind[sym].loc[:cal[-1]] if sym in ind else None
         stocks.append(stock_row(r, d, seq, pct[sym].iloc[-1] if sym in pct else None, now_parts,
                                 raw_today.get(sym) if sym in raw_today.index else None))
+        if sym in letters:
+            stocks[-1].update(weekly_fields(letters[sym], weekly[sym], decisions))
+        stocks[-1]["earn"] = earnings_info(earn.get(sym, []), today_ny)
         if own_bars.get(sym) is not None:  # 대체 이력 종목: 종가·수익률은 그 상장 자체 가격(이평선 대비·등급·차트는 대체 이력)
             c = settled(own_bars[sym], r["market"], now)["Close"].loc[:cal[-1]]
             ret = lambda n: _pct(c.iloc[-1] / c.iloc[-1 - n] - 1) if len(c) > n else None  # noqa: E731
@@ -429,7 +528,8 @@ def compute(now: datetime | None = None) -> dict:
                                   chg1d=ret(1), r1m=ret(21), r3m=ret(63))
         if d is not None and len(d):
             charts[sym] = {"symbol": sym, "proxy": (r.get("proxy_used") or {}).get("symbol"),
-                           **chart_of(d, letters[sym] if sym in letters else pd.Series(dtype=object), cal[-CHART_DAYS])}
+                           **chart_of(d, letters[sym] if sym in letters else pd.Series(dtype=object), cal[-CHART_DAYS],
+                                      weekly[sym] if sym in weekly else None)}
     recent = realized(letters, _wide(ind, "close", cal), bench["Close"])
     graded = [s for s in stocks if s["grade"]]
     dist = {g: sum(1 for s in graded if s["grade"] == g) for g, _ in (*LADDER, ("D", 0))}
@@ -444,6 +544,9 @@ def compute(now: datetime | None = None) -> dict:
         "computed_at": (now or datetime.now(config.KST)).isoformat(timespec="seconds"),
         "as_of": cal[-1].date().isoformat(), "prev_day": cal[-2].date().isoformat(),
         "funds": fund_dates, "days": [t.date().isoformat() for t in cal[-HISTORY_DAYS:]],
+        "week_from": decisions[-1].date().isoformat() if decisions else None,
+        "week_prev": decisions[-2].date().isoformat() if len(decisions) > 1 else None,
+        "today_ny": today_ny.isoformat(),
         "dist": dist, "breadth": {"above50": above("d50"), "above200": above("d200"), "n": len(graded)},
         "bench": {"symbol": BENCH, "d50": _pct(bi["M"]), "d200": _pct(bi["L"]), "h52": _pct(bi["H"])},
         "realized": recent, "stocks": stocks, "rules": rules(), "check": CHECK, "warnings": warnings,
@@ -483,6 +586,11 @@ def rules() -> dict:
             "순위는 미국 보유 종목끼리 냅니다(연구 검증과 같은 모집단). 미국 밖 종목(한국·일본·홍콩·중국)은 같은 날 미국 종목들 사이에서 몇 등쯤인지로 "
             "등급을 매겨 미국 종목 등급을 바꾸지 않습니다. 현지 통화 종가로 재고, 그 미국 날짜 또는 직전 현지 거래일 값을 씁니다. 미국 밖 종목 등급의 성적은 검증하지 않았습니다.",
             "‘당일 X’는 10일 평균하지 않은 오늘 점수만으로 매긴 등급입니다. 7월 급락 때 S 종목이 평균 등급에서 내려오기까지 중앙값 6거래일(당일 점수는 2일)이 걸려서 함께 보입니다.",
+            "주간 등급: 직전 주 마지막 거래일 종가의 등급을 그 주 내내 씁니다(금요일 마감 뒤에는 그 금요일 등급이 다음 주 등급). 판단 단위로는 주가 근거가 "
+            "가장 좋았습니다. S는 절반이 3~4주 안에 바뀌고, 일·주·월로 바꿔도 수익은 구별되지 않았으며, 월·분기 단위는 S 구간의 절반 이상을 놓쳤습니다. "
+            "주간 기준에서는 다를 때 더 빠른 일별 등급(‘일별 X’)을 함께 붙입니다.",
+            "실적: S 등급은 분기 경계가 아니라 종목별 실적 발표 무렵에 가장 자주 바뀌었습니다(발표 무렵 이탈 1.2배·진입 1.4배, 발표 다음 날 이탈은 평소의 3.8배). "
+            "그래서 7일 안 발표와 5일 안에 지난 발표를 꼬리표로 표시합니다. 날짜는 Yahoo 실적 일정(12시간마다 갱신)이고, ETF·신규 상장은 없을 수 있습니다.",
             "장이 열려 있는 시장의 오늘 봉은 마감 15분 뒤까지 빼고 계산합니다. 그래서 장중에는 어제 종가 기준 등급입니다. "
             "표의 숫자도 등급과 같은 날짜 기준입니다(한국 장이 끝난 저녁에도 한국 종목은 어제 미국 마감일 기준).",
             "가격은 Yahoo Finance(yfinance) 2년 일봉, 분할 반영 종가입니다. 거래량·실적·뉴스는 쓰지 않습니다. 계산은 60분 동안 저장해 둡니다.",

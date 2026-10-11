@@ -148,6 +148,56 @@ class LadderTest(unittest.TestCase):
         self.assertIsNone(trend.realized(letters, close, close["X"], days=4))
 
 
+class WeeklyTest(unittest.TestCase):
+    """주간 등급: 직전 주 마지막 거래일 종가의 등급을 그 주 내내 쓴다(§11)."""
+
+    def letters(self):
+        cal = pd.DatetimeIndex(["2026-09-28", "2026-09-29", "2026-09-30", "2026-10-01", "2026-10-02",
+                                "2026-10-05", "2026-10-06", "2026-10-07"])  # 월~금, 다음 주 월~수
+        return pd.DataFrame({"X": ["B", "A", "A", "S", "S", "S", "A", "B"]}, index=cal, dtype=object)
+
+    def test_the_week_uses_last_weeks_final_close(self):
+        L = self.letters()
+        eff, decisions = trend.weekly_table(L, done=False)
+        self.assertEqual(list(eff["X"].iloc[5:]), ["S", "S", "S"])  # 이번 주 내내 지난주 금요일(10/2) 등급
+        self.assertTrue(all(g is None for g in eff["X"].iloc[:5]))   # 그 앞 주는 결정일이 달력 밖
+        self.assertEqual([d.date().isoformat() for d in decisions], ["2026-10-02"])
+        f = trend.weekly_fields(L["X"], eff["X"], decisions)
+        self.assertEqual((f["wgrade"], f["wfrom"]), ("S", "2026-10-02"))
+
+    def test_a_finished_week_sets_next_weeks_grade(self):
+        L = self.letters()
+        _, decisions = trend.weekly_table(L, done=True)
+        f = trend.weekly_fields(L["X"], pd.Series(dtype=object), decisions)
+        self.assertEqual((f["wgrade"], f["wprev"], f["wstreak"]), ("B", "S", 1))
+
+    def test_week_is_done_on_friday_or_once_new_york_moves_to_the_next_week(self):
+        self.assertTrue(trend.week_done(pd.Timestamp("2026-10-09")))  # 금요일
+        thu = pd.Timestamp("2026-04-02")  # 성금요일 전 목요일
+        self.assertFalse(trend.week_done(thu, datetime(2026, 4, 3, 12, 0, tzinfo=trend.config.KST)))  # 뉴욕 목요일 밤
+        self.assertTrue(trend.week_done(thu, datetime(2026, 4, 4, 6, 0, tzinfo=trend.config.KST)))   # 뉴욕 금요일 17:00(휴장)
+        self.assertFalse(trend.week_done(pd.Timestamp("2026-10-07"), datetime(2026, 10, 8, 12, 0, tzinfo=trend.config.KST)))
+
+
+class EarningsTest(unittest.TestCase):
+    def test_next_and_last_dates_count_calendar_days_from_today(self):
+        from datetime import date
+        info = trend.earnings_info(["2026-07-28", "2026-10-27"], date(2026, 10, 12))
+        self.assertEqual(info, {"next": "2026-10-27", "next_in": 15, "last": "2026-07-28", "last_ago": 76})
+        self.assertEqual(trend.earnings_info(["2026-10-12"], date(2026, 10, 12))["next_in"], 0)
+        self.assertIsNone(trend.earnings_info([], date(2026, 10, 12)))
+
+    def test_dates_are_cached_and_only_missing_symbols_are_fetched(self):
+        tmp = Path(tempfile.mkdtemp())
+        try:
+            with mock.patch.object(trend, "EARN_PATH", tmp / "e.json"), mock.patch.object(trend.config, "CACHE", tmp),                     mock.patch.object(trend, "_earnings_of", side_effect=lambda s: ["2026-10-27"]) as one:
+                self.assertEqual(trend.earnings(["A", "B"]), {"A": ["2026-10-27"], "B": ["2026-10-27"]})
+                trend.earnings(["A", "B", "C"])
+                self.assertEqual(one.call_count, 3)  # 두 번째는 C만 받는다
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+
+
 class SessionTest(unittest.TestCase):
     def test_todays_bar_is_dropped_until_that_market_closes(self):
         b = bars([1, 2, 3], start="2026-10-07")  # 10/7·8·9
@@ -225,7 +275,7 @@ class ComputeTest(unittest.TestCase):
         return out
 
     def run_compute(self, rows, bars):
-        with mock.patch.object(trend, "holdings", return_value=(rows, {"TIME": "2026-10-08"})),                 mock.patch.object(trend, "fetch", side_effect=lambda syms: {s: bars[s].copy() for s in syms if s in bars}):
+        with mock.patch.object(trend, "holdings", return_value=(rows, {"TIME": "2026-10-08"})),                 mock.patch.object(trend, "earnings", side_effect=lambda syms: {s: ["2026-10-20"] for s in syms}),                 mock.patch.object(trend, "fetch", side_effect=lambda syms: {s: bars[s].copy() for s in syms if s in bars}):
             return trend.compute(now=self.NOW)
 
     def test_outside_and_proxy_names_do_not_move_us_grades_and_rows_match_the_grade_date(self):
@@ -245,6 +295,10 @@ class ComputeTest(unittest.TestCase):
         self.assertIsNotNone(by["ADR"]["grade"])
         self.assertEqual(charts["ADR"]["proxy"], "999999.KS")
         self.assertTrue(all("raw" in s for s in data["stocks"]))
+        self.assertEqual(data["week_from"], "2026-10-09")  # 금요일 마감 뒤라 그 금요일 등급이 이번 주 등급
+        self.assertTrue(all(s["wgrade"] == s["grade"] for s in data["stocks"] if s["grade"]))
+        self.assertEqual(by["U0"]["earn"]["next"], "2026-10-20")
+        self.assertTrue(all(len(c["wgrades"]) == len(c["dates"]) for c in charts.values()))
         self.assertTrue(all(len(c["dates"]) <= trend.CHART_DAYS + 1 for c in charts.values()))
         self.assertTrue(all(c["grades"][0] is not None for c in charts.values()))  # 차트 첫 칸부터 등급이 있다
         self.assertEqual(sum(v for k, v in data["dist"].items() if k != "none") + data["dist"]["none"], len(data["stocks"]))

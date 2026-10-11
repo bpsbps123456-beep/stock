@@ -48,6 +48,7 @@
 .tg-strip i.none { background: transparent; box-shadow: inset 0 0 0 1px var(--line-2); }
 
 /* 요약 타일 */
+.tg-kpis { grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }  /* 타일 6개가 한 줄에 */
 .tg-kpis .gi-kpi-value { font-size: 20px; }
 .tg-distbar { display: flex; gap: 2px; height: 8px; margin-top: 8px; }
 .tg-distbar i { border-radius: 2px; min-width: 2px; }
@@ -110,3 +111,7 @@
 .tg-raw { font: 500 11px var(--mono); white-space: nowrap; border: 1px dashed var(--line-2); border-radius: 5px; padding: 0 4px; }
 .tg-raw.up { color: var(--up); }
 .tg-raw.down { color: var(--down); }
+
+/* 등급 기준(일별·주간) 전환과 실적 꼬리표 */
+.tg-head-tools { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: end; }
+.tag.tg-earn { color: var(--warn); border-color: color-mix(in srgb, var(--warn) 45%, var(--line)); }
