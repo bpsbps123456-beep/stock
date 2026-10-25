@@ -1,0 +1,187 @@
+{
+  "version": 1,
+  "episodes": [
+    {
+      "id": "soxx-2026-07",
+      "label": "2026년 7월 · 과거 사례",
+      "benchmark": "SOXX"
+    },
+    {
+      "id": "soxx-2026-10",
+      "label": "2026년 10월 · 진행 중",
+      "benchmark": "SOXX"
+    }
+  ],
+  "events": [
+    {
+      "id": "gs-tech-20260720",
+      "episode": "soxx-2026-07",
+      "source_group": "GS-PB-tech-20260720",
+      "title": "기록적인 기술주 매도",
+      "source": "Bloomberg / Goldman Sachs 인용",
+      "url": "https://www.bloomberg.com/news/articles/2026-07-20/goldman-says-hedge-funds-sell-us-tech-stocks-at-record-pace",
+      "published_date": "2026-07-20",
+      "available_at": "2026-07-20T13:16:00+00:00",
+      "time_precision": "exact",
+      "kind": "pressure",
+      "stance": "against",
+      "quality": "article",
+      "scope": "골드만 프라임브로커 고객 · 미국 기술주",
+      "measurement": "기술주 순매도와 시장가치 축소 · 보유 전량 매도와 다름",
+      "window": "최근 8주 중 6주 순매도",
+      "summary": "최근 8주 기술주 축소가 10년 이상 자료 중 최대 규모였다는 보도.",
+      "interpretation": "매도 압력이 컸다는 근거다. 남은 매도가 끝났는지는 이 숫자에 포함되지 않는다.",
+      "next_check": "같은 고객군의 후속 매도 규모 감소와 매물을 인수하는 주체 확인.",
+      "time_note": "본문 공개 표시 7/20 22:16 KST. 해석은 10/25에 작성했다.",
+      "recorded_at": "2026-10-25T07:51:45+00:00"
+    },
+    {
+      "id": "citadel-sa-20260731",
+      "episode": "soxx-2026-07",
+      "source_group": "Reuters-SA-Citadel-20260730",
+      "title": "대규모 주식 물량을 인수한 주체 등장",
+      "source": "Reuters / The Business Times 재게재",
+      "url": "https://www.businesstimes.com.sg/international/global/citadel-buys-most-hedge-fund-situational-awareness-stock-holdings-after-ai-share-rout-sources",
+      "published_date": "2026-07-31",
+      "available_at": "2026-07-31T03:33:00+00:00",
+      "time_precision": "exact",
+      "kind": "relief",
+      "stance": "support",
+      "quality": "syndicated",
+      "scope": "Situational Awareness의 주식 포트폴리오 상당 부분 · 시장 전체와 다름",
+      "measurement": "상당 부분 인수 거래 보도 · 마진콜 여부는 미확인",
+      "window": "7/30 거래 보도, 7/31 재게재",
+      "summary": "Citadel이 Situational Awareness의 주식 보유 상당 부분을 인수했다는 취재원 보도.",
+      "interpretation": "매물의 인수 주체가 구체화된 단서다. 7/29 저점을 미리 알려준 정보로 볼 수는 없다.",
+      "next_check": "인수 후 추가 강제 매도 보도와 가격의 재하락 여부.",
+      "time_note": "원보도 최초 시각 대신 확인한 재게재 수정 시각(7/31 11:33 싱가포르)을 보수적으로 사용.",
+      "recorded_at": "2026-10-25T07:51:45+00:00"
+    },
+    {
+      "id": "gs-tech-20261019",
+      "episode": "soxx-2026-10",
+      "source_group": "GS-PB-tech-week-20261015",
+      "title": "최근 5일 기술주 축소 속도 급증",
+      "source": "Bloomberg / Goldman Sachs 인용",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-19/hedge-funds-cut-tech-at-fastest-pace-in-a-decade-goldman-says",
+      "published_date": "2026-10-19",
+      "available_at": "2026-10-19T16:53:00+00:00",
+      "time_precision": "exact",
+      "kind": "pressure",
+      "stance": "against",
+      "quality": "article",
+      "scope": "골드만 프라임브로커 고객 · 기술주",
+      "measurement": "기술주 포지션 축소 속도 · 잔고 소진율 아님",
+      "window": "10/15까지 5거래일",
+      "summary": "해당 5거래일 기술주 축소 속도가 2016년 이후 가장 빨랐다는 보도.",
+      "interpretation": "7월과 매도 압력 확대라는 공통점이 있다. 7월의 8주 누적과 수치 순위를 직접 비교할 수는 없다.",
+      "next_check": "같은 5일 창에서 매도 강도가 줄고 신규 숏 증가가 멈추는지 확인.",
+      "time_note": "본문 공개 표시 10/20 01:53 KST(미국 10/19 12:53 ET).",
+      "recorded_at": "2026-10-25T07:51:45+00:00"
+    },
+    {
+      "id": "gs-shorts-20261022",
+      "episode": "soxx-2026-10",
+      "source_group": "GS-PB-shorts-20261022",
+      "title": "공매도 쏠림과 숏커버 가능성",
+      "source": "Bloomberg / Goldman Sachs 인용",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-22/hedge-funds-pile-into-shorts-as-goldman-flags-stock-squeeze-risk",
+      "published_date": "2026-10-22",
+      "available_at": "2026-10-22T09:51:00+00:00",
+      "time_precision": "exact",
+      "kind": "squeeze",
+      "stance": "conditional",
+      "quality": "article",
+      "scope": "골드만 프라임브로커 고객 · 글로벌 주식",
+      "measurement": "숏 매도 흐름 / 롱 매수 흐름 약 5배 · 숏 레버리지 5년 내 상위권",
+      "window": "10월 월중 흐름 · 5년 비교 분포",
+      "summary": "숏 매도가 롱 매수보다 약 5배 많고 숏 쏠림이 높아, 반등 시 되사기 위험이 커졌다는 보도.",
+      "interpretation": "상승이 시작되면 반등을 키울 재료다. 숏 잔고가 롱 잔고의 5배이거나 매도가 끝났다는 뜻은 아니다.",
+      "next_check": "실제 숏커버 관측과 SOXX 가격 회복이 함께 나타나는지 확인.",
+      "time_note": "본문 공개 표시 10/22 18:51 KST(09:51 UTC).",
+      "recorded_at": "2026-10-25T07:51:45+00:00"
+    },
+    {
+      "id": "jefferies-tmt-20261023",
+      "episode": "soxx-2026-10",
+      "source_group": "Jefferies-TMT-20D-20261022",
+      "title": "TMT 20일 누적 매도 차트",
+      "source": "Jefferies Trading 표기 차트 / Smartflow 재게재",
+      "url": "https://smartflow.trading/ai-stock-selloff-hedge-fund-deleveraging/",
+      "published_date": "2026-10-23",
+      "available_at": "2026-10-25T07:51:45+00:00",
+      "time_precision": "unknown",
+      "kind": "pressure",
+      "stance": "against",
+      "quality": "chart",
+      "scope": "제프리스 전체 고객 · 기술·미디어·통신(TMT)",
+      "measurement": "일별 순거래의 20일 이동합계 · 보유 잔고 아님",
+      "window": "차트 10/22까지, 20거래일 이동합계",
+      "summary": "재게재된 차트는 TMT 전체 고객의 최근 20일 누적 순매도를 보여준다.",
+      "interpretation": "오래된 매도일이 계산에서 빠져도 누적선은 올라간다. 일별 자료 없이 상승 전환을 신규 매수로 판단하지 않는다.",
+      "next_check": "같은 표본의 일별 흐름을 확보하고 이동창 효과를 구분.",
+      "time_note": "원본 보고서와 정확한 공개 시각 미확인. 첫 기록 시점부터만 사용하며 과거 수익 비교에서 제외.",
+      "recorded_at": "2026-10-25T07:51:45+00:00"
+    },
+    {
+      "id": "reuters-loss-20261023",
+      "episode": "soxx-2026-10",
+      "source_group": "Reuters-HF-loss-20261023",
+      "title": "주요 헤지펀드 전략의 손실 확대",
+      "source": "Reuters / Investing.com 재게재",
+      "url": "https://www.investing.com/news/stock-market-news/hedge-fund-returns-worsen-this-week-as-tech-selloff-deepens-4968502",
+      "published_date": "2026-10-23",
+      "available_at": "2026-10-25T07:51:45+00:00",
+      "time_precision": "unknown",
+      "kind": "pressure",
+      "stance": "against",
+      "quality": "syndicated",
+      "scope": "골드만 고객군 내 주요 헤지펀드 전략 · 개별 SOXX 투자자와 다름",
+      "measurement": "전략 손익 · 매도 잔여 물량을 직접 측정하지 않음",
+      "window": "10/22 하루 손익",
+      "summary": "10/22 주요 헤지펀드 전략들이 손실을 입었고, 기술주 매도와 혼잡한 숏의 반등이 함께 부담을 줬다는 보도.",
+      "interpretation": "숏커버가 일부 발생해도 다른 기술주 롱 매도가 이어질 수 있다는 반대 근거다.",
+      "next_check": "손실에 따른 추가 자금 회수·포지션 축소가 이어지는지 확인.",
+      "time_note": "기사 날짜는 확인했지만 표시 시각의 시간대는 미확인. 첫 기록부터 사용하고 과거 수익 비교에서 제외.",
+      "recorded_at": "2026-10-25T07:51:45+00:00"
+    }
+  ],
+  "assessments": [
+    {
+      "id": "review-july-20261025",
+      "episode": "soxx-2026-07",
+      "conclusion": "7월 복습: 기록적 매도 보도 뒤에도 하락이 이어졌다. 이후 물량 인수 보도와 가격 회복을 함께 볼 수 있었다.",
+      "supports": [
+        "citadel-sa-20260731"
+      ],
+      "contradicts": [
+        "gs-tech-20260720"
+      ],
+      "next_checks": [
+        "7월은 이미 결과를 본 사례다. 여기서 정한 해석을 새 기사에 먼저 기록한다.",
+        "공개 뒤 1·3·5거래일 변화와 중간 하락을 함께 비교한다."
+      ],
+      "recorded_at": "2026-10-25T07:51:45+00:00"
+    },
+    {
+      "id": "review-october-20261025",
+      "episode": "soxx-2026-10",
+      "conclusion": "10월: 반등을 키울 숏 쏠림은 관측됐다. 매도 소진을 뒷받침하는 구체적인 매물 인수·자금 안정 보도는 이 원장에서 아직 확인되지 않았다.",
+      "supports": [
+        "gs-shorts-20261022"
+      ],
+      "contradicts": [
+        "gs-tech-20261019",
+        "jefferies-tmt-20261023",
+        "reuters-loss-20261023"
+      ],
+      "next_checks": [
+        "같은 고객군·같은 기간의 순매도 강도가 실제로 줄었는가?",
+        "대규모 매물 인수 또는 자금 회수 진정이 구체적으로 보도되는가?",
+        "새 악재 뒤에도 SOXX가 저점을 지키고, 반등 뒤 재하락을 견디는가?",
+        "AI 기업의 실적·현금흐름·차환 위험이 새로 나빠지는가?"
+      ],
+      "recorded_at": "2026-10-25T07:51:45+00:00"
+    }
+  ]
+}
