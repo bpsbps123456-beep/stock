@@ -1,0 +1,20 @@
+{
+  "source": "Yahoo Finance via yfinance",
+  "retrieved_at": "2026-10-25T08:12:30.884494+00:00",
+  "auto_adjust": false,
+  "start": "2023-12-01",
+  "end_exclusive": "2026-10-24",
+  "rows": 728,
+  "snapshot_created_at": "2026-10-25T14:43:49.796675+00:00",
+  "sha256": "8cb33f36ae79300a0a666e86bcefed250a5f114e0469790dce52c9291400c21e",
+  "units": {
+    "SOXX,QQQ,SPY": "USD; split-adjusted, not dividend-adjusted",
+    "^TNX": "10-year yield percent"
+  },
+  "urls": [
+    "https://finance.yahoo.com/quote/SOXX/history/",
+    "https://finance.yahoo.com/quote/QQQ/history/",
+    "https://finance.yahoo.com/quote/SPY/history/",
+    "https://finance.yahoo.com/quote/%5ETNX/history/"
+  ]
+}

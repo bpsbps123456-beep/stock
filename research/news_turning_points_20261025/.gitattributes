@@ -1,0 +1,4 @@
+# Preserve exact frozen input bytes, including Windows line endings.
+events.json -text whitespace=cr-at-eol
+protocol.json -text whitespace=cr-at-eol
+prices.csv -text whitespace=cr-at-eol
