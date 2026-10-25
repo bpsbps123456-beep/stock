@@ -1,0 +1,379 @@
+{
+ "_doc": "Assembly decisions applied by assemble.py. fix: field corrections to a coded source row (Claude row by default; _coder selects codex, _bank narrows to one bank's row). merge: [bank, source_id_a, source_id_b, reason] joins the groups holding those sources (protocol dedup: exact title or explicit common bank/note/facts). legacy: manual crosswalk for the 32 events of research/news_turning_points_20261025 when the URL is not in the current source list. legacy_rows: legacy events whose current source was unverified for lack of bank attribution but whose bank facts were verified (browser DOM) in the 10/25 study; re-coded as prior_verified_fact and replace that source's unverified row.",
+ "fix": {
+  "235238e6e3e1": {
+   "published_at": "2024-04-09",
+   "note_date": "2024-04-09",
+   "note_date_basis": "publication_proxy",
+   "time_precision": "date_article",
+   "reason": "in.investing.com 일-월 표기(09/04/2024)를 9월 4일로 읽은 오류. 같은 기사 www판 2db5273afb83은 'Apr 09, 2024'. 공개일·노트 날짜를 2024-04-09(공개일 대용)로 고침."
+  },
+  "33477a57bbd1": {
+   "_coder": "codex",
+   "_bank": "GS",
+   "family": "D",
+   "long_flow": "sell",
+   "short_flow": "add",
+   "magnitude_text": "largest notional net selling in more than a year",
+   "lookback_months": 12,
+   "reason": "검증 반박(10/26): Codex 행은 은행 롱/숏 비율만 보고 N으로 두었으나, 같은 Reuters 기사 Yahoo판 WebFetch 본문에 'Financials were net sold in eight of the past nine weeks and this week saw the largest notional net selling in more than a year, driven by short and long sales'가 있다. 다개월 최대 매도이므로 family_operational에 따라 D, 롱 sell·숏 add, 'more than a year' → 12개월(하한). Claude 행 33477a57bbd1과 같은 부호."
+  },
+  "2843b81e72e4": {
+   "_coder": "codex",
+   "_bank": "JPM",
+   "note_date": "2023-07-13",
+   "note_date_basis": "explicit",
+   "reason": "검증 반박(10/26): article_reads 본문에 'JPMorgan added in its note dated July 13'이 있어 공개일 대용(7/14) 대신 명시 노트 날짜 7/13을 쓴다(reliability.md 불일치 #3과 같은 판단)."
+  },
+  "bd3d575f9669": {
+   "lookback_months": null,
+   "reason": "검증 반박(10/26): 'for the first time in seven weeks'는 '~이후 최대' 비교가 아니라 연속 기록이다. 같은 표현을 비운 선례(85ae6e907489·0ce75341bd80, BofA 'first time in ten weeks')와 맞춰 lookback을 비운다."
+  }
+ },
+ "merge": [
+  [
+   "GS",
+   "d33ea50767ac",
+   "7658318ff8a6",
+   "같은 Bloomberg 기사의 제목 변형(Are Selling/Sell 'Aggressively'), 6월 TMT 매도가 기록 최대로 진행 중이라는 같은 GS 사실"
+  ],
+  [
+   "GS",
+   "660abc321c9c",
+   "8f1edb9ac542",
+   "같은 날 같은 GS PB '지난주' 자료, 매수가 2024년 11월 이후 최대라는 같은 사실(미국·세계 범위 차이는 한 노트 안의 범위)"
+  ],
+  [
+   "GS",
+   "a70ae840e4a9",
+   "25eb8cce40fb",
+   "부호자 메모상 같은 Bloomberg 기사(Yahoo SG 재게재), 롱·숏 총규모 축소 2025년 9월 이후 최대라는 같은 사실"
+  ],
+  [
+   "GS",
+   "c3cf089a858c",
+   "ca99891efd96",
+   "Hedgeweek가 Investing.com의 같은 GS Prime Services 자료를 인용, 롱 매도:신규 숏 1.8:1·2.3 표준편차 같은 수치"
+  ],
+  [
+   "BofA",
+   "9fb367315f5c",
+   "f7129d85ce20",
+   "같은 제목(BofA clients resumed buying stocks last week after big de-risking), 같은 날"
+  ],
+  [
+   "JPM",
+   "53365c89dc7e",
+   "e855bd961500",
+   "부호자 메모상 같은 JPM 자료·같은 날·같은 사실(SpaceX IPO 앞 기술주 매도)의 재인용"
+  ]
+ ],
+ "legacy": {
+  "N01": {
+   "groups": [
+    "895c5c515320"
+   ],
+   "method": "title_match",
+   "note": "현재 그룹에 원 기사 제목 'Hedge funds U-Turn on tech; sell everything else'(895c5c515320)이 있음. GS 1/18 종료 주 기술주 매수 2개월 최대.",
+   "exclusion": ""
+  },
+  "N02": {
+   "groups": [
+    "bb89a0d38ddc"
+   ],
+   "method": "title_match",
+   "note": "원 기사 제목 'Hedge funds call time on tech rally, banks say'와 현재 그룹 제목 일치(StreetInsider 재게재 URL은 목록에 없음). MS 후반 매수 전환은 현재 GS 행 메모에만 있음.",
+   "exclusion": ""
+  },
+  "N03": {
+   "groups": [
+    "91169deaac21"
+   ],
+   "method": "legacy_recoded",
+   "note": "현재 출처 91169deaac21(같은 Reuters 제목)은 제목에 은행이 없어 Claude가 unverified로 둠. 10/25 연구의 브라우저 열람 사실로 GS·JPM·MS 행을 다시 부호화(prior_verified_fact).",
+   "exclusion": ""
+  },
+  "N07": {
+   "groups": [
+    "5bfc546320e9"
+   ],
+   "method": "title_match",
+   "note": "'Hedge funds buy the dip amid market bloodbath, says Goldman' 제목 일치(MarketScreener URL은 목록에 없음).",
+   "exclusion": ""
+  },
+  "N09": {
+   "groups": [
+    "f0e9e78bf793"
+   ],
+   "method": "title_match",
+   "note": "'Hedge funds snap up US tech stocks amid falling rates, says Goldman Sachs' 제목 일치.",
+   "exclusion": ""
+  },
+  "N10": {
+   "groups": [
+    "06fd5dc63d6b"
+   ],
+   "method": "title_match",
+   "note": "'Hedge funds snap up tech stocks at fastest pace in five months' 제목 일치(TBS 재게재).",
+   "exclusion": ""
+  },
+  "N13": {
+   "groups": [
+    "c3c0a4876e83"
+   ],
+   "method": "title_match",
+   "note": "'Hedge funds flee techs stocks before tariffs take hold, says Goldman Sachs' 제목 일치.",
+   "exclusion": ""
+  },
+  "N14": {
+   "groups": [],
+   "method": "",
+   "note": "원 기사(Reuters 'Hedge funds capitulate...')는 현재 a7e0e0bdd488로 회수됐으나 제목에 은행이 없어 unverified. 10/25 기록에도 은행 귀속이 없어 다시 부호화하지 않음. 같은 주 GS 그룹(4/3 하루 순매도 사상 최대)과는 사실이 달라 잇지 않음.",
+   "exclusion": "insufficient_attribution(현재 unverified a7e0e0bdd488)"
+  },
+  "N15": {
+   "groups": [
+    "bf7503f977f0"
+   ],
+   "method": "same_date_fact",
+   "note": "원 기사(WHBL 재게재 'Hedge funds miss most of the relief rally')와 같은 날 현재 GS 그룹 메모에 4/9 숏커버 주도 매수·MS 레버리지 축소 지속이 함께 있음. 원 분류의 주 은행은 MS 쪽 사실이고 현재 그룹 은행은 GS.",
+   "exclusion": ""
+  },
+  "N20": {
+   "groups": [
+    "69f3b772d769"
+   ],
+   "method": "legacy_recoded",
+   "note": "현재 출처 69f3b772d769(같은 Reuters 'Focus' 제목)는 제목에 은행이 없어 unverified. 10/25 열람 사실(GS 285.2%·JPM 297.9%·MS 15년 상위 1%)로 은행별 행을 다시 부호화(prior_verified_fact).",
+   "exclusion": ""
+  },
+  "N21": {
+   "groups": [
+    "0e69cdcde7eb"
+   ],
+   "method": "title_match",
+   "note": "'Goldman Says Hedge Funds Add Record Shorts on US Stocks in Rout' 제목 일치(Alphatack 재게재).",
+   "exclusion": ""
+  },
+  "N23": {
+   "groups": [
+    "5f867653906f"
+   ],
+   "method": "same_bank_date_fact",
+   "note": "TBS 일본어 Bloomberg 재게재(3/30)와 현재 GS 그룹(3/30 Bloomberg, 3/26까지 6주 연속 순매도·숏 노출)의 은행·날짜·사실 일치.",
+   "exclusion": ""
+  },
+  "N24": {
+   "groups": [
+    "eb3e5dd7c625"
+   ],
+   "method": "same_bank_date_fact",
+   "note": "3월 세계 주식 매도 13년 최대: 현재 GS 그룹(3/31 노트, 4/2 공개)과 사실 일치. 원 URL(Reuters 'worst monthly drawdown')은 목록에 없음.",
+   "exclusion": ""
+  },
+  "N25": {
+   "groups": [],
+   "method": "",
+   "note": "원 기사(TBS Bloomberg 재게재)에 대응하는 현재 출처 c37d26c2656e(Bloomberg 'Hedge Funds Closing Stock Short Bets at Fastest Pace Since 2020')·a2f0d31bb6c8은 제목에 은행이 없어 unverified. 10/25 기록에도 은행 귀속이 없어 다시 부호화하지 않음.",
+   "exclusion": "insufficient_attribution(현재 unverified c37d26c2656e)"
+  },
+  "N27": {
+   "groups": [
+    "e2c940c11e7e"
+   ],
+   "method": "same_bank_date_outlet",
+   "note": "Yahoo Japan Bloomberg 재게재(6/1)와 같은 날 Bloomberg GS 그룹('Buy Stocks at Fastest Pace in 6 Months')을 같은 기사로 봄(불확실: 원 분류 T는 순레버리지·롱숏 비율 백분위, 현재 R은 매수 속도).",
+   "exclusion": ""
+  },
+  "N28": {
+   "groups": [
+    "bf6b7e52757c"
+   ],
+   "method": "same_bank_date_fact",
+   "note": "같은 날 GS 그룹: AI 롱 축소·총레버리지 1년 하위 10분위. 원 URL(Reuters 'AI selloff drives quant funds...' 61c20230052f)은 현재 unverified.",
+   "exclusion": ""
+  },
+  "N29": {
+   "groups": [
+    "facb99804264"
+   ],
+   "method": "same_bank_date_fact",
+   "note": "7/20 GS 미국 기술주 기록적 축소: 현재 그룹과 은행·날짜·사실 일치(Bloomberg 원 URL은 목록에 없음).",
+   "exclusion": ""
+  },
+  "N30": {
+   "groups": [],
+   "method": "",
+   "note": "Citadel의 Situational Awareness 보유주 인수 취재 보도로 GS/MS/JPM PB·BofA CFT 노트가 아님(현재 protocol eligible 밖). 현재 검색 결과에 같은 기사 없음.",
+   "exclusion": "unrelated(은행 PB 노트 아님)"
+  },
+  "N31": {
+   "groups": [
+    "b8c5c51bf5b3"
+   ],
+   "method": "title_match",
+   "note": "'Hedge Funds Cut Tech at Fastest Pace in a Decade, Goldman Says' Bloomberg 제목 일치.",
+   "exclusion": ""
+  },
+  "N32": {
+   "groups": [
+    "2dac9b7885b3"
+   ],
+   "method": "title_match",
+   "note": "Bloomberg 'Hedge funds pile into shorts as Goldman flags stock squeeze risk'와 같은 10/22 GS 그룹(숏 매도:롱 매수 약 5:1, 숏 레버리지 99백분위).",
+   "exclusion": ""
+  }
+ },
+ "legacy_rows": [
+  {
+   "legacy_id": "N03",
+   "source_id": "91169deaac21",
+   "bank": "GS",
+   "eligible": "yes",
+   "exclusion_reason": "",
+   "note_date": "2024-03-12",
+   "note_date_basis": "publication_proxy",
+   "published_at": "2024-03-12",
+   "time_precision": "date_article",
+   "scope": "세계 주식(헤지펀드 전반 총레버리지)",
+   "flow_direction": "",
+   "long_flow": "na",
+   "short_flow": "na",
+   "magnitude_text": "near record highs",
+   "lookback_months": 60,
+   "gross_leverage": "약 3배, 5년 최고",
+   "net_leverage": "",
+   "short_crowding": "",
+   "family": "T",
+   "quote": "[요약] GS 주식 총레버리지 약 3배로 5년 최고",
+   "verification": "prior_verified_fact",
+   "same_note_key": "GS|2024-03-12|legacy N03 gross leverage near record",
+   "coding_notes": "10/25 연구 N03(브라우저 DOM 열람, family T)의 사실로 다시 부호화. 현재 출처 91169deaac21는 제목에 은행이 없어 Claude 부호화에서 unverified였음. 노트 날짜는 기사 공개일 대용. 흐름 방향은 보유·레버리지 수준만 있어 빈칸. '5년 최고'를 protocol 규칙(N년→12N)으로 60개월."
+  },
+  {
+   "legacy_id": "N03",
+   "source_id": "91169deaac21",
+   "bank": "JPM",
+   "eligible": "yes",
+   "exclusion_reason": "",
+   "note_date": "2024-03-12",
+   "note_date_basis": "publication_proxy",
+   "published_at": "2024-03-12",
+   "time_precision": "date_article",
+   "scope": "세계 주식(헤지펀드 전반 총레버리지)",
+   "flow_direction": "",
+   "long_flow": "na",
+   "short_flow": "na",
+   "magnitude_text": "near record highs",
+   "lookback_months": null,
+   "gross_leverage": "최고권(수치 미기록)",
+   "net_leverage": "",
+   "short_crowding": "",
+   "family": "T",
+   "quote": "[요약] JPM 표본 총레버리지도 최고권",
+   "verification": "prior_verified_fact",
+   "same_note_key": "JPM|2024-03-12|legacy N03 gross leverage near record",
+   "coding_notes": "10/25 연구 N03(브라우저 DOM 열람, family T)의 사실로 다시 부호화. 현재 출처 91169deaac21는 제목에 은행이 없어 Claude 부호화에서 unverified였음. 노트 날짜는 기사 공개일 대용. 흐름 방향은 보유·레버리지 수준만 있어 빈칸."
+  },
+  {
+   "legacy_id": "N03",
+   "source_id": "91169deaac21",
+   "bank": "MS",
+   "eligible": "yes",
+   "exclusion_reason": "",
+   "note_date": "2024-03-12",
+   "note_date_basis": "publication_proxy",
+   "published_at": "2024-03-12",
+   "time_precision": "date_article",
+   "scope": "세계 주식(헤지펀드 전반 총레버리지)",
+   "flow_direction": "",
+   "long_flow": "na",
+   "short_flow": "na",
+   "magnitude_text": "near record highs",
+   "lookback_months": null,
+   "gross_leverage": "최고권(수치 미기록)",
+   "net_leverage": "",
+   "short_crowding": "",
+   "family": "T",
+   "quote": "[요약] MS 표본 총레버리지도 최고권",
+   "verification": "prior_verified_fact",
+   "same_note_key": "MS|2024-03-12|legacy N03 gross leverage near record",
+   "coding_notes": "10/25 연구 N03(브라우저 DOM 열람, family T)의 사실로 다시 부호화. 현재 출처 91169deaac21는 제목에 은행이 없어 Claude 부호화에서 unverified였음. 노트 날짜는 기사 공개일 대용. 흐름 방향은 보유·레버리지 수준만 있어 빈칸."
+  },
+  {
+   "legacy_id": "N20",
+   "source_id": "69f3b772d769",
+   "bank": "GS",
+   "eligible": "yes",
+   "exclusion_reason": "",
+   "note_date": "2025-12-03",
+   "note_date_basis": "publication_proxy",
+   "published_at": "2025-12-03",
+   "time_precision": "date_article",
+   "scope": "세계 주식(헤지펀드 전반 총레버리지)",
+   "flow_direction": "",
+   "long_flow": "na",
+   "short_flow": "na",
+   "magnitude_text": "near-record leverage",
+   "lookback_months": null,
+   "gross_leverage": "285.2%, 최고권",
+   "net_leverage": "",
+   "short_crowding": "",
+   "family": "T",
+   "quote": "[요약] GS 주식 총레버리지 285.2%로 최고권",
+   "verification": "prior_verified_fact",
+   "same_note_key": "GS|2025-12-03|legacy N20 gross leverage near record",
+   "coding_notes": "10/25 연구 N20(브라우저 DOM 열람, family T)의 사실로 다시 부호화. 현재 출처 69f3b772d769는 제목에 은행이 없어 Claude 부호화에서 unverified였음. 노트 날짜는 기사 공개일 대용. 흐름 방향은 보유·레버리지 수준만 있어 빈칸."
+  },
+  {
+   "legacy_id": "N20",
+   "source_id": "69f3b772d769",
+   "bank": "JPM",
+   "eligible": "yes",
+   "exclusion_reason": "",
+   "note_date": "2025-12-03",
+   "note_date_basis": "publication_proxy",
+   "published_at": "2025-12-03",
+   "time_precision": "date_article",
+   "scope": "세계 주식(헤지펀드 전반 총레버리지)",
+   "flow_direction": "",
+   "long_flow": "na",
+   "short_flow": "na",
+   "magnitude_text": "near-record leverage",
+   "lookback_months": null,
+   "gross_leverage": "297.9%, 최고권",
+   "net_leverage": "",
+   "short_crowding": "",
+   "family": "T",
+   "quote": "[요약] JPM 주식 총레버리지 297.9%로 최고권",
+   "verification": "prior_verified_fact",
+   "same_note_key": "JPM|2025-12-03|legacy N20 gross leverage near record",
+   "coding_notes": "10/25 연구 N20(브라우저 DOM 열람, family T)의 사실로 다시 부호화. 현재 출처 69f3b772d769는 제목에 은행이 없어 Claude 부호화에서 unverified였음. 노트 날짜는 기사 공개일 대용. 흐름 방향은 보유·레버리지 수준만 있어 빈칸."
+  },
+  {
+   "legacy_id": "N20",
+   "source_id": "69f3b772d769",
+   "bank": "MS",
+   "eligible": "yes",
+   "exclusion_reason": "",
+   "note_date": "2025-12-03",
+   "note_date_basis": "publication_proxy",
+   "published_at": "2025-12-03",
+   "time_precision": "date_article",
+   "scope": "세계 주식(헤지펀드 전반 총레버리지)",
+   "flow_direction": "",
+   "long_flow": "na",
+   "short_flow": "na",
+   "magnitude_text": "near-record leverage",
+   "lookback_months": null,
+   "gross_leverage": "15년 자료 중 상위 1%권(수치 미기록)",
+   "net_leverage": "",
+   "short_crowding": "",
+   "family": "T",
+   "quote": "[요약] MS 총레버리지 15년 중 상위 1%권",
+   "verification": "prior_verified_fact",
+   "same_note_key": "MS|2025-12-03|legacy N20 gross leverage near record",
+   "coding_notes": "10/25 연구 N20(브라우저 DOM 열람, family T)의 사실로 다시 부호화. 현재 출처 69f3b772d769는 제목에 은행이 없어 Claude 부호화에서 unverified였음. 노트 날짜는 기사 공개일 대용. 흐름 방향은 보유·레버리지 수준만 있어 빈칸."
+  }
+ ]
+}

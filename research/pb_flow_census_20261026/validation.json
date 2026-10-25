@@ -1,0 +1,353 @@
+{
+  "ok": true,
+  "n_checks": 66,
+  "n_failed": 0,
+  "counts": {
+    "census_groups": 252,
+    "by_bank": {
+      "GS": 174,
+      "JPM": 18,
+      "BofA": 38,
+      "MS": 22
+    },
+    "group_sources": 457,
+    "unverified": 228,
+    "search_log_rows": 10174,
+    "legacy": {
+      "linked": 29,
+      "excluded": 3
+    }
+  },
+  "checks": [
+    {
+      "check": "protocol.json SHA-256 unchanged",
+      "ok": true,
+      "detail": "c6047664285fd9ed2ce4c0cebfab7bac7b5f73a9713d195c4b3b2fe6d501cea3"
+    },
+    {
+      "check": "legacy protocol SHA-256 unchanged",
+      "ok": true,
+      "detail": "60500f5a1bd99d3cf3ca6922e56256409317174e779efaf37122b04eac4267a6"
+    },
+    {
+      "check": "freeze.json records no price access",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "census.csv: UTF-8 without BOM",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "group_sources.csv: UTF-8 without BOM",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "census_unverified.csv: UTF-8 without BOM",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "search_log.csv: UTF-8 without BOM",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "legacy_crosswalk.csv: UTF-8 without BOM",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage.csv: UTF-8 without BOM",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "search_log: every row has a valid decision and a reason",
+      "ok": true,
+      "detail": "bad=0"
+    },
+    {
+      "check": "search_log: exclusions use protocol exclusion codes",
+      "ok": true,
+      "detail": "bad=0"
+    },
+    {
+      "check": "search_log: exclusion code only on excluded rows",
+      "ok": true,
+      "detail": "bad=0"
+    },
+    {
+      "check": "search_log: every appearance logged once",
+      "ok": true,
+      "detail": "log_results=10099 appearances=10099"
+    },
+    {
+      "check": "search_log: every query has a row (zero-result/error included)",
+      "ok": true,
+      "detail": "queries=657 zero_rows=75"
+    },
+    {
+      "check": "search_log: failed queries logged",
+      "ok": true,
+      "detail": "failed_queries=0"
+    },
+    {
+      "check": "search_log: every RSS candidate logged",
+      "ok": true,
+      "detail": "candidates=4426 missing=0"
+    },
+    {
+      "check": "search_log: group ids exist in census",
+      "ok": true,
+      "detail": "bad=0"
+    },
+    {
+      "check": "legacy: all records reconciled (linked group or explicit exclusion)",
+      "ok": true,
+      "detail": "events=32 rows=32 problems=[]"
+    },
+    {
+      "check": "legacy: census legacy_ids match crosswalk",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "census: group_id unique",
+      "ok": true,
+      "detail": "rows=252"
+    },
+    {
+      "check": "census: source_group equals group_id",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "census: n_sources and single representative match group_sources",
+      "ok": true,
+      "detail": "bad=[]"
+    },
+    {
+      "check": "group_sources: no repeated group-source pair",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "census: representative is earliest dated public source",
+      "ok": true,
+      "detail": "bad=[]"
+    },
+    {
+      "check": "unverified rows kept out of census",
+      "ok": true,
+      "detail": "overlap=[]"
+    },
+    {
+      "check": "census: no out-of-window publication",
+      "ok": true,
+      "detail": "bad=[]"
+    },
+    {
+      "check": "census_unverified: no out-of-window publication",
+      "ok": true,
+      "detail": "bad=[]"
+    },
+    {
+      "check": "group_sources: no out-of-window publication",
+      "ok": true,
+      "detail": "bad=[]"
+    },
+    {
+      "check": "census: valid bank",
+      "ok": true,
+      "detail": "invalid={}"
+    },
+    {
+      "check": "census: valid flow_direction",
+      "ok": true,
+      "detail": "invalid={}"
+    },
+    {
+      "check": "census: valid long_flow",
+      "ok": true,
+      "detail": "invalid={}"
+    },
+    {
+      "check": "census: valid short_flow",
+      "ok": true,
+      "detail": "invalid={}"
+    },
+    {
+      "check": "census: valid family",
+      "ok": true,
+      "detail": "invalid={}"
+    },
+    {
+      "check": "census: valid verification",
+      "ok": true,
+      "detail": "invalid={}"
+    },
+    {
+      "check": "census: valid time_precision",
+      "ok": true,
+      "detail": "invalid={}"
+    },
+    {
+      "check": "census: valid note_date_basis",
+      "ok": true,
+      "detail": "invalid={}"
+    },
+    {
+      "check": "census_unverified: valid bank",
+      "ok": true,
+      "detail": "invalid={}"
+    },
+    {
+      "check": "census_unverified: valid flow_direction",
+      "ok": true,
+      "detail": "invalid={}"
+    },
+    {
+      "check": "census_unverified: valid long_flow",
+      "ok": true,
+      "detail": "invalid={}"
+    },
+    {
+      "check": "census_unverified: valid short_flow",
+      "ok": true,
+      "detail": "invalid={}"
+    },
+    {
+      "check": "census_unverified: valid family",
+      "ok": true,
+      "detail": "invalid={}"
+    },
+    {
+      "check": "census_unverified: valid verification",
+      "ok": true,
+      "detail": "invalid={}"
+    },
+    {
+      "check": "census_unverified: valid time_precision",
+      "ok": true,
+      "detail": "invalid={}"
+    },
+    {
+      "check": "census_unverified: valid note_date_basis",
+      "ok": true,
+      "detail": "invalid={}"
+    },
+    {
+      "check": "census: required fields present",
+      "ok": true,
+      "detail": "missing={'group_id': 0, 'id': 0, 'bank': 0, 'family': 0, 'url': 0, 'source': 0, 'verification': 0, 'source_group': 0, 'n_sources': 0, 'coder': 0}"
+    },
+    {
+      "check": "census: dates ISO, note_date present when published_at known, basis explicit",
+      "ok": true,
+      "detail": "bad=[]"
+    },
+    {
+      "check": "census: lookback_months numeric or blank",
+      "ok": true,
+      "detail": "bad=[]"
+    },
+    {
+      "check": "census: verbatim quote budget <= 25 words",
+      "ok": true,
+      "detail": "bad=[]"
+    },
+    {
+      "check": "census: truncated quotes use the whole 25-word budget (paraphrase not counted)",
+      "ok": true,
+      "detail": "bad=[]"
+    },
+    {
+      "check": "census: coder is claude/codex",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "census: uncertain_dup references existing groups",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "census: blank counts reported (blank = not stated, never zero/mixed)",
+      "ok": true,
+      "detail": "{\"note_date\": 0, \"published_at\": 7, \"scope\": 0, \"flow_direction\": 56, \"magnitude_text\": 85, \"lookback_months\": 144, \"gross_leverage\": 220, \"net_leverage\": 239, \"short_crowding\": 234, \"quote\": 0}"
+    },
+    {
+      "check": "coverage: every Monday week x bank present once",
+      "ok": true,
+      "detail": "weeks=200 rows=800"
+    },
+    {
+      "check": "coverage: weekly counts reconcile to census rows",
+      "ok": true,
+      "detail": "bad=[]"
+    },
+    {
+      "check": "coverage: groups_note_date total equals in-range census rows",
+      "ok": true,
+      "detail": "total=252"
+    },
+    {
+      "check": "coverage: groups_published total equals in-range census rows",
+      "ok": true,
+      "detail": "total=245"
+    },
+    {
+      "check": "coverage: every dated group falls in a coverage week",
+      "ok": true,
+      "detail": "outside=[]"
+    },
+    {
+      "check": "no price APIs/files referenced by folder code",
+      "ok": true,
+      "detail": "hits=[]"
+    },
+    {
+      "check": "legacy folder read only for events.json/protocol.json",
+      "ok": true,
+      "detail": "refs=['events.json', 'protocol.json']"
+    },
+    {
+      "check": "census.csv: UTF-8 without BOM",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "census_unverified.csv: UTF-8 without BOM",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage.csv: UTF-8 without BOM",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no price/outcome columns in outputs",
+      "ok": true,
+      "detail": "cols=[]"
+    },
+    {
+      "check": "no changes to docs/, AGENTS.md or the frozen legacy study",
+      "ok": true,
+      "detail": "protected=[]"
+    },
+    {
+      "check": "git-visible changes only inside task directory",
+      "ok": true,
+      "detail": "other_paths=[]"
+    },
+    {
+      "check": "repository unittest passes",
+      "ok": true,
+      "detail": "Ran 302 tests in 5.816s /  / OK"
+    }
+  ]
+}

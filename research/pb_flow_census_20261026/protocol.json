@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "task": "Public PB equity-flow note census; collection and coding only; no price joins",
+  "publication_window": ["2023-01-01", "2026-10-23"],
+  "priority": ["GS", "MS", "JPM", "BofA"],
+  "unit": "One identifiable bank note, with republications in source_group. One note with several regions/sectors stays one row; scope-specific facts are retained in coding_notes. Distinct notes are not merged merely because they share a publication week.",
+  "eligible": "Observed equity flows, leverage, positioning or short crowding attributed to GS/MS/JPM prime brokerage or BofA Client Flow Trends. All geographies retained with explicit scope. Headlines/abstracts can qualify when attribution and observation are explicit. No requirement for an extreme or turning point.",
+  "exclude": ["Outside publication window", "13F or individual manager holdings", "EPFR/mutual-fund/ETF aggregate subscriptions without eligible bank client flow", "BofA Fund Manager Survey without Client Flow Trends", "Strategist predictions or model/CTA forecasts without observed PB flows", "Other banks", "Unrelated or insufficiently attributable result"],
+  "search": {
+    "engine": "Google News RSS plus targeted browser/WebSearch verification",
+    "monthly": {"GS": ["Goldman hedge funds", "Goldman prime brokerage"], "MS": ["\"Morgan Stanley\" \"hedge funds\""], "JPM": ["JPMorgan \"hedge funds\""], "BofA": ["\"BofA\" \"client\" \"flows\""]},
+    "quarterly": {"GS": "Goldman hedge funds buying selling leverage", "MS": "\"Morgan Stanley\" \"prime brokerage\"", "JPM": "JPMorgan \"prime brokerage\"", "BofA": "\"Bank of America\" \"client flows\""},
+    "yearly_supplement": {"GS": "Goldman hedge funds shorts covering deleveraging", "MS": "\"Morgan Stanley\" hedge funds buying selling", "JPM": "JPMorgan hedge funds buying selling", "BofA": "BofA hedge funds buying selling clients"},
+    "logging": "Every returned result from each query, including duplicate appearances, is logged with decision/reason. Zero-result and failed requests also get a row. RSS count=100 signals truncation and triggers half-window queries. Search engines cannot prove all public reporting was indexed. No-result is never proof of no bank note.",
+    "stopping": "Complete fixed date grid for GS first, screen all returned results, then other banks. Document incomplete banks explicitly if resource limits bind. Adaptive queries may resolve duplicates, sources, dates or uncovered periods; all are logged. No price-based query selection."
+  },
+  "timing": {
+    "published_at": "Earliest verified public report in a group. Convert trustworthy timezone-qualified publication timestamps to America/New_York. Google News RSS dates are index/feed timestamps, not verified original publication times: retain their NY calendar date only, time_precision=date_feed. Unknown day is not fabricated.",
+    "note_date": "Explicit covered week-ending or note issue date preferred. Otherwise publication date proxy with note_date_basis=publication_proxy; do not silently infer a preceding Friday.",
+    "availability": "Use published_at, never note_date, for subsequent trading-time availability. Date-only rows require conservative next-session treatment by the downstream analyst."
+  },
+  "coding": {
+    "flow_direction": "net_buy/net_sell only for explicitly observed net direction in the selected scope. mixed only for explicit opposing directions across scopes or client categories without an overall total. Blank for position-only or unknown; never convert missingness to mixed or zero.",
+    "long_flow": "buy/sell only when source explicitly distinguishes longs; otherwise na",
+    "short_flow": "add/cover only when explicit; otherwise na",
+    "magnitude_text": "Short exact source phrase, no invented amount. Shared quotation budget per article <=25 words including quote and other verbatim fields.",
+    "lookback_months": "Explicit N months -> N; N years -> 12N; N weeks -> N*12/52. Since YYYY-MM -> calendar month difference; since YYYY alone remains blank (ambiguous month), with original phrase preserved. Record/all-time without a known starting month remains blank.",
+    "leverage": "Source value/unit, percentile and record status as text; unavailable stays blank. No estimates.",
+    "short_crowding": "Explicit short-position/crowding description, not inferred from price declines.",
+    "families_original": {"D": "극단적인 매도·디레버리징 보도를 저점 후보로 해석", "S": "극단적인 숏 쏠림 보도를 저점 후보로 해석", "R": "실제 숏커버·매수 복귀·매물 인수 보도를 저점 후보로 해석", "T": "높은 롱 쏠림·매수·레버리지 보도를 고점 후보로 해석(원문 논리의 반대 방향 확장)", "N": "해당 없음 또는 정보 부족"},
+    "family_operational": "Retain 10/25 operational distinction: D multi-month/multi-year maximum selling or explicit substantial deleveraging; S extreme short exposure; R observed positive flow/covering; T high holdings or gross/net leverage. Largest purchases alone remain R unless the main evidence is high position/leverage. Ordinary selling is N. Assign dominant observed fact only; retain conflicts in coding_notes. A directional interpretation is a historical family label, not an investment recommendation.",
+    "verification": "original_article_read / syndicated_article_read / headline_summary_only / prior_verified_fact. PB client note itself is normally unavailable; article-read does not mean PB original-note-read. A blocked page is never labeled read.",
+    "quote": "At most a short source excerpt; use an explicit paraphrase marker when only prior facts or summaries exist.",
+    "dedup": "Exact title or explicit common bank/note dates/facts establish same source_group. Same-week similar titles alone are not sufficient; mark uncertain pairs and exclude ambiguous duplicate increment from confirmed coverage. Earliest public representative preferred; all links remain in search_log and group_sources.",
+    "legacy": "Import all 32 events with original id/family/include/exclusion. Crosswalk every legacy row to retained group or an explicit current exclusion. Do not read prior price/outcome files. Current classifications may differ; preserve both."
+  },
+  "coverage": "Monday-start weeks intersecting publication window, including the single-day first partial week. Main coverage uses note_date, separating confirmed note dates from publication proxies. Also publish coverage by public report date. Missing weeks are search_not_found, unresolved_candidate or search_incomplete, never asserted no_report without evidence.",
+  "validation": ["SHA-256 unchanged", "All query results have decisions/reasons", "All 32 legacy records reconciled", "One row per source_group", "No out-of-window publication", "Valid categorical values and explicit missingness", "Weekly counts reconcile to rows", "No price APIs/files/joins", "Write only inside task directory", "Run repository unittest after code changes"],
+  "known_bias": "Retrospective public-media census, not a complete PB client-note archive, independent blind trial or proof of selection-bias elimination. Headlines, paywalls, indexing, language and publication selection remain. No price or outcome evidence is used for inclusion."
+}
