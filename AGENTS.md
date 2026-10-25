@@ -42,6 +42,7 @@
 | 실적 성적표 | **Path-S** |
 | 실적 프롬프트 개선 | **Path-I** |
 | 뉴스 검색해줘 / 뉴스 찾아줘 | **Path-N** |
+| 뉴스 근거 / 뉴스 시스템 / 뉴스시스템 | **Path-Q** (`docs/desk_system.md` §13) |
 | 3명 업데이트 / 애널리스트 업데이트 / 애널리스트 성적표 | **Path-A** |
 | 펀드매니저의 포트폴리오 / 펀드매니저 포트폴리오 / ETF 점검 / 구성종목 변화 / 자금흐름 / 실매매 / 매매 분석 / 매매 타이밍 / 언제 수익 / 야간 데스크 | **Path-F** |
 | 기타 | **Path-Q** |
@@ -58,7 +59,7 @@
 | **Path-I** | `docs/earnings_framework.md` | 검증 5건 이상일 때만 개선 후보 제안 → 사용자 확정 후 관련 정본과 변경 이력 갱신. `CLAUDE.md`에 독립 규칙을 추가하지 않는다. |
 | **Path-N** | 없음 | WebSearch 4회: 빅테크 → AI반도체 → 메모리 → AI인프라. 오늘 → 어제 → 이번 주 순으로 확인하고 한글로 출력. |
 | **Path-A** | `docs/analyst_system.md` | 업데이트: WebSearch로 3인(가브리엘·윌슨·카토네) 신규 발언 수집 → 신규 콜 `data/analyst_log/` 기록 → `py analyst_tracker.py verify` → 이전 전망 대비 변화·행동 조건 표 출력. 신규 없으면 "신규 없음" 종결. 성적표: `py analyst_tracker.py scorecard`. 3인 의견만으로 매도 제안을 하지 않는다. |
-| **Path-Q** | 해당 영역 정본 | 요청 자체를 수행한다. 다루는 영역에 정본이 있으면 먼저 읽고 그 검증을 통과시킨다: AI 종목 전고점 거리 `py ai_ath_gap.py`(유니버스 `watchlist.AI_UNIVERSE`, 결과 `data/derived/analysis/ai_ath_gap/`), AI 탐방 갱신 `docs/desk_system.md` §8.1, 설명 사이트 `py -m aimap deploy` §8.3, 저평가 표시 `desk/value.py` §8.4, 거인의 어깨 §9, 급락 후 담기 §10, 추세 등급 §11. 연구·백테스트는 아래 연구 보고 규칙을 따른다. 매수 추천·주문 계산은 하지 않는다. |
+| **Path-Q** | 해당 영역 정본 | 요청 자체를 수행한다. 다루는 영역에 정본이 있으면 먼저 읽고 그 검증을 통과시킨다: AI 종목 전고점 거리 `py ai_ath_gap.py`(유니버스 `watchlist.AI_UNIVERSE`, 결과 `data/derived/analysis/ai_ath_gap/`), AI 탐방 갱신 `docs/desk_system.md` §8.1, 설명 사이트 `py -m aimap deploy` §8.3, 저평가 표시 `desk/value.py` §8.4, 거인의 어깨 §9, 급락 후 담기 §10, 추세 등급 §11, 뉴스 근거 조회·업데이트 §13. 연구·백테스트는 아래 연구 보고 규칙을 따른다. 매수 추천·주문 계산은 하지 않는다. |
 
 ## Gate C. 응답 종결 자기검증
 

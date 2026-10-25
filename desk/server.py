@@ -17,7 +17,7 @@ import webbrowser
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import parse_qs, urlparse
 
-from . import config, dip, giant, journal, tour, trend, value
+from . import config, dip, giant, journal, news, tour, trend, value
 from .state import Desk, clean
 
 DESK = Desk()
@@ -68,7 +68,7 @@ class Handler(BaseHTTPRequestHandler):
     def _guard(self, fn) -> None:
         try:
             fn()
-        except (journal.JournalError, dip.DipError, trend.TrendError) as exc:
+        except (journal.JournalError, dip.DipError, trend.TrendError, news.NewsError) as exc:
             self._json({"error": str(exc)}, 400)
         except Exception as exc:
             traceback.print_exc()
@@ -82,6 +82,11 @@ class Handler(BaseHTTPRequestHandler):
             return self._json({"app": APP, "journal": str(config.JOURNAL_DIR)})
         if path == "/api/state":
             return self._guard(lambda: self._json(DESK.state()))
+        if path == "/api/news":
+            q = parse_qs(urlparse(self.path).query)
+            return self._guard(lambda: self._json(news.payload(
+                as_of=(q.get("as_of") or [None])[0], basis=(q.get("basis") or ["public"])[0],
+                force=q.get("refresh") == ["1"])))
         if path == "/api/tour":  # AI 탐방: hand-made route + latest fund PDFs, no prices needed
             return self._guard(lambda: self._json(tour.payload()))
         if path == "/api/value":  # 저평가 표시(§8.4): 6시간 캐시, ?refresh=1이면 다시 계산(20~40초)
