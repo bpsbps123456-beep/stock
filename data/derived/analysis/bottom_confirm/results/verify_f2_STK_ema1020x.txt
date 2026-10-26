@@ -1,0 +1,141 @@
+======================================================================================================================
+Independent verification: family f2, rule ema1020x, kind STK  (no bc_lib / f2_reclaim import)
+======================================================================================================================
+Data: 82 US stocks (QQQ, .KS, =X dropped), XNYS sessions 2025-06-02..2026-10-23 N=352; 12 non-session CSV rows dropped; late listings: CRCL from 2025-06-05, SKHY from 2026-07-10, SPCX from 2026-06-12
+
+[1] Independent re-implementation vs family files
+  own EMA recursion vs pandas ewm(adjust=False): max |diff| = 0.00e+00
+  first signals: mine 243, family 243; identical (date, stock) set: True
+  per-signal field mismatches: none
+  period          mine hold20 (n, hits, clusters)    family hold20 (n, clusters)   mine base  family base
+  2025-09~2026   0.7607 (234, 178, 15)            0.7607 (234, 15)            0.7177     0.7177   OK
+  2026           0.7474 (194, 145, 11)            0.7474 (194, 11)            0.7087     0.7087   OK
+  2026H1         0.7685 (108,  83,  6)            0.7685 (108,  6)            0.6660     0.6660   OK
+  2026H2         0.7209 ( 86,  62,  6)            0.7209 ( 86,  6)            0.7623     0.7623   OK
+  2025           0.8250 ( 40,  33,  4)            0.8250 ( 40,  4)            0.7614     0.7614   OK
+  family-reported numbers reproduced (4 dp): all
+  => independent match: True
+  main 2026: n=194 (signals 203) hold20=0.7474 base=0.7087 near5=0.2047 win20=0.4588 r20=0.0281 up_med=0.2083
+  my 20-session block bootstrap, 2026: hold20 95% [0.623, 0.832] (sd 0.053); hold20 - matched base = +0.0387 95% [-0.087, +0.132] (family dlo -0.091) -> L2 fail
+  2026H1: 83/108 = 0.7685; 70% needs 76 hits -> margin 7 hit(s); matched base 0.6660 (diff +0.1025)
+  2026H2: 62/86 = 0.7209; 70% needs 61 hits -> margin 1 hit(s); matched base 0.7623 (diff -0.0413)
+  2026: 145/194; 70% needs 136 -> margin 9
+  2026 signals spread: 77 stocks, max 5 per stock (AEHR); 20-session blocks 11
+  2026 signals by 20-session calendar block (n, hold20, matched base):
+    2025-12-19..2026-01-20  n= 18  hold20=0.667  base=0.658
+    2026-01-21..2026-02-18  n=  6  hold20=1.000  base=0.658
+    2026-02-19..2026-03-18  n= 20  hold20=0.700  base=0.664
+    2026-03-19..2026-04-16  n= 40  hold20=0.875  base=0.671
+    2026-04-17..2026-05-14  n= 14  hold20=0.786  base=0.642
+    2026-05-15..2026-06-12  n= 13  hold20=0.462  base=0.708
+    2026-06-15..2026-07-14  n= 13  hold20=0.538  base=0.701
+    2026-07-15..2026-08-11  n= 28  hold20=0.893  base=0.756
+    2026-08-12..2026-09-09  n= 26  hold20=0.846  base=0.796
+    2026-09-10..2026-10-07  n= 16  hold20=0.438  base=0.774
+  leave-one-block-out 2026: hold20 range [0.7143, 0.7753], diff vs base range [-0.0042, +0.0725]; dropping 2026-03-19 block leaves diff -0.0042
+
+[2] Look-ahead audit
+  truncation test, 289 sessions x 82 stocks: EMA cross recomputed from C[..t] identical; Ldd/in_dd recomputed from C[t-79..t] identical
+  code read (code/f2_reclaim.py ema_cross): ea = C.ewm(span=10, adjust=False).mean(), eb likewise span 20;
+  (ea > eb) & (ea.shift(1) <= eb.shift(1)). ewm(adjust=False) is a causal recursion; shift(1) is the past.
+  No market, flow, options or news input in this rule. bc_lib: Ldd/dd60 windows end at t, in_dd rolling(20)
+  ends at t, outcomes start at C[t+1], entry O[t+1]. The matched baseline averages same-half outcomes
+  (evaluation reference, not a signal input). No look-ahead found in the signal.
+  EMA seeded at 2025-07-01 instead of 2025-06-02: first signals differ in 7 cells; 2026 hold20 0.7474 (n 194)
+  EMA seeded at 2025-08-01 instead of 2025-06-02: first signals differ in 14 cells; 2026 hold20 0.7474 (n 194)
+  Caveats (not look-ahead in the signal): the 82-stock universe is today's desk list (chosen in 2026 with
+  hindsight - survivors/AI winners), which inflates hold20 for signal and baseline alike; prices are a
+  single adjusted snapshot (overnight gaps checked: largest are real events, e.g. ECHO 2025-08-26, NBIS 2025-09-09).
+  The matched-baseline half key uses month > 6 (June in H1) while the 2026H2 period starts 06-01, so June
+  signals are summarized in H2 but matched to the Jan-Jun pool (reproduced as is).
+
+[3] Robustness (hold20 (n) per period; main = 2026; L1 = registered STK rule)
+  base EMA10/20 cool20 thr20%    2026 0.747(194)  H1 0.769(108)  H2 0.721(86)   2025 0.825(40)  base26 0.709 H1b 0.666 H2b 0.762 upmed26 0.208 L1=True
+  -- one step either side --
+  fast 9                         2026 0.724(196)  H1 0.764(106)  H2 0.678(90)   2025 0.825(40)  base26 0.706 H1b 0.661 H2b 0.759 upmed26 0.202 L1=False
+  fast 11                        2026 0.753(186)  H1 0.772(101)  H2 0.729(85)   2025 0.892(37)  base26 0.713 H1b 0.666 H2b 0.770 upmed26 0.210 L1=True
+  slow 19                        2026 0.753(194)  H1 0.776(107)  H2 0.724(87)   2025 0.846(39)  base26 0.706 H1b 0.664 H2b 0.757 upmed26 0.208 L1=True
+  slow 21                        2026 0.753(190)  H1 0.769(104)  H2 0.733(86)   2025 0.892(37)  base26 0.715 H1b 0.666 H2b 0.775 upmed26 0.210 L1=True
+  delay +1 session               2026 0.736(193)  H1 0.779(104)  H2 0.685(89)   2025 0.800(40)  base26 0.689 H1b 0.630 H2b 0.757 upmed26 0.205 L1=False
+  cooldown 10                    2026 0.758(211)  H1 0.765(119)  H2 0.750(92)   2025 0.833(42)  base26 0.705 H1b 0.663 H2b 0.759 upmed26 0.209 L1=True
+  cooldown 30                    2026 0.778(167)  H1 0.780(91)   H2 0.776(76)   2025 0.861(36)  base26 0.709 H1b 0.662 H2b 0.765 upmed26 0.206 L1=True
+  in_dd thr 15%                  2026 0.707(225)  H1 0.744(129)  H2 0.656(96)   2025 0.776(67)  base26 0.685 H1b 0.647 H2b 0.736 upmed26 0.190 L1=False
+  in_dd thr 25%                  2026 0.799(149)  H1 0.810(84)   H2 0.785(65)   2025 0.800(25)  base26 0.736 H1b 0.672 H2b 0.820 upmed26 0.238 L1=True
+  -- wider context --
+  EMA 8/20                       2026 0.736(201)  H1 0.745(110)  H2 0.725(91)   2025 0.773(44)  base26 0.705 H1b 0.660 H2b 0.759 upmed26 0.197 L1=True
+  EMA 12/20                      2026 0.763(177)  H1 0.771(96)   H2 0.753(81)   2025 0.868(38)  base26 0.718 H1b 0.667 H2b 0.778 upmed26 0.221 L1=True
+  EMA 10/18                      2026 0.720(200)  H1 0.750(108)  H2 0.685(92)   2025 0.810(42)  base26 0.706 H1b 0.661 H2b 0.760 upmed26 0.198 L1=False
+  EMA 10/22                      2026 0.761(184)  H1 0.775(102)  H2 0.744(82)   2025 0.868(38)  base26 0.717 H1b 0.668 H2b 0.778 upmed26 0.214 L1=True
+  EMA 5/20                       2026 0.720(225)  H1 0.712(118)  H2 0.729(107)  2025 0.714(49)  base26 0.692 H1b 0.640 H2b 0.750 upmed26 0.179 L1=True
+  EMA 10/30                      2026 0.756(160)  H1 0.753(85)   H2 0.760(75)   2025 0.853(34)  base26 0.729 H1b 0.678 H2b 0.786 upmed26 0.228 L1=True
+  EMA 12/26                      2026 0.756(160)  H1 0.753(85)   H2 0.760(75)   2025 0.857(35)  base26 0.725 H1b 0.674 H2b 0.784 upmed26 0.229 L1=True
+  EMA 20/50                      2026 0.670(97)   H1 0.583(48)   H2 0.755(49)   2025 0.947(19)  base26 0.652 H1b 0.561 H2b 0.741 upmed26 0.228 L1=False
+  delay +2 sessions              2026 0.698(192)  H1 0.721(104)  H2 0.670(88)   2025 0.825(40)  base26 0.660 H1b 0.589 H2b 0.743 upmed26 0.186 L1=False
+  delay +3 sessions              2026 0.684(190)  H1 0.692(104)  H2 0.674(86)   2025 0.725(40)  base26 0.640 H1b 0.563 H2b 0.734 upmed26 0.182 L1=False
+  core variants (base + 9 neighbours): L1 kept 7/10; 2026H2 >= 70% in 7/10; 2026 hold20 > matched base in 10/10; 2026H2 > its matched base in 1/10
+  leave-one-stock-out: L1 breaks when dropping 0 of 77 stocks []
+  leave-one-20-session-block-out: L1 breaks when dropping 2 of 15 blocks ['2026-07-15', '2026-08-12']
+
+[4] Null: random in_dd (stock, day) cells in 2026, same count and up-bucket mix, per-stock spacing > 20, 2000 draws
+  observed 2026 hold20 = 0.7474 (n=194); bucket mix (0-3,3-8,8-15,15+) = [5, 2, 36, 151]; pool cells = 9121 by bucket [2840, 1686, 1936, 2659]
+  pool hold20 by bucket 2026: [0.165, 0.371, 0.582, 0.771]
+  candidate hold20 by bucket 2026: [0.2, 0.5, 0.611, 0.801]
+  primary (bucket-matched): draws=2000 (attempts 2000) null mean=0.6781 sd=0.0226 q95=0.7165 -> p = 0.0010
+  half(06-01 split) x bucket: draws=2000 mean=0.6820 sd=0.0229 p = 0.0040
+  stock x bucket (same stock, random 2026 day): draws=2000 (attempts 6833) mean=0.7065 sd=0.0220 p = 0.0455
+  same date x bucket (other in_dd stock that day): draws=2000 (attempts 11697) mean=0.6978 sd=0.0205 p = 0.0120
+  bucket-matched WITHOUT spacing (cell-uniform): mean=0.7165 sd=0.0309 p = 0.1740  (the spacing rule alone lowers the null mean by 0.038)
+  fine up bins [0.03, 0.05, 0.08, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4] (10 bins), spaced: mean=0.6880 sd=0.0229 p = 0.0050
+  fine up bins, no spacing: mean=0.7202 sd=0.0304 p = 0.2020
+  same date x fine up bin, spaced: infeasible (35 valid draws in 40000 attempts; strata are tiny, median size 6, 4% singletons) -> not used
+  same date x fine up bin, no spacing: mean=0.7341 sd=0.0259 p = 0.3440
+  same date x 6 up bins [0.03, 0.08, 0.15, 0.25, 0.4], spaced: draws=854 (attempts 40000) mean=0.6932 p = 0.0047
+  half x fine up bin, spaced: mean=0.6945 sd=0.0225 p = 0.0115
+  2026H1 only (bucket-matched within half): observed 0.7685 (n=108), null mean 0.6835, p = 0.0030
+  2026H2 only (bucket-matched within half): observed 0.7209 (n=86), null mean 0.6741, p = 0.1445
+  clustering: signals fall in 11 20-session blocks; block-bootstrap sd of the observed rate 0.0533 vs iid-null sd 0.0226 (design effect 5.6); cluster-adjusted normal p ~ 0.097
+
+[5] Mechanical comparison: plain rule up >= candidate median up (same in_dd / first-signal / cooldown)
+  up >= 0.2083                   2026 0.764(212)  H1 0.816(98)   H2 0.719(114)  2025 0.739(46)  base26 0.765 H1b 0.723 H2b 0.802 upmed26 0.240 L1=True  near5 0.209 win20 0.448
+  up >= 0.0800                   2026 0.610(372)  H1 0.597(186)  H2 0.624(186)  2025 0.656(90)  base26 0.635 H1b 0.583 H2b 0.686 upmed26 0.120 L1=False  near5 0.209 win20 0.462
+  up >= 0.1500                   2026 0.693(287)  H1 0.698(149)  H2 0.688(138)  2025 0.698(63)  base26 0.762 H1b 0.723 H2b 0.804 upmed26 0.180 L1=False  near5 0.212 win20 0.474
+  up >= 0.2500                   2026 0.817(164)  H1 0.886(79)   H2 0.753(85)   2025 0.784(37)  base26 0.765 H1b 0.723 H2b 0.803 upmed26 0.279 L1=True  near5 0.245 win20 0.457
+  candidate                      near5 0.205 win20 0.459 r20 +0.0281
+  like-for-like sweep, plain 'up >= x' through the same first-signal machinery (2026):
+    x=0.12:upmed 0.149 h20 0.660(332)  x=0.13:upmed 0.161 h20 0.655(322)  x=0.14:upmed 0.172 h20 0.664(307)  x=0.15:upmed 0.180 h20 0.693(287)  x=0.16:upmed 0.188 h20 0.696(273)  x=0.17:upmed 0.198 h20 0.717(258)  x=0.18:upmed 0.210 h20 0.721(244)  x=0.19:upmed 0.225 h20 0.747(229)*  x=0.20:upmed 0.233 h20 0.758(215)*  x=0.21:upmed 0.243 h20 0.767(210)*
+    x=0.22:upmed 0.254 h20 0.772(197)*  x=0.23:upmed 0.260 h20 0.777(188)*  x=0.24:upmed 0.269 h20 0.808(177)*  x=0.25:upmed 0.279 h20 0.817(164)*  x=0.26:upmed 0.289 h20 0.809(157)*  x=0.27:upmed 0.305 h20 0.841(145)*  x=0.28:upmed 0.312 h20 0.844(135)*  x=0.29:upmed 0.321 h20 0.859(128)*  x=0.30:upmed 0.329 h20 0.844(122)*
+    (* = passes L1) interpolated plain-rule 2026 hold20 at the candidate's up median 0.208: 0.7206 vs candidate 0.7474 (gap +0.0268); 2026H2 at H2 up median: 0.6932 vs 0.7209; plain rules passing L1: 12/19
+  all 2026 in_dd cells with up >= 0.2083 (no cooldown): hold20 = 0.8162 (cells 1654); with up < it: 0.3909 (cells 7467)
+  within half x bucket, 2026 (candidate first signals vs all in_dd pool cells):
+    H1 0-3%   cand 0.500 (n=  2)   pool 0.190 (cells= 1563)
+    H1 3-8%   cand 0.000 (n=  1)   pool 0.380 (cells=  949)
+    H1 8-15%  cand 0.625 (n= 24)   pool 0.558 (cells=  992)
+    H1 15%+   cand 0.827 (n= 81)   pool 0.757 (cells= 1235)
+    H2 0-3%   cand 0.000 (n=  3)   pool 0.134 (cells= 1277)
+    H2 3-8%   cand 1.000 (n=  1)   pool 0.358 (cells=  737)
+    H2 8-15%  cand 0.583 (n= 12)   pool 0.607 (cells=  944)
+    H2 15%+   cand 0.771 (n= 70)   pool 0.782 (cells= 1424)
+  raw ema1020x 2026 in_dd cells (no cooldown): hold20 = 0.7362 (cells 235), matched base avg 0.7022
+  pool hold20 by finer up bins [0.03, 0.05, 0.08, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4]: [0.165, 0.29, 0.428, 0.533, 0.605, 0.685, 0.783, 0.796, 0.789, 0.912]
+  expected 2026 hold20 from the candidates' own up values (finer bins, pool curve): 0.7196 vs observed 0.7474
+
+[6] Verdict inputs
+  independent match=True, look-ahead found=False, 2026 hold20=0.7474 vs matched base 0.7087 (diff +0.0387, block-bootstrap lo -0.087), null p=0.0010 (half x bucket 0.0040; stock x bucket 0.0455; same date x bucket 0.0120; cluster-adjusted ~0.097)
+  L1 kept in 7/10 core variants; 2026H2 62/86 (margin 1) below its base 0.762; plain up >= 0.2083 rule 2026 hold20 = 0.7642 (n=212)
+  extra nulls: no-spacing p=0.1740; fine-bin spaced p=0.0050; fine-bin no-spacing p=0.2020; same date x fine bin p=0.3440; half x fine bin p=0.0115
+  verdict rule (fixed before the extra nulls): refuted on mismatch/look-ahead; confirmed only if primary null
+  p < 0.05 AND L1 in every core variant AND block-bootstrap lo of (hold20 - matched) > 0; refuted if
+  (primary p >= 0.05 and the plain up>=median rule scores >= the candidate) or L1 in < half the core variants;
+  otherwise fragile.
+
+VERDICT: fragile
+  Reproduced exactly (243 first signals, every per-signal field and per-period rate), no look-ahead.
+  70%+: 2026 0.747 but the block-bootstrap 95% lower bound is 0.623; 2026H2 clears 70% by one hit
+  (62/86) and L1 breaks with fast span 9, delay +1 session and in_dd 15% (7/10 core variants keep it).
+  Information: +0.039 over the same-state baseline, registered L2 fails (lo -0.087);
+  all of the excess is in 2026H1 (H2 0.721 < its base 0.762, below base in 9 of 10 core variants). The iid bucket null
+  (p=0.001) depends on the per-stock spacing, which by itself lowers the null mean by 0.038 (cell-uniform null p=0.17,
+  fine-bin cell-uniform p=0.20), and ignores time clustering (design effect 5.6, cluster-adjusted p~0.10). Dropping the single
+  2026-03-19 block (n=40, the 2026-03-30 low rebound) leaves a 2026 excess of -0.004.
+  Mechanical: the plain rule 'up >= 20.8%' scores 0.764 (n=212) and also passes L1; through the same first-signal machinery a plain up rule at the
+  candidate's lateness scores 0.721 (gap +0.027). near5 0.205 and win20 0.459 equal their bases. The hit rate is mostly how far price had already rebounded.

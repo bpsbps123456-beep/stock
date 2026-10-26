@@ -1,0 +1,64 @@
+bottom_confirm — completeness/integrity critic notes (2026-10-26, claude critic step; read-only except this file)
+Scratch computations: /tmp/claude-0/-home-user-stock/524340a0-7f3c-5312-98ab-4291eb79b44c/scratchpad/{base.py,mt.py,mt_table.csv}
+Everything below marked (critic, post-hoc) was computed after seeing results and is not part of the registered verdict.
+
+1. CELL COUNT AND PASSES
+- Evaluated registered cells: 109 = 55 SOXX + 54 STK (F1 10, F2 7 (capit SOXX-only), F3 6, F4 9, F5 7, F6 10 incl. news_GSR_posthoc, F7 6).
+  BRIEF says "54 rules x 2 = 108"; the listed families add to 55 rules. Strictly pre-registered (excluding news_GSR_posthoc): 107.
+  3 STK cells have zero signals (vix35_15, vix35_25, vxn35_20).
+- L1 passes: 18 (SOXX 14, STK 4); 17 excluding GSR. L2 passes: 5 (SOXX up8, sig3, news_R, news_GSR_posthoc; STK sig6); 4 excluding GSR.
+
+2. CHANCE EXPECTATION (critic, post-hoc; 1000 sims per cell; verdict logic copied from bc_lib.verdict, bootstrap B=400)
+- Null A, unconditional: SOXX signal hold20 ~ Bernoulli(year base: 2024 0.761, 2025 0.602, 2026 0.574);
+  STK signal replaced by a random in_dd stock on the SAME date (keeps market clustering).
+  Expected L1 = 4.1 (all SOXX), expected L2 = 0.4.  Observed 18 / 5.
+- Null B, same rebound state: SOXX hold20 ~ Bernoulli(per-signal matched base); STK = random in_dd stock, same date, same up bin.
+  Expected L1 = 14.8 (SOXX 11.1, STK 3.7), expected L2 = 3.0 (SOXX 2.95, almost all from the all-hold artifact:
+  up8 0.88, sig4 0.34, up10 0.24, sig3 0.24). Observed 18 / 5.
+  => The L1 count is what rebound size alone produces. Non-mechanical L2 expected by chance ~1; observed 1 (news_R) + its overlapping post-hoc twin (GSR).
+- Same-state random-date null for the 6 L1 rules no verifier checked (year x up-bucket, 20,000 draws):
+  since5_up3 p=0.93, news_R p=0.035, news_RafterD p=0.25, news_GSR_posthoc p=0.015 (post-hoc), c_up5_since5 p=0.84, c_up5_ma20 p=0.62.
+  news_R p=0.035 does not survive ~109 cells (Bonferroni 0.00046).
+
+3. MUST-FIX: RIGHT-CENSORING BIAS IN bc_lib.outcome_frame
+- hold20/hold40 are NaN whenever the forward window is incomplete, even when a close below Ldd has ALREADY been observed.
+  Early failures are known, but successes are not, so dropping them biases hold rates up near the data end (the 2026-10 decline).
+- Counting already-observed breaks as failures (critic, post-hoc):
+  STK up20      2026 0.758 -> 0.744; 2026H2 0.716 -> 0.692  (L1 would FAIL)
+  STK ema1020x  2026 0.747 -> 0.729; 2026H2 0.721 -> 0.681  (L1 would FAIL)
+  STK sig4      2026 0.750 -> 0.717; 2026H2 0.787 -> 0.716
+  STK sig6      2026 0.854 -> 0.812; 2026H2 0.868 -> 0.786
+  SOXX news_RafterD 0.889 -> 0.800 (2026-10-15 signal already broke after 6 sessions)
+  Fix: hold = 0 if min(available forward closes) < Ldd, NaN only if no break yet; apply to the matched baseline too; re-run all verdicts; disclose as an engine bug fix.
+
+4. ENGINE QUIRK: in_dd DAYS AT A NEW 60-DAY HIGH
+- in_dd stays true for 20 sessions after the drawdown, so on a new 60-day closing high Ldd resets to today's close (up = 0, dd60 = 0).
+  SOXX 2024~2026: 24 such days (hold20 0.50); 76 in_dd days within 5% of the 60-day high (20%). STK 2026: 340 days (hold20 0.15).
+  Signals there test "the breakout holds", not "the bottom is in" (e.g. news_R 2026-04-14, ema1020x 2026-04-08), and they sit in the 0-3% bin of the matched baseline.
+  Excluding signals with dd60 > -5%: news_R 0.90 (n10) vs base 0.72; other L1 rules change by at most 0.1 and stay at/below matched.
+
+5. news_R (the only L2 not explained by rebound size) — NOT verified, fragile
+- 12/13 vs matched 0.707, up median 5.5%, dlo +0.055. 2026: 4/5, dlo -0.13. lag1: L2 lost. STK: 0.494 vs 0.504.
+- Alternate family codings in n4h14_signals.csv (critic, post-hoc): fam_altA 0.857 (n14) dlo -0.033; fam_altB 0.786 (n14) dlo -0.073 -> L2 lost under both.
+- 82 R notes since 2023; the earlier news_followup study found R failed on 5-20d returns, and 62% of R notes come after the price-based reversal confirmation.
+- news_GSR_posthoc was picked in news_followup on the same 2024~2026 data, so its L1/L2 are circular and cannot count as evidence.
+
+6. REBOUND-SIZE TABLE (in_dd days, hold20 by up bin; days are autocorrelated and come from few episodes)
+  SOXX 2024~2026: 0-3% 0.35 | 3-5% 0.55 | 5-8% 0.71 | 8-10% 0.95 | 10-15% 1.00 | 15%+ 1.00  (all 0.653)
+  SOXX 2026:      0-3% 0.34 | 3-5% 0.13 | 5-8% 0.41 | 8-10% 0.91 | 10%+ 1.00             (all 0.574)
+  STK 2026:       0-3% 0.17 | 5-8% 0.43 | 10-15% 0.61 | 15-20% 0.69 | 20-30% 0.79 | 30%+ 0.85 (all 0.468)
+  r20 does not rise with the bin: SOXX 10-15% +5.3% vs all +4.3%; STK 20-30% +3.9% vs all +3.1%; 2026H2 STK 30%+ -5.1%.
+  near5 in 2026H2 SOXX: 0.00-0.33 in every bin above 8%.
+
+7. OTHER DEVIATIONS / NOTES
+- bc_lib.verdict STK: 2025 check is exempt when n < 5; BRIEF lists no exemption for stocks. No L1 outcome changes.
+- Matched-baseline half key is Jan-Jun / Jul-Dec, but the reporting H1 ends 2026-05-29: June signals compare to the H1 baseline.
+- BRIEF says every L1 candidate gets an independent recompute, neighbours, lag-1 and a same-state random-date null.
+  Done for the 12 F1/F2 L1 cells only. Not done for f3 since5_up3, f6 news_R/news_RafterD/news_GSR_posthoc, f7 c_up5_since5/c_up5_ma20:
+  family-level loop recomputes and lag/neighbour post-hoc runs exist, but there is no independent agent and no saved null (the f6 null is printed only).
+- F2 hl: the code fires only on the day the close first crosses H (C[t-1] <= H). BRIEF says only "today's close exceeds H". This is an interpretation.
+- F5 zweig: added an EWM warm-up of 20 values (0 signal days changed). F6: added a 120-observation minimum for soxs10/tqqq_in90 (BRIEF does not state it).
+- F4/F7: the registered runs use ^VIX 2026-02-06 = ^VIX3M (a data error). The panel-VIX sensitivity changes no L1.
+- No timing look-ahead found in any signal code: all windows end at t, outcomes start at t+1, entry is O[t+1], TQQQ flow is lagged 1 day, quantile baselines exclude today, and note signal day = entry session (one session conservative).
+  Non-timing risks: the 82-stock universe is the 2026 hindsight AI watchlist (lifts STK hold rates and F5 breadth); prices are back-adjusted yfinance snapshots; the news census was collected and LLM-coded in 2026-10 (55.6% headline/summary only, type kappa 0.77, GS weekly coverage 62.5%), so coding hindsight and publication bias are possible.
+- STK verifier nulls of p = 0.000-0.001 are anti-conservative (signals bunch into ~10 blocks). Clustered p is 0.01-0.23.

@@ -17,7 +17,7 @@
   dd60[t]  = C[t]/max(C[t-59..t]) − 1               60일 고점 대비 낙폭
   up[t]    = C[t]/Ldd[t] − 1                        하락 저점 대비 이미 오른 폭(늦음의 값)
   in_dd[t] = min(dd60[t-19..t]) ≤ −THR              최근 20거래일 안에 60일 고점 대비 −THR 이하였다(하락 국면)
-  hold20   = min(C[t+1..t+20]) ≥ Ldd[t]             주 결과 '바닥 확인': 앞으로 한 달 안에 그 하락 저점을 다시 깨지 않음
+  hold20   = min(C[t+1..t+20]) ≥ Ldd[t]             주 결과(창이 덜 찼어도 이미 깨졌으면 0) '바닥 확인': 앞으로 한 달 안에 그 하락 저점을 다시 깨지 않음
   hold40   = min(C[t+1..t+40]) ≥ Ldd[t]             보조(두 달)
   (처음 정의한 '60일 최저 종가'는 큰 상승 뒤 하락에서 저점이 석 달 전 값이라 거의 항상 지켜져(2026 in_dd 날 100%)
    신호를 계산하기 전에 이 정의로 바꿨다.)
@@ -144,21 +144,37 @@ def outcome_frame(O: pd.DataFrame, C: pd.DataFrame, thr: float) -> dict[str, pd.
     L60 = Ldd
 
     def fwd_min(start, length):
+        """반환 (창 최저, 창이 다 찼는지). 창이 덜 찼으면 지금까지 본 값의 최저."""
         out = np.full((N, K), np.nan)
+        full = np.zeros((N, K), bool)
         for t in range(N):
-            a, b = t + start, t + start + length
-            if b <= N:
-                blk = Cv[a:b]
-                out[t] = np.where(np.isnan(blk).any(0), np.nan, np.nanmin(blk, 0))
+            a, b = t + start, min(t + start + length, N)
+            if a >= N:
+                continue
+            blk = Cv[a:b]
+            seen = ~np.isnan(blk).all(0)
+            out[t] = np.where(seen, np.nanmin(np.where(np.isnan(blk), np.inf, blk), 0), np.nan)
+            full[t] = (t + start + length <= N) & ~np.isnan(blk).any(0)
+        return out, full
+
+    def broke(mn, full, level):
+        """창 안에서 이미 깨졌으면 0, 다 찬 창에서 안 깨졌으면 1, 덜 찬 창에서 아직 안 깨졌으면 NaN.
+        (2026-10-26 엔진 수정: 처음에는 덜 찬 창을 모두 NaN으로 두어, 자료 끝에서 이미 실패한 신호가 빠지고
+        성공만 나중에 세어지는 쪽으로 기울었다.)"""
+        out = np.full((N, K), np.nan)
+        ok = ~np.isnan(mn) & ~np.isnan(level)
+        b = ok & (mn < level - 1e-12)
+        out[b] = 0.0
+        h = ok & ~b & full
+        out[h] = 1.0
         return out
 
-    m20, m40 = fwd_min(1, 20), fwd_min(1, 40)
-    hold20 = np.where(np.isnan(m20) | np.isnan(L60), np.nan, (m20 >= L60 - 1e-12).astype(float))
-    hold40 = np.where(np.isnan(m40) | np.isnan(L60), np.nan, (m40 >= L60 - 1e-12).astype(float))
+    (m20, f20), (m40, f40) = fwd_min(1, 20), fwd_min(1, 40)
+    hold20 = broke(m20, f20, L60)
+    hold40 = broke(m40, f40, L60)
     Oe = np.full((N, K), np.nan)
     Oe[:-1] = Ov[1:]
-    me40 = fwd_min(1, 40)                                      # C[e..e+39] = C[t+1..t+40]
-    near5 = np.where(np.isnan(me40) | np.isnan(Oe), np.nan, (me40 >= 0.95 * Oe).astype(float))
+    near5 = broke(m40, f40, 0.95 * Oe)                         # C[e..e+39] = C[t+1..t+40]
     r20 = np.full((N, K), np.nan)
     r20[:N - 20] = Cv[20:] / Oe[:N - 20] - 1                   # C[t+20] = C[e+19]
     r60 = np.full((N, K), np.nan)

@@ -1,0 +1,127 @@
+====================================================================================================
+Verification of bottom_confirm F1 'sig4' on STK (82 US AI stocks): up >= 4 * sigma20
+Independent re-implementation from raw CSVs (no bc_lib / f1_rebound import).
+====================================================================================================
+Data: data/derived/desk/prices_close.csv + prices_open.csv, 82 US stocks (QQQ, .KS, =X dropped), 2025-06-02..2026-10-23, 352 sessions; data calendar == XNYS sessions: True (352 sessions)
+Late listings (no fill, features start after 60 closes): [('CRCL', datetime.date(2025, 6, 5)), ('SKHY', datetime.date(2026, 7, 10)), ('SPCX', datetime.date(2026, 6, 12))]
+
+----------------------------------------------------------------------------------------------------
+1. INDEPENDENT RE-IMPLEMENTATION vs FAMILY FILES
+----------------------------------------------------------------------------------------------------
+First signals: family 328, mine 328, common 328, family-only 0, mine-only 0
+Per-signal field check on common signals (NaN pattern equal, max |diff|): pos: True/0.00e+00, up: True/9.02e-17, dd60: True/9.71e-17, hold20: True/0.00e+00, near5: True/0.00e+00, win20: True/0.00e+00, r20: True/2.22e-16
+
+period             n f/m  hold20_n f/m hold20 fam hold20 mine     near5 f/m     win20 f/m         r20 f/m     upmed f/m blocks f/m
+2025-09~2026    328/328     313/313        0.7540      0.7540  0.246/0.246  0.482/0.482 +0.0426/+0.0426  0.190/0.190   15/15  
+2026            275/275     260/260        0.7500      0.7500  0.242/0.242  0.469/0.469 +0.0303/+0.0303  0.189/0.189   11/11  
+2026H1          138/138     138/138        0.7174      0.7174  0.246/0.246  0.500/0.500 +0.0673/+0.0673  0.180/0.180    6/6   
+2026H2          137/137     122/122        0.7869      0.7869  0.235/0.235  0.434/0.434 -0.0115/-0.0115  0.206/0.206    6/6   
+2025             53/53       53/53         0.7736      0.7736  0.264/0.264  0.547/0.547 +0.1031/+0.1031  0.222/0.222    5/5   
+Max |diff| of period statistics: 8.33e-17  ->  INDEPENDENT MATCH: True
+Registered L1 recomputed: PASS; reported L1=True, L2=False
+Block-bootstrap 95% CI of hold20 (2026, 20-session calendar blocks, B=5000): [0.647, 0.823] over 10 blocks; H1 [0.598, 0.819] (6 blocks), H2 [0.596, 0.874] (5 blocks)
+2026 signals by 20-session block (signals are cross-sectionally clustered):
+  block   7 2026-01-02..2026-01-16  n= 25  hold20=0.560
+  block   8 2026-01-22..2026-02-17  n= 12  hold20=0.583
+  block   9 2026-02-19..2026-03-17  n= 25  hold20=0.680
+  block  10 2026-03-19..2026-04-16  n= 47  hold20=0.872
+  block  11 2026-04-17..2026-05-14  n= 18  hold20=0.722
+  block  12 2026-05-19..2026-06-12  n= 15  hold20=0.600
+  block  13 2026-06-15..2026-07-08  n= 23  hold20=0.609
+  block  14 2026-07-15..2026-08-11  n= 46  hold20=0.848
+  block  15 2026-08-12..2026-09-09  n= 36  hold20=0.917
+  block  16 2026-09-10..2026-09-23  n= 13  hold20=0.615
+  largest 3 blocks hold 129/260 signals; block-mean (equal weight per block) hold20 = 0.701
+
+----------------------------------------------------------------------------------------------------
+2. LOOK-AHEAD AUDIT
+----------------------------------------------------------------------------------------------------
+2a Truncation test: signal/in_dd/up/Ldd at day T recomputed from data ending at T, 30 cut points, mismatches = 0  (0 -> signal uses no data after T)
+2b Static scan f1_rebound.py: no negative shifts / centered windows / back-fills
+2b Static scan bc_lib.py: no negative shifts / centered windows / back-fills
+2c Manual reading: f1_rebound.build_rules uses fr['up'] (Ldd over [60d-peak..t]) and sigma20 = (C/C.shift(1)-1).rolling(20).std() (window ends at t); bc_lib.in_dd = dd60.rolling(20).min() (ends at t); first_signals uses only signal/in_dd/date; outcomes start at t+1 (hold20 = C[t+1..t+20], entry O[t+1]). The matched baseline averages outcomes of other in_dd days but is only a comparison, not a signal input. F1 uses no flow/news data.
+2d Caveats (not look-ahead in the signal): (i) the desk cache is a download-time snapshot, so prices are split/dividend-adjusted as of download; ratios inside 60-day windows are unaffected except for dividends inside the window (tiny for these names). (ii) Data start 2025-06-02 means Ldd and in_dd in Sep 2025 can only see back to June 2025 (truncated look-back, affects the 2025 slice only). (iii) Universe = the current desk watchlist (82 AI names) -> possible survivorship/selection bias (names that collapsed and were never or no longer watched are absent; not verified here); it would lift 'the low held' for rule and baseline alike.
+
+----------------------------------------------------------------------------------------------------
+3. ROBUSTNESS  hold20 (n with outcome) in 2026 | 2026H1 | 2026H2 | 2025(Sep-Dec); registered L1 check
+----------------------------------------------------------------------------------------------------
+variant                                   2026       2026H1       2026H2         2025
+BASE sig4 (m=4)                    0.750 (260)  0.717 (138)  0.787 (122)  0.774 ( 53)  upmed26=0.189  L1=PASS
+m=3                                0.683 (315)  0.648 (165)  0.720 (150)  0.681 ( 72)  upmed26=0.168  L1=fail
+m=3.5                              0.703 (296)  0.671 (155)  0.738 (141)  0.738 ( 61)  upmed26=0.178  L1=fail
+m=4.5                              0.793 (232)  0.763 (118)  0.825 (114)  0.778 ( 45)  upmed26=0.218  L1=PASS
+m=5                                0.807 (207)  0.816 (103)  0.798 (104)  0.789 ( 38)  upmed26=0.234  L1=PASS
+m=6                                0.854 (157)  0.840 ( 81)  0.868 ( 76)  0.840 ( 25)  upmed26=0.267  L1=PASS
+lag1: rule fired at t-1, act at t  0.730 (259)  0.679 (137)  0.787 (122)  0.731 ( 52)  upmed26=0.185  L1=fail
+entry delay: same signals, eval t+1 0.724 (261)  0.669 (139)  0.787 (122)  0.712 ( 52)  upmed26=0.185  L1=fail
+persist: fires t-1 and t           0.814 (215)  0.789 (109)  0.840 (106)  0.786 ( 42)  upmed26=0.222  L1=PASS
+cooldown 10                        0.764 (381)  0.723 (202)  0.810 (179)  0.831 ( 71)  upmed26=0.209  L1=PASS
+cooldown 30                        0.725 (211)  0.722 (108)  0.728 (103)  0.792 ( 48)  upmed26=0.189  L1=PASS
+in_dd thr 15%                      0.739 (295)  0.708 (161)  0.776 (134)  0.761 ( 88)  upmed26=0.181  L1=PASS
+in_dd thr 25%                      0.773 (198)  0.733 (105)  0.817 ( 93)  0.742 ( 31)  upmed26=0.212  L1=PASS
+sigma window 15 (m=4)              0.759 (261)  0.732 (138)  0.789 (123)  0.732 ( 56)  upmed26=0.191  L1=PASS
+sigma window 30 (m=4)              0.786 (252)  0.756 (135)  0.821 (117)  0.776 ( 49)  upmed26=0.204  L1=PASS
+Family post-hoc sig4_lag1 for comparison: 2026 0.730, H1 0.679, H2 0.787, 2025 0.731
+Family registered neighbours: sig3 2026 0.683 / H1 0.648 / H2 0.720, sig6 2026 0.854 / H1 0.840 / H2 0.868
+Variants failing the registered L1: 4/14 -> m=3, m=3.5, lag1: rule fired at t-1, act at t, entry delay: same signals, eval t+1
+
+----------------------------------------------------------------------------------------------------
+4. NULL: random in_dd (stock, day) in 2026, same count and up-bucket mix, same 20-session cooldown, 2000 draws
+----------------------------------------------------------------------------------------------------
+Observed 2026: n=260, hold20=0.7500; bucket mix 0-3%=0, 3-8%=5, 8-15%=63, 15%+=192
+Pool: 9121 in_dd stock-days with outcome; pool hold20 by bucket 0-3%=0.165(n=2840), 3-8%=0.371(n=1686), 8-15%=0.582(n=1936), 15%+=0.771(n=2659)
+Pool-decile need (decile: count): 4:5, 5:17, 6:40, 7:74, 8:63, 9:61; top-decile edge up >= 0.284
+p(null >= obs) treats the 260 picks as independent. 'clustered p' block-bootstraps the per-signal gap (hold20 - null bucket mean) over 20-session blocks, because the signals sit in ~10 market-wide blocks.
+A. 4 up buckets (registered)               null mean 0.6447, 95% [0.6114, 0.6808], p = 0.0000 | gap +0.1053, block 95% [+0.0145, +0.1737], clustered p = 0.0132
+B. stock x bucket (7.8 picks/draw refilled) null mean 0.6583, 95% [0.6269, 0.6923], p = 0.0000 | gap +0.0917, block 95% [-0.0039, +0.1622], clustered p = 0.0276
+C. 10 up deciles (3.1 picks/draw no-cooldown) null mean 0.6775, 95% [0.6423, 0.7115], p = 0.0000 | gap +0.0725, block 95% [-0.0200, +0.1439], clustered p = 0.0616
+D. 4 up buckets, NO cooldown (1000)        null mean 0.7168, 95% [0.6692, 0.7654], p = 0.1090 | gap +0.0332, block 95% [-0.0597, +0.1019], clustered p = 0.2330
+Why the cooldown null sits below the per-day bucket average: in the 15%+ pool, the first day a stock enters the bucket holds 0.645 (n=479) while 15%+ days >= 20 sessions after Ldd hold 0.828 (n=984). Long persistent runs carry many pool days but the cooldown lets them contribute one pick per 21 sessions, so the cooldown null under-weights them. With no cooldown the null equals the day-weighted matched baseline (row D, ~= family hold20_base 0.711). Observed 15%+ signals: 0.781 (n=192) vs day-weighted 15%+ pool 0.771; median sessions since Ldd: signals 10, pool 6.
+  supplementary 2026H1: obs 0.7174 (n=138), null mean 0.6381, p = 0.0030
+  supplementary 2026H2: obs 0.7869 (n=122), null mean 0.6440, p = 0.0000
+
+----------------------------------------------------------------------------------------------------
+5. MECHANICAL CHECK: is hold20 just a function of how far price has already rebounded (up)?
+----------------------------------------------------------------------------------------------------
+Candidate's 2026 median up: mine 0.1887 (family reported 0.1887)
+variant                                   2026       2026H1       2026H2         2025
+BASE sig4 (m=4)                    0.750 (260)  0.717 (138)  0.787 (122)  0.774 ( 53)  upmed26=0.189  L1=PASS
+plain up >= 0.1887                 0.740 (231)  0.791 (110)  0.694 (121)  0.750 ( 52)  upmed26=0.223  L1=fail
+plain up >= 0.1500                 0.693 (287)  0.698 (149)  0.688 (138)  0.698 ( 63)  upmed26=0.180  L1=fail
+plain up >= 0.2000                 0.758 (215)  0.808 ( 99)  0.716 (116)  0.745 ( 47)  upmed26=0.233  L1=PASS
+plain up >= 0.2500                 0.817 (164)  0.886 ( 79)  0.753 ( 85)  0.784 ( 37)  upmed26=0.279  L1=PASS
+k-NN (300 nearest in up, same half, all in_dd stock-days) expected hold20 2026H1: 0.6906  vs observed 0.7174 (n=138) -> diff +0.0267
+k-NN (300 nearest in up, same half, all in_dd stock-days) expected hold20 2026H2: 0.7399  vs observed 0.7869 (n=122) -> diff +0.0470
+  2026 pooled: expected 0.7137 vs observed 0.7500
+Within-up-decile comparison over all 2026 in_dd stock-days (sig4 true vs false):
+  decile 4: up 0.053..0.081  sig4 0.818 (n=   11)  not 0.443 (n=  901)
+  decile 5: up 0.081..0.111  sig4 0.685 (n=   89)  not 0.535 (n=  824)
+  decile 6: up 0.111..0.146  sig4 0.737 (n=  251)  not 0.571 (n=  660)
+  decile 7: up 0.146..0.196  sig4 0.745 (n=  463)  not 0.601 (n=  449)
+  decile 8: up 0.196..0.283  sig4 0.822 (n=  641)  not 0.672 (n=  271)
+  decile 9: up 0.284..1.596  sig4 0.849 (n=  855)  not 0.776 (n=   58)
+  sig4-weighted within-decile difference (sig4 - not): +0.1233
+Logit hold20 ~ log1p(up) + log1p(up)^2 + sig4 on 9121 stock-days: sig4 coef +0.441 (naive SE 0.078; stock-days are heavily cross-correlated, so the true SE is several times larger)
+  up-only logit: predicted hold20 on sig4 days 0.770 vs actual 0.802
+  -> at a given up, sig4 days hold more often because sig4 also means LOW trailing volatility: the cushion above Ldd is larger in sigma units. That is still a price-distance effect, now scaled by volatility:
+  Random-walk benchmark (driftless Gaussian, trailing sigma20, 20 closes must stay above Ldd): first signals 2026 predicted 0.733 vs actual 0.750 (H1 0.733 vs 0.717, H2 0.734 vs 0.787); median z of signals 4.18
+  z-quantile calibration on all 2026 in_dd stock-days (actual vs random-walk; actual for sig4 / non-sig4):
+    z  0.00..  0.65: actual 0.157 RW 0.141  sig4   nan (n=   0)  non 0.157 (n=2737)
+    z  0.65..  1.25: actual 0.265 RW 0.269  sig4   nan (n=   0)  non 0.265 (n= 911)
+    z  1.25..  1.85: actual 0.424 RW 0.364  sig4   nan (n=   0)  non 0.424 (n= 912)
+    z  1.85..  2.48: actual 0.577 RW 0.457  sig4   nan (n=   0)  non 0.577 (n= 912)
+    z  2.48..  3.25: actual 0.609 RW 0.555  sig4   nan (n=   0)  non 0.609 (n= 913)
+    z  3.25..  4.22: actual 0.696 RW 0.658  sig4 0.740 (n= 485)  non 0.646 (n= 426)
+    z  4.22..  5.64: actual 0.775 RW 0.773  sig4 0.775 (n= 912)  non   nan (n=   0)
+    z  5.64.. 13.67: actual 0.862 RW 0.912  sig4 0.862 (n= 913)  non   nan (n=   0)
+  k-NN in z (300 nearest, same half) expected hold20 2026H1: 0.6806 vs observed 0.7174 -> diff +0.0368
+  k-NN in z (300 nearest, same half) expected hold20 2026H2: 0.8136 vs observed 0.7869 -> diff -0.0267
+  2026 pooled z-matched expectation 0.7430 vs observed 0.7500
+Outcome quality of the candidate in 2026: near5 0.242 (n=223), win20 0.469 (n=260), mean r20 +0.0303; matched baseline (family) hold20 0.7113, dlo -0.0463
+
+----------------------------------------------------------------------------------------------------
+6. VERDICT
+----------------------------------------------------------------------------------------------------
+independent match: True; look-ahead found: False; null p (registered buckets, independent picks) = 0.0000; clustered p = 0.0132; lag1 fails L1: True; neighbour multipliers failing L1: ['m=3.5', 'm=3']; variants failing L1: 4/14
+Key facts: 2026 hold20 0.750 (n=260, 10 blocks, block CI [0.647, 0.823]); H1 0.717 is only 1.7pp above the 70% line and drops to 0.679 with a one-session delay; m=3.5 gives 2026 0.703 / H1 0.671. Plain up >= 0.189 gives 2026 0.740 (H1 0.791, H2 0.694). Excess over the family's day-weighted matched baseline is +0.039 with block lower bound -0.046; near5 0.242, win20 0.469: the 'confirmation' arrives after a ~19% rebound and is followed by a coin-flip 20-day return.
+VERDICT: fragile

@@ -1,0 +1,125 @@
+==============================================================================================================
+Independent verification: family f2, rule ma20x2, kind SOXX  (no bc_lib import)
+==============================================================================================================
+Data: SOXX close 2023-01-03..2026-10-23  N=956; open from 2023-12-01
+  overlap max |us_prices_close - prices.csv| = 2.84e-14; XNYS sessions missing=0 extra=0
+
+[1] Independent re-implementation vs family files
+      date  pos     up  hold20  base_hold20  near5  win20     r20      Ldd    dd60    m_t    m_t2
+2024-04-29  331 0.1016  1.0000       1.0000 1.0000 1.0000  0.1148 198.3900 -0.0808 0.0134 -0.0193
+2024-08-16  407 0.1603  1.0000       1.0000 0.0000 0.0000 -0.0454 199.2900 -0.1290 0.0431 -0.0065
+2024-09-20  431 0.1223  1.0000       1.0000 0.0000 1.0000  0.0205 199.2900 -0.1575 0.0153 -0.0144
+2024-12-03  482 0.0407  1.0000       0.9062 0.0000 0.0000 -0.0327 211.2100 -0.0834 0.0021 -0.0178
+2025-01-06  504 0.0838  1.0000       1.0000 0.0000 0.0000 -0.0479 211.2100 -0.0454 0.0414 -0.0114
+2025-03-25  557 0.0628  0.0000       0.6400 0.0000 0.0000 -0.1484 192.1200 -0.1341 0.0104 -0.0191
+2025-04-25  579 0.1934  1.0000       1.0000 1.0000 1.0000  0.1015 154.8600 -0.2002 0.0633 -0.0114
+2025-11-28  729 0.1068  1.0000       1.0000 1.0000 1.0000  0.0425 268.1000 -0.0415 0.0199 -0.0298
+2026-03-25  808 0.0672  0.0000       0.3200 0.0000 1.0000  0.2992 323.5100 -0.0618 0.0170 -0.0148
+2026-06-09  860 0.0414  1.0000       0.3200 0.0000 1.0000  0.0545 539.7700 -0.0870 0.0222 -0.0113
+2026-08-07  901 0.1683  1.0000       1.0000 0.0000 0.0000 -0.0476 465.0000 -0.1706 0.0272 -0.0048
+2026-09-09  923 0.1441  1.0000       0.9688    NaN 1.0000  0.1244 465.0000 -0.1878 0.0167 -0.0068
+  first-signal dates identical to family: True  (mine 12, family 12)
+  per-signal field mismatches: none
+  period      mine hold20 (n)   family hold20 (n)   mine base   family base
+  2024~2026   0.8333 (12)      0.8333 (12)          0.8463      0.8463   OK
+  2026        0.7500 ( 4)      0.7500 ( 4)          0.6522      0.6522   OK
+  2026H1      0.0000 ( 1)      0.0000 ( 1)          0.3200      0.3200   OK
+  2026H2      1.0000 ( 3)      1.0000 ( 3)          0.7629      0.7629   OK
+  2025        0.7500 ( 4)      0.7500 ( 4)          0.9100      0.9100   OK
+  2024        1.0000 ( 4)      1.0000 ( 4)          0.9766      0.9766   OK
+  family-reported numbers (n, hold20, near5, win20, r20, up_median) reproduced: True
+  => independent match: True
+  main: n=12 hold20=0.8333 base=0.8463 near5=0.2727 win20=0.5833 r20=0.0363 up_med=0.1042
+  my 20-session block bootstrap of (hold20 - matched base), main: diff=-0.0129 95% [-0.179, +0.149]  (family dlo -0.171) -> L2 fail
+  unconditional in_dd hold20 2024~2026 = 0.6530 (days=366); binomial P(X>=10/12 | p=0.653) = 0.156; | p=matched 0.846: 0.723
+  identity check ma20x2[t] == ma20x[t-1] & C[t] > SMA20[t]: True (ma20x2 is ma20x delayed one session, keeping only reclaims that survive the next close)
+
+[2] Look-ahead audit
+  truncation test on 386 in_dd days (signal, in_dd, Ldd recomputed from C[..t] only): all identical
+  code read (code/f2_reclaim.py): ma20x2() = (C > s) & (C.shift(1) > s.shift(1)) & (C.shift(2) <= s.shift(2)),
+  s = C.rolling(20, min_periods=20).mean() -> trailing window ending at t; shifts are positive (past). No
+  market/flow/news input. bc_lib Ldd/dd60/in_dd use windows ending at t; outcomes start at t+1, entry O[t+1].
+  The matched baseline averages same-year outcomes (evaluation reference only, not a signal input).
+  margins |C/SMA20-1| at t and t-2 across signals: min 0.21% (dividend back-adjustment moves the ratio by <~0.2% only inside ex-date windows)
+  signals with a margin < 0.2% (adjustment-sensitive): none
+
+[3] Robustness (hold20 (n) per period; main = 2024~2026)
+  base n=20 k=2 cool=20 thr=10% d=0  main 0.833(12)   2026 0.750(4)   H1 0.000(1)   H2 1.000(3)   2025 0.750(4)   2024 1.000(4)   upmed 0.104 base 0.846
+  -- one step either side --
+  SMA n=19                           main 0.833(12)   2026 0.750(4)   H1 0.000(1)   H2 1.000(3)   2025 0.750(4)   2024 1.000(4)   upmed 0.104 base 0.846
+  SMA n=21                           main 0.917(12)   2026 1.000(4)   H1 1.000(1)   H2 1.000(3)   2025 0.750(4)   2024 1.000(4)   upmed 0.105 base 0.898
+  days-above k=1 (= ma20x)           main 0.769(13)   2026 0.750(4)   H1 0.000(1)   H2 1.000(3)   2025 0.750(4)   2024 0.800(5)   upmed 0.087 base 0.823
+  days-above k=3                     main 0.909(11)   2026 0.750(4)   H1 1.000(1)   H2 0.667(3)   2025 1.000(3)   2024 1.000(4)   upmed 0.111 base 0.893
+  delay +1 session                   main 0.833(12)   2026 0.750(4)   H1 0.000(1)   H2 1.000(3)   2025 0.750(4)   2024 1.000(4)   upmed 0.093 base 0.809
+  cooldown 10                        main 0.786(14)   2026 0.600(5)   H1 0.000(1)   H2 0.750(4)   2025 0.750(4)   2024 1.000(5)   upmed 0.094 base 0.834
+  cooldown 30                        main 0.750(8)    2026 0.667(3)   H1 0.000(1)   H2 1.000(2)   2025 0.500(2)   2024 1.000(3)   upmed 0.084 base 0.773
+  in_dd thr 8%                       main 0.688(16)   2026 0.667(6)   H1 0.333(3)   H2 1.000(3)   2025 0.750(4)   2024 0.667(6)   upmed 0.068 base 0.677
+  in_dd thr 12%                      main 0.800(10)   2026 0.750(4)   H1 0.000(1)   H2 1.000(3)   2025 0.667(3)   2024 1.000(3)   upmed 0.115 base 0.811
+  -- wider context --
+  SMA n=18                           main 0.846(13)   2026 0.750(4)   H1 0.000(1)   H2 1.000(3)   2025 0.800(5)   2024 1.000(4)   upmed 0.102 base 0.828
+  SMA n=22                           main 0.917(12)   2026 1.000(4)   H1 1.000(1)   H2 1.000(3)   2025 0.750(4)   2024 1.000(4)   upmed 0.110 base 0.900
+  SMA n=15                           main 0.846(13)   2026 0.750(4)   H1 0.000(1)   H2 1.000(3)   2025 0.800(5)   2024 1.000(4)   upmed 0.102 base 0.801
+  SMA n=25                           main 1.000(10)   2026 1.000(4)   H1 1.000(1)   H2 1.000(3)   2025 1.000(2)   2024 1.000(4)   upmed 0.117 base 0.984
+  SMA n=30                           main 0.900(10)   2026 1.000(3)   H1 1.000(1)   H2 1.000(2)   2025 1.000(2)   2024 0.800(5)   upmed 0.122 base 0.927
+  SMA n=50                           main 0.875(8)    2026 1.000(2)   H1 1.000(1)   H2 1.000(1)   2025 1.000(2)   2024 0.750(4)   upmed 0.118 base 0.909
+  SMA n=10 k=2                       main 0.714(14)   2026 0.500(4)   H1 0.000(1)   H2 0.667(3)   2025 0.800(5)   2024 0.800(5)   upmed 0.085 base 0.797
+  delay +2 sessions                  main 0.833(12)   2026 0.750(4)   H1 0.000(1)   H2 1.000(3)   2025 0.750(4)   2024 1.000(4)   upmed 0.108 base 0.833
+  L1 (registered SOXX rule) and main hold20 - matched base, per variant:
+    base n=20 k=2 cool=20 thr=10% d=0  L1=True   diff=-0.013  2026H1 0.00(1)
+    SMA n=19                           L1=True   diff=-0.013  2026H1 0.00(1)
+    SMA n=21                           L1=True   diff=+0.019  2026H1 1.00(1)
+    days-above k=1 (= ma20x)           L1=True   diff=-0.054  2026H1 0.00(1)
+    days-above k=3                     L1=True   diff=+0.016  2026H1 1.00(1)
+    delay +1 session                   L1=True   diff=+0.024  2026H1 0.00(1)
+    cooldown 10                        L1=False  diff=-0.048  2026H1 0.00(1)
+    cooldown 30                        L1=False  diff=-0.023  2026H1 0.00(1)
+    in_dd thr 8%                       L1=False  diff=+0.011  2026H1 0.33(3)
+    in_dd thr 12%                      L1=True   diff=-0.011  2026H1 0.00(1)
+    SMA n=18                           L1=True   diff=+0.018  2026H1 0.00(1)
+    SMA n=22                           L1=True   diff=+0.016  2026H1 1.00(1)
+    SMA n=15                           L1=True   diff=+0.045  2026H1 0.00(1)
+    SMA n=25                           L1=True   diff=+0.016  2026H1 1.00(1)
+    SMA n=30                           L1=True   diff=-0.027  2026H1 1.00(1)
+    SMA n=50                           L1=False  diff=-0.034  2026H1 1.00(1)
+    SMA n=10 k=2                       L1=False  diff=-0.083  2026H1 0.00(1)
+    delay +2 sessions                  L1=True   diff=+0.001  2026H1 0.00(1)
+  core variants keeping L1: 7/10; core variants with main hold20 > matched base: 4/10
+
+[4] Null: random in_dd dates in 2024~2026, same count and up-bucket mix, pairwise spacing > 20 sessions
+  observed hold20 = 0.8333; bucket mix (0-3,3-8,8-15,15+) = [0, 4, 5, 3]; pool days = 366 by bucket [148, 82, 77, 59]
+  pool hold20 by bucket: [0.345, 0.646, 0.987, 1.0]
+  draws=2000 (attempts 2931); null mean=0.8427 sd=0.0692 q05=0.750 q95=0.917
+  p = P(null hold20 >= observed) = 0.7790
+  secondary (year x bucket matched): draws=2000 mean=0.8307 p=0.7100
+  2026-only null: observed 0.750 (n=4, buckets [0, 2, 1, 1]), null mean 0.646, p=0.5160
+
+[5] Mechanical comparison: plain rule up >= candidate median up (same in_dd / first-signal / cooldown)
+  up >= 0.1042                       main 1.000(11)   2026 1.000(4)   H1 1.000(1)   H2 1.000(3)   2025 1.000(3)   2024 1.000(4)   upmed 0.118 base 0.991
+  up >= 0.0500                       main 0.750(16)   2026 0.600(5)   H1 0.000(1)   H2 0.750(4)   2025 0.800(5)   2024 0.833(6)   upmed 0.075 base 0.808
+  up >= 0.0800                       main 1.000(12)   2026 1.000(4)   H1 1.000(1)   H2 1.000(3)   2025 1.000(4)   2024 1.000(4)   upmed 0.094 base 0.990
+  up >= 0.1000                       main 1.000(12)   2026 1.000(4)   H1 1.000(1)   H2 1.000(3)   2025 1.000(4)   2024 1.000(4)   upmed 0.115 base 0.992
+  up >= 0.1500                       main 1.000(8)    2026 1.000(2)   H1   -  (0)   H2 1.000(2)   2025 1.000(3)   2024 1.000(3)   upmed 0.176 base 1.000
+  all in_dd days 2024~2026 with up >= 0.1042 (no cooldown): hold20 = 1.0000 (days 109); with up < it: 0.5058 (days 257)
+  within-bucket comparison, 2024~2026 (candidate first signals vs all in_dd pool days):
+    bucket 3-8%   cand 0.500 (n=4)   pool 0.646 (days=82)   cand dates ['2024-12-03', '2025-03-25', '2026-03-25', '2026-06-09']
+    bucket 8-15%  cand 1.000 (n=5)   pool 0.987 (days=77)   cand dates ['2024-04-29', '2024-09-20', '2025-01-06', '2025-11-28', '2026-09-09']
+    bucket 15%+   cand 1.000 (n=3)   pool 1.000 (days=59)   cand dates ['2024-08-16', '2025-04-25', '2026-08-07']
+  raw ma20x2 in_dd days (no cooldown): hold20 = 0.8571 (days 21), matched base avg 0.8515
+  failure 2025-03-25: up=6.3% Ldd=192.12, broken 2025-03-28 (C=188.68), new low 154.86 on 2025-04-08
+  failure 2026-03-25: up=6.7% Ldd=323.51, broken 2026-03-27 (C=323.48), new low 309.79 on 2026-03-30
+
+[6] Verdict inputs
+  independent match=True, look-ahead found=False, main hold20=0.8333 vs matched base 0.8463 (diff -0.0129), null p=0.7790 (year x bucket p=0.7100; 2026-only p=0.5160)
+  L1 per core variant: base n=20 k=2 cool=20 thr=10% d=0=True, SMA n=19=True, SMA n=21=True, days-above k=1 (= ma20x)=True, days-above k=3=True, delay +1 session=True, cooldown 10=False, cooldown 30=False, in_dd thr 8%=False, in_dd thr 12%=True
+  plain up>=0.1042 rule hold20 = 1.0000 (n=11); 2026H1 candidate hold20 = 0.00 (n=1)
+
+VERDICT: refuted
+  Reproduced exactly (12 first signals, all per-signal fields and per-period rates), no look-ahead.
+  But 83.3% is not above the same-state baseline (84.6%; L2 fails), the
+  random matched-date null gives mean 84.3% with p=0.78, and the plain rule
+  'up >= 10.4%' scores 100%. Failures sit in bucket(s) ['3-8%']; in the
+  3-8% bucket ma20x2 holds 50% (n=4) vs the pool's 64.6%, while the 8-15% / 15%+ pool
+  days already hold 98.7% / 100.0% with no signal. The only 2026H1 signal (2026-03-25) fired before the
+  03-30 low and failed (2026H1 0/1). L1 holds in 7/10 core variants (breaks with cooldown 10, cooldown 30, in_dd 8%);
+  main hold20 exceeds the matched base in only 4/10 core variants. The hit rate is explained by how far price
+  had already rebounded (up), not by the two-day SMA20 reclaim.

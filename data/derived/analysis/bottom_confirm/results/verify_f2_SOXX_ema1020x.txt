@@ -1,0 +1,148 @@
+======================================================================================================================
+Independent verification: family f2, rule ema1020x, kind SOXX  (no bc_lib import)
+======================================================================================================================
+Data: SOXX close 2023-01-03..2026-10-23  N=956; open from 2023-12-01
+  overlap max |us_prices_close - prices.csv| = 2.84e-14; XNYS sessions missing=0 extra=0
+
+[1] Independent re-implementation vs family files
+      date  pos     up    dd60      Ldd  hold20  base_hold20  hold40  near5  win20     r20     r60
+2024-05-07  337 0.1024 -0.0801 198.3900  1.0000       1.0000  1.0000 1.0000 1.0000  0.1206 -0.0452
+2024-08-21  410 0.1809 -0.1136 199.2900  1.0000       1.0000  1.0000 0.0000 0.0000 -0.0410 -0.0780
+2024-09-23  432 0.1267 -0.1542 199.2900  1.0000       1.0000  1.0000 0.0000 1.0000  0.0105 -0.0118
+2024-10-25  456 0.0157 -0.0426 226.0400  0.0000       0.4000  0.0000 0.0000 0.0000 -0.0581  0.0050
+2024-12-16  491 0.0768 -0.0515 211.2100  1.0000       0.9062  1.0000 0.0000 0.0000 -0.0058 -0.0907
+2025-05-01  583 0.1855 -0.2055 154.8600  1.0000       1.0000  1.0000 1.0000 1.0000  0.0904  0.3099
+2025-12-02  731 0.1296 -0.0218 268.1000  1.0000       1.0000  1.0000 0.0000 0.0000 -0.0110  0.1562
+2026-04-08  817 0.0000  0.0000 370.4000  1.0000       0.3404  1.0000 1.0000 1.0000  0.3651  0.5661
+2026-08-14  906 0.1837 -0.1597 465.0000  1.0000       1.0000  1.0000 0.0000 0.0000 -0.1085     NaN
+2026-09-21  931 0.2029 -0.1271 465.0000  1.0000       1.0000     NaN    NaN 0.0000 -0.0936     NaN
+  first-signal dates identical to family: True  (mine 10, family 10)
+  per-signal field mismatches: none
+  hold20 with 1e-12 tolerance vs strict >=: 0 signal(s) differ
+  period      mine hold20 (n)   family hold20 (n)   mine base   family base
+  2024~2026   0.9000 (10)      0.9000 (10)          0.8647      0.8647   OK
+  2026        1.0000 ( 3)      1.0000 ( 3)          0.7801      0.7801   OK
+  2026H1      1.0000 ( 1)      1.0000 ( 1)          0.3404      0.3404   OK
+  2026H2      1.0000 ( 2)      1.0000 ( 2)          1.0000      1.0000   OK
+  2025        1.0000 ( 2)      1.0000 ( 2)          1.0000      1.0000   OK
+  2024        0.8000 ( 5)      0.8000 ( 5)          0.8613      0.8613   OK
+  => independent match: True
+  main: n=10 hold20=0.9000 near5=0.3333 win20=0.4000 r20=0.0269 up_med=0.1281  L1(mine)=True
+  L2 check: main hold20 - matched base = +0.0353; my 20-session block bootstrap 2.5% = -0.1106 (family -0.1106) -> L2 fail
+  unconditional in_dd hold20 2024~2026 = 0.6530 (days=366)
+  binomial P(X >= 9/10 | p=0.653) = 0.089;  | p=matched base 0.865) = 0.599
+  note 2026-04-08: dd60=+0.0000 up=0 -> signal day is a new 60-session high, Ldd = today's close 370.40; hold20 means 'no close below the signal close in 20 sessions'
+  context: in_dd days at a new 60-session high (dd60=0) 2024~2026: 24 days, hold20 0.500; all of them fall in the 0-3% up bucket (pool mean there is dominated by days near a real low)
+
+[2] Look-ahead audit
+  truncation test (EMA signal, Ldd, in_dd recomputed with data cut at t, 706 sessions): all identical
+  f2_reclaim.ema_cross source: uses ewm(span, adjust=False) + shift(1); suspicious tokens in it: none
+  family pipeline: rule depends only on SOXX closes up to t; in_dd/Ldd windows end at t; outcomes start at
+  t+1 (entry O[t+1]); the matched baseline averages same-year outcomes (an evaluation reference, not an input).
+  EMA seed: both implementations seed EMA at the first close (2023-01-03), ~250 sessions before EVAL0, so
+  the seed is immaterial. Residual: Yahoo split/dividend-adjusted history (scale factors applied later) can
+  move an EMA10/EMA20 near-tie by a few bp; does not create forward information about outcomes.
+
+[3] Robustness (hold20 (n) per period; main = 2024~2026; EMA spans fast/slow)
+  base EMA 10/20 cool=20 thr=10% d=0 main 0.900(10)   2026 1.000(3)   H1 1.000(1)   H2 1.000(2)   2025 1.000(2)   2024 0.800(5)   upmed 0.128  base 0.865  win20 0.40
+  -- one step either side (fast +-2, slow +-5):
+  EMA 8/20                           main 0.900(10)   2026 1.000(3)   H1 1.000(1)   H2 1.000(2)   2025 1.000(2)   2024 0.800(5)   upmed 0.122  base 0.978  win20 0.50
+  EMA 12/20                          main 1.000(9)    2026 1.000(3)   H1 1.000(1)   H2 1.000(2)   2025 1.000(2)   2024 1.000(4)   upmed 0.140  base 0.916  win20 0.44
+  EMA 10/15                          main 0.900(10)   2026 1.000(3)   H1 1.000(1)   H2 1.000(2)   2025 1.000(2)   2024 0.800(5)   upmed 0.134  base 0.978  win20 0.40
+  EMA 10/25                          main 1.000(9)    2026 1.000(3)   H1 1.000(1)   H2 1.000(2)   2025 1.000(2)   2024 1.000(4)   upmed 0.140  base 0.916  win20 0.44
+  -- finer step (fast +-1, slow +-2) and diagonal:
+  EMA 9/20                           main 0.900(10)   2026 1.000(3)   H1 1.000(1)   H2 1.000(2)   2025 1.000(2)   2024 0.800(5)   upmed 0.126  base 0.927  win20 0.40
+  EMA 11/20                          main 1.000(9)    2026 1.000(3)   H1 1.000(1)   H2 1.000(2)   2025 1.000(2)   2024 1.000(4)   upmed 0.130  base 0.916  win20 0.44
+  EMA 10/18                          main 0.900(10)   2026 1.000(3)   H1 1.000(1)   H2 1.000(2)   2025 1.000(2)   2024 0.800(5)   upmed 0.126  base 0.927  win20 0.40
+  EMA 10/22                          main 1.000(9)    2026 1.000(3)   H1 1.000(1)   H2 1.000(2)   2025 1.000(2)   2024 1.000(4)   upmed 0.130  base 0.916  win20 0.44
+  EMA 8/18                           main 0.900(10)   2026 1.000(3)   H1 1.000(1)   H2 1.000(2)   2025 1.000(2)   2024 0.800(5)   upmed 0.131  base 0.978  win20 0.50
+  EMA 12/22                          main 1.000(8)    2026 1.000(3)   H1 1.000(1)   H2 1.000(2)   2025 1.000(2)   2024 1.000(3)   upmed 0.142  base 0.906  win20 0.38
+  EMA 8/25                           main 0.900(10)   2026 1.000(3)   H1 1.000(1)   H2 1.000(2)   2025 1.000(2)   2024 0.800(5)   upmed 0.125  base 0.927  win20 0.50
+  EMA 12/15                          main 0.900(10)   2026 1.000(3)   H1 1.000(1)   H2 1.000(2)   2025 1.000(2)   2024 0.800(5)   upmed 0.126  base 0.978  win20 0.40
+  -- wider context:
+  EMA 5/10 (wider)                   main 0.769(13)   2026 0.750(4)   H1 0.000(1)   H2 1.000(3)   2025 0.750(4)   2024 0.800(5)   upmed 0.102  base 0.871  win20 0.46
+  EMA 5/20 (wider)                   main 0.909(11)   2026 1.000(3)   H1 1.000(1)   H2 1.000(2)   2025 1.000(3)   2024 0.800(5)   upmed 0.112  base 0.945  win20 0.64
+  EMA 8/21 (wider)                   main 0.900(10)   2026 1.000(3)   H1 1.000(1)   H2 1.000(2)   2025 1.000(2)   2024 0.800(5)   upmed 0.122  base 0.927  win20 0.50
+  EMA 12/26 (wider)                  main 1.000(7)    2026 1.000(2)   H1 1.000(1)   H2 1.000(1)   2025 1.000(2)   2024 1.000(3)   upmed 0.130  base 0.892  win20 0.57
+  EMA 10/30 (wider)                  main 1.000(8)    2026 1.000(3)   H1 1.000(1)   H2 1.000(2)   2025 1.000(2)   2024 1.000(3)   upmed 0.126  base 0.906  win20 0.62
+  EMA 10/40 (wider)                  main 1.000(8)    2026 1.000(3)   H1 1.000(1)   H2 1.000(2)   2025 1.000(3)   2024 1.000(2)   upmed 0.147  base 0.918  win20 0.50
+  EMA 20/50 (wider)                  main 1.000(7)    2026 1.000(3)   H1 1.000(1)   H2 1.000(2)   2025 1.000(2)   2024 1.000(2)   upmed 0.156  base 0.996  win20 0.43
+  EMA 10/20 adjust=True              main 0.900(10)   2026 1.000(3)   H1 1.000(1)   H2 1.000(2)   2025 1.000(2)   2024 0.800(5)   upmed 0.128  base 0.865  win20 0.40
+  SMA10 crosses SMA20 (context)      main 0.909(11)   2026 1.000(3)   H1 1.000(1)   H2 1.000(2)   2025 0.750(4)   2024 1.000(4)   upmed 0.116  base 0.863  win20 0.55
+  -- timing / cooldown / state threshold:
+  delay +1 session                   main 0.900(10)   2026 1.000(3)   H1 1.000(1)   H2 1.000(2)   2025 1.000(2)   2024 0.800(5)   upmed 0.140  base 0.865  win20 0.60
+  delay +2 sessions                  main 0.900(10)   2026 1.000(3)   H1 1.000(1)   H2 1.000(2)   2025 1.000(2)   2024 0.800(5)   upmed 0.143  base 0.862  win20 0.50
+  cooldown 10                        main 0.909(11)   2026 1.000(3)   H1 1.000(1)   H2 1.000(2)   2025 1.000(3)   2024 0.800(5)   upmed 0.127  base 0.877  win20 0.36
+  cooldown 30                        main 0.875(8)    2026 1.000(2)   H1 1.000(1)   H2 1.000(1)   2025 1.000(2)   2024 0.750(4)   upmed 0.116  base 0.831  win20 0.38
+  in_dd thr 8%                       main 0.818(11)   2026 1.000(3)   H1 1.000(1)   H2 1.000(2)   2025 0.667(3)   2024 0.800(5)   upmed 0.127  base 0.790  win20 0.36
+  in_dd thr 12%                      main 0.889(9)    2026 1.000(3)   H1 1.000(1)   H2 1.000(2)   2025 1.000(2)   2024 0.750(4)   upmed 0.130  base 0.830  win20 0.44
+  L1 (registered SOXX rule) per variant, and main-period hold20 minus same-state baseline:
+    base EMA 10/20 cool=20 thr=10% d=0 L1=True  diff=+0.035  first dates: 24-05-07 24-08-21 24-09-23 24-10-25 24-12-16 25-05-01 25-12-02 26-04-08 26-08-14 26-09-21
+    EMA 8/20                           L1=True  diff=-0.078  first dates: 24-05-07 24-08-20 24-09-20 24-10-29 24-12-16 25-04-29 25-12-01 26-04-07 26-08-13 26-09-21
+    EMA 12/20                          L1=True  diff=+0.084  first dates: 24-05-08 24-08-23 24-09-24 24-12-16 25-05-02 25-12-02 26-04-08 26-08-17 26-09-21
+    EMA 10/15                          L1=True  diff=-0.078  first dates: 24-05-06 24-08-19 24-09-19 24-10-29 24-12-13 25-04-29 25-12-02 26-04-07 26-08-13 26-09-21
+    EMA 10/25                          L1=True  diff=+0.084  first dates: 24-05-08 24-08-23 24-09-24 24-12-16 25-05-02 25-12-02 26-04-08 26-08-17 26-09-21
+    EMA 9/20                           L1=True  diff=-0.027
+    EMA 11/20                          L1=True  diff=+0.084
+    EMA 10/18                          L1=True  diff=-0.027
+    EMA 10/22                          L1=True  diff=+0.084
+    EMA 8/18                           L1=True  diff=-0.078
+    EMA 12/22                          L1=True  diff=+0.094
+    EMA 8/25                           L1=True  diff=-0.027
+    EMA 12/15                          L1=True  diff=-0.078
+    EMA 5/10 (wider)                   L1=True  diff=-0.101
+    EMA 5/20 (wider)                   L1=True  diff=-0.035
+    EMA 8/21 (wider)                   L1=True  diff=-0.027
+    EMA 12/26 (wider)                  L1=False diff=+0.108
+    EMA 10/30 (wider)                  L1=True  diff=+0.094
+    EMA 10/40 (wider)                  L1=True  diff=+0.082
+    EMA 20/50 (wider)                  L1=False diff=+0.004
+    EMA 10/20 adjust=True              L1=True  diff=+0.035
+    SMA10 crosses SMA20 (context)      L1=True  diff=+0.046
+    delay +1 session                   L1=True  diff=+0.035  first dates: 24-05-08 24-08-22 24-09-24 24-10-28 24-12-17 25-05-02 25-12-03 26-04-09 26-08-17 26-09-22
+    delay +2 sessions                  L1=True  diff=+0.038
+    cooldown 10                        L1=True  diff=+0.032  first dates: 24-05-07 24-08-21 24-09-23 24-10-25 24-12-16 25-01-06 25-05-01 25-12-02 26-04-08 26-08-14 26-09-21
+    cooldown 30                        L1=False diff=+0.044  first dates: 24-05-07 24-08-21 24-10-25 24-12-16 25-05-01 25-12-02 26-04-08 26-08-14
+    in_dd thr 8%                       L1=True  diff=+0.029  first dates: 24-05-07 24-08-21 24-09-23 24-10-25 24-12-16 25-02-18 25-05-01 25-12-02 26-04-08 26-08-14 26-09-21
+    in_dd thr 12%                      L1=True  diff=+0.058  first dates: 24-05-07 24-08-21 24-09-23 24-10-25 25-05-01 25-12-02 26-04-08 26-08-14 26-09-21
+
+[4] Null: random in_dd dates in 2024~2026, same count and up-bucket mix, pairwise spacing > 20 sessions
+  observed hold20 = 0.9000 (n=10); bucket mix (0-3,3-8,8-15,15+) = [2, 1, 3, 4]; pool days = 366 by bucket [148, 82, 77, 59]
+  pool hold20 by bucket: [0.345, 0.646, 0.987, 1.0]
+  draws=2000 (attempts 2177); null mean=0.8230 sd=0.0802 q05=0.700 q95=0.900
+  p = P(null hold20 >= observed) = 0.3650
+  secondary (year x bucket matched): draws=2000 mean=0.8540 p=0.4825
+  tertiary (bucket x 'new 60-session high' flag): draws=2000 mean=0.8338 p=0.4240
+  2026-only null: observed 1.000 (n=3, mix [1, 0, 0, 2]), null mean 0.795, p=0.3850
+
+[5] Mechanical comparison: plain rule up >= candidate median up (same in_dd, cooldown, outcomes)
+  up >= 0.1281 (cand. median)        main 1.000(8)    2026 1.000(2)   H1   -  (0)   H2 1.000(2)   2025 1.000(3)   2024 1.000(3)   upmed 0.151  base 0.996  win20 0.62
+  up >= 0.0800                       main 1.000(12)   2026 1.000(4)   H1 1.000(1)   H2 1.000(3)   2025 1.000(4)   2024 1.000(4)   upmed 0.094  base 0.990  win20 0.58
+  up >= 0.1000                       main 1.000(12)   2026 1.000(4)   H1 1.000(1)   H2 1.000(3)   2025 1.000(4)   2024 1.000(4)   upmed 0.115  base 0.992  win20 0.58
+  up >= 0.1500                       main 1.000(8)    2026 1.000(2)   H1   -  (0)   H2 1.000(2)   2025 1.000(3)   2024 1.000(3)   upmed 0.176  base 1.000  win20 0.50
+  all in_dd days 2024~2026 with up >= 0.1281 (no cooldown): hold20 = 1.0000 (days 82); with up < it: 0.5528 (days 284)
+  within-bucket comparison, 2024~2026 (candidate first signals vs all in_dd pool days):
+    bucket 0-3%   cand 0.500 (n=2)   pool 0.345 (days=148)   cand dates ['2024-10-25', '2026-04-08']
+    bucket 3-8%   cand 1.000 (n=1)   pool 0.646 (days=82)   cand dates ['2024-12-16']
+    bucket 8-15%  cand 1.000 (n=3)   pool 0.987 (days=77)   cand dates ['2024-05-07', '2024-09-23', '2025-12-02']
+    bucket 15%+   cand 1.000 (n=4)   pool 1.000 (days=59)   cand dates ['2024-08-21', '2025-05-01', '2026-08-14', '2026-09-21']
+  raw ema1020x in_dd days (no cooldown): hold20 = 0.9167 (days 12), matched base avg 0.8794
+  signals with up >= 8%: hold20 1.000 (n=7), win20 0.429;  up < 8%: hold20 0.667 (n=3) dates ['2024-10-25', '2024-12-16', '2026-04-08']
+
+[6] Verdict inputs
+  independent match=True, look-ahead found=False, main hold20=0.9000 vs matched base 0.8647, null p=0.3650 (year x bucket p=0.4825, new-high strata p=0.4240)
+  L1 survives in 9/10 core variants: base EMA 10/20 cool=20 thr=10% d=0=True, EMA 8/20=True, EMA 12/20=True, EMA 10/15=True, EMA 10/25=True, delay +1 session=True, cooldown 10=True, cooldown 30=False, in_dd thr 8%=True, in_dd thr 12%=True
+  L2 (registered) fails: block-bootstrap lower bound of diff = -0.1106
+
+VERDICT: fragile
+  Reproduced exactly (10 first signals, every field, every period; L2 bootstrap bound identical), no
+  look-ahead (truncation test identical on all 706 sessions). The 90% hit rate is stable: every one-step EMA
+  neighbour, delay +1/+2, cooldown 10 and in_dd 8%/12% keep L1; cooldown 30 drops 2026 to n=2 (< 3).
+  But it carries no information beyond the rebound already made: the up-bucket-matched random-date null
+  gives mean 0.823 and p=0.365 (year x bucket p=0.482); L2 fails (diff +0.035, lower bound -0.111); the
+  sign of 'hold20 - same-state base' flips across neighbours (-0.078..+0.094). 7/10 signals fire with up >= 8%,
+  where every in_dd day holds (pool 98.7-100%); the plain rule up >= 0.128 scores 100% (n=8). The only
+  informative-looking cells are 3 low-rebound signals (2/3 held; the 2026-04-08 hit is a new 60-session high
+  where Ldd resets to that close). near5 0.33 and win20 0.40 are below their same-state bases (0.47, 0.55):
+  the cross fires late, after a ~13% rebound, and the entries lose money over 20 sessions 60% of the time.
+  Fragile, not confirmed: the 70%+ is a mechanical consequence of how far price has already rebounded.

@@ -1,0 +1,155 @@
+============================================================================================================
+VERIFY f1 / sig3 / SOXX - independent re-implementation (bc_lib NOT imported)
+============================================================================================================
+raw data: {"sessions": 956, "first": "2023-01-03", "last": "2026-10-23", "union_equals_cal": true, "close_overlap_days": 718, "close_overlap_maxabs": 2.842170943040401e-14, "close_nan": 0, "open_nan_from_2023_12_01": 0, "open_over_close_range": [0.85, 1.083]}
+sigma20 loop vs pandas pct_change().rolling(20).std(): max|diff| 1.4e-16, finite-position mismatches 0
+
+[1] Independent match against family files (rule == 'sig3')
+  first signals: mine 12 | family 12
+  dates only mine: [] | only family: []
+  per-signal field mismatches (pos, up, dd60, hold20, hold40, near5, win20, r20, base_hold20): none
+  my first signals:
+    2024-04-25 peak 2024-03-07 low 2024-04-19 up=+0.0707 3s20=0.0594 dd60=-0.107 bucket=3-8%  hold20=1 base=0.906 near5=1.0 win20=1.0 r20=+0.1026
+    2024-08-15 peak 2024-07-10 low 2024-08-07 up=+0.1627 3s20=0.1200 dd60=-0.127 bucket=15%+  hold20=1 base=1.000 near5=0.0 win20=0.0 r20=-0.0294
+    2024-09-16 peak 2024-07-10 low 2024-08-07 up=+0.1033 3s20=0.0846 dd60=-0.172 bucket=8-15% hold20=1 base=1.000 near5=1.0 win20=1.0 r20=+0.0770
+    2024-10-15 peak 2024-07-23 low 2024-08-07 up=+0.1409 3s20=0.0631 dd60=-0.063 bucket=8-15% hold20=1 base=1.000 near5=0.0 win20=0.0 r20=-0.0305
+    2024-12-04 peak 2024-10-14 low 2024-11-15 up=+0.0545 3s20=0.0514 dd60=-0.071 bucket=3-8%  hold20=1 base=0.906 near5=1.0 win20=1.0 r20=+0.0006
+    2025-01-06 peak 2024-10-14 low 2024-11-15 up=+0.0838 3s20=0.0596 dd60=-0.045 bucket=8-15% hold20=1 base=1.000 near5=0.0 win20=0.0 r20=-0.0479
+    2025-04-09 peak 2025-01-22 low 2025-04-08 up=+0.1857 3s20=0.1644 dd60=-0.221 bucket=15%+  hold20=1 base=1.000 near5=0.0 win20=1.0 r20=+0.0984
+    2025-05-09 peak 2025-02-20 low 2025-04-08 up=+0.2524 3s20=0.0637 dd60=-0.161 bucket=15%+  hold20=1 base=1.000 near5=1.0 win20=1.0 r20=+0.0757
+    2025-11-26 peak 2025-10-29 low 2025-11-20 up=+0.0869 3s20=0.0760 dd60=-0.059 bucket=8-15% hold20=1 base=1.000 near5=1.0 win20=1.0 r20=+0.0436
+    2026-04-01 peak 2026-02-25 low 2026-03-30 up=+0.0928 3s20=0.0850 dd60=-0.080 bucket=8-15% hold20=1 base=0.969 near5=1.0 win20=1.0 r20=+0.4193
+    2026-08-04 peak 2026-06-22 low 2026-07-29 up=+0.1660 3s20=0.1188 dd60=-0.172 bucket=15%+  hold20=1 base=1.000 near5=0.0 win20=0.0 r20=-0.0673
+    2026-09-02 peak 2026-06-22 low 2026-07-29 up=+0.0784 3s20=0.0603 dd60=-0.234 bucket=3-8%  hold20=1 base=0.320 near5=nan win20=1.0 r20=+0.1605
+  per-period (mine | family):
+    2024~2026  n_sig 12 hold20 12/12=1.000   | family n_sig 12 hold20 1.0000 (n=12) OK
+    2026       n_sig  3 hold20 3/3=1.000     | family n_sig  3 hold20 1.0000 (n=3) OK
+    2026H1     n_sig  1 hold20 1/1=1.000     | family n_sig  1 hold20 1.0000 (n=1) OK
+    2026H2     n_sig  2 hold20 2/2=1.000     | family n_sig  2 hold20 1.0000 (n=2) OK
+    2025       n_sig  4 hold20 4/4=1.000     | family n_sig  4 hold20 1.0000 (n=4) OK
+    2024       n_sig  5 hold20 5/5=1.000     | family n_sig  5 hold20 1.0000 (n=5) OK
+    main near5: mine 6/11=0.5455 | family 0.5455
+    main win20: mine 8/12=0.6667 | family 0.6667
+    main r20: mine +0.0669 | family +0.0669; up median mine 0.0981 | family 0.0981
+    main matched base hold20: mine 0.9251 | family 0.9251; near5 base (signals with known near5, n=11) mine 0.5174 | family 0.5174; win20 base mine 0.6578 | family 0.6578
+    2026       matched base hold20 mine 0.7629 | family 0.7629
+    2026H1     matched base hold20 mine 0.9688 | family 0.9688
+    2026H2     matched base hold20 mine 0.6600 | family 0.6600
+    2025       matched base hold20 mine 1.0000 | family 1.0000
+    2024       matched base hold20 mine 0.9625 | family 0.9625
+    diff (hold20 - matched base) per signal: [0.0938, 0.0, 0.0, 0.0, 0.0938, 0.0, 0.0, 0.0, 0.0, 0.0312, 0.0, 0.68]
+    my block bootstrap dlo = +0.0052 (family +0.0052); 8/12 signals have diff exactly 0, so P(resample mean = 0) = (8/12)^12 = 0.0077 < 0.025 -> dlo > 0 is guaranteed by construction once every signal held.
+    share of the total positive diff from the largest single signal (2026-09-02): 0.76; drop it and mean diff falls +0.0749 -> +0.0199
+  registered L1 on my numbers: True
+  INDEPENDENT MATCH: True
+
+[2] Look-ahead audit
+  f1_rebound.py rule-construction section (sigma20 + build_rules) pattern hits: {'shift(-': 0, 'center=True': 0, 'bfill/backfill': 0, 'iloc/iat with t+': 0, 'fillna(method': 0}
+  f1_rebound.py signal = (fr['up'] >= 3*sigma20) & notna; sigma20 = (C/C.shift(1)-1).rolling(20).std() -> trailing window ending at t. fr['up'] comes from bc_lib.outcome_frame: Ldd = min(C[pk..t]), pk = latest 60-session max in C[t-59..t] -> trailing. in_dd = dd60.rolling(20, min_periods=1).min() -> trailing.
+  F1 uses prices only: no flow, options or news inputs, so no flow-lag / note-timing issue applies.
+  posthoc lag1 rows in the family file use rules.shift(1) (past-shift, correct direction).
+  truncation test: 176 dates (all first signals, all sig3-true in_dd days, 60 random in_dd days): max |state(t | data<=t) - state(t | full data)| = 0.0e+00; in_dd/signal flips = 0
+  data caveat: both sources are yfinance adjusted prices (SOXX 3:1 split 2024-03 is back-adjusted); dividend back-adjustment rescales history by <1%/yr, immaterial to ratios such as up and sigma20 (not a tradable look-ahead).
+  LOOK-AHEAD FOUND: False
+
+[3] Robustness - hold20 k/n by period; L1 = registered SOXX L1 test applied to the variant
+    variant                                nsig   main 24~26        2026     2026H1     2026H2       2025       2024  near5  win20  upmed  L1
+    sig3 (registered)                        12  12/12=1.000   3/3=1.000  1/1=1.000  2/2=1.000  4/4=1.000  5/5=1.000  0.545  0.667  0.098  True
+    -- multiplier m (registered grid neighbours 2 and 4, then finer half-steps)
+    m=2.0                                    17  12/16=0.750   3/4=0.750  0/1=0.000  3/3=1.000  4/5=0.800  5/7=0.714  0.333  0.500  0.085  True
+    m=4.0                                    10  10/10=1.000   3/3=1.000  1/1=1.000  2/2=1.000  3/3=1.000  4/4=1.000  0.556  0.600  0.114  True
+    m=2.5                                    14  12/14=0.857   2/3=0.667  0/1=0.000  2/2=1.000  4/5=0.800  6/6=1.000  0.538  0.571  0.083  False
+    m=3.5                                    11  11/11=1.000   3/3=1.000  1/1=1.000  2/2=1.000  3/3=1.000  5/5=1.000  0.500  0.545  0.107  True
+    -- sigma window (m=3)
+    sigma window 15                          12  11/12=0.917   2/3=0.667  0/1=0.000  2/2=1.000  4/4=1.000  5/5=1.000  0.545  0.667  0.085  False
+    sigma window 25                          12  11/12=0.917   2/3=0.667  0/1=0.000  2/2=1.000  4/4=1.000  5/5=1.000  0.364  0.583  0.095  False
+    -- delay
+    mask delayed 1 (family-style shift)      12  11/12=0.917   3/3=1.000  1/1=1.000  2/2=1.000  4/4=1.000  4/5=0.800  0.727  0.667  0.095  True
+    mask delayed 2 (family-style shift)      12  11/12=0.917   3/3=1.000  1/1=1.000  2/2=1.000  4/4=1.000  4/5=0.800  0.364  0.667  0.109  True
+    same events evaluated at t+1             12  11/12=0.917   3/3=1.000  1/1=1.000  2/2=1.000  4/4=1.000  4/5=0.800  0.727  0.667  0.095  True
+    same events evaluated at t+2             12  11/12=0.917   3/3=1.000  1/1=1.000  2/2=1.000  4/4=1.000  4/5=0.800  0.364  0.667  0.109  True
+    -- cooldown
+    cooldown 10                              18  18/18=1.000   5/5=1.000  1/1=1.000  4/4=1.000  5/5=1.000  8/8=1.000  0.625  0.722  0.114  True
+    cooldown 30                               9    9/9=1.000   3/3=1.000  1/1=1.000  2/2=1.000  2/2=1.000  4/4=1.000  0.500  0.556  0.116  True
+    -- in_dd threshold
+    in_dd threshold 8%                       15  13/15=0.867   3/4=0.750  1/2=0.500  2/2=1.000  5/6=0.833  5/5=1.000  0.500  0.600  0.090  True
+    in_dd threshold 12%                      10  10/10=1.000   3/3=1.000  1/1=1.000  2/2=1.000  3/3=1.000  4/4=1.000  0.556  0.700  0.122  True
+  requested variants keeping L1: 8/8; all variants: 11/14
+  main hold20 across variants: min 0.750 median 0.917 max 1.000
+  margin: main 12/12; 2026 3/3 -> one failure in 2026 gives 2/3 = 0.667 < 0.70 (L1 lost); the 2026 leg rests on 3 signals, 2026H1 on 1.
+  failing signals per variant (date, up, bucket, low date) and dates added/removed vs registered:
+    m=2.0                                  fails: 2024-07-31 up=+0.067 3-8% low@2024-07-30; 2024-10-29 up=+0.041 3-8% low@2024-10-23; 2025-03-17 up=+0.064 3-8% low@2025-03-11; 2026-03-10 up=+0.047 3-8% low@2026-03-06
+                                           added ['2024-04-24', '2024-05-23', '2024-07-31', '2024-08-29', '2024-09-30', '2024-10-29', '2024-12-02', '2025-01-03', '2025-03-17', '2025-04-15', '2025-05-15', '2025-11-24', '2026-03-10', '2026-06-11', '2026-07-30', '2026-08-28', '2026-09-29'] removed ['2024-04-25', '2024-08-15', '2024-09-16', '2024-10-15', '2024-12-04', '2025-01-06', '2025-04-09', '2025-05-09', '2025-11-26', '2026-04-01', '2026-08-04', '2026-09-02']
+    m=4.0                                  fails: none
+                                           added ['2024-04-26', '2024-09-19', '2024-12-16', '2025-01-17', '2025-05-02', '2025-11-28', '2026-04-06', '2026-09-04'] removed ['2024-04-25', '2024-09-16', '2024-10-15', '2024-12-04', '2025-01-06', '2025-04-09', '2025-05-09', '2025-11-26', '2026-04-01', '2026-09-02']
+    m=2.5                                  fails: 2025-03-24 up=+0.069 3-8% low@2025-03-11; 2026-03-11 up=+0.057 3-8% low@2026-03-06
+                                           added ['2024-04-24', '2024-05-23', '2024-08-13', '2024-09-12', '2024-10-11', '2024-12-02', '2025-01-03', '2025-03-24', '2025-04-24', '2025-06-03', '2026-03-11'] removed ['2024-04-25', '2024-08-15', '2024-09-16', '2024-10-15', '2024-12-04', '2025-01-06', '2025-04-09', '2025-05-09', '2026-04-01']
+    m=3.5                                  fails: none
+                                           added ['2024-12-16', '2025-01-17', '2025-05-02', '2025-11-28', '2026-04-06'] removed ['2024-12-04', '2025-01-06', '2025-04-09', '2025-05-09', '2025-11-26', '2026-04-01']
+    sigma window 15                        fails: 2026-03-25 up=+0.067 3-8% low@2026-03-06
+                                           added ['2025-04-25', '2025-06-03', '2026-03-25'] removed ['2025-04-09', '2025-05-09', '2026-04-01']
+    sigma window 25                        fails: 2026-03-25 up=+0.067 3-8% low@2026-03-06
+                                           added ['2024-12-13', '2025-01-16', '2026-03-25', '2026-09-03'] removed ['2024-12-04', '2025-01-06', '2026-04-01', '2026-09-02']
+    mask delayed 1 (family-style shift)    fails: 2024-10-16 up=+0.000 0-3% low@2024-10-16
+    mask delayed 2 (family-style shift)    fails: 2024-10-17 up=+0.008 0-3% low@2024-10-16
+    same events evaluated at t+1           fails: 2024-10-16 up=+0.000 0-3% low@2024-10-16
+    same events evaluated at t+2           fails: 2024-10-17 up=+0.008 0-3% low@2024-10-16
+    cooldown 10                            fails: none
+                                           added ['2024-05-10', '2024-08-30', '2024-09-17', '2024-10-02', '2024-12-26', '2025-01-15', '2025-04-25', '2025-05-12', '2026-08-19', '2026-09-03', '2026-09-21'] removed ['2024-09-16', '2024-10-15', '2025-01-06', '2025-05-09', '2026-09-02']
+    cooldown 30                            fails: none
+                                           added ['2024-09-30', '2026-09-17'] removed ['2024-09-16', '2024-10-15', '2025-01-06', '2025-05-09', '2026-09-02']
+    in_dd threshold 8%                     fails: 2025-02-18 up=+0.067 3-8% low@2025-01-27; 2026-02-11 up=+0.090 8-15% low@2026-02-04
+                                           added ['2025-02-18', '2025-12-29', '2026-02-11'] removed []
+    in_dd threshold 12%                    fails: none
+                                           added [] removed ['2024-12-04', '2025-01-06']
+  lag1 miss detail: on 2024-10-16 the 60-session high rolls to 2024-10-14, so the decline low resets to that day's own close (Ldd=227.36, up=0); the next 20 closes reach 218.26. The day before, the same signal was graded against the 2024-08-07 low and held.
+
+[4] Null: random in_dd dates in the main period, same count + up-bucket mix, >20-session spacing, 2000 draws
+  pool 366 in_dd days with known hold20; by bucket {'0-3%': 148, '3-8%': 82, '8-15%': 77, '15%+': 59}
+  pool hold20 by bucket: 0-3% 0.345, 3-8% 0.646, 8-15% 0.987, 15%+ 1.000
+  pool hold20 by year x bucket: 2024: 0-3% 0.40(n=50),3-8% 0.91(n=32),8-15% 1.00(n=31),15%+ 1.00(n=25); 2025: 0-3% 0.29(n=51),3-8% 0.64(n=25),8-15% 1.00(n=14),15%+ 1.00(n=23); 2026: 0-3% 0.34(n=47),3-8% 0.32(n=25),8-15% 0.97(n=32),15%+ 1.00(n=11)
+  observed: 12 evaluable signals, bucket mix {'0-3%': 0, '3-8%': 3, '8-15%': 5, '15%+': 4}, hold20 1.0000
+  bucket mix + spacing (PRIMARY)   draws 2000 (infeasible 0) null mean 0.878 q05/50/95 [0.75, 0.917, 1.0]  p(null >= 1.000) = 0.0940 (MC s.e. 0.0065)
+  year x bucket mix + spacing      draws 2000 (infeasible 0) null mean 0.867 q05/50/95 [0.833, 0.833, 1.0]  p(null >= 1.000) = 0.0530 (MC s.e. 0.0050)
+  bucket mix, no spacing           draws 2000 (infeasible 0) null mean 0.907 q05/50/95 [0.833, 0.917, 1.0]  p(null >= 1.000) = 0.2440 (MC s.e. 0.0096)
+  count only + spacing             draws 2000 (infeasible 0) null mean 0.630 q05/50/95 [0.417, 0.667, 0.833]  p(null >= 1.000) = 0.0000 (MC s.e. 0.0000)
+  independence approximation prod_b (pool rate_b)^n_b = 0.2529
+  binomial vs unconditional in_dd hold20 0.653: P(12/12) = 0.0060 (ignores the up mix, shown only as the naive bar)
+
+[5] Mechanical check: is sig3 just 'price has already rebounded enough'?
+  candidate up median (12 first signals) = 0.0981; 3*sigma20 at signals median 0.0699 range [0.0514, 0.1644]
+    up >= 0.0981 (candidate median)          12  12/12=1.000   4/4=1.000  1/1=1.000  3/3=1.000  4/4=1.000  4/4=1.000  0.455  0.583  0.111  True
+    up >= 0.08 (registered up8)              13  12/12=1.000   4/4=1.000  1/1=1.000  3/3=1.000  4/4=1.000  4/4=1.000  0.455  0.583  0.094  True
+    up >= 0.10 (registered up10)             12  12/12=1.000   4/4=1.000  1/1=1.000  3/3=1.000  4/4=1.000  4/4=1.000  0.455  0.583  0.115  True
+    up >= 0.05                               16  12/16=0.750   3/5=0.600  0/1=0.000  3/4=0.750  4/5=0.800  5/6=0.833  0.333  0.562  0.075  False
+  sig3 first signals with a plain-median-rule first signal within 0/<=5/<=10 sessions: 3/10/11 of 12
+  day-level hold20 in pool by up bucket, sig3-true vs sig3-false (main period, every in_dd day):
+    0-3%   sig3 n/a (n=0)          not sig3 0.345 (n=148)
+    3-8%   sig3 1.000 (n=15)       not sig3 0.567 (n=67)
+    8-15%  sig3 1.000 (n=62)       not sig3 0.933 (n=15)
+    15%+   sig3 1.000 (n=59)       not sig3 n/a (n=0)
+  the only bucket where sig3 differs from 'up' alone is 3-8%: its 15 sig3-true days form 7 episodes: 2024-04-25~2024-05-02 (3d, low@2024-04-19); 2024-12-04~2024-12-04 (1d, low@2024-11-15); 2024-12-13~2024-12-17 (3d, low@2024-11-15); 2024-12-26~2024-12-26 (1d, low@2024-11-15); 2025-01-07~2025-01-16 (3d, low@2024-11-15); 2026-09-01~2026-09-02 (2d, low@2026-07-29); 2026-09-15~2026-09-16 (2d, low@2026-07-29)
+  3-8% bucket by year, sig3 vs not: 2024: sig3 8/8, not 21/24; 2025: sig3 3/3, not 13/22; 2026: sig3 4/4, not 4/21
+  P(3 independent 3-8% first signals all hold | pool rate 0.646) = 0.270; with 2026's 3-8% rate 0.320 for one of them = 0.263
+  pool hold20 when up >= x (every in_dd day, main period / 2026):
+    up >= 0.000: 0.653 (n=366) | 2026 0.574 (n=115)
+    up >= 0.030: 0.862 (n=218) | 2026 0.735 (n=68)
+    up >= 0.050: 0.914 (n=187) | 2026 0.817 (n=60)
+    up >= 0.070: 0.993 (n=147) | 2026 0.979 (n=47)
+    up >= 0.080: 0.993 (n=136) | 2026 0.977 (n=43)
+    up >= 0.098: 1.000 (n=118) | 2026 1.000 (n=33)
+    up >= 0.120: 1.000 (n=88) | 2026 1.000 (n=23)
+    up >= 0.150: 1.000 (n=59) | 2026 1.000 (n=11)
+  context: driftless Gaussian walk floor P(no new low in 20 sessions | cushion = 3 daily sigma) = 0.498; empirical in_dd days with up >= 3*sigma20: 1.000 (n=136).
+
+[6] Verdict
+  independent match True; look-ahead False; registered L1 (mine) True; requested robustness variants keeping L1 8/8; primary null p 0.0940
+  VERDICT: fragile
+  reasons:
+   - numbers reproduce exactly and the rule uses trailing data only; L1 holds on the registered spec (main 12/12=1.000, 2026 3/3=1.000, 2026H1 1/1=1.000).
+   - null p 0.094 (year x bucket 0.053) >= 0.05: given how far price had already rebounded, 12/12 is not unusual. Only the count-only null (ignores up) rejects.
+   - mechanical: plain up >= 0.0981 gives 12/12=1.000 (2026 4/4=1.000); every in_dd day with up >= 0.0981 held (118/118). sig3 adds nothing in the 8%+ buckets; its only extra content is 15 days in the 3-8% bucket from 7 short episodes (about 3 distinct lows).
+   - L2 dlo > 0 is mechanical once all signals hold; 2026-09-02 (2026 3-8% base 0.32) supplies 76% of the positive gap.
+   - knife-edge 2026 leg: n=3, one miss drops it below 70%. m=2.5 and sigma windows 15/25 each add a failing March-2026 signal (vs the 03-06 low, later undercut on 03-30) and lose L1. A one-session delay lands the 2024-10-15 event on a day when the 60-session high rolls and the reference low resets to that day's close, and it then fails.
+   - near5 0.545 and win20 0.667 sit at the matched levels (0.517, 0.658): no tradable edge after entry.
+{"verdict": "fragile", "independent_match": true, "lookahead": false, "null_p": 0.094, "hold20_main": 1.0, "core_pass": 8, "n_core": 8}

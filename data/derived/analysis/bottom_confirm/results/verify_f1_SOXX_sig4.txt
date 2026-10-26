@@ -1,0 +1,107 @@
+Verification: family f1, rule sig4 (up >= 4*sigma20), kind SOXX — independent rebuild, no bc_lib import
+data: 2023-01-03..2026-10-23 (956 sessions); close overlap 2023-12..2026-10-13 718 days, max |diff| 2.84e-14; XNYS sessions 956, data dates 956, missing 0, extra 0
+close NaN: 0; open NaN from 2023-12-01: 0
+sigma20 numpy vs pandas pct_change().rolling(20).std(): max |diff| 1.42e-16, valid-mask equal True
+
+[1] Independent re-implementation vs family files
+  first signals: mine 10, family 10, identical dates: True
+  date        pos  Ldd(date)            up     4*sig20  dd60    hold20 (fam)  margin20  hold40 near5 win20  r20
+  2024-04-26  330   198.39(2024-04-19)  +0.0933  0.0820  -0.088  1  (1)       +0.0422   1     1     1  +0.1018
+  2024-08-15  406   199.29(2024-08-07)  +0.1627  0.1600  -0.127  1  (1)       +0.0233   1     0     0  -0.0294
+  2024-09-19  430   199.29(2024-08-07)  +0.1390  0.1176  -0.145  1  (1)       +0.1223   1     1     1  +0.0198
+  2024-12-16  491   211.21(2024-11-15)  +0.0768  0.0616  -0.052  1  (1)       +0.0036   1     0     0  -0.0058
+  2025-01-17  512   211.21(2024-11-15)  +0.0877  0.0765  -0.024  1  (1)       +0.0063   0     0     0  -0.0218
+  2025-05-02  584   154.86(2025-04-08)  +0.2271  0.2189  -0.178  1  (1)       +0.2061   1     1     1  +0.1054
+  2025-11-28  729   268.10(2025-11-20)  +0.1068  0.1025  -0.042  1  (1)       +0.0639   1     1     1  +0.0425
+  2026-04-06  815   309.79(2026-03-30)  +0.1108  0.1059  -0.065  1  (1)       +0.1226   1     1     1  +0.3470
+  2026-08-04  898   465.00(2026-07-29)  +0.1660  0.1584  -0.172  1  (1)       +0.0759   1     0     0  -0.0673
+  2026-09-04  921   465.00(2026-07-29)  +0.1180  0.0849  -0.206  1  (1)       +0.0697   nan     nan     1  +0.1112
+  max |mine - family| over up/dd60/hold20/hold40/near5/win20/r20 at signal dates: 9.02e-17
+  period      mine hold20 (n)   family hold20 (n)   mine near5  fam near5   mine win20  fam win20  mine up_med  fam up_med
+  2024~2026   1.000 (10)       1.000 (10)          0.556      0.556      0.600      0.600     0.1144      0.1144
+  2026        1.000 ( 3)       1.000 ( 3)          0.500      0.500      0.667      0.667     0.1180      0.1180
+  2026H1      1.000 ( 1)       1.000 ( 1)          1.000      1.000      1.000      1.000     0.1108      0.1108
+  2026H2      1.000 ( 2)       1.000 ( 2)          0.000      0.000      0.500      0.500     0.1420      0.1420
+  2025        1.000 ( 3)       1.000 ( 3)          0.667      0.667      0.667      0.667     0.1068      0.1068
+  2024        1.000 ( 4)       1.000 ( 4)          0.500      0.500      0.500      0.500     0.1161      0.1161
+  -> independent match: True
+  distinct decline lows (Ldd dates) behind the 10 signals: 7 ['2024-04-19', '2024-08-07', '2024-11-15', '2025-04-08', '2025-11-20', '2026-03-30', '2026-07-29']
+
+[2] Look-ahead audit
+  pattern 'negative shift (future values)': f1_rebound.py lines -; bc_lib.py lines -
+  pattern 'centered rolling window': f1_rebound.py lines -; bc_lib.py lines -
+  pattern 'bfill / backfill': f1_rebound.py lines -; bc_lib.py lines -
+  pattern 'iloc/at with t+ index in signal code': f1_rebound.py lines -; bc_lib.py lines [20, 21, 160, 163]
+  build_rules uses only: fr['up'] and sigma20(C) = (C/C.shift(1)-1).rolling(20).std() [verified text: True]
+  KNOWN_LOWS (hand-picked bottoms) appear only in soxx_spotcheck (printing), not in build_rules: True
+  no flow/news/market-indicator inputs in F1 (price-only): True
+  truncation probe: recomputed sig4 & in_dd on data ending at t for all 386 in_dd days 2024~2026 -> identical: True (mismatches 0)
+  outcomes use C[t+1..t+20/40] and entry O[t+1] only; signal day close is known before entry (next open).
+  data note: closes are split/dividend-adjusted yfinance values (back-adjustment uses later dividends; not a signal look-ahead, but it shifts Ldd by up to ~0.1-0.2% across a quarterly ex-date).
+    near miss: signal 2024-12-16 Ldd 211.21 (2024-11-15), forward-20 min 211.97 on 2024-12-19, margin +0.0036
+    near miss: signal 2025-01-17 Ldd 211.21 (2024-11-15), forward-20 min 212.55 on 2025-01-27, margin +0.0063
+  smallest margin +0.0036: a ~0.2% adjustment alone would not flip it, but 2 of 10 hits held by < 1%.
+
+[3] Robustness (hold20 by period; first signals with cooldown unless stated)
+  base sig4 (m=4)                    2024~2026 1.000(n10)  2026 1.000(n3)  2026H1 1.000(n1)  2026H2 1.000(n2)  2025 1.000(n3)  up_med 0.114
+  -- multiplier neighbours (registered grid 2/3/4/6; finer steps added)
+  m=3                                2024~2026 1.000(n12)  2026 1.000(n3)  2026H1 1.000(n1)  2026H2 1.000(n2)  2025 1.000(n4)  up_med 0.098
+  m=3.5                              2024~2026 1.000(n11)  2026 1.000(n3)  2026H1 1.000(n1)  2026H2 1.000(n2)  2025 1.000(n3)  up_med 0.107
+  m=4.5                              2024~2026 1.000(n10)  2026 1.000(n3)  2026H1 1.000(n1)  2026H2 1.000(n2)  2025 1.000(n3)  up_med 0.132
+  m=5                                2024~2026 1.000(n8)  2026 1.000(n2)  2026H1   nan(n0)  2026H2 1.000(n2)  2025 1.000(n3)  up_med 0.139
+  m=6                                2024~2026 1.000(n5)  2026 1.000(n1)  2026H1   nan(n0)  2026H2 1.000(n1)  2025 1.000(n2)  up_med 0.154
+  -- sigma window (registered 20)
+  sigma window 15                    2024~2026 1.000(n10)  2026 1.000(n3)  2026H1 1.000(n1)  2026H2 1.000(n2)  2025 1.000(n3)  up_med 0.124
+  sigma window 30                    2024~2026 1.000(n10)  2026 1.000(n3)  2026H1 1.000(n1)  2026H2 1.000(n2)  2025 1.000(n3)  up_med 0.124
+  -- timing / cooldown / in_dd threshold
+  lag1 (signal shifted 1 session)    2024~2026 1.000(n10)  2026 1.000(n3)  2026H1 1.000(n1)  2026H2 1.000(n2)  2025 1.000(n3)  up_med 0.122
+  lag2 (signal shifted 2 sessions)   2024~2026 0.900(n10)  2026 1.000(n3)  2026H1 1.000(n1)  2026H2 1.000(n2)  2025 0.667(n3)  up_med 0.128
+  cooldown 10                        2024~2026 1.000(n15)  2026 1.000(n4)  2026H1 1.000(n1)  2026H2 1.000(n3)  2025 1.000(n4)  up_med 0.130
+  cooldown 30                        2024~2026 1.000(n9)  2026 1.000(n3)  2026H1 1.000(n1)  2026H2 1.000(n2)  2025 1.000(n2)  up_med 0.116
+  in_dd threshold 8%                 2024~2026 0.917(n12)  2026 1.000(n4)  2026H1 1.000(n2)  2026H2 1.000(n2)  2025 0.750(n4)  up_med 0.109
+  in_dd threshold 12%                2024~2026 1.000(n8)  2026 1.000(n3)  2026H1 1.000(n1)  2026H2 1.000(n2)  2025 1.000(n2)  up_med 0.128
+  family post-hoc sig4_lag1 dates identical to mine: True
+  variants keeping main >= 70% (n>=8) and 2026 >= 70% (n>=3): 12/14; failing: ['m=5', 'm=6']
+  variants whose hit RATE drops below 70% (ignoring the n floors): none -> the failures above are sample-size failures only (stricter m leaves too few signals)
+  lowest main-period hold20: 'lag2 (signal shifted 2 sessions)' 0.900 (n10)
+
+[4] Null: random in_dd dates in 2024~2026, same count, same up-bucket mix, same 20-session cooldown
+  observed hold20 1.000 (n10); bucket mix of signals {'0-3%': 0, '3-8%': 1, '8-15%': 6, '15%+': 3}
+    pool bucket 0-3%  : in_dd days  148, day-level hold20 0.3446
+    pool bucket 3-8%  : in_dd days   82, day-level hold20 0.6463
+    pool bucket 8-15% : in_dd days   77, day-level hold20 0.9870
+    pool bucket 15%+  : in_dd days   59, day-level hold20 1.0000
+  null mean hold20 0.9394, 5/50/95% [0.8, 0.9, 1.0]; draws rejected for cooldown 263
+  p = P(null hold20 >= observed) = 0.4710   (independence approximation prod(bucket rates) = 0.5976)
+  context, unmatched null (any in_dd day, no bucket matching): mean 0.6413, p = 0.0030
+
+[5] Mechanical check: is sig4 just 'price already rebounded enough'?
+  median up of sig4 first signals = 0.1144
+  up >= 0.1144: 2024~2026 1.000(n9)  2026 1.000(n3)  2026H1 1.000(n1)  2026H2 1.000(n2)  2025 1.000(n3)
+  sig4          : 2024~2026 1.000(n10)  2026 1.000(n3)  2026H1 1.000(n1)  2026H2 1.000(n2)  2025 1.000(n3)
+  plain rule near5 0.500 win20 0.667 r20 +0.0681 | sig4 near5 0.556 win20 0.600 r20 +0.0603
+  effective up threshold 4*sigma20 at sig4 signals: min 0.0616, median 0.1042, max 0.2189; actual up at signal median 0.1144 (lowest 0.0768)
+  day-level hold20 on in_dd days 2024~2026 (no cooldown):
+    up >= 0.0000: days  366, hold20 0.6530
+    up >= 0.0300: days  218, hold20 0.8624
+    up >= 0.0500: days  187, hold20 0.9144
+    up >= 0.0800: days  136, hold20 0.9926
+    up >= 0.1000: days  115, hold20 1.0000
+    up >= 0.1144: days   95, hold20 1.0000
+    up >= 0.1500: days   59, hold20 1.0000
+  within-bucket comparison (in_dd days 2024~2026): hold20 when sig4 fires vs does not
+    0-3%  : sig4 days   0 hold20 nan | non-sig4 days 148 hold20 0.3446
+    3-8%  : sig4 days   1 hold20 1.0000 | non-sig4 days  81 hold20 0.6420
+    8-15% : sig4 days  38 hold20 1.0000 | non-sig4 days  39 hold20 0.9744
+    15%+  : sig4 days  52 hold20 1.0000 | non-sig4 days   7 hold20 1.0000
+  signals already within 5% of the 60-day high: 2/10 ['2025-01-17', '2025-11-28']
+  sig4 vs all in_dd days (2024~2026): near5 0.556 vs 0.445, win20 0.600 vs 0.612, r20 +0.0603 vs +0.0429
+  sig4 signals coinciding with plain-rule signals: same day 4/10, within 5 sessions 7/10
+  -> hit rate explained by rebound size already achieved: True
+
+[6] Verdict
+  independent match: True; look-ahead found: False
+  robustness: 12/14 variants keep main >= 70% and 2026 >= 70%; failing ['m=5', 'm=6'] (n floors only; hit rate never < 70%: True)
+  10 first signals come from only 7 distinct decline lows (effective n < L1 floor of 8)
+  null p = 0.4710 (matched); same-state bucket rates 8-15% and 15%+ are ~99-100%, so 10/10 is the expected outcome
+  VERDICT: fragile

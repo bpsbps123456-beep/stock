@@ -1,0 +1,103 @@
+verify f1 / up20 / STK  (independent re-implementation, no bc_lib import)
+data: 82 US stocks, 352 XNYS sessions 2025-06-02..2026-10-23; CSV non-session rows dropped: ['2025-06-19', '2025-07-04', '2025-09-01', '2025-11-27', '2026-01-19', '2026-02-16', '2026-04-03', '2026-05-25', '2026-06-19', '2026-07-03', '2026-09-07', '2026-10-25']
+late listings (leading NaN only): {'CRCL': '2025-06-05', 'SKHY': '2026-07-10', 'SPCX': '2026-06-12'}
+
+== 1. Independent re-implementation vs family files ==
+first signals: mine 268, family 268, common 268, only-mine 0, only-family 0
+  per-signal hold20      : NaN-pattern mismatches 0, max |diff| 0.00e+00
+  per-signal up          : NaN-pattern mismatches 0, max |diff| 1.11e-16
+  per-signal base_hold20 : NaN-pattern mismatches 0, max |diff| 0.00e+00
+  per-signal near5       : NaN-pattern mismatches 0, max |diff| 0.00e+00
+  per-signal win20       : NaN-pattern mismatches 0, max |diff| 0.00e+00
+  per-signal r20         : NaN-pattern mismatches 0, max |diff| 2.22e-16
+period           n  n_f h20_n  hn_f  hold20     fam    base  base_f  clu clu_f  near5  win20     r20  up_med
+2025-09~2026   268  268   262   262   0.756   0.756   0.771   0.771   14    14  0.224  0.473  0.0421  0.2329
+2026           221  221   215   215   0.758   0.758   0.766   0.766   10    10  0.200  0.460  0.0302  0.2327
+2026H1          99   99    99    99   0.808   0.808   0.723   0.723    6     6  0.253  0.576  0.1266  0.2319
+2026H2         122  122   116   116   0.716   0.716   0.802   0.802    5     5  0.140  0.362 -0.0522  0.2328
+2025            47   47    47    47   0.745   0.745   0.795   0.795    5     5  0.319  0.532  0.0965  0.2380
+main 2026 vs family-reported: n 215 vs 215; hold20 0.7581 vs 0.7581; base 0.7657 vs 0.7657; near5 0.2000 vs 0.2; win20 0.4605 vs 0.4605; r20 0.0302 vs 0.0302; up_med 0.2327 vs 0.2327
+  H1 0.8081 vs 0.8081; H2 0.7155 vs 0.7155; 2025 0.7447 vs 0.7447
+  own block bootstrap (B=5000): 2026 hold20 95% CI [0.621, 0.846] over 10 blocks; hold20 - matched 95% CI [-0.131, 0.083];  H2 hold20 CI [0.411, 0.855] over 5 blocks
+L1 (my recomputation) = True;  independent match = True
+2026 signals per 20-session block: {7: 13, 8: 13, 9: 15, 10: 35, 11: 17, 12: 17, 13: 21, 14: 42, 15: 33, 16: 15}  (largest block share 0.19)
+2026 hold20 by block: blk7(2025-12-19): n=13 h=0.769; blk8(2026-01-21): n=13 h=0.615; blk9(2026-02-19): n=15 h=0.8; blk10(2026-03-19): n=35 h=0.886; blk11(2026-04-17): n=17 h=0.882; blk12(2026-05-15): n=17 h=0.412; blk13(2026-06-15): n=21 h=0.429; blk14(2026-07-15): n=42 h=0.833; blk15(2026-08-12): n=33 h=0.909; blk16(2026-09-10): n=9 h=0.667
+2026 signals per stock: median 3, max 7 (ASTS); stocks with >=4 signals: 30
+
+== 2. Look-ahead audit ==
+(a) truncation test: signal&in_dd at t recomputed from C[0..t] only, 37 dates x 82 stocks: 0 differences
+(b) future-perturbation test (closes after 2026-07-31 scrambled): 0 signal changes on or before t
+(c) code reading: f1_rebound.py builds up20 = fr['up'] >= 0.20 from bc_lib.outcome_frame; Ldd = min(C[pk..t]), pk = last 60-day high in C[t-59..t]; in_dd = rolling(20) min of dd60 ending at t; no flow / news / market inputs for up20; first_signals cooldown is forward-only (uses only earlier accepted signals). Outcomes start at t+1 (hold20 C[t+1..t+20], entry O[t+1]). No window ends after t in the signal path.
+(d) non-code look-ahead (not fixable by timing): the 82-stock universe is today's desk/AI watchlist, chosen in 2026 with knowledge of which AI names worked; late listings (SKHY, SPCX, CRCL) enter as they list. This survivorship tilt favours 'rebounds hold' for every rule and for the matched baseline alike.
+
+== 3. Robustness (hold20 with n; L1 = registered stock criteria) ==
+variant                             n26  h2026   base  nH1    hH1  nH2    hH2  n25  h2025 up_med  near5  win20    L1
+up20 (registered)                   215  0.758  0.766   99  0.808  116  0.716   47  0.745  0.233  0.200  0.460  True
+up15 (registered neighbour)         287  0.693  0.762  149  0.698  138  0.688   63  0.698  0.180  0.212  0.474 False
+up17.5 (half step)                  254  0.713  0.763  125  0.760  129  0.667   58  0.741  0.205  0.229  0.465 False
+up22.5 (half step)                  196  0.770  0.766   92  0.826  104  0.721   44  0.750  0.257  0.237  0.449  True
+up25 (one step above)               164  0.817  0.765   79  0.886   85  0.753   37  0.784  0.279  0.245  0.457  True
+up20 lag1 (signal t-1, act t)       214  0.738  0.735   98  0.776  116  0.707   47  0.702  0.230  0.201  0.472  True
+up20 lag2                           213  0.709  0.698   97  0.753  116  0.672   47  0.660  0.220  0.239  0.493 False
+up20 cooldown 10                    304  0.770  0.769  136  0.794  168  0.750   59  0.797  0.241  0.204  0.447  True
+up20 cooldown 30                    184  0.761  0.768   79  0.810  105  0.724   42  0.810  0.234  0.215  0.446  True
+up20 in_dd THR 15%                  237  0.759  0.761  111  0.802  126  0.722   57  0.772  0.230  0.223  0.464  True
+up20 in_dd THR 25%                  182  0.775  0.772   83  0.831   99  0.727   33  0.697  0.238  0.219  0.456  True
+up20 first-crossing (post-hoc)      188  0.761  0.766   84  0.810  104  0.721   46  0.761  0.228  0.201  0.489  True
+up15 lag1 (post-hoc combo)          287  0.666  0.697  147  0.673  140  0.657   63  0.667  0.188  0.184  0.460 False
+up20 lag1 THR25 (post-hoc combo)    181  0.751  0.746   83  0.783   98  0.724   34  0.647  0.238  0.214  0.475  True
+up20 lag1 cool30 (post-hoc combo)   181  0.740  0.732   76  0.803  105  0.695   42  0.762  0.233  0.223  0.431 False
+registered-style perturbations (rows 2-11) failing L1: 3/10
+
+== 4. Null: random in_dd stock-days in 2026, matched count + up-bucket mix, 20-session cooldown, 2000 draws ==
+  [primary: up bucket] strata need={'15%+': 215}  pool sizes={'15%+': 2659}
+     pool hold20 by stratum (no cooldown) = {'15%+': 0.771}
+     observed hold20 = 0.7581 (n=215);  null mean = 0.6988, null 2.5/50/97.5% = 0.6651/0.6977/0.7349;  draws ok 2000/2000;  p(null >= obs) = 0.0010
+  [diagnostic: up bucket, NO cooldown (day-weighted, like the matched baseline)] strata need={'15%+': 215}  pool sizes={'15%+': 2659}
+     pool hold20 by stratum (no cooldown) = {'15%+': 0.771}
+     observed hold20 = 0.7581 (n=215);  null mean = 0.7693, null 2.5/50/97.5% = 0.7163/0.7721/0.8186;  draws ok 500/500;  p(null >= obs) = 0.6860
+  [secondary: half x up bucket] strata need={'20260_15%+': 121, '20261_15%+': 94}  pool sizes={'20260_15%+': 1363, '20261_15%+': 1296}
+     pool hold20 by stratum (no cooldown) = {'20260_15%+': 0.723, '20261_15%+': 0.82}
+     observed hold20 = 0.7581 (n=215);  null mean = 0.7002, null 2.5/50/97.5% = 0.6651/0.7023/0.7349;  draws ok 2000/2000;  p(null >= obs) = 0.0025
+  [post-hoc: half x (up >= 20%), count-matched, random-order cooldown] strata need={'20260_ge20': 121, '20261_ge20': 94}: no feasible draw in 40 tries (cooldown + strata too tight)
+     (infeasible because the rule's own signals are the earliest-first cooldown packing of the up>=20 in_dd days, i.e. close to the MAXIMUM number of 20-session-separated picks; a random-order packing of the same days cannot reach that count. So matching the count inside the up>=20 pool forces nearly the same days: the rule selects nothing beyond 'up >= 20%'.)
+  thinning nulls (post-hoc): keep each eligible pool day with prob q, apply the rule's own forward-only 20-session cooldown per stock, then subsample each stratum to the observed count (all available if fewer) and post-stratify to the observed stratum mix.
+  [thin: coarse 15%+ bucket x half, q=0.15] obs 0.7581; null mean 0.7364, 2.5/50/97.5% 0.6919/0.7361/0.7838; draws 2000/2000; strata short of count in 4000 stratum-draws; p(null >= obs) = 0.1690
+  [thin: coarse 15%+ bucket x half, q=0.35] obs 0.7581; null mean 0.7201, 2.5/50/97.5% 0.6837/0.7209/0.7581; draws 2000/2000; strata short of count in 3 stratum-draws; p(null >= obs) = 0.0280
+  [thin: up>=20 x half, q=0.15] obs 0.7581; null mean 0.7997, 2.5/50/97.5% 0.7489/0.8003/0.8525; draws 2000/2000; strata short of count in 4000 stratum-draws; p(null >= obs) = 0.9375
+  [thin: up>=20 x half, q=0.35] obs 0.7581; null mean 0.7894, 2.5/50/97.5% 0.7554/0.7889/0.8270; draws 2000/2000; strata short of count in 4000 stratum-draws; p(null >= obs) = 0.9630
+  [thin: fine up bins 20/22/25/30/40 x half, q=0.15] obs 0.7581; null mean 0.7829, 2.5/50/97.5% 0.7159/0.7835/0.8485; draws 2000/2000; strata short of count in 13340 stratum-draws; p(null >= obs) = 0.7755
+  [thin: fine up bins 20/22/25/30/40 x half, q=0.35] obs 0.7581; null mean 0.7814, 2.5/50/97.5% 0.7387/0.7808/0.8251; draws 2000/2000; strata short of count in 11933 stratum-draws; p(null >= obs) = 0.8665
+  [thin: sanity q=1.0 (should reproduce the rule, up to the 2025 carry-in cooldown)] obs 0.7581; null mean 0.7721, 2.5/50/97.5% 0.7721/0.7721/0.7721; draws 1/1; strata short of count in 0 stratum-draws; p(null >= obs) = 1.0000
+  [2026H1 only: half x up bucket] strata need={'20260_15%+': 99}  pool sizes={'20260_15%+': 1363}
+     pool hold20 by stratum (no cooldown) = {'20260_15%+': 0.723}
+     observed hold20 = 0.8081 (n=99);  null mean = 0.6856, null 2.5/50/97.5% = 0.6263/0.6869/0.7475;  draws ok 1000/1000;  p(null >= obs) = 0.0000
+  [2026H2 only: half x up bucket] strata need={'20260_15%+': 22, '20261_15%+': 94}  pool sizes={'20260_15%+': 1363, '20261_15%+': 1296}
+     pool hold20 by stratum (no cooldown) = {'20260_15%+': 0.723, '20261_15%+': 0.82}
+     observed hold20 = 0.7155 (n=116);  null mean = 0.7262, null 2.5/50/97.5% = 0.6724/0.7241/0.7845;  draws ok 1000/1000;  p(null >= obs) = 0.7060
+
+== 5. Mechanical check ==
+median up of actual 2026 first signals = 0.2326; plain rule up >= 0.2326: 2026 n=185 hold20=0.784 (H1 0.847, H2 0.730); candidate up20 hold20=0.758
+all 2026 in_dd stock-days (no cooldown) by up level: hold20 / near5 / win20 / n
+  up  0.00- 0.03: hold20 0.165  near5 0.248  win20 0.532  n 2840
+  up  0.03- 0.08: hold20 0.371  near5 0.252  win20 0.517  n 1686
+  up  0.08- 0.15: hold20 0.582  near5 0.207  win20 0.473  n 1936
+  up  0.15- 0.20: hold20 0.685  near5 0.184  win20 0.492  n 889
+  up  0.20- 0.25: hold20 0.783  near5 0.249  win20 0.496  n 575
+  up  0.25- 0.30: hold20 0.796  near5 0.202  win20 0.446  n 401
+  up  0.30- 0.40: hold20 0.789  near5 0.183  win20 0.394  n 432
+  up  0.40-  inf: hold20 0.912  near5 0.157  win20 0.390  n 362
+  all in_dd days with up >= 0.20 (what up20 samples from): hold20 0.814, n 1770
+  unconditional 2026 in_dd stock-days (82 stocks, no QQQ): hold20 0.468, near5 0.226, win20 0.494
+  for the 2026 signals, fall from C[t] needed to break Ldd: median 0.189; in 20-day-vol units (sigma20*sqrt20): median 0.86
+  matched (same half, 15%+ bucket) hold20 baseline for the signals: 0.766 vs rule 0.758 (diff -0.008)
+
+== 6. Verdict inputs ==
+independent match=True; look-ahead in signal timing: none found (tests a, b = 0 differences); universe survivorship caveat applies; L1 recomputed=True; robustness L1 failures 3/10; primary null p=0.0010, half-matched p=0.0025, up>=20 p=0.9375, fine-up p=0.7755
+
+== 7. Verdict: FRAGILE ==
+- Independent match: exact (268/268 first signals, per-signal outcomes identical; 2026 hold20 0.7581 n=215, H1 0.8081, H2 0.7155, 2025 0.7447). L1 passes as registered.
+- Look-ahead: none in the signal path (truncation and future-scramble tests 0 differences). Caveat: the universe is a 2026 hindsight AI watchlist (affects rule and baselines alike).
+- Sensitivity: L1 fails for the registered lower neighbour up15 (0.693), up17.5 (0.713) and lag2 (0.709); lag1 passes only at 0.738 (H2 0.707). H2 sits at 0.66-0.75 in every variant, its bootstrap CI is [0.41, 0.86] over 5 blocks, and two 20-session blocks (mid-May to mid-July 2026) hold only 41-43%. hold20 rises monotonically with the threshold (up15 0.69 -> up20 0.76 -> up25 0.82): 70% is simply crossed between 15% and 20% rebound.
+- Null: the specified null (15%+ bucket, random-order cooldown) gives p=0.0010, but only because that bucket includes 15-20% days (day-level hold20 0.685) and random-order packing over-weights short-lived rebounds; with the rule's own forward cooldown p rises to 0.03-0.17, and inside up>=20% (p=0.938) or with fine up bins (p=0.775) the rule is no better than random days at the same rebound size. H2-only null p≈0.7. Matched baseline 0.766 >= rule 0.758 (L2 fails).
+- Mechanical: plain up >= median (0.233) gives 0.784; in_dd days at up 20-25% hold 0.783. The 70% hit rate is the consequence of the price already being ~23% above the low (a further ~19% fall is needed to fail). near5 0.200 and win20 0.460 are at/below the unconditional 2026 stock baseline (0.226 / 0.494): it confirms 'the low held' only by arriving late, and adds no buy edge.
