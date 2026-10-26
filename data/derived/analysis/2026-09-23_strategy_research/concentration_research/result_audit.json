@@ -1,0 +1,182 @@
+{
+  "method": "Independent NumPy cumprod including initial NAV=1; no engine metric functions",
+  "paths_verified": 2403,
+  "candidate_definitions_unique": true,
+  "all_published_returns_and_drawdowns_match": true,
+  "balanced_membership_and_selected_rule_match": true,
+  "lower_ranking_matches_with_numeric_ties": true,
+  "largest_drawdown_difference_for_reordered_ties_pp": 3.197442310920451e-14,
+  "reference_return_pct": 73.72515125324115,
+  "required_return_pct": 147.4503025064823,
+  "cap_eligible_definitions": 156,
+  "balanced_eligible_definitions": 79,
+  "selected_index": 796,
+  "balanced_top20": [
+    {
+      "index": 796,
+      "worst_return_pct": 152.2993761373945,
+      "worst_drawdown_pct": -24.13717972390933,
+      "worst_turnover_nav": 15.664953861406008
+    },
+    {
+      "index": 793,
+      "worst_return_pct": 164.15521982026306,
+      "worst_drawdown_pct": -24.219646107657855,
+      "worst_turnover_nav": 4.551408846161414
+    },
+    {
+      "index": 789,
+      "worst_return_pct": 165.87039916380314,
+      "worst_drawdown_pct": -24.817140097721534,
+      "worst_turnover_nav": 13.122746522991505
+    },
+    {
+      "index": 798,
+      "worst_return_pct": 161.19456837978964,
+      "worst_drawdown_pct": -24.966389069504167,
+      "worst_turnover_nav": 10.811280021128844
+    },
+    {
+      "index": 794,
+      "worst_return_pct": 176.9851983907802,
+      "worst_drawdown_pct": -25.20940199938585,
+      "worst_turnover_nav": 5.458808183176689
+    },
+    {
+      "index": 791,
+      "worst_return_pct": 171.22735010289682,
+      "worst_drawdown_pct": -25.547237770382793,
+      "worst_turnover_nav": 7.910054032122667
+    },
+    {
+      "index": 785,
+      "worst_return_pct": 156.61804159077826,
+      "worst_drawdown_pct": -26.155723981562662,
+      "worst_turnover_nav": 8.233600143929621
+    },
+    {
+      "index": 790,
+      "worst_return_pct": 187.42258445780226,
+      "worst_drawdown_pct": -26.309852916056332,
+      "worst_turnover_nav": 15.780095340408813
+    },
+    {
+      "index": 771,
+      "worst_return_pct": 181.03187867512057,
+      "worst_drawdown_pct": -26.666460911562183,
+      "worst_turnover_nav": 10.984562169103839
+    },
+    {
+      "index": 784,
+      "worst_return_pct": 149.06747434312388,
+      "worst_drawdown_pct": -26.690106976452732,
+      "worst_turnover_nav": 13.50156754110977
+    },
+    {
+      "index": 792,
+      "worst_return_pct": 199.01854478694852,
+      "worst_drawdown_pct": -26.72786648310789,
+      "worst_turnover_nav": 9.78627602757545
+    },
+    {
+      "index": 773,
+      "worst_return_pct": 193.55939340016195,
+      "worst_drawdown_pct": -26.890753214541483,
+      "worst_turnover_nav": 6.851194853198195
+    },
+    {
+      "index": 775,
+      "worst_return_pct": 184.5991329159053,
+      "worst_drawdown_pct": -27.045312165733804,
+      "worst_turnover_nav": 4.169592239228795
+    },
+    {
+      "index": 786,
+      "worst_return_pct": 170.12511866063895,
+      "worst_drawdown_pct": -27.229094571716207,
+      "worst_turnover_nav": 9.76201402236139
+    },
+    {
+      "index": 676,
+      "worst_return_pct": 150.54329248473604,
+      "worst_drawdown_pct": -27.611789433039014,
+      "worst_turnover_nav": 10.65383925531043
+    },
+    {
+      "index": 662,
+      "worst_return_pct": 155.39088071814234,
+      "worst_drawdown_pct": -27.611789433039036,
+      "worst_turnover_nav": 9.673501854404922
+    },
+    {
+      "index": 664,
+      "worst_return_pct": 168.34588152445414,
+      "worst_drawdown_pct": -27.611789433039036,
+      "worst_turnover_nav": 10.597582558577363
+    },
+    {
+      "index": 671,
+      "worst_return_pct": 151.5205900545957,
+      "worst_drawdown_pct": -27.811068726273092,
+      "worst_turnover_nav": 15.816323946982642
+    },
+    {
+      "index": 672,
+      "worst_return_pct": 151.5205900545957,
+      "worst_drawdown_pct": -27.811068726273092,
+      "worst_turnover_nav": 15.816323946982642
+    },
+    {
+      "index": 659,
+      "worst_return_pct": 174.10940769758562,
+      "worst_drawdown_pct": -27.811068726273103,
+      "worst_turnover_nav": 16.02641091443342
+    }
+  ],
+  "scenario_checks": {
+    "publication_lag0": {
+      "paths": 801,
+      "return_range_pct": [
+        9.599140466988466,
+        274.88148531380943
+      ],
+      "max_holdings": 10,
+      "missing_held_close_marks": 0.0,
+      "frozen_infeasible_cap_days": 0.0
+    },
+    "publication_lag1": {
+      "paths": 801,
+      "return_range_pct": [
+        28.93860053312043,
+        236.76230696337734
+      ],
+      "max_holdings": 10,
+      "missing_held_close_marks": 0.0,
+      "frozen_infeasible_cap_days": 0.0
+    },
+    "publication_lag2": {
+      "paths": 801,
+      "return_range_pct": [
+        24.67992364926388,
+        286.9351928960091
+      ],
+      "max_holdings": 10,
+      "missing_held_close_marks": 0.0,
+      "frozen_infeasible_cap_days": 0.0
+    }
+  },
+  "source_hashes_unchanged": {
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\2026-09-23_strategy_research\\us_only_experiment\\bundle.npz": true,
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\2026-09-23_strategy_research\\us_only_experiment\\metadata.json": true,
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\2026-09-23_strategy_research\\us_only_experiment\\configurations.json": true,
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\2026-09-23_strategy_research\\us_only_experiment\\zero_cost\\results.json": true,
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\2026-09-23_strategy_research\\strategy_comparison\\results.json": true,
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\2026-09-23_strategy_research\\concentration_research\\sector_map.json": true,
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\strategy_lab\\lab_panels.json": true,
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\strategy_lab\\prices_open.csv": true,
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\strategy_lab\\prices_close.csv": true,
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\strategy_lab\\prices_adj_close.csv": true,
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\gbrc\\etf\\research_strategy_comparison.py": true,
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\gbrc\\etf\\research_engine.py": true
+  }
+}

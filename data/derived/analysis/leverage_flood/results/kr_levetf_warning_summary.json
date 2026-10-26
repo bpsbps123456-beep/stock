@@ -1,0 +1,103 @@
+{
+  "indicator": "single_lev_to_underlying_value_ratio",
+  "publish_lag_bdays": 0,
+  "rule": "R_D 확장창(상장 이후 D 이전 전체) 순위 백분위 >= 0.95, 이전 관측 >= 10일, 시차 0; 에피소드 간격 <= 5거래일; 적중창 마지막 빨강 + 10거래일; 급락 = 코스피/SOX 5거래일 내 -8.0% 이하",
+  "rows": 93,
+  "date_range": "20260527~20261013",
+  "n_red_days": 5,
+  "red_days": [
+    "20260616",
+    "20260617",
+    "20260622",
+    "20260721",
+    "20260723"
+  ],
+  "n_episodes": 2,
+  "n_hits": 2,
+  "false_alarms": 0,
+  "crash_days_known": [
+    "20260608",
+    "20260609",
+    "20260610",
+    "20260611",
+    "20260623",
+    "20260625",
+    "20260629",
+    "20260702",
+    "20260703",
+    "20260707",
+    "20260708",
+    "20260709",
+    "20260713",
+    "20260714",
+    "20260716",
+    "20260720",
+    "20260728",
+    "20260729",
+    "20260730",
+    "20260731",
+    "20260825",
+    "20261012",
+    "20261013"
+  ],
+  "leads": {
+    "6/23": {
+      "event": "20260623",
+      "lead_days_first_red": 5,
+      "lead_days_last_red": 1,
+      "red_dates": [
+        "20260616",
+        "20260617",
+        "20260622"
+      ],
+      "ratio_on_event_minus1": 0.608907245254158,
+      "pct_rank_on_event_minus1": 1.0
+    },
+    "7/28(7/29 2차)": {
+      "event": "20260728",
+      "lead_days_first_red": 5,
+      "lead_days_last_red": 3,
+      "red_dates": [
+        "20260721",
+        "20260723"
+      ],
+      "ratio_on_event_minus1": 0.3734112910016869,
+      "pct_rank_on_event_minus1": 0.3170731707317073
+    },
+    "10/6": {
+      "event": "20261006",
+      "lead_days_first_red": null,
+      "lead_days_last_red": null,
+      "red_dates": [],
+      "ratio_on_event_minus1": 0.0473211608143061,
+      "pct_rank_on_event_minus1": 0.14942528735632185
+    }
+  },
+  "key_dates": {
+    "20260622": {
+      "ratio": 0.608907245254158,
+      "pct_rank_prior": 1.0,
+      "pct_rank_full_sample": 0.989247311827957,
+      "red": true
+    },
+    "20260728": {
+      "ratio": 0.2326588197679817,
+      "pct_rank_prior": 0.023809523809523808,
+      "pct_rank_full_sample": 0.5268817204301075,
+      "red": false
+    },
+    "20261002": {
+      "ratio": 0.0473211608143061,
+      "pct_rank_prior": 0.14942528735632185,
+      "pct_rank_full_sample": 0.1827956989247312,
+      "red": false
+    },
+    "20261013": {
+      "ratio": 0.0543652032301072,
+      "pct_rank_prior": 0.3804347826086957,
+      "pct_rank_full_sample": 0.3763440860215054,
+      "red": false
+    }
+  },
+  "first_evaluable_day": "20260611"
+}

@@ -1,0 +1,236 @@
+{
+ "cell": "N20|gvip_rel20_p≥0.5382(상위3분위)",
+ "reproduce": {
+  "saved_events_identical": true,
+  "n_cells": 138,
+  "rank": 5.0,
+  "f_diff": 0.02421730458071157,
+  "b_diff": 0.05563277166254224,
+  "b_t": 2.777060838602549,
+  "b_p": 0.029850746268656716,
+  "b_mean_on": 0.011252336804283067,
+  "b_n_on": 56,
+  "pass": true,
+  "passed_cells": [
+   "N20|gvip_rel20_p≥0.5382(상위3분위)"
+  ]
+ },
+ "threshold_exact": 0.5381526104417667,
+ "when_audit": {
+  "gvip_only_path_equals_attach": true,
+  "events_with_value": 3400,
+  "violations_w_after_t": 0,
+  "w_equals_t": 3400,
+  "w_before_t": 0,
+  "stale_lag_tradingdays_counts": {},
+  "back_on_N20": {
+   "2026-06-01": "2026-06-01",
+   "2026-06-03": "2026-06-03",
+   "2026-06-17": "2026-06-17",
+   "2026-06-22": "2026-06-22",
+   "2026-06-23": "2026-06-23",
+   "2026-06-24": "2026-06-24",
+   "2026-06-25": "2026-06-25",
+   "2026-06-26": "2026-06-26",
+   "2026-07-01": "2026-07-01",
+   "2026-07-02": "2026-07-02",
+   "2026-07-07": "2026-07-07"
+  }
+ },
+ "alignment": {
+  "panel(D) vs indep(D-1)": {
+   "n": 845,
+   "median_abs_rel": 0.0029320163122183995,
+   "share_lt_1e-4": 0.022485207100591716
+  },
+  "panel(D) vs indep(D+0)": {
+   "n": 844,
+   "median_abs_rel": 1.1102230246251565e-16,
+   "share_lt_1e-4": 1.0
+  },
+  "panel(D) vs indep(D+1)": {
+   "n": 843,
+   "median_abs_rel": 0.0029309982898111375,
+   "share_lt_1e-4": 0.022538552787663108
+  }
+ },
+ "independent": {
+  "own_code_vs_b4_max_abs_diff": 0.0,
+  "own_code_nan_mismatch": 7,
+  "indep_source_threshold": 0.5381526104417667,
+  "indep_label_flips": {
+   "front": 0,
+   "back": 0
+  },
+  "indep_back": {
+   "n_on": 56,
+   "dates_on": 11,
+   "n_off": 155,
+   "mean_on": 0.011252336804283067,
+   "mean_off": -0.04438043485825919,
+   "diff": 0.055632771662542255,
+   "t": 2.7770608386025493
+  },
+  "indep_front": {
+   "n_on": 63,
+   "dates_on": 25,
+   "n_off": 126,
+   "mean_on": -0.022525571598334737,
+   "mean_off": -0.04674287617904633,
+   "diff": 0.024217304580711592,
+   "t": 1.814808300815877
+  },
+  "b4_back": {
+   "n_on": 56,
+   "dates_on": 11,
+   "n_off": 155,
+   "mean_on": 0.011252336804283067,
+   "mean_off": -0.04438043485825919,
+   "diff": 0.055632771662542255,
+   "t": 2.7770608386025493
+  },
+  "b4_front": {
+   "n_on": 63,
+   "dates_on": 25,
+   "n_off": 126,
+   "mean_on": -0.022525571598334737,
+   "mean_off": -0.04674287617904633,
+   "diff": 0.024217304580711592,
+   "t": 1.814808300815877
+  }
+ },
+ "perturb": {
+  "cutoffs": 236,
+  "A_past_event_checks": 895535,
+  "A_past_changed": 0,
+  "A_future_changed(detection)": 226479,
+  "B_events_t_eq_c": 2042,
+  "B_unchanged(should be 0 unless tie)": 14,
+  "C_event_checks_t_le_c": 895535,
+  "C_changed(should be 0)": 0
+ },
+ "perturb_D_after_front": {
+  "reps": 20,
+  "thr_same_all": true,
+  "name_same_all": true,
+  "front_labels_changed_max": 0,
+  "back_labels_changed_mean(detection)": 103.35
+ },
+ "perturb_E_full_attach": [
+  {
+   "cutoff": "2026-05-29",
+   "past_changed": 0,
+   "past_events": 4284,
+   "future_changed": 466,
+   "timing_violations_all_feats": 0
+  },
+  {
+   "cutoff": "2026-06-24",
+   "past_changed": 0,
+   "past_events": 4341,
+   "future_changed": 367,
+   "timing_violations_all_feats": 0
+  },
+  {
+   "cutoff": "2026-07-02",
+   "past_changed": 0,
+   "past_events": 4403,
+   "future_changed": 323,
+   "timing_violations_all_feats": 0
+  }
+ ],
+ "selection_overlap": {
+  "K_last_front_exit": "2026-06-12",
+  "front_events": 425,
+  "front_events_exit_after_0529": 3,
+  "N20_front_exit_after_0529": 3,
+  "N20_late_on": 3,
+  "N20_late_on_mean": -0.011367961117942008,
+  "N20_late_off_mean": NaN,
+  "purged": {
+   "f_diff": 0.023659424056691938,
+   "f_n_on": 60,
+   "f_dates_on": 23,
+   "eligible": true,
+   "rank": 5.0,
+   "pass": true,
+   "b_p": 0.029850746268656716,
+   "selected": [
+    "N20|nvdl_flow20_p≥0.6426(상위3분위)",
+    "N20|pc_equity5_p≥0.8447(상위3분위)",
+    "N60|shvr_z20≥-0.1192(상위3분위)",
+    "N20|si_dtc≥2.83(상위3분위)",
+    "N20|gvip_rel20_p≥0.5382(상위3분위)",
+    "N60|pc_equity5_p≥0.8755(상위3분위)",
+    "N40|tqqq_flow20_p≤0.6145(하위3분위)",
+    "N20|soxl_shr5_p≤0.8541(하위3분위)",
+    "N20|tqqq_shr5_p≤0.249(하위3분위)",
+    "N60|nvdl_flow20_p≥0.6345(상위3분위)"
+   ],
+   "passed": [
+    "N20|gvip_rel20_p≥0.5382(상위3분위)"
+   ]
+  },
+  "back_from_K": {
+   "back_start": "2026-06-12",
+   "b_diff": 0.056526052748409175,
+   "b_t": 2.666978245446684,
+   "b_p": 0.024875621890547265,
+   "b_mean_on": 0.010702775775174908,
+   "b_n_on": 54,
+   "b_dates_on": 9,
+   "pass": true
+  },
+  "purged_and_back_from_K": {
+   "rank": 5.0,
+   "b_diff": 0.056526052748409175,
+   "b_t": 2.666978245446684,
+   "b_p": 0.024875621890547265,
+   "b_mean_on": 0.010702775775174908,
+   "pass": true
+  }
+ },
+ "entry_audit": {
+  "back_on_events": 56,
+  "max_abs_diff_recomputed_short_ret": 0.0,
+  "entry_is_t_plus_1_open": true
+ },
+ "lag_sensitivity": {
+  "stale_1d(w<=t-1)": {
+   "threshold": 0.6680053547523427,
+   "f_diff": 0.0013449229304135363,
+   "b_diff": 0.053835520198128026,
+   "b_t": 2.6670955488156363,
+   "b_p(single-cell perm)": 0.03482587064676617,
+   "b_mean_on": 0.00993208098919204,
+   "b_n_on": 56,
+   "w_after_t": 0
+  },
+  "as_coded(w<=t)": {
+   "threshold": 0.5381526104417667,
+   "f_diff": 0.024217304580711595,
+   "b_diff": 0.055632771662542255,
+   "b_t": 2.7770608386025493,
+   "b_p(single-cell perm)": 0.029850746268656716,
+   "b_mean_on": 0.011252336804283067,
+   "b_n_on": 56,
+   "w_after_t": 0
+  },
+  "leak_1d(w<=t+1)": {
+   "threshold": 0.5502008032128514,
+   "f_diff": 0.007427756751837822,
+   "b_diff": 0.041397478914660835,
+   "b_t": 2.0563265779248154,
+   "b_p(single-cell perm)": 0.05472636815920398,
+   "b_mean_on": -0.0015592277592124384,
+   "b_n_on": 68,
+   "w_after_t": 3388
+  }
+ },
+ "b4_lag1_flag_timing": {
+  "events_with_value": 3543,
+  "source_date_equals_t_plus_1": 3492,
+  "source_date_after_t": 3492
+ },
+ "elapsed_s": 32.9
+}

@@ -1,0 +1,84 @@
+== Rule plateaus under cost / execution scenarios (median over N>=3 neighbours, no overlay) ==
+rule                        | total c0 / c10 / c25 / open(c10) | OOS c10 / c25 / open | turnover
+T/all/MOM120/D              |  +190%  +184%  +172%  +186%           |   -4%   -5%   -7% |    21
+T/top20/MOM120/D            |  +176%  +167%  +151%  +168%           |   -5%   -6%   -6% |    21
+I/all/MOM120/D              |  +174%  +166%  +157%  +184%           |   -4%   -7%   -9% |    20
+I/top20/MOM120/D            |  +164%  +158%  +150%  +176%           |   -4%   -7%   -9% |    20
+K/all/REV5/D                |  +212%  +169%  +113%  +119%           |  +50%  +37%  +41% |   157
+U/all/REV5/D                |  +186%  +147%   +97%  +132%           |  +56%  +39%  +42% |   161
+T/top20/RADJ120/D           |  +154%  +147%  +138%  +148%           |   -1%   -3%   -6% |    21
+T/all/RADJ120/D             |  +156%  +151%  +146%  +161%           |   -1%   -2%   -2% |    22
+I/all/RADJ120/D             |  +142%  +137%  +130%  +154%           |   -1%   -1%   -4% |    19
+I/top20/RADJ120/D           |  +136%  +131%  +123%  +150%           |   -1%   -1%   -4% |    19
+I/top20/MOM120/W            |  +155%  +152%  +147%  +167%           |  -10%  -11%  -11% |    15
+I/all/MOM120/W              |  +151%  +148%  +143%  +168%           |  -10%  -11%  -11% |    15
+K/all/PULL/D                |  +166%  +140%  +111%   +97%           |  +24%  +13%  +12% |   119
+U/top20/MOM120/D            |  +126%  +118%  +107%  +126%           |  -13%  -15%  -17% |    25
+T/all/MOM120/W              |  +143%  +139%  +133%  +163%           |   -9%  -10%  -11% |    16
+T/all/RADJ120/W             |  +131%  +127%  +123%  +146%           |   -5%   -5%   -8% |    18
+I/all/RADJ120/W             |  +139%  +136%  +132%  +143%           |   -5%   -6%   -6% |    16
+I/all/PULL/D                |  +158%  +139%  +110%  +110%           |   +4%   -1%   -1% |    81
+I/top20/RADJ120/W           |  +135%  +132%  +127%  +138%           |   -5%   -6%   -6% |    16
+I/top20/WMOM60_50/D         |  +114%  +109%  +104%  +110%           |  -11%  -12%  -14% |    22
+I/all/WMOM60_50/D           |  +115%  +111%  +106%  +111%           |  -11%  -12%  -14% |    22
+I/all/WMOM20_25/D           |  +129%  +120%  +109%  +133%           |  -15%  -18%  -12% |    43
+T/top20/NEW10/D             |  +125%  +121%  +111%  +104%           |  -13%  -15%   -9% |    28
+T/all/MOM120/2W             |  +138%  +135%  +130%  +153%           |   -7%   -8%  -10% |    11
+T/top20/FMOM20_60/D         |  +123%  +118%   +97%  +100%           |  -24%  -26%  -25% |    47
+T/all/MOM120/M              |  +146%  +144%  +142%  +147%           |   -3%   -4%   -4% |     7
+I/top20/MOM120/2W           |  +137%  +135%  +132%  +164%           |   -9%   -9%  -10% |    10
+I/all/FMOM5_20/D            |  +125%  +116%  +103%  +133%           |  -14%  -15%   -5% |    60
+K/all/FMOM5_60/D            |  +139%  +118%   +96%  +111%           |   -9%  -14%  -12% |   101
+T/all/WMOM60_25/D           |  +112%  +107%  +100%  +117%           |  -22%  -23%  -20% |    34
+T/all/W/D                   |  +112%  +108%  +102%   +99%           |   -6%   -7%  -10% |    21
+T/all/W/M                   |   +67%   +65%   +63%   +73%           |   -8%   -9%   -9% |     9
+I/all/W/D                   |   +88%   +84%   +79%   +77%           |   -8%   -9%  -12% |    19
+K/all/W/D                   |   +44%   +42%   +37%   +40%           |  -16%  -18%  -19% |    25
+U/all/PULL/D                |  +148%  +110%   +77%   +87%           |  +17%   +7%   +9% |   127
+T/all/PULL/D                |  +115%   +90%   +68%   +86%           |   +4%   -4%   -4% |   103
+T/all/REV5/D                |  +150%  +121%   +77%  +112%           |  +33%  +21%  +20% |   137
+I/all/PULL/W                |  +118%  +109%   +99%  +110%           |   -5%   -6%   +0% |    37
+K/all/PULL/W                |  +104%   +92%   +77%   +81%           |   +3%   +0%   +7% |    54
+K/all/REV5/W                |   +62%   +52%   +38%   +56%           |   -4%   -8%   +8% |    65
+
+== Family medians by scenario (N>=3, no overlay) ==
+BOTH   daily  c0: +85% c10: +82% c25: +77% open: +76%   | weekly c0: +74% c10: +71% c25: +67% open: +73%
+CONS   daily  c0: +81% c10: +67% c25: +51% open: +72%   | weekly c0: +61% c10: +56% c25: +48% open: +57%
+DW     daily  c0: +66% c10: +55% c25: +39% open: +59%   | weekly c0: +48% c10: +42% c25: +34% open: +44%
+FLOW   daily  c0: +77% c10: +60% c25: +35% open: +45%   | weekly c0: +55% c10: +49% c25: +39% open: +46%
+FMOM   daily  c0: +96% c10: +84% c25: +67% open:+100%   | weekly c0: +80% c10: +74% c25: +65% open: +87%
+HIGH   daily  c0: +44% c10: +31% c25: +14% open: +52%   | weekly c0: +42% c10: +37% c25: +29% open: +49%
+MOM    daily  c0: +91% c10: +82% c25: +69% open: +93%   | weekly c0: +87% c10: +82% c25: +75% open: +88%
+NEW    daily  c0: +63% c10: +56% c25: +46% open: +53%   | weekly c0: +52% c10: +48% c25: +41% open: +47%
+PULL   daily  c0:+118% c10:+102% c25: +78% open: +94%   | weekly c0:+102% c10: +94% c25: +82% open: +90%
+RADJ   daily  c0:+101% c10: +93% c25: +82% open: +96%   | weekly c0: +90% c10: +86% c25: +80% open: +93%
+REV5   daily  c0:+147% c10:+119% c25: +80% open: +97%   | weekly c0: +70% c10: +61% c25: +49% open: +62%
+W      daily  c0: +84% c10: +80% c25: +73% open: +69%   | weekly c0: +70% c10: +67% c25: +63% open: +68%
+WFLOW  daily  c0: +84% c10: +74% c25: +59% open: +78%   | weekly c0: +63% c10: +57% c25: +50% open: +63%
+WMOM   daily  c0:+102% c10: +95% c25: +85% open:+100%   | weekly c0: +87% c10: +84% c25: +78% open: +93%
+
+== Contribution concentration of representative rules (N=5, FW, buffer=N, cost 0.10%) ==
+T/all/MOM120/D N5: USD total +271%, sum of contributions +155%p, top-3 winners = 78% of net, distinct names 15
+    largest |contrib|: SNDK +83%p, BE +20%p, CIEN +17%p, LITE +7%p, STX +7%p
+    without SNDK's price moves: USD total +82%
+I/all/MOM120/D N5: USD total +228%, sum of contributions +142%p, top-3 winners = 76% of net, distinct names 14
+    largest |contrib|: SNDK +72%p, WDC +20%p, BE +16%p, CIEN +15%p, LITE +8%p
+    without SNDK's price moves: USD total +80%
+T/all/RADJ120/D N5: USD total +184%, sum of contributions +125%p, top-3 winners = 79% of net, distinct names 17
+    largest |contrib|: SNDK +61%p, WDC +25%p, CIEN +13%p, LITE +6%p, STX +6%p
+    without SNDK's price moves: USD total +69%
+K/all/REV5/D N5: USD total +195%, sum of contributions +139%p, top-3 winners = 66% of net, distinct names 101
+    largest |contrib|: SNDK +55%p, AAOI +19%p, ARM +18%p, BE +9%p, RDDT -7%p
+    without SNDK's price moves: USD total +77%
+I/all/REV5/D N5: USD total +152%, sum of contributions +114%p, top-3 winners = 57% of net, distinct names 46
+    largest |contrib|: SNDK +44%p, ARM +11%p, LITE +10%p, STX +8%p, AAOI +8%p
+    without SNDK's price moves: USD total +67%
+K/all/PULL/D N5: USD total +93%, sum of contributions +93%p, top-3 winners = 42% of net, distinct names 78
+    largest |contrib|: LITE +16%p, AMD +12%p, ARM +12%p, SNDK +11%p, COHR +7%p
+    without LITE's price moves: USD total +68%
+I/all/PULL/D N5: USD total +159%, sum of contributions +116%p, top-3 winners = 52% of net, distinct names 38
+    largest |contrib|: SNDK +36%p, LITE +17%p, WDC +8%p, AAOI +7%p, COHR +6%p
+    without SNDK's price moves: USD total +90%
+T/all/W/D N5: USD total +113%, sum of contributions +92%p, top-3 winners = 82% of net, distinct names 14
+    largest |contrib|: SNDK +42%p, WDC +19%p, STX +14%p, CIEN +6%p, INTC +5%p
+    without SNDK's price moves: USD total +51%

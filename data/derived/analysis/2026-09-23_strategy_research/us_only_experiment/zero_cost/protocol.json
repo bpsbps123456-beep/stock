@@ -1,0 +1,49 @@
+{
+  "created_before_grid_execution": "2026-09-27T04:49:14.753132+00:00",
+  "research_status": "Additional adaptive research after earlier results; August-September is reused historical evaluation, not independent validation.",
+  "period": [
+    "2026-01-02",
+    "2026-09-23"
+  ],
+  "securities": 150,
+  "us_sessions": 182,
+  "candidate_count_per_scenario": 252720,
+  "explicit_cost_deduction": 0.0,
+  "scenarios": {
+    "base_zero": {
+      "cost": 0.0,
+      "extra_us_session_lag": 0
+    },
+    "lag1_zero": {
+      "cost": 0.0,
+      "extra_us_session_lag": 1
+    }
+  },
+  "selection": "Jan-May training MDD > -50%; top1% by log return minus half absolute MDD; June-July validation winner; no August-September selection",
+  "robust_selection": "Same selection using worse objective across both zero-cost delay scenarios",
+  "scopes": [
+    "all",
+    "exact_max3",
+    "exact_max5",
+    "mixed_max3_to10",
+    "mixed_max5_to10"
+  ],
+  "benchmark_policy": "Same zero explicit-cost TIME/KoAct/QQQ paths; fresh August cash starts also deduct zero",
+  "flow_policy": "Original full-fund CU and KRX snapshot signals and NAV weights retained; US-only filtering does not renormalize inputs",
+  "cost_interpretation": "Zero means no explicit buy/sell cost deduction. It does not verify zero real slippage, bid-ask spread, currency costs or taxes.",
+  "execution": "Assumed regular-session Close fills and fractional positions, KRW daily FX marks, no leverage; taxes/dividends excluded",
+  "source_directory": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\2026-09-23_strategy_research\\us_only_experiment",
+  "configurations_source": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\2026-09-23_strategy_research\\us_only_experiment\\configurations.json",
+  "source_sha256": {
+    "bundle.npz": "45f660bc23b1296d0bce7fdbc3f02698250dbc832d514c6e6a34a79ef2ab3662",
+    "metadata.json": "e1ad0971d1d1162bb63333fda2a70428b3d9b2b17791d082594fa9ccd8a55e5e",
+    "raw_prices.json": "18f45a2f10a6671890fb2f6af9452c725d2acfff7f14cb904d74cde5e32ab705",
+    "protocol.json": "51966c10d51dbc7ddc0d2f3ca60c2bb0cf1301bc90e51b8a347408ff47eed2db",
+    "configurations.json": "380cf3f0c72d099e4955f0a6a3b7f8b237fa90c8c00c6f8eaa89fa7e56fcf86e",
+    "evaluation.json": "5fbe1c25e36f2d4f1d90d67b47204f9db070f3d0e6a2ac33bc5603a76f463eac",
+    "summary.json": "16cb0db9eb17b717242b6afd77b69673c895618d44e433198f869218aacd7343",
+    "grid_returns.npy": "a27b352eba232e59efdad49599776b59c56fdac34bd176f0754fc81b58be65bb",
+    "delayed_grid_returns.npy": "e4b824f461ba013051dfbcd93b09d17fa80b7df2870fd1a120c9098f11acdd8e"
+  },
+  "engine_sha256": "075ddee3c2ed6fdfe3570c9551bf743b4c449838b549a13067d3a43f53c70e23"
+}

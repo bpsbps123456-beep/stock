@@ -1,0 +1,100 @@
+// This Pine Script® code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// 추세 5단계 — 2026-10-10, 10-11, 10-13 수정 (관찰용, 이격매수매도·5일저가선과 함께 띄우는 세 번째 지표)
+// 아래 띠: 종목의 주 추세 5단계. 차트 시간봉과 상관없이 정규장 일봉의 '마지막 완성봉'으로 계산한다(장중에는 어제 종가 기준).
+//   극상방 RSI14 ≥ 70 / 극하방 RSI14 ≤ 30 / 그 밖에는 N거래일 평균(로그 종가) 대비 오늘 위치 z로 나눈다. N 기본 20
+//   z = (ln C - 최근 N일 ln C 평균) ÷ (일 로그수익 표준편차 × k), k = √((N-1)(2N-1)/(6N)) (N 20이면 2.485, 무작위 움직임이면 z 표준편차 1)
+//   z ≥ 0.5 상방, z ≤ -0.5 하방, 그 사이 애매. 색은 차트 양봉(초록)·음봉(빨강)에 맞췄다(10/11 사용자 요청).
+//   2026-10-13 변경: N일 전 한 점 대신 N일 평균을 기준으로 바꿨다. 한 점 기준은 기준가가 바뀌면 값이 거꾸로 움직였다(EWY 10/12 -4%에 z -0.49 → -0.30, 애매).
+//   N = 60이면 MU 6/25~7/29(종가 -39%) 급락에서 7/14까지 상방, 7/28까지 애매였다. 20이면 7/7부터 하방이 나온다.
+// 위 띠(주황): SOXX 주간 경고. 이번 주 첫 거래일 직전 종가의 SOXX가 20일선 아래면 그 주 내내 켜진다.
+// 근거: data/derived/analysis/trend_zones/report.md (TIME·KoAct 150종목 일봉, 2023~2026, 조합 432개, 독립 검증 2개)
+//   지금 상태를 보여 주는 관찰용이다. 매수·매도 신호가 아니다.
+//   극상방은 과열이자 강세다. 평상 주에는 이후 10일 동안 상방 종목보다 더 올랐다(팔 자리가 아니었다).
+//   상방·하방 방향은 2026년 1~5월에는 이어졌고 6월 이후에는 일관되지 않았다. 극하방 반등은 기간마다 달랐다.
+//@version=6
+indicator("추세 5단계", shorttitle = "추세5단계", overlay = true)
+
+// ── 입력 ──────────────────────────────────────────────
+trendLen = input.int(20, "추세 기간 (거래일)", minval = 10, tooltip = "이 기간 평균 대비 오늘 위치를 본다. 20 = 약 1개월, 60 = 3개월. 짧을수록 색이 자주 바뀐다", display = display.none)
+trendTh  = input.float(0.5, "상방·하방 문턱 (표준편차 배수)", minval = 0.1, step = 0.1, display = display.none)
+rsiLen   = input.int(14, "RSI 기간", minval = 2, display = display.none)
+rsiHi    = input.float(70, "극상방: RSI 이상", minval = 50, maxval = 100, display = display.none)
+rsiLo    = input.float(30, "극하방: RSI 이하", minval = 0, maxval = 50, display = display.none)
+warnSym  = input.symbol("NASDAQ:SOXX", "경고 기준", display = display.none)
+warnLen  = input.int(20, "경고 이동평균 (거래일)", minval = 2, display = display.none)
+showZone = input.bool(true, "아래 5단계 띠", display = display.none)
+showWarn = input.bool(true, "위 경고 띠와 경고 문구", display = display.none)
+cUp2  = input.color(#089981, "극상방 (양봉 초록)", display = display.none)
+cUp1  = input.color(#8ED1C3, "상방 (연초록)", display = display.none)
+cMid  = input.color(#9E9E9E, "애매", display = display.none)
+cDn1  = input.color(#F7A1A8, "하방 (연빨강)", display = display.none)
+cDn2  = input.color(#F23645, "극하방 (음봉 빨강)", display = display.none)
+cWarn = input.color(#FF9100, "SOXX 경고", display = display.none)
+
+// ── 일봉 계산 (요청한 종목의 정규장 일봉 위에서 돈다) ─────────
+zoneCalc() =>
+    float lc = math.log(close)
+    float lr = lc - lc[1]
+    float sd = ta.stdev(lr, trendLen, false)
+    float k  = math.sqrt((trendLen - 1.0) * (2.0 * trendLen - 1.0) / (6.0 * trendLen))
+    float z  = (lc - ta.sma(lc, trendLen)) / (sd * k)
+    float r  = ta.rsi(close, rsiLen)
+    int   zn = na(z) or na(r) or bar_index < 129 ? na : r >= rsiHi ? 2 : r <= rsiLo ? -2 : z >= trendTh ? 1 : z <= -trendTh ? -1 : 0
+    [zn, zn[1], time_close]
+
+// 주 구분 열쇠: 그 시간대 달력으로 그 주 월요일의 날짜 번호(서머타임 전환일·미국 밖 차트에서도 맞게)
+weekKey(int t, string tz) =>
+    int dn = math.floor(timestamp("UTC", year(t, tz), month(t, tz), dayofmonth(t, tz), 0, 0) / 86400000.0)
+    dn - (dayofweek(t, tz) + 5) % 7
+
+warnCalc() =>
+    bool below = close < ta.sma(close, warnLen)
+    int  key   = weekKey(time, "America/New_York")
+    var bool wk = false
+    if key != key[1]
+        wk := below[1]          // 새 주 첫 일봉: 직전 거래일(지난주 마지막) 종가 상태로 이번 주를 정한다
+    [below, wk, key, below[1], wk[1], key[1], time_close]
+
+// 현재 봉과 직전 봉 값을 함께 받고, 봉 마감 시각이 지났는지로 '마지막 완성봉'을 고른다.
+// (lookahead+[1] 방식은 연장시간 차트의 프리·애프터에서 한 봉 늦은 값을 보여 준다 — Kalman 5단계에서 확인)
+[zC, zP, zClose] = request.security(ticker.modify(syminfo.tickerid, session.regular), "D", zoneCalc(), lookahead = barmerge.lookahead_off)
+// 장중 차트는 차트 봉이 일봉 마감 뒤에 끝나야 완성봉으로 본다(그날 마지막 정규장 봉이 과거·실시간에서 같은 값이 되게)
+bool zDone = na(zClose) or (timenow >= zClose and (not timeframe.isintraday or na(time_close) or time_close > zClose))
+int  zone  = zDone ? zC : zP
+
+[bC, wC, kC, bP, wP, kP, wClose] = request.security(ticker.modify(warnSym, session.regular), "D", warnCalc(), lookahead = barmerge.lookahead_off)
+bool wDone = na(wClose) or timenow >= wClose
+bool bL    = wDone ? bC : bP
+bool wL    = wDone ? wC : wP
+int  kL    = wDone ? kC : kP
+// 마지막 완성 일봉이 지난주 것이면(월요일 프리장 등) 그 종가 상태가 이번 주 경고다
+bool warn  = na(kL) ? false : weekKey(time, syminfo.timezone) != kL ? bL : wL
+
+// ── 그리기 ────────────────────────────────────────────
+zoneColor(int z) =>
+    switch z
+        2  => cUp2
+        1  => cUp1
+        0  => cMid
+        -1 => cDn1
+        -2 => cDn2
+        => na
+
+plotshape(showZone and not na(zone), "추세 5단계", shape.square, location.bottom, zoneColor(zone), size = size.tiny, display = display.pane)
+plotshape(showWarn and warn, "SOXX 경고", shape.square, location.top, cWarn, size = size.tiny, display = display.pane)
+
+var table tb = table.new(position.top_center, 1, 1)
+if barstate.islast
+    if showWarn and warn
+        table.cell(tb, 0, 0, "SOXX 20일선 아래 · 이번 주 경고", text_color = color.white, bgcolor = cWarn, text_size = size.small)
+    else
+        table.clear(tb, 0, 0)
+
+// ── 알림 ──────────────────────────────────────────────
+bool zChanged = not na(zone) and not na(zone[1]) and zone != zone[1]
+alertcondition(zChanged and zone == 2,  "극상방 진입", "{{ticker}} 추세 5단계: 극상방")
+alertcondition(zChanged and zone == 1,  "상방 진입",   "{{ticker}} 추세 5단계: 상방")
+alertcondition(zChanged and zone == 0,  "애매 진입",   "{{ticker}} 추세 5단계: 애매")
+alertcondition(zChanged and zone == -1, "하방 진입",   "{{ticker}} 추세 5단계: 하방")
+alertcondition(zChanged and zone == -2, "극하방 진입", "{{ticker}} 추세 5단계: 극하방")
+alertcondition(warn and not warn[1], "SOXX 경고 시작", "이번 주 SOXX 20일선 아래 경고")

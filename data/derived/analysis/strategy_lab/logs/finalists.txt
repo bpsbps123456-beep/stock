@@ -1,0 +1,72 @@
+== Finalists by universe / execution (cost 0.10%) : total (MDD, Sharpe) ==
+-- 전체
+   REPL_T TIME 미국 전량                     +82%  (MDD  -22%, Sharpe 2.08)
+   H1b TIME 비중 Top5·매일                  +103%  (MDD  -40%, Sharpe 1.87)
+   H6 TIME 모멘텀120 Top5·매일·펀드비중          +253%  (MDD  -42%, Sharpe 2.61)
+   H6e TIME 모멘텀120 Top5·주1회·동일          +191%  (MDD  -39%, Sharpe 2.33)
+   H6f TIME 모멘텀120 Top10·주1회·동일         +133%  (MDD  -34%, Sharpe 2.11)
+   H7 공통보유 위험조정모멘텀 Top5·매일              +190%  (MDD  -40%, Sharpe 2.37)
+   H10 KoAct 단기반전 Top5·매일               +181%  (MDD  -16%, Sharpe 2.48)
+-- SNDK 제외
+   REPL_T TIME 미국 전량                     +62%  (MDD  -19%, Sharpe 1.79)
+   H1b TIME 비중 Top5·매일                   +90%  (MDD  -34%, Sharpe 1.83)
+   H6 TIME 모멘텀120 Top5·매일·펀드비중          +133%  (MDD  -36%, Sharpe 1.98)
+   H6e TIME 모멘텀120 Top5·주1회·동일          +129%  (MDD  -37%, Sharpe 1.98)
+   H6f TIME 모멘텀120 Top10·주1회·동일         +102%  (MDD  -31%, Sharpe 1.87)
+   H7 공통보유 위험조정모멘텀 Top5·매일              +111%  (MDD  -40%, Sharpe 1.84)
+   H10 KoAct 단기반전 Top5·매일               +108%  (MDD  -27%, Sharpe 1.92)
+-- 메모리5 제외
+   REPL_T TIME 미국 전량                     +48%  (MDD  -19%, Sharpe 1.54)
+   H1b TIME 비중 Top5·매일                   +97%  (MDD  -26%, Sharpe 2.11)
+   H6 TIME 모멘텀120 Top5·매일·펀드비중          +101%  (MDD  -35%, Sharpe 1.67)
+   H6e TIME 모멘텀120 Top5·주1회·동일          +132%  (MDD  -34%, Sharpe 1.96)
+   H6f TIME 모멘텀120 Top10·주1회·동일          +69%  (MDD  -24%, Sharpe 1.59)
+   H7 공통보유 위험조정모멘텀 Top5·매일               +81%  (MDD  -31%, Sharpe 1.59)
+   H10 KoAct 단기반전 Top5·매일                +80%  (MDD  -30%, Sharpe 1.59)
+-- 시가 체결
+   REPL_T TIME 미국 전량                     +81%  (MDD  -21%, Sharpe 2.06)
+   H1b TIME 비중 Top5·매일                   +98%  (MDD  -37%, Sharpe 1.72)
+   H6 TIME 모멘텀120 Top5·매일·펀드비중          +256%  (MDD  -40%, Sharpe 2.51)
+   H6e TIME 모멘텀120 Top5·주1회·동일          +207%  (MDD  -38%, Sharpe 2.33)
+   H6f TIME 모멘텀120 Top10·주1회·동일         +143%  (MDD  -31%, Sharpe 2.15)
+   H7 공통보유 위험조정모멘텀 Top5·매일              +195%  (MDD  -37%, Sharpe 2.31)
+   H10 KoAct 단기반전 Top5·매일                +63%  (MDD  -25%, Sharpe 1.29)
+
+== User-executable variants: cost 30bp, open/close x extra decision-day delay ==
+execution | REPL_T | H1b | H6 | H6e | H6f | H7 | H10
+close +0d  |   +77%(-22) |   +97%(-40) |  +243%(-42) |  +186%(-39) |  +130%(-34) |  +182%(-40) |  +109%(-19)
+close +1d  |   +74%(-22) |   +91%(-40) |  +253%(-43) |  +196%(-39) |  +138%(-34) |  +199%(-41) |   +16%(-36)
+close +2d  |   +69%(-22) |   +80%(-41) |  +206%(-43) |  +139%(-39) |  +112%(-33) |  +164%(-41) |   -10%(-52)
+close +3d  |   +75%(-21) |   +84%(-40) |  +215%(-42) |  +130%(-39) |   +88%(-34) |  +172%(-40) |   -25%(-61)
+open  +0d  |   +76%(-21) |   +92%(-37) |  +246%(-40) |  +203%(-38) |  +140%(-31) |  +187%(-38) |   +20%(-26)
+open  +1d  |   +68%(-22) |   +70%(-39) |  +222%(-40) |  +198%(-36) |  +135%(-32) |  +164%(-37) |   +51%(-21)
+open  +2d  |   +70%(-22) |   +79%(-38) |  +227%(-41) |  +160%(-36) |  +122%(-31) |  +177%(-38) |    -6%(-39)
+open  +3d  |   +70%(-20) |   +77%(-38) |  +205%(-40) |  +153%(-36) |  +100%(-32) |  +162%(-38) |    -3%(-48)
+
+== Trade frequency (cost 0.10%, close) ==
+   H1b TIME 비중 Top5·매일                new buys  18 (0.5/week), avg hold  50.3 days, turnover  14.6x, names 14
+   H6 TIME 모멘텀120 Top5·매일·펀드비중        new buys  16 (0.4/week), avg hold  56.6 days, turnover  14.7x, names 15
+   H6e TIME 모멘텀120 Top5·주1회·동일        new buys  17 (0.5/week), avg hold  53.2 days, turnover   7.8x, names 16
+   H6f TIME 모멘텀120 Top10·주1회·동일       new buys  31 (0.9/week), avg hold  58.4 days, turnover   7.4x, names 30
+   H7 공통보유 위험조정모멘텀 Top5·매일            new buys  15 (0.4/week), avg hold  60.3 days, turnover  13.8x, names 15
+   H10 KoAct 단기반전 Top5·매일             new buys 299 (8.3/week), avg hold   3.0 days, turnover 149.5x, names 101
+
+== H6e profile ==
+total +190.5%  MDD -39.4% (2026-06-22 -> 2026-07-29)  Sharpe 2.33  vol 77%  (REPL_T vol 46%)
+month       01     02     03     04     05     06     07     08     09
+H6e      +32.8  +12.9  +14.2  +49.8  +14.4  +17.6  -29.9   -3.5  +24.4
+REPL_T   +13.1   +0.1   +2.4  +36.6  +22.6   +2.0  -16.9   +2.1   +8.5
+excess   +19.7  +12.7  +11.8  +13.2   -8.2  +15.6  -13.0   -5.5  +15.9   beat 6/9
+top contributions (USD, %p of start): SNDK +48, CIEN +20, AXTI +15, AAOI +13, LITE +10, DELL +7
+month-start holdings (historical simulation, equal weight):
+   2026-01-02 BE, CIEN, ECHO, PL, SNDK
+   2026-02-02 BE, CIEN, ECHO, PL, SNDK
+   2026-03-02 BE, CIEN, LITE, PL, SNDK
+   2026-04-01 AAOI, AXTI, CIEN, LITE, SNDK
+   2026-05-01 AAOI, CIEN, LITE, SNDK, TSEM
+   2026-06-01 INTC, RKLB, SNDK, STX, WDC
+   2026-07-01 DELL, INTC, SNDK, STX, WDC
+   2026-08-03 DELL, INTC, SNDK, STX, WDC
+   2026-09-01 AMD, DELL, INTC, SNDK, STX
+
+distinct return paths: 1,259,298 of 1,684,800 variants; base rules 85,252 of 112,320

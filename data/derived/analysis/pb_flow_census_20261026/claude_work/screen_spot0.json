@@ -1,0 +1,529 @@
+{
+ "rows": [
+  {
+   "id": "e4e31f6ea334",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "GS",
+   "note": "unrelated"
+  },
+  {
+   "id": "fbddae1c73dc",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "MS",
+   "note": "unrelated"
+  },
+  {
+   "id": "65e33403f9bf",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "GS",
+   "note": "unrelated"
+  },
+  {
+   "id": "8dc94246b461",
+   "decision": "exclude",
+   "reason": "JPM 대량보유 지분 공시",
+   "bank": "JPM",
+   "note": "13f_or_manager_holdings"
+  },
+  {
+   "id": "62d18c7a3a1a",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "6372926ac046",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "8e626bc774bc",
+   "decision": "exclude",
+   "reason": "모건스탠리 중국 성장·주가 전망",
+   "bank": "MS",
+   "note": "forecast_not_observed"
+  },
+  {
+   "id": "dfd1f3ae2c84",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "f3e25fc4360f",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "8811ed47b903",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "007031220b47",
+   "decision": "exclude",
+   "reason": "JPM 대만 ETF 출시",
+   "bank": "JPM",
+   "note": "fund_flows_not_bank_client"
+  },
+  {
+   "id": "ad8ff564f0b3",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "GS",
+   "note": "unrelated"
+  },
+  {
+   "id": "bd2beb8bb8ba",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "6f9cb8afcbbe",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "GS",
+   "note": "unrelated"
+  },
+  {
+   "id": "2e48471e06c1",
+   "decision": "exclude",
+   "reason": "하반기 전망",
+   "bank": "unknown",
+   "note": "forecast_not_observed"
+  },
+  {
+   "id": "e5cc7debd0a0",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "274f391b37ba",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "59332a0ae88f",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "b5b946f2b621",
+   "decision": "needs_read",
+   "reason": "월가 디리스킹·숏스퀴즈 임박 — PB 흐름 기사로 보이나 은행명 없음",
+   "bank": "unknown",
+   "note": "insufficient_attribution 후보"
+  },
+  {
+   "id": "b7b1f3d3803d",
+   "decision": "exclude",
+   "reason": "외국인 미국주식 매도 추정(골드만) — PB 고객 흐름 아님",
+   "bank": "GS",
+   "note": "fund_flows_not_bank_client"
+  },
+  {
+   "id": "4ec475e180dc",
+   "decision": "include",
+   "reason": "골드만: AI 순매수 2년치가 1주에 사라짐, 디레버리징 시작 — GS PB 관측 흐름 보도",
+   "bank": "GS",
+   "note": ""
+  },
+  {
+   "id": "65964d22e2bf",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "5291a3c7be8d",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "cfe2ae8c2c98",
+   "decision": "exclude",
+   "reason": "애널리스트 종목 의견",
+   "bank": "MS",
+   "note": "forecast_not_observed"
+  },
+  {
+   "id": "98e27e9f997a",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "c35639223383",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "GS",
+   "note": "unrelated"
+  },
+  {
+   "id": "108958f83908",
+   "decision": "exclude",
+   "reason": "기관 비트코인 보유 13F",
+   "bank": "unknown",
+   "note": "13f_or_manager_holdings"
+  },
+  {
+   "id": "4bf8ada8f9f8",
+   "decision": "exclude",
+   "reason": "시타델의 운용사 보유 주식 인수",
+   "bank": "unknown",
+   "note": "13f_or_manager_holdings"
+  },
+  {
+   "id": "34ad475b3001",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "08e29b535a59",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "BofA",
+   "note": "unrelated"
+  },
+  {
+   "id": "9f957de83589",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "4115f5247f05",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "MS",
+   "note": "unrelated"
+  },
+  {
+   "id": "c5f90cbbe595",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "JPM",
+   "note": "unrelated"
+  },
+  {
+   "id": "b0d5cb9e35d5",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "GS",
+   "note": "unrelated"
+  },
+  {
+   "id": "00180ace7daf",
+   "decision": "exclude",
+   "reason": "애널리스트 목표가",
+   "bank": "JPM",
+   "note": "forecast_not_observed"
+  },
+  {
+   "id": "f8691d827f7a",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "effcd4a972f6",
+   "decision": "exclude",
+   "reason": "애널리스트 목표가",
+   "bank": "MS",
+   "note": "forecast_not_observed"
+  },
+  {
+   "id": "141431090f1d",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "85ffb18df8a8",
+   "decision": "exclude",
+   "reason": "AI 지출 전망(전략)",
+   "bank": "MS",
+   "note": "forecast_not_observed"
+  },
+  {
+   "id": "5c0a864a39ea",
+   "decision": "exclude",
+   "reason": "애널리스트 등급",
+   "bank": "JPM",
+   "note": "forecast_not_observed"
+  },
+  {
+   "id": "c8f944f9975f",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "GS",
+   "note": "unrelated"
+  },
+  {
+   "id": "20f29b27dafb",
+   "decision": "exclude",
+   "reason": "포트폴리오 조언",
+   "bank": "JPM",
+   "note": "forecast_not_observed"
+  },
+  {
+   "id": "0a08b440f8f2",
+   "decision": "exclude",
+   "reason": "JPM 자산운용 시장 전망",
+   "bank": "JPM",
+   "note": "forecast_not_observed"
+  },
+  {
+   "id": "66a16a860a78",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "GS",
+   "note": "unrelated"
+  },
+  {
+   "id": "7e332c850bd9",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "JPM",
+   "note": "unrelated"
+  },
+  {
+   "id": "1f163503958e",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "da4745c2095b",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "GS",
+   "note": "unrelated"
+  },
+  {
+   "id": "4f7da091a4ac",
+   "decision": "exclude",
+   "reason": "애널리스트 등급",
+   "bank": "JPM",
+   "note": "forecast_not_observed"
+  },
+  {
+   "id": "8eb9e36e23ec",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "GS",
+   "note": "unrelated"
+  },
+  {
+   "id": "41449ce9e338",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "GS",
+   "note": "unrelated"
+  },
+  {
+   "id": "2f83d0969946",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "27da00c2fa19",
+   "decision": "exclude",
+   "reason": "서스쿼해나 목표가",
+   "bank": "unknown",
+   "note": "other_bank"
+  },
+  {
+   "id": "93b178b2f26e",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "GS",
+   "note": "unrelated"
+  },
+  {
+   "id": "b141cb52b55f",
+   "decision": "exclude",
+   "reason": "BofA 약세장 신호 지표 — 전략가 지표, CFT 아님",
+   "bank": "BofA",
+   "note": "forecast_not_observed"
+  },
+  {
+   "id": "80a04d19f7e6",
+   "decision": "exclude",
+   "reason": "웰스파고 기사",
+   "bank": "unknown",
+   "note": "other_bank"
+  },
+  {
+   "id": "659eb9c53947",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "JPM",
+   "note": "unrelated"
+  },
+  {
+   "id": "79f2a55de60c",
+   "decision": "exclude",
+   "reason": "타사의 JPM 실적 전망",
+   "bank": "JPM",
+   "note": "forecast_not_observed"
+  },
+  {
+   "id": "4872dfd9460f",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "2256f036cc1d",
+   "decision": "exclude",
+   "reason": "JPM 시장 전망",
+   "bank": "JPM",
+   "note": "forecast_not_observed"
+  },
+  {
+   "id": "e73ef915b3ef",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "426525958173",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "GS",
+   "note": "unrelated"
+  },
+  {
+   "id": "338e1e5d0da2",
+   "decision": "exclude",
+   "reason": "하트넷 시장 폭 논평 — FMS/CFT 흐름 아님",
+   "bank": "BofA",
+   "note": "forecast_not_observed"
+  },
+  {
+   "id": "96daa98fbbf0",
+   "decision": "exclude",
+   "reason": "SocGen 채용",
+   "bank": "unknown",
+   "note": "other_bank"
+  },
+  {
+   "id": "9bc41fc6be91",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "f806ef5502e6",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "2ade89cad3c1",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "e6c50c75d4bd",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "JPM",
+   "note": "unrelated"
+  },
+  {
+   "id": "749c59970861",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "GS",
+   "note": "unrelated"
+  },
+  {
+   "id": "749ab05c27c9",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "GS",
+   "note": "unrelated"
+  },
+  {
+   "id": "a5e01e2ff599",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "81b742d29e5c",
+   "decision": "exclude",
+   "reason": "JPM 연말 시장 논평",
+   "bank": "JPM",
+   "note": "forecast_not_observed"
+  },
+  {
+   "id": "e12e7cead995",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "GS",
+   "note": "unrelated"
+  },
+  {
+   "id": "6d9cc1d99825",
+   "decision": "exclude",
+   "reason": "선거 해 통념 논평",
+   "bank": "JPM",
+   "note": "forecast_not_observed"
+  },
+  {
+   "id": "52a80786d95e",
+   "decision": "exclude",
+   "reason": "애널리스트 목표가",
+   "bank": "JPM",
+   "note": "forecast_not_observed"
+  },
+  {
+   "id": "dbe728b1d877",
+   "decision": "exclude",
+   "reason": "무관 기사(인사·딜·실적·일반 시황·소송 등), 제목에 PB 흐름 관측 없음",
+   "bank": "MS",
+   "note": "unrelated"
+  }
+ ]
+}

@@ -1,0 +1,49 @@
+{
+ "recalc_stock": {
+  "n": 3559,
+  "R1_maxabs": 0.0,
+  "R2_maxabs": 0.0,
+  "M_mismatch": 0
+ },
+ "recalc_soxx": {
+  "n": 212,
+  "R1_maxabs": 0.0,
+  "R2_maxabs": 0.0,
+  "M_mismatch": 0
+ },
+ "lookahead": {
+  "soxx": {
+   "n": 30,
+   "conf_ok": 30,
+   "pivot_same": 30,
+   "prev_same": 30,
+   "max_dR1": 0.0,
+   "max_dR2": 0.0,
+   "max_dM": 0.0
+  },
+  "stock": {
+   "n": 30,
+   "conf_ok": 30,
+   "pivot_same": 30,
+   "prev_same": 30,
+   "max_dR1": 0.0,
+   "max_dR2": 0.0,
+   "max_dM": 0.0
+  }
+ },
+ "cell_recalc": {
+  "compared": 69,
+  "max_abs_err": 9.71445146547012e-17
+ },
+ "soxx_zigzag_vs_swing": {
+  "swing": 31,
+  "n2": 31,
+  "both": 31,
+  "only_swing": [],
+  "only_n2": []
+ },
+ "soxx_outcome_recalc": {
+  "compared": 422,
+  "max_abs_err": 0.0
+ }
+}

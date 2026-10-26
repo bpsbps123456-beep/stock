@@ -1,0 +1,338 @@
+{
+ "full_ideal": {
+  "E": {
+   "med": 2.86,
+   "pos": 0.604,
+   "null_med": -0.06,
+   "null_pct": 0.825,
+   "pos_null_med": 0.497,
+   "pos_null_pct": 0.875
+  },
+  "E_rm_market3": {
+   "med": -1.85,
+   "pos": 0.41,
+   "null_med": -2.21,
+   "null_pct": 0.575,
+   "pos_null_med": 0.434,
+   "pos_null_pct": 0.325
+  },
+  "E_rm_bigmove3": {
+   "med": -3.79,
+   "pos": 0.368,
+   "null_med": 0.24,
+   "null_pct": 0.05,
+   "pos_null_med": 0.514,
+   "pos_null_pct": 0.0
+  },
+  "market_top3_days": [
+   [
+    "2026-07-30",
+    2.97,
+    0.77,
+    7.5
+   ],
+   [
+    "2026-10-22",
+    1.61,
+    0.73,
+    -5.8
+   ],
+   [
+    "2026-10-16",
+    1.5,
+    0.72,
+    -4.7
+   ]
+  ],
+  "bigmove_days": {
+   "down_share": 0.46,
+   "down_hold": -10.3,
+   "down_strat": -2.8,
+   "up_hold": 12.9,
+   "up_strat": 9.4
+  },
+  "mean_E_total": 4.79,
+  "mean_E_top5_days": 8.58,
+  "mean_E_bottom5_days": -4.12
+ },
+ "full_real": {
+  "E": {
+   "med": -6.6,
+   "pos": 0.306,
+   "null_med": -9.23,
+   "null_pct": 0.8,
+   "pos_null_med": 0.267,
+   "pos_null_pct": 0.675
+  },
+  "E_rm_market3": {
+   "med": -10.25,
+   "pos": 0.215,
+   "null_med": -11.09,
+   "null_pct": 0.625,
+   "pos_null_med": 0.222,
+   "pos_null_pct": 0.375
+  },
+  "E_rm_bigmove3": {
+   "med": -12.66,
+   "pos": 0.174,
+   "null_med": -8.4,
+   "null_pct": 0.0,
+   "pos_null_med": 0.257,
+   "pos_null_pct": 0.075
+  },
+  "market_top3_days": [
+   [
+    "2026-07-30",
+    3.24,
+    0.77,
+    7.5
+   ],
+   [
+    "2026-10-22",
+    1.49,
+    0.72,
+    -5.8
+   ],
+   [
+    "2026-10-16",
+    1.25,
+    0.7,
+    -4.7
+   ]
+  ],
+  "bigmove_days": {
+   "down_share": 0.46,
+   "down_hold": -10.3,
+   "down_strat": -3.2,
+   "up_hold": 12.9,
+   "up_strat": 9.3
+  },
+  "mean_E_total": -4.15,
+  "mean_E_top5_days": 7.96,
+  "mean_E_bottom5_days": -4.61
+ },
+ "sel_ideal": {
+  "E": {
+   "med": -0.84,
+   "pos": 0.465,
+   "null_med": 0.57,
+   "null_pct": 0.2,
+   "pos_null_med": 0.521,
+   "pos_null_pct": 0.2
+  },
+  "E_rm_market3": {
+   "med": -4.4,
+   "pos": 0.34,
+   "null_med": -1.34,
+   "null_pct": 0.0,
+   "pos_null_med": 0.444,
+   "pos_null_pct": 0.025
+  },
+  "E_rm_bigmove3": {
+   "med": -6.01,
+   "pos": 0.236,
+   "null_med": 0.44,
+   "null_pct": 0.0,
+   "pos_null_med": 0.517,
+   "pos_null_pct": 0.0
+  },
+  "market_top3_days": [
+   [
+    "2026-07-30",
+    2.95,
+    0.76,
+    7.5
+   ],
+   [
+    "2026-08-04",
+    1.04,
+    0.62,
+    3.7
+   ],
+   [
+    "2026-08-18",
+    0.95,
+    0.61,
+    -5.0
+   ]
+  ],
+  "bigmove_days": {
+   "down_share": 0.38,
+   "down_hold": -9.0,
+   "down_strat": -2.9,
+   "up_hold": 11.5,
+   "up_strat": 8.4
+  },
+  "mean_E_total": 0.44,
+  "mean_E_top5_days": 5.92,
+  "mean_E_bottom5_days": -3.38
+ },
+ "sel_real": {
+  "E": {
+   "med": -5.31,
+   "pos": 0.312,
+   "null_med": -4.62,
+   "null_pct": 0.325,
+   "pos_null_med": 0.358,
+   "pos_null_pct": 0.275
+  },
+  "E_rm_market3": {
+   "med": -9.19,
+   "pos": 0.229,
+   "null_med": -6.02,
+   "null_pct": 0.0,
+   "pos_null_med": 0.295,
+   "pos_null_pct": 0.1
+  },
+  "E_rm_bigmove3": {
+   "med": -9.5,
+   "pos": 0.16,
+   "null_med": -3.78,
+   "null_pct": 0.0,
+   "pos_null_med": 0.326,
+   "pos_null_pct": 0.0
+  },
+  "market_top3_days": [
+   [
+    "2026-07-30",
+    3.18,
+    0.77,
+    7.5
+   ],
+   [
+    "2026-08-04",
+    0.98,
+    0.61,
+    3.7
+   ],
+   [
+    "2026-08-18",
+    0.93,
+    0.64,
+    -5.0
+   ]
+  ],
+  "bigmove_days": {
+   "down_share": 0.38,
+   "down_hold": -9.0,
+   "down_strat": -3.2,
+   "up_hold": 11.5,
+   "up_strat": 8.1
+  },
+  "mean_E_total": -3.44,
+  "mean_E_top5_days": 5.71,
+  "mean_E_bottom5_days": -4.1
+ },
+ "conf_ideal": {
+  "E": {
+   "med": 2.71,
+   "pos": 0.646,
+   "null_med": -0.28,
+   "null_pct": 0.975,
+   "pos_null_med": 0.486,
+   "pos_null_pct": 0.975
+  },
+  "E_rm_market3": {
+   "med": -0.15,
+   "pos": 0.5,
+   "null_med": -1.63,
+   "null_pct": 0.95,
+   "pos_null_med": 0.413,
+   "pos_null_pct": 0.95
+  },
+  "E_rm_bigmove3": {
+   "med": -1.06,
+   "pos": 0.438,
+   "null_med": 0.1,
+   "null_pct": 0.25,
+   "pos_null_med": 0.503,
+   "pos_null_pct": 0.175
+  },
+  "market_top3_days": [
+   [
+    "2026-10-22",
+    1.63,
+    0.74,
+    -5.8
+   ],
+   [
+    "2026-10-16",
+    1.47,
+    0.73,
+    -4.7
+   ],
+   [
+    "2026-10-14",
+    1.42,
+    0.73,
+    -6.7
+   ]
+  ],
+  "bigmove_days": {
+   "down_share": 0.68,
+   "down_hold": -8.5,
+   "down_strat": -2.2,
+   "up_hold": 8.7,
+   "up_strat": 5.1
+  },
+  "mean_E_total": 3.97,
+  "mean_E_top5_days": 5.84,
+  "mean_E_bottom5_days": -2.95
+ },
+ "conf_real": {
+  "E": {
+   "med": -0.91,
+   "pos": 0.458,
+   "null_med": -4.77,
+   "null_pct": 0.975,
+   "pos_null_med": 0.326,
+   "pos_null_pct": 0.95
+  },
+  "E_rm_market3": {
+   "med": -4.22,
+   "pos": 0.306,
+   "null_med": -5.82,
+   "null_pct": 0.875,
+   "pos_null_med": 0.264,
+   "pos_null_pct": 0.75
+  },
+  "E_rm_bigmove3": {
+   "med": -4.48,
+   "pos": 0.326,
+   "null_med": -3.5,
+   "null_pct": 0.275,
+   "pos_null_med": 0.312,
+   "pos_null_pct": 0.55
+  },
+  "market_top3_days": [
+   [
+    "2026-10-22",
+    1.47,
+    0.72,
+    -5.8
+   ],
+   [
+    "2026-10-16",
+    1.2,
+    0.69,
+    -4.7
+   ],
+   [
+    "2026-10-14",
+    0.98,
+    0.67,
+    -6.7
+   ]
+  ],
+  "bigmove_days": {
+   "down_share": 0.68,
+   "down_hold": -8.5,
+   "down_strat": -2.5,
+   "up_hold": 8.7,
+   "up_strat": 4.8
+  },
+  "mean_E_total": -1.03,
+  "mean_E_top5_days": 4.95,
+  "mean_E_bottom5_days": -3.24
+ }
+}

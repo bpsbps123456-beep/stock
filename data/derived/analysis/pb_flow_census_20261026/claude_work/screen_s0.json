@@ -1,0 +1,704 @@
+{
+ "rows": [
+  {
+   "id": "3a5a75dcbb12",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "PB 주식 흐름 관측 보도 아님(일반 문서·위키·실적보고·서비스 순위 등) idx=0"
+  },
+  {
+   "id": "ac98d3e6cb88",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 주식 흐름 관측 보도 아님(일반 문서·위키·실적보고·서비스 순위 등) idx=1"
+  },
+  {
+   "id": "bd7ac2bb3627",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "JPM",
+   "note": "PB 주식 흐름 관측 보도 아님(일반 문서·위키·실적보고·서비스 순위 등) idx=2"
+  },
+  {
+   "id": "8005936c7c20",
+   "decision": "exclude",
+   "reason": "13f_or_manager_holdings",
+   "bank": "GS",
+   "note": "13F·보유 종목·VIP 바스켓 기반 idx=3"
+  },
+  {
+   "id": "0d9445c63ef1",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 주식 흐름 관측 보도 아님(일반 문서·위키·실적보고·서비스 순위 등) idx=4"
+  },
+  {
+   "id": "672f146de45e",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 주식 흐름 관측 보도 아님(일반 문서·위키·실적보고·서비스 순위 등) idx=5"
+  },
+  {
+   "id": "114c60489c1c",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "BofA",
+   "note": " idx=6"
+  },
+  {
+   "id": "d4fb734042c0",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "BofA",
+   "note": " idx=7"
+  },
+  {
+   "id": "a29585a4ad68",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "BofA",
+   "note": " idx=8"
+  },
+  {
+   "id": "dc9754532f78",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "PB 주식 흐름 관측 보도 아님(일반 문서·위키·실적보고·서비스 순위 등) idx=9"
+  },
+  {
+   "id": "d78552ed9623",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 주식 흐름 관측 보도 아님(일반 문서·위키·실적보고·서비스 순위 등) idx=10"
+  },
+  {
+   "id": "c13bbb1e18d0",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 주식 흐름 관측 보도 아님(일반 문서·위키·실적보고·서비스 순위 등) idx=11"
+  },
+  {
+   "id": "52cc2ba65a0b",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "BofA",
+   "note": "PB 주식 흐름 관측 보도 아님(일반 문서·위키·실적보고·서비스 순위 등) idx=12"
+  },
+  {
+   "id": "a13a8d925a81",
+   "decision": "exclude",
+   "reason": "13f_or_manager_holdings",
+   "bank": "unknown",
+   "note": "13F·보유 종목·VIP 바스켓 기반 idx=13"
+  },
+  {
+   "id": "3837e54aaa32",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "BofA",
+   "note": "PB 주식 흐름 관측 보도 아님(일반 문서·위키·실적보고·서비스 순위 등) idx=14"
+  },
+  {
+   "id": "5ec16963829d",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "BofA",
+   "note": "PB 주식 흐름 관측 보도 아님(일반 문서·위키·실적보고·서비스 순위 등) idx=15"
+  },
+  {
+   "id": "2f190aaa6bb3",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "BofA",
+   "note": "PB 주식 흐름 관측 보도 아님(일반 문서·위키·실적보고·서비스 순위 등) idx=16"
+  },
+  {
+   "id": "7147690f2d8d",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "BofA",
+   "note": "PB 주식 흐름 관측 보도 아님(일반 문서·위키·실적보고·서비스 순위 등) idx=17"
+  },
+  {
+   "id": "cb0cdeec4d7d",
+   "decision": "exclude",
+   "reason": "13f_or_manager_holdings",
+   "bank": "unknown",
+   "note": "13F·보유 종목·VIP 바스켓 기반 idx=18"
+  },
+  {
+   "id": "feec0d18b063",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 주식 흐름 관측 보도 아님(일반 문서·위키·실적보고·서비스 순위 등) idx=19"
+  },
+  {
+   "id": "6bec2c3216c4",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "BofA",
+   "note": "PB 주식 흐름 관측 보도 아님(일반 문서·위키·실적보고·서비스 순위 등) idx=20"
+  },
+  {
+   "id": "235238e6e3e1",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "BofA",
+   "note": " idx=21"
+  },
+  {
+   "id": "20add806ef50",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "BofA",
+   "note": " idx=22"
+  },
+  {
+   "id": "2baf3c4e5b58",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "BofA",
+   "note": " idx=23"
+  },
+  {
+   "id": "c31676cccd66",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "BofA",
+   "note": " idx=24"
+  },
+  {
+   "id": "ba50409c0e39",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "BofA",
+   "note": " idx=25"
+  },
+  {
+   "id": "0274d90b5ff5",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "BofA",
+   "note": " idx=26"
+  },
+  {
+   "id": "5af32ec3c334",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "BofA",
+   "note": " idx=27"
+  },
+  {
+   "id": "fa74f9de87ea",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "BofA",
+   "note": " idx=28"
+  },
+  {
+   "id": "05b0b72d1c9d",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "BofA",
+   "note": " idx=29"
+  },
+  {
+   "id": "35593daf4283",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "GS",
+   "note": " idx=30"
+  },
+  {
+   "id": "3aed39e0ae2c",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 주식 흐름 관측 보도 아님(일반 문서·위키·실적보고·서비스 순위 등) idx=31"
+  },
+  {
+   "id": "f455b05c4acf",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 주식 흐름 관측 보도 아님(일반 문서·위키·실적보고·서비스 순위 등) idx=32"
+  },
+  {
+   "id": "04a6b9a4c226",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 주식 흐름 관측 보도 아님(일반 문서·위키·실적보고·서비스 순위 등) idx=33"
+  },
+  {
+   "id": "31fa173e3910",
+   "decision": "exclude",
+   "reason": "13f_or_manager_holdings",
+   "bank": "unknown",
+   "note": "13F·보유 종목·VIP 바스켓 기반 idx=34"
+  },
+  {
+   "id": "6996c30f9253",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 주식 흐름 관측 보도 아님(일반 문서·위키·실적보고·서비스 순위 등) idx=35"
+  },
+  {
+   "id": "1cec2f929367",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 주식 흐름 관측 보도 아님(일반 문서·위키·실적보고·서비스 순위 등) idx=36"
+  },
+  {
+   "id": "2bb747104f1e",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 주식 흐름 관측 보도 아님(일반 문서·위키·실적보고·서비스 순위 등) idx=37"
+  },
+  {
+   "id": "99614991095e",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "헤지펀드 수익률만 요약에 있음 idx=38"
+  },
+  {
+   "id": "ab24fb74a3cb",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "JPM",
+   "note": "PB 주식 흐름 관측 보도 아님(일반 문서·위키·실적보고·서비스 순위 등) idx=39"
+  },
+  {
+   "id": "b49aa72e7540",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 주식 흐름 관측 보도 아님(일반 문서·위키·실적보고·서비스 순위 등) idx=40"
+  },
+  {
+   "id": "57436a577d4d",
+   "decision": "exclude",
+   "reason": "13f_or_manager_holdings",
+   "bank": "JPM",
+   "note": "13F·보유 종목·VIP 바스켓 기반 idx=41"
+  },
+  {
+   "id": "10013588ffdd",
+   "decision": "exclude",
+   "reason": "13f_or_manager_holdings",
+   "bank": "JPM",
+   "note": "13F·보유 종목·VIP 바스켓 기반 idx=42"
+  },
+  {
+   "id": "928be91551f4",
+   "decision": "exclude",
+   "reason": "13f_or_manager_holdings",
+   "bank": "JPM",
+   "note": "13F·보유 종목·VIP 바스켓 기반 idx=43"
+  },
+  {
+   "id": "d556c2299e13",
+   "decision": "exclude",
+   "reason": "13f_or_manager_holdings",
+   "bank": "MS",
+   "note": "13F·보유 종목·VIP 바스켓 기반 idx=44"
+  },
+  {
+   "id": "19f042773618",
+   "decision": "exclude",
+   "reason": "13f_or_manager_holdings",
+   "bank": "MS",
+   "note": "13F·보유 종목·VIP 바스켓 기반 idx=45"
+  },
+  {
+   "id": "bdaca4e6bb41",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 주식 흐름 관측 보도 아님(일반 문서·위키·실적보고·서비스 순위 등) idx=46"
+  },
+  {
+   "id": "af0cdfb3781b",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "BofA",
+   "note": " idx=47"
+  },
+  {
+   "id": "83e9792be99a",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "GS",
+   "note": " idx=48"
+  },
+  {
+   "id": "f30412ad3366",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "MS",
+   "note": "PB 주식 흐름 관측 보도 아님(일반 문서·위키·실적보고·서비스 순위 등) idx=49"
+  },
+  {
+   "id": "a87295d77c34",
+   "decision": "needs_read",
+   "reason": "JPMorgan 헤지펀드 성과 기사, PB 흐름 사실 여부 본문 확인 필요",
+   "bank": "JPM",
+   "note": " idx=50"
+  },
+  {
+   "id": "30aa0b0852e1",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 주식 흐름 관측 보도 아님(일반 문서·위키·실적보고·서비스 순위 등) idx=51"
+  },
+  {
+   "id": "d126bf11f8d0",
+   "decision": "exclude",
+   "reason": "out_of_window",
+   "bank": "unknown",
+   "note": "2013년 이전 연설 idx=52"
+  },
+  {
+   "id": "47232d7a3834",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "GS",
+   "note": " idx=53"
+  },
+  {
+   "id": "f864dbf214ba",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "PB 주식 흐름 관측 보도 아님(일반 문서·위키·실적보고·서비스 순위 등) idx=54"
+  },
+  {
+   "id": "8a03e5747969",
+   "decision": "needs_read",
+   "reason": "\"Prepared by Prime Brokerage\" 주간 자료, 은행명·게재 형태 본문 확인 필요",
+   "bank": "unknown",
+   "note": " idx=55"
+  },
+  {
+   "id": "85143b2d5b7d",
+   "decision": "exclude",
+   "reason": "13f_or_manager_holdings",
+   "bank": "GS",
+   "note": "13F·보유 종목·VIP 바스켓 기반 idx=56"
+  },
+  {
+   "id": "a61b9e920a93",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "GS",
+   "note": " idx=57"
+  },
+  {
+   "id": "79ac8f200052",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "PB 주식 흐름 관측 보도 아님(일반 문서·위키·실적보고·서비스 순위 등) idx=58"
+  },
+  {
+   "id": "6f848d67188f",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "PB 주식 흐름 관측 보도 아님(일반 문서·위키·실적보고·서비스 순위 등) idx=59"
+  },
+  {
+   "id": "e3d734d3c943",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "PB 주식 흐름 관측 보도 아님(일반 문서·위키·실적보고·서비스 순위 등) idx=60"
+  },
+  {
+   "id": "f8a8090f54b1",
+   "decision": "exclude",
+   "reason": "13f_or_manager_holdings",
+   "bank": "GS",
+   "note": "13F·보유 종목·VIP 바스켓 기반 idx=61"
+  },
+  {
+   "id": "7cb057f30db1",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "GS",
+   "note": " idx=62"
+  },
+  {
+   "id": "85a3d352cee2",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "GS",
+   "note": " idx=63"
+  },
+  {
+   "id": "ed594cdf481e",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "GS",
+   "note": " idx=64"
+  },
+  {
+   "id": "fd40686c7da6",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "GS",
+   "note": " idx=65"
+  },
+  {
+   "id": "826df431a125",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "GS",
+   "note": " idx=66"
+  },
+  {
+   "id": "b4ff975e5306",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "GS",
+   "note": " idx=67"
+  },
+  {
+   "id": "2a518171f1bd",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "GS",
+   "note": " idx=68"
+  },
+  {
+   "id": "ebaeadf1587d",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 주식 흐름 관측 보도 아님(일반 문서·위키·실적보고·서비스 순위 등) idx=69"
+  },
+  {
+   "id": "2da96dc2e812",
+   "decision": "needs_read",
+   "reason": "GS 트레이딩 데스크 영상 요약, PB 포지셔닝 관측인지 본문 확인 필요",
+   "bank": "GS",
+   "note": " idx=70"
+  },
+  {
+   "id": "eb3e5dd7c625",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "GS",
+   "note": " idx=71"
+  },
+  {
+   "id": "1d4352f31608",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "GS",
+   "note": " idx=72"
+  },
+  {
+   "id": "d33ea50767ac",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "GS",
+   "note": " idx=73"
+  },
+  {
+   "id": "16ef90f40b3f",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "GS",
+   "note": " idx=74"
+  },
+  {
+   "id": "608baa20ef4f",
+   "decision": "needs_read",
+   "reason": "롱숏 헤지펀드 노출 축소 기사, 은행 출처가 요약에 없음",
+   "bank": "unknown",
+   "note": " idx=75"
+  },
+  {
+   "id": "0e996ffaaf3c",
+   "decision": "exclude",
+   "reason": "13f_or_manager_holdings",
+   "bank": "GS",
+   "note": "13F·보유 종목·VIP 바스켓 기반 idx=76"
+  },
+  {
+   "id": "b62636f5c0b1",
+   "decision": "exclude",
+   "reason": "13f_or_manager_holdings",
+   "bank": "GS",
+   "note": "13F·보유 종목·VIP 바스켓 기반 idx=77"
+  },
+  {
+   "id": "a7905188dd09",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "GS",
+   "note": " idx=78"
+  },
+  {
+   "id": "e7af1a29d91e",
+   "decision": "exclude",
+   "reason": "13f_or_manager_holdings",
+   "bank": "GS",
+   "note": "13F·보유 종목·VIP 바스켓 기반 idx=79"
+  },
+  {
+   "id": "111e97d8371d",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "GS",
+   "note": " idx=80"
+  },
+  {
+   "id": "83cb0615652c",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "GS",
+   "note": " idx=81"
+  },
+  {
+   "id": "8f1edb9ac542",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "GS",
+   "note": " idx=82"
+  },
+  {
+   "id": "771f912c8a37",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "GS",
+   "note": " idx=83"
+  },
+  {
+   "id": "54af5d30c29e",
+   "decision": "exclude",
+   "reason": "13f_or_manager_holdings",
+   "bank": "GS",
+   "note": "13F·보유 종목·VIP 바스켓 기반 idx=84"
+  },
+  {
+   "id": "917bf2b623c3",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "GS",
+   "note": " idx=85"
+  },
+  {
+   "id": "85b893e35868",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "MS",
+   "note": " idx=86"
+  },
+  {
+   "id": "e0a114cdb37a",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "GS",
+   "note": " idx=87"
+  },
+  {
+   "id": "f6403366c83f",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "MS",
+   "note": " idx=88"
+  },
+  {
+   "id": "4fc4aeca28d3",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "헤지펀드 수익률만 요약에 있음 idx=89"
+  },
+  {
+   "id": "5ed01a87ac54",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "GS",
+   "note": " idx=90"
+  },
+  {
+   "id": "9d8ec4c24ef8",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "GS",
+   "note": " idx=91"
+  },
+  {
+   "id": "6532a53901e0",
+   "decision": "needs_read",
+   "reason": "PB 마진콜 기사, 은행 출처·관측 사실 본문 확인 필요",
+   "bank": "unknown",
+   "note": " idx=92"
+  },
+  {
+   "id": "ef03e98747fd",
+   "decision": "needs_read",
+   "reason": "PB 마진콜 기사 재게시, 은행 출처 본문 확인 필요",
+   "bank": "unknown",
+   "note": " idx=93"
+  },
+  {
+   "id": "9404ba6e3f62",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "GS",
+   "note": " idx=94"
+  },
+  {
+   "id": "e469bc6eec97",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "GS",
+   "note": " idx=95"
+  },
+  {
+   "id": "881ee06554a6",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "GS",
+   "note": " idx=96"
+  },
+  {
+   "id": "9a6e4a5e26ad",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "GS",
+   "note": " idx=97"
+  },
+  {
+   "id": "2c0ff24f07ef",
+   "decision": "include",
+   "reason": "은행 PB 또는 BofA CFT 출처의 헤지펀드·고객 주식 흐름 관측이 제목·요약에 명시",
+   "bank": "MS",
+   "note": " idx=98"
+  },
+  {
+   "id": "075663edf351",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 주식 흐름 관측 보도 아님(일반 문서·위키·실적보고·서비스 순위 등) idx=99"
+  }
+ ]
+}

@@ -1,0 +1,14 @@
+{
+  "workflow": "KOACT_THROTTLED_BACKFILL",
+  "started_at": "2026-09-27T11:42:50.404416+09:00",
+  "status": "interrupted_browser_challenge",
+  "request_interval_seconds": 3,
+  "events": [],
+  "last_rate_limit": {
+    "date": "2026-02-04",
+    "time": "2026-09-27T11:46:05.687101+09:00",
+    "retry_after_seconds": 65
+  },
+  "interrupted_at": "2026-09-27T11:47:13.804645+09:00",
+  "reason": "HTTP 429 Cloudflare browser-verification page; automated retries stopped."
+}

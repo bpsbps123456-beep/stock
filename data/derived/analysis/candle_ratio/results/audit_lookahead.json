@@ -1,0 +1,158 @@
+{
+ "ratio": {
+  "combos": 5148,
+  "lookahead_tests": 15444,
+  "lookahead_fail": 0,
+  "out_of_range": 0,
+  "max_abs_diff_vs_direct": {
+   "count": 0.0,
+   "body": 2.220446049250313e-16,
+   "vol": 0.0
+  },
+  "flat_body_windows_MU": 0,
+  "zero_vol_windows_MU": 83398,
+  "engine_body_all_doji_value": 0.75,
+  "engine_count_all_doji_value": 0.5,
+  "engine_vol_all_doji_value": 0.5
+ },
+ "symbols": {
+  "n": 144,
+  "ext_vol0_median": 0.9996382376934732,
+  "ext_vol0_min": 0.9907192575406032,
+  "syms_ext_vol0_ge_99pct": 144,
+  "doji3_5m_eth_total": 44569,
+  "doji3_5m_eth_syms": 137,
+  "doji3_5m_eth_share_median": 0.0243822400961135,
+  "doji3_40m_eth_total": 1196,
+  "doji3_40m_eth_syms": 75,
+  "top_doji": [
+   {
+    "sym": "KEYS",
+    "doji3_5m_eth": 909,
+    "bars5m_eth": 7752
+   },
+   {
+    "sym": "BEAM",
+    "doji3_5m_eth": 900,
+    "bars5m_eth": 8581
+   },
+   {
+    "sym": "NTLA",
+    "doji3_5m_eth": 828,
+    "bars5m_eth": 9464
+   },
+   {
+    "sym": "CRSP",
+    "doji3_5m_eth": 802,
+    "bars5m_eth": 9137
+   },
+   {
+    "sym": "ARKG",
+    "doji3_5m_eth": 798,
+    "bars5m_eth": 8999
+   },
+   {
+    "sym": "CMI",
+    "doji3_5m_eth": 774,
+    "bars5m_eth": 7982
+   },
+   {
+    "sym": "SDGR",
+    "doji3_5m_eth": 772,
+    "bars5m_eth": 7602
+   },
+   {
+    "sym": "TLN",
+    "doji3_5m_eth": 766,
+    "bars5m_eth": 7779
+   }
+  ]
+ },
+ "positions": {
+  "tests": 1440,
+  "lookahead_fail": 0,
+  "fill_not_after_signal": 0
+ },
+ "tf_bars": {
+  "tests": 60,
+  "lookahead_fail": 0,
+  "eth40_starts": [
+   "04:00",
+   "04:40",
+   "05:20",
+   "06:00",
+   "06:40",
+   "07:20",
+   "08:00",
+   "08:40",
+   "09:20",
+   "10:00",
+   "10:40",
+   "11:20",
+   "12:00",
+   "12:40",
+   "13:20",
+   "14:00",
+   "14:40",
+   "15:20",
+   "16:00",
+   "16:40",
+   "17:20",
+   "18:00",
+   "18:40",
+   "19:20"
+  ],
+  "n_eth40_starts": 24,
+  "rth40_starts": [
+   "09:30",
+   "10:10",
+   "10:50",
+   "11:30",
+   "12:10",
+   "12:50",
+   "13:30",
+   "14:10",
+   "14:50",
+   "15:30"
+  ],
+  "eth60_from_1h_label_vs_first_bar_mismatch": [
+   [
+    "10:00",
+    "10:30"
+   ],
+   [
+    "11:00",
+    "11:30"
+   ],
+   [
+    "12:00",
+    "12:30"
+   ],
+   [
+    "13:00",
+    "13:30"
+   ],
+   [
+    "14:00",
+    "14:30"
+   ],
+   [
+    "15:00",
+    "15:30"
+   ]
+  ],
+  "eth60_bars_per_day": 16,
+  "eth60_0900_group_members": [
+   "09:00",
+   "09:30"
+  ]
+ },
+ "grid_counts": {
+  "brief_5m": 202752,
+  "product_5m": 304128,
+  "file_5m_cost0": 304128,
+  "brief_1h": 16896,
+  "product_1h": 25344,
+  "file_1h_cost0": 25344
+ }
+}

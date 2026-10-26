@@ -1,0 +1,112 @@
+{
+  "created_before_grid_execution": "2026-09-27T04:34:05.888438+00:00",
+  "period": [
+    "2026-01-02",
+    "2026-09-23"
+  ],
+  "candidate_count": 252720,
+  "search_space": {
+    "hypotheses": 13,
+    "flow_windows_krx": [
+      1,
+      3,
+      5,
+      10,
+      20,
+      40
+    ],
+    "time_mix": [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      1
+    ],
+    "price_gates": 3,
+    "max_stocks": [
+      1,
+      2,
+      3,
+      5,
+      7,
+      10
+    ],
+    "rebalance": [
+      "daily",
+      "calendar_week",
+      "calendar_month"
+    ],
+    "weighting": [
+      "equal",
+      "conviction",
+      "inverse_volatility"
+    ],
+    "risk_rules": 4
+  },
+  "selection": "Jan-May log return minus half absolute MDD; training MDD <=-50% excluded; top1% training eligible, June-July objective winner; no August-September selection",
+  "regime": "QQQ USD prior 20 actual US sessions, +/-3% plus MA20 confirmation; first21 unknown",
+  "price_basis": "Split-adjusted Close in KRW; dividends and taxes excluded; daily FX marks",
+  "disclosure_rule": "Latest snapshot as_of STRICTLY BEFORE local execution calendar date",
+  "execution": "Same-US-close fractional fills after earning existing holdings return; latest disclosure strictly before execution date; no leverage, KRW cash zero interest",
+  "fees": {
+    "one_way_fraction_of_traded_value": 0.0015,
+    "includes": "assumed commission + slippage + currency exchange allowance",
+    "sensitivity_bps": [
+      0,
+      15,
+      30,
+      50
+    ],
+    "tax": "not deducted; account/jurisdiction dependent",
+    "terminal": "mark to market, no forced sale fee"
+  },
+  "first_entry": "All accounts begin cash; first disclosure-following date benchmark entry; strategy waits in cash until its first eligible signal; subsequent rebalances calendar-based",
+  "targets": "Strategy cumulative percentage return >=2x or3x EACH ETF cumulative percentage return; ratios defined only for positive ETF returns. This is not multiplying ending wealth.",
+  "stress": [
+    "0/15/30/50bps",
+    "+1 actual US session",
+    "fresh cash August start",
+    "full grid at +1US session/30bps",
+    "regime and top-contributor sensitivity"
+  ],
+  "limitations": [
+    "US-only adaptive additional exploration after viewing original global research results. The historical August-September holdout is reused, not independent validation. Candidate selection remains January-May training and June-July validation only.",
+    "The source snapshots were retrieved retrospectively, mainly 2026-09-27. as_of_date is a disclosure label, not an archived publication timestamp. Execution must impose a disclosure delay; historical point-in-time availability is not proven.",
+    "Maximum holdings is a cap; fewer eligible names can cause concentration.",
+    "20-session price features and +1-session delay now refer to US sessions; flows remain KRX sessions.",
+    "Split-adjusted close fills, fractional positions and daily FX are assumptions; taxes/dividends excluded.",
+    "ETF benchmarks use US-date marks; this maximum drawdown samples that same date axis.",
+    "There is no guarantee of future 2x/3x ETF returns or exact executable order returns."
+  ],
+  "research_status": "US-only adaptive additional exploration after viewing original global research results. The historical August-September holdout is reused, not independent validation. Candidate selection remains January-May training and June-July validation only.",
+  "experiment": "US-listed securities only; maximum ten; actual US session calendar",
+  "security_count": 150,
+  "us_session_count": 182,
+  "calendar": "actual observed QQQ Close dates within original sample only",
+  "flow_policy": "1/3/5/10/20/40 KRX sessions; original full-fund CU/common factors; no recomputation on US subset",
+  "nav_weight_policy": "original NAV weights retained, not renormalized after US filtering",
+  "robust_scenarios": {
+    "base_15bps": {
+      "cost": 0.0015,
+      "extra_us_session_lag": 0
+    },
+    "delayed_30bps": {
+      "cost": 0.003,
+      "extra_us_session_lag": 1
+    }
+  },
+  "order_access": "User confirmed orders can be submitted; no further access approval needed",
+  "order_return_limitation": "Historical assumed fills do not guarantee actual order or account returns",
+  "source_artifact_sha256": {
+    "bundle.npz": "521b55084ad4ce882ed41c2745ae8abbbb0e6620cf23f3c905e86b72ec4f4d61",
+    "metadata.json": "0ade9b1361f1ec2b229ef802e6966e1ebc3fc1a33be27de706fdd5a5f97bc013",
+    "raw_prices.json": "18f45a2f10a6671890fb2f6af9452c725d2acfff7f14cb904d74cde5e32ab705",
+    "protocol.json": "5f2d30121770de4a234e86f8c38811082a48cb448bc3c5f727c9213c191e150a",
+    "configurations.json": "380cf3f0c72d099e4955f0a6a3b7f8b237fa90c8c00c6f8eaa89fa7e56fcf86e",
+    "grid_returns.npy": "01d4d3b6017609a98cc2378e229fc22856c45108ba7b969cfc8c851936e61b65",
+    "evaluation.json": "5d6efe21a57ccd881fa2c194cac9af9a747d9164a86f5a11b1474ba7c9e93410",
+    "stress.json": "33ce6e784c9071faf6899a75590685e812c987571ca03e0a66b71b746416ed36",
+    "subgroup_evaluation.json": "9e784c20f38f67a7cf4509fb20cd6822728cdc4827346f587f88201f801c0b45",
+    "robust_research.json": "51aac1aac43a6fc8d778d2e795264a0c8071ada37d29526fa4641941c47c1a08"
+  }
+}

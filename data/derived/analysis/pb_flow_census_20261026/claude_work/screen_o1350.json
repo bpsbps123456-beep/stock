@@ -1,0 +1,814 @@
+{
+ "rows": [
+  {
+   "id": "1abfcf0585a0",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "35dd9d8720fb",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "6e61aa879f01",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "cb8d92044466",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "dc35e8d298f9",
+   "decision": "exclude",
+   "reason": "13f_or_manager_holdings: institutional ownership of GS stock",
+   "bank": "GS"
+  },
+  {
+   "id": "a1b6c7c474b3",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "87be09a3d8db",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "GS"
+  },
+  {
+   "id": "0a70ff787331",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "JPM"
+  },
+  {
+   "id": "49baf8dd5f2f",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "JPM"
+  },
+  {
+   "id": "8a2801e23205",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "11ad2516d802",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "JPM"
+  },
+  {
+   "id": "90da057750f8",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "c2aa4669d207",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "7594fd2a11a1",
+   "decision": "exclude",
+   "reason": "fund_flows_not_bank_client: mainland flows via HK mutual funds",
+   "bank": "unknown"
+  },
+  {
+   "id": "b254add5ce79",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "JPM"
+  },
+  {
+   "id": "5499ac8eef83",
+   "decision": "exclude",
+   "reason": "unrelated: hedge fund returns, not PB flow",
+   "bank": "unknown"
+  },
+  {
+   "id": "d6e4f0e531da",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "JPM"
+  },
+  {
+   "id": "db495802ede1",
+   "decision": "exclude",
+   "reason": "unrelated: fund returns",
+   "bank": "unknown"
+  },
+  {
+   "id": "3eac5920a813",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "97410641cfba",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "MS"
+  },
+  {
+   "id": "0c1a7d2b3ee6",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "JPM"
+  },
+  {
+   "id": "4ed95ec31d8c",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "4a12981bf896",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "BofA"
+  },
+  {
+   "id": "79366d7233f6",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "BofA"
+  },
+  {
+   "id": "2fc5488f19ba",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "b668c696fabb",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "GS"
+  },
+  {
+   "id": "cde695d5c276",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "MS"
+  },
+  {
+   "id": "4218e8e5c545",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "5c5c5f8e631f",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "GS"
+  },
+  {
+   "id": "a033ef288208",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "GS"
+  },
+  {
+   "id": "756e29bc89a8",
+   "decision": "needs_read",
+   "reason": "Goldman funding spread drop signaling equity selling; likely GS PB/financing desk observation of client selling, confirm in body",
+   "bank": "GS"
+  },
+  {
+   "id": "b03c7b3f7a9a",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "3ce025d2cb7e",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "JPM"
+  },
+  {
+   "id": "bbad18b0c19e",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "GS"
+  },
+  {
+   "id": "69f40accf54f",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "GS"
+  },
+  {
+   "id": "76f5249ce428",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "GS"
+  },
+  {
+   "id": "5a5beee974f3",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "JPM"
+  },
+  {
+   "id": "0b3f67f3aa07",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "2571ef0d2956",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "6472da94a6fc",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "7f939ababaa7",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "bcd5a63131ad",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "MS"
+  },
+  {
+   "id": "6de2fb1c9de8",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "MS"
+  },
+  {
+   "id": "d35b6b676202",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "GS"
+  },
+  {
+   "id": "16578659fe2e",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "GS"
+  },
+  {
+   "id": "05dc291819af",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "JPM"
+  },
+  {
+   "id": "13da570f22f0",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "BofA"
+  },
+  {
+   "id": "0b9702d6ef2c",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "GS"
+  },
+  {
+   "id": "cd8e079e982e",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "bfb8f085b000",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "GS"
+  },
+  {
+   "id": "e7503b8a3e83",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "GS"
+  },
+  {
+   "id": "c157f7b1a112",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "cc1f957190f0",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "5bb7c0949f23",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "GS"
+  },
+  {
+   "id": "82fdd0298628",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "204b550956ef",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "MS"
+  },
+  {
+   "id": "abcf37df5ecf",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "e58e2aaa65f9",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "GS"
+  },
+  {
+   "id": "c89c5a24e7bf",
+   "decision": "exclude",
+   "reason": "13f_or_manager_holdings: Tepper 13F trades",
+   "bank": "unknown"
+  },
+  {
+   "id": "a26d96a0928b",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "652a466f3251",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "GS"
+  },
+  {
+   "id": "c2be07959577",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "b4a22b25b34b",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "5ae2245585f9",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "GS"
+  },
+  {
+   "id": "4e3c56e7c037",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "71913b8a49b7",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "JPM"
+  },
+  {
+   "id": "630a54ceac4e",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "59396e20a4f9",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "618ff84db9c4",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "edb3d0bdc235",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "7020d3621f39",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "JPM"
+  },
+  {
+   "id": "7d8a3aa3d9ba",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "GS"
+  },
+  {
+   "id": "13afabf3b7c0",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "GS"
+  },
+  {
+   "id": "0539e166d56e",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "JPM"
+  },
+  {
+   "id": "2dcfd84d77aa",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "35ba58797071",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "JPM"
+  },
+  {
+   "id": "c961fc8e7e2d",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "f23cd0ddedc7",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "bd05fba93ea0",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "GS"
+  },
+  {
+   "id": "58544a8733ae",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "2ac0b29e6b1d",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "JPM"
+  },
+  {
+   "id": "e97c69db2ec2",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "GS"
+  },
+  {
+   "id": "d8993d9c1dbf",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "4eb272f8ff4a",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "JPM"
+  },
+  {
+   "id": "48f40fd065f9",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "JPM"
+  },
+  {
+   "id": "542ce81b9610",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "JPM"
+  },
+  {
+   "id": "fd6e0430ac2a",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "JPM"
+  },
+  {
+   "id": "230ec27ba160",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "JPM"
+  },
+  {
+   "id": "02afc03a3545",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "GS"
+  },
+  {
+   "id": "8e1ebf8f2376",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "GS"
+  },
+  {
+   "id": "a585730759eb",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "63cac0d5c4a5",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "JPM"
+  },
+  {
+   "id": "0d17a453030d",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "MS"
+  },
+  {
+   "id": "8ad6d7790222",
+   "decision": "exclude",
+   "reason": "13f_or_manager_holdings: Fidelity fund holding valuation",
+   "bank": "unknown"
+  },
+  {
+   "id": "9e3dca4803fd",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "GS"
+  },
+  {
+   "id": "c8db6e837ec1",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "JPM"
+  },
+  {
+   "id": "4d9b6ab387c7",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "GS"
+  },
+  {
+   "id": "44a63f8602ff",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "GS"
+  },
+  {
+   "id": "ab686d1c645f",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "MS"
+  },
+  {
+   "id": "5b7326386e40",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "39bfc564d7e5",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "a35334381f1f",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "GS"
+  },
+  {
+   "id": "49a38d7b4dce",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "62fb7ceb398c",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "86331b7db487",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "635585759ee4",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "GS"
+  },
+  {
+   "id": "631b97391e4c",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "2288c78f125e",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "301b676223e4",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "8926de0a5a8c",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "46ad60ace566",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "GS"
+  },
+  {
+   "id": "8db550b6600b",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "GS"
+  },
+  {
+   "id": "dbe75247bb95",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "GS"
+  },
+  {
+   "id": "24bd31debc92",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "069294b6dca3",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "GS"
+  },
+  {
+   "id": "e3a77a43ebca",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "GS"
+  },
+  {
+   "id": "96ca3be5d5d7",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "JPM"
+  },
+  {
+   "id": "183a57e52985",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "045b5c7c2b99",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "BofA"
+  },
+  {
+   "id": "b8de01b5d397",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "MS"
+  },
+  {
+   "id": "332ba3cb3aa1",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "f57b759924b9",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "23052599928b",
+   "decision": "exclude",
+   "reason": "13f_or_manager_holdings: Goldman 13F ETF holdings",
+   "bank": "GS"
+  },
+  {
+   "id": "f007fbb7ee4c",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "JPM"
+  },
+  {
+   "id": "25ca589457c0",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "3372dd174b16",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "c082e84c5237",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "c6461f1c9052",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "b0f98fcc30ba",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "GS"
+  },
+  {
+   "id": "eb62783447fa",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  },
+  {
+   "id": "6b27a6e038b5",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "MS"
+  },
+  {
+   "id": "9d74261d56c6",
+   "decision": "needs_read",
+   "reason": "China tech rally hot money; may cite PB hedge fund net buying data, bank unconfirmed",
+   "bank": "unknown"
+  },
+  {
+   "id": "3a46cf6a428c",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "JPM"
+  },
+  {
+   "id": "fb2cc1842733",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "JPM"
+  },
+  {
+   "id": "60deaf357e00",
+   "decision": "exclude",
+   "reason": "unrelated: no PB client flow observation in title",
+   "bank": "unknown"
+  }
+ ]
+}

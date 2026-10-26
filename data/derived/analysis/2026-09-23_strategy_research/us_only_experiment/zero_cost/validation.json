@@ -1,0 +1,19 @@
+{
+  "source_files_unchanged": true,
+  "explicit_cost_zero_in_both_scenarios_and_benchmarks": true,
+  "us_listings_only": true,
+  "us_sessions_only": true,
+  "selection_uses_holdout": false,
+  "max_observed_holdings": 10,
+  "invalid_paths": {
+    "base_zero": 0,
+    "lag1_zero": 0
+  },
+  "all_selected_grid_detail_paths_match": true,
+  "independent_fixed_candidate_max_abs_error_pp": {
+    "201609": 5.108966718125885e-06,
+    "246798": 8.459422815576545e-07,
+    "239840": 2.861613552340714e-06
+  },
+  "legacy_charged_walk_forward_excluded": true
+}

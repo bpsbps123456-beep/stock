@@ -1,0 +1,24 @@
+{
+  "source": "https://freesis.kofia.or.kr/meta/getMetaDataList.do",
+  "obj_nm": "STATSCU0100000080BO",
+  "fetched_at": "2026-10-14T14:05:06",
+  "start": "20240601",
+  "end": "20261014",
+  "rows": 574,
+  "first_date": "2024-06-03",
+  "last_date": "2026-10-12",
+  "unit": "주(tmpV40=1)",
+  "columns": {
+    "TMPV2": "credit_loan_shares_total",
+    "TMPV3": "credit_loan_shares_kospi",
+    "TMPV4": "credit_loan_shares_kosdaq",
+    "TMPV5": "stock_lending_shares_total",
+    "TMPV6": "stock_lending_shares_kospi",
+    "TMPV7": "stock_lending_shares_kosdaq"
+  },
+  "dsmHeader": "",
+  "overlap_check_vs_kr_retail_credit_shares.csv": {
+    "overlap_rows": 332,
+    "total_mismatch_rows": 0
+  }
+}

@@ -1,0 +1,125 @@
+{
+ "rows": [
+  {
+   "branch": "b1_shape",
+   "cells": 127,
+   "eligible": 29,
+   "selected": 10,
+   "pass": 0,
+   "null_mean": 0.08,
+   "null_source": "b1_shape_summary.json summ.null.mean",
+   "posthoc": false
+  },
+  {
+   "branch": "b2_confirm",
+   "cells": 30,
+   "eligible": 10,
+   "selected": 10,
+   "pass": 0,
+   "null_mean": 0.02,
+   "null_source": "b2_confirm_summary.json null.mean",
+   "posthoc": false
+  },
+  {
+   "branch": "b3_market",
+   "cells": 54,
+   "eligible": 30,
+   "selected": 10,
+   "pass": 0,
+   "null_mean": 0.05,
+   "null_source": "b3_market_summary.json null.mean",
+   "posthoc": false
+  },
+  {
+   "branch": "b4_flow",
+   "cells": 138,
+   "eligible": 55,
+   "selected": 10,
+   "pass": 1,
+   "null_mean": 0.125,
+   "null_source": "b4_flow_summary.json null.mean",
+   "posthoc": false
+  },
+  {
+   "branch": "b5_catalyst",
+   "cells": 48,
+   "eligible": 15,
+   "selected": 13,
+   "pass": 0,
+   "null_mean": 0.07,
+   "null_source": "b5_catalyst_summary.json main.null.mean + variant.null.mean",
+   "posthoc": false
+  },
+  {
+   "branch": "b6_combo",
+   "cells": 248,
+   "eligible": 160,
+   "selected": 10,
+   "pass": 0,
+   "null_mean": 0.33,
+   "null_source": "b6_combo_summary.json null.mean",
+   "posthoc": false
+  },
+  {
+   "branch": "b7_hedge",
+   "cells": 47,
+   "eligible": 21,
+   "selected": 10,
+   "pass": 0,
+   "null_mean": 0.145,
+   "null_source": "b7_hedge.md (c) 선택편향 귀무 문장(요약 json 없음)",
+   "posthoc": false
+  },
+  {
+   "branch": "b8_intraday",
+   "cells": 53,
+   "eligible": 23,
+   "selected": 10,
+   "pass": 0,
+   "null_mean": 0.155,
+   "null_source": "b8_intraday_summary.json null.mean",
+   "posthoc": false
+  },
+  {
+   "branch": "사후 b4 하루 묵힌 값",
+   "cells": 138,
+   "eligible": 52,
+   "selected": 10,
+   "pass": 0,
+   "null_mean": 0.125,
+   "null_source": "review_b4_stale_summary.json null.mean",
+   "posthoc": true
+  },
+  {
+   "branch": "사후 b8 진입 창 안",
+   "cells": 53,
+   "eligible": 7,
+   "selected": 7,
+   "pass": 0,
+   "null_mean": 0.075,
+   "null_source": "review_b8_window_summary.json entry_in.null.mean",
+   "posthoc": true
+  },
+  {
+   "branch": "사후 b8 진입·청산 창 안",
+   "cells": 53,
+   "eligible": 0,
+   "selected": 0,
+   "pass": 0,
+   "null_mean": 0.0,
+   "null_source": "review_b8_window_summary.json both_in.null.mean",
+   "posthoc": true
+  }
+ ],
+ "registered": {
+  "cells": 745,
+  "eligible": 343,
+  "pass": 1,
+  "null_mean_sum": 0.975
+ },
+ "with_posthoc": {
+  "cells": 989,
+  "pass": 1,
+  "null_mean_sum": 1.175
+ }
+}

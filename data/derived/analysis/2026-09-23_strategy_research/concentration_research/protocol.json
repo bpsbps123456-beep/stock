@@ -1,0 +1,56 @@
+{
+  "created_before_simulation": "2026-09-27T07:34:44.199564+00:00",
+  "candidate_count": 801,
+  "scenario_count": 3,
+  "grid_paths": 2403,
+  "period": [
+    "2026-01-02",
+    "2026-09-23"
+  ],
+  "stage_counts_after_union": {
+    "A": 27,
+    "B": 621,
+    "C": 54,
+    "C_trim": 54,
+    "D": 54
+  },
+  "canonical_dedup": "Pure-momentum and pure-our endpoints canonicalized; unrestricted cash/redistribution merged; identical A/B/C/D definitions merged.",
+  "selection": "Retrospective full-period balanced comparison after previous data inspection. Among stockcap<=25%,detailcap<=60%,semiconductor-plus-unknown-cap<=60% targets and worst-lag return>=2*TIME Jan2-close reference, minimize absolute worst daily-close MDD; tie-break lower worst turnover. No relaxation if empty; report Pareto set.",
+  "target_reference": {
+    "time_jan2_close_return": 0.7372515125324115,
+    "required_two_times_return": 1.474503025064823,
+    "original_later_entry_time_return": 0.6836521010749695,
+    "timing": "ETF KRX Close reference on same date labels; not simultaneous US Open execution."
+  },
+  "no_untouched_holdout": "All dates were already observed in prior research; August is a reused historical diagnostic, never independent validation.",
+  "portfolio": "Single KRWcash account. On actual US calendar daily/weekly/monthly event, refresh both signal targets with previous closes/latest eligible disclosures, combine identical stocks, then constrain targets. No inter-event capital reset.",
+  "momentum": "TIME-held MOM120 prior AdjClose,2025 warmup; keep incumbent momentum names in topN+5, then fill topN. Independent momentum membership resets on cash restart. Equal/fund/inverse20log-return-vol weights.",
+  "our_signals": "Frozen239120(new-entry40,max1) or201609(sold-reversal20,max3,inverse20vol,trend-half) signal templates. Their recomputation on chosen portfolio schedule is a new hypothesis, not native fixed-strategy account replay.",
+  "publication_delay": "0/1/2 actual US-session disclosure delay; previous-close price features unchanged. Same-date publication before Open is assumed, historical timestamps unverified.",
+  "projection": "Proportional progressive filling under simultaneous NAV stock/detail/known-semiconductor-OR-unknown limits after same-stock aggregation and fixed untradable holdings. Cash mode cannot exceed original name target; redistribution stays within selected names; never normalize capped portfolio to100%.",
+  "missing_quotes": "Missing Open freezes existing shares and prevents new trade. Frozen old names count toward10. Frozen infeasible caps remain and are flagged; missing Close carries known mark and is counted.",
+  "slot_overflow": "If frozen old names plus selected new names exceed10, retain the largest raw new targets within remaining slots. Removed target allocation becomes cash; frozen holdings consume the remaining investment budget. Redistribution only redistributes cap overflow within the surviving selected names.",
+  "cap_meaning": "Targets at rebalance, not continuous hard limits. Close violation counts and maximum realized weights reported. Gaps/drift can exceed caps.",
+  "trim": "If prior Close violates any enabled cap, next Open projects current holdings with cash overflow (sells only). No immediate redistribution. If regular rebalance coincides, compute its final target and trade once.",
+  "unknown_sectors": "All40 unclassified stocks share one unknown detail-sector cap AND consume the combined known-semiconductor-plus-unknown60% capacity. This is conservative uncertainty treatment, not sector reclassification. Known-semiconductor and unknown realized weights reported separately.",
+  "execution": "Common split-reflected raw Open/Close; old shares earn overnight gap, fractional NAV allocations at Open, mark same-day Close. Explicit costs0, dividends/taxes excluded. FXOpen=previousUSdailyFXClose proxy; FXClose=todaydailyFXClose. CashKRW.",
+  "execution_limitation": "Aggregate opening-price dollar allocation is not exact pre-submitted share quantities; actual slippage/spread/FX costs are unverified.",
+  "fresh_starts": "Reset shares, cash, and momentum-buffer membership; retain historical prices/disclosures.",
+  "exposure_matched_control": "For selected profiles, normalize each recorded pre-cap target to the cap-constrained investment fraction determined at that same Open, then replay an unconstrained account on the same event dates. No subsequent realized-cash backscaling. This is an explanatory counterfactual conditioned on constrained-account event/target information, not an independently selected tradable strategy.",
+  "source_sha256": {
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\2026-09-23_strategy_research\\us_only_experiment\\bundle.npz": "45f660bc23b1296d0bce7fdbc3f02698250dbc832d514c6e6a34a79ef2ab3662",
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\2026-09-23_strategy_research\\us_only_experiment\\metadata.json": "e1ad0971d1d1162bb63333fda2a70428b3d9b2b17791d082594fa9ccd8a55e5e",
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\2026-09-23_strategy_research\\us_only_experiment\\configurations.json": "380cf3f0c72d099e4955f0a6a3b7f8b237fa90c8c00c6f8eaa89fa7e56fcf86e",
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\2026-09-23_strategy_research\\us_only_experiment\\zero_cost\\results.json": "183abf5c34ce4999a3ab93b6f1b12f8a071205a5d388daa17eddea1ea935d00f",
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\2026-09-23_strategy_research\\strategy_comparison\\results.json": "cd84d02f7c57ba10c3cfee97f0d870d99274421b4ce32dca59149470e90590c8",
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\2026-09-23_strategy_research\\concentration_research\\sector_map.json": "6f67882828ac41ec8811d2a937c03874e215569fe3eae4b0acdc9c187452645a",
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\strategy_lab\\lab_panels.json": "02c3977cf7b84343d300b0af8c42a1ab03b310a9c9f1adf1584380b580569e86",
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\strategy_lab\\prices_open.csv": "8dc06d6fdfb4daf00afbac720f97c001557f1fdb2c02a0d4dcd388b339eedf23",
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\strategy_lab\\prices_close.csv": "a8c59e82fa5d268ad5cacaf6440318939a6d63e0362ee784cc5531119d86a44e",
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\strategy_lab\\prices_adj_close.csv": "116fc1c0488c1931ce39924c3d4c5df9ac9c591b0dd29bfab67319452d5bf575",
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\gbrc\\etf\\research_strategy_comparison.py": "ceb64a98bd9435dafeb5be2f9ba7f95f36a27cc846147c35f6cb7bfde56aa528",
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\gbrc\\etf\\research_engine.py": "075ddee3c2ed6fdfe3570c9551bf743b4c449838b549a13067d3a43f53c70e23"
+  },
+  "code_sha256": "d50860a70e05c161cd1b9b48c11d3d631ad181625dd87aca6318c0252060a375",
+  "configurations_sha256": "87f0c954ed69e9260d912bc6ce162084446f3e37da1844e9a132c1c381be9e29"
+}

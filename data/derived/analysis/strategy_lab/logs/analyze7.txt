@@ -1,0 +1,95 @@
+== Parameter plateaus (total %, cost 0.10%, no overlay; rows N, cols rebalance; FW / buffer=N / exit none) ==
+-- T/all/MOM120
+   N  |      D       W      2W       M | no-buffer D  EQ D   MDD(D)
+    1 |  +429%   +468%   +412%   +468% |    +408%    +429%    -58%
+    2 |  +203%   +225%   +237%   +548% |    +244%    +157%    -54%
+    3 |  +248%   +266%   +287%   +285% |    +196%    +277%    -49%
+    5 |  +253%   +229%   +235%   +243% |    +169%    +231%    -42%
+    7 |  +210%   +223%   +204%   +204% |    +183%    +199%    -40%
+   10 |  +185%   +182%   +178%   +156% |    +185%    +132%    -36%
+-- I/all/RADJ120
+   N  |      D       W      2W       M | no-buffer D  EQ D   MDD(D)
+    1 |  +461%   +590%   +466%   +468% |    +519%    +461%    -46%
+    2 |  +331%   +249%   +211%   +160% |    +185%    +406%    -45%
+    3 |  +220%   +227%   +174%   +160% |    +226%    +263%    -44%
+    5 |  +190%   +186%   +169%   +168% |    +119%    +213%    -40%
+    7 |  +150%   +152%   +149%   +134% |    +135%    +141%    -39%
+   10 |  +134%   +135%   +126%   +108% |    +131%    +116%    -34%
+-- I/all/PULL
+   N  |      D       W      2W       M | no-buffer D  EQ D   MDD(D)
+    1 |  +520%   +323%   +296%   +405% |    +469%    +520%    -25%
+    2 |  +102%   +148%   +256%   +456% |    +187%    +169%    -32%
+    3 |  +154%   +143%   +155%   +294% |    +172%    +226%    -31%
+    5 |  +146%   +156%   +147%   +172% |    +145%    +161%    -34%
+    7 |  +104%   +139%   +149%   +166% |    +125%    +113%    -37%
+   10 |  +128%   +127%   +129%   +115% |     +94%    +104%    -36%
+-- K/all/REV5
+   N  |      D       W      2W       M | no-buffer D  EQ D   MDD(D)
+    1 |  +110%     -7%    +38%    -12% |     +64%    +110%    -38%
+    2 |  +107%     -8%    +43%   +353% |    +177%     +66%    -33%
+    3 |  +231%    +19%    +78%   +372% |    +303%    +165%    -20%
+    5 |  +181%    +71%   +101%   +136% |    +196%    +166%    -16%
+    7 |   +92%    +62%    +83%   +141% |    +139%    +144%    -27%
+   10 |   +79%    +75%   +103%    +90% |    +131%    +127%    -23%
+-- T/all/W
+   N  |      D       W      2W       M | no-buffer D  EQ D   MDD(D)
+    1 |  +182%   +162%   +171%    +63% |    +191%    +182%    -38%
+    2 |  +152%   +122%   +132%    +74% |    +177%    +150%    -34%
+    3 |  +106%    +78%    +86%    +53% |    +128%     +99%    -35%
+    5 |  +103%   +140%   +118%    +89% |    +118%    +105%    -40%
+    7 |  +158%   +126%   +108%   +105% |    +109%    +165%    -37%
+   10 |  +130%    +94%    +92%    +93% |    +112%    +126%    -32%
+
+== Monthly excess over REPL_T (%p) ==
+                        01     02     03     04     05     06     07     08     09  beat
+H6 T/MOM120 N5 D     +49.4  +12.1   +9.1  +11.4   -2.2  +18.8  -14.8   -5.5  +13.9  6/9
+H6b T/MOM120 N5 W    +46.8  +12.8   +4.0  +11.1   -2.3  +19.4  -15.5   -5.9  +13.6  6/9
+H6c T/MOM120 N10 M   +21.4   +0.5   +0.7  +17.3   +0.3  +13.6  -10.5   -3.4   +8.7  7/9
+H7 I/RADJ120 N5 D    +25.5   +8.1   +8.8   +7.7   +0.1  +19.3  -15.2   -4.5  +13.6  7/9
+H9b I/PULL N5 D       +1.9   +8.7   +9.7   -0.6   +5.3  +19.9  -12.0   +3.2   +2.2  7/9
+H9c I/PULL N5 W       -2.0   +4.8  +17.5   +2.3  +11.0  +17.9  -11.9   +1.7   +3.0  7/9
+H10 K/REV5 N5 D      -16.4  +13.8   +1.6  -18.9   -0.4  +17.1  +14.5  +15.5  +16.3  6/9
+
+== Regime profile by QQQ ±3% labels (days up/box/down = [65, 83, 33]), annualized log return ==
+  REPL_T               up   +240%  box    -15%  down    +25%
+  H6 T/MOM120 N5 D     up   +369%  box    +67%  down    +69%
+  H6b T/MOM120 N5 W    up   +369%  box    +48%  down    +64%
+  H6c T/MOM120 N10 M   up   +345%  box    -12%  down    +68%
+  H7 I/RADJ120 N5 D    up   +346%  box    +15%  down    +93%
+  H9b I/PULL N5 D      up   +250%  box    +45%  down    +81%
+  H9c I/PULL N5 W      up   +262%  box    +14%  down   +170%
+  H10 K/REV5 N5 D      up   +356%  box    +50%  down    -38%
+  down-labelled months: ['2026-01', '2026-02', '2026-03', '2026-06', '2026-07', '2026-08']
+
+== Regime profile by SMH ±6% labels (days up/box/down = [76, 83, 22]), annualized log return ==
+  REPL_T               up   +227%  box    +27%  down   -198%
+  H6 T/MOM120 N5 D     up   +390%  box   +128%  down   -387%
+  H6b T/MOM120 N5 W    up   +391%  box   +109%  down   -396%
+  H6c T/MOM120 N10 M   up   +339%  box    +55%  down   -301%
+  H7 I/RADJ120 N5 D    up   +336%  box   +104%  down   -333%
+  H9b I/PULL N5 D      up   +267%  box    +96%  down   -251%
+  H9c I/PULL N5 W      up   +269%  box    +93%  down   -204%
+  H10 K/REV5 N5 D      up   +255%  box   +178%  down   -367%
+  down-labelled months: ['2026-02', '2026-03', '2026-06', '2026-07', '2026-08']
+
+== Regime profile by 펀드유니버스EW ±6% labels (days up/box/down = [58, 99, 24]), annualized log return ==
+  REPL_T               up   +297%  box    -10%  down    -46%
+  H6 T/MOM120 N5 D     up   +475%  box    +90%  down   -195%
+  H6b T/MOM120 N5 W    up   +468%  box    +80%  down   -209%
+  H6c T/MOM120 N10 M   up   +439%  box     +9%  down   -112%
+  H7 I/RADJ120 N5 D    up   +405%  box    +69%  down   -144%
+  H9b I/PULL N5 D      up   +334%  box    +54%  down    -83%
+  H9c I/PULL N5 W      up   +342%  box    +51%  down    -48%
+  H10 K/REV5 N5 D      up   +348%  box    +70%  down    -47%
+  down-labelled months: ['2026-01', '2026-03', '2026-06', '2026-07', '2026-08']
+
+== Walk-forward over 14 pre-registered rules (no 1-stock rule), switch cost 0.2%/month ==
+  lookback  1m top1: Feb-Sep +148.8%  H6 H10 H9c H8 H9c H9b H10 H10
+  lookback  1m top3: Feb-Sep  +84.5%  H6+H6b+H7 H10+H6b+H6 H9c+H9+H9b H8+H2+H6c H9c+H5+H9b H9b+H6b+H7 H10+H9+REPL_T H10+H3+H9
+  lookback  2m top1: Feb-Sep +175.5%  H6 H6 H9c H9c H5 H9c H10 H10
+  lookback  2m top3: Feb-Sep +122.2%  H6+H6b+H7 H6+H6b+H7 H9c+H6+H9b H9c+H6+H7 H5+H8+H2 H9c+H9b+H5 H10+H9+H5 H10+H9+REPL_T
+  lookback  3m top1: Feb-Sep +154.4%  H6 H6 H6 H6 H9c H8 H10 H10
+  lookback  3m top3: Feb-Sep +123.7%  H6+H6b+H7 H6+H6b+H7 H6+H6b+H7 H6+H6b+H9c H9c+H6+H8 H8+H5+H2 H10+H5+H9c H10+H9+H9b
+  lookback all top1: Feb-Sep +114.1%  H6 H6 H6 H6 H6 H6 H6 H6
+  lookback all top3: Feb-Sep +107.7%  H6+H6b+H7 H6+H6b+H7 H6+H6b+H7 H6+H6b+H7 H6+H6b+H7 H6+H6b+H7 H6+H6b+H7 H6+H6b+H7
+  static REPL_T Feb-Sep +61.3%,  equal-weight all 14 rules Feb-Sep +97.3%

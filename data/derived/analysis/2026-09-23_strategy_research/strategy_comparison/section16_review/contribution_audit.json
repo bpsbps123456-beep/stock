@@ -1,0 +1,471 @@
+{
+  "candidate_id": 239120,
+  "configuration": {
+    "family": "new_entry",
+    "lookback": 40,
+    "time_mix": 0.75,
+    "gate": "none",
+    "max_stocks": 1,
+    "rebalance": "daily",
+    "weighting": "inverse_volatility",
+    "risk_rule": "always"
+  },
+  "scope": "Original zero-cost US-only close-execution base path; NOT the new common open-execution comparison",
+  "stored_grid_reproduction_max_abs_error": 6.4767915475272275e-09,
+  "attribution_formula": "contribution[t] = NAV[t-1] / NAV[period_start-1] * return[t]; assign to previous close holding. All contributions sum exactly to the compounded period return.",
+  "simple_sum_warning": "sum(return[t]) by stock is not initial-capital P&L; do not add such values to explain a compounded total.",
+  "periods": {
+    "section16_table_through_sep22": {
+      "start": "2026-01-02",
+      "end": "2026-09-22",
+      "sessions": 181,
+      "total_return_pct": 423.5204425090104,
+      "simple_daily_sum_pct": 182.63038540652,
+      "capital_contribution_sum_pp": 423.52044250901037,
+      "attribution_residual_pp": -5.684341886080802e-14,
+      "attribution_base": "1 unit of NAV at the previous close before this period",
+      "by_symbol": [
+        {
+          "symbol": "SKHY",
+          "return_sessions": 23,
+          "simple_daily_sum_pct": 21.213745714047672,
+          "capital_contribution_pp": 92.91414612485201,
+          "fraction_of_total_log_growth": 0.11802656548141267,
+          "compounded_held_sessions_return_pct": 21.577516841964627
+        },
+        {
+          "symbol": "ARM",
+          "return_sessions": 25,
+          "simple_daily_sum_pct": 44.76836968786662,
+          "capital_contribution_pp": 81.2430617700408,
+          "fraction_of_total_log_growth": 0.23924671751245885,
+          "compounded_held_sessions_return_pct": 48.59442460489674
+        },
+        {
+          "symbol": "LITE",
+          "return_sessions": 21,
+          "simple_daily_sum_pct": 55.61895805698801,
+          "capital_contribution_pp": 65.08556457542512,
+          "fraction_of_total_log_growth": 0.3011372706001502,
+          "compounded_held_sessions_return_pct": 64.62573066519579
+        },
+        {
+          "symbol": "AMD",
+          "return_sessions": 5,
+          "simple_daily_sum_pct": 24.180555358195697,
+          "capital_contribution_pp": 60.95151729228518,
+          "fraction_of_total_log_growth": 0.14030329228117291,
+          "compounded_held_sessions_return_pct": 26.144627106459172
+        },
+        {
+          "symbol": "SNOW",
+          "return_sessions": 31,
+          "simple_daily_sum_pct": 15.462822607033344,
+          "capital_contribution_pp": 55.1465075659894,
+          "fraction_of_total_log_growth": 0.08716496557926422,
+          "compounded_held_sessions_return_pct": 15.522299858336709
+        },
+        {
+          "symbol": "STX",
+          "return_sessions": 18,
+          "simple_daily_sum_pct": 14.812100677876561,
+          "capital_contribution_pp": 46.14169558984555,
+          "fraction_of_total_log_growth": 0.0764008614514108,
+          "compounded_held_sessions_return_pct": 13.482044059086906
+        },
+        {
+          "symbol": "BABA",
+          "return_sessions": 13,
+          "simple_daily_sum_pct": 5.120619816955196,
+          "capital_contribution_pp": 20.187000189675757,
+          "fraction_of_total_log_growth": 0.0290049084643998,
+          "compounded_held_sessions_return_pct": 4.918628431181249
+        },
+        {
+          "symbol": "CRCL",
+          "return_sessions": 1,
+          "simple_daily_sum_pct": 1.4532134875568925,
+          "capital_contribution_pp": 1.8509494008965726,
+          "fraction_of_total_log_growth": 0.008715418629730414,
+          "compounded_held_sessions_return_pct": 1.4532134875568925
+        },
+        {
+          "symbol": "CASH",
+          "return_sessions": 44,
+          "simple_daily_sum_pct": 0.0,
+          "capital_contribution_pp": 0.0,
+          "fraction_of_total_log_growth": 0.0,
+          "compounded_held_sessions_return_pct": 0.0
+        }
+      ]
+    },
+    "section16_contribution_log_through_sep23": {
+      "start": "2026-01-02",
+      "end": "2026-09-23",
+      "sessions": 182,
+      "total_return_pct": 398.59104218706875,
+      "simple_daily_sum_pct": 177.86850825756554,
+      "capital_contribution_sum_pp": 398.5910421870687,
+      "attribution_residual_pp": -5.684341886080802e-14,
+      "attribution_base": "1 unit of NAV at the previous close before this period",
+      "by_symbol": [
+        {
+          "symbol": "ARM",
+          "return_sessions": 25,
+          "simple_daily_sum_pct": 44.76836968786662,
+          "capital_contribution_pp": 81.2430617700408,
+          "fraction_of_total_log_growth": 0.24651218550238085,
+          "compounded_held_sessions_return_pct": 48.59442460489674
+        },
+        {
+          "symbol": "SKHY",
+          "return_sessions": 24,
+          "simple_daily_sum_pct": 16.451868565093243,
+          "capital_contribution_pp": 67.98474580291034,
+          "fraction_of_total_log_growth": 0.09124270895421636,
+          "compounded_held_sessions_return_pct": 15.78814484920088
+        },
+        {
+          "symbol": "LITE",
+          "return_sessions": 21,
+          "simple_daily_sum_pct": 55.61895805698801,
+          "capital_contribution_pp": 65.08556457542512,
+          "fraction_of_total_log_growth": 0.31028223703006136,
+          "compounded_held_sessions_return_pct": 64.62573066519579
+        },
+        {
+          "symbol": "AMD",
+          "return_sessions": 5,
+          "simple_daily_sum_pct": 24.180555358195697,
+          "capital_contribution_pp": 60.95151729228518,
+          "fraction_of_total_log_growth": 0.1445640365436159,
+          "compounded_held_sessions_return_pct": 26.144627106459172
+        },
+        {
+          "symbol": "SNOW",
+          "return_sessions": 31,
+          "simple_daily_sum_pct": 15.462822607033344,
+          "capital_contribution_pp": 55.1465075659894,
+          "fraction_of_total_log_growth": 0.08981199987859925,
+          "compounded_held_sessions_return_pct": 15.522299858336709
+        },
+        {
+          "symbol": "STX",
+          "return_sessions": 18,
+          "simple_daily_sum_pct": 14.812100677876561,
+          "capital_contribution_pp": 46.14169558984555,
+          "fraction_of_total_log_growth": 0.07872101037152622,
+          "compounded_held_sessions_return_pct": 13.482044059086906
+        },
+        {
+          "symbol": "BABA",
+          "return_sessions": 13,
+          "simple_daily_sum_pct": 5.120619816955196,
+          "capital_contribution_pp": 20.187000189675757,
+          "fraction_of_total_log_growth": 0.029885732394566118,
+          "compounded_held_sessions_return_pct": 4.918628431181249
+        },
+        {
+          "symbol": "CRCL",
+          "return_sessions": 1,
+          "simple_daily_sum_pct": 1.4532134875568925,
+          "capital_contribution_pp": 1.8509494008965726,
+          "fraction_of_total_log_growth": 0.008980089325033804,
+          "compounded_held_sessions_return_pct": 1.4532134875568925
+        },
+        {
+          "symbol": "CASH",
+          "return_sessions": 44,
+          "simple_daily_sum_pct": 0.0,
+          "capital_contribution_pp": 0.0,
+          "fraction_of_total_log_growth": 0.0,
+          "compounded_held_sessions_return_pct": 0.0
+        }
+      ]
+    },
+    "june_july_selection_period": {
+      "start": "2026-06-01",
+      "end": "2026-07-31",
+      "sessions": 43,
+      "total_return_pct": 37.05225979852871,
+      "simple_daily_sum_pct": 34.20057874563642,
+      "capital_contribution_sum_pp": 37.05225979852867,
+      "attribution_residual_pp": -4.263256414560601e-14,
+      "attribution_base": "1 unit of NAV at the previous close before this period",
+      "by_symbol": [
+        {
+          "symbol": "STX",
+          "return_sessions": 12,
+          "simple_daily_sum_pct": 18.73775613860308,
+          "capital_contribution_pp": 18.637059655662878,
+          "fraction_of_total_log_growth": 0.5422049409342701,
+          "compounded_held_sessions_return_pct": 18.637059655662892
+        },
+        {
+          "symbol": "SNOW",
+          "return_sessions": 31,
+          "simple_daily_sum_pct": 15.462822607033344,
+          "capital_contribution_pp": 18.415200142865785,
+          "fraction_of_total_log_growth": 0.4577950590657298,
+          "compounded_held_sessions_return_pct": 15.522299858336709
+        }
+      ]
+    }
+  },
+  "holding_runs_through_sep22": [
+    {
+      "symbol": "CASH",
+      "entry_close_date": "2026-01-02",
+      "last_post_close_holding_date": "2026-03-05",
+      "exit_close_date": "2026-03-06",
+      "valuation_date_if_unclosed": null,
+      "first_earned_return_date": "2026-01-05",
+      "last_earned_return_date": "2026-03-06",
+      "simple_daily_sum_pct": 0.0,
+      "compounded_run_return_pct": 0.0,
+      "capital_contribution_pp_of_original_nav": 0.0
+    },
+    {
+      "symbol": "LITE",
+      "entry_close_date": "2026-03-06",
+      "last_post_close_holding_date": "2026-03-19",
+      "exit_close_date": "2026-03-20",
+      "valuation_date_if_unclosed": null,
+      "first_earned_return_date": "2026-03-09",
+      "last_earned_return_date": "2026-03-20",
+      "simple_daily_sum_pct": 27.104902757927086,
+      "compounded_run_return_pct": 27.36940695536374,
+      "capital_contribution_pp_of_original_nav": 27.36940695536372
+    },
+    {
+      "symbol": "CRCL",
+      "entry_close_date": "2026-03-20",
+      "last_post_close_holding_date": "2026-03-20",
+      "exit_close_date": "2026-03-23",
+      "valuation_date_if_unclosed": null,
+      "first_earned_return_date": "2026-03-23",
+      "last_earned_return_date": "2026-03-23",
+      "simple_daily_sum_pct": 1.4532134875568925,
+      "compounded_run_return_pct": 1.4532134875568925,
+      "capital_contribution_pp_of_original_nav": 1.8509494008965726
+    },
+    {
+      "symbol": "LITE",
+      "entry_close_date": "2026-03-23",
+      "last_post_close_holding_date": "2026-04-01",
+      "exit_close_date": "2026-04-02",
+      "valuation_date_if_unclosed": null,
+      "first_earned_return_date": "2026-03-24",
+      "last_earned_return_date": "2026-04-02",
+      "simple_daily_sum_pct": 15.423212755817495,
+      "compounded_run_return_pct": 14.028631917419897,
+      "capital_contribution_pp_of_original_nav": 18.12784815559805
+    },
+    {
+      "symbol": "ARM",
+      "entry_close_date": "2026-04-02",
+      "last_post_close_holding_date": "2026-04-02",
+      "exit_close_date": "2026-04-06",
+      "valuation_date_if_unclosed": null,
+      "first_earned_return_date": "2026-04-06",
+      "last_earned_return_date": "2026-04-06",
+      "simple_daily_sum_pct": -0.41474564964879557,
+      "compounded_run_return_pct": -0.41474564964879557,
+      "capital_contribution_pp_of_original_nav": -0.6111202680485428
+    },
+    {
+      "symbol": "LITE",
+      "entry_close_date": "2026-04-06",
+      "last_post_close_holding_date": "2026-04-08",
+      "exit_close_date": "2026-04-09",
+      "valuation_date_if_unclosed": null,
+      "first_earned_return_date": "2026-04-07",
+      "last_earned_return_date": "2026-04-09",
+      "simple_daily_sum_pct": 13.090842543243431,
+      "compounded_run_return_pct": 13.349256301097379,
+      "capital_contribution_pp_of_original_nav": 19.588309464463364
+    },
+    {
+      "symbol": "ARM",
+      "entry_close_date": "2026-04-09",
+      "last_post_close_holding_date": "2026-05-12",
+      "exit_close_date": "2026-05-13",
+      "valuation_date_if_unclosed": null,
+      "first_earned_return_date": "2026-04-10",
+      "last_earned_return_date": "2026-05-13",
+      "simple_daily_sum_pct": 45.18311533751541,
+      "compounded_run_return_pct": 49.213280193196354,
+      "capital_contribution_pp_of_original_nav": 81.85418203808933
+    },
+    {
+      "symbol": "STX",
+      "entry_close_date": "2026-05-13",
+      "last_post_close_holding_date": "2026-05-18",
+      "exit_close_date": "2026-05-19",
+      "valuation_date_if_unclosed": null,
+      "first_earned_return_date": "2026-05-14",
+      "last_earned_return_date": "2026-05-19",
+      "simple_daily_sum_pct": -10.630645193207444,
+      "compounded_run_return_pct": -10.317382405884368,
+      "capital_contribution_pp_of_original_nav": -25.60563588305368
+    },
+    {
+      "symbol": "AMD",
+      "entry_close_date": "2026-05-19",
+      "last_post_close_holding_date": "2026-05-19",
+      "exit_close_date": "2026-05-20",
+      "valuation_date_if_unclosed": null,
+      "first_earned_return_date": "2026-05-20",
+      "last_earned_return_date": "2026-05-20",
+      "simple_daily_sum_pct": 9.222992767172133,
+      "compounded_run_return_pct": 9.222992767172133,
+      "capital_contribution_pp_of_original_nav": 20.527978375203023
+    },
+    {
+      "symbol": "STX",
+      "entry_close_date": "2026-05-20",
+      "last_post_close_holding_date": "2026-05-20",
+      "exit_close_date": "2026-05-21",
+      "valuation_date_if_unclosed": null,
+      "first_earned_return_date": "2026-05-21",
+      "last_earned_return_date": "2026-05-21",
+      "simple_daily_sum_pct": 7.329155442368718,
+      "compounded_run_return_pct": 7.329155442368718,
+      "capital_contribution_pp_of_original_nav": 17.817317471080642
+    },
+    {
+      "symbol": "AMD",
+      "entry_close_date": "2026-05-21",
+      "last_post_close_holding_date": "2026-05-27",
+      "exit_close_date": "2026-05-28",
+      "valuation_date_if_unclosed": null,
+      "first_earned_return_date": "2026-05-22",
+      "last_earned_return_date": "2026-05-28",
+      "simple_daily_sum_pct": 14.957562591023565,
+      "compounded_run_return_pct": 15.492740045457687,
+      "capital_contribution_pp_of_original_nav": 40.423538917082155
+    },
+    {
+      "symbol": "STX",
+      "entry_close_date": "2026-05-28",
+      "last_post_close_holding_date": "2026-06-15",
+      "exit_close_date": "2026-06-16",
+      "valuation_date_if_unclosed": null,
+      "first_earned_return_date": "2026-05-29",
+      "last_earned_return_date": "2026-06-16",
+      "simple_daily_sum_pct": 18.113590428715288,
+      "compounded_run_return_pct": 17.896567810073073,
+      "capital_contribution_pp_of_original_nav": 53.930014001818584
+    },
+    {
+      "symbol": "SNOW",
+      "entry_close_date": "2026-06-16",
+      "last_post_close_holding_date": "2026-07-30",
+      "exit_close_date": "2026-07-31",
+      "valuation_date_if_unclosed": null,
+      "first_earned_return_date": "2026-06-17",
+      "last_earned_return_date": "2026-07-31",
+      "simple_daily_sum_pct": 15.462822607033344,
+      "compounded_run_return_pct": 15.522299858336709,
+      "capital_contribution_pp_of_original_nav": 55.1465075659894
+    },
+    {
+      "symbol": "BABA",
+      "entry_close_date": "2026-07-31",
+      "last_post_close_holding_date": "2026-08-18",
+      "exit_close_date": "2026-08-19",
+      "valuation_date_if_unclosed": null,
+      "first_earned_return_date": "2026-08-03",
+      "last_earned_return_date": "2026-08-19",
+      "simple_daily_sum_pct": 5.120619816955196,
+      "compounded_run_return_pct": 4.918628431181249,
+      "capital_contribution_pp_of_original_nav": 20.187000189675757
+    },
+    {
+      "symbol": "SKHY",
+      "entry_close_date": "2026-08-19",
+      "last_post_close_holding_date": "2026-09-22",
+      "exit_close_date": null,
+      "valuation_date_if_unclosed": "2026-09-22",
+      "first_earned_return_date": "2026-08-20",
+      "last_earned_return_date": "2026-09-22",
+      "simple_daily_sum_pct": 21.213745714047672,
+      "compounded_run_return_pct": 21.577516841964627,
+      "capital_contribution_pp_of_original_nav": 92.91414612485201
+    }
+  ],
+  "concentration": {
+    "stock_holding_runs": 14,
+    "distinct_stocks": 8,
+    "state_transitions_including_cash_to_first_stock": 14,
+    "stock_to_stock_transitions": 13,
+    "lite_plus_arm_capital_contribution_pp": 146.32862634546592,
+    "lite_plus_arm_fraction_of_total_profit": 0.34550546244849273,
+    "lite_plus_arm_fraction_of_log_growth": 0.5403839881126091,
+    "lite_plus_arm_fraction_of_simple_daily_sum": 0.5496748392738745,
+    "top_two_runs": [
+      {
+        "symbol": "SKHY",
+        "entry_close_date": "2026-08-19",
+        "last_post_close_holding_date": "2026-09-22",
+        "exit_close_date": null,
+        "valuation_date_if_unclosed": "2026-09-22",
+        "first_earned_return_date": "2026-08-20",
+        "last_earned_return_date": "2026-09-22",
+        "simple_daily_sum_pct": 21.213745714047672,
+        "compounded_run_return_pct": 21.577516841964627,
+        "capital_contribution_pp_of_original_nav": 92.91414612485201
+      },
+      {
+        "symbol": "ARM",
+        "entry_close_date": "2026-04-09",
+        "last_post_close_holding_date": "2026-05-12",
+        "exit_close_date": "2026-05-13",
+        "valuation_date_if_unclosed": null,
+        "first_earned_return_date": "2026-04-10",
+        "last_earned_return_date": "2026-05-13",
+        "simple_daily_sum_pct": 45.18311533751541,
+        "compounded_run_return_pct": 49.213280193196354,
+        "capital_contribution_pp_of_original_nav": 81.85418203808933
+      }
+    ],
+    "top_two_runs_fraction_of_total_profit": 0.4126561804846602
+  },
+  "selection": {
+    "scope_count": 252720,
+    "eligible_training_count": 251892,
+    "shortlist_count": 2519,
+    "selected_index": 239120,
+    "selected_is_first_validation_rank": true,
+    "objective": "log compounded return minus half absolute maximum drawdown",
+    "train": "January-May",
+    "selection": "June-July",
+    "interpretation": "Selection bias is a valid concern; this does not measure its numerical size or establish that the whole validation gain is spurious."
+  },
+  "initial_cash": {
+    "first_cash_date": "2026-01-02",
+    "last_post_close_cash_date": "2026-03-05",
+    "post_close_cash_us_sessions": 43,
+    "first_buy_close_date": "2026-03-06",
+    "first_gain_date": "2026-03-09",
+    "latest_snapshot_used_on_first_entry": "2026-03-05",
+    "snapshot_index_used_on_first_entry": 40,
+    "first_entry_flow_base_dates": [
+      "2026-01-02",
+      "2026-01-02"
+    ],
+    "eligible_rank_rows_before_first_entry": 0,
+    "interpretation": "The initial cash span is verified; the 40-day flow lookback uses original fund snapshot/flow-base dates, not a 43-US-session market-timing decision."
+  },
+  "source_sha256": {
+    "data\\derived\\analysis\\2026-09-23_strategy_research\\us_only_experiment\\bundle.npz": "45f660bc23b1296d0bce7fdbc3f02698250dbc832d514c6e6a34a79ef2ab3662",
+    "data\\derived\\analysis\\2026-09-23_strategy_research\\us_only_experiment\\raw_prices.json": "18f45a2f10a6671890fb2f6af9452c725d2acfff7f14cb904d74cde5e32ab705",
+    "data\\derived\\analysis\\2026-09-23_strategy_research\\us_only_experiment\\configurations.json": "380cf3f0c72d099e4955f0a6a3b7f8b237fa90c8c00c6f8eaa89fa7e56fcf86e",
+    "data\\derived\\analysis\\2026-09-23_strategy_research\\us_only_experiment\\zero_cost\\results.json": "183abf5c34ce4999a3ab93b6f1b12f8a071205a5d388daa17eddea1ea935d00f",
+    "data\\derived\\analysis\\strategy_lab\\code\\compare_codex.py": "4dc6316177396ab6268e2f42fe583588848faa5bf22af0db187464f1f3c4524f",
+    "data\\derived\\analysis\\strategy_lab\\logs\\compare_codex.txt": "f1a0e3474dc38316b91ca65513c0c37eea3b690a563e9c87b552f8d4ce71755f",
+    "data\\derived\\analysis\\strategy_lab\\2026-09-23_strategy_lab.md": "99bb93f8f11890a58523591bf67798dd9b0f7117f598b75f503a763bbec66b3d",
+    "gbrc\\etf\\research_engine.py": "075ddee3c2ed6fdfe3570c9551bf743b4c449838b549a13067d3a43f53c70e23"
+  },
+  "original_inputs_unchanged": true
+}

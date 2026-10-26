@@ -1,0 +1,1884 @@
+{
+ "meta": {
+  "strategy": "버킷 분산 모멘텀 (사전 등록, 결과 본 뒤 변경 없음)",
+  "period": {
+   "start_open": "2023-05-22",
+   "end_open": "2026-01-02",
+   "note": "값 1.0 = 2023-05-22 시가(현금), 첫 결정 2023-05-23 시가"
+  },
+  "timing": "결정: ISO 주 첫 미국 세션 시가, 세션 날짜보다 앞선 TIME PDF(주간 PDF라 보통 지난주 월요일 PDF) + 전 세션 수정종가",
+  "returns": "USD 시가→시가(원시 시가=분할 반영·배당 미반영, 데스크 run_model과 같음), 수수료 0. KRW는 KRW=X(경계 세션 전날 값)로 환산",
+  "mdd": "USD 시가 경로",
+  "turnover": "편도 회전율 합(첫 매수 제외)/년. turnover_per_rebalance = 재조정 1회 평균",
+  "semis_avg": "알려진 반도체 섹터(desk config.SEMIS_SECTORS) 평균 비중, 미분류 제외. semis_plus_unc_avg = 데스크 예산 정의",
+  "top3_share": "시작 가치 1 기준 금액 기여 상위 3 / 전체 이익 (deskx_caps.contributions 정의)",
+  "grid": "16 버킷 변형(G 2 x N 4 x W 2) + 기준 2(데스크 50%, #774 60%). 보조 민감도 2종 x 18 = 36(선택에 안 씀)",
+  "labels": "desk.strategies.sector_of / subsector_of (desk 키: research_key, us_weights)"
+ },
+ "engine_check_2026": {
+  "#774 (semis 60%)": {
+   "front_1/2~5/29": 2.0700482334435883,
+   "back_6/1~10/9": 0.049154342476081636,
+   "full": 2.2209544357283617,
+   "mdd": -0.237262006234099,
+   "last_day": "2026-10-09"
+  },
+  "desk rule (semis 50%)": {
+   "front_1/2~5/29": 2.0935374208297843,
+   "back_6/1~10/9": 0.046353328932146276,
+   "full": 2.2369331784614093,
+   "mdd": -0.20274959325776465,
+   "last_day": "2026-10-09"
+  },
+  "deskx_base_#774_full": 2.2209544357283617,
+  "abs_diff_#774_full": 0.0
+ },
+ "label_stats": {
+  "companies": 118,
+  "unclassified_sector": 55,
+  "unclassified_sub": 50,
+  "unclassified_tickers": [
+   "ADBE",
+   "AI",
+   "AMBA",
+   "AMKR",
+   "APP",
+   "BBAI",
+   "BIDU",
+   "BKR",
+   "BWXT",
+   "CCJ",
+   "CEG",
+   "CORZ",
+   "CPNG",
+   "CRML",
+   "CXM",
+   "DXYZ",
+   "EOSE",
+   "EQT",
+   "ETN",
+   "FLNC",
+   "GETY",
+   "GNRC",
+   "INOD",
+   "ISRG",
+   "KMI",
+   "LEU",
+   "LMND",
+   "LNG",
+   "MBLY",
+   "MP",
+   "NRDY",
+   "NXT",
+   "P",
+   "PATH",
+   "PERI",
+   "PINS",
+   "PL",
+   "POWL",
+   "QBTS",
+   "QUBT",
+   "RBLX",
+   "RDDT",
+   "RELX",
+   "RUN",
+   "RXRX",
+   "SDGR",
+   "SE",
+   "SERV",
+   "SOUN",
+   "SSTK",
+   "TWLO",
+   "UAMY",
+   "USAR",
+   "VST",
+   "WDAY"
+  ],
+  "known_semis_names": [
+   "ALAB",
+   "AMD",
+   "ARM",
+   "ASML",
+   "AVGO",
+   "CRDO",
+   "INTC",
+   "MRVL",
+   "MU",
+   "NVDA",
+   "NVTS",
+   "QCOM",
+   "SNDK",
+   "STX",
+   "TER",
+   "TSM",
+   "WDC"
+  ],
+  "pdfs": [
+   "2023-05-22",
+   "2025-12-29",
+   137
+  ]
+ },
+ "benchmarks": {
+  "TIME_ETF": {
+   "krw": 2.281703097010905,
+   "usd": 2.022208501646933,
+   "mdd_krw": -0.3709990999348801,
+   "dates": [
+    "2023-05-23",
+    "2026-01-02"
+   ],
+   "years_krw": {
+    "2023(5/22~)": 0.3646669471664217,
+    "2024": 0.8324679897290006,
+    "2025": 0.3123093317446173
+   }
+  },
+  "QQQ": {
+   "usd": 0.8743907463911555,
+   "mdd_usd_open": -0.24171443725480868,
+   "krw": 1.0192736277693526,
+   "years_usd": {
+    "2023(5/22~)": 0.2134195937163641,
+    "2024": 0.274778979673201,
+    "2025": 0.2117533651974648
+   }
+  }
+ },
+ "results": [
+  {
+   "name": "데스크 규칙 (반도체+미분류 50%)",
+   "full": 1.6305889448675006,
+   "cagr": 0.4470572944473843,
+   "mdd": -0.47076229182173435,
+   "full_krw": 1.8339229118046694,
+   "ratio_etf_krw": 0.8037517739302541,
+   "ratio_etf_usd": 0.8063406634575573,
+   "years": {
+    "2023(5/22~)": 0.3676985109595816,
+    "2024": 0.334132420743098,
+    "2025": 0.4416627541859368
+   },
+   "stress": {
+    "23년 가을 조정 7/31~10/27": -0.20049258706184947,
+    "24년 7~8월 급락 7/10~8/7": -0.27898456752238854,
+    "25년 관세 폭락 2/19~4/8": -0.34888890524900773,
+    "25년 반등 4/8~6/30": 0.6951930328430147
+   },
+   "buckets_avg": 5.6067073170731705,
+   "names_avg": 7.0,
+   "semis_avg": 0.2298919907793817,
+   "unclassified_avg": 0.17773613950224362,
+   "semis_plus_unc_avg": 0.4076281302816253,
+   "invested_avg": 0.9896372367122299,
+   "cash_weeks_share": 0.043795620437956206,
+   "top3": [
+    "PLTR",
+    "NVDA",
+    "GEV"
+   ],
+   "top3_share": 0.8043493956531128,
+   "top5_contrib": {
+    "PLTR": 0.7085,
+    "NVDA": 0.3343,
+    "GEV": 0.2687,
+    "RBLX": 0.2322,
+    "BE": 0.1944
+   },
+   "bottom3_contrib": {
+    "VST": -0.1221,
+    "OKLO": -0.1243,
+    "IREN": -0.1566
+   },
+   "turnover_annual": 6.282813503840841,
+   "turnover_per_rebalance": 0.12091576498111375,
+   "rebalances": 137,
+   "unique_names": 59,
+   "first_decision": "2023-05-23",
+   "first_pdf": "2023-05-22",
+   "last_holdings": {
+    "SNDK": 0.132,
+    "BE": 0.257,
+    "WDC": 0.153,
+    "EOSE": 0.044,
+    "FLNC": 0.059,
+    "TER": 0.037,
+    "STX": 0.072
+   },
+   "caps_at_rebalance": {
+    "any_cap_binds_share": 0.927007299270073,
+    "semis_unc_raw_avg": 0.5287566012695675,
+    "semis_unc_target_avg": 0.4068772891460915,
+    "semis_unc_budget_binds_share": 0.6131386861313869,
+    "unc_raw_over_60_share": 0.0072992700729927005,
+    "unc_raw_avg": 0.1625129610485371,
+    "unc_selected_avg": 1.8613138686131387
+   },
+   "family": "desk",
+   "sub_buckets_avg": 6.486280487804878
+  },
+  {
+   "name": "#774 (반도체+미분류 60%)",
+   "full": 1.7523413249325412,
+   "cagr": 0.4722886077214954,
+   "mdd": -0.45246535838612445,
+   "full_krw": 1.9650862621662926,
+   "ratio_etf_krw": 0.8612366195849981,
+   "ratio_etf_usd": 0.866548292871578,
+   "years": {
+    "2023(5/22~)": 0.36972075610115285,
+    "2024": 0.342417190198143,
+    "2025": 0.4968653977240103
+   },
+   "stress": {
+    "23년 가을 조정 7/31~10/27": -0.20151137663205443,
+    "24년 7~8월 급락 7/10~8/7": -0.27695938681695975,
+    "25년 관세 폭락 2/19~4/8": -0.3272969974789188,
+    "25년 반등 4/8~6/30": 0.6963189304276001
+   },
+   "buckets_avg": 5.6067073170731705,
+   "names_avg": 7.0,
+   "semis_avg": 0.24563616963751128,
+   "unclassified_avg": 0.1864792476660608,
+   "semis_plus_unc_avg": 0.43211541730357206,
+   "invested_avg": 0.993781506971951,
+   "cash_weeks_share": 0.043795620437956206,
+   "top3": [
+    "PLTR",
+    "NVDA",
+    "GEV"
+   ],
+   "top3_share": 0.7591533626158291,
+   "top5_contrib": {
+    "PLTR": 0.7141,
+    "NVDA": 0.3342,
+    "GEV": 0.282,
+    "RBLX": 0.2441,
+    "TSLA": 0.1722
+   },
+   "bottom3_contrib": {
+    "ALAB": -0.1335,
+    "OKLO": -0.1484,
+    "IREN": -0.1738
+   },
+   "turnover_annual": 6.288693357186829,
+   "turnover_per_rebalance": 0.12102892558422129,
+   "rebalances": 137,
+   "unique_names": 59,
+   "first_decision": "2023-05-23",
+   "first_pdf": "2023-05-22",
+   "last_holdings": {
+    "SNDK": 0.159,
+    "BE": 0.256,
+    "WDC": 0.183,
+    "EOSE": 0.052,
+    "FLNC": 0.071,
+    "TER": 0.044,
+    "STX": 0.087
+   },
+   "caps_at_rebalance": {
+    "any_cap_binds_share": 0.8978102189781022,
+    "semis_unc_raw_avg": 0.5287566012695675,
+    "semis_unc_target_avg": 0.43145222514078363,
+    "semis_unc_budget_binds_share": 0.5693430656934306,
+    "unc_raw_over_60_share": 0.0072992700729927005,
+    "unc_raw_avg": 0.1625129610485371,
+    "unc_selected_avg": 1.8613138686131387
+   },
+   "family": "desk",
+   "sub_buckets_avg": 6.486280487804878
+  },
+  {
+   "name": "bucket sector N3 eq",
+   "full": 1.6671690930622627,
+   "cagr": 0.45471245877618127,
+   "mdd": -0.4720093288109837,
+   "full_krw": 1.8733305586316682,
+   "ratio_etf_krw": 0.8210229284808281,
+   "ratio_etf_usd": 0.8244298704631505,
+   "years": {
+    "2023(5/22~)": -0.04596029395933998,
+    "2024": 0.6837380804052537,
+    "2025": 0.6603879227200509
+   },
+   "stress": {
+    "23년 가을 조정 7/31~10/27": -0.29157208069543783,
+    "24년 7~8월 급락 7/10~8/7": -0.2705798347698979,
+    "25년 관세 폭락 2/19~4/8": -0.2356165168230645,
+    "25년 반등 4/8~6/30": 0.7579079039901757
+   },
+   "buckets_avg": 3.0,
+   "names_avg": 3.0,
+   "semis_avg": 0.13364161041422737,
+   "unclassified_avg": 0.3106972243101016,
+   "semis_plus_unc_avg": 0.44433883472432895,
+   "invested_avg": 0.981138686155895,
+   "cash_weeks_share": 0.2846715328467153,
+   "top3": [
+    "PLTR",
+    "RBLX",
+    "FLNC"
+   ],
+   "top3_share": 1.163090483402516,
+   "top5_contrib": {
+    "PLTR": 1.193,
+    "RBLX": 0.4898,
+    "FLNC": 0.2562,
+    "VRT": 0.2361,
+    "VST": 0.223
+   },
+   "bottom3_contrib": {
+    "LEU": -0.1499,
+    "QUBT": -0.2419,
+    "SMR": -0.2952
+   },
+   "turnover_annual": 4.53340517768954,
+   "turnover_per_rebalance": 0.08724756109576841,
+   "rebalances": 137,
+   "unique_names": 25,
+   "first_decision": "2023-05-23",
+   "first_pdf": "2023-05-22",
+   "last_holdings": {
+    "SNDK": 0.327,
+    "BE": 0.336,
+    "FLNC": 0.337
+   },
+   "caps_at_rebalance": {
+    "any_cap_binds_share": 0.2846715328467153,
+    "semis_unc_raw_avg": 0.464720194647202,
+    "semis_unc_target_avg": 0.44574209245742097,
+    "semis_unc_budget_binds_share": null,
+    "unc_raw_over_60_share": 0.2846715328467153,
+    "unc_raw_avg": 0.3309002433090024,
+    "unc_selected_avg": 0.9927007299270073
+   },
+   "available_buckets": {
+    "min": 11,
+    "avg": 15.686131386861314,
+    "max": 25
+   },
+   "family": "bucket",
+   "sub_buckets_avg": 3.0
+  },
+  {
+   "name": "bucket sector N3 fund",
+   "full": 1.7160494101055543,
+   "cagr": 0.4648410951096915,
+   "mdd": -0.47211686118337215,
+   "full_krw": 1.9259891279895038,
+   "ratio_etf_krw": 0.8441015531392334,
+   "ratio_etf_usd": 0.8486016198171279,
+   "years": {
+    "2023(5/22~)": -0.04172413964205601,
+    "2024": 0.6874688847073551,
+    "2025": 0.6796211883738204
+   },
+   "stress": {
+    "23년 가을 조정 7/31~10/27": -0.2915720806954377,
+    "24년 7~8월 급락 7/10~8/7": -0.2705798347698981,
+    "25년 관세 폭락 2/19~4/8": -0.25335699255264676,
+    "25년 반등 4/8~6/30": 0.7653097414890002
+   },
+   "buckets_avg": 3.0,
+   "names_avg": 3.0,
+   "semis_avg": 0.13364161041422737,
+   "unclassified_avg": 0.31070445473298475,
+   "semis_plus_unc_avg": 0.44434606514721214,
+   "invested_avg": 0.9811399569460852,
+   "cash_weeks_share": 0.2846715328467153,
+   "top3": [
+    "PLTR",
+    "RBLX",
+    "FLNC"
+   ],
+   "top3_share": 1.1613424212185297,
+   "top5_contrib": {
+    "PLTR": 1.2099,
+    "RBLX": 0.5221,
+    "FLNC": 0.2609,
+    "VRT": 0.2371,
+    "VST": 0.224
+   },
+   "bottom3_contrib": {
+    "LEU": -0.1886,
+    "QUBT": -0.2165,
+    "SMR": -0.2965
+   },
+   "turnover_annual": 4.551660569647465,
+   "turnover_per_rebalance": 0.08759889488631833,
+   "rebalances": 137,
+   "unique_names": 25,
+   "first_decision": "2023-05-23",
+   "first_pdf": "2023-05-22",
+   "last_holdings": {
+    "SNDK": 0.327,
+    "BE": 0.336,
+    "FLNC": 0.337
+   },
+   "caps_at_rebalance": {
+    "any_cap_binds_share": 1.0,
+    "semis_unc_raw_avg": 0.42263428929037655,
+    "semis_unc_target_avg": 0.4457420924574209,
+    "semis_unc_budget_binds_share": null,
+    "unc_raw_over_60_share": 0.058394160583941604,
+    "unc_raw_avg": 0.20512471735897025,
+    "unc_selected_avg": 0.9927007299270073
+   },
+   "available_buckets": {
+    "min": 11,
+    "avg": 15.686131386861314,
+    "max": 25
+   },
+   "family": "bucket",
+   "sub_buckets_avg": 3.0
+  },
+  {
+   "name": "bucket sector N5 eq",
+   "full": 2.300010150705299,
+   "cagr": 0.5779901696671947,
+   "mdd": -0.48431265424311576,
+   "full_krw": 2.5550876899707995,
+   "ratio_etf_krw": 1.1198160239682524,
+   "ratio_etf_usd": 1.1373753739202055,
+   "years": {
+    "2023(5/22~)": 0.2826953180555658,
+    "2024": 0.5327890748231279,
+    "2025": 0.6784537162343312
+   },
+   "stress": {
+    "23년 가을 조정 7/31~10/27": -0.2542399116171723,
+    "24년 7~8월 급락 7/10~8/7": -0.25768559653803325,
+    "25년 관세 폭락 2/19~4/8": -0.30850087942946836,
+    "25년 반등 4/8~6/30": 0.8056701687094259
+   },
+   "buckets_avg": 5.0,
+   "names_avg": 5.0,
+   "semis_avg": 0.16026749805539467,
+   "unclassified_avg": 0.30495358681788404,
+   "semis_plus_unc_avg": 0.46522108487327873,
+   "invested_avg": 1.0,
+   "cash_weeks_share": 0.0,
+   "top3": [
+    "PLTR",
+    "OKLO",
+    "LEU"
+   ],
+   "top3_share": 0.6842606217610977,
+   "top5_contrib": {
+    "PLTR": 0.793,
+    "OKLO": 0.4612,
+    "LEU": 0.3197,
+    "RBLX": 0.2282,
+    "VRT": 0.206
+   },
+   "bottom3_contrib": {
+    "INTC": -0.1076,
+    "BE": -0.1094,
+    "QUBT": -0.217
+   },
+   "turnover_annual": 4.33557818050208,
+   "turnover_per_rebalance": 0.08344028547248035,
+   "rebalances": 137,
+   "unique_names": 37,
+   "first_decision": "2023-05-23",
+   "first_pdf": "2023-05-22",
+   "last_holdings": {
+    "SNDK": 0.197,
+    "BE": 0.203,
+    "EOSE": 0.198,
+    "FLNC": 0.204,
+    "CIEN": 0.198
+   },
+   "caps_at_rebalance": {
+    "any_cap_binds_share": 0.0,
+    "semis_unc_raw_avg": 0.4656934306569343,
+    "semis_unc_target_avg": 0.46569343065693425,
+    "semis_unc_budget_binds_share": null,
+    "unc_raw_over_60_share": 0.0,
+    "unc_raw_avg": 0.30656934306569344,
+    "unc_selected_avg": 1.532846715328467
+   },
+   "available_buckets": {
+    "min": 11,
+    "avg": 15.686131386861314,
+    "max": 25
+   },
+   "family": "bucket",
+   "sub_buckets_avg": 4.858231707317073
+  },
+  {
+   "name": "bucket sector N5 fund",
+   "full": 2.421701154250882,
+   "cagr": 0.5999738526662353,
+   "mdd": -0.5159934408622128,
+   "full_krw": 2.6861849196543606,
+   "ratio_etf_krw": 1.1772718909718527,
+   "ratio_etf_usd": 1.1975526521021909,
+   "years": {
+    "2023(5/22~)": 0.34155337212746084,
+    "2024": 0.471500675315609,
+    "2025": 0.7332996738631548
+   },
+   "stress": {
+    "23년 가을 조정 7/31~10/27": -0.2307826142397077,
+    "24년 7~8월 급락 7/10~8/7": -0.24932762312311374,
+    "25년 관세 폭락 2/19~4/8": -0.35488246095698994,
+    "25년 반등 4/8~6/30": 0.8971985122960728
+   },
+   "buckets_avg": 5.0,
+   "names_avg": 5.0,
+   "semis_avg": 0.18310496243508104,
+   "unclassified_avg": 0.2713214250710061,
+   "semis_plus_unc_avg": 0.45442638750608716,
+   "invested_avg": 1.0,
+   "cash_weeks_share": 0.0,
+   "top3": [
+    "PLTR",
+    "OKLO",
+    "RBLX"
+   ],
+   "top3_share": 0.7254367041428905,
+   "top5_contrib": {
+    "PLTR": 1.0069,
+    "OKLO": 0.4475,
+    "RBLX": 0.3024,
+    "LEU": 0.2661,
+    "META": 0.2177
+   },
+   "bottom3_contrib": {
+    "INTC": -0.1361,
+    "CRDO": -0.1473,
+    "IREN": -0.2858
+   },
+   "turnover_annual": 5.048904529067172,
+   "turnover_per_rebalance": 0.09716859382751976,
+   "rebalances": 137,
+   "unique_names": 37,
+   "first_decision": "2023-05-23",
+   "first_pdf": "2023-05-22",
+   "last_holdings": {
+    "SNDK": 0.247,
+    "BE": 0.225,
+    "EOSE": 0.142,
+    "FLNC": 0.192,
+    "CIEN": 0.194
+   },
+   "caps_at_rebalance": {
+    "any_cap_binds_share": 0.9927007299270073,
+    "semis_unc_raw_avg": 0.483055486566394,
+    "semis_unc_target_avg": 0.4541959527554743,
+    "semis_unc_budget_binds_share": null,
+    "unc_raw_over_60_share": 0.0072992700729927005,
+    "unc_raw_avg": 0.19996060258917647,
+    "unc_selected_avg": 1.532846715328467
+   },
+   "available_buckets": {
+    "min": 11,
+    "avg": 15.686131386861314,
+    "max": 25
+   },
+   "family": "bucket",
+   "sub_buckets_avg": 4.858231707317073
+  },
+  {
+   "name": "bucket sector N7 eq",
+   "full": 1.7531759604168693,
+   "cagr": 0.4724591684930144,
+   "mdd": -0.48900888561589184,
+   "full_krw": 1.965985411623549,
+   "ratio_etf_krw": 0.861630689023057,
+   "ratio_etf_usd": 0.8669610275048506,
+   "years": {
+    "2023(5/22~)": 0.20654612746923706,
+    "2024": 0.4565472700538664,
+    "2025": 0.5666264519312996
+   },
+   "stress": {
+    "23년 가을 조정 7/31~10/27": -0.28949266355166714,
+    "24년 7~8월 급락 7/10~8/7": -0.16184147555204298,
+    "25년 관세 폭락 2/19~4/8": -0.33676526708239496,
+    "25년 반등 4/8~6/30": 0.6510711448981554
+   },
+   "buckets_avg": 7.0,
+   "names_avg": 7.0,
+   "semis_avg": 0.1211694644127422,
+   "unclassified_avg": 0.3395419666736484,
+   "semis_plus_unc_avg": 0.46071143108639057,
+   "invested_avg": 1.0,
+   "cash_weeks_share": 0.0,
+   "top3": [
+    "PLTR",
+    "OKLO",
+    "RBLX"
+   ],
+   "top3_share": 0.6401350833344818,
+   "top5_contrib": {
+    "PLTR": 0.6196,
+    "OKLO": 0.2839,
+    "RBLX": 0.2188,
+    "SMR": 0.1768,
+    "NVDA": 0.1623
+   },
+   "bottom3_contrib": {
+    "RDDT": -0.0797,
+    "BBAI": -0.097,
+    "SDGR": -0.1316
+   },
+   "turnover_annual": 4.030653402231559,
+   "turnover_per_rebalance": 0.07757186158822263,
+   "rebalances": 137,
+   "unique_names": 43,
+   "first_decision": "2023-05-23",
+   "first_pdf": "2023-05-22",
+   "last_holdings": {
+    "WDC": 0.14,
+    "BE": 0.147,
+    "EOSE": 0.143,
+    "FLNC": 0.147,
+    "TER": 0.143,
+    "APP": 0.137,
+    "GOOG": 0.143
+   },
+   "caps_at_rebalance": {
+    "any_cap_binds_share": 0.0,
+    "semis_unc_raw_avg": 0.4608967674661105,
+    "semis_unc_target_avg": 0.4608967674661105,
+    "semis_unc_budget_binds_share": null,
+    "unc_raw_over_60_share": 0.0,
+    "unc_raw_avg": 0.34098018769551613,
+    "unc_selected_avg": 2.386861313868613
+   },
+   "available_buckets": {
+    "min": 11,
+    "avg": 15.686131386861314,
+    "max": 25
+   },
+   "family": "bucket",
+   "sub_buckets_avg": 6.858231707317073
+  },
+  {
+   "name": "bucket sector N7 fund",
+   "full": 2.241639527679043,
+   "cagr": 0.567267437863153,
+   "mdd": -0.5108746412947898,
+   "full_krw": 2.4922052520691413,
+   "ratio_etf_krw": 1.0922565934779158,
+   "ratio_etf_usd": 1.1085105842713054,
+   "years": {
+    "2023(5/22~)": 0.38201766299555184,
+    "2024": 0.48119038372115996,
+    "2025": 0.5835808524909452
+   },
+   "stress": {
+    "23년 가을 조정 7/31~10/27": -0.2190417341205776,
+    "24년 7~8월 급락 7/10~8/7": -0.15987025322895498,
+    "25년 관세 폭락 2/19~4/8": -0.3842591891946,
+    "25년 반등 4/8~6/30": 0.8089833943925939
+   },
+   "buckets_avg": 7.0,
+   "names_avg": 7.0,
+   "semis_avg": 0.16195725818696513,
+   "unclassified_avg": 0.27018286156559346,
+   "semis_plus_unc_avg": 0.4321401197525586,
+   "invested_avg": 1.0,
+   "cash_weeks_share": 0.0,
+   "top3": [
+    "PLTR",
+    "RBLX",
+    "NVDA"
+   ],
+   "top3_share": 0.7144711068755321,
+   "top5_contrib": {
+    "PLTR": 0.9831,
+    "RBLX": 0.31,
+    "NVDA": 0.3086,
+    "SMR": 0.2951,
+    "META": 0.2293
+   },
+   "bottom3_contrib": {
+    "MP": -0.0955,
+    "RDDT": -0.1731,
+    "IREN": -0.1818
+   },
+   "turnover_annual": 5.0723105170911325,
+   "turnover_per_rebalance": 0.09761905331439229,
+   "rebalances": 137,
+   "unique_names": 43,
+   "first_decision": "2023-05-23",
+   "first_pdf": "2023-05-22",
+   "last_holdings": {
+    "WDC": 0.237,
+    "BE": 0.107,
+    "EOSE": 0.068,
+    "FLNC": 0.091,
+    "TER": 0.057,
+    "APP": 0.188,
+    "GOOG": 0.252
+   },
+   "caps_at_rebalance": {
+    "any_cap_binds_share": 0.8540145985401459,
+    "semis_unc_raw_avg": 0.47105891211216677,
+    "semis_unc_target_avg": 0.4310199502203772,
+    "semis_unc_budget_binds_share": null,
+    "unc_raw_over_60_share": 0.0,
+    "unc_raw_avg": 0.22957730317269692,
+    "unc_selected_avg": 2.386861313868613
+   },
+   "available_buckets": {
+    "min": 11,
+    "avg": 15.686131386861314,
+    "max": 25
+   },
+   "family": "bucket",
+   "sub_buckets_avg": 6.858231707317073
+  },
+  {
+   "name": "bucket sector N10 eq",
+   "full": 1.396458847367637,
+   "cagr": 0.3964286772741421,
+   "mdd": -0.5022372061727438,
+   "full_krw": 1.5816954975054944,
+   "ratio_etf_krw": 0.6932082879571667,
+   "ratio_etf_usd": 0.6905612582630964,
+   "years": {
+    "2023(5/22~)": 0.30647008388318797,
+    "2024": 0.29373617437675725,
+    "2025": 0.4178320337777752
+   },
+   "stress": {
+    "23년 가을 조정 7/31~10/27": -0.1661335472630654,
+    "24년 7~8월 급락 7/10~8/7": -0.1929351679982796,
+    "25년 관세 폭락 2/19~4/8": -0.361423120796455,
+    "25년 반등 4/8~6/30": 0.5607854211429517
+   },
+   "buckets_avg": 10.0,
+   "names_avg": 10.0,
+   "semis_avg": 0.1262891837595434,
+   "unclassified_avg": 0.39890154644051046,
+   "semis_plus_unc_avg": 0.5251907302000539,
+   "invested_avg": 1.0,
+   "cash_weeks_share": 0.0,
+   "top3": [
+    "PLTR",
+    "OKLO",
+    "RBLX"
+   ],
+   "top3_share": 0.5422994053669442,
+   "top5_contrib": {
+    "PLTR": 0.4016,
+    "OKLO": 0.1875,
+    "RBLX": 0.1682,
+    "WDC": 0.1447,
+    "BBAI": 0.1305
+   },
+   "bottom3_contrib": {
+    "RDDT": -0.0561,
+    "EOSE": -0.1067,
+    "SOUN": -0.2201
+   },
+   "turnover_annual": 3.9543426635001495,
+   "turnover_per_rebalance": 0.07610322475150266,
+   "rebalances": 137,
+   "unique_names": 56,
+   "first_decision": "2023-05-23",
+   "first_pdf": "2023-05-22",
+   "last_holdings": {
+    "WDC": 0.097,
+    "BE": 0.103,
+    "EOSE": 0.1,
+    "FLNC": 0.103,
+    "TER": 0.1,
+    "APP": 0.095,
+    "GOOG": 0.1,
+    "AMD": 0.102,
+    "RDDT": 0.102,
+    "LEU": 0.099
+   },
+   "caps_at_rebalance": {
+    "any_cap_binds_share": 0.0,
+    "semis_unc_raw_avg": 0.5262773722627737,
+    "semis_unc_target_avg": 0.5262773722627737,
+    "semis_unc_budget_binds_share": null,
+    "unc_raw_over_60_share": 0.0,
+    "unc_raw_avg": 0.4007299270072993,
+    "unc_selected_avg": 4.007299270072993
+   },
+   "available_buckets": {
+    "min": 11,
+    "avg": 15.686131386861314,
+    "max": 25
+   },
+   "family": "bucket",
+   "sub_buckets_avg": 9.757621951219512
+  },
+  {
+   "name": "bucket sector N10 fund",
+   "full": 1.6079222375713762,
+   "cagr": 0.44228075284516355,
+   "mdd": -0.4731943473302046,
+   "full_krw": 1.8095041590128331,
+   "ratio_etf_krw": 0.7930497887228773,
+   "ratio_etf_usd": 0.7951317761060976,
+   "years": {
+    "2023(5/22~)": 0.3963453736180611,
+    "2024": 0.4027325036718912,
+    "2025": 0.3314563298132269
+   },
+   "stress": {
+    "23년 가을 조정 7/31~10/27": -0.168704439535713,
+    "24년 7~8월 급락 7/10~8/7": -0.19351334270303178,
+    "25년 관세 폭락 2/19~4/8": -0.364664531983683,
+    "25년 반등 4/8~6/30": 0.6834694243813799
+   },
+   "buckets_avg": 10.0,
+   "names_avg": 10.0,
+   "semis_avg": 0.18671783103842393,
+   "unclassified_avg": 0.2796421607641746,
+   "semis_plus_unc_avg": 0.4663599918025985,
+   "invested_avg": 1.0,
+   "cash_weeks_share": 0.0,
+   "top3": [
+    "PLTR",
+    "NVDA",
+    "RBLX"
+   ],
+   "top3_share": 0.7269802644806274,
+   "top5_contrib": {
+    "PLTR": 0.6651,
+    "NVDA": 0.2987,
+    "RBLX": 0.2051,
+    "META": 0.1938,
+    "SMR": 0.1757
+   },
+   "bottom3_contrib": {
+    "MP": -0.0747,
+    "IREN": -0.1146,
+    "RDDT": -0.1366
+   },
+   "turnover_annual": 5.42166267755839,
+   "turnover_per_rebalance": 0.10434250351785282,
+   "rebalances": 137,
+   "unique_names": 56,
+   "first_decision": "2023-05-23",
+   "first_pdf": "2023-05-22",
+   "last_holdings": {
+    "WDC": 0.172,
+    "BE": 0.078,
+    "EOSE": 0.049,
+    "FLNC": 0.066,
+    "TER": 0.041,
+    "APP": 0.137,
+    "GOOG": 0.214,
+    "AMD": 0.083,
+    "RDDT": 0.128,
+    "LEU": 0.031
+   },
+   "caps_at_rebalance": {
+    "any_cap_binds_share": 0.5693430656934306,
+    "semis_unc_raw_avg": 0.4961155833253469,
+    "semis_unc_target_avg": 0.4658875889188035,
+    "semis_unc_budget_binds_share": null,
+    "unc_raw_over_60_share": 0.021897810218978103,
+    "unc_raw_avg": 0.2580529124719867,
+    "unc_selected_avg": 4.007299270072993
+   },
+   "available_buckets": {
+    "min": 11,
+    "avg": 15.686131386861314,
+    "max": 25
+   },
+   "family": "bucket",
+   "sub_buckets_avg": 9.757621951219512
+  },
+  {
+   "name": "bucket sub N3 eq",
+   "full": 1.1914677001883969,
+   "cagr": 0.34952666617967476,
+   "mdd": -0.4996455439004366,
+   "full_krw": 1.3608593574305452,
+   "ratio_etf_krw": 0.5964226279980551,
+   "ratio_etf_usd": 0.5891913218731096,
+   "years": {
+    "2023(5/22~)": -0.05715407499178338,
+    "2024": 0.22195131990554828,
+    "2025": 0.9021310755872833
+   },
+   "stress": {
+    "23년 가을 조정 7/31~10/27": -0.2974639978579202,
+    "24년 7~8월 급락 7/10~8/7": -0.3071468600237194,
+    "25년 관세 폭락 2/19~4/8": -0.36296672709727107,
+    "25년 반등 4/8~6/30": 0.7579079039901779
+   },
+   "buckets_avg": 3.0,
+   "names_avg": 3.0,
+   "semis_avg": 0.1844326128256111,
+   "unclassified_avg": 0.2749835029511581,
+   "semis_plus_unc_avg": 0.4594161157767691,
+   "invested_avg": 0.9880002335734677,
+   "cash_weeks_share": 0.18248175182481752,
+   "top3": [
+    "PLTR",
+    "OKLO",
+    "RBLX"
+   ],
+   "top3_share": 1.2952516882068823,
+   "top5_contrib": {
+    "PLTR": 0.6993,
+    "OKLO": 0.5011,
+    "RBLX": 0.3429,
+    "CRDO": 0.2912,
+    "VRT": 0.2499
+   },
+   "bottom3_contrib": {
+    "SMR": -0.1982,
+    "IONQ": -0.2486,
+    "IREN": -0.3297
+   },
+   "turnover_annual": 4.839585937627962,
+   "turnover_per_rebalance": 0.09314015695076563,
+   "rebalances": 137,
+   "unique_names": 28,
+   "first_decision": "2023-05-23",
+   "first_pdf": "2023-05-22",
+   "last_holdings": {
+    "SNDK": 0.327,
+    "BE": 0.336,
+    "FLNC": 0.337
+   },
+   "caps_at_rebalance": {
+    "any_cap_binds_share": 0.18248175182481752,
+    "semis_unc_raw_avg": 0.47201946472019457,
+    "semis_unc_target_avg": 0.4603406326034063,
+    "semis_unc_budget_binds_share": null,
+    "unc_raw_over_60_share": 0.1678832116788321,
+    "unc_raw_avg": 0.2871046228710462,
+    "unc_selected_avg": 0.8613138686131386
+   },
+   "available_buckets": {
+    "min": 13,
+    "avg": 21.16058394160584,
+    "max": 33
+   },
+   "family": "bucket",
+   "sub_buckets_avg": 3.0
+  },
+  {
+   "name": "bucket sub N3 fund",
+   "full": 1.1852549837318147,
+   "cagr": 0.34806367710456243,
+   "mdd": -0.4996455439004366,
+   "full_krw": 1.3541664229281003,
+   "ratio_etf_krw": 0.5934893215081736,
+   "ratio_etf_usd": 0.5861190786046622,
+   "years": {
+    "2023(5/22~)": -0.05296762362034957,
+    "2024": 0.21412804894808635,
+    "2025": 0.9005215588269126
+   },
+   "stress": {
+    "23년 가을 조정 7/31~10/27": -0.2974639978579203,
+    "24년 7~8월 급락 7/10~8/7": -0.3125678998773358,
+    "25년 관세 폭락 2/19~4/8": -0.36296672709727107,
+    "25년 반등 4/8~6/30": 0.7653097414889993
+   },
+   "buckets_avg": 3.0,
+   "names_avg": 3.0,
+   "semis_avg": 0.18442182779872782,
+   "unclassified_avg": 0.2749869345562359,
+   "semis_plus_unc_avg": 0.4594087623549638,
+   "invested_avg": 0.9879994013215136,
+   "cash_weeks_share": 0.18248175182481752,
+   "top3": [
+    "PLTR",
+    "OKLO",
+    "RBLX"
+   ],
+   "top3_share": 1.3157696559146468,
+   "top5_contrib": {
+    "PLTR": 0.6984,
+    "OKLO": 0.5037,
+    "RBLX": 0.3574,
+    "CRDO": 0.2904,
+    "VRT": 0.2508
+   },
+   "bottom3_contrib": {
+    "SMR": -0.1978,
+    "IONQ": -0.2489,
+    "IREN": -0.3287
+   },
+   "turnover_annual": 4.84066565608918,
+   "turnover_per_rebalance": 0.0931609366513922,
+   "rebalances": 137,
+   "unique_names": 28,
+   "first_decision": "2023-05-23",
+   "first_pdf": "2023-05-22",
+   "last_holdings": {
+    "SNDK": 0.327,
+    "BE": 0.336,
+    "FLNC": 0.337
+   },
+   "caps_at_rebalance": {
+    "any_cap_binds_share": 1.0,
+    "semis_unc_raw_avg": 0.45199926220629805,
+    "semis_unc_target_avg": 0.4603406326034063,
+    "semis_unc_budget_binds_share": null,
+    "unc_raw_over_60_share": 0.06569343065693431,
+    "unc_raw_avg": 0.21765287790789412,
+    "unc_selected_avg": 0.8613138686131386
+   },
+   "available_buckets": {
+    "min": 13,
+    "avg": 21.16058394160584,
+    "max": 33
+   },
+   "family": "bucket",
+   "sub_buckets_avg": 3.0
+  },
+  {
+   "name": "bucket sub N5 eq",
+   "full": 2.398036410262873,
+   "cagr": 0.5957370771179493,
+   "mdd": -0.4187806506059798,
+   "full_krw": 2.6606909859402172,
+   "ratio_etf_krw": 1.166098687171787,
+   "ratio_etf_usd": 1.1858502267742703,
+   "years": {
+    "2023(5/22~)": 0.28551522557393727,
+    "2024": 0.2919928958802245,
+    "2025": 1.045929562190456
+   },
+   "stress": {
+    "23년 가을 조정 7/31~10/27": -0.2204169571335891,
+    "24년 7~8월 급락 7/10~8/7": -0.2697584709711197,
+    "25년 관세 폭락 2/19~4/8": -0.18062092685894393,
+    "25년 반등 4/8~6/30": 0.6913897739352597
+   },
+   "buckets_avg": 5.0,
+   "names_avg": 5.0,
+   "semis_avg": 0.20270831692916844,
+   "unclassified_avg": 0.2795037354508818,
+   "semis_plus_unc_avg": 0.4822120523800503,
+   "invested_avg": 1.0,
+   "cash_weeks_share": 0.0,
+   "top3": [
+    "PLTR",
+    "OKLO",
+    "WDC"
+   ],
+   "top3_share": 0.5718714756717399,
+   "top5_contrib": {
+    "PLTR": 0.6048,
+    "OKLO": 0.3897,
+    "WDC": 0.3768,
+    "RBLX": 0.3317,
+    "QBTS": 0.247
+   },
+   "bottom3_contrib": {
+    "VST": -0.0886,
+    "QUBT": -0.175,
+    "IREN": -0.3021
+   },
+   "turnover_annual": 5.06496648835564,
+   "turnover_per_rebalance": 0.09747771395232901,
+   "rebalances": 137,
+   "unique_names": 45,
+   "first_decision": "2023-05-23",
+   "first_pdf": "2023-05-22",
+   "last_holdings": {
+    "SNDK": 0.198,
+    "BE": 0.204,
+    "WDC": 0.194,
+    "EOSE": 0.199,
+    "FLNC": 0.205
+   },
+   "caps_at_rebalance": {
+    "any_cap_binds_share": 0.0,
+    "semis_unc_raw_avg": 0.4832116788321167,
+    "semis_unc_target_avg": 0.4832116788321167,
+    "semis_unc_budget_binds_share": null,
+    "unc_raw_over_60_share": 0.0,
+    "unc_raw_avg": 0.28175182481751826,
+    "unc_selected_avg": 1.4087591240875912
+   },
+   "available_buckets": {
+    "min": 13,
+    "avg": 21.16058394160584,
+    "max": 33
+   },
+   "family": "bucket",
+   "sub_buckets_avg": 5.0
+  },
+  {
+   "name": "bucket sub N5 fund",
+   "full": 2.451163522497174,
+   "cagr": 0.6052233681644141,
+   "mdd": -0.4292497963230154,
+   "full_krw": 2.717924610711794,
+   "ratio_etf_krw": 1.1911824173234247,
+   "ratio_etf_usd": 1.212122053933059,
+   "years": {
+    "2023(5/22~)": 0.33373079343255263,
+    "2024": 0.24955761592791226,
+    "2025": 1.0708139086104072
+   },
+   "stress": {
+    "23년 가을 조정 7/31~10/27": -0.20466523422401428,
+    "24년 7~8월 급락 7/10~8/7": -0.27236469704613264,
+    "25년 관세 폭락 2/19~4/8": -0.25756263480453023,
+    "25년 반등 4/8~6/30": 0.7143934529684806
+   },
+   "buckets_avg": 5.0,
+   "names_avg": 5.0,
+   "semis_avg": 0.2176244750471578,
+   "unclassified_avg": 0.25289871938278563,
+   "semis_plus_unc_avg": 0.4705231944299434,
+   "invested_avg": 1.0,
+   "cash_weeks_share": 0.0,
+   "top3": [
+    "PLTR",
+    "RBLX",
+    "WDC"
+   ],
+   "top3_share": 0.5955741873696492,
+   "top5_contrib": {
+    "PLTR": 0.7709,
+    "RBLX": 0.3711,
+    "WDC": 0.3178,
+    "GEV": 0.3004,
+    "OKLO": 0.2146
+   },
+   "bottom3_contrib": {
+    "IONQ": -0.0649,
+    "QUBT": -0.0727,
+    "IREN": -0.2709
+   },
+   "turnover_annual": 5.795066411967132,
+   "turnover_per_rebalance": 0.11152883781939402,
+   "rebalances": 137,
+   "unique_names": 45,
+   "first_decision": "2023-05-23",
+   "first_pdf": "2023-05-22",
+   "last_holdings": {
+    "SNDK": 0.248,
+    "BE": 0.204,
+    "WDC": 0.243,
+    "EOSE": 0.129,
+    "FLNC": 0.175
+   },
+   "caps_at_rebalance": {
+    "any_cap_binds_share": 1.0,
+    "semis_unc_raw_avg": 0.4765526143415136,
+    "semis_unc_target_avg": 0.4712344616118157,
+    "semis_unc_budget_binds_share": null,
+    "unc_raw_over_60_share": 0.0,
+    "unc_raw_avg": 0.17763299012973482,
+    "unc_selected_avg": 1.4087591240875912
+   },
+   "available_buckets": {
+    "min": 13,
+    "avg": 21.16058394160584,
+    "max": 33
+   },
+   "family": "bucket",
+   "sub_buckets_avg": 5.0
+  },
+  {
+   "name": "bucket sub N7 eq",
+   "full": 1.5135901845955493,
+   "cagr": 0.4221217345564201,
+   "mdd": -0.462080099848831,
+   "full_krw": 1.7078806169663454,
+   "ratio_etf_krw": 0.7485113287542612,
+   "ratio_etf_usd": 0.7484837410993213,
+   "years": {
+    "2023(5/22~)": 0.29222758573314,
+    "2024": 0.25044825270667603,
+    "2025": 0.5555706481270062
+   },
+   "stress": {
+    "23년 가을 조정 7/31~10/27": -0.24351763174887464,
+    "24년 7~8월 급락 7/10~8/7": -0.2429401176164987,
+    "25년 관세 폭락 2/19~4/8": -0.3299360456843171,
+    "25년 반등 4/8~6/30": 0.6622820721236209
+   },
+   "buckets_avg": 7.0,
+   "names_avg": 7.0,
+   "semis_avg": 0.2302070968071962,
+   "unclassified_avg": 0.2764161728400485,
+   "semis_plus_unc_avg": 0.5066232696472447,
+   "invested_avg": 1.0,
+   "cash_weeks_share": 0.0,
+   "top3": [
+    "PLTR",
+    "OKLO",
+    "VRT"
+   ],
+   "top3_share": 0.6360918125703103,
+   "top5_contrib": {
+    "PLTR": 0.4908,
+    "OKLO": 0.2647,
+    "VRT": 0.2072,
+    "RBLX": 0.2036,
+    "GEV": 0.1576
+   },
+   "bottom3_contrib": {
+    "SDGR": -0.0931,
+    "QUBT": -0.1176,
+    "CRWV": -0.2107
+   },
+   "turnover_annual": 4.267352054228562,
+   "turnover_per_rebalance": 0.08212724088743618,
+   "rebalances": 137,
+   "unique_names": 49,
+   "first_decision": "2023-05-23",
+   "first_pdf": "2023-05-22",
+   "last_holdings": {
+    "SNDK": 0.142,
+    "BE": 0.146,
+    "WDC": 0.139,
+    "EOSE": 0.142,
+    "FLNC": 0.146,
+    "TER": 0.142,
+    "CIEN": 0.142
+   },
+   "caps_at_rebalance": {
+    "any_cap_binds_share": 0.0,
+    "semis_unc_raw_avg": 0.5078206465067778,
+    "semis_unc_target_avg": 0.5078206465067778,
+    "semis_unc_budget_binds_share": null,
+    "unc_raw_over_60_share": 0.0,
+    "unc_raw_avg": 0.278415015641293,
+    "unc_selected_avg": 1.948905109489051
+   },
+   "available_buckets": {
+    "min": 13,
+    "avg": 21.16058394160584,
+    "max": 33
+   },
+   "family": "bucket",
+   "sub_buckets_avg": 7.0
+  },
+  {
+   "name": "bucket sub N7 fund",
+   "full": 1.5575963918926465,
+   "cagr": 0.43158312682411126,
+   "mdd": -0.47584354943628526,
+   "full_krw": 1.7552883274580169,
+   "ratio_etf_krw": 0.7692886641375444,
+   "ratio_etf_usd": 0.7702452000494036,
+   "years": {
+    "2023(5/22~)": 0.4011803213904883,
+    "2024": 0.1743884586695188,
+    "2025": 0.5542690774825292
+   },
+   "stress": {
+    "23년 가을 조정 7/31~10/27": -0.19288612893322166,
+    "24년 7~8월 급락 7/10~8/7": -0.23058702751546356,
+    "25년 관세 폭락 2/19~4/8": -0.36528387030102716,
+    "25년 반등 4/8~6/30": 0.6969228329528752
+   },
+   "buckets_avg": 7.0,
+   "names_avg": 7.0,
+   "semis_avg": 0.26140147213926307,
+   "unclassified_avg": 0.21391849720649733,
+   "semis_plus_unc_avg": 0.47531996934576043,
+   "invested_avg": 1.0,
+   "cash_weeks_share": 0.0,
+   "top3": [
+    "PLTR",
+    "GEV",
+    "RBLX"
+   ],
+   "top3_share": 0.7770328954411299,
+   "top5_contrib": {
+    "PLTR": 0.7404,
+    "GEV": 0.2911,
+    "RBLX": 0.1788,
+    "BE": 0.1623,
+    "WDC": 0.1351
+   },
+   "bottom3_contrib": {
+    "RDDT": -0.111,
+    "INTC": -0.1198,
+    "IREN": -0.1593
+   },
+   "turnover_annual": 5.488889758738105,
+   "turnover_per_rebalance": 0.10563632099999251,
+   "rebalances": 137,
+   "unique_names": 49,
+   "first_decision": "2023-05-23",
+   "first_pdf": "2023-05-22",
+   "last_holdings": {
+    "SNDK": 0.249,
+    "BE": 0.131,
+    "WDC": 0.244,
+    "EOSE": 0.083,
+    "FLNC": 0.112,
+    "TER": 0.069,
+    "CIEN": 0.113
+   },
+   "caps_at_rebalance": {
+    "any_cap_binds_share": 0.6861313868613139,
+    "semis_unc_raw_avg": 0.5174705645504476,
+    "semis_unc_target_avg": 0.47601022042580704,
+    "semis_unc_budget_binds_share": null,
+    "unc_raw_over_60_share": 0.0,
+    "unc_raw_avg": 0.1862598901640931,
+    "unc_selected_avg": 1.948905109489051
+   },
+   "available_buckets": {
+    "min": 13,
+    "avg": 21.16058394160584,
+    "max": 33
+   },
+   "family": "bucket",
+   "sub_buckets_avg": 7.0
+  },
+  {
+   "name": "bucket sub N10 eq",
+   "full": 1.3305700854481577,
+   "cagr": 0.3816334583290413,
+   "mdd": -0.4313870420850381,
+   "full_krw": 1.5107137987500239,
+   "ratio_etf_krw": 0.6620992015696965,
+   "ratio_etf_usd": 0.6579786823982349,
+   "years": {
+    "2023(5/22~)": 0.26721844969683195,
+    "2024": 0.3446418671719591,
+    "2025": 0.36774158333789697
+   },
+   "stress": {
+    "23년 가을 조정 7/31~10/27": -0.2086385918052165,
+    "24년 7~8월 급락 7/10~8/7": -0.23174374205703774,
+    "25년 관세 폭락 2/19~4/8": -0.2711078305786786,
+    "25년 반등 4/8~6/30": 0.5316589439248167
+   },
+   "buckets_avg": 10.0,
+   "names_avg": 10.0,
+   "semis_avg": 0.2631179325981512,
+   "unclassified_avg": 0.26198481753154046,
+   "semis_plus_unc_avg": 0.5251027501296917,
+   "invested_avg": 1.0,
+   "cash_weeks_share": 0.0,
+   "top3": [
+    "PLTR",
+    "NVDA",
+    "BE"
+   ],
+   "top3_share": 0.6268427465867471,
+   "top5_contrib": {
+    "PLTR": 0.4202,
+    "NVDA": 0.2128,
+    "BE": 0.2011,
+    "GEV": 0.1686,
+    "RBLX": 0.1469
+   },
+   "bottom3_contrib": {
+    "RDDT": -0.0943,
+    "NVTS": -0.1145,
+    "CRWV": -0.1339
+   },
+   "turnover_annual": 4.161974407727341,
+   "turnover_per_rebalance": 0.0800991974430756,
+   "rebalances": 137,
+   "unique_names": 71,
+   "first_decision": "2023-05-23",
+   "first_pdf": "2023-05-22",
+   "last_holdings": {
+    "SNDK": 0.1,
+    "BE": 0.103,
+    "WDC": 0.098,
+    "EOSE": 0.1,
+    "FLNC": 0.103,
+    "TER": 0.1,
+    "APP": 0.095,
+    "GOOG": 0.1,
+    "AMD": 0.102,
+    "CIEN": 0.1
+   },
+   "caps_at_rebalance": {
+    "any_cap_binds_share": 0.0,
+    "semis_unc_raw_avg": 0.5255474452554746,
+    "semis_unc_target_avg": 0.5255474452554745,
+    "semis_unc_budget_binds_share": null,
+    "unc_raw_over_60_share": 0.0,
+    "unc_raw_avg": 0.26423357664233577,
+    "unc_selected_avg": 2.6423357664233578
+   },
+   "available_buckets": {
+    "min": 13,
+    "avg": 21.16058394160584,
+    "max": 33
+   },
+   "family": "bucket",
+   "sub_buckets_avg": 10.0
+  },
+  {
+   "name": "bucket sub N10 fund",
+   "full": 1.8580489252449253,
+   "cagr": 0.4936411817902353,
+   "mdd": -0.4706736980182672,
+   "full_krw": 2.0789646356999594,
+   "ratio_etf_krw": 0.9111459937199811,
+   "ratio_etf_usd": 0.9188216367064463,
+   "years": {
+    "2023(5/22~)": 0.3940634476122953,
+    "2024": 0.5770459829354595,
+    "2025": 0.2999982339005567
+   },
+   "stress": {
+    "23년 가을 조정 7/31~10/27": -0.17833889706578077,
+    "24년 7~8월 급락 7/10~8/7": -0.21419726546378803,
+    "25년 관세 폭락 2/19~4/8": -0.3558402301913125,
+    "25년 반등 4/8~6/30": 0.6123496710781899
+   },
+   "buckets_avg": 10.0,
+   "names_avg": 10.0,
+   "semis_avg": 0.3246561420228573,
+   "unclassified_avg": 0.1809202261381627,
+   "semis_plus_unc_avg": 0.50557636816102,
+   "invested_avg": 1.0,
+   "cash_weeks_share": 0.0,
+   "top3": [
+    "PLTR",
+    "NVDA",
+    "GEV"
+   ],
+   "top3_share": 0.8697174144632072,
+   "top5_contrib": {
+    "PLTR": 0.6338,
+    "NVDA": 0.6049,
+    "GEV": 0.3773,
+    "BE": 0.344,
+    "META": 0.1945
+   },
+   "bottom3_contrib": {
+    "IREN": -0.1237,
+    "TSLA": -0.1716,
+    "RDDT": -0.197
+   },
+   "turnover_annual": 5.073607700783483,
+   "turnover_per_rebalance": 0.09764401823789125,
+   "rebalances": 137,
+   "unique_names": 71,
+   "first_decision": "2023-05-23",
+   "first_pdf": "2023-05-22",
+   "last_holdings": {
+    "SNDK": 0.141,
+    "BE": 0.074,
+    "WDC": 0.163,
+    "EOSE": 0.047,
+    "FLNC": 0.063,
+    "TER": 0.039,
+    "APP": 0.129,
+    "GOOG": 0.203,
+    "AMD": 0.079,
+    "CIEN": 0.063
+   },
+   "caps_at_rebalance": {
+    "any_cap_binds_share": 0.7299270072992701,
+    "semis_unc_raw_avg": 0.5585171805361937,
+    "semis_unc_target_avg": 0.5047356393788793,
+    "semis_unc_budget_binds_share": null,
+    "unc_raw_over_60_share": 0.0,
+    "unc_raw_avg": 0.16341857946301572,
+    "unc_selected_avg": 2.6423357664233578
+   },
+   "available_buckets": {
+    "min": 13,
+    "avg": 21.16058394160584,
+    "max": 33
+   },
+   "family": "bucket",
+   "sub_buckets_avg": 10.0
+  }
+ ],
+ "aux": {
+  "pdf_same_day": {
+   "데스크 규칙 (반도체+미분류 50%)": {
+    "full": 2.5371462180044078,
+    "mdd": -0.4902104397937438,
+    "years": {
+     "2023(5/22~)": 0.41156569127837117,
+     "2024": 0.6471326489850311,
+     "2025": 0.521329697658742
+    },
+    "invested_avg": 0.9911081690937493
+   },
+   "#774 (반도체+미분류 60%)": {
+    "full": 2.421450337300992,
+    "mdd": -0.49021043979374423,
+    "years": {
+     "2023(5/22~)": 0.4149970652781807,
+     "2024": 0.6545869585938293,
+     "2025": 0.4613865451280832
+    },
+    "invested_avg": 0.9946596395356245
+   },
+   "bucket sector N3 eq": {
+    "full": 2.1852368051957267,
+    "mdd": -0.470005140404297,
+    "years": {
+     "2023(5/22~)": 0.22854309982333598,
+     "2024": 0.7015482163376714,
+     "2025": 0.5237266667309091
+    },
+    "invested_avg": 0.9905306012114539
+   },
+   "bucket sector N3 fund": {
+    "full": 2.2689839744154536,
+    "mdd": -0.47000514040429664,
+    "years": {
+     "2023(5/22~)": 0.2550964640623756,
+     "2024": 0.7015482163376712,
+     "2025": 0.5307047341489437
+    },
+    "invested_avg": 0.99053500620106
+   },
+   "bucket sector N5 eq": {
+    "full": 2.7903351154230682,
+    "mdd": -0.49854910158008026,
+    "years": {
+     "2023(5/22~)": 0.46352603502362344,
+     "2024": 0.5449655413594185,
+     "2025": 0.6763255288339927
+    },
+    "invested_avg": 1.0
+   },
+   "bucket sector N5 fund": {
+    "full": 2.8911255108633798,
+    "mdd": -0.541365334154521,
+    "years": {
+     "2023(5/22~)": 0.561049660874789,
+     "2024": 0.5819422364167164,
+     "2025": 0.5756795507162795
+    },
+    "invested_avg": 1.0
+   },
+   "bucket sector N7 eq": {
+    "full": 2.1170787990315127,
+    "mdd": -0.5107642107606791,
+    "years": {
+     "2023(5/22~)": 0.31864352488104397,
+     "2024": 0.6478982294147324,
+     "2025": 0.4344651037644893
+    },
+    "invested_avg": 1.0
+   },
+   "bucket sector N7 fund": {
+    "full": 2.9345481796315593,
+    "mdd": -0.5204574007564272,
+    "years": {
+     "2023(5/22~)": 0.471740177227854,
+     "2024": 0.7474589797938649,
+     "2025": 0.5298777625498678
+    },
+    "invested_avg": 1.0
+   },
+   "bucket sector N10 eq": {
+    "full": 0.959776720549635,
+    "mdd": -0.4827419029197535,
+    "years": {
+     "2023(5/22~)": 0.368806215348104,
+     "2024": 0.31475000928222396,
+     "2025": 0.08898386098155697
+    },
+    "invested_avg": 1.0
+   },
+   "bucket sector N10 fund": {
+    "full": 1.743561910492431,
+    "mdd": -0.4750437434872964,
+    "years": {
+     "2023(5/22~)": 0.4818883082652963,
+     "2024": 0.5019642509125968,
+     "2025": 0.2326497652596613
+    },
+    "invested_avg": 1.0
+   },
+   "bucket sub N3 eq": {
+    "full": 2.052356956786995,
+    "mdd": -0.4700051404042971,
+    "years": {
+     "2023(5/22~)": 0.13993024443292734,
+     "2024": 0.4444740218428369,
+     "2025": 0.853733543249511
+    },
+    "invested_avg": 0.9846793444620141
+   },
+   "bucket sub N3 fund": {
+    "full": 2.072911235193567,
+    "mdd": -0.47000514040429675,
+    "years": {
+     "2023(5/22~)": 0.16123908290162192,
+     "2024": 0.4297551266723829,
+     "2025": 0.8508307602362257
+    },
+    "invested_avg": 0.9846795553091727
+   },
+   "bucket sub N5 eq": {
+    "full": 2.2775099917135333,
+    "mdd": -0.5128937030136314,
+    "years": {
+     "2023(5/22~)": 0.4482611391422946,
+     "2024": 0.420218552627901,
+     "2025": 0.5934629322223945
+    },
+    "invested_avg": 1.0
+   },
+   "bucket sub N5 fund": {
+    "full": 2.856076740244264,
+    "mdd": -0.5234933373890237,
+    "years": {
+     "2023(5/22~)": 0.5289160300572466,
+     "2024": 0.5239546091071776,
+     "2025": 0.6549695304682015
+    },
+    "invested_avg": 1.0
+   },
+   "bucket sub N7 eq": {
+    "full": 2.0502337629537686,
+    "mdd": -0.4665614225722913,
+    "years": {
+     "2023(5/22~)": 0.39759236625961614,
+     "2024": 0.2860040545506144,
+     "2025": 0.6971110698831613
+    },
+    "invested_avg": 1.0
+   },
+   "bucket sub N7 fund": {
+    "full": 1.9894639103233138,
+    "mdd": -0.4683490771456529,
+    "years": {
+     "2023(5/22~)": 0.4888166004509491,
+     "2024": 0.2911358642391788,
+     "2025": 0.5551782273980146
+    },
+    "invested_avg": 1.0
+   },
+   "bucket sub N10 eq": {
+    "full": 1.6217310232866602,
+    "mdd": -0.4811241007128739,
+    "years": {
+     "2023(5/22~)": 0.31210631825897184,
+     "2024": 0.5409402568816262,
+     "2025": 0.29668147148527857
+    },
+    "invested_avg": 1.0
+   },
+   "bucket sub N10 fund": {
+    "full": 2.4076183895775407,
+    "mdd": -0.4783645884725285,
+    "years": {
+     "2023(5/22~)": 0.45930534814654345,
+     "2024": 0.7407380064614619,
+     "2025": 0.34144035611675894
+    },
+    "invested_avg": 1.0
+   }
+  },
+  "unclassified_own_cap_group": {
+   "데스크 규칙 (반도체+미분류 50%)": {
+    "full": 1.9174569253999323,
+    "mdd": -0.4468171678314432,
+    "years": {
+     "2023(5/22~)": 0.36972075610115285,
+     "2024": 0.36888385748602803,
+     "2025": 0.5559864604811293
+    },
+    "invested_avg": 1.0
+   },
+   "#774 (반도체+미분류 60%)": {
+    "full": 1.9339270235745851,
+    "mdd": -0.4468171678314431,
+    "years": {
+     "2023(5/22~)": 0.36972075610115285,
+     "2024": 0.3583479152498885,
+     "2025": 0.5769076129552917
+    },
+    "invested_avg": 1.0
+   },
+   "bucket sector N3 eq": {
+    "full": 1.5593563441994607,
+    "mdd": -0.49131940050774947,
+    "years": {
+     "2023(5/22~)": -0.05417968320181166,
+     "2024": 0.6808182454620353,
+     "2025": 0.6099091374658636
+    },
+    "invested_avg": 1.0
+   },
+   "bucket sector N3 fund": {
+    "full": 1.5593563441994593,
+    "mdd": -0.49131940050774947,
+    "years": {
+     "2023(5/22~)": -0.054179683201811546,
+     "2024": 0.6808182454620351,
+     "2025": 0.6099091374658627
+    },
+    "invested_avg": 1.0
+   },
+   "bucket sector N5 eq": {
+    "full": 2.3000101507052984,
+    "mdd": -0.48431265424311576,
+    "years": {
+     "2023(5/22~)": 0.2826953180555658,
+     "2024": 0.5327890748231279,
+     "2025": 0.6784537162343309
+    },
+    "invested_avg": 1.0
+   },
+   "bucket sector N5 fund": {
+    "full": 2.4272490215064964,
+    "mdd": -0.5159934408622131,
+    "years": {
+     "2023(5/22~)": 0.34388187228009737,
+     "2024": 0.4715006753156088,
+     "2025": 0.7331019049307452
+    },
+    "invested_avg": 1.0
+   },
+   "bucket sector N7 eq": {
+    "full": 1.7531759604168693,
+    "mdd": -0.48900888561589184,
+    "years": {
+     "2023(5/22~)": 0.20654612746923706,
+     "2024": 0.4565472700538664,
+     "2025": 0.5666264519312996
+    },
+    "invested_avg": 1.0
+   },
+   "bucket sector N7 fund": {
+    "full": 2.226285258043833,
+    "mdd": -0.513169169156335,
+    "years": {
+     "2023(5/22~)": 0.38201766299555184,
+     "2024": 0.48119038372115996,
+     "2025": 0.5760801025800781
+    },
+    "invested_avg": 1.0
+   },
+   "bucket sector N10 eq": {
+    "full": 1.396458847367641,
+    "mdd": -0.5022372061727438,
+    "years": {
+     "2023(5/22~)": 0.30647008388318775,
+     "2024": 0.2937361743767575,
+     "2025": 0.41783203377777767
+    },
+    "invested_avg": 1.0
+   },
+   "bucket sector N10 fund": {
+    "full": 1.5954941337519943,
+    "mdd": -0.4731943473302046,
+    "years": {
+     "2023(5/22~)": 0.3963453736180611,
+     "2024": 0.4027325036718912,
+     "2025": 0.32511124894405885
+    },
+    "invested_avg": 1.0
+   },
+   "bucket sub N3 eq": {
+    "full": 1.1912803510550538,
+    "mdd": -0.4996455439004365,
+    "years": {
+     "2023(5/22~)": -0.06527702585457595,
+     "2024": 0.2249549249517817,
+     "2025": 0.9137928125205097
+    },
+    "invested_avg": 0.9989994533696553
+   },
+   "bucket sub N3 fund": {
+    "full": 1.1739904418617089,
+    "mdd": -0.4996455439004365,
+    "years": {
+     "2023(5/22~)": -0.06527702585457618,
+     "2024": 0.2152896352465381,
+     "2025": 0.9137928125205088
+    },
+    "invested_avg": 0.9989979097236958
+   },
+   "bucket sub N5 eq": {
+    "full": 2.398036410262878,
+    "mdd": -0.4187806506059797,
+    "years": {
+     "2023(5/22~)": 0.28551522557393727,
+     "2024": 0.2919928958802245,
+     "2025": 1.0459295621904592
+    },
+    "invested_avg": 1.0
+   },
+   "bucket sub N5 fund": {
+    "full": 2.4571536194667543,
+    "mdd": -0.4292497963230153,
+    "years": {
+     "2023(5/22~)": 0.33604571613380885,
+     "2024": 0.2495576159279118,
+     "2025": 1.070813908610408
+    },
+    "invested_avg": 1.0
+   },
+   "bucket sub N7 eq": {
+    "full": 1.5135901845955493,
+    "mdd": -0.462080099848831,
+    "years": {
+     "2023(5/22~)": 0.29222758573314,
+     "2024": 0.25044825270667603,
+     "2025": 0.5555706481270062
+    },
+    "invested_avg": 1.0
+   },
+   "bucket sub N7 fund": {
+    "full": 1.5575963918926465,
+    "mdd": -0.47584354943628526,
+    "years": {
+     "2023(5/22~)": 0.4011803213904883,
+     "2024": 0.1743884586695188,
+     "2025": 0.5542690774825292
+    },
+    "invested_avg": 1.0
+   },
+   "bucket sub N10 eq": {
+    "full": 1.3305700854481528,
+    "mdd": -0.4313870420850381,
+    "years": {
+     "2023(5/22~)": 0.26721844969683106,
+     "2024": 0.344641867171958,
+     "2025": 0.3677415833378961
+    },
+    "invested_avg": 1.0
+   },
+   "bucket sub N10 fund": {
+    "full": 1.8580489252449253,
+    "mdd": -0.4706736980182672,
+    "years": {
+     "2023(5/22~)": 0.3940634476122953,
+     "2024": 0.5770459829354595,
+     "2025": 0.2999982339005567
+    },
+    "invested_avg": 1.0
+   }
+  }
+ },
+ "vs_desk": {
+  "higher_total_lower_mdd": [
+   "bucket sub N5 eq",
+   "bucket sub N5 fund",
+   "bucket sub N10 fund"
+  ],
+  "beats_desk_2024_and_2025": [
+   "bucket sector N3 eq",
+   "bucket sector N3 fund",
+   "bucket sector N5 eq",
+   "bucket sector N5 fund",
+   "bucket sector N7 eq",
+   "bucket sector N7 fund"
+  ],
+  "beats_etf_krw": [
+   "bucket sector N5 eq",
+   "bucket sector N5 fund",
+   "bucket sector N7 fund",
+   "bucket sub N5 eq",
+   "bucket sub N5 fund"
+  ]
+ }
+}

@@ -1,0 +1,140 @@
+// This Pine Script® code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// 5일저가선 — 2026-10-09 (관찰용, 이격매수매도와 짝을 이루는 2차 매수선)
+// 직전 5거래일 정규장 저가 최소(L)보다 3% 아래(P = L x 0.97)에 정규장 지정가를 걸어 둔다. 장중에 P에 닿으면 산다(갭하락이면 시가), 하루 1번.
+// 매도: 11:00 ET 전에 샀으면 다음 봉부터 매수가 +2%에 지정가로 판다. 못 닿거나 11:00 뒤에 샀으면 매수 뒤 처음 오는 한국 아침 8시 이후 첫 봉 시가에 판다.
+// 계산은 차트 봉과 상관없이 3분봉으로 한다(request.security_lower_tf). 40분봉 차트에서도 3분봉 자리가 그대로 보인다. 3분봉보다 짧은 차트에서는 그 봉으로 계산해 연구와 다르다.
+// 차트 설정: 연장 거래시간(24H)을 켠 분봉 차트에서 쓴다. 정규장 차트·일봉에서는 아침 8시 정리가 다음 날 09:30 시가로 바뀐다(이때 오른쪽 위에 빨간 경고).
+// 근거: 박스권 연구(data/derived/analysis/box_trade/report.md). 지지선이 깨지는 손절 자리를 받는 아이디어다.
+// 트레이딩뷰 AI 38종목 2026년 1시간봉 근사(5일 저가 -3%): 1~6월 323회 평균 +0.57%, 7~10월 287회 평균 +1.04%·승률 76%.
+// 아직 반박 검증을 통과하지 않은 관찰 단계다(11월 초 한 달 성적으로 판단). 장 마감 뒤 실적 발표가 예정된 날은 조심한다.
+// 선·라벨은 한 가지 색(기본 보라)으로 그린다. 이격매수매도(파랑)와 같은 차트에 띄워도 어느 지표 표시인지 갈린다 — 2026-10-10.
+// 거래 정지 재개 경매가 낀 날은 라벨 수익률을 믿지 않는다: 트레이딩뷰 분봉에 재개 경매 체결이 빠질 수 있고, 목표가를 다음 봉부터 보는 규칙이 재개 갭을 수익으로 잡는다.
+// 예: CD 10/9 차트는 5.79 매수 → 6.49 매도 +12.09%. 전체 시세로는 10:09 재개 경매 5.26 체결, 매수 직후 +2% 지정가를 걸었으면 같은 1분 안에 5.37 근처에서 팔렸다.
+//@version=6
+indicator("5일저가선", shorttitle = "5일저가선", overlay = true, max_labels_count = 500)
+
+// ── 입력 ──────────────────────────────────────────────
+nDays   = input.int(5, "기준 일수 (직전 며칠의 정규장 저가)", minval = 1, maxval = 60, display = display.none)
+depth   = input.float(3.0, "저가 아래 매수 깊이 %", minval = 0.0, step = 0.5, display = display.none)
+tpPct   = input.float(2.0, "목표 %", minval = 0.1, step = 0.1, display = display.none)
+tpCutH  = input.int(11, "목표를 거는 체결 시각 상한 (ET 시)", minval = 10, maxval = 16, tooltip = "이 시각 전에 산 것만 +목표% 지정가를 건다", display = display.none)
+deadHr  = input.int(8, "정리 시각 (한국 시)", minval = 0, maxval = 23, display = display.none)
+showLn  = input.bool(true, "선 그리기", display = display.none)
+showSig = input.bool(true, "매수·매도 표시", display = display.none)
+sigCol  = input.color(#8E24AA, "이 지표 색 (선, 매수·매도 라벨)", tooltip = "이격매수매도와 다른 색으로 둔다. 수익·손실은 라벨의 +/- 숫자로 본다", display = display.none)
+
+// ── 3분봉 한 봉씩: 날짜별 정규장 저가 기억 → 선 계산 → 사고팔기 ──
+// 봉마다 [매수, 매수가, 매수 시각, 매도, 수익률, 판 것의 매수 시각, 직전 저가 L, 매수선 P]를 돌려준다
+simL() =>
+    var array<float> lows = array.new<float>()
+    var float dLow    = na
+    var int   dDay    = 0
+    var bool  hold    = false
+    var float ent     = na
+    var int   ei      = 0
+    var int   bt      = 0
+    var float tp      = na
+    var int   dead    = 0
+    var int   lastDay = 0
+    var bool  dFull   = false
+    int  etDay = year(time, "America/New_York") * 10000 + month(time, "America/New_York") * 100 + dayofmonth(time, "America/New_York")
+    int  etMin = hour(time, "America/New_York") * 60 + minute(time, "America/New_York")
+    bool reg   = session.ismarket
+    // 새 거래일의 첫 정규장 봉에서 어제 정규장 저가를 기억에 넣는다(오늘 저가는 내일부터 쓴다)
+    if reg
+        if etDay != dDay
+            if not na(dLow) and dFull
+                array.push(lows, dLow)
+                if array.size(lows) > nDays
+                    array.shift(lows)
+            // 데이터가 정규장 중간에서 시작한 첫날은 하루 저가가 아니므로 기억에 넣지 않는다
+            dFull := bar_index > 0 or etMin <= 570
+            dLow  := low
+            dDay  := etDay
+        else
+            dLow := math.min(dLow, low)
+    // 정규장에는 직전 nDays일 저가 최소. 정규장 밖에서는 다음 정규장에 쓸 선(마지막 정규장 저가 포함)을 미리 보여 준다
+    int   nLow = array.size(lows)
+    float L    = na
+    if reg
+        L := nLow >= nDays ? array.min(lows) : na
+    else if not na(dLow) and dFull and nLow >= nDays - 1
+        L := dLow
+        if nDays > 1
+            L := math.min(dLow, array.min(array.slice(lows, nLow - (nDays - 1), nLow)))
+    float P = L * (1 - depth / 100)
+    bool  buy  = false
+    bool  sell = false
+    float ret  = na
+    int   sbt  = 0
+    if hold
+        // 아침 정리 시각이 지난 첫 봉은 시가에 판다(깊이 연구와 같은 순서: 정리 → 목표). 목표는 매수 다음 봉부터 본다
+        if time >= dead
+            ret  := open / ent - 1
+            sell := true
+        else if not na(tp) and bar_index > ei and high >= tp
+            ret  := math.max(open, tp) / ent - 1
+            sell := true
+        if sell
+            sbt  := bt
+            hold := false
+    else if reg and etDay != lastDay and not na(P) and low <= P
+        ent := math.min(open, P)
+        ei  := bar_index
+        bt  := time
+        tp  := etMin < tpCutH * 60 ? ent * (1 + tpPct / 100) : na
+        int t0 = timestamp("Asia/Seoul", year(time, "Asia/Seoul"), month(time, "Asia/Seoul"), dayofmonth(time, "Asia/Seoul"), deadHr, 0)
+        dead    := time >= t0 ? t0 + 86400000 : t0
+        hold    := true
+        buy     := true
+        lastDay := etDay
+    [buy, ent, bt, sell, ret, sbt, L, P, reg]
+
+string ltf = timeframe.in_seconds() >= 180 ? "3" : timeframe.period
+[aBuy, aEnt, aBt, aSell, aRet, aSbt, aL, aP, aReg] = request.security_lower_tf(syminfo.tickerid, ltf, simL())
+
+// ── 그리기 ────────────────────────────────────────────
+md(int t) => str.tostring(month(t, "Asia/Seoul")) + "/" + str.tostring(dayofmonth(t, "Asia/Seoul"))   // 한국 날짜
+
+// 이 차트 봉 안의 3분봉들에서 난 매수·매도를 모아 표시한다
+string buyTxt  = ""
+string sellTxt = ""
+for [i, bb] in aBuy
+    if bb
+        buyTxt += (buyTxt == "" ? "" : "\n") + md(array.get(aBt, i)) + " 5일선 매수\n" + str.tostring(array.get(aEnt, i), format.mintick)
+for [i, sl] in aSell
+    if sl
+        float rr = array.get(aRet, i)
+        sellTxt += (sellTxt == "" ? "" : "\n") + md(array.get(aSbt, i)) + " 5일선 매수분 매도\n" + (rr >= 0 ? "+" : "") + str.tostring(rr * 100, "0.00") + "%"
+// 선은 이 봉의 마지막 3분봉 값. 일봉 이상은 그날 걸린 선이 보이도록 마지막 정규장 3분봉 값을 쓴다
+float lNow = na
+float pNow = na
+int   nI   = array.size(aL)
+if nI > 0
+    int k = nI - 1
+    if not timeframe.isintraday
+        while k > 0 and not array.get(aReg, k)
+            k -= 1
+    lNow := array.get(aL, k)
+    pNow := array.get(aP, k)
+// 받은 3분봉에 프리·애프터가 한 번이라도 있었는가(없으면 아침 8시 정리가 다음 날 09:30 시가로 계산된다)
+var bool sawExt = false
+for rg in aReg
+    sawExt := sawExt or not rg
+
+// 선은 하루 동안 고정된 지정가라 수평이다. 값이 바뀌는 봉은 na로 끊어 세로 연결선(계단·상자 모양)을 그리지 않는다
+plot(showLn and lNow == lNow[1] ? lNow : na, "직전 저가", color.new(sigCol, 60), 1, plot.style_linebr, display = display.pane)
+plot(showLn and pNow == pNow[1] ? pNow : na, "5일저가선 매수선", sigCol, 2, plot.style_linebr, display = display.pane)
+if showSig and buyTxt != ""
+    label.new(bar_index, low, buyTxt, yloc = yloc.belowbar, style = label.style_label_up, color = sigCol, textcolor = color.white, size = size.small)
+if showSig and sellTxt != ""
+    label.new(bar_index, high, sellTxt, yloc = yloc.abovebar, style = label.style_label_down, color = sigCol, textcolor = color.white, size = size.small)
+
+// 연구(연장 거래시간 3분봉)와 계산이 달라지는 차트면 경고한다
+var table warn = table.new(position.top_right, 1, 1)
+if barstate.islast and (not sawExt or timeframe.in_seconds() < 180)
+    table.cell(warn, 0, 0, not sawExt ? "5일저가선: 프리·애프터 봉이 없다(정규장 차트·일봉). 24H 분봉 차트에서 써야 연구와 같다" : "5일저가선: 3분봉 이상 차트에서 봐야 연구(3분봉)와 같다", text_color = color.white, bgcolor = color.red, text_size = size.small)
+
+// ── 알림 (3분봉 기준) ─────────────────────────────────
+alertcondition(buyTxt != "", "5일저가선 매수", "{{ticker}} 5일 저가 아래 매수선에 닿음")
+alertcondition(sellTxt != "", "5일저가선 매도", "{{ticker}} 5일저가선 매수분 매도")

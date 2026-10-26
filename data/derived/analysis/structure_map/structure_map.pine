@@ -1,0 +1,355 @@
+// This Pine Script® code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// 구조물 지도 — 추세선 — 2026-10-23
+// 근거: 쉽알남 '비밀 생존 전략' 3·4장(추세선·채널)과 5장(거짓 돌파) 판정. 정리·검증: data/derived/analysis/structure_map/report.md
+// 사용자 결정(2026-10-23): "선 긋는 것 외에는 별로, 대각선 선들만 남기고 나머지는 지운다" → 매수·매도·표·라벨·가로선을 지우고 추세선만 남겼다(§18).
+// 계산: 차트를 몇 분봉으로 보든 '계산 시간봉'(기본 60분)으로 긋는다. 차트 봉이 더 크면 차트 봉으로 긋는다. 선은 계산 봉이 끝난 뒤에 바뀐다.
+// 선: 기본은 확립된 추세선만 굵은 실선으로 그린다(빨강 = 하락·저항, 초록 = 상승·지지. 2026-10-23 사용자 "네 가지 선이 다 필요하냐, 복잡하다").
+//   작도 중인 선(가는 선)·돌파된 선(흐린 선, 지지·저항 전환)·채널 반대선(흐린 선)은 설정에서 켠다. '선 모양'을 파선으로 바꾸면 이 셋을 파선·점선으로 그린다.
+// 긋는 규칙: 좌우 5봉 피벗 고점(저점)의 꼬리를 잇는다. 두 점 간격 10~300봉, 기울기 0.5 ATR/봉 이하, 두 점 사이 꼬리와 이후 종가가 선을 넘지 않아야 한다.
+//   기준점 뒤 20봉 안에 새 고점(저점)이 선을 넘으면 같은 시작점에서 다시 긋고, 20봉이 지나면 확립한다. 확립 전 1 ATR 넘게 뚫리면 버리고, 5 ATR 넘게 멀어지면 교체한다.
+//   밖에서 12봉 넘게 마감하거나 앞선 거짓 돌파 극점을 넘으면 돌파 확정 → 흐린 파선으로 남기고, 다시 반대로 마감하면 지운다.
+//@version=6
+indicator("구조물 지도 — 추세선", shorttitle = "추세선", overlay = true, max_bars_back = 1000, max_lines_count = 50)
+
+// ── 입력 ──────────────────────────────────────────────
+G0 = "계산 시간봉"
+calcTF = input.timeframe("60", "계산 시간봉", group = G0, tooltip = "차트를 몇 분봉으로 보든 이 봉으로 선을 긋는다. '차트'를 고르면 차트 봉으로 긋는다. 차트 봉이 이보다 크면 차트 봉으로 긋는다", display = display.none)
+
+G1 = "표시"
+showTL   = input.bool(true, "추세선 (확립된 선, 굵은 선)", group = G1, tooltip = "기준점 뒤 20봉을 버틴 선. 빨강 = 하락·저항, 초록 = 상승·지지", display = display.none)
+showProv = input.bool(false, "작도 중인 추세선 (가는 선)", group = G1, tooltip = "아직 확정 전이라 다시 그어지거나 버려질 수 있다", display = display.none)
+showFlp  = input.bool(false, "돌파된 추세선 (흐린 선)", group = G1, tooltip = "돌파 확정 뒤 지지·저항이 바뀐 옛 선(리테스트 자리). 다시 반대로 마감하면 지운다", display = display.none)
+showCh   = input.bool(false, "채널 반대선 (흐린 선)", group = G1, tooltip = "확립된 추세선과 평행한 반대편 선", display = display.none)
+lineSty  = input.string("실선", "선 모양 (작도 중·돌파된 선·채널)", options = ["실선", "파선"], group = G1, tooltip = "파선을 고르면 작도 중·돌파된 선은 파선, 채널 반대선은 점선. 확립된 추세선은 늘 굵은 실선", display = display.none)
+
+G2 = "추세선·채널 (3·4장)"
+piv      = input.int(5, "기준점 피벗 강도 (좌우 봉)", minval = 2, maxval = 30, group = G2, display = display.none)
+minGap   = input.int(10, "두 기준점 최소 간격 (봉)", minval = 3, group = G2, display = display.none)
+maxLook  = input.int(300, "기준점 최대 거리 (봉)", minval = 30, maxval = 800, group = G2, display = display.none)
+maxSlope = input.float(0.5, "기울기 상한 (ATR/봉)", minval = 0.01, step = 0.05, group = G2, tooltip = "너무 가파른 선은 신뢰도가 낮다", display = display.none)
+prov     = input.int(20, "다시 긋기 기간 (기준점 뒤 봉)", minval = 0, maxval = 200, group = G2, tooltip = "이 기간 안에 새 고점(저점)이 선을 넘으면 같은 시작점에서 다시 긋는다. 지나면 확립한다", display = display.none)
+staleK   = input.float(5.0, "멀어진 선 교체 (ATR 배수)", minval = 1, step = 0.5, group = G2, display = display.none)
+logMode  = input.bool(false, "로그 차트용 계산", group = G2, tooltip = "차트를 로그 눈금으로 볼 때 켠다. 단기는 일반, 장기 채널은 로그를 많이 쓴다", display = display.none)
+
+G3 = "돌파 판정 (선이 깨졌다고 볼 때, 5장)"
+tolBk = input.float(0.3, "꼬리 이탈 최소 폭 (ATR 배수)", minval = 0, step = 0.05, group = G3, display = display.none)
+tolTk = input.float(0.0, "리테스트 닿음 허용 (ATR 배수)", minval = 0, step = 0.05, group = G3, display = display.none)
+kF    = input.int(3, "Fake out: 밖에서 마감한 봉 수 이하", minval = 1, group = G3, display = display.none)
+kT    = input.int(12, "Trap: 밖에서 마감한 봉 수 이하 (넘으면 돌파 확정)", minval = 2, group = G3, display = display.none)
+
+G7 = "계산·색"
+calcD = input.int(180, "계산 기간 (일)", minval = 20, maxval = 1095, group = G7, tooltip = "최근 이 기간만 계산한다. 길수록 느리다", display = display.none)
+cBull = input.color(#089981, "상승 추세선 색", group = G7, display = display.none)
+cBear = input.color(#F23645, "하락 추세선 색", group = G7, display = display.none)
+
+// ── 공통 ──────────────────────────────────────────────
+string eTF0 = calcTF == "" ? timeframe.period : calcTF
+string eTF  = timeframe.in_seconds(eTF0) >= timeframe.in_seconds() ? eTF0 : timeframe.period
+
+toY(float p) => logMode ? math.log(p) : p
+fromY(float y) => logMode ? math.exp(y) : y
+
+// ── 돌파 판정기 ───────────────────────────────────────
+// s = +1 위로 뚫는지 본다(저항), -1 아래로(지지). 값은 s를 곱한 공간에서 비교한다.
+// ep: 0 없음, 1 꼬리만 나감, 2 밖에서 마감 중, 3 Fake out 뒤 꼬리가 아직 나가 있음
+// 사건: 1 마감 돌파, 2 안착, 3 Fake out, 4 Trap, 5 Fake out(꼬리), 6 돌파 확정, 7 돌파 확정(Fake out 무효), 8 리테스트
+type Watch
+    int   s
+    int   ep     = 0
+    int   cnt    = 0
+    float ext    = na
+    float prior  = na
+    int   lastEv = 0
+    bool  rtDone = false
+
+method step(Watch w, float lv, float tb, float tt) =>
+    float y  = w.s * lv
+    float ex = w.s > 0 ? high : -low
+    float c  = w.s * close
+    float o  = w.s * open
+    bool  bc = c > y
+    bool  br = ex > y + tb
+    int   ev = 0
+    if w.ep == 0
+        if bc
+            w.ep  := 2
+            w.cnt := 1
+            w.ext := ex
+            ev    := not na(w.prior) and ex > w.prior ? 7 : 1
+        else if br
+            w.ep  := 1
+            w.ext := ex
+        else if w.lastEv > 0 and not w.rtDone and ex >= y - tt
+            ev       := 8
+            w.rtDone := true
+    else if w.ep == 1
+        if ex > w.ext
+            w.ext := ex
+        if bc
+            w.ep  := 2
+            w.cnt := 1
+            ev    := not na(w.prior) and w.ext > w.prior ? 7 : 1
+        else if not br
+            ev       := 5
+            w.prior  := na(w.prior) ? w.ext : math.max(w.prior, w.ext)
+            w.lastEv := 1
+            w.rtDone := false
+            w.ep     := 0
+    else if w.ep == 2
+        if ex > w.ext
+            w.ext := ex
+        if bc
+            w.cnt := w.cnt + 1
+            if w.cnt == 2 and o > y
+                ev := 2
+            if not na(w.prior) and w.ext > w.prior
+                ev := 7
+            else if w.cnt > kT
+                ev := 6
+        else
+            ev       := w.cnt <= kF ? 3 : 4
+            w.prior  := na(w.prior) ? w.ext : math.max(w.prior, w.ext)
+            w.lastEv := 1
+            w.rtDone := false
+            w.ep     := br ? 3 : 0
+    else
+        if bc
+            w.ep  := 2
+            w.cnt := 1
+            w.ext := ex
+            ev    := ex > w.prior ? 7 : 1
+        else if br
+            if ex > w.ext
+                w.ext := ex
+            w.prior := math.max(w.prior, ex)
+        else
+            w.ep := 0
+    if ev == 6 or ev == 7
+        // 확정되면 지지·저항이 바뀐다: 이제 반대 방향 돌파를 본다
+        w.s      := -w.s
+        w.ep     := 0
+        w.cnt    := 0
+        w.prior  := na
+        w.lastEv := 2
+        w.rtDone := false
+    ev
+
+// ── 추세선 ─────────────────────────────────────────────
+// d: -1 하락 추세선(고점 연결, 저항), +1 상승 추세선(저점 연결, 지지). y는 가격(로그 계산이면 로그 가격)
+type TL
+    int   d
+    int   ia
+    float ya
+    int   xa
+    int   ib
+    float yb
+    int   xb
+    float w
+    Watch wm
+    bool  est    = false
+    bool  broken = false
+
+method yAt(TL t, int i) => t.ya + (t.yb - t.ya) * (i - t.ia) / (t.ib - t.ia)
+method pAt(TL t, int i) => fromY(t.yAt(i))
+method off(TL t) => t.d < 0 ? -t.w : t.w
+
+// 기준점 B에 대해 가장 먼 유효 기준점 A를 찾는다(A~B 사이 꼬리가 선을 넘지 않고, B 뒤 종가도 넘지 않음)
+// 과거 봉 값은 엔진이 들고 다니는 배열(hB·lB·cZ, 마지막 원소 = 지금 봉)에서 읽는다(요청 안의 동적 과거 참조는 실행 오류가 나기 쉽다)
+findLine(array<float> ys, array<int> ids, array<int> xs, int d, int ib, float yb, int xb, float atr, array<float> hB, array<float> lB, array<float> cZ) =>
+    TL res = na
+    int n  = array.size(ids)
+    int nb = array.size(hB)
+    if n > 0
+        for j = 0 to n - 1
+            int   ia  = array.get(ids, j)
+            float ya  = array.get(ys, j)
+            int   gap = ib - ia
+            bool  dirOK = d < 0 ? ya > yb : ya < yb
+            if gap >= minGap and gap <= maxLook and dirOK and nb - 1 - (bar_index - ia) >= 0 and math.abs(fromY(yb) - fromY(ya)) / gap <= maxSlope * atr
+                float sl = (yb - ya) / gap
+                bool  ok = true
+                for k = ia + 1 to ib - 1
+                    float lv = ya + sl * (k - ia)
+                    int   ix = nb - 1 - (bar_index - k)
+                    float hv = toY(d < 0 ? array.get(hB, ix) : array.get(lB, ix))
+                    if d < 0 ? hv > lv : hv < lv
+                        ok := false
+                        break
+                if ok
+                    for k = ib + 1 to bar_index
+                        float lv = ya + sl * (k - ia)
+                        float cv = toY(array.get(cZ, nb - 1 - (bar_index - k)))
+                        if d < 0 ? cv > lv : cv < lv
+                            ok := false
+                            break
+                if ok
+                    // 채널 폭: 1→3 포인트 사이에서 선으로부터 가장 먼 반대편 꼬리(2 포인트)
+                    float wd = 0.0
+                    for k = ia to ib
+                        float lv = ya + sl * (k - ia)
+                        int   ix = nb - 1 - (bar_index - k)
+                        float dv = d < 0 ? lv - toY(array.get(lB, ix)) : toY(array.get(hB, ix)) - lv
+                        wd := math.max(wd, dv)
+                    res := TL.new(d = d, ia = ia, ya = ya, xa = array.get(xs, j), ib = ib, yb = yb, xb = xb, w = wd, wm = Watch.new(d < 0 ? 1 : -1))
+                    break
+    res
+
+// 선 하나를 숫자로 꺼내기: 있음, 확립, 두 점(시각·가격), 채널 반대선 두 점의 가격
+tlOut(TL t) =>
+    bool  ok = not na(t)
+    bool  es = false
+    int   xa = na
+    float pa = na
+    int   xb = na
+    float pb = na
+    float sa = na
+    float sb = na
+    if ok
+        es := t.est
+        xa := t.xa
+        pa := fromY(t.ya)
+        xb := t.xb
+        pb := fromY(t.yb)
+        sa := fromY(t.ya + t.off())
+        sb := fromY(t.yb + t.off())
+    [ok, es, xa, pa, xb, pb, sa, sb]
+
+// ── 계산 (계산 시간봉에서 돈다) ──────────────────────────
+// 선을 그리지 않고 선의 상태만 숫자로 돌려준다. 그리기는 아래 '차트에 그리기'에서 한다.
+// 아직 끝나지 않은 계산 봉에서는 지난 봉(완성된 봉)의 결과를 돌려준다 — 장중에 선이 흔들리지 않게.
+engine() =>
+    float atr  = ta.atr(14)
+    float tolB = tolBk * atr
+    float tolT = tolTk * atr
+    int   nowT = na(timenow) ? last_bar_time : timenow      // 요청 안에서 현재 시각을 못 받으면 마지막 봉 시각
+    bool  conf = na(nowT) or time >= nowT - calcD * 86400000
+    float ph   = ta.pivothigh(high, piv, piv)
+    float pl   = ta.pivotlow(low, piv, piv)
+    // 최근 봉 고가·저가·종가(추세선 찾기용, 마지막 원소 = 지금 봉)
+    var array<float> hB = array.new<float>()
+    var array<float> lB = array.new<float>()
+    var array<float> cZ = array.new<float>()
+    array.push(hB, high)
+    array.push(lB, low)
+    array.push(cZ, close)
+    while array.size(hB) > maxLook + piv + 5
+        array.shift(hB)
+        array.shift(lB)
+        array.shift(cZ)
+    var array<float> phY = array.new<float>()
+    var array<int>   phI = array.new<int>()
+    var array<int>   phX = array.new<int>()
+    var array<float> plY = array.new<float>()
+    var array<int>   plI = array.new<int>()
+    var array<int>   plX = array.new<int>()
+    var array<TL>    act = array.new<TL>(2)   // [0] 하락 추세선, [1] 상승 추세선
+    var array<TL>    flp = array.new<TL>(2)   // 돌파 확정 뒤 지지·저항이 바뀐 선
+
+    if conf
+        // 0) 돌파된 선: 멀어지면 지우고, 다시 반대로 마감하면(돌파 실패) 지운다. 리테스트·꼬리 거짓 돌파는 그대로 둔다
+        for j = 0 to 1
+            TL f = array.get(flp, j)
+            if not na(f)
+                float lv = f.pAt(bar_index)
+                if math.abs(close - lv) > staleK * atr
+                    array.set(flp, j, na)
+                else
+                    int ev = f.wm.step(lv, tolB, tolT)
+                    if ev != 0 and ev != 5 and ev != 8
+                        array.set(flp, j, na)
+
+        // 1) 활성 추세선: 확립 전에는 기다리고, 확립 뒤에는 돌파를 판정한다
+        for j = 0 to 1
+            TL t = array.get(act, j)
+            if not na(t)
+                float lv = t.pAt(bar_index)
+                if not t.est
+                    float beyond = (close - lv) * (t.d < 0 ? 1 : -1)
+                    if beyond > atr
+                        // 확립 전에 종가가 1 ATR 넘게 뚫으면 잘못 그은 선으로 보고 버린다
+                        array.set(act, j, na)
+                    else if bar_index - t.ib >= prov
+                        t.est := true
+                else
+                    int ev = t.wm.step(lv, tolB, tolT)
+                    if ev == 6 or ev == 7
+                        t.broken := true
+                        array.set(flp, j, t)
+                        array.set(act, j, na)
+
+        // 2) 피벗 확정 → 새 추세선 / 다시 긋기 / 멀어진 선 교체. 그 뒤 기준점 배열에 넣는다
+        for j = 0 to 1
+            float pv = j == 0 ? ph : pl
+            if not na(pv)
+                int d  = j == 0 ? -1 : 1
+                int ib = bar_index - piv
+                TL cur = array.get(act, j)
+                if not na(cur) and bar_index - cur.ia > maxLook
+                    array.set(act, j, na)
+                    cur := na
+                bool stale = not na(cur) and cur.est and math.abs(close - cur.pAt(bar_index)) > staleK * atr
+                if na(cur) or stale or not cur.est
+                    TL cand = findLine(j == 0 ? phY : plY, j == 0 ? phI : plI, j == 0 ? phX : plX, d, ib, toY(pv), time[piv], atr, hB, lB, cZ)
+                    // 확립 전 선은 같은 시작점이나 더 먼 시작점으로만 다시 긋는다(안쪽의 짧은 선으로 바꾸지 않는다)
+                    if not na(cand) and (na(cur) or stale or cand.ia <= cur.ia)
+                        array.set(act, j, cand)
+                array<float> ys  = j == 0 ? phY : plY
+                array<int>   ids = j == 0 ? phI : plI
+                array<int>   xs  = j == 0 ? phX : plX
+                array.push(ys, toY(pv))
+                array.push(ids, ib)
+                array.push(xs, time[piv])
+                while array.size(ids) > 0 and bar_index - array.get(ids, 0) > maxLook + piv
+                    array.shift(ys)
+                    array.shift(ids)
+                    array.shift(xs)
+                while array.size(ids) > 40
+                    array.shift(ys)
+                    array.shift(ids)
+                    array.shift(xs)
+
+    [a0ok, a0es, a0xa, a0pa, a0xb, a0pb, a0sa, a0sb] = tlOut(array.get(act, 0))
+    [a1ok, a1es, a1xa, a1pa, a1xb, a1pb, a1sa, a1sb] = tlOut(array.get(act, 1))
+    [f0ok, f0es, f0xa, f0pa, f0xb, f0pb, f0sa, f0sb] = tlOut(array.get(flp, 0))
+    [f1ok, f1es, f1xa, f1pa, f1xb, f1pb, f1sa, f1sb] = tlOut(array.get(flp, 1))
+    bool lg = not na(time_close) and not na(nowT) and nowT < time_close
+    [lg ? time[1] : time, lg ? a0ok[1] : a0ok, lg ? a0es[1] : a0es, lg ? a0xa[1] : a0xa, lg ? a0pa[1] : a0pa, lg ? a0xb[1] : a0xb, lg ? a0pb[1] : a0pb, lg ? a0sa[1] : a0sa, lg ? a0sb[1] : a0sb, lg ? a1ok[1] : a1ok, lg ? a1es[1] : a1es, lg ? a1xa[1] : a1xa, lg ? a1pa[1] : a1pa, lg ? a1xb[1] : a1xb, lg ? a1pb[1] : a1pb, lg ? a1sa[1] : a1sa, lg ? a1sb[1] : a1sb, lg ? f0ok[1] : f0ok, lg ? f0xa[1] : f0xa, lg ? f0pa[1] : f0pa, lg ? f0xb[1] : f0xb, lg ? f0pb[1] : f0pb, lg ? f1ok[1] : f1ok, lg ? f1xa[1] : f1xa, lg ? f1pa[1] : f1pa, lg ? f1xb[1] : f1xb, lg ? f1pb[1] : f1pb]
+
+// ── 차트에 그리기 ──────────────────────────────────────
+[oT, oA0ok, oA0es, oA0xa, oA0pa, oA0xb, oA0pb, oA0sa, oA0sb, oA1ok, oA1es, oA1xa, oA1pa, oA1xb, oA1pb, oA1sa, oA1sb, oF0ok, oF0xa, oF0pa, oF0xb, oF0pb, oF1ok, oF1xa, oF1pa, oF1xb, oF1pb] = request.security(syminfo.tickerid, eTF, engine(), lookahead = barmerge.lookahead_on)
+
+// 선 하나를 만들거나 옮기거나 지운다(두 점을 지나 오른쪽으로 늘인다)
+setLine(line ln, bool show, int x1, float y1, int x2, float y2, color c, string st, int wd) =>
+    line r = ln
+    if show and not na(x1) and not na(x2) and not na(y1) and not na(y2) and x1 != x2
+        if na(r)
+            r := line.new(x1, y1, x2, y2, xloc = xloc.bar_time, extend = extend.right, color = c, style = st, width = wd)
+        else
+            line.set_xy1(r, x1, y1)
+            line.set_xy2(r, x2, y2)
+            line.set_color(r, c)
+            line.set_style(r, st)
+            line.set_width(r, wd)
+    else if not na(r)
+        line.delete(r)
+        r := na
+    r
+
+var line rL0  = na
+var line rL0s = na
+var line rL1  = na
+var line rL1s = na
+var line rF0  = na
+var line rF1  = na
+// 새 계산 봉 결과가 들어오면 선을 고친다: 확립 굵은 선, 확립 전 가는 선, 돌파된 선·채널 반대선은 흐린 가는 선(기본 모두 실선)
+string subSt = lineSty == "실선" ? line.style_solid : line.style_dashed
+string chSt  = lineSty == "실선" ? line.style_solid : line.style_dotted
+if not na(oT) and oT != nz(oT[1], -1)
+    rL0  := setLine(rL0, oA0ok and (oA0es ? showTL : showProv), oA0xa, oA0pa, oA0xb, oA0pb, cBear, oA0es ? line.style_solid : subSt, oA0es ? 2 : 1)
+    rL0s := setLine(rL0s, showCh and oA0ok and oA0es, oA0xa, oA0sa, oA0xb, oA0sb, color.new(cBear, 45), chSt, 1)
+    rL1  := setLine(rL1, oA1ok and (oA1es ? showTL : showProv), oA1xa, oA1pa, oA1xb, oA1pb, cBull, oA1es ? line.style_solid : subSt, oA1es ? 2 : 1)
+    rL1s := setLine(rL1s, showCh and oA1ok and oA1es, oA1xa, oA1sa, oA1xb, oA1sb, color.new(cBull, 45), chSt, 1)
+    rF0  := setLine(rF0, showFlp and oF0ok, oF0xa, oF0pa, oF0xb, oF0pb, color.new(cBear, 40), subSt, 1)
+    rF1  := setLine(rF1, showFlp and oF1ok, oF1xa, oF1pa, oF1xb, oF1pb, color.new(cBull, 40), subSt, 1)
+
+plot(na, "추세선", display = display.none)

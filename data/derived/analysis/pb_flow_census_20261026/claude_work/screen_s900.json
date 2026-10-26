@@ -1,0 +1,683 @@
+{
+ "rows": [
+  {
+   "id": "0df1842b4342",
+   "decision": "exclude",
+   "reason": "unrelated / JPM 자산운용 Cembalest 의견, PB 흐름 관측 아님",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "da302140b1ae",
+   "decision": "exclude",
+   "reason": "fund_flows_not_bank_client / 매니지드 퓨처스 ETF",
+   "bank": "unknown",
+   "note": "fund_flows_not_bank_client"
+  },
+  {
+   "id": "279c876b6bd0",
+   "decision": "exclude",
+   "reason": "unrelated / 업계 인사 기사",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "871e1ca9e75f",
+   "decision": "exclude",
+   "reason": "unrelated / 펀드 청산 소식",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "4ad672d731b1",
+   "decision": "exclude",
+   "reason": "unrelated / 인사 기사",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "205d1324b0c4",
+   "decision": "exclude",
+   "reason": "unrelated / UAE 펀드 출범",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "923e68203bea",
+   "decision": "exclude",
+   "reason": "unrelated / 감정평가 차익거래 전략",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "7fc09d1b62de",
+   "decision": "exclude",
+   "reason": "unrelated / AI 버블 일반 기사, 은행가 밸류 우려",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "265419a52b72",
+   "decision": "include",
+   "reason": "Goldman 헤지펀드 미국 주식 6주 연속 순매수",
+   "bank": "GS"
+  },
+  {
+   "id": "576ca566e7e8",
+   "decision": "include",
+   "reason": "Goldman 헤지펀드 미국 주식 6주 연속 순매수(중복 판)",
+   "bank": "GS"
+  },
+  {
+   "id": "d04c44b16490",
+   "decision": "include",
+   "reason": "Goldman 헤지펀드 미국 주식 6주 연속 순매수(중복 판)",
+   "bank": "GS"
+  },
+  {
+   "id": "f6a3f2b60991",
+   "decision": "exclude",
+   "reason": "unrelated / Eisler 청산 기사",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "fbf129395b6d",
+   "decision": "exclude",
+   "reason": "unrelated / 행사 기사",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "576e817e5b7b",
+   "decision": "exclude",
+   "reason": "unrelated / 매니저 크립토 베팅",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "6c8dbd8c011b",
+   "decision": "include",
+   "reason": "BofA 고객(헤지펀드 주도) 6주 최대 순매도",
+   "bank": "BofA"
+  },
+  {
+   "id": "8f286da782b4",
+   "decision": "include",
+   "reason": "BofA 고객(헤지펀드 주도) 6주 최대 순매도(중복 판)",
+   "bank": "BofA"
+  },
+  {
+   "id": "e1ab4bc560d4",
+   "decision": "exclude",
+   "reason": "unrelated / 펀드 사무소 개설",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "fc120da81868",
+   "decision": "exclude",
+   "reason": "forecast_not_observed / MS 2026 헤지펀드 전망",
+   "bank": "MS",
+   "note": "forecast_not_observed"
+  },
+  {
+   "id": "9310ac30778c",
+   "decision": "exclude",
+   "reason": "unrelated / 원자재 트레이딩 성과",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "e394af6bdefc",
+   "decision": "exclude",
+   "reason": "unrelated / 채권시장 헤지펀드, 주식 PB 흐름 아님",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "6af9bdf3e2f6",
+   "decision": "exclude",
+   "reason": "unrelated / XRP 경고",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "233c1d4b4a0b",
+   "decision": "exclude",
+   "reason": "unrelated / 채권시장 헤지펀드, 주식 PB 흐름 아님",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "6e72cf6ab353",
+   "decision": "exclude",
+   "reason": "unrelated / 인사 기사",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "8e50ec163f26",
+   "decision": "include",
+   "reason": "Goldman Prime 데스크 헤지펀드 총거래 두 달 만 감소",
+   "bank": "GS"
+  },
+  {
+   "id": "78cca7f6ac91",
+   "decision": "needs_read",
+   "reason": "헤지펀드 위험 차트 3개, 레버리지 등 PB 자료 가능성, 은행 미표기",
+   "bank": "unknown"
+  },
+  {
+   "id": "efbcaaa2e879",
+   "decision": "exclude",
+   "reason": "unrelated / 인사 기사",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "803f12c7b12f",
+   "decision": "exclude",
+   "reason": "unrelated / 펀드 CEO 인터뷰",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "8e06986594c8",
+   "decision": "exclude",
+   "reason": "unrelated / 헤지펀드 성과",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "3c143546f117",
+   "decision": "exclude",
+   "reason": "unrelated / 채용 기사",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "3d933f9c2327",
+   "decision": "exclude",
+   "reason": "unrelated / 인사 기사",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "a1e33c25de60",
+   "decision": "exclude",
+   "reason": "unrelated / 펀드 라이선스",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "2899a5d54e89",
+   "decision": "exclude",
+   "reason": "unrelated / MS MD 승진 명단",
+   "bank": "MS",
+   "note": "unrelated"
+  },
+  {
+   "id": "c3b0970d1462",
+   "decision": "needs_read",
+   "reason": "$153B 레버리지 주식 거래, 헤지펀드 레버리지인지 ETF인지 본문 확인",
+   "bank": "unknown"
+  },
+  {
+   "id": "895a59a06cc1",
+   "decision": "exclude",
+   "reason": "unrelated / 인사 기사",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "e275e5eb9874",
+   "decision": "exclude",
+   "reason": "unrelated / 헤지펀드 성과",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "8d0b2f55cf2b",
+   "decision": "exclude",
+   "reason": "unrelated / 헤지펀드 성과",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "197801cb85ab",
+   "decision": "exclude",
+   "reason": "unrelated / 은행 PB 사업 매출 기사, 흐름 관측 아님",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "c79b4d3232a9",
+   "decision": "exclude",
+   "reason": "unrelated / 일본 채용",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "5d371ca00cc3",
+   "decision": "include",
+   "reason": "Goldman Prime 데스크 헤지펀드 2주 연속 순매수, 산업재 주도",
+   "bank": "GS"
+  },
+  {
+   "id": "e1e0fdf21d96",
+   "decision": "include",
+   "reason": "Goldman Prime 데스크 헤지펀드 2주 연속 순매수(중복 판)",
+   "bank": "GS"
+  },
+  {
+   "id": "a11b9a5f05d3",
+   "decision": "exclude",
+   "reason": "unrelated / 헤지펀드 성과",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "1bc419a12dde",
+   "decision": "exclude",
+   "reason": "unrelated / TradingView 은 포지셔닝 사용자 글",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "c0ce0af5443a",
+   "decision": "exclude",
+   "reason": "unrelated / Marex PB 사업 칼럼",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "0a4fc1b7d767",
+   "decision": "exclude",
+   "reason": "unrelated / 헤지펀드 성과",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "6f5b1b628451",
+   "decision": "exclude",
+   "reason": "unrelated / 인사 기사",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "36bb1dfdf7b6",
+   "decision": "exclude",
+   "reason": "fund_flows_not_bank_client / 헤지펀드 자금 유입(투자자 자금)",
+   "bank": "unknown",
+   "note": "fund_flows_not_bank_client"
+  },
+  {
+   "id": "a039230011af",
+   "decision": "needs_read",
+   "reason": "퀀트 펀드 낙폭과 쏠림 해소, PB 자료 출처 확인 필요",
+   "bank": "unknown"
+  },
+  {
+   "id": "b680b56f3e4e",
+   "decision": "exclude",
+   "reason": "unrelated / 헤지펀드 성과",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "2072fb28aac8",
+   "decision": "exclude",
+   "reason": "unrelated / GS 서베이 채용 전망",
+   "bank": "GS",
+   "note": "unrelated"
+  },
+  {
+   "id": "c14b9f29be19",
+   "decision": "exclude",
+   "reason": "unrelated / 인사 기사",
+   "bank": "JPM",
+   "note": "unrelated"
+  },
+  {
+   "id": "62e637621aa3",
+   "decision": "exclude",
+   "reason": "unrelated / 보상·채용 기사",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "44fd0c3b80d3",
+   "decision": "exclude",
+   "reason": "unrelated / 펀드 성과",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "14e681bc313c",
+   "decision": "exclude",
+   "reason": "unrelated / 인사 기사",
+   "bank": "GS",
+   "note": "unrelated"
+  },
+  {
+   "id": "2e5521c93f13",
+   "decision": "exclude",
+   "reason": "unrelated / 펀드 성과",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "ca2442ed24ae",
+   "decision": "exclude",
+   "reason": "unrelated / 인사 기사",
+   "bank": "GS",
+   "note": "unrelated"
+  },
+  {
+   "id": "5acdb89dcdb1",
+   "decision": "exclude",
+   "reason": "unrelated / 투자자 배분 서베이",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "923799469582",
+   "decision": "exclude",
+   "reason": "unrelated / 인사 기사",
+   "bank": "GS",
+   "note": "unrelated"
+  },
+  {
+   "id": "8cb45b0c324d",
+   "decision": "needs_read",
+   "reason": "헤지펀드 북미 익스포저 축소, 은행 PB 출처 본문 확인",
+   "bank": "unknown"
+  },
+  {
+   "id": "31129a90a961",
+   "decision": "exclude",
+   "reason": "unrelated / 투자자 선호 전략 배분",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "dfac82cd89db",
+   "decision": "exclude",
+   "reason": "unrelated / 투자자 선호 전략 배분(중복 판)",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "40e6e5abf025",
+   "decision": "exclude",
+   "reason": "unrelated / AUM 순위",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "3a04ef2c6786",
+   "decision": "exclude",
+   "reason": "unrelated / 채용 기사",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "364a4837a8e3",
+   "decision": "exclude",
+   "reason": "unrelated / 컨퍼런스 신규 펀드",
+   "bank": "MS",
+   "note": "unrelated"
+  },
+  {
+   "id": "0378f16b1b3e",
+   "decision": "exclude",
+   "reason": "unrelated / 컨퍼런스 신규 펀드(중복 판)",
+   "bank": "MS",
+   "note": "unrelated"
+  },
+  {
+   "id": "2e09bddaece7",
+   "decision": "needs_read",
+   "reason": "헤지펀드 미국 비중 축소·아시아·유럽 이동, 은행 출처 확인",
+   "bank": "unknown"
+  },
+  {
+   "id": "320d3df2068a",
+   "decision": "exclude",
+   "reason": "fund_flows_not_bank_client / 레버리지 ETF",
+   "bank": "unknown",
+   "note": "fund_flows_not_bank_client"
+  },
+  {
+   "id": "b3677feb8ce5",
+   "decision": "needs_read",
+   "reason": "AI 기술주 매도 속 헤지펀드 손실, PB 자료 인용 가능성",
+   "bank": "unknown"
+  },
+  {
+   "id": "0e69cdcde7eb",
+   "decision": "include",
+   "reason": "Goldman 헤지펀드 미국 주식 기록적 숏 추가",
+   "bank": "GS"
+  },
+  {
+   "id": "16842b0443e4",
+   "decision": "needs_read",
+   "reason": "헤지펀드 미국 주식 숏 쌓기, 같은 날 GS 보도와 같은 출처 추정",
+   "bank": "GS"
+  },
+  {
+   "id": "cdbcdd39242f",
+   "decision": "exclude",
+   "reason": "unrelated / 단일 종목 숏 수익",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "2c79767bdfe0",
+   "decision": "exclude",
+   "reason": "unrelated / 펀드 임원 의견",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "104445b8633a",
+   "decision": "exclude",
+   "reason": "unrelated / GS 헤지펀드 수익률 칼럼",
+   "bank": "GS",
+   "note": "unrelated"
+  },
+  {
+   "id": "20c9c71c4e83",
+   "decision": "exclude",
+   "reason": "unrelated / 보너스 기사",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "4863800f5086",
+   "decision": "exclude",
+   "reason": "unrelated / 일반 기사",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "51aa78eec652",
+   "decision": "exclude",
+   "reason": "unrelated / 채용 기사",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "f4f8cc62c5e4",
+   "decision": "exclude",
+   "reason": "unrelated / 펀드 운영 기사",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "753aa6224d81",
+   "decision": "exclude",
+   "reason": "13f_or_manager_holdings / 헤지펀드 선호 M7 종목, 13F",
+   "bank": "unknown",
+   "note": "13f_or_manager_holdings"
+  },
+  {
+   "id": "0da0080661ae",
+   "decision": "exclude",
+   "reason": "13f_or_manager_holdings / 헤지펀드 보유 종목 목록",
+   "bank": "unknown",
+   "note": "13f_or_manager_holdings"
+  },
+  {
+   "id": "bea38b17a599",
+   "decision": "include",
+   "reason": "Goldman 헤지펀드 글로벌 주식 4월 이후 최대 순매도",
+   "bank": "GS"
+  },
+  {
+   "id": "bdb327363fef",
+   "decision": "exclude",
+   "reason": "13f_or_manager_holdings / 비트코인 ETF 13F 보유",
+   "bank": "unknown",
+   "note": "13f_or_manager_holdings"
+  },
+  {
+   "id": "9ac308d4b4fe",
+   "decision": "exclude",
+   "reason": "13f_or_manager_holdings / 헤지펀드 산업재 선호 종목, 13F",
+   "bank": "unknown",
+   "note": "13f_or_manager_holdings"
+  },
+  {
+   "id": "b9f7a75d758b",
+   "decision": "exclude",
+   "reason": "unrelated / 인사 기사",
+   "bank": "GS",
+   "note": "unrelated"
+  },
+  {
+   "id": "131d7f19f0bf",
+   "decision": "exclude",
+   "reason": "unrelated / 매니저 인물 기사",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "eb9e62829fca",
+   "decision": "needs_read",
+   "reason": "Goldman PB 노트 소프트웨어 반등 전망, 흐름 사실 본문 확인",
+   "bank": "GS"
+  },
+  {
+   "id": "03d37ce517fe",
+   "decision": "exclude",
+   "reason": "unrelated / UAE 비상 대응",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "e05feec7a51a",
+   "decision": "exclude",
+   "reason": "unrelated / 신흥국 매크로 베팅, 주식 PB 흐름 아님",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "307fd884b17c",
+   "decision": "needs_read",
+   "reason": "공매도 귀환, PB 숏 자료 출처 확인",
+   "bank": "unknown"
+  },
+  {
+   "id": "bf9f01a10f41",
+   "decision": "exclude",
+   "reason": "unrelated / 인사 기사",
+   "bank": "GS",
+   "note": "unrelated"
+  },
+  {
+   "id": "7d8bde2e441c",
+   "decision": "exclude",
+   "reason": "forecast_not_observed / MS 자산관리 전략가 전망",
+   "bank": "MS",
+   "note": "forecast_not_observed"
+  },
+  {
+   "id": "0dab7ed5db26",
+   "decision": "exclude",
+   "reason": "unrelated / 인사 기사",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "70c4a43893dc",
+   "decision": "exclude",
+   "reason": "13f_or_manager_holdings / 개별 펀드 포지션",
+   "bank": "unknown",
+   "note": "13f_or_manager_holdings"
+  },
+  {
+   "id": "7c545d35a137",
+   "decision": "exclude",
+   "reason": "unrelated / LinkedIn 인사 소식",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "d5dff576948d",
+   "decision": "exclude",
+   "reason": "unrelated / GS 상품 판매, 흐름 관측 아님",
+   "bank": "GS",
+   "note": "unrelated"
+  },
+  {
+   "id": "5e6b35b8bfd1",
+   "decision": "exclude",
+   "reason": "unrelated / GS 상품 판매, 흐름 관측 아님",
+   "bank": "GS",
+   "note": "unrelated"
+  },
+  {
+   "id": "8ee49a80ccff",
+   "decision": "exclude",
+   "reason": "unrelated / 채용 기사",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "feb878985191",
+   "decision": "exclude",
+   "reason": "unrelated / 인사 기사",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "3a2d59b80eed",
+   "decision": "exclude",
+   "reason": "unrelated / 헤지펀드 성과",
+   "bank": "unknown",
+   "note": "unrelated"
+  },
+  {
+   "id": "90204e7ccf88",
+   "decision": "include",
+   "reason": "Goldman 트레이딩 데스크 헤지펀드 미국 주식 포지셔닝 관측",
+   "bank": "GS"
+  },
+  {
+   "id": "0c5f07a55dbe",
+   "decision": "needs_read",
+   "reason": "JPM 쏠림 거래 해소·헤지펀드 낙폭, PB 포지셔닝 사실 확인",
+   "bank": "JPM"
+  },
+  {
+   "id": "0896e7b93b79",
+   "decision": "exclude",
+   "reason": "unrelated / 사모신용 레버리지",
+   "bank": "unknown",
+   "note": "unrelated"
+  }
+ ]
+}

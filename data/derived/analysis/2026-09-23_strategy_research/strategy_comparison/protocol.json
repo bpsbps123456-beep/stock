@@ -1,0 +1,56 @@
+{
+  "created_before_comparison_execution": "2026-09-27T05:59:12.446092+00:00",
+  "period": [
+    "2026-01-02",
+    "2026-09-23"
+  ],
+  "us_sessions": 182,
+  "fixed_candidate_ids": [
+    201609,
+    246798,
+    201608,
+    201610,
+    239120,
+    240024
+  ],
+  "claude_fixed": [
+    "H6e",
+    "H6",
+    "TIME_clone"
+  ],
+  "selection": "None; all candidates fixed before common-engine results",
+  "research_status": "Retrospective comparison after both studies were examined; no independent untouched validation",
+  "delay_definition": "PDF D first available at US session on/after D; shift that availability by 0/1/2 US sessions. All price features end at previous US close, unshifted.",
+  "zero_delay_assumption": "Same-date PDF is available before US open; historical publication timestamps are not verified.",
+  "native_delay_difference": "Claude original apply_delay shifts decision rows and their old scores; this comparison delays disclosures only by actual US sessions.",
+  "execution": "Prior close signals; old shares earn overnight gap; rebalance fractional dollar allocations at observed regular-session Open; mark same-day Close; explicit trading cost0.",
+  "fx": "KRW cash. Open conversions use previous US-session daily KRW=X Close as known-price proxy, not verified contemporaneous open FX. Close valuations use same-day daily FX Close.",
+  "price_basis": "All P&L uses matching Yahoo split-reflected raw Open/Close; dividends and taxes excluded. No AdjClose/rawClose dividend factor in execution prices.",
+  "drawdown": "Daily end-of-US-session KRW NAV drawdown including initial NAV1; not intraday or open-auction peak drawdown.",
+  "signal_warmup": "Claude MOM120 retains AdjClose signal data from2025-05; our fixed20-day indicators retain2026-only warmup. Different information histories are disclosed.",
+  "schedule": "Claude daily/weekly trades only on new available PDF; weekly first new-PDF session of ISO week. Our calendar daily/weekly schedule preserved. Cash starts enter at first eligible signal even midweek.",
+  "cash_start": "Fresh June/August runs restart shares/cash but preserve past information; no pre-entry overnight gain. Continuous subperiod metrics retain inherited holdings.",
+  "position_limit": "Fixed H6/H6e and our candidates <=10; TIME_clone full-US normalized fundweight is a reference and exempt from10-stock limit; not ETF share performance.",
+  "proxy_changes": [
+    {
+      "company": "GOOG US EQUITY",
+      "old_symbol": "GOOG",
+      "common_ticker": "GOOGL"
+    }
+  ],
+  "share_class_note": "GOOG and GOOGL are distinct share classes. Both strategies use GOOGL as the merged-company proxy here; earlier our simulation used GOOG.",
+  "original_endpoint_difference": "Claude original2026 runs endSep22; this common comparison endsSep23. Native reproduction stored separately.",
+  "execution_limit": "Same-open dollar allocation uses aggregate opening prices to compute NAV and fractional shares; not exact previously submitted quantities or guaranteed actual fills. Actual slippage/spread/FX costs are unverified, not subtracted.",
+  "source_sha256": {
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\2026-09-23_strategy_research\\us_only_experiment\\bundle.npz": "45f660bc23b1296d0bce7fdbc3f02698250dbc832d514c6e6a34a79ef2ab3662",
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\2026-09-23_strategy_research\\us_only_experiment\\metadata.json": "e1ad0971d1d1162bb63333fda2a70428b3d9b2b17791d082594fa9ccd8a55e5e",
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\2026-09-23_strategy_research\\us_only_experiment\\raw_prices.json": "18f45a2f10a6671890fb2f6af9452c725d2acfff7f14cb904d74cde5e32ab705",
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\2026-09-23_strategy_research\\us_only_experiment\\configurations.json": "380cf3f0c72d099e4955f0a6a3b7f8b237fa90c8c00c6f8eaa89fa7e56fcf86e",
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\2026-09-23_strategy_research\\us_only_experiment\\zero_cost\\results.json": "183abf5c34ce4999a3ab93b6f1b12f8a071205a5d388daa17eddea1ea935d00f",
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\strategy_lab\\lab_panels.json": "02c3977cf7b84343d300b0af8c42a1ab03b310a9c9f1adf1584380b580569e86",
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\strategy_lab\\prices_open.csv": "8dc06d6fdfb4daf00afbac720f97c001557f1fdb2c02a0d4dcd388b339eedf23",
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\strategy_lab\\prices_close.csv": "a8c59e82fa5d268ad5cacaf6440318939a6d63e0362ee784cc5531119d86a44e",
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\strategy_lab\\prices_adj_close.csv": "116fc1c0488c1931ce39924c3d4c5df9ac9c591b0dd29bfab67319452d5bf575"
+  },
+  "comparison_code_sha256": "ceb64a98bd9435dafeb5be2f9ba7f95f36a27cc846147c35f6cb7bfde56aa528"
+}

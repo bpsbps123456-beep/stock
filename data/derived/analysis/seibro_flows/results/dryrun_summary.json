@@ -1,0 +1,43 @@
+{
+ "B_null": 200,
+ "P_planted_per_rho": 100,
+ "family_step": 8,
+ "null_rate_primary_any_pass": 0.01,
+ "null_rate_explore_any_pass": 0.195,
+ "null_rate_conclusion_distinct": 0.03,
+ "null_mean_primary_judgeable": 3.155,
+ "null_mean_explore_judgeable": 5.53,
+ "null_rate_explore_raw_p_lt05_per_judgeable_cell": 0.05605786618444846,
+ "planted": {
+  "judgeable": {
+   "0.1": 0.45,
+   "0.2": 0.53,
+   "0.35": 0.57,
+   "0.5": 0.56
+  },
+  "primary_S1R5_pass": {
+   "0.1": 0.03,
+   "0.2": 0.09,
+   "0.35": 0.22,
+   "0.5": 0.47
+  },
+  "explore_has_S1": {
+   "0.1": 0.47,
+   "0.2": 0.62,
+   "0.35": 0.89,
+   "0.5": 0.99
+  },
+  "explore_S1_pass": {
+   "0.1": 0.04,
+   "0.2": 0.09,
+   "0.35": 0.27,
+   "0.5": 0.6
+  }
+ },
+ "planted_median_p_raw": {
+  "0.1": 0.221,
+  "0.2": 0.137,
+  "0.35": 0.029,
+  "0.5": 0.01
+ }
+}

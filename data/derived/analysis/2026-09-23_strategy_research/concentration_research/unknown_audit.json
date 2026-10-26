@@ -1,0 +1,181 @@
+{
+  "source_sha256": {
+    "metadata": "e1ad0971d1d1162bb63333fda2a70428b3d9b2b17791d082594fa9ccd8a55e5e",
+    "common": "cd84d02f7c57ba10c3cfee97f0d870d99274421b4ce32dca59149470e90590c8",
+    "sector_map": "6f67882828ac41ec8811d2a937c03874e215569fe3eae4b0acdc9c187452645a"
+  },
+  "alias_evidence": [
+    {
+      "index": 48,
+      "company_key": "ECHO US EQUITY",
+      "symbol": "ECHO",
+      "name": "EchoStar Corp",
+      "market": "US",
+      "aliases": [
+        "ECHO US EQUITY",
+        "SATS US EQUITY"
+      ],
+      "common_ticker": "ECHO",
+      "canonical_lookup": {
+        "ECHO": "미분류",
+        "SATS": "우주/방산"
+      },
+      "resolved_listing_key": "SATS",
+      "sector": "우주/방산"
+    },
+    {
+      "index": 86,
+      "company_key": "MOG/A US EQUITY",
+      "symbol": "MOG-A",
+      "name": "Moog Inc",
+      "market": "US",
+      "aliases": [
+        "MOG/A US EQUITY"
+      ],
+      "common_ticker": "MOG-A",
+      "canonical_lookup": {
+        "MOG-A": "미분류",
+        "MOG/A": "우주/방산"
+      },
+      "resolved_listing_key": "MOG/A",
+      "sector": "우주/방산"
+    }
+  ],
+  "metric_definition": "Maximum and equal-weight mean of observed same-day close whole-account KRW NAV weights; mean includes zero holdings and cash days; no classification updates.",
+  "dates": [
+    "2026-01-02",
+    "2026-09-23"
+  ],
+  "days": 182,
+  "rules": {
+    "H6e": {
+      "publication_lag0": {
+        "unknown_tickers": [
+          {
+            "ticker": "PL",
+            "company_key": "PL US EQUITY",
+            "name": "Planet Labs PBC",
+            "maximum_nav_pct": 22.22457405529997,
+            "maximum_date": "2026-01-15",
+            "mean_nav_pct_all_days": 4.779400737963294,
+            "held_days": 44,
+            "mean_nav_pct_held_days": 19.769339416120904
+          }
+        ],
+        "total_unknown_max_pct": 22.22457405529997,
+        "total_unknown_mean_pct": 4.779400737963294
+      },
+      "publication_lag1": {
+        "unknown_tickers": [
+          {
+            "ticker": "PL",
+            "company_key": "PL US EQUITY",
+            "name": "Planet Labs PBC",
+            "maximum_nav_pct": 24.31784106518266,
+            "maximum_date": "2026-03-06",
+            "mean_nav_pct_all_days": 4.715343370910771,
+            "held_days": 43,
+            "mean_nav_pct_held_days": 19.957964965250238
+          }
+        ],
+        "total_unknown_max_pct": 24.31784106518266,
+        "total_unknown_mean_pct": 4.715343370910771
+      },
+      "publication_lag2": {
+        "unknown_tickers": [
+          {
+            "ticker": "PL",
+            "company_key": "PL US EQUITY",
+            "name": "Planet Labs PBC",
+            "maximum_nav_pct": 24.31784106518265,
+            "maximum_date": "2026-03-06",
+            "mean_nav_pct_all_days": 4.5924279553114555,
+            "held_days": 42,
+            "mean_nav_pct_held_days": 19.90052113968298
+          }
+        ],
+        "total_unknown_max_pct": 24.31784106518265,
+        "total_unknown_mean_pct": 4.5924279553114555
+      }
+    },
+    "H6": {
+      "publication_lag0": {
+        "unknown_tickers": [
+          {
+            "ticker": "PL",
+            "company_key": "PL US EQUITY",
+            "name": "Planet Labs PBC",
+            "maximum_nav_pct": 12.9978796677462,
+            "maximum_date": "2026-01-27",
+            "mean_nav_pct_all_days": 1.670318260175799,
+            "held_days": 41,
+            "mean_nav_pct_held_days": 7.414583496390134
+          }
+        ],
+        "total_unknown_max_pct": 12.9978796677462,
+        "total_unknown_mean_pct": 1.670318260175799
+      },
+      "publication_lag1": {
+        "unknown_tickers": [
+          {
+            "ticker": "PL",
+            "company_key": "PL US EQUITY",
+            "name": "Planet Labs PBC",
+            "maximum_nav_pct": 13.119274087872382,
+            "maximum_date": "2026-01-30",
+            "mean_nav_pct_all_days": 1.6740437006738447,
+            "held_days": 41,
+            "mean_nav_pct_held_days": 7.4311208176253585
+          }
+        ],
+        "total_unknown_max_pct": 13.119274087872382,
+        "total_unknown_mean_pct": 1.6740437006738447
+      },
+      "publication_lag2": {
+        "unknown_tickers": [
+          {
+            "ticker": "PL",
+            "company_key": "PL US EQUITY",
+            "name": "Planet Labs PBC",
+            "maximum_nav_pct": 12.834567256766405,
+            "maximum_date": "2026-01-30",
+            "mean_nav_pct_all_days": 1.6746680785910284,
+            "held_days": 41,
+            "mean_nav_pct_held_days": 7.433892446428467
+          }
+        ],
+        "total_unknown_max_pct": 12.834567256766405,
+        "total_unknown_mean_pct": 1.6746680785910284
+      }
+    }
+  },
+  "validation": {
+    "source_hashes_unchanged": true,
+    "classification_changed": false
+  },
+  "original_global_metadata_evidence": {
+    "path": "data\\derived\\analysis\\2026-09-23_strategy_research\\metadata.json",
+    "sha256": "0ade9b1361f1ec2b229ef802e6966e1ebc3fc1a33be27de706fdd5a5f97bc013",
+    "records": [
+      {
+        "index": 69,
+        "company_key": "ECHO US EQUITY",
+        "symbol": "ECHO",
+        "name": "EchoStar Corp",
+        "aliases": [
+          "ECHO US EQUITY",
+          "SATS US EQUITY"
+        ]
+      },
+      {
+        "index": 107,
+        "company_key": "MOG/A US EQUITY",
+        "symbol": "MOG-A",
+        "name": "Moog Inc",
+        "aliases": [
+          "MOG/A US EQUITY"
+        ]
+      }
+    ]
+  }
+}

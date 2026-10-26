@@ -1,0 +1,120 @@
+{
+ "population": {
+  "listed_placed": 265,
+  "resolved": 265
+ },
+ "windows": [
+  {
+   "label": "W1 신호 8/11 → 9/10",
+   "universe_median": -2.07,
+   "zones_judged": 45,
+   "zone_flag": {
+    "n": 13,
+    "zones": [
+     "flash",
+     "mlcc",
+     "equip",
+     "cpu",
+     "foundry",
+     "substrate",
+     "board",
+     "hbm",
+     "disk",
+     "cooling",
+     "dsp",
+     "fiber",
+     "rack_link"
+    ],
+    "median_ex": 2.27,
+    "hit": 62
+   },
+   "zone_dear": {
+    "n": 15,
+    "median_ex": -1.8,
+    "hit": 27
+   },
+   "company_flag": {
+    "n": 51,
+    "mean_ex": 2.38,
+    "median_ex": 0.29,
+    "hit": 53,
+    "rest_mean_ex": 0.75
+   }
+  },
+  {
+   "label": "W2 신호 9/10 → 10/9",
+   "universe_median": 8.88,
+   "zones_judged": 45,
+   "zone_flag": {
+    "n": 14,
+    "zones": [
+     "optics",
+     "systems",
+     "fuel",
+     "dsp",
+     "switch",
+     "laser",
+     "rack_link",
+     "board",
+     "data",
+     "server",
+     "materials",
+     "edge",
+     "gen",
+     "cooling"
+    ],
+    "median_ex": 2.11,
+    "hit": 64
+   },
+   "zone_dear": {
+    "n": 15,
+    "median_ex": -4.59,
+    "hit": 33
+   },
+   "company_flag": {
+    "n": 40,
+    "mean_ex": 1.7,
+    "median_ex": 1.33,
+    "hit": 55,
+    "rest_mean_ex": -0.54
+   }
+  },
+  {
+   "label": "W1 신호 8/11 → 10/9 (2개월)",
+   "universe_median": 8.79,
+   "zones_judged": 45,
+   "zone_flag": {
+    "n": 13,
+    "zones": [
+     "flash",
+     "mlcc",
+     "equip",
+     "cpu",
+     "foundry",
+     "substrate",
+     "board",
+     "hbm",
+     "disk",
+     "cooling",
+     "dsp",
+     "fiber",
+     "rack_link"
+    ],
+    "median_ex": -2.45,
+    "hit": 38
+   },
+   "zone_dear": {
+    "n": 15,
+    "median_ex": -6.36,
+    "hit": 33
+   },
+   "company_flag": {
+    "n": 51,
+    "mean_ex": 1.83,
+    "median_ex": 0.0,
+    "hit": 49,
+    "rest_mean_ex": -2.5
+   }
+  }
+ ]
+}

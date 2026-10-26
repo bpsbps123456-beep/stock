@@ -1,0 +1,267 @@
+{
+  "fetched_at": "2026-10-14T13:32:53",
+  "files": {
+    "us_prices_close.csv": {
+      "rows": 950,
+      "cols": [
+        "Date",
+        "AMD",
+        "GVIP",
+        "MU",
+        "MUU",
+        "NVDA",
+        "NVDL",
+        "QQQ",
+        "SMH",
+        "SOXL",
+        "SOXS",
+        "SOXX",
+        "SPY",
+        "SQQQ",
+        "TQQQ",
+        "^GSPC",
+        "^NDX",
+        "^SKEW",
+        "^SOX",
+        "^VIX",
+        "^VIX3M",
+        "^VXN"
+      ],
+      "note": "yfinance Close 2023-01-01~; 마지막 날 NaN 티커=[]"
+    },
+    "us_prices_volume.csv": {
+      "rows": 950,
+      "cols": [
+        "Date",
+        "AMD",
+        "GVIP",
+        "MU",
+        "MUU",
+        "NVDA",
+        "NVDL",
+        "QQQ",
+        "SMH",
+        "SOXL",
+        "SOXS",
+        "SOXX",
+        "SPY",
+        "SQQQ",
+        "TQQQ",
+        "^GSPC",
+        "^NDX",
+        "^SKEW",
+        "^SOX",
+        "^VIX",
+        "^VIX3M",
+        "^VXN"
+      ],
+      "note": "yfinance Volume"
+    },
+    "us_proshares_nav.csv": {
+      "rows": 8393,
+      "cols": [
+        "date",
+        "ticker",
+        "nav",
+        "prior_nav",
+        "nav_chg_pct",
+        "shares_out_k",
+        "aum",
+        "shares_out",
+        "d_shares_1d",
+        "flow_usd_1d"
+      ],
+      "note": "ProShares 공식 일별 NAV·발행좌수·AUM; flow_usd_1d = Δ좌수×NAV"
+    },
+    "us_nvdl_nav.csv": {
+      "rows": 958,
+      "cols": [
+        "date",
+        "nav",
+        "aum",
+        "close",
+        "bid_ask",
+        "prem_disc",
+        "shares_implied",
+        "d_shares_1d",
+        "flow_usd_1d",
+        "prem_pct"
+      ],
+      "note": "GraniteShares 공식 일별 NAV·AUM; shares_implied=AUM/NAV; 2026-10-12 중복 행 제거(958행)"
+    },
+    "us_direxion_snapshot.csv": {
+      "rows": 10,
+      "cols": [
+        "date",
+        "ticker",
+        "name",
+        "shares_out",
+        "holdings_mv_sum",
+        "swap_mv_sum",
+        "n_holdings"
+      ],
+      "note": "Direxion 당일 보유 CSV 머리글의 발행좌수 스냅샷. 이력 페이지는 Cloudflare 차단으로 못 받음"
+    },
+    "us_cboe_vol.csv": {
+      "rows": 2997,
+      "cols": [
+        "date",
+        "VIX",
+        "VXN",
+        "SKEW",
+        "VIX3M",
+        "VVIX",
+        "VIX_VIX3M"
+      ],
+      "note": "CBOE 공식 지수 종가; VIX_VIX3M>1이면 역전(단기 공포)"
+    },
+    "us_cboe_putcall.csv": {
+      "rows": 594,
+      "cols": [
+        "date",
+        "pc_total",
+        "pc_index",
+        "pc_etp",
+        "pc_equity",
+        "pc_vix",
+        "pc_spx",
+        "all_vol_call",
+        "all_vol_put",
+        "all_oi_call",
+        "all_oi_put",
+        "index_vol_call",
+        "index_vol_put",
+        "index_oi_call",
+        "index_oi_put",
+        "equity_vol_call",
+        "equity_vol_put",
+        "equity_oi_call",
+        "equity_oi_put",
+        "etp_vol_call",
+        "etp_vol_put",
+        "etp_oi_call",
+        "etp_oi_put",
+        "vix_vol_call",
+        "vix_vol_put",
+        "vix_oi_call",
+        "vix_oi_put",
+        "spx_vol_call",
+        "spx_vol_put",
+        "spx_oi_call"
+      ],
+      "note": "CBOE 일별 풋/콜 비율·거래량·OI 2024-06-03~ (휴장일은 없음)"
+    },
+    "us_cftc_tff.csv": {
+      "rows": 2490,
+      "cols": [
+        "report_date",
+        "market",
+        "open_interest_all",
+        "dealer_positions_long_all",
+        "dealer_positions_short_all",
+        "asset_mgr_positions_long",
+        "asset_mgr_positions_short",
+        "lev_money_positions_long",
+        "lev_money_positions_short",
+        "lev_money_positions_spread",
+        "other_rept_positions_long",
+        "other_rept_positions_short",
+        "nonrept_positions_long_all",
+        "nonrept_positions_short_all",
+        "change_in_lev_money_long",
+        "change_in_lev_money_short",
+        "lev_net",
+        "asset_mgr_net",
+        "dealer_net",
+        "lev_net_pct_oi",
+        "report_type",
+        "release_date"
+      ],
+      "note": "CFTC TFF 레버리지펀드·자산운용·딜러 포지션; release_date=report_date+3일(금)"
+    },
+    "us_finra_margin.csv": {
+      "rows": 356,
+      "cols": [
+        "month",
+        "debit_balances_musd",
+        "yoy_pct",
+        "debit_mom",
+        "excess_leverage",
+        "net_free_credit",
+        "ratio_gdp",
+        "ratio_mktcap",
+        "ratio_m2",
+        "real_real-level",
+        "convextrade_value",
+        "cross_check_ok",
+        "release_date_est"
+      ],
+      "note": "FINRA 월간 마진부채(백만$) 미러; convextrade 표와 교차; release_date_est=월말+20일"
+    },
+    "us_naaim.csv": {
+      "rows": 131,
+      "cols": [
+        "date",
+        "naaim_number",
+        "most_bearish",
+        "q1",
+        "q2",
+        "q3",
+        "most_bullish",
+        "std_dev",
+        "release_date"
+      ],
+      "note": "NAAIM 공개 표(2024-01~). 2026-08-01부터 비회원 공개는 3개월 지연·최신값 유료"
+    },
+    "us_aaii.csv": {
+      "rows": 614,
+      "cols": [
+        "date",
+        "bullish",
+        "neutral",
+        "bearish",
+        "bull_8wk_ma",
+        "bull_bear_spread",
+        "spx_weekly_close",
+        "release_date"
+      ],
+      "note": "AAII 주간 설문(비율 0~1); release_date=설문일+1"
+    },
+    "us_finra_short_interest.csv": {
+      "rows": 2883,
+      "cols": [
+        "settlement_date",
+        "symbol",
+        "short_interest",
+        "short_interest_prev",
+        "adv",
+        "days_to_cover",
+        "chg_pct",
+        "market",
+        "release_date_est"
+      ],
+      "note": "FINRA 공매도잔고(월 2회, 결제일 기준); release_date_est=결제일+9영업일"
+    },
+    "us_finra_short_volume.csv": {
+      "rows": 6690,
+      "cols": [
+        "date",
+        "symbol",
+        "short_volume",
+        "short_exempt_volume",
+        "total_volume",
+        "short_ratio"
+      ],
+      "note": "FINRA CNMS 일별 숏볼륨(TRF 보고분, 거래소 전체 아님) 2025-01-02~; 당일 저녁 공개"
+    }
+  },
+  "errors": {},
+  "notes": {
+    "yf_last_date": "2026-10-13",
+    "yf_nan_on_last_date": [],
+    "margin_cross_check_mismatch": [],
+    "direxion_history": "Direxion 상품 페이지·_next/data·graphql 모두 Cloudflare 챌린지(403). Chrome으로 페이지를 열어 확인: SSR 데이터에 30일 NAV/시장가(thirtyDayPricing)만 있고 발행좌수·순자산 이력 없음. 당일 좌수는 holdings CSV 머리글뿐.",
+    "naaim_public_delay": "naaim.org 공지: 2026-08-01부터 비회원 공개 데이터는 3개월 지연, 최신 주간값은 유료 구독. 공개 표 마지막 행 2026-07-08.",
+    "margin_source": "FINRA 원본 페이지는 Cloudflare 차단. thetrading.tools 내장 JSON(1998~2026-08)을 쓰고 convextrade 표(2025-02~2026-06)와 전부 일치. FINRA 페이지(WebFetch)로 2026-01~08 값 재확인 일치."
+  }
+}

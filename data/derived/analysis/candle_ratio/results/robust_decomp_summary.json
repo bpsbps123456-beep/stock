@@ -1,0 +1,349 @@
+{
+ "ideal_144전체": {
+  "n": 8891,
+  "n_per_sym": 61.7,
+  "q25_50_75_90_h": [
+   3.3,
+   10.0,
+   21.3,
+   59.3
+  ],
+  "bars_med": 10.0,
+  "over_night": 0.477,
+  "under_2h": 0.136,
+  "over_24h": 0.211
+ },
+ "ideal_MU": {
+  "n": 53,
+  "n_per_sym": 53.0,
+  "q25_50_75_90_h": [
+   5.3,
+   14.7,
+   24.7,
+   50.8
+  ],
+  "bars_med": 11.0,
+  "over_night": 0.528,
+  "under_2h": 0.057,
+  "over_24h": 0.283
+ },
+ "ideal_BE": {
+  "n": 70,
+  "n_per_sym": 70.0,
+  "q25_50_75_90_h": [
+   2.7,
+   6.7,
+   16.8,
+   33.5
+  ],
+  "bars_med": 9.5,
+  "over_night": 0.371,
+  "under_2h": 0.1,
+  "over_24h": 0.143
+ },
+ "ideal_NBIS": {
+  "n": 56,
+  "n_per_sym": 56.0,
+  "q25_50_75_90_h": [
+   4.7,
+   8.3,
+   19.7,
+   50.3
+  ],
+  "bars_med": 9.5,
+  "over_night": 0.446,
+  "under_2h": 0.089,
+  "over_24h": 0.214
+ },
+ "real_144전체": {
+  "n": 6604,
+  "n_per_sym": 45.9,
+  "q25_50_75_90_h": [
+   8.7,
+   13.3,
+   28.0,
+   66.7
+  ],
+  "bars_med": 14.0,
+  "over_night": 0.581,
+  "under_2h": 0.103,
+  "over_24h": 0.342
+ },
+ "real_MU": {
+  "n": 38,
+  "n_per_sym": 38.0,
+  "q25_50_75_90_h": [
+   7.2,
+   23.7,
+   37.3,
+   61.7
+  ],
+  "bars_med": 20.0,
+  "over_night": 0.579,
+  "under_2h": 0.053,
+  "over_24h": 0.5
+ },
+ "real_BE": {
+  "n": 55,
+  "n_per_sym": 55.0,
+  "q25_50_75_90_h": [
+   4.0,
+   12.0,
+   23.3,
+   35.3
+  ],
+  "bars_med": 10.0,
+  "over_night": 0.473,
+  "under_2h": 0.091,
+  "over_24h": 0.236
+ },
+ "real_NBIS": {
+  "n": 43,
+  "n_per_sym": 43.0,
+  "q25_50_75_90_h": [
+   4.7,
+   12.7,
+   33.3,
+   54.9
+  ],
+  "bars_med": 8.0,
+  "over_night": 0.558,
+  "under_2h": 0.07,
+  "over_24h": 0.326
+ },
+ "sleep_ideal": {
+  "held_share_in_sleep_med": 0.528,
+  "sleep_share_of_session": 0.529,
+  "held_while_asleep_med": 0.47,
+  "held_while_awake_med": 0.489,
+  "named": {
+   "BE": [
+    0.474,
+    0.421,
+    0.476
+   ],
+   "MU": [
+    0.499,
+    0.504,
+    0.5
+   ],
+   "NBIS": [
+    0.478,
+    0.424,
+    0.458
+   ]
+  }
+ },
+ "sleep_real": {
+  "held_share_in_sleep_med": 0.52,
+  "sleep_share_of_session": 0.529,
+  "held_while_asleep_med": 0.45,
+  "held_while_awake_med": 0.486,
+  "named": {
+   "BE": [
+    0.485,
+    0.444,
+    0.48
+   ],
+   "MU": [
+    0.488,
+    0.483,
+    0.501
+   ],
+   "NBIS": [
+    0.433,
+    0.35,
+    0.453
+   ]
+  }
+ },
+ "realloss_full": {
+  "med144": {
+   "late_sell": -2.96,
+   "kept_through": 3.44,
+   "late_buy": -4.59,
+   "missed_trip": 4.61,
+   "cost": -9.0,
+   "total": -8.88
+  },
+  "pos144": {
+   "late_sell": 0.18,
+   "kept_through": 0.91,
+   "late_buy": 0.14,
+   "missed_trip": 0.95,
+   "cost": 0.0,
+   "total": 0.1
+  },
+  "mean144": {
+   "late_sell": -3.92,
+   "kept_through": 4.46,
+   "late_buy": -5.46,
+   "missed_trip": 5.04,
+   "cost": -9.15,
+   "total": -9.03
+  },
+  "n_med": {
+   "late_sell": 14.0,
+   "kept_through": 7.0,
+   "late_buy": 16.0,
+   "missed_trip": 8.5
+  },
+  "MU": {
+   "late_sell": -10.1,
+   "kept_through": -0.7,
+   "late_buy": -1.7,
+   "missed_trip": 7.5,
+   "cost": -7.6,
+   "total": -12.7,
+   "n_late_sell": 14,
+   "n_kept_through": 7,
+   "n_late_buy": 13,
+   "n_missed_trip": 8
+  },
+  "BE": {
+   "late_sell": 0.5,
+   "kept_through": 3.5,
+   "late_buy": -12.5,
+   "missed_trip": 13.8,
+   "cost": -11.0,
+   "total": -5.7,
+   "n_late_sell": 16,
+   "n_kept_through": 6,
+   "n_late_buy": 15,
+   "n_missed_trip": 9
+  },
+  "NBIS": {
+   "late_sell": -4.7,
+   "kept_through": 7.9,
+   "late_buy": -8.9,
+   "missed_trip": 10.8,
+   "cost": -8.5,
+   "total": -3.5,
+   "n_late_sell": 12,
+   "n_kept_through": 4,
+   "n_late_buy": 17,
+   "n_missed_trip": 9
+  }
+ },
+ "realloss_conf": {
+  "med144": {
+   "late_sell": -1.5,
+   "kept_through": 1.22,
+   "late_buy": -1.94,
+   "missed_trip": 1.65,
+   "cost": -4.2,
+   "total": -4.73
+  },
+  "pos144": {
+   "late_sell": 0.24,
+   "kept_through": 0.81,
+   "late_buy": 0.21,
+   "missed_trip": 0.88,
+   "cost": 0.0,
+   "total": 0.16
+  },
+  "mean144": {
+   "late_sell": -1.83,
+   "kept_through": 1.72,
+   "late_buy": -2.5,
+   "missed_trip": 2.01,
+   "cost": -4.31,
+   "total": -4.9
+  },
+  "n_med": {
+   "late_sell": 6.0,
+   "kept_through": 3.0,
+   "late_buy": 8.0,
+   "missed_trip": 4.0
+  },
+  "MU": {
+   "late_sell": -4.6,
+   "kept_through": 2.0,
+   "late_buy": -5.0,
+   "missed_trip": 1.0,
+   "cost": -4.0,
+   "total": -10.7,
+   "n_late_sell": 7,
+   "n_kept_through": 5,
+   "n_late_buy": 9,
+   "n_missed_trip": 2
+  },
+  "BE": {
+   "late_sell": 0.3,
+   "kept_through": 0.4,
+   "late_buy": -6.7,
+   "missed_trip": 2.1,
+   "cost": -5.8,
+   "total": -9.7,
+   "n_late_sell": 8,
+   "n_kept_through": 3,
+   "n_late_buy": 9,
+   "n_missed_trip": 3
+  },
+  "NBIS": {
+   "late_sell": -0.2,
+   "kept_through": 3.0,
+   "late_buy": -4.2,
+   "missed_trip": 7.2,
+   "cost": -4.4,
+   "total": 1.4,
+   "n_late_sell": 8,
+   "n_kept_through": 3,
+   "n_late_buy": 8,
+   "n_missed_trip": 5
+  }
+ },
+ "earn": {
+  "AEHR": {
+   "sym": "AEHR",
+   "earn_src": "gap_fallback",
+   "earn_dates": [
+    "2026-09-14"
+   ],
+   "earn_days": [
+    "2026-09-14",
+    "2026-09-15"
+   ]
+  },
+  "BE": {
+   "sym": "BE",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-10-22",
+    "2026-07-28"
+   ],
+   "earn_days": [
+    "2026-07-28",
+    "2026-07-29",
+    "2026-10-22"
+   ]
+  },
+  "MU": {
+   "sym": "MU",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-09-30"
+   ],
+   "earn_days": [
+    "2026-09-30",
+    "2026-10-01"
+   ]
+  },
+  "NBIS": {
+   "sym": "NBIS",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-12"
+   ],
+   "earn_days": [
+    "2026-08-12",
+    "2026-08-13"
+   ]
+  }
+ },
+ "earn_src_counts": {
+  "earnings": 143,
+  "gap_fallback": 1
+ },
+ "n_earn_days_med": 2.0
+}

@@ -1,0 +1,66 @@
+{
+  "fetched_at": "2026-10-14T13:58:38",
+  "start": "20260501",
+  "sources": {
+    "list": "https://finance.naver.com/api/sise/etfItemList.nhn (시가총액 억원, 당일)",
+    "integration": "https://m.stock.naver.com/api/stock/<code>/integration etfKeyIndicator.totalNav (현재값만, 이력 없음)",
+    "price": "https://m.stock.naver.com/api/stock/<code>/price?pageSize=60&page=N (일별 OHLCV, 당일 장중 포함; pageSize 최대 60)",
+    "trend": "https://m.stock.naver.com/api/stock/<code>/trend?pageSize=60&bizdate=YYYYMMDD (투자자별 순매수 수량, 전일까지; page 무시, bizdate 이전 60건 커서)",
+    "hk_us": "yfinance history + get_info().totalAssets (현재값, 이력 없음; CSOP 사이트·HKEX 위젯은 403)"
+  },
+  "notes": [
+    "거래대금은 종가×거래량 근사(네이버 price API에 거래대금 없음). 네이버 integration의 당일 거래대금 텍스트로 대조 가능."
+  ],
+  "yfinance_now": [
+    {
+      "ticker": "7709.HK",
+      "total_assets_now": 4237841408,
+      "nav_now": 4.0582,
+      "shares_out_now": null,
+      "name": "CSOP SK HYNIX DAILY (2X) LEVERAGED PRODUCT"
+    },
+    {
+      "ticker": "7747.HK",
+      "total_assets_now": 1170270592,
+      "nav_now": 10.4783,
+      "shares_out_now": null,
+      "name": "CSOP Samsung Electronics Daily (2x) Leveraged Product"
+    },
+    {
+      "ticker": "KORU",
+      "total_assets_now": 1328676864,
+      "nav_now": 15.692,
+      "shares_out_now": null,
+      "name": "Direxion Daily South Korea Bull 3X Shares"
+    },
+    {
+      "ticker": "EWY",
+      "total_assets_now": 26213310464,
+      "nav_now": 171.18303,
+      "shares_out_now": 75600000,
+      "name": "iShares MSCI South Korea ETF"
+    },
+    {
+      "ticker": "^KS11",
+      "total_assets_now": null,
+      "nav_now": null,
+      "shares_out_now": null,
+      "name": "KOSPI Composite Index"
+    },
+    {
+      "ticker": "000660.KS",
+      "total_assets_now": null,
+      "nav_now": null,
+      "shares_out_now": 711075500,
+      "name": "SK hynix Inc."
+    },
+    {
+      "ticker": "005930.KS",
+      "total_assets_now": null,
+      "nav_now": null,
+      "shares_out_now": 5709551509,
+      "name": "Samsung Electronics Co., Ltd."
+    }
+  ],
+  "unit": "원, 수량 주, 비율 소수"
+}

@@ -1,0 +1,123 @@
+{
+ "A_channels": {
+  "addlag(base&monthly)": {
+   "front": {
+    "S": 90.6,
+    "TOP7": 140.2,
+    "ALL": 48.6,
+    "S_n": 5.7
+   },
+   "back": {
+    "S": 2.4,
+    "TOP7": 2.1,
+    "ALL": 10.8,
+    "S_n": 5.8
+   },
+   "y2026": {
+    "S": 100.7,
+    "TOP7": 135.2,
+    "ALL": 59.3,
+    "S_n": 5.7
+   },
+   "avg_members_2026": 54.5
+  },
+  "droplag(base|monthly)": {
+   "front": {
+    "S": 55.1,
+    "TOP7": 136.4,
+    "ALL": 49.1,
+    "S_n": 6.9
+   },
+   "back": {
+    "S": 0.5,
+    "TOP7": -2.0,
+    "ALL": 6.4,
+    "S_n": 7.1
+   },
+   "y2026": {
+    "S": 51.3,
+    "TOP7": 107.3,
+    "ALL": 56.3,
+    "S_n": 7.0
+   },
+   "avg_members_2026": 67.2
+  },
+  "reference": {
+   "daily_S": 58.4,
+   "monthly_S": 83.6,
+   "daily_TOP7": 113.5,
+   "monthly_TOP7": 119.2,
+   "daily_ALL": 63.4,
+   "monthly_ALL": 52.7,
+   "avg_members_daily": 60.0,
+   "avg_members_monthly": 61.6
+  }
+ },
+ "B_fresh": {
+  "U0_daily": {
+   "S_ret": 58.4,
+   "split": {
+    "age>10": {
+     "name_weeks": 219,
+     "mean_wk_ret_pct": 1.43,
+     "mean_excess_vs_port_pct": 0.24
+    },
+    "age<=10": {
+     "name_weeks": 22,
+     "mean_wk_ret_pct": 0.35,
+     "mean_excess_vs_port_pct": -2.35
+    }
+   }
+  },
+  "U0_monthly": {
+   "S_ret": 83.6,
+   "split": {
+    "age>10": {
+     "name_weeks": 234,
+     "mean_wk_ret_pct": 1.6,
+     "mean_excess_vs_port_pct": -0.02
+    },
+    "age<=10": {
+     "name_weeks": 16,
+     "mean_wk_ret_pct": 4.62,
+     "mean_excess_vs_port_pct": 0.33
+    }
+   }
+  }
+ },
+ "C_slots": {
+  "U0_monthly": {
+   "S_ret": 83.6,
+   "avg_universe_2026": 61.1,
+   "avg_S_per_week": 6.41
+  },
+  "U1_monthly": {
+   "S_ret": 105.4,
+   "avg_universe_2026": 73.4,
+   "avg_S_per_week": 7.51
+  },
+  "check_U0_rank_U0_count": [
+   83.6,
+   6.41
+  ],
+  "check_U1_rank_U1_count": [
+   105.4,
+   7.51
+  ],
+  "C1_U0_rank_U1_count": [
+   99.2,
+   7.51
+  ],
+  "C2_U1_rank_U0_count": [
+   83.2,
+   6.41
+  ],
+  "U1_only_U0_pct": {
+   "n": 37,
+   "min": 0.788,
+   "median": 0.884,
+   "max": 0.9,
+   "robot_name_weeks_not_in_U0": 7
+  }
+ }
+}

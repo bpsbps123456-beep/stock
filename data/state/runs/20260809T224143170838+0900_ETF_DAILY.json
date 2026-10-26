@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "run_id": "20260809T224143170838+0900",
+  "workflow": "ETF_DAILY",
+  "requested_date": "2026-08-09",
+  "started_at": "2026-08-09T22:41:43+09:00",
+  "funds": {
+    "time": {
+      "fund_id": "456600",
+      "expected": true,
+      "fetch_requested": true,
+      "quality_status": "failed",
+      "report_status": "not_generated",
+      "error_type": "RuntimeError",
+      "error": "provider returned no holdings"
+    },
+    "koact": {
+      "fund_id": "2ETFQ1",
+      "expected": true,
+      "fetch_requested": true,
+      "requested_date": "2026-08-09",
+      "as_of_date": "2026-08-07",
+      "holdings_count": 44,
+      "cash_weight_pct": 0.49904985,
+      "nav_weight_sum_pct": 100.0,
+      "quality_status": "fallback",
+      "content_sha256": "eb1b71ab1adbe2340bd409823baf12ada4d0ffd3c491d02b8c1be0d803a229a4",
+      "raw_capture_status": "unchanged",
+      "raw_capture_path": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\raw\\etf_holdings\\2026-08-09_2ETFQ1_662a3e4f6b2c.json",
+      "storage_status": "unchanged",
+      "snapshot_path": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\normalized\\etf_holdings\\2026-08-07_2ETFQ1.json",
+      "stale_for_requested_date": true,
+      "report_status": "generated"
+    }
+  },
+  "errors": [
+    {
+      "fund": "time",
+      "stage": "fetch_validate_compare",
+      "error_type": "RuntimeError",
+      "error": "provider returned no holdings"
+    }
+  ],
+  "performance_status": "not_generated_partial_run",
+  "finished_at": "2026-08-09T22:41:45+09:00",
+  "status": "partial_success",
+  "report_contract_status": "passed",
+  "report_path": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\briefings\\2026-08-09_20260809T224143170838+0900_partial_success.md",
+  "manifest_path": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\state\\runs\\20260809T224143170838+0900_ETF_DAILY.json"
+}

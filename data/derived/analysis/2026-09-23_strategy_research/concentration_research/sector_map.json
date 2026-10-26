@@ -1,0 +1,3316 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-09-27T07:24:03.099308+00:00",
+  "source": "watchlist.py::resolve_sector only; metadata aliases resolve spelling, no new company classification",
+  "source_sha256": {
+    "data/derived/analysis/2026-09-23_strategy_research/strategy_comparison/results.json": "cd84d02f7c57ba10c3cfee97f0d870d99274421b4ce32dca59149470e90590c8",
+    "data/derived/analysis/2026-09-23_strategy_research/us_only_experiment/metadata.json": "e1ad0971d1d1162bb63333fda2a70428b3d9b2b17791d082594fa9ccd8a55e5e",
+    "data/derived/analysis/strategy_lab/lab_panels.json": "02c3977cf7b84343d300b0af8c42a1ab03b310a9c9f1adf1584380b580569e86",
+    "watchlist.py": "b7caf0a323de71e689f4576e2f4820d5ca97d945f69b82efba410a6af09b1df9"
+  },
+  "ordered_tickers": [
+    "AAOI",
+    "AAPL",
+    "ACN",
+    "ADI",
+    "AEHR",
+    "AEP",
+    "AKAM",
+    "ALAB",
+    "ALNY",
+    "AMAT",
+    "AMD",
+    "AMKR",
+    "AMZN",
+    "AOSL",
+    "APP",
+    "ARM",
+    "ASML",
+    "ASTS",
+    "AVGO",
+    "AXTI",
+    "BABA",
+    "BE",
+    "BIDU",
+    "BIIB",
+    "BKR",
+    "CBRS",
+    "CCJ",
+    "CEG",
+    "CIEN",
+    "CLS",
+    "COHR",
+    "COIN",
+    "COST",
+    "CRCL",
+    "CRDO",
+    "CRM",
+    "CRS",
+    "CRWD",
+    "CRWV",
+    "CSCO",
+    "DDOG",
+    "DELL",
+    "DG",
+    "DRUG",
+    "DT",
+    "DUK",
+    "DYN",
+    "EBAY",
+    "ECHO",
+    "EOSE",
+    "FIX",
+    "FLEX",
+    "FLNC",
+    "FN",
+    "FORM",
+    "FSLR",
+    "FSLY",
+    "FTNT",
+    "GEV",
+    "GFS",
+    "GH",
+    "GILD",
+    "GLW",
+    "GOOGL",
+    "GTLB",
+    "HOOD",
+    "IBKR",
+    "IBM",
+    "ILMN",
+    "INTC",
+    "IPGP",
+    "IREN",
+    "JAZZ",
+    "KEYS",
+    "KLAC",
+    "KO",
+    "LBRX",
+    "LEU",
+    "LITE",
+    "LLY",
+    "LRCX",
+    "LUNR",
+    "MCHP",
+    "MDB",
+    "MELI",
+    "META",
+    "MOG-A",
+    "MPWR",
+    "MRVL",
+    "MSFT",
+    "MSTR",
+    "MU",
+    "NBIS",
+    "NET",
+    "NOW",
+    "NTAP",
+    "NTRA",
+    "NVDA",
+    "NVTS",
+    "NXPI",
+    "NXT",
+    "OKLO",
+    "OKTA",
+    "ON",
+    "ONC",
+    "ONDS",
+    "ORKA",
+    "PANW",
+    "PDD",
+    "PEPG",
+    "PL",
+    "PLTR",
+    "POET",
+    "QBTS",
+    "QCOM",
+    "RDDT",
+    "RIOT",
+    "RKLB",
+    "RMBS",
+    "ROP",
+    "SAP",
+    "SERV",
+    "SIMO",
+    "SKHY",
+    "SMR",
+    "SNDK",
+    "SNOW",
+    "SPCX",
+    "STM",
+    "STX",
+    "TEM",
+    "TER",
+    "TKR",
+    "TSEM",
+    "TSLA",
+    "TSM",
+    "TTMI",
+    "TTWO",
+    "TXN",
+    "UEC",
+    "UUUU",
+    "VIAV",
+    "VICR",
+    "VRT",
+    "VRTX",
+    "VZ",
+    "WDC",
+    "WMT",
+    "XNDU",
+    "XOM"
+  ],
+  "ordered_company_keys": [
+    "AAOI US EQUITY",
+    "AAPL US EQUITY",
+    "ACN US EQUITY",
+    "ADI US EQUITY",
+    "AEHR US EQUITY",
+    "AEP US EQUITY",
+    "AKAM US EQUITY",
+    "ALAB US EQUITY",
+    "ALNY US EQUITY",
+    "AMAT US EQUITY",
+    "AMD US EQUITY",
+    "AMKR US EQUITY",
+    "AMZN US EQUITY",
+    "AOSL US EQUITY",
+    "APP US EQUITY",
+    "ARM US EQUITY",
+    "ASML US EQUITY",
+    "ASTS US EQUITY",
+    "AVGO US EQUITY",
+    "AXTI US EQUITY",
+    "BABA US EQUITY",
+    "BE US EQUITY",
+    "BIDU US EQUITY",
+    "BIIB US EQUITY",
+    "BKR US EQUITY",
+    "CBRS US EQUITY",
+    "CCJ US EQUITY",
+    "CEG US EQUITY",
+    "CIEN US EQUITY",
+    "CLS US EQUITY",
+    "COHR US EQUITY",
+    "COIN US EQUITY",
+    "COST US EQUITY",
+    "CRCL US EQUITY",
+    "CRDO US EQUITY",
+    "CRM US EQUITY",
+    "CRS US EQUITY",
+    "CRWD US EQUITY",
+    "CRWV US EQUITY",
+    "CSCO US EQUITY",
+    "DDOG US EQUITY",
+    "DELL US EQUITY",
+    "DG US EQUITY",
+    "DRUG US EQUITY",
+    "DT US EQUITY",
+    "DUK US EQUITY",
+    "DYN US EQUITY",
+    "EBAY US EQUITY",
+    "ECHO US EQUITY",
+    "EOSE US EQUITY",
+    "FIX US EQUITY",
+    "FLEX US EQUITY",
+    "FLNC US EQUITY",
+    "FN US EQUITY",
+    "FORM US EQUITY",
+    "FSLR US EQUITY",
+    "FSLY US EQUITY",
+    "FTNT US EQUITY",
+    "GEV US EQUITY",
+    "GFS US EQUITY",
+    "GH US EQUITY",
+    "GILD US EQUITY",
+    "GLW US EQUITY",
+    "GOOG US EQUITY",
+    "GTLB US EQUITY",
+    "HOOD US EQUITY",
+    "IBKR US EQUITY",
+    "IBM US EQUITY",
+    "ILMN US EQUITY",
+    "INTC US EQUITY",
+    "IPGP US EQUITY",
+    "IREN US EQUITY",
+    "JAZZ US EQUITY",
+    "KEYS US EQUITY",
+    "KLAC US EQUITY",
+    "KO US EQUITY",
+    "LBRX US EQUITY",
+    "LEU US EQUITY",
+    "LITE US EQUITY",
+    "LLY US EQUITY",
+    "LRCX US EQUITY",
+    "LUNR US EQUITY",
+    "MCHP US EQUITY",
+    "MDB US EQUITY",
+    "MELI US EQUITY",
+    "META US EQUITY",
+    "MOG/A US EQUITY",
+    "MPWR US EQUITY",
+    "MRVL US EQUITY",
+    "MSFT US EQUITY",
+    "MSTR US EQUITY",
+    "MU US EQUITY",
+    "NBIS US EQUITY",
+    "NET US EQUITY",
+    "NOW US EQUITY",
+    "NTAP US EQUITY",
+    "NTRA US EQUITY",
+    "NVDA US EQUITY",
+    "NVTS US EQUITY",
+    "NXPI US EQUITY",
+    "NXT US EQUITY",
+    "OKLO US EQUITY",
+    "OKTA US EQUITY",
+    "ON US EQUITY",
+    "ONC US EQUITY",
+    "ONDS US EQUITY",
+    "ORKA US EQUITY",
+    "PANW US EQUITY",
+    "PDD US EQUITY",
+    "PEPG US EQUITY",
+    "PL US EQUITY",
+    "PLTR US EQUITY",
+    "POET US EQUITY",
+    "QBTS US EQUITY",
+    "QCOM US EQUITY",
+    "RDDT US EQUITY",
+    "RIOT US EQUITY",
+    "RKLB US EQUITY",
+    "RMBS US EQUITY",
+    "ROP US EQUITY",
+    "SAP US EQUITY",
+    "SERV US EQUITY",
+    "SIMO US EQUITY",
+    "SKHY US EQUITY",
+    "SMR US EQUITY",
+    "SNDK US EQUITY",
+    "SNOW US EQUITY",
+    "SPCX US EQUITY",
+    "STM US EQUITY",
+    "STX US EQUITY",
+    "TEM US EQUITY",
+    "TER US EQUITY",
+    "TKR US EQUITY",
+    "TSEM US EQUITY",
+    "TSLA US EQUITY",
+    "TSM US EQUITY",
+    "TTMI US EQUITY",
+    "TTWO US EQUITY",
+    "TXN US EQUITY",
+    "UEC US EQUITY",
+    "UUUU US EQUITY",
+    "VIAV US EQUITY",
+    "VICR US EQUITY",
+    "VRT US EQUITY",
+    "VRTX US EQUITY",
+    "VZ US EQUITY",
+    "WDC US EQUITY",
+    "WMT US EQUITY",
+    "XNDU US EQUITY",
+    "XOM US EQUITY"
+  ],
+  "detail_ids": [
+    2,
+    10,
+    12,
+    0,
+    8,
+    5,
+    16,
+    0,
+    5,
+    7,
+    0,
+    5,
+    10,
+    5,
+    5,
+    0,
+    7,
+    13,
+    0,
+    6,
+    19,
+    14,
+    5,
+    22,
+    5,
+    5,
+    5,
+    5,
+    2,
+    5,
+    2,
+    20,
+    5,
+    20,
+    0,
+    12,
+    11,
+    12,
+    1,
+    2,
+    12,
+    1,
+    5,
+    5,
+    12,
+    5,
+    5,
+    15,
+    13,
+    5,
+    5,
+    18,
+    5,
+    5,
+    7,
+    14,
+    5,
+    12,
+    14,
+    0,
+    5,
+    22,
+    2,
+    10,
+    12,
+    20,
+    20,
+    12,
+    22,
+    9,
+    2,
+    1,
+    22,
+    5,
+    7,
+    21,
+    22,
+    5,
+    2,
+    22,
+    7,
+    5,
+    0,
+    12,
+    15,
+    10,
+    13,
+    0,
+    0,
+    10,
+    20,
+    3,
+    1,
+    16,
+    12,
+    1,
+    22,
+    0,
+    9,
+    0,
+    5,
+    14,
+    12,
+    0,
+    22,
+    5,
+    22,
+    12,
+    19,
+    5,
+    5,
+    12,
+    5,
+    5,
+    0,
+    5,
+    5,
+    13,
+    5,
+    12,
+    12,
+    5,
+    0,
+    3,
+    14,
+    3,
+    12,
+    13,
+    0,
+    3,
+    23,
+    7,
+    11,
+    0,
+    17,
+    0,
+    5,
+    4,
+    0,
+    14,
+    14,
+    2,
+    18,
+    1,
+    22,
+    5,
+    3,
+    5,
+    5,
+    5
+  ],
+  "detail_labels": [
+    "AI 반도체",
+    "AI 인프라",
+    "네트워크/광통신",
+    "메모리",
+    "미디어/게임",
+    "미분류",
+    "반도체 소재",
+    "반도체 장비",
+    "반도체 장비(적자)",
+    "반도체(적자)",
+    "빅테크",
+    "산업재",
+    "엔터프라이즈 SW",
+    "우주/방산",
+    "원자력/에너지",
+    "이커머스/플랫폼",
+    "인터넷 인프라/CDN",
+    "전기차/자율주행",
+    "전자부품/AI 하드웨어",
+    "중국 AI/플랫폼",
+    "핀테크/디지털자산",
+    "필수소비재",
+    "헬스케어",
+    "헬스케어 AI"
+  ],
+  "unknown_id": 5,
+  "risk_group_definitions": {
+    "broad_semiconductor": {
+      "label": "반도체 묶음",
+      "source_sectors": [
+        "AI 반도체",
+        "메모리",
+        "반도체 장비",
+        "반도체 장비(적자)",
+        "반도체(적자)",
+        "반도체 소재"
+      ]
+    },
+    "ai_hardware_infrastructure": {
+      "label": "반도체·AI 하드웨어/인프라",
+      "source_sectors": [
+        "AI 반도체",
+        "메모리",
+        "반도체 장비",
+        "반도체 장비(적자)",
+        "반도체(적자)",
+        "반도체 소재",
+        "전자부품/AI 하드웨어",
+        "네트워크/광통신",
+        "AI 인프라"
+      ]
+    }
+  },
+  "risk_group_masks": {
+    "broad_semiconductor": [
+      false,
+      false,
+      false,
+      true,
+      true,
+      false,
+      false,
+      true,
+      false,
+      true,
+      true,
+      false,
+      false,
+      false,
+      false,
+      true,
+      true,
+      false,
+      true,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      true,
+      true,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      true,
+      true,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      true,
+      false,
+      true,
+      false,
+      false,
+      true,
+      true,
+      false,
+      true,
+      false,
+      true,
+      false,
+      true,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "ai_hardware_infrastructure": [
+      true,
+      false,
+      false,
+      true,
+      true,
+      false,
+      false,
+      true,
+      false,
+      true,
+      true,
+      false,
+      false,
+      false,
+      false,
+      true,
+      true,
+      false,
+      true,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      true,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      true,
+      true,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      true,
+      true,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      true,
+      false,
+      true,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      true,
+      true,
+      false,
+      false,
+      true,
+      true,
+      false,
+      false,
+      true,
+      false,
+      true,
+      true,
+      true,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      true,
+      false,
+      true,
+      false,
+      false,
+      true,
+      true,
+      false,
+      true,
+      false,
+      true,
+      false,
+      true,
+      false,
+      false,
+      true,
+      false,
+      false,
+      true,
+      true,
+      true,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ]
+  },
+  "records": [
+    {
+      "index": 0,
+      "ticker": "AAOI",
+      "metadata_symbol": "AAOI",
+      "company_key": "AAOI US EQUITY",
+      "name": "APPLIED OPTOELECTRONICS INC",
+      "sector": "네트워크/광통신",
+      "resolved_listing_key": "AAOI",
+      "lookup_results": {
+        "AAOI": "네트워크/광통신"
+      },
+      "alias_recovery": false,
+      "sector_id": 2,
+      "risk_groups": [
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 1,
+      "ticker": "AAPL",
+      "metadata_symbol": "AAPL",
+      "company_key": "AAPL US EQUITY",
+      "name": "APPLE Inc",
+      "sector": "빅테크",
+      "resolved_listing_key": "AAPL",
+      "lookup_results": {
+        "AAPL": "빅테크"
+      },
+      "alias_recovery": false,
+      "sector_id": 10,
+      "risk_groups": []
+    },
+    {
+      "index": 2,
+      "ticker": "ACN",
+      "metadata_symbol": "ACN",
+      "company_key": "ACN US EQUITY",
+      "name": "Accenture PLC",
+      "sector": "엔터프라이즈 SW",
+      "resolved_listing_key": "ACN",
+      "lookup_results": {
+        "ACN": "엔터프라이즈 SW"
+      },
+      "alias_recovery": false,
+      "sector_id": 12,
+      "risk_groups": []
+    },
+    {
+      "index": 3,
+      "ticker": "ADI",
+      "metadata_symbol": "ADI",
+      "company_key": "ADI US EQUITY",
+      "name": "ANALOG DEVICES",
+      "sector": "AI 반도체",
+      "resolved_listing_key": "ADI",
+      "lookup_results": {
+        "ADI": "AI 반도체"
+      },
+      "alias_recovery": false,
+      "sector_id": 0,
+      "risk_groups": [
+        "broad_semiconductor",
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 4,
+      "ticker": "AEHR",
+      "metadata_symbol": "AEHR",
+      "company_key": "AEHR US EQUITY",
+      "name": "Aehr Test Systems",
+      "sector": "반도체 장비(적자)",
+      "resolved_listing_key": "AEHR",
+      "lookup_results": {
+        "AEHR": "반도체 장비(적자)"
+      },
+      "alias_recovery": false,
+      "sector_id": 8,
+      "risk_groups": [
+        "broad_semiconductor",
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 5,
+      "ticker": "AEP",
+      "metadata_symbol": "AEP",
+      "company_key": "AEP US EQUITY",
+      "name": "AMERICAN ELECTRIC POWER",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "AEP": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 6,
+      "ticker": "AKAM",
+      "metadata_symbol": "AKAM",
+      "company_key": "AKAM US EQUITY",
+      "name": "Akamai Technologies Inc",
+      "sector": "인터넷 인프라/CDN",
+      "resolved_listing_key": "AKAM",
+      "lookup_results": {
+        "AKAM": "인터넷 인프라/CDN"
+      },
+      "alias_recovery": false,
+      "sector_id": 16,
+      "risk_groups": []
+    },
+    {
+      "index": 7,
+      "ticker": "ALAB",
+      "metadata_symbol": "ALAB",
+      "company_key": "ALAB US EQUITY",
+      "name": "Astera Labs Inc",
+      "sector": "AI 반도체",
+      "resolved_listing_key": "ALAB",
+      "lookup_results": {
+        "ALAB": "AI 반도체"
+      },
+      "alias_recovery": false,
+      "sector_id": 0,
+      "risk_groups": [
+        "broad_semiconductor",
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 8,
+      "ticker": "ALNY",
+      "metadata_symbol": "ALNY",
+      "company_key": "ALNY US EQUITY",
+      "name": "ALNYLAM PHARMACEUTICALS INC",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "ALNY": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 9,
+      "ticker": "AMAT",
+      "metadata_symbol": "AMAT",
+      "company_key": "AMAT US EQUITY",
+      "name": "APPLIED MATERIALS INC",
+      "sector": "반도체 장비",
+      "resolved_listing_key": "AMAT",
+      "lookup_results": {
+        "AMAT": "반도체 장비"
+      },
+      "alias_recovery": false,
+      "sector_id": 7,
+      "risk_groups": [
+        "broad_semiconductor",
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 10,
+      "ticker": "AMD",
+      "metadata_symbol": "AMD",
+      "company_key": "AMD US EQUITY",
+      "name": "Advanced Micro Devices Inc",
+      "sector": "AI 반도체",
+      "resolved_listing_key": "AMD",
+      "lookup_results": {
+        "AMD": "AI 반도체"
+      },
+      "alias_recovery": false,
+      "sector_id": 0,
+      "risk_groups": [
+        "broad_semiconductor",
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 11,
+      "ticker": "AMKR",
+      "metadata_symbol": "AMKR",
+      "company_key": "AMKR US EQUITY",
+      "name": "Amkor Technology Inc",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "AMKR": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 12,
+      "ticker": "AMZN",
+      "metadata_symbol": "AMZN",
+      "company_key": "AMZN US EQUITY",
+      "name": "Amazon.com Inc",
+      "sector": "빅테크",
+      "resolved_listing_key": "AMZN",
+      "lookup_results": {
+        "AMZN": "빅테크"
+      },
+      "alias_recovery": false,
+      "sector_id": 10,
+      "risk_groups": []
+    },
+    {
+      "index": 13,
+      "ticker": "AOSL",
+      "metadata_symbol": "AOSL",
+      "company_key": "AOSL US EQUITY",
+      "name": "Alpha & Omega Semiconductor Ltd",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "AOSL": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 14,
+      "ticker": "APP",
+      "metadata_symbol": "APP",
+      "company_key": "APP US EQUITY",
+      "name": "AppLovin Corp",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "APP": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 15,
+      "ticker": "ARM",
+      "metadata_symbol": "ARM",
+      "company_key": "ARM US EQUITY",
+      "name": "ARM Holdings PLC",
+      "sector": "AI 반도체",
+      "resolved_listing_key": "ARM",
+      "lookup_results": {
+        "ARM": "AI 반도체"
+      },
+      "alias_recovery": false,
+      "sector_id": 0,
+      "risk_groups": [
+        "broad_semiconductor",
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 16,
+      "ticker": "ASML",
+      "metadata_symbol": "ASML",
+      "company_key": "ASML US EQUITY",
+      "name": "ASML Holding NV",
+      "sector": "반도체 장비",
+      "resolved_listing_key": "ASML",
+      "lookup_results": {
+        "ASML": "반도체 장비"
+      },
+      "alias_recovery": false,
+      "sector_id": 7,
+      "risk_groups": [
+        "broad_semiconductor",
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 17,
+      "ticker": "ASTS",
+      "metadata_symbol": "ASTS",
+      "company_key": "ASTS US EQUITY",
+      "name": "AST SpaceMobile Inc",
+      "sector": "우주/방산",
+      "resolved_listing_key": "ASTS",
+      "lookup_results": {
+        "ASTS": "우주/방산"
+      },
+      "alias_recovery": false,
+      "sector_id": 13,
+      "risk_groups": []
+    },
+    {
+      "index": 18,
+      "ticker": "AVGO",
+      "metadata_symbol": "AVGO",
+      "company_key": "AVGO US EQUITY",
+      "name": "Broadcom Inc",
+      "sector": "AI 반도체",
+      "resolved_listing_key": "AVGO",
+      "lookup_results": {
+        "AVGO": "AI 반도체"
+      },
+      "alias_recovery": false,
+      "sector_id": 0,
+      "risk_groups": [
+        "broad_semiconductor",
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 19,
+      "ticker": "AXTI",
+      "metadata_symbol": "AXTI",
+      "company_key": "AXTI US EQUITY",
+      "name": "AXT INC",
+      "sector": "반도체 소재",
+      "resolved_listing_key": "AXTI",
+      "lookup_results": {
+        "AXTI": "반도체 소재"
+      },
+      "alias_recovery": false,
+      "sector_id": 6,
+      "risk_groups": [
+        "broad_semiconductor",
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 20,
+      "ticker": "BABA",
+      "metadata_symbol": "BABA",
+      "company_key": "BABA US EQUITY",
+      "name": "Alibaba Group Holding Ltd",
+      "sector": "중국 AI/플랫폼",
+      "resolved_listing_key": "BABA",
+      "lookup_results": {
+        "BABA": "중국 AI/플랫폼"
+      },
+      "alias_recovery": false,
+      "sector_id": 19,
+      "risk_groups": []
+    },
+    {
+      "index": 21,
+      "ticker": "BE",
+      "metadata_symbol": "BE",
+      "company_key": "BE US EQUITY",
+      "name": "Bloom Energy Corp",
+      "sector": "원자력/에너지",
+      "resolved_listing_key": "BE",
+      "lookup_results": {
+        "BE": "원자력/에너지"
+      },
+      "alias_recovery": false,
+      "sector_id": 14,
+      "risk_groups": []
+    },
+    {
+      "index": 22,
+      "ticker": "BIDU",
+      "metadata_symbol": "BIDU",
+      "company_key": "BIDU US EQUITY",
+      "name": "Baidu Inc",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "BIDU": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 23,
+      "ticker": "BIIB",
+      "metadata_symbol": "BIIB",
+      "company_key": "BIIB US EQUITY",
+      "name": "BIOGEN",
+      "sector": "헬스케어",
+      "resolved_listing_key": "BIIB",
+      "lookup_results": {
+        "BIIB": "헬스케어"
+      },
+      "alias_recovery": false,
+      "sector_id": 22,
+      "risk_groups": []
+    },
+    {
+      "index": 24,
+      "ticker": "BKR",
+      "metadata_symbol": "BKR",
+      "company_key": "BKR US EQUITY",
+      "name": "BAKER HUGHES A GE",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "BKR": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 25,
+      "ticker": "CBRS",
+      "metadata_symbol": "CBRS",
+      "company_key": "CBRS US EQUITY",
+      "name": "Cerebras Systems Inc",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "CBRS": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 26,
+      "ticker": "CCJ",
+      "metadata_symbol": "CCJ",
+      "company_key": "CCJ US EQUITY",
+      "name": "Cameco Corp",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "CCJ": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 27,
+      "ticker": "CEG",
+      "metadata_symbol": "CEG",
+      "company_key": "CEG US EQUITY",
+      "name": "Constellation Energy Corp",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "CEG": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 28,
+      "ticker": "CIEN",
+      "metadata_symbol": "CIEN",
+      "company_key": "CIEN US EQUITY",
+      "name": "Ciena Corp",
+      "sector": "네트워크/광통신",
+      "resolved_listing_key": "CIEN",
+      "lookup_results": {
+        "CIEN": "네트워크/광통신"
+      },
+      "alias_recovery": false,
+      "sector_id": 2,
+      "risk_groups": [
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 29,
+      "ticker": "CLS",
+      "metadata_symbol": "CLS",
+      "company_key": "CLS US EQUITY",
+      "name": "Celestica Inc",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "CLS": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 30,
+      "ticker": "COHR",
+      "metadata_symbol": "COHR",
+      "company_key": "COHR US EQUITY",
+      "name": "Coherent Corp",
+      "sector": "네트워크/광통신",
+      "resolved_listing_key": "COHR",
+      "lookup_results": {
+        "COHR": "네트워크/광통신"
+      },
+      "alias_recovery": false,
+      "sector_id": 2,
+      "risk_groups": [
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 31,
+      "ticker": "COIN",
+      "metadata_symbol": "COIN",
+      "company_key": "COIN US EQUITY",
+      "name": "Coinbase Global Inc",
+      "sector": "핀테크/디지털자산",
+      "resolved_listing_key": "COIN",
+      "lookup_results": {
+        "COIN": "핀테크/디지털자산"
+      },
+      "alias_recovery": false,
+      "sector_id": 20,
+      "risk_groups": []
+    },
+    {
+      "index": 32,
+      "ticker": "COST",
+      "metadata_symbol": "COST",
+      "company_key": "COST US EQUITY",
+      "name": "COSTCO WHOLESALE CORP",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "COST": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 33,
+      "ticker": "CRCL",
+      "metadata_symbol": "CRCL",
+      "company_key": "CRCL US EQUITY",
+      "name": "Circle Internet Group Inc",
+      "sector": "핀테크/디지털자산",
+      "resolved_listing_key": "CRCL",
+      "lookup_results": {
+        "CRCL": "핀테크/디지털자산"
+      },
+      "alias_recovery": false,
+      "sector_id": 20,
+      "risk_groups": []
+    },
+    {
+      "index": 34,
+      "ticker": "CRDO",
+      "metadata_symbol": "CRDO",
+      "company_key": "CRDO US EQUITY",
+      "name": "Credo Technology Group Holding Ltd",
+      "sector": "AI 반도체",
+      "resolved_listing_key": "CRDO",
+      "lookup_results": {
+        "CRDO": "AI 반도체"
+      },
+      "alias_recovery": false,
+      "sector_id": 0,
+      "risk_groups": [
+        "broad_semiconductor",
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 35,
+      "ticker": "CRM",
+      "metadata_symbol": "CRM",
+      "company_key": "CRM US EQUITY",
+      "name": "Salesforce Inc",
+      "sector": "엔터프라이즈 SW",
+      "resolved_listing_key": "CRM",
+      "lookup_results": {
+        "CRM": "엔터프라이즈 SW"
+      },
+      "alias_recovery": false,
+      "sector_id": 12,
+      "risk_groups": []
+    },
+    {
+      "index": 36,
+      "ticker": "CRS",
+      "metadata_symbol": "CRS",
+      "company_key": "CRS US EQUITY",
+      "name": "Carpenter Technology Corp",
+      "sector": "산업재",
+      "resolved_listing_key": "CRS",
+      "lookup_results": {
+        "CRS": "산업재"
+      },
+      "alias_recovery": false,
+      "sector_id": 11,
+      "risk_groups": []
+    },
+    {
+      "index": 37,
+      "ticker": "CRWD",
+      "metadata_symbol": "CRWD",
+      "company_key": "CRWD US EQUITY",
+      "name": "Crowdstrike Holdings Inc",
+      "sector": "엔터프라이즈 SW",
+      "resolved_listing_key": "CRWD",
+      "lookup_results": {
+        "CRWD": "엔터프라이즈 SW"
+      },
+      "alias_recovery": false,
+      "sector_id": 12,
+      "risk_groups": []
+    },
+    {
+      "index": 38,
+      "ticker": "CRWV",
+      "metadata_symbol": "CRWV",
+      "company_key": "CRWV US EQUITY",
+      "name": "Coreweave Inc",
+      "sector": "AI 인프라",
+      "resolved_listing_key": "CRWV",
+      "lookup_results": {
+        "CRWV": "AI 인프라"
+      },
+      "alias_recovery": false,
+      "sector_id": 1,
+      "risk_groups": [
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 39,
+      "ticker": "CSCO",
+      "metadata_symbol": "CSCO",
+      "company_key": "CSCO US EQUITY",
+      "name": "CISCO SYSTEMS INC",
+      "sector": "네트워크/광통신",
+      "resolved_listing_key": "CSCO",
+      "lookup_results": {
+        "CSCO": "네트워크/광통신"
+      },
+      "alias_recovery": false,
+      "sector_id": 2,
+      "risk_groups": [
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 40,
+      "ticker": "DDOG",
+      "metadata_symbol": "DDOG",
+      "company_key": "DDOG US EQUITY",
+      "name": "DATADOG INC - CLASS A",
+      "sector": "엔터프라이즈 SW",
+      "resolved_listing_key": "DDOG",
+      "lookup_results": {
+        "DDOG": "엔터프라이즈 SW"
+      },
+      "alias_recovery": false,
+      "sector_id": 12,
+      "risk_groups": []
+    },
+    {
+      "index": 41,
+      "ticker": "DELL",
+      "metadata_symbol": "DELL",
+      "company_key": "DELL US EQUITY",
+      "name": "Dell Technologies Inc",
+      "sector": "AI 인프라",
+      "resolved_listing_key": "DELL",
+      "lookup_results": {
+        "DELL": "AI 인프라"
+      },
+      "alias_recovery": false,
+      "sector_id": 1,
+      "risk_groups": [
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 42,
+      "ticker": "DG",
+      "metadata_symbol": "DG",
+      "company_key": "DG US EQUITY",
+      "name": "DOLLAR GENERAL CORP",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "DG": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 43,
+      "ticker": "DRUG",
+      "metadata_symbol": "DRUG",
+      "company_key": "DRUG US EQUITY",
+      "name": "Bright Minds Biosciences Inc",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "DRUG": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 44,
+      "ticker": "DT",
+      "metadata_symbol": "DT",
+      "company_key": "DT US EQUITY",
+      "name": "DYNATRACE INC",
+      "sector": "엔터프라이즈 SW",
+      "resolved_listing_key": "DT",
+      "lookup_results": {
+        "DT": "엔터프라이즈 SW"
+      },
+      "alias_recovery": false,
+      "sector_id": 12,
+      "risk_groups": []
+    },
+    {
+      "index": 45,
+      "ticker": "DUK",
+      "metadata_symbol": "DUK",
+      "company_key": "DUK US EQUITY",
+      "name": "DUKE ENERGY CORP",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "DUK": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 46,
+      "ticker": "DYN",
+      "metadata_symbol": "DYN",
+      "company_key": "DYN US EQUITY",
+      "name": "Dyne Therapeutics Inc",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "DYN": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 47,
+      "ticker": "EBAY",
+      "metadata_symbol": "EBAY",
+      "company_key": "EBAY US EQUITY",
+      "name": "eBay Inc",
+      "sector": "이커머스/플랫폼",
+      "resolved_listing_key": "EBAY",
+      "lookup_results": {
+        "EBAY": "이커머스/플랫폼"
+      },
+      "alias_recovery": false,
+      "sector_id": 15,
+      "risk_groups": []
+    },
+    {
+      "index": 48,
+      "ticker": "ECHO",
+      "metadata_symbol": "ECHO",
+      "company_key": "ECHO US EQUITY",
+      "name": "EchoStar Corp",
+      "sector": "우주/방산",
+      "resolved_listing_key": "SATS",
+      "lookup_results": {
+        "ECHO": "미분류",
+        "SATS": "우주/방산"
+      },
+      "alias_recovery": true,
+      "sector_id": 13,
+      "risk_groups": []
+    },
+    {
+      "index": 49,
+      "ticker": "EOSE",
+      "metadata_symbol": "EOSE",
+      "company_key": "EOSE US EQUITY",
+      "name": "Eos Energy Enterprises Inc",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "EOSE": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 50,
+      "ticker": "FIX",
+      "metadata_symbol": "FIX",
+      "company_key": "FIX US EQUITY",
+      "name": "Comfort Systems USA Inc",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "FIX": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 51,
+      "ticker": "FLEX",
+      "metadata_symbol": "FLEX",
+      "company_key": "FLEX US EQUITY",
+      "name": "Flextronics International Ltd",
+      "sector": "전자부품/AI 하드웨어",
+      "resolved_listing_key": "FLEX",
+      "lookup_results": {
+        "FLEX": "전자부품/AI 하드웨어"
+      },
+      "alias_recovery": false,
+      "sector_id": 18,
+      "risk_groups": [
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 52,
+      "ticker": "FLNC",
+      "metadata_symbol": "FLNC",
+      "company_key": "FLNC US EQUITY",
+      "name": "Fluence Energy Inc",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "FLNC": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 53,
+      "ticker": "FN",
+      "metadata_symbol": "FN",
+      "company_key": "FN US EQUITY",
+      "name": "Fabrinet",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "FN": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 54,
+      "ticker": "FORM",
+      "metadata_symbol": "FORM",
+      "company_key": "FORM US EQUITY",
+      "name": "FormFactor Inc",
+      "sector": "반도체 장비",
+      "resolved_listing_key": "FORM",
+      "lookup_results": {
+        "FORM": "반도체 장비"
+      },
+      "alias_recovery": false,
+      "sector_id": 7,
+      "risk_groups": [
+        "broad_semiconductor",
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 55,
+      "ticker": "FSLR",
+      "metadata_symbol": "FSLR",
+      "company_key": "FSLR US EQUITY",
+      "name": "First Solar Inc",
+      "sector": "원자력/에너지",
+      "resolved_listing_key": "FSLR",
+      "lookup_results": {
+        "FSLR": "원자력/에너지"
+      },
+      "alias_recovery": false,
+      "sector_id": 14,
+      "risk_groups": []
+    },
+    {
+      "index": 56,
+      "ticker": "FSLY",
+      "metadata_symbol": "FSLY",
+      "company_key": "FSLY US EQUITY",
+      "name": "Fastly Inc",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "FSLY": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 57,
+      "ticker": "FTNT",
+      "metadata_symbol": "FTNT",
+      "company_key": "FTNT US EQUITY",
+      "name": "FORTINET INC",
+      "sector": "엔터프라이즈 SW",
+      "resolved_listing_key": "FTNT",
+      "lookup_results": {
+        "FTNT": "엔터프라이즈 SW"
+      },
+      "alias_recovery": false,
+      "sector_id": 12,
+      "risk_groups": []
+    },
+    {
+      "index": 58,
+      "ticker": "GEV",
+      "metadata_symbol": "GEV",
+      "company_key": "GEV US EQUITY",
+      "name": "GE Vernova Inc",
+      "sector": "원자력/에너지",
+      "resolved_listing_key": "GEV",
+      "lookup_results": {
+        "GEV": "원자력/에너지"
+      },
+      "alias_recovery": false,
+      "sector_id": 14,
+      "risk_groups": []
+    },
+    {
+      "index": 59,
+      "ticker": "GFS",
+      "metadata_symbol": "GFS",
+      "company_key": "GFS US EQUITY",
+      "name": "GLOBALFOUNDRIES Inc",
+      "sector": "AI 반도체",
+      "resolved_listing_key": "GFS",
+      "lookup_results": {
+        "GFS": "AI 반도체"
+      },
+      "alias_recovery": false,
+      "sector_id": 0,
+      "risk_groups": [
+        "broad_semiconductor",
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 60,
+      "ticker": "GH",
+      "metadata_symbol": "GH",
+      "company_key": "GH US EQUITY",
+      "name": "Guardant Health Inc",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "GH": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 61,
+      "ticker": "GILD",
+      "metadata_symbol": "GILD",
+      "company_key": "GILD US EQUITY",
+      "name": "GILEAD SCIENCES INC",
+      "sector": "헬스케어",
+      "resolved_listing_key": "GILD",
+      "lookup_results": {
+        "GILD": "헬스케어"
+      },
+      "alias_recovery": false,
+      "sector_id": 22,
+      "risk_groups": []
+    },
+    {
+      "index": 62,
+      "ticker": "GLW",
+      "metadata_symbol": "GLW",
+      "company_key": "GLW US EQUITY",
+      "name": "CORNING INC",
+      "sector": "네트워크/광통신",
+      "resolved_listing_key": "GLW",
+      "lookup_results": {
+        "GLW": "네트워크/광통신"
+      },
+      "alias_recovery": false,
+      "sector_id": 2,
+      "risk_groups": [
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 63,
+      "ticker": "GOOGL",
+      "metadata_symbol": "GOOG",
+      "company_key": "GOOG US EQUITY",
+      "name": "Alphabet Inc",
+      "sector": "빅테크",
+      "resolved_listing_key": "GOOGL",
+      "lookup_results": {
+        "GOOGL": "빅테크",
+        "GOOG": "빅테크"
+      },
+      "alias_recovery": false,
+      "sector_id": 10,
+      "risk_groups": []
+    },
+    {
+      "index": 64,
+      "ticker": "GTLB",
+      "metadata_symbol": "GTLB",
+      "company_key": "GTLB US EQUITY",
+      "name": "Gitlab Inc",
+      "sector": "엔터프라이즈 SW",
+      "resolved_listing_key": "GTLB",
+      "lookup_results": {
+        "GTLB": "엔터프라이즈 SW"
+      },
+      "alias_recovery": false,
+      "sector_id": 12,
+      "risk_groups": []
+    },
+    {
+      "index": 65,
+      "ticker": "HOOD",
+      "metadata_symbol": "HOOD",
+      "company_key": "HOOD US EQUITY",
+      "name": "Robinhood Markets Inc",
+      "sector": "핀테크/디지털자산",
+      "resolved_listing_key": "HOOD",
+      "lookup_results": {
+        "HOOD": "핀테크/디지털자산"
+      },
+      "alias_recovery": false,
+      "sector_id": 20,
+      "risk_groups": []
+    },
+    {
+      "index": 66,
+      "ticker": "IBKR",
+      "metadata_symbol": "IBKR",
+      "company_key": "IBKR US EQUITY",
+      "name": "Interactive Brokers Group Inc",
+      "sector": "핀테크/디지털자산",
+      "resolved_listing_key": "IBKR",
+      "lookup_results": {
+        "IBKR": "핀테크/디지털자산"
+      },
+      "alias_recovery": false,
+      "sector_id": 20,
+      "risk_groups": []
+    },
+    {
+      "index": 67,
+      "ticker": "IBM",
+      "metadata_symbol": "IBM",
+      "company_key": "IBM US EQUITY",
+      "name": "International Business Machines Corp",
+      "sector": "엔터프라이즈 SW",
+      "resolved_listing_key": "IBM",
+      "lookup_results": {
+        "IBM": "엔터프라이즈 SW"
+      },
+      "alias_recovery": false,
+      "sector_id": 12,
+      "risk_groups": []
+    },
+    {
+      "index": 68,
+      "ticker": "ILMN",
+      "metadata_symbol": "ILMN",
+      "company_key": "ILMN US EQUITY",
+      "name": "ILLUMINA INC",
+      "sector": "헬스케어",
+      "resolved_listing_key": "ILMN",
+      "lookup_results": {
+        "ILMN": "헬스케어"
+      },
+      "alias_recovery": false,
+      "sector_id": 22,
+      "risk_groups": []
+    },
+    {
+      "index": 69,
+      "ticker": "INTC",
+      "metadata_symbol": "INTC",
+      "company_key": "INTC US EQUITY",
+      "name": "Intel Corp",
+      "sector": "반도체(적자)",
+      "resolved_listing_key": "INTC",
+      "lookup_results": {
+        "INTC": "반도체(적자)"
+      },
+      "alias_recovery": false,
+      "sector_id": 9,
+      "risk_groups": [
+        "broad_semiconductor",
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 70,
+      "ticker": "IPGP",
+      "metadata_symbol": "IPGP",
+      "company_key": "IPGP US EQUITY",
+      "name": "IPG Photonics Corp",
+      "sector": "네트워크/광통신",
+      "resolved_listing_key": "IPGP",
+      "lookup_results": {
+        "IPGP": "네트워크/광통신"
+      },
+      "alias_recovery": false,
+      "sector_id": 2,
+      "risk_groups": [
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 71,
+      "ticker": "IREN",
+      "metadata_symbol": "IREN",
+      "company_key": "IREN US EQUITY",
+      "name": "IREN Ltd",
+      "sector": "AI 인프라",
+      "resolved_listing_key": "IREN",
+      "lookup_results": {
+        "IREN": "AI 인프라"
+      },
+      "alias_recovery": false,
+      "sector_id": 1,
+      "risk_groups": [
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 72,
+      "ticker": "JAZZ",
+      "metadata_symbol": "JAZZ",
+      "company_key": "JAZZ US EQUITY",
+      "name": "JAZZ PHARMACEUTICALS PLC",
+      "sector": "헬스케어",
+      "resolved_listing_key": "JAZZ",
+      "lookup_results": {
+        "JAZZ": "헬스케어"
+      },
+      "alias_recovery": false,
+      "sector_id": 22,
+      "risk_groups": []
+    },
+    {
+      "index": 73,
+      "ticker": "KEYS",
+      "metadata_symbol": "KEYS",
+      "company_key": "KEYS US EQUITY",
+      "name": "KEYSIGHT TECH",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "KEYS": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 74,
+      "ticker": "KLAC",
+      "metadata_symbol": "KLAC",
+      "company_key": "KLAC US EQUITY",
+      "name": "KLA Corp",
+      "sector": "반도체 장비",
+      "resolved_listing_key": "KLAC",
+      "lookup_results": {
+        "KLAC": "반도체 장비"
+      },
+      "alias_recovery": false,
+      "sector_id": 7,
+      "risk_groups": [
+        "broad_semiconductor",
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 75,
+      "ticker": "KO",
+      "metadata_symbol": "KO",
+      "company_key": "KO US EQUITY",
+      "name": "COCA-COLA CO/THE",
+      "sector": "필수소비재",
+      "resolved_listing_key": "KO",
+      "lookup_results": {
+        "KO": "필수소비재"
+      },
+      "alias_recovery": false,
+      "sector_id": 21,
+      "risk_groups": []
+    },
+    {
+      "index": 76,
+      "ticker": "LBRX",
+      "metadata_symbol": "LBRX",
+      "company_key": "LBRX US EQUITY",
+      "name": "LB Pharmaceuticals Inc",
+      "sector": "헬스케어",
+      "resolved_listing_key": "LBRX",
+      "lookup_results": {
+        "LBRX": "헬스케어"
+      },
+      "alias_recovery": false,
+      "sector_id": 22,
+      "risk_groups": []
+    },
+    {
+      "index": 77,
+      "ticker": "LEU",
+      "metadata_symbol": "LEU",
+      "company_key": "LEU US EQUITY",
+      "name": "Centrus Energy Corp",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "LEU": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 78,
+      "ticker": "LITE",
+      "metadata_symbol": "LITE",
+      "company_key": "LITE US EQUITY",
+      "name": "Lumentum Holdings Inc",
+      "sector": "네트워크/광통신",
+      "resolved_listing_key": "LITE",
+      "lookup_results": {
+        "LITE": "네트워크/광통신"
+      },
+      "alias_recovery": false,
+      "sector_id": 2,
+      "risk_groups": [
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 79,
+      "ticker": "LLY",
+      "metadata_symbol": "LLY",
+      "company_key": "LLY US EQUITY",
+      "name": "ELI LILLY & CO",
+      "sector": "헬스케어",
+      "resolved_listing_key": "LLY",
+      "lookup_results": {
+        "LLY": "헬스케어"
+      },
+      "alias_recovery": false,
+      "sector_id": 22,
+      "risk_groups": []
+    },
+    {
+      "index": 80,
+      "ticker": "LRCX",
+      "metadata_symbol": "LRCX",
+      "company_key": "LRCX US EQUITY",
+      "name": "LAM RESEARCH",
+      "sector": "반도체 장비",
+      "resolved_listing_key": "LRCX",
+      "lookup_results": {
+        "LRCX": "반도체 장비"
+      },
+      "alias_recovery": false,
+      "sector_id": 7,
+      "risk_groups": [
+        "broad_semiconductor",
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 81,
+      "ticker": "LUNR",
+      "metadata_symbol": "LUNR",
+      "company_key": "LUNR US EQUITY",
+      "name": "Intuitive Machines Inc",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "LUNR": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 82,
+      "ticker": "MCHP",
+      "metadata_symbol": "MCHP",
+      "company_key": "MCHP US EQUITY",
+      "name": "MICROCHIP TECHNOLOGY INC",
+      "sector": "AI 반도체",
+      "resolved_listing_key": "MCHP",
+      "lookup_results": {
+        "MCHP": "AI 반도체"
+      },
+      "alias_recovery": false,
+      "sector_id": 0,
+      "risk_groups": [
+        "broad_semiconductor",
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 83,
+      "ticker": "MDB",
+      "metadata_symbol": "MDB",
+      "company_key": "MDB US EQUITY",
+      "name": "MONGODB INC",
+      "sector": "엔터프라이즈 SW",
+      "resolved_listing_key": "MDB",
+      "lookup_results": {
+        "MDB": "엔터프라이즈 SW"
+      },
+      "alias_recovery": false,
+      "sector_id": 12,
+      "risk_groups": []
+    },
+    {
+      "index": 84,
+      "ticker": "MELI",
+      "metadata_symbol": "MELI",
+      "company_key": "MELI US EQUITY",
+      "name": "MercadoLibre Inc",
+      "sector": "이커머스/플랫폼",
+      "resolved_listing_key": "MELI",
+      "lookup_results": {
+        "MELI": "이커머스/플랫폼"
+      },
+      "alias_recovery": false,
+      "sector_id": 15,
+      "risk_groups": []
+    },
+    {
+      "index": 85,
+      "ticker": "META",
+      "metadata_symbol": "META",
+      "company_key": "META US EQUITY",
+      "name": "Meta Platforms Inc",
+      "sector": "빅테크",
+      "resolved_listing_key": "META",
+      "lookup_results": {
+        "META": "빅테크"
+      },
+      "alias_recovery": false,
+      "sector_id": 10,
+      "risk_groups": []
+    },
+    {
+      "index": 86,
+      "ticker": "MOG-A",
+      "metadata_symbol": "MOG-A",
+      "company_key": "MOG/A US EQUITY",
+      "name": "Moog Inc",
+      "sector": "우주/방산",
+      "resolved_listing_key": "MOG/A",
+      "lookup_results": {
+        "MOG-A": "미분류",
+        "MOG/A": "우주/방산"
+      },
+      "alias_recovery": true,
+      "sector_id": 13,
+      "risk_groups": []
+    },
+    {
+      "index": 87,
+      "ticker": "MPWR",
+      "metadata_symbol": "MPWR",
+      "company_key": "MPWR US EQUITY",
+      "name": "MONOLITHIC POWER SYSTEMS INC",
+      "sector": "AI 반도체",
+      "resolved_listing_key": "MPWR",
+      "lookup_results": {
+        "MPWR": "AI 반도체"
+      },
+      "alias_recovery": false,
+      "sector_id": 0,
+      "risk_groups": [
+        "broad_semiconductor",
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 88,
+      "ticker": "MRVL",
+      "metadata_symbol": "MRVL",
+      "company_key": "MRVL US EQUITY",
+      "name": "MARVELL TECHNOLOGY INC",
+      "sector": "AI 반도체",
+      "resolved_listing_key": "MRVL",
+      "lookup_results": {
+        "MRVL": "AI 반도체"
+      },
+      "alias_recovery": false,
+      "sector_id": 0,
+      "risk_groups": [
+        "broad_semiconductor",
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 89,
+      "ticker": "MSFT",
+      "metadata_symbol": "MSFT",
+      "company_key": "MSFT US EQUITY",
+      "name": "Microsoft Corp",
+      "sector": "빅테크",
+      "resolved_listing_key": "MSFT",
+      "lookup_results": {
+        "MSFT": "빅테크"
+      },
+      "alias_recovery": false,
+      "sector_id": 10,
+      "risk_groups": []
+    },
+    {
+      "index": 90,
+      "ticker": "MSTR",
+      "metadata_symbol": "MSTR",
+      "company_key": "MSTR US EQUITY",
+      "name": "Strategy Inc",
+      "sector": "핀테크/디지털자산",
+      "resolved_listing_key": "MSTR",
+      "lookup_results": {
+        "MSTR": "핀테크/디지털자산"
+      },
+      "alias_recovery": false,
+      "sector_id": 20,
+      "risk_groups": []
+    },
+    {
+      "index": 91,
+      "ticker": "MU",
+      "metadata_symbol": "MU",
+      "company_key": "MU US EQUITY",
+      "name": "Micron Technology Inc",
+      "sector": "메모리",
+      "resolved_listing_key": "MU",
+      "lookup_results": {
+        "MU": "메모리"
+      },
+      "alias_recovery": false,
+      "sector_id": 3,
+      "risk_groups": [
+        "broad_semiconductor",
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 92,
+      "ticker": "NBIS",
+      "metadata_symbol": "NBIS",
+      "company_key": "NBIS US EQUITY",
+      "name": "Nebius Group NV",
+      "sector": "AI 인프라",
+      "resolved_listing_key": "NBIS",
+      "lookup_results": {
+        "NBIS": "AI 인프라"
+      },
+      "alias_recovery": false,
+      "sector_id": 1,
+      "risk_groups": [
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 93,
+      "ticker": "NET",
+      "metadata_symbol": "NET",
+      "company_key": "NET US EQUITY",
+      "name": "Cloudflare Inc",
+      "sector": "인터넷 인프라/CDN",
+      "resolved_listing_key": "NET",
+      "lookup_results": {
+        "NET": "인터넷 인프라/CDN"
+      },
+      "alias_recovery": false,
+      "sector_id": 16,
+      "risk_groups": []
+    },
+    {
+      "index": 94,
+      "ticker": "NOW",
+      "metadata_symbol": "NOW",
+      "company_key": "NOW US EQUITY",
+      "name": "ServiceNow Inc",
+      "sector": "엔터프라이즈 SW",
+      "resolved_listing_key": "NOW",
+      "lookup_results": {
+        "NOW": "엔터프라이즈 SW"
+      },
+      "alias_recovery": false,
+      "sector_id": 12,
+      "risk_groups": []
+    },
+    {
+      "index": 95,
+      "ticker": "NTAP",
+      "metadata_symbol": "NTAP",
+      "company_key": "NTAP US EQUITY",
+      "name": "NetApp Inc",
+      "sector": "AI 인프라",
+      "resolved_listing_key": "NTAP",
+      "lookup_results": {
+        "NTAP": "AI 인프라"
+      },
+      "alias_recovery": false,
+      "sector_id": 1,
+      "risk_groups": [
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 96,
+      "ticker": "NTRA",
+      "metadata_symbol": "NTRA",
+      "company_key": "NTRA US EQUITY",
+      "name": "Natera Inc",
+      "sector": "헬스케어",
+      "resolved_listing_key": "NTRA",
+      "lookup_results": {
+        "NTRA": "헬스케어"
+      },
+      "alias_recovery": false,
+      "sector_id": 22,
+      "risk_groups": []
+    },
+    {
+      "index": 97,
+      "ticker": "NVDA",
+      "metadata_symbol": "NVDA",
+      "company_key": "NVDA US EQUITY",
+      "name": "NVIDIA Corp",
+      "sector": "AI 반도체",
+      "resolved_listing_key": "NVDA",
+      "lookup_results": {
+        "NVDA": "AI 반도체"
+      },
+      "alias_recovery": false,
+      "sector_id": 0,
+      "risk_groups": [
+        "broad_semiconductor",
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 98,
+      "ticker": "NVTS",
+      "metadata_symbol": "NVTS",
+      "company_key": "NVTS US EQUITY",
+      "name": "NAVITAS SEMICONDUCTOR CORP",
+      "sector": "반도체(적자)",
+      "resolved_listing_key": "NVTS",
+      "lookup_results": {
+        "NVTS": "반도체(적자)"
+      },
+      "alias_recovery": false,
+      "sector_id": 9,
+      "risk_groups": [
+        "broad_semiconductor",
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 99,
+      "ticker": "NXPI",
+      "metadata_symbol": "NXPI",
+      "company_key": "NXPI US EQUITY",
+      "name": "NXP SEMICONDUCTORS NV",
+      "sector": "AI 반도체",
+      "resolved_listing_key": "NXPI",
+      "lookup_results": {
+        "NXPI": "AI 반도체"
+      },
+      "alias_recovery": false,
+      "sector_id": 0,
+      "risk_groups": [
+        "broad_semiconductor",
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 100,
+      "ticker": "NXT",
+      "metadata_symbol": "NXT",
+      "company_key": "NXT US EQUITY",
+      "name": "Nextpower Inc",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "NXT": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 101,
+      "ticker": "OKLO",
+      "metadata_symbol": "OKLO",
+      "company_key": "OKLO US EQUITY",
+      "name": "Oklo Inc",
+      "sector": "원자력/에너지",
+      "resolved_listing_key": "OKLO",
+      "lookup_results": {
+        "OKLO": "원자력/에너지"
+      },
+      "alias_recovery": false,
+      "sector_id": 14,
+      "risk_groups": []
+    },
+    {
+      "index": 102,
+      "ticker": "OKTA",
+      "metadata_symbol": "OKTA",
+      "company_key": "OKTA US EQUITY",
+      "name": "OKTA INC",
+      "sector": "엔터프라이즈 SW",
+      "resolved_listing_key": "OKTA",
+      "lookup_results": {
+        "OKTA": "엔터프라이즈 SW"
+      },
+      "alias_recovery": false,
+      "sector_id": 12,
+      "risk_groups": []
+    },
+    {
+      "index": 103,
+      "ticker": "ON",
+      "metadata_symbol": "ON",
+      "company_key": "ON US EQUITY",
+      "name": "ON SEMICONDUCTOR",
+      "sector": "AI 반도체",
+      "resolved_listing_key": "ON",
+      "lookup_results": {
+        "ON": "AI 반도체"
+      },
+      "alias_recovery": false,
+      "sector_id": 0,
+      "risk_groups": [
+        "broad_semiconductor",
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 104,
+      "ticker": "ONC",
+      "metadata_symbol": "ONC",
+      "company_key": "ONC US EQUITY",
+      "name": "BeOne Medicines Ltd",
+      "sector": "헬스케어",
+      "resolved_listing_key": "ONC",
+      "lookup_results": {
+        "ONC": "헬스케어"
+      },
+      "alias_recovery": false,
+      "sector_id": 22,
+      "risk_groups": []
+    },
+    {
+      "index": 105,
+      "ticker": "ONDS",
+      "metadata_symbol": "ONDS",
+      "company_key": "ONDS US EQUITY",
+      "name": "Ondas Holdings Inc",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "ONDS": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 106,
+      "ticker": "ORKA",
+      "metadata_symbol": "ORKA",
+      "company_key": "ORKA US EQUITY",
+      "name": "Oruka Therapeutics Inc",
+      "sector": "헬스케어",
+      "resolved_listing_key": "ORKA",
+      "lookup_results": {
+        "ORKA": "헬스케어"
+      },
+      "alias_recovery": false,
+      "sector_id": 22,
+      "risk_groups": []
+    },
+    {
+      "index": 107,
+      "ticker": "PANW",
+      "metadata_symbol": "PANW",
+      "company_key": "PANW US EQUITY",
+      "name": "PALO ALTO NETWORKS INC",
+      "sector": "엔터프라이즈 SW",
+      "resolved_listing_key": "PANW",
+      "lookup_results": {
+        "PANW": "엔터프라이즈 SW"
+      },
+      "alias_recovery": false,
+      "sector_id": 12,
+      "risk_groups": []
+    },
+    {
+      "index": 108,
+      "ticker": "PDD",
+      "metadata_symbol": "PDD",
+      "company_key": "PDD US EQUITY",
+      "name": "PDD Holdings Inc",
+      "sector": "중국 AI/플랫폼",
+      "resolved_listing_key": "PDD",
+      "lookup_results": {
+        "PDD": "중국 AI/플랫폼"
+      },
+      "alias_recovery": false,
+      "sector_id": 19,
+      "risk_groups": []
+    },
+    {
+      "index": 109,
+      "ticker": "PEPG",
+      "metadata_symbol": "PEPG",
+      "company_key": "PEPG US EQUITY",
+      "name": "PepGen Inc",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "PEPG": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 110,
+      "ticker": "PL",
+      "metadata_symbol": "PL",
+      "company_key": "PL US EQUITY",
+      "name": "Planet Labs PBC",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "PL": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 111,
+      "ticker": "PLTR",
+      "metadata_symbol": "PLTR",
+      "company_key": "PLTR US EQUITY",
+      "name": "Palantir Technologies Inc",
+      "sector": "엔터프라이즈 SW",
+      "resolved_listing_key": "PLTR",
+      "lookup_results": {
+        "PLTR": "엔터프라이즈 SW"
+      },
+      "alias_recovery": false,
+      "sector_id": 12,
+      "risk_groups": []
+    },
+    {
+      "index": 112,
+      "ticker": "POET",
+      "metadata_symbol": "POET",
+      "company_key": "POET US EQUITY",
+      "name": "POET Technologies Inc",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "POET": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 113,
+      "ticker": "QBTS",
+      "metadata_symbol": "QBTS",
+      "company_key": "QBTS US EQUITY",
+      "name": "D-Wave Quantum Inc",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "QBTS": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 114,
+      "ticker": "QCOM",
+      "metadata_symbol": "QCOM",
+      "company_key": "QCOM US EQUITY",
+      "name": "QUALCOMM Inc",
+      "sector": "AI 반도체",
+      "resolved_listing_key": "QCOM",
+      "lookup_results": {
+        "QCOM": "AI 반도체"
+      },
+      "alias_recovery": false,
+      "sector_id": 0,
+      "risk_groups": [
+        "broad_semiconductor",
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 115,
+      "ticker": "RDDT",
+      "metadata_symbol": "RDDT",
+      "company_key": "RDDT US EQUITY",
+      "name": "Reddit Inc",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "RDDT": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 116,
+      "ticker": "RIOT",
+      "metadata_symbol": "RIOT",
+      "company_key": "RIOT US EQUITY",
+      "name": "Riot Platforms Inc",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "RIOT": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 117,
+      "ticker": "RKLB",
+      "metadata_symbol": "RKLB",
+      "company_key": "RKLB US EQUITY",
+      "name": "Rocket Lab Corp",
+      "sector": "우주/방산",
+      "resolved_listing_key": "RKLB",
+      "lookup_results": {
+        "RKLB": "우주/방산"
+      },
+      "alias_recovery": false,
+      "sector_id": 13,
+      "risk_groups": []
+    },
+    {
+      "index": 118,
+      "ticker": "RMBS",
+      "metadata_symbol": "RMBS",
+      "company_key": "RMBS US EQUITY",
+      "name": "Rambus Inc",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "RMBS": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 119,
+      "ticker": "ROP",
+      "metadata_symbol": "ROP",
+      "company_key": "ROP US EQUITY",
+      "name": "Roper Technologies Inc",
+      "sector": "엔터프라이즈 SW",
+      "resolved_listing_key": "ROP",
+      "lookup_results": {
+        "ROP": "엔터프라이즈 SW"
+      },
+      "alias_recovery": false,
+      "sector_id": 12,
+      "risk_groups": []
+    },
+    {
+      "index": 120,
+      "ticker": "SAP",
+      "metadata_symbol": "SAP",
+      "company_key": "SAP US EQUITY",
+      "name": "SAP SE",
+      "sector": "엔터프라이즈 SW",
+      "resolved_listing_key": "SAP",
+      "lookup_results": {
+        "SAP": "엔터프라이즈 SW"
+      },
+      "alias_recovery": false,
+      "sector_id": 12,
+      "risk_groups": []
+    },
+    {
+      "index": 121,
+      "ticker": "SERV",
+      "metadata_symbol": "SERV",
+      "company_key": "SERV US EQUITY",
+      "name": "Serve Robotics Inc",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "SERV": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 122,
+      "ticker": "SIMO",
+      "metadata_symbol": "SIMO",
+      "company_key": "SIMO US EQUITY",
+      "name": "Silicon Motion Technology Corp",
+      "sector": "AI 반도체",
+      "resolved_listing_key": "SIMO",
+      "lookup_results": {
+        "SIMO": "AI 반도체"
+      },
+      "alias_recovery": false,
+      "sector_id": 0,
+      "risk_groups": [
+        "broad_semiconductor",
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 123,
+      "ticker": "SKHY",
+      "metadata_symbol": "SKHY",
+      "company_key": "SKHY US EQUITY",
+      "name": "SK hynix Inc",
+      "sector": "메모리",
+      "resolved_listing_key": "SKHY",
+      "lookup_results": {
+        "SKHY": "메모리",
+        "SKHYV": "메모리"
+      },
+      "alias_recovery": false,
+      "sector_id": 3,
+      "risk_groups": [
+        "broad_semiconductor",
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 124,
+      "ticker": "SMR",
+      "metadata_symbol": "SMR",
+      "company_key": "SMR US EQUITY",
+      "name": "NuScale Power Corp",
+      "sector": "원자력/에너지",
+      "resolved_listing_key": "SMR",
+      "lookup_results": {
+        "SMR": "원자력/에너지"
+      },
+      "alias_recovery": false,
+      "sector_id": 14,
+      "risk_groups": []
+    },
+    {
+      "index": 125,
+      "ticker": "SNDK",
+      "metadata_symbol": "SNDK",
+      "company_key": "SNDK US EQUITY",
+      "name": "Sandisk Corp/DE",
+      "sector": "메모리",
+      "resolved_listing_key": "SNDK",
+      "lookup_results": {
+        "SNDK": "메모리"
+      },
+      "alias_recovery": false,
+      "sector_id": 3,
+      "risk_groups": [
+        "broad_semiconductor",
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 126,
+      "ticker": "SNOW",
+      "metadata_symbol": "SNOW",
+      "company_key": "SNOW US EQUITY",
+      "name": "Snowflake Inc",
+      "sector": "엔터프라이즈 SW",
+      "resolved_listing_key": "SNOW",
+      "lookup_results": {
+        "SNOW": "엔터프라이즈 SW"
+      },
+      "alias_recovery": false,
+      "sector_id": 12,
+      "risk_groups": []
+    },
+    {
+      "index": 127,
+      "ticker": "SPCX",
+      "metadata_symbol": "SPCX",
+      "company_key": "SPCX US EQUITY",
+      "name": "Space Exploration Technologies Corp",
+      "sector": "우주/방산",
+      "resolved_listing_key": "SPCX",
+      "lookup_results": {
+        "SPCX": "우주/방산"
+      },
+      "alias_recovery": false,
+      "sector_id": 13,
+      "risk_groups": []
+    },
+    {
+      "index": 128,
+      "ticker": "STM",
+      "metadata_symbol": "STM",
+      "company_key": "STM US EQUITY",
+      "name": "STMICROELECTRONICS NV-NY SHS",
+      "sector": "AI 반도체",
+      "resolved_listing_key": "STM",
+      "lookup_results": {
+        "STM": "AI 반도체"
+      },
+      "alias_recovery": false,
+      "sector_id": 0,
+      "risk_groups": [
+        "broad_semiconductor",
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 129,
+      "ticker": "STX",
+      "metadata_symbol": "STX",
+      "company_key": "STX US EQUITY",
+      "name": "Seagate Technology Holdings PLC",
+      "sector": "메모리",
+      "resolved_listing_key": "STX",
+      "lookup_results": {
+        "STX": "메모리"
+      },
+      "alias_recovery": false,
+      "sector_id": 3,
+      "risk_groups": [
+        "broad_semiconductor",
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 130,
+      "ticker": "TEM",
+      "metadata_symbol": "TEM",
+      "company_key": "TEM US EQUITY",
+      "name": "Tempus AI Inc",
+      "sector": "헬스케어 AI",
+      "resolved_listing_key": "TEM",
+      "lookup_results": {
+        "TEM": "헬스케어 AI"
+      },
+      "alias_recovery": false,
+      "sector_id": 23,
+      "risk_groups": []
+    },
+    {
+      "index": 131,
+      "ticker": "TER",
+      "metadata_symbol": "TER",
+      "company_key": "TER US EQUITY",
+      "name": "Teradyne Inc",
+      "sector": "반도체 장비",
+      "resolved_listing_key": "TER",
+      "lookup_results": {
+        "TER": "반도체 장비"
+      },
+      "alias_recovery": false,
+      "sector_id": 7,
+      "risk_groups": [
+        "broad_semiconductor",
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 132,
+      "ticker": "TKR",
+      "metadata_symbol": "TKR",
+      "company_key": "TKR US EQUITY",
+      "name": "Timken Co/The",
+      "sector": "산업재",
+      "resolved_listing_key": "TKR",
+      "lookup_results": {
+        "TKR": "산업재"
+      },
+      "alias_recovery": false,
+      "sector_id": 11,
+      "risk_groups": []
+    },
+    {
+      "index": 133,
+      "ticker": "TSEM",
+      "metadata_symbol": "TSEM",
+      "company_key": "TSEM US EQUITY",
+      "name": "Tower Semiconductor Ltd",
+      "sector": "AI 반도체",
+      "resolved_listing_key": "TSEM",
+      "lookup_results": {
+        "TSEM": "AI 반도체"
+      },
+      "alias_recovery": false,
+      "sector_id": 0,
+      "risk_groups": [
+        "broad_semiconductor",
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 134,
+      "ticker": "TSLA",
+      "metadata_symbol": "TSLA",
+      "company_key": "TSLA US EQUITY",
+      "name": "Tesla Inc",
+      "sector": "전기차/자율주행",
+      "resolved_listing_key": "TSLA",
+      "lookup_results": {
+        "TSLA": "전기차/자율주행"
+      },
+      "alias_recovery": false,
+      "sector_id": 17,
+      "risk_groups": []
+    },
+    {
+      "index": 135,
+      "ticker": "TSM",
+      "metadata_symbol": "TSM",
+      "company_key": "TSM US EQUITY",
+      "name": "Taiwan Semiconductor Manufacturing Co Ltd",
+      "sector": "AI 반도체",
+      "resolved_listing_key": "TSM",
+      "lookup_results": {
+        "TSM": "AI 반도체"
+      },
+      "alias_recovery": false,
+      "sector_id": 0,
+      "risk_groups": [
+        "broad_semiconductor",
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 136,
+      "ticker": "TTMI",
+      "metadata_symbol": "TTMI",
+      "company_key": "TTMI US EQUITY",
+      "name": "TTM Technologies Inc",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "TTMI": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 137,
+      "ticker": "TTWO",
+      "metadata_symbol": "TTWO",
+      "company_key": "TTWO US EQUITY",
+      "name": "TAKE-TWO INTERACTIVE SOFTWRE",
+      "sector": "미디어/게임",
+      "resolved_listing_key": "TTWO",
+      "lookup_results": {
+        "TTWO": "미디어/게임"
+      },
+      "alias_recovery": false,
+      "sector_id": 4,
+      "risk_groups": []
+    },
+    {
+      "index": 138,
+      "ticker": "TXN",
+      "metadata_symbol": "TXN",
+      "company_key": "TXN US EQUITY",
+      "name": "Texas Instruments Inc",
+      "sector": "AI 반도체",
+      "resolved_listing_key": "TXN",
+      "lookup_results": {
+        "TXN": "AI 반도체"
+      },
+      "alias_recovery": false,
+      "sector_id": 0,
+      "risk_groups": [
+        "broad_semiconductor",
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 139,
+      "ticker": "UEC",
+      "metadata_symbol": "UEC",
+      "company_key": "UEC US EQUITY",
+      "name": "Uranium Energy Corp",
+      "sector": "원자력/에너지",
+      "resolved_listing_key": "UEC",
+      "lookup_results": {
+        "UEC": "원자력/에너지"
+      },
+      "alias_recovery": false,
+      "sector_id": 14,
+      "risk_groups": []
+    },
+    {
+      "index": 140,
+      "ticker": "UUUU",
+      "metadata_symbol": "UUUU",
+      "company_key": "UUUU US EQUITY",
+      "name": "Energy Fuels Inc/Canada",
+      "sector": "원자력/에너지",
+      "resolved_listing_key": "UUUU",
+      "lookup_results": {
+        "UUUU": "원자력/에너지"
+      },
+      "alias_recovery": false,
+      "sector_id": 14,
+      "risk_groups": []
+    },
+    {
+      "index": 141,
+      "ticker": "VIAV",
+      "metadata_symbol": "VIAV",
+      "company_key": "VIAV US EQUITY",
+      "name": "Viavi Solutions Inc",
+      "sector": "네트워크/광통신",
+      "resolved_listing_key": "VIAV",
+      "lookup_results": {
+        "VIAV": "네트워크/광통신"
+      },
+      "alias_recovery": false,
+      "sector_id": 2,
+      "risk_groups": [
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 142,
+      "ticker": "VICR",
+      "metadata_symbol": "VICR",
+      "company_key": "VICR US EQUITY",
+      "name": "Vicor Corp",
+      "sector": "전자부품/AI 하드웨어",
+      "resolved_listing_key": "VICR",
+      "lookup_results": {
+        "VICR": "전자부품/AI 하드웨어"
+      },
+      "alias_recovery": false,
+      "sector_id": 18,
+      "risk_groups": [
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 143,
+      "ticker": "VRT",
+      "metadata_symbol": "VRT",
+      "company_key": "VRT US EQUITY",
+      "name": "Vertiv Holdings Co",
+      "sector": "AI 인프라",
+      "resolved_listing_key": "VRT",
+      "lookup_results": {
+        "VRT": "AI 인프라"
+      },
+      "alias_recovery": false,
+      "sector_id": 1,
+      "risk_groups": [
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 144,
+      "ticker": "VRTX",
+      "metadata_symbol": "VRTX",
+      "company_key": "VRTX US EQUITY",
+      "name": "Vertex Pharmaceuticals Inc",
+      "sector": "헬스케어",
+      "resolved_listing_key": "VRTX",
+      "lookup_results": {
+        "VRTX": "헬스케어"
+      },
+      "alias_recovery": false,
+      "sector_id": 22,
+      "risk_groups": []
+    },
+    {
+      "index": 145,
+      "ticker": "VZ",
+      "metadata_symbol": "VZ",
+      "company_key": "VZ US EQUITY",
+      "name": "VERIZON COMMUNICATIONS INC",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "VZ": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 146,
+      "ticker": "WDC",
+      "metadata_symbol": "WDC",
+      "company_key": "WDC US EQUITY",
+      "name": "Western Digital Corp",
+      "sector": "메모리",
+      "resolved_listing_key": "WDC",
+      "lookup_results": {
+        "WDC": "메모리"
+      },
+      "alias_recovery": false,
+      "sector_id": 3,
+      "risk_groups": [
+        "broad_semiconductor",
+        "ai_hardware_infrastructure"
+      ]
+    },
+    {
+      "index": 147,
+      "ticker": "WMT",
+      "metadata_symbol": "WMT",
+      "company_key": "WMT US EQUITY",
+      "name": "WAL-MART STORES INC",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "WMT": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 148,
+      "ticker": "XNDU",
+      "metadata_symbol": "XNDU",
+      "company_key": "XNDU US EQUITY",
+      "name": "Xanadu Quantum Technologies Ltd",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "XNDU": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    },
+    {
+      "index": 149,
+      "ticker": "XOM",
+      "metadata_symbol": "XOM",
+      "company_key": "XOM US EQUITY",
+      "name": "EXXON MOBIL CORP",
+      "sector": "미분류",
+      "resolved_listing_key": null,
+      "lookup_results": {
+        "XOM": "미분류"
+      },
+      "alias_recovery": false,
+      "sector_id": 5,
+      "risk_groups": []
+    }
+  ],
+  "coverage": {
+    "total": 150,
+    "classified": 110,
+    "classified_pct": 73.33333333333333,
+    "unknown": 40,
+    "unknown_tickers": [
+      "AEP",
+      "ALNY",
+      "AMKR",
+      "AOSL",
+      "APP",
+      "BIDU",
+      "BKR",
+      "CBRS",
+      "CCJ",
+      "CEG",
+      "CLS",
+      "COST",
+      "DG",
+      "DRUG",
+      "DUK",
+      "DYN",
+      "EOSE",
+      "FIX",
+      "FLNC",
+      "FN",
+      "FSLY",
+      "GH",
+      "KEYS",
+      "LEU",
+      "LUNR",
+      "NXT",
+      "ONDS",
+      "PEPG",
+      "PL",
+      "POET",
+      "QBTS",
+      "RDDT",
+      "RIOT",
+      "RMBS",
+      "SERV",
+      "TTMI",
+      "VZ",
+      "WMT",
+      "XNDU",
+      "XOM"
+    ],
+    "alias_recoveries": [
+      {
+        "ticker": "ECHO",
+        "resolved_listing_key": "SATS",
+        "sector": "우주/방산"
+      },
+      {
+        "ticker": "MOG-A",
+        "resolved_listing_key": "MOG/A",
+        "sector": "우주/방산"
+      }
+    ],
+    "detail_counts": {
+      "AI 반도체": 19,
+      "AI 인프라": 6,
+      "네트워크/광통신": 8,
+      "메모리": 5,
+      "미디어/게임": 1,
+      "미분류": 40,
+      "반도체 소재": 1,
+      "반도체 장비": 6,
+      "반도체 장비(적자)": 1,
+      "반도체(적자)": 2,
+      "빅테크": 5,
+      "산업재": 2,
+      "엔터프라이즈 SW": 16,
+      "우주/방산": 5,
+      "원자력/에너지": 7,
+      "이커머스/플랫폼": 2,
+      "인터넷 인프라/CDN": 2,
+      "전기차/자율주행": 1,
+      "전자부품/AI 하드웨어": 2,
+      "중국 AI/플랫폼": 2,
+      "핀테크/디지털자산": 5,
+      "필수소비재": 1,
+      "헬스케어": 10,
+      "헬스케어 AI": 1
+    },
+    "risk_group_counts": {
+      "broad_semiconductor": 34,
+      "ai_hardware_infrastructure": 50
+    }
+  },
+  "limitations": [
+    "These are research risk groups made by joining existing labels, not GICS classifications.",
+    "Current watchlist labels have no historical effective timestamps; applying them to 2026 is retrospective tagging.",
+    "All unclassified names share one unknown bucket. They must not be interpreted as zero risk or confirmed non-semiconductor.",
+    "Known broad-semiconductor exposure is a lower bound on that economic risk. Known group plus unknown is an explicit uncertainty bound.",
+    "AI infrastructure includes equipment and data-center operators; the wider group represents AI-capex-related exposure, not pure hardware manufacturing.",
+    "Risk-group sets overlap: semiconductor is a subset of the broader AI group. Do not add both exposures together.",
+    "No classifications or group membership were optimized against candidate returns."
+  ]
+}

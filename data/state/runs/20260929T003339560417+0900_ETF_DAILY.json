@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "run_id": "20260929T003339560417+0900",
+  "workflow": "ETF_DAILY",
+  "requested_date": "2026-09-29",
+  "started_at": "2026-09-29T00:33:39+09:00",
+  "funds": {
+    "time": {
+      "fund_id": "456600",
+      "expected": true,
+      "fetch_requested": true,
+      "quality_status": "failed",
+      "report_status": "not_generated",
+      "error_type": "RuntimeError",
+      "error": "provider returned no holdings"
+    },
+    "koact": {
+      "fund_id": "2ETFQ1",
+      "expected": true,
+      "fetch_requested": true,
+      "requested_date": "2026-09-29",
+      "as_of_date": "2026-09-28",
+      "holdings_count": 45,
+      "cash_weight_pct": 0.4803955,
+      "nav_weight_sum_pct": 99.99999998,
+      "quality_status": "fallback",
+      "content_sha256": "fa3dc4edf275e10e6dff4bb26f675c7ab7448bb9282228ea7c6aca8c9099d2db",
+      "raw_capture_status": "created",
+      "raw_capture_path": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\raw\\etf_holdings\\2026-09-29_2ETFQ1_870ca58f546d.json",
+      "storage_status": "unchanged",
+      "snapshot_path": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\normalized\\etf_holdings\\2026-09-28_2ETFQ1.json",
+      "stale_for_requested_date": true,
+      "report_status": "generated"
+    }
+  },
+  "errors": [
+    {
+      "fund": "time",
+      "stage": "fetch_validate_compare",
+      "error_type": "RuntimeError",
+      "error": "provider returned no holdings"
+    }
+  ],
+  "backfill": [
+    {
+      "fund": "time",
+      "date": "2026-09-24",
+      "status": "not_published"
+    },
+    {
+      "fund": "time",
+      "date": "2026-09-25",
+      "status": "not_published"
+    },
+    {
+      "fund": "time",
+      "date": "2026-09-28",
+      "status": "stored",
+      "storage_status": "created"
+    },
+    {
+      "fund": "koact",
+      "date": "2026-09-24",
+      "status": "not_published",
+      "provider_as_of": "2026-09-23"
+    },
+    {
+      "fund": "koact",
+      "date": "2026-09-25",
+      "status": "not_published",
+      "provider_as_of": "2026-09-23"
+    },
+    {
+      "fund": "koact",
+      "date": "2026-09-28",
+      "status": "stored",
+      "storage_status": "created"
+    }
+  ],
+  "performance_status": "not_generated_partial_run",
+  "finished_at": "2026-09-29T00:33:49+09:00",
+  "status": "partial_success",
+  "report_contract_status": "passed",
+  "report_path": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\briefings\\2026-09-29_20260929T003339560417+0900_partial_success.md",
+  "manifest_path": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\state\\runs\\20260929T003339560417+0900_ETF_DAILY.json"
+}

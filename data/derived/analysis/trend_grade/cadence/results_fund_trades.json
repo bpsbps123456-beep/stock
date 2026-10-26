@@ -1,0 +1,2467 @@
+{
+ "source": "data/normalized/etf_holdings (CU당 수량 PDF), gbrc.etf.flows.quantity_flows ±5% 기준",
+ "window_days": 20,
+ "big_weight_pct": 1.0,
+ "funds": [
+  {
+   "fund": "456600",
+   "name": "TIME 글로벌AI인공지능액티브",
+   "sample": {
+    "first": "2026-01-02",
+    "last": "2026-10-08",
+    "pairs": 186
+   },
+   "trade_day_share": 0.618,
+   "inout_day_share": 0.349,
+   "weeks_with_inout_share": 0.8,
+   "median_names_traded_per_day": 2.0,
+   "mean_daily_one_way_turnover_pp": 1.545,
+   "median_daily_one_way_turnover_pp": 0.686,
+   "annualized_one_way_turnover_pct": 389.4,
+   "top5_days_turnover_share": 0.19,
+   "month_end_last2": {
+    "turnover_share": 0.091,
+    "day_share": 0.108
+   },
+   "quarter_end_last2_mar_jun_sep": {
+    "turnover_share": 0.008,
+    "day_share": 0.032
+   },
+   "weekday_trade_day_share": {
+    "0": 0.514,
+    "1": 0.632,
+    "2": 0.658,
+    "3": 0.641,
+    "4": 0.639
+   },
+   "exits_big": {
+    "n": 56,
+    "median_pre_sold_frac": 0.166,
+    "share_pre_sold_ge_50pct": 0.232,
+    "share_pre_sold_lt_10pct": 0.411,
+    "median_sell_days_prior20": 1.0,
+    "median_w_max_prior": 2.0475,
+    "median_w_last": 1.0274999999999999,
+    "by_size": {
+     "wmax_1to3": {
+      "n": 47,
+      "median_pre_sold_frac": 0.148,
+      "share_pre_sold_ge_50pct": 0.17,
+      "median_sell_days_prior20": 1.0
+     },
+     "wmax_ge3": {
+      "n": 9,
+      "median_pre_sold_frac": 0.608,
+      "share_pre_sold_ge_50pct": 0.556,
+      "median_sell_days_prior20": 4.0
+     }
+    },
+    "events": [
+     {
+      "key": "QCOM US EQUITY",
+      "name": "QUALCOMM Inc",
+      "exit_date": "2026-01-21",
+      "span": 12,
+      "w_max_prior": 1.004,
+      "w_last": 0.348,
+      "pre_sold_frac": 0.559,
+      "sell_days": 1
+     },
+     {
+      "key": "SMR US EQUITY",
+      "name": "NuScale Power Corp",
+      "exit_date": "2026-01-21",
+      "span": 12,
+      "w_max_prior": 1.678,
+      "w_last": 1.608,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "OKLO US EQUITY",
+      "name": "Oklo Inc",
+      "exit_date": "2026-01-26",
+      "span": 15,
+      "w_max_prior": 2.054,
+      "w_last": 1.241,
+      "pre_sold_frac": 0.0,
+      "sell_days": 1
+     },
+     {
+      "key": "RDDT US EQUITY",
+      "name": "Reddit Inc",
+      "exit_date": "2026-01-30",
+      "span": 19,
+      "w_max_prior": 3.021,
+      "w_last": 0.764,
+      "pre_sold_frac": 0.648,
+      "sell_days": 4
+     },
+     {
+      "key": "APP US EQUITY",
+      "name": "AppLovin Corp",
+      "exit_date": "2026-01-30",
+      "span": 19,
+      "w_max_prior": 3.483,
+      "w_last": 0.673,
+      "pre_sold_frac": 0.71,
+      "sell_days": 4
+     },
+     {
+      "key": "AMD US EQUITY",
+      "name": "Advanced Micro Devices Inc",
+      "exit_date": "2026-01-30",
+      "span": 19,
+      "w_max_prior": 2.128,
+      "w_last": 1.471,
+      "pre_sold_frac": 0.303,
+      "sell_days": 1
+     },
+     {
+      "key": "SNOW US EQUITY",
+      "name": "Snowflake Inc",
+      "exit_date": "2026-02-03",
+      "span": 20,
+      "w_max_prior": 1.288,
+      "w_last": 0.579,
+      "pre_sold_frac": 0.397,
+      "sell_days": 1
+     },
+     {
+      "key": "NOW US EQUITY",
+      "name": "ServiceNow Inc",
+      "exit_date": "2026-02-03",
+      "span": 20,
+      "w_max_prior": 1.156,
+      "w_last": 0.379,
+      "pre_sold_frac": 0.476,
+      "sell_days": 2
+     },
+     {
+      "key": "PLTR US EQUITY",
+      "name": "Palantir Technologies Inc",
+      "exit_date": "2026-02-03",
+      "span": 20,
+      "w_max_prior": 2.05,
+      "w_last": 1.038,
+      "pre_sold_frac": 0.278,
+      "sell_days": 1
+     },
+     {
+      "key": "AVGO US EQUITY",
+      "name": "Broadcom Inc",
+      "exit_date": "2026-02-05",
+      "span": 20,
+      "w_max_prior": 1.029,
+      "w_last": 0.516,
+      "pre_sold_frac": 0.402,
+      "sell_days": 2
+     },
+     {
+      "key": "HOOD US EQUITY",
+      "name": "Robinhood Markets Inc",
+      "exit_date": "2026-02-06",
+      "span": 20,
+      "w_max_prior": 1.784,
+      "w_last": 0.399,
+      "pre_sold_frac": 0.644,
+      "sell_days": 2
+     },
+     {
+      "key": "108490",
+      "name": "로보티즈",
+      "exit_date": "2026-02-10",
+      "span": 20,
+      "w_max_prior": 1.567,
+      "w_last": 1.087,
+      "pre_sold_frac": 0.204,
+      "sell_days": 1
+     },
+     {
+      "key": "MELI US EQUITY",
+      "name": "MercadoLibre Inc",
+      "exit_date": "2026-02-10",
+      "span": 20,
+      "w_max_prior": 1.701,
+      "w_last": 1.152,
+      "pre_sold_frac": 0.249,
+      "sell_days": 1
+     },
+     {
+      "key": "EOSE US EQUITY",
+      "name": "Eos Energy Enterprises Inc",
+      "exit_date": "2026-03-04",
+      "span": 20,
+      "w_max_prior": 1.397,
+      "w_last": 0.292,
+      "pre_sold_frac": 0.476,
+      "sell_days": 1
+     },
+     {
+      "key": "PL US EQUITY",
+      "name": "Planet Labs PBC",
+      "exit_date": "2026-03-04",
+      "span": 20,
+      "w_max_prior": 2.06,
+      "w_last": 0.798,
+      "pre_sold_frac": 0.568,
+      "sell_days": 2
+     },
+     {
+      "key": "FLNC US EQUITY",
+      "name": "Fluence Energy Inc",
+      "exit_date": "2026-03-04",
+      "span": 20,
+      "w_max_prior": 2.189,
+      "w_last": 1.126,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "307950",
+      "name": "현대오토에버",
+      "exit_date": "2026-03-05",
+      "span": 20,
+      "w_max_prior": 2.3,
+      "w_last": 0.477,
+      "pre_sold_frac": 0.78,
+      "sell_days": 3
+     },
+     {
+      "key": "9988 HK EQUITY",
+      "name": "Alibaba Group Holding Ltd",
+      "exit_date": "2026-03-06",
+      "span": 20,
+      "w_max_prior": 1.673,
+      "w_last": 1.454,
+      "pre_sold_frac": 0.0,
+      "sell_days": 1
+     },
+     {
+      "key": "CCJ US EQUITY",
+      "name": "Cameco Corp",
+      "exit_date": "2026-03-27",
+      "span": 20,
+      "w_max_prior": 3.763,
+      "w_last": 1.107,
+      "pre_sold_frac": 0.608,
+      "sell_days": 3
+     },
+     {
+      "key": "010120",
+      "name": "LS ELECTRIC",
+      "exit_date": "2026-04-01",
+      "span": 20,
+      "w_max_prior": 1.607,
+      "w_last": 1.543,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "1772 HK EQUITY",
+      "name": "Ganfeng Lithium Group Co Ltd",
+      "exit_date": "2026-04-02",
+      "span": 20,
+      "w_max_prior": 2.486,
+      "w_last": 1.434,
+      "pre_sold_frac": 0.553,
+      "sell_days": 2
+     },
+     {
+      "key": "AXTI US EQUITY",
+      "name": "AXT Inc",
+      "exit_date": "2026-04-08",
+      "span": 20,
+      "w_max_prior": 2.045,
+      "w_last": 1.589,
+      "pre_sold_frac": 0.013,
+      "sell_days": 0
+     },
+     {
+      "key": "CRM US EQUITY",
+      "name": "Salesforce Inc",
+      "exit_date": "2026-04-14",
+      "span": 20,
+      "w_max_prior": 1.013,
+      "w_last": 0.69,
+      "pre_sold_frac": 0.056,
+      "sell_days": 0
+     },
+     {
+      "key": "298040",
+      "name": "효성중공업",
+      "exit_date": "2026-04-23",
+      "span": 15,
+      "w_max_prior": 1.377,
+      "w_last": 0.889,
+      "pre_sold_frac": 0.173,
+      "sell_days": 1
+     },
+     {
+      "key": "267260",
+      "name": "HD현대일렉트릭",
+      "exit_date": "2026-04-24",
+      "span": 20,
+      "w_max_prior": 1.382,
+      "w_last": 0.861,
+      "pre_sold_frac": 0.26,
+      "sell_days": 2
+     },
+     {
+      "key": "UEC US EQUITY",
+      "name": "Uranium Energy Corp",
+      "exit_date": "2026-04-27",
+      "span": 20,
+      "w_max_prior": 1.188,
+      "w_last": 0.889,
+      "pre_sold_frac": 0.029,
+      "sell_days": 0
+     },
+     {
+      "key": "META US EQUITY",
+      "name": "Meta Platforms Inc",
+      "exit_date": "2026-05-04",
+      "span": 20,
+      "w_max_prior": 2.248,
+      "w_last": 0.941,
+      "pre_sold_frac": 0.162,
+      "sell_days": 3
+     },
+     {
+      "key": "MSFT US EQUITY",
+      "name": "Microsoft Corp",
+      "exit_date": "2026-05-11",
+      "span": 20,
+      "w_max_prior": 1.567,
+      "w_last": 0.841,
+      "pre_sold_frac": 0.0,
+      "sell_days": 3
+     },
+     {
+      "key": "034020",
+      "name": "두산에너빌리티",
+      "exit_date": "2026-05-15",
+      "span": 20,
+      "w_max_prior": 1.578,
+      "w_last": 1.125,
+      "pre_sold_frac": 0.029,
+      "sell_days": 0
+     },
+     {
+      "key": "006400",
+      "name": "삼성SDI",
+      "exit_date": "2026-05-15",
+      "span": 20,
+      "w_max_prior": 3.124,
+      "w_last": 1.31,
+      "pre_sold_frac": 0.043,
+      "sell_days": 1
+     },
+     {
+      "key": "010120",
+      "name": "LS ELECTRIC",
+      "exit_date": "2026-05-15",
+      "span": 19,
+      "w_max_prior": 2.354,
+      "w_last": 1.947,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "298040",
+      "name": "효성중공업",
+      "exit_date": "2026-05-15",
+      "span": 12,
+      "w_max_prior": 1.132,
+      "w_last": 0.667,
+      "pre_sold_frac": 0.268,
+      "sell_days": 1
+     },
+     {
+      "key": "AVGO US EQUITY",
+      "name": "Broadcom Inc",
+      "exit_date": "2026-05-18",
+      "span": 20,
+      "w_max_prior": 1.931,
+      "w_last": 1.307,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "SIMO US EQUITY",
+      "name": "Silicon Motion Technology Corp",
+      "exit_date": "2026-05-18",
+      "span": 20,
+      "w_max_prior": 1.214,
+      "w_last": 0.595,
+      "pre_sold_frac": 0.645,
+      "sell_days": 2
+     },
+     {
+      "key": "TSLA US EQUITY",
+      "name": "Tesla Inc",
+      "exit_date": "2026-05-19",
+      "span": 20,
+      "w_max_prior": 2.087,
+      "w_last": 0.776,
+      "pre_sold_frac": 0.053,
+      "sell_days": 2
+     },
+     {
+      "key": "VRT US EQUITY",
+      "name": "Vertiv Holdings Co",
+      "exit_date": "2026-05-19",
+      "span": 20,
+      "w_max_prior": 2.736,
+      "w_last": 0.834,
+      "pre_sold_frac": 0.0,
+      "sell_days": 2
+     },
+     {
+      "key": "BE US EQUITY",
+      "name": "Bloom Energy Corp",
+      "exit_date": "2026-05-20",
+      "span": 20,
+      "w_max_prior": 5.759,
+      "w_last": 1.101,
+      "pre_sold_frac": 0.659,
+      "sell_days": 5
+     },
+     {
+      "key": "GEV US EQUITY",
+      "name": "GE Vernova Inc",
+      "exit_date": "2026-05-20",
+      "span": 20,
+      "w_max_prior": 2.445,
+      "w_last": 0.761,
+      "pre_sold_frac": 0.574,
+      "sell_days": 3
+     },
+     {
+      "key": "HOOD US EQUITY",
+      "name": "Robinhood Markets Inc",
+      "exit_date": "2026-05-20",
+      "span": 19,
+      "w_max_prior": 2.132,
+      "w_last": 1.017,
+      "pre_sold_frac": 0.0,
+      "sell_days": 2
+     },
+     {
+      "key": "CIEN US EQUITY",
+      "name": "Ciena Corp",
+      "exit_date": "2026-05-20",
+      "span": 20,
+      "w_max_prior": 4.743,
+      "w_last": 1.408,
+      "pre_sold_frac": 0.627,
+      "sell_days": 4
+     },
+     {
+      "key": "000660",
+      "name": "SK하이닉스",
+      "exit_date": "2026-05-20",
+      "span": 20,
+      "w_max_prior": 3.098,
+      "w_last": 2.818,
+      "pre_sold_frac": 0.17,
+      "sell_days": 2
+     },
+     {
+      "key": "LITE US EQUITY",
+      "name": "Lumentum Holdings Inc",
+      "exit_date": "2026-05-20",
+      "span": 20,
+      "w_max_prior": 7.701,
+      "w_last": 2.113,
+      "pre_sold_frac": 0.111,
+      "sell_days": 6
+     },
+     {
+      "key": "COHR US EQUITY",
+      "name": "Coherent Corp",
+      "exit_date": "2026-05-20",
+      "span": 20,
+      "w_max_prior": 2.081,
+      "w_last": 0.694,
+      "pre_sold_frac": 0.584,
+      "sell_days": 2
+     },
+     {
+      "key": "440110",
+      "name": "파두",
+      "exit_date": "2026-05-20",
+      "span": 20,
+      "w_max_prior": 2.426,
+      "w_last": 1.371,
+      "pre_sold_frac": 0.0,
+      "sell_days": 1
+     },
+     {
+      "key": "TSEM US EQUITY",
+      "name": "Tower Semiconductor Ltd",
+      "exit_date": "2026-05-20",
+      "span": 20,
+      "w_max_prior": 1.332,
+      "w_last": 0.663,
+      "pre_sold_frac": 0.432,
+      "sell_days": 1
+     },
+     {
+      "key": "009150",
+      "name": "삼성전기",
+      "exit_date": "2026-05-20",
+      "span": 20,
+      "w_max_prior": 4.488,
+      "w_last": 2.742,
+      "pre_sold_frac": 0.128,
+      "sell_days": 3
+     },
+     {
+      "key": "AAOI US EQUITY",
+      "name": "Applied Optoelectronics Inc",
+      "exit_date": "2026-05-20",
+      "span": 20,
+      "w_max_prior": 1.658,
+      "w_last": 0.483,
+      "pre_sold_frac": 0.148,
+      "sell_days": 2
+     },
+     {
+      "key": "005930",
+      "name": "삼성전자",
+      "exit_date": "2026-05-20",
+      "span": 20,
+      "w_max_prior": 1.653,
+      "w_last": 1.653,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "NBIS US EQUITY",
+      "name": "Nebius Group NV",
+      "exit_date": "2026-05-20",
+      "span": 20,
+      "w_max_prior": 1.015,
+      "w_last": 0.931,
+      "pre_sold_frac": 0.006,
+      "sell_days": 0
+     },
+     {
+      "key": "RKLB US EQUITY",
+      "name": "Rocket Lab Corp",
+      "exit_date": "2026-06-04",
+      "span": 20,
+      "w_max_prior": 2.062,
+      "w_last": 1.172,
+      "pre_sold_frac": 0.136,
+      "sell_days": 2
+     },
+     {
+      "key": "SPCX US EQUITY",
+      "name": "Space Exploration Technologies Corp",
+      "exit_date": "2026-06-24",
+      "span": 6,
+      "w_max_prior": 2.577,
+      "w_last": 2.244,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "CRCL US EQUITY",
+      "name": "Circle Internet Group Inc",
+      "exit_date": "2026-07-02",
+      "span": 20,
+      "w_max_prior": 1.305,
+      "w_last": 0.851,
+      "pre_sold_frac": 0.01,
+      "sell_days": 0
+     },
+     {
+      "key": "9988 HK EQUITY",
+      "name": "Alibaba Group Holding Ltd",
+      "exit_date": "2026-07-16",
+      "span": 20,
+      "w_max_prior": 1.955,
+      "w_last": 1.955,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "NTAP US EQUITY",
+      "name": "NetApp Inc",
+      "exit_date": "2026-07-16",
+      "span": 20,
+      "w_max_prior": 2.728,
+      "w_last": 2.485,
+      "pre_sold_frac": 0.189,
+      "sell_days": 1
+     },
+     {
+      "key": "TSEM US EQUITY",
+      "name": "Tower Semiconductor Ltd",
+      "exit_date": "2026-09-02",
+      "span": 19,
+      "w_max_prior": 2.199,
+      "w_last": 1.807,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "HOOD US EQUITY",
+      "name": "Robinhood Markets Inc",
+      "exit_date": "2026-10-07",
+      "span": 20,
+      "w_max_prior": 1.32,
+      "w_last": 0.673,
+      "pre_sold_frac": 0.399,
+      "sell_days": 1
+     }
+    ]
+   },
+   "entries_big": {
+    "n": 44,
+    "median_first_day_frac": 0.524,
+    "share_first_day_ge_80pct": 0.205,
+    "median_buy_days_next20": 1.0,
+    "events": [
+     {
+      "key": "CCJ US EQUITY",
+      "name": "Cameco Corp",
+      "entry_date": "2026-01-21",
+      "w_first": 2.193,
+      "w_after20": 3.022,
+      "first_day_frac": 0.725,
+      "buy_days": 2
+     },
+     {
+      "key": "006400",
+      "name": "삼성SDI",
+      "entry_date": "2026-01-23",
+      "w_first": 1.035,
+      "w_after20": 2.13,
+      "first_day_frac": 0.533,
+      "buy_days": 1
+     },
+     {
+      "key": "UUUU US EQUITY",
+      "name": "Energy Fuels Inc/Canada",
+      "entry_date": "2026-01-26",
+      "w_first": 1.002,
+      "w_after20": 1.4,
+      "first_day_frac": 0.649,
+      "buy_days": 1
+     },
+     {
+      "key": "UEC US EQUITY",
+      "name": "Uranium Energy Corp",
+      "entry_date": "2026-01-26",
+      "w_first": 1.0,
+      "w_after20": 1.285,
+      "first_day_frac": 0.617,
+      "buy_days": 1
+     },
+     {
+      "key": "ASML US EQUITY",
+      "name": "ASML Holding NV",
+      "entry_date": "2026-01-27",
+      "w_first": 0.755,
+      "w_after20": 2.04,
+      "first_day_frac": 0.382,
+      "buy_days": 2
+     },
+     {
+      "key": "LITE US EQUITY",
+      "name": "Lumentum Holdings Inc",
+      "entry_date": "2026-02-05",
+      "w_first": 0.443,
+      "w_after20": 3.496,
+      "first_day_frac": 0.212,
+      "buy_days": 3
+     },
+     {
+      "key": "COHR US EQUITY",
+      "name": "Coherent Corp",
+      "entry_date": "2026-02-05",
+      "w_first": 0.466,
+      "w_after20": 3.258,
+      "first_day_frac": 0.179,
+      "buy_days": 3
+     },
+     {
+      "key": "440110",
+      "name": "파두",
+      "entry_date": "2026-02-06",
+      "w_first": 1.243,
+      "w_after20": 2.227,
+      "first_day_frac": 0.817,
+      "buy_days": 1
+     },
+     {
+      "key": "SIMO US EQUITY",
+      "name": "Silicon Motion Technology Corp",
+      "entry_date": "2026-02-06",
+      "w_first": 0.983,
+      "w_after20": 2.428,
+      "first_day_frac": 0.4,
+      "buy_days": 2
+     },
+     {
+      "key": "TSEM US EQUITY",
+      "name": "Tower Semiconductor Ltd",
+      "entry_date": "2026-02-10",
+      "w_first": 0.979,
+      "w_after20": 1.356,
+      "first_day_frac": 0.655,
+      "buy_days": 1
+     },
+     {
+      "key": "AXTI US EQUITY",
+      "name": "AXT Inc",
+      "entry_date": "2026-02-26",
+      "w_first": 0.997,
+      "w_after20": 2.019,
+      "first_day_frac": 0.996,
+      "buy_days": 0
+     },
+     {
+      "key": "010120",
+      "name": "LS ELECTRIC",
+      "entry_date": "2026-02-26",
+      "w_first": 0.992,
+      "w_after20": 1.544,
+      "first_day_frac": 0.709,
+      "buy_days": 1
+     },
+     {
+      "key": "009150",
+      "name": "삼성전기",
+      "entry_date": "2026-02-26",
+      "w_first": 0.501,
+      "w_after20": 2.114,
+      "first_day_frac": 0.232,
+      "buy_days": 3
+     },
+     {
+      "key": "CRCL US EQUITY",
+      "name": "Circle Internet Group Inc",
+      "entry_date": "2026-02-27",
+      "w_first": 0.986,
+      "w_after20": 2.008,
+      "first_day_frac": 0.666,
+      "buy_days": 2
+     },
+     {
+      "key": "COIN US EQUITY",
+      "name": "Coinbase Global Inc",
+      "entry_date": "2026-02-27",
+      "w_first": 0.983,
+      "w_after20": 3.349,
+      "first_day_frac": 0.317,
+      "buy_days": 4
+     },
+     {
+      "key": "AMD US EQUITY",
+      "name": "Advanced Micro Devices Inc",
+      "entry_date": "2026-03-27",
+      "w_first": 0.998,
+      "w_after20": 1.893,
+      "first_day_frac": 0.525,
+      "buy_days": 1
+     },
+     {
+      "key": "ARM US EQUITY",
+      "name": "ARM Holdings PLC",
+      "entry_date": "2026-03-27",
+      "w_first": 2.492,
+      "w_after20": 3.679,
+      "first_day_frac": 0.612,
+      "buy_days": 2
+     },
+     {
+      "key": "005930",
+      "name": "삼성전자",
+      "entry_date": "2026-04-02",
+      "w_first": 1.564,
+      "w_after20": 1.178,
+      "first_day_frac": 1.0,
+      "buy_days": 0
+     },
+     {
+      "key": "AVGO US EQUITY",
+      "name": "Broadcom Inc",
+      "entry_date": "2026-04-10",
+      "w_first": 0.981,
+      "w_after20": 1.438,
+      "first_day_frac": 0.504,
+      "buy_days": 1
+     },
+     {
+      "key": "DELL US EQUITY",
+      "name": "Dell Technologies Inc",
+      "entry_date": "2026-05-12",
+      "w_first": 1.493,
+      "w_after20": 2.467,
+      "first_day_frac": 0.819,
+      "buy_days": 2
+     },
+     {
+      "key": "QCOM US EQUITY",
+      "name": "QUALCOMM Inc",
+      "entry_date": "2026-05-15",
+      "w_first": 1.98,
+      "w_after20": 3.154,
+      "first_day_frac": 0.572,
+      "buy_days": 2
+     },
+     {
+      "key": "285A JP EQUITY",
+      "name": "Kioxia Holdings Corp",
+      "entry_date": "2026-05-15",
+      "w_first": 1.97,
+      "w_after20": 8.061,
+      "first_day_frac": 0.355,
+      "buy_days": 2
+     },
+     {
+      "key": "IBM US EQUITY",
+      "name": "International Business Machines Corp",
+      "entry_date": "2026-05-18",
+      "w_first": 0.535,
+      "w_after20": 2.427,
+      "first_day_frac": 0.234,
+      "buy_days": 2
+     },
+     {
+      "key": "SNOW US EQUITY",
+      "name": "Snowflake Inc",
+      "entry_date": "2026-05-18",
+      "w_first": 0.545,
+      "w_after20": 3.717,
+      "first_day_frac": 0.202,
+      "buy_days": 3
+     },
+     {
+      "key": "NOW US EQUITY",
+      "name": "ServiceNow Inc",
+      "entry_date": "2026-05-18",
+      "w_first": 0.539,
+      "w_after20": 1.914,
+      "first_day_frac": 0.279,
+      "buy_days": 1
+     },
+     {
+      "key": "META US EQUITY",
+      "name": "Meta Platforms Inc",
+      "entry_date": "2026-05-18",
+      "w_first": 0.505,
+      "w_after20": 1.62,
+      "first_day_frac": 0.258,
+      "buy_days": 1
+     },
+     {
+      "key": "MELI US EQUITY",
+      "name": "MercadoLibre Inc",
+      "entry_date": "2026-05-18",
+      "w_first": 0.375,
+      "w_after20": 1.729,
+      "first_day_frac": 0.192,
+      "buy_days": 1
+     },
+     {
+      "key": "CRM US EQUITY",
+      "name": "Salesforce Inc",
+      "entry_date": "2026-05-18",
+      "w_first": 0.548,
+      "w_after20": 1.642,
+      "first_day_frac": 0.282,
+      "buy_days": 1
+     },
+     {
+      "key": "NTAP US EQUITY",
+      "name": "NetApp Inc",
+      "entry_date": "2026-05-18",
+      "w_first": 0.546,
+      "w_after20": 2.702,
+      "first_day_frac": 0.235,
+      "buy_days": 3
+     },
+     {
+      "key": "EBAY US EQUITY",
+      "name": "eBay Inc",
+      "entry_date": "2026-05-18",
+      "w_first": 0.542,
+      "w_after20": 1.238,
+      "first_day_frac": 0.364,
+      "buy_days": 1
+     },
+     {
+      "key": "ROP US EQUITY",
+      "name": "Roper Technologies Inc",
+      "entry_date": "2026-05-18",
+      "w_first": 0.519,
+      "w_after20": 1.676,
+      "first_day_frac": 0.279,
+      "buy_days": 1
+     },
+     {
+      "key": "ACN US EQUITY",
+      "name": "Accenture PLC",
+      "entry_date": "2026-05-18",
+      "w_first": 0.536,
+      "w_after20": 1.598,
+      "first_day_frac": 0.292,
+      "buy_days": 1
+     },
+     {
+      "key": "PDD US EQUITY",
+      "name": "PDD Holdings Inc",
+      "entry_date": "2026-05-18",
+      "w_first": 0.547,
+      "w_after20": 1.474,
+      "first_day_frac": 0.279,
+      "buy_days": 1
+     },
+     {
+      "key": "9988 HK EQUITY",
+      "name": "Alibaba Group Holding Ltd",
+      "entry_date": "2026-05-19",
+      "w_first": 2.489,
+      "w_after20": 1.703,
+      "first_day_frac": 0.996,
+      "buy_days": 0
+     },
+     {
+      "key": "SAP US EQUITY",
+      "name": "SAP SE",
+      "entry_date": "2026-05-20",
+      "w_first": 1.487,
+      "w_after20": 1.111,
+      "first_day_frac": 1.0,
+      "buy_days": 0
+     },
+     {
+      "key": "6981 JP EQUITY",
+      "name": "Murata Manufacturing Co Ltd",
+      "entry_date": "2026-06-01",
+      "w_first": 0.994,
+      "w_after20": 2.268,
+      "first_day_frac": 0.523,
+      "buy_days": 2
+     },
+     {
+      "key": "SKHY US EQUITY",
+      "name": "SK hynix Inc",
+      "entry_date": "2026-07-15",
+      "w_first": 0.987,
+      "w_after20": 2.564,
+      "first_day_frac": 0.376,
+      "buy_days": 1
+     },
+     {
+      "key": "BABA US EQUITY",
+      "name": "Alibaba Group Holding Ltd",
+      "entry_date": "2026-07-16",
+      "w_first": 2.983,
+      "w_after20": 3.546,
+      "first_day_frac": 0.97,
+      "buy_days": 1
+     },
+     {
+      "key": "009150",
+      "name": "삼성전기",
+      "entry_date": "2026-08-03",
+      "w_first": 2.167,
+      "w_after20": 2.7,
+      "first_day_frac": 0.99,
+      "buy_days": 1
+     },
+     {
+      "key": "LITE US EQUITY",
+      "name": "Lumentum Holdings Inc",
+      "entry_date": "2026-08-04",
+      "w_first": 0.989,
+      "w_after20": 2.189,
+      "first_day_frac": 0.55,
+      "buy_days": 1
+     },
+     {
+      "key": "AAOI US EQUITY",
+      "name": "Applied Optoelectronics Inc",
+      "entry_date": "2026-08-04",
+      "w_first": 0.998,
+      "w_after20": 1.932,
+      "first_day_frac": 0.56,
+      "buy_days": 1
+     },
+     {
+      "key": "5803 JP EQUITY",
+      "name": "Fujikura Ltd",
+      "entry_date": "2026-08-11",
+      "w_first": 0.997,
+      "w_after20": 1.016,
+      "first_day_frac": 0.98,
+      "buy_days": 0
+     },
+     {
+      "key": "100 HK EQUITY",
+      "name": "Minimax Group Inc",
+      "entry_date": "2026-08-11",
+      "w_first": 0.999,
+      "w_after20": 1.522,
+      "first_day_frac": 0.678,
+      "buy_days": 1
+     },
+     {
+      "key": "TSLA US EQUITY",
+      "name": "Tesla Inc",
+      "entry_date": "2026-09-02",
+      "w_first": 0.968,
+      "w_after20": 1.897,
+      "first_day_frac": 0.479,
+      "buy_days": 1
+     }
+    ]
+   },
+   "holding_spells_closed": {
+    "n": 44,
+    "censored": 83,
+    "median_days": 24.0,
+    "p25": 12.5,
+    "p75": 56.0
+   },
+   "top_turnover_days": [
+    {
+     "date": "2026-05-20",
+     "buy_pp": 17.21463638889912,
+     "sell_pp": 19.779437234430265,
+     "one_way_pp": 18.497036811664692,
+     "n_buy": 8,
+     "n_sell": 1,
+     "n_new": 2,
+     "n_exit": 13,
+     "n_trade": 24
+    },
+    {
+     "date": "2026-05-19",
+     "buy_pp": 10.970841021526619,
+     "sell_pp": 10.843496953397675,
+     "one_way_pp": 10.907168987462146,
+     "n_buy": 7,
+     "n_sell": 14,
+     "n_new": 2,
+     "n_exit": 3,
+     "n_trade": 26
+    },
+    {
+     "date": "2026-05-18",
+     "buy_pp": 10.284885126238121,
+     "sell_pp": 9.667472015428917,
+     "one_way_pp": 9.976178570833518,
+     "n_buy": 3,
+     "n_sell": 15,
+     "n_new": 12,
+     "n_exit": 2,
+     "n_trade": 32
+    },
+    {
+     "date": "2026-04-17",
+     "buy_pp": 7.890497466167484,
+     "sell_pp": 8.826743608663133,
+     "one_way_pp": 8.358620537415309,
+     "n_buy": 7,
+     "n_sell": 8,
+     "n_new": 0,
+     "n_exit": 5,
+     "n_trade": 20
+    },
+    {
+     "date": "2026-03-04",
+     "buy_pp": 6.031465697879033,
+     "sell_pp": 7.65166298141807,
+     "one_way_pp": 6.841564339648551,
+     "n_buy": 5,
+     "n_sell": 7,
+     "n_new": 2,
+     "n_exit": 3,
+     "n_trade": 17
+    }
+   ]
+  },
+  {
+   "fund": "2ETFQ1",
+   "name": "KoAct 미국나스닥성장기업액티브",
+   "sample": {
+    "first": "2026-01-02",
+    "last": "2026-10-08",
+    "pairs": 181
+   },
+   "trade_day_share": 0.569,
+   "inout_day_share": 0.392,
+   "weeks_with_inout_share": 0.775,
+   "median_names_traded_per_day": 3,
+   "mean_daily_one_way_turnover_pp": 2.662,
+   "median_daily_one_way_turnover_pp": 0.72,
+   "annualized_one_way_turnover_pct": 670.7,
+   "top5_days_turnover_share": 0.165,
+   "month_end_last2": {
+    "turnover_share": 0.12,
+    "day_share": 0.11
+   },
+   "quarter_end_last2_mar_jun_sep": {
+    "turnover_share": 0.037,
+    "day_share": 0.033
+   },
+   "weekday_trade_day_share": {
+    "0": 0.657,
+    "1": 0.541,
+    "2": 0.432,
+    "3": 0.615,
+    "4": 0.606
+   },
+   "exits_big": {
+    "n": 85,
+    "median_pre_sold_frac": 0.0,
+    "share_pre_sold_ge_50pct": 0.188,
+    "share_pre_sold_lt_10pct": 0.635,
+    "median_sell_days_prior20": 1.0,
+    "median_w_max_prior": 1.676,
+    "median_w_last": 0.99,
+    "by_size": {
+     "wmax_1to3": {
+      "n": 70,
+      "median_pre_sold_frac": 0.0,
+      "share_pre_sold_ge_50pct": 0.157,
+      "median_sell_days_prior20": 1.0
+     },
+     "wmax_ge3": {
+      "n": 15,
+      "median_pre_sold_frac": 0.007,
+      "share_pre_sold_ge_50pct": 0.333,
+      "median_sell_days_prior20": 2.0
+     }
+    },
+    "events": [
+     {
+      "key": "ONDS US EQUITY",
+      "name": "Ondas Inc",
+      "exit_date": "2026-02-13",
+      "span": 20,
+      "w_max_prior": 1.519,
+      "w_last": 1.051,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "HOOD US EQUITY",
+      "name": "Robinhood Markets Inc",
+      "exit_date": "2026-02-13",
+      "span": 20,
+      "w_max_prior": 2.406,
+      "w_last": 0.594,
+      "pre_sold_frac": 0.595,
+      "sell_days": 2
+     },
+     {
+      "key": "FLNC US EQUITY",
+      "name": "Fluence Energy Inc",
+      "exit_date": "2026-02-23",
+      "span": 20,
+      "w_max_prior": 1.406,
+      "w_last": 0.772,
+      "pre_sold_frac": 0.084,
+      "sell_days": 1
+     },
+     {
+      "key": "APP US EQUITY",
+      "name": "AppLovin Corp",
+      "exit_date": "2026-02-23",
+      "span": 20,
+      "w_max_prior": 1.674,
+      "w_last": 0.237,
+      "pre_sold_frac": 0.784,
+      "sell_days": 2
+     },
+     {
+      "key": "RDDT US EQUITY",
+      "name": "Reddit Inc",
+      "exit_date": "2026-02-24",
+      "span": 20,
+      "w_max_prior": 1.489,
+      "w_last": 0.794,
+      "pre_sold_frac": 0.099,
+      "sell_days": 1
+     },
+     {
+      "key": "RMBS US EQUITY",
+      "name": "Rambus Inc",
+      "exit_date": "2026-02-26",
+      "span": 19,
+      "w_max_prior": 1.413,
+      "w_last": 0.581,
+      "pre_sold_frac": 0.433,
+      "sell_days": 1
+     },
+     {
+      "key": "FSLR US EQUITY",
+      "name": "FIRST SOLAR INC",
+      "exit_date": "2026-03-03",
+      "span": 20,
+      "w_max_prior": 1.131,
+      "w_last": 0.881,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "CLS US EQUITY",
+      "name": "Celestica Inc",
+      "exit_date": "2026-03-05",
+      "span": 20,
+      "w_max_prior": 1.648,
+      "w_last": 1.219,
+      "pre_sold_frac": 0.002,
+      "sell_days": 0
+     },
+     {
+      "key": "META US EQUITY",
+      "name": "Meta Platforms Inc-CL A",
+      "exit_date": "2026-03-05",
+      "span": 20,
+      "w_max_prior": 1.042,
+      "w_last": 0.534,
+      "pre_sold_frac": 0.391,
+      "sell_days": 1
+     },
+     {
+      "key": "ARM US EQUITY",
+      "name": "ARM Holdings PLC",
+      "exit_date": "2026-03-05",
+      "span": 9,
+      "w_max_prior": 1.016,
+      "w_last": 0.895,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "DG US EQUITY",
+      "name": "DOLLAR GENERAL CORP",
+      "exit_date": "2026-03-09",
+      "span": 20,
+      "w_max_prior": 2.21,
+      "w_last": 1.624,
+      "pre_sold_frac": 0.0,
+      "sell_days": 1
+     },
+     {
+      "key": "AEP US EQUITY",
+      "name": "AMERICAN ELECTRIC POWER",
+      "exit_date": "2026-03-12",
+      "span": 18,
+      "w_max_prior": 1.969,
+      "w_last": 1.465,
+      "pre_sold_frac": 0.249,
+      "sell_days": 1
+     },
+     {
+      "key": "WMT US EQUITY",
+      "name": "WAL-MART STORES INC",
+      "exit_date": "2026-03-12",
+      "span": 18,
+      "w_max_prior": 1.951,
+      "w_last": 1.724,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "VZ US EQUITY",
+      "name": "VERIZON COMMUNICATIONS INC",
+      "exit_date": "2026-03-12",
+      "span": 18,
+      "w_max_prior": 1.682,
+      "w_last": 1.522,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "DUK US EQUITY",
+      "name": "DUKE ENERGY CORP",
+      "exit_date": "2026-03-12",
+      "span": 18,
+      "w_max_prior": 1.936,
+      "w_last": 1.397,
+      "pre_sold_frac": 0.266,
+      "sell_days": 1
+     },
+     {
+      "key": "GILD US EQUITY",
+      "name": "GILEAD SCIENCES INC",
+      "exit_date": "2026-03-26",
+      "span": 20,
+      "w_max_prior": 1.101,
+      "w_last": 0.578,
+      "pre_sold_frac": 0.326,
+      "sell_days": 1
+     },
+     {
+      "key": "GOOGL US EQUITY",
+      "name": "ALPHABET INC-CL A",
+      "exit_date": "2026-03-30",
+      "span": 20,
+      "w_max_prior": 7.329,
+      "w_last": 1.085,
+      "pre_sold_frac": 0.809,
+      "sell_days": 5
+     },
+     {
+      "key": "RIOT US EQUITY",
+      "name": "Riot Platforms Inc",
+      "exit_date": "2026-03-31",
+      "span": 20,
+      "w_max_prior": 1.307,
+      "w_last": 0.982,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "POET US EQUITY",
+      "name": "POET Technologies Inc",
+      "exit_date": "2026-03-31",
+      "span": 17,
+      "w_max_prior": 1.048,
+      "w_last": 0.703,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "IREN US EQUITY",
+      "name": "IREN Ltd",
+      "exit_date": "2026-04-01",
+      "span": 20,
+      "w_max_prior": 1.525,
+      "w_last": 0.724,
+      "pre_sold_frac": 0.0,
+      "sell_days": 1
+     },
+     {
+      "key": "NBIS US EQUITY",
+      "name": "YANDEX NV-A",
+      "exit_date": "2026-04-01",
+      "span": 20,
+      "w_max_prior": 1.511,
+      "w_last": 0.604,
+      "pre_sold_frac": 0.035,
+      "sell_days": 1
+     },
+     {
+      "key": "VICR US EQUITY",
+      "name": "Vicor Corp",
+      "exit_date": "2026-04-01",
+      "span": 20,
+      "w_max_prior": 1.601,
+      "w_last": 0.506,
+      "pre_sold_frac": 0.51,
+      "sell_days": 1
+     },
+     {
+      "key": "CCJ US EQUITY",
+      "name": "CAMECO CORP",
+      "exit_date": "2026-04-03",
+      "span": 20,
+      "w_max_prior": 1.482,
+      "w_last": 1.064,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "BKR US EQUITY",
+      "name": "BAKER HUGHES A GE",
+      "exit_date": "2026-04-06",
+      "span": 7,
+      "w_max_prior": 1.058,
+      "w_last": 0.848,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "XOM US EQUITY",
+      "name": "EXXON MOBIL CORP",
+      "exit_date": "2026-04-08",
+      "span": 9,
+      "w_max_prior": 4.236,
+      "w_last": 1.088,
+      "pre_sold_frac": 0.193,
+      "sell_days": 2
+     },
+     {
+      "key": "BIIB US EQUITY",
+      "name": "BIOGEN",
+      "exit_date": "2026-04-14",
+      "span": 20,
+      "w_max_prior": 1.043,
+      "w_last": 0.399,
+      "pre_sold_frac": 0.298,
+      "sell_days": 1
+     },
+     {
+      "key": "RKLB US EQUITY",
+      "name": "Rocket Lab USA Inc",
+      "exit_date": "2026-04-14",
+      "span": 20,
+      "w_max_prior": 2.754,
+      "w_last": 2.119,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "MSTR US EQUITY",
+      "name": "Strategy Inc",
+      "exit_date": "2026-04-14",
+      "span": 17,
+      "w_max_prior": 1.936,
+      "w_last": 0.988,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "AKAM US EQUITY",
+      "name": "Akamai Technologies Inc",
+      "exit_date": "2026-04-15",
+      "span": 20,
+      "w_max_prior": 5.475,
+      "w_last": 0.768,
+      "pre_sold_frac": 0.343,
+      "sell_days": 2
+     },
+     {
+      "key": "HOOD US EQUITY",
+      "name": "Robinhood Markets Inc",
+      "exit_date": "2026-04-15",
+      "span": 20,
+      "w_max_prior": 2.035,
+      "w_last": 1.237,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "FSLY US EQUITY",
+      "name": "Fastly Inc",
+      "exit_date": "2026-04-15",
+      "span": 20,
+      "w_max_prior": 6.346,
+      "w_last": 2.175,
+      "pre_sold_frac": 0.0,
+      "sell_days": 2
+     },
+     {
+      "key": "ASTS US EQUITY",
+      "name": "AST SpaceMobile Inc",
+      "exit_date": "2026-04-17",
+      "span": 20,
+      "w_max_prior": 1.524,
+      "w_last": 0.517,
+      "pre_sold_frac": 0.0,
+      "sell_days": 1
+     },
+     {
+      "key": "PL US EQUITY",
+      "name": "Planet Labs PBC",
+      "exit_date": "2026-04-17",
+      "span": 13,
+      "w_max_prior": 2.068,
+      "w_last": 0.444,
+      "pre_sold_frac": 0.48,
+      "sell_days": 1
+     },
+     {
+      "key": "AXTI US EQUITY",
+      "name": "AXT Inc",
+      "exit_date": "2026-04-20",
+      "span": 20,
+      "w_max_prior": 2.459,
+      "w_last": 1.808,
+      "pre_sold_frac": 0.0,
+      "sell_days": 1
+     },
+     {
+      "key": "AAOI US EQUITY",
+      "name": "Applied Optoelectronics Inc",
+      "exit_date": "2026-04-20",
+      "span": 20,
+      "w_max_prior": 3.411,
+      "w_last": 1.631,
+      "pre_sold_frac": 0.0,
+      "sell_days": 1
+     },
+     {
+      "key": "ASML US EQUITY",
+      "name": "ASML HOLDING",
+      "exit_date": "2026-04-29",
+      "span": 20,
+      "w_max_prior": 3.05,
+      "w_last": 0.352,
+      "pre_sold_frac": 0.559,
+      "sell_days": 2
+     },
+     {
+      "key": "QBTS US EQUITY",
+      "name": "D-Wave Quantum Inc",
+      "exit_date": "2026-04-29",
+      "span": 6,
+      "w_max_prior": 1.032,
+      "w_last": 0.668,
+      "pre_sold_frac": 0.025,
+      "sell_days": 0
+     },
+     {
+      "key": "RMBS US EQUITY",
+      "name": "Rambus Inc",
+      "exit_date": "2026-04-30",
+      "span": 11,
+      "w_max_prior": 1.001,
+      "w_last": 0.864,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "KLAC US EQUITY",
+      "name": "KLA Corp",
+      "exit_date": "2026-05-04",
+      "span": 20,
+      "w_max_prior": 1.191,
+      "w_last": 0.696,
+      "pre_sold_frac": 0.002,
+      "sell_days": 0
+     },
+     {
+      "key": "TER US EQUITY",
+      "name": "TERADYNE INC",
+      "exit_date": "2026-05-04",
+      "span": 20,
+      "w_max_prior": 3.029,
+      "w_last": 2.782,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "GLW US EQUITY",
+      "name": "CORNING INC",
+      "exit_date": "2026-05-04",
+      "span": 20,
+      "w_max_prior": 3.01,
+      "w_last": 2.578,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "KEYS US EQUITY",
+      "name": "KEYSIGHT TECH",
+      "exit_date": "2026-05-04",
+      "span": 20,
+      "w_max_prior": 1.646,
+      "w_last": 0.922,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "AMAT US EQUITY",
+      "name": "APPLIED MATERIALS INC",
+      "exit_date": "2026-05-04",
+      "span": 20,
+      "w_max_prior": 1.648,
+      "w_last": 1.069,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "AEHR US EQUITY",
+      "name": "Aehr Test Systems",
+      "exit_date": "2026-05-04",
+      "span": 12,
+      "w_max_prior": 2.121,
+      "w_last": 0.721,
+      "pre_sold_frac": 0.089,
+      "sell_days": 1
+     },
+     {
+      "key": "META US EQUITY",
+      "name": "Meta Platforms Inc-CL A",
+      "exit_date": "2026-05-06",
+      "span": 13,
+      "w_max_prior": 2.202,
+      "w_last": 1.619,
+      "pre_sold_frac": 0.0,
+      "sell_days": 1
+     },
+     {
+      "key": "CRCL US EQUITY",
+      "name": "Circle Internet Group Inc",
+      "exit_date": "2026-05-06",
+      "span": 20,
+      "w_max_prior": 1.559,
+      "w_last": 0.635,
+      "pre_sold_frac": 0.163,
+      "sell_days": 2
+     },
+     {
+      "key": "COIN US EQUITY",
+      "name": "COINBASE GLOBAL INC -CLASS A",
+      "exit_date": "2026-05-06",
+      "span": 20,
+      "w_max_prior": 2.876,
+      "w_last": 1.349,
+      "pre_sold_frac": 0.0,
+      "sell_days": 2
+     },
+     {
+      "key": "FIX US EQUITY",
+      "name": "Comfort Systems USA Inc",
+      "exit_date": "2026-05-07",
+      "span": 20,
+      "w_max_prior": 1.211,
+      "w_last": 1.063,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "PLTR US EQUITY",
+      "name": "Palantir Technologies Inc -A",
+      "exit_date": "2026-05-08",
+      "span": 20,
+      "w_max_prior": 1.973,
+      "w_last": 1.697,
+      "pre_sold_frac": 0.0,
+      "sell_days": 4
+     },
+     {
+      "key": "FN US EQUITY",
+      "name": "Fabrinet",
+      "exit_date": "2026-05-08",
+      "span": 20,
+      "w_max_prior": 1.808,
+      "w_last": 1.808,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "XNDU US EQUITY",
+      "name": "Xanadu Quantum Technologies Ltd",
+      "exit_date": "2026-05-08",
+      "span": 11,
+      "w_max_prior": 1.293,
+      "w_last": 0.309,
+      "pre_sold_frac": 0.061,
+      "sell_days": 1
+     },
+     {
+      "key": "NVTS US EQUITY",
+      "name": "NAVITAS SEMICONDUCTOR CORP",
+      "exit_date": "2026-05-08",
+      "span": 7,
+      "w_max_prior": 1.676,
+      "w_last": 1.6,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "CRWV US EQUITY",
+      "name": "Coreweave Inc",
+      "exit_date": "2026-05-12",
+      "span": 16,
+      "w_max_prior": 3.534,
+      "w_last": 3.316,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "FORM US EQUITY",
+      "name": "FormFactor Inc",
+      "exit_date": "2026-05-15",
+      "span": 20,
+      "w_max_prior": 1.979,
+      "w_last": 0.97,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "LUNR US EQUITY",
+      "name": "Intuitive Machines Inc",
+      "exit_date": "2026-06-04",
+      "span": 10,
+      "w_max_prior": 1.895,
+      "w_last": 0.588,
+      "pre_sold_frac": 0.714,
+      "sell_days": 2
+     },
+     {
+      "key": "ALAB US EQUITY",
+      "name": "Astera Labs Inc",
+      "exit_date": "2026-06-05",
+      "span": 17,
+      "w_max_prior": 1.678,
+      "w_last": 1.052,
+      "pre_sold_frac": 0.361,
+      "sell_days": 2
+     },
+     {
+      "key": "NTAP US EQUITY",
+      "name": "NETAPP INC",
+      "exit_date": "2026-06-16",
+      "span": 7,
+      "w_max_prior": 1.135,
+      "w_last": 1.07,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "SATS US EQUITY",
+      "name": "EchoStar Corp",
+      "exit_date": "2026-06-18",
+      "span": 18,
+      "w_max_prior": 2.092,
+      "w_last": 0.587,
+      "pre_sold_frac": 0.625,
+      "sell_days": 3
+     },
+     {
+      "key": "STM US EQUITY",
+      "name": "STMICROELECTRONICS NV-NY SHS",
+      "exit_date": "2026-06-19",
+      "span": 20,
+      "w_max_prior": 1.093,
+      "w_last": 0.89,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "CRCL US EQUITY",
+      "name": "Circle Internet Group Inc",
+      "exit_date": "2026-07-06",
+      "span": 20,
+      "w_max_prior": 1.087,
+      "w_last": 0.283,
+      "pre_sold_frac": 0.529,
+      "sell_days": 2
+     },
+     {
+      "key": "LITE US EQUITY",
+      "name": "Lumentum Holdings Inc",
+      "exit_date": "2026-07-10",
+      "span": 20,
+      "w_max_prior": 2.424,
+      "w_last": 0.728,
+      "pre_sold_frac": 0.545,
+      "sell_days": 2
+     },
+     {
+      "key": "RKLB US EQUITY",
+      "name": "Rocket Lab USA Inc",
+      "exit_date": "2026-07-10",
+      "span": 20,
+      "w_max_prior": 1.153,
+      "w_last": 0.087,
+      "pre_sold_frac": 0.871,
+      "sell_days": 2
+     },
+     {
+      "key": "BIIB US EQUITY",
+      "name": "BIOGEN",
+      "exit_date": "2026-07-13",
+      "span": 6,
+      "w_max_prior": 2.464,
+      "w_last": 0.99,
+      "pre_sold_frac": 0.578,
+      "sell_days": 1
+     },
+     {
+      "key": "LLY US EQUITY",
+      "name": "ELI LILLY & CO",
+      "exit_date": "2026-07-13",
+      "span": 6,
+      "w_max_prior": 2.407,
+      "w_last": 2.018,
+      "pre_sold_frac": 0.176,
+      "sell_days": 1
+     },
+     {
+      "key": "SPCX US EQUITY",
+      "name": "Space Exploration Technologies Corp",
+      "exit_date": "2026-07-21",
+      "span": 20,
+      "w_max_prior": 9.83,
+      "w_last": 1.942,
+      "pre_sold_frac": 0.693,
+      "sell_days": 2
+     },
+     {
+      "key": "SIMO US EQUITY",
+      "name": "Silicon Motion Technology Corp",
+      "exit_date": "2026-07-23",
+      "span": 20,
+      "w_max_prior": 1.103,
+      "w_last": 0.408,
+      "pre_sold_frac": 0.546,
+      "sell_days": 1
+     },
+     {
+      "key": "ASML US EQUITY",
+      "name": "ASML HOLDING",
+      "exit_date": "2026-07-30",
+      "span": 20,
+      "w_max_prior": 1.336,
+      "w_last": 0.792,
+      "pre_sold_frac": 0.39,
+      "sell_days": 1
+     },
+     {
+      "key": "SKHY US EQUITY",
+      "name": "SK hynix Inc",
+      "exit_date": "2026-07-30",
+      "span": 11,
+      "w_max_prior": 2.278,
+      "w_last": 1.393,
+      "pre_sold_frac": 0.254,
+      "sell_days": 1
+     },
+     {
+      "key": "KLAC US EQUITY",
+      "name": "KLA Corp",
+      "exit_date": "2026-07-31",
+      "span": 20,
+      "w_max_prior": 1.706,
+      "w_last": 0.889,
+      "pre_sold_frac": 0.338,
+      "sell_days": 1
+     },
+     {
+      "key": "GEV US EQUITY",
+      "name": "GE Vernova LLC",
+      "exit_date": "2026-07-31",
+      "span": 7,
+      "w_max_prior": 3.261,
+      "w_last": 1.482,
+      "pre_sold_frac": 0.007,
+      "sell_days": 1
+     },
+     {
+      "key": "GLW US EQUITY",
+      "name": "CORNING INC",
+      "exit_date": "2026-07-31",
+      "span": 20,
+      "w_max_prior": 1.272,
+      "w_last": 0.985,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "TSLA US EQUITY",
+      "name": "TESLA MOTORS",
+      "exit_date": "2026-08-03",
+      "span": 20,
+      "w_max_prior": 3.566,
+      "w_last": 0.865,
+      "pre_sold_frac": 0.541,
+      "sell_days": 2
+     },
+     {
+      "key": "META US EQUITY",
+      "name": "Meta Platforms Inc-CL A",
+      "exit_date": "2026-08-03",
+      "span": 14,
+      "w_max_prior": 1.622,
+      "w_last": 1.087,
+      "pre_sold_frac": 0.085,
+      "sell_days": 1
+     },
+     {
+      "key": "HOOD US EQUITY",
+      "name": "Robinhood Markets Inc",
+      "exit_date": "2026-08-05",
+      "span": 20,
+      "w_max_prior": 3.579,
+      "w_last": 3.22,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "AAPL US EQUITY",
+      "name": "APPLE Inc",
+      "exit_date": "2026-08-05",
+      "span": 20,
+      "w_max_prior": 7.032,
+      "w_last": 6.47,
+      "pre_sold_frac": 0.0,
+      "sell_days": 1
+     },
+     {
+      "key": "CSCO US EQUITY",
+      "name": "CISCO SYSTEMS INC",
+      "exit_date": "2026-08-06",
+      "span": 20,
+      "w_max_prior": 1.061,
+      "w_last": 1.0,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "IBKR US EQUITY",
+      "name": "Interactive Brokers Group Inc",
+      "exit_date": "2026-08-10",
+      "span": 11,
+      "w_max_prior": 1.66,
+      "w_last": 1.463,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "WDC US EQUITY",
+      "name": "WESTERN DIGITAL",
+      "exit_date": "2026-08-13",
+      "span": 20,
+      "w_max_prior": 4.731,
+      "w_last": 0.499,
+      "pre_sold_frac": 0.79,
+      "sell_days": 3
+     },
+     {
+      "key": "CRS US EQUITY",
+      "name": "Carpenter Technology Corp",
+      "exit_date": "2026-08-13",
+      "span": 20,
+      "w_max_prior": 1.08,
+      "w_last": 1.017,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "TKR US EQUITY",
+      "name": "Timken Co/The",
+      "exit_date": "2026-08-13",
+      "span": 6,
+      "w_max_prior": 1.606,
+      "w_last": 1.387,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "MOG/A US EQUITY",
+      "name": "Moog Inc",
+      "exit_date": "2026-08-13",
+      "span": 6,
+      "w_max_prior": 1.607,
+      "w_last": 1.45,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "ILMN US EQUITY",
+      "name": "ILLUMINA INC",
+      "exit_date": "2026-08-18",
+      "span": 20,
+      "w_max_prior": 1.914,
+      "w_last": 1.643,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "ONC US EQUITY",
+      "name": "BeOne Medicines Ltd",
+      "exit_date": "2026-08-18",
+      "span": 8,
+      "w_max_prior": 1.119,
+      "w_last": 1.065,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "LBRX US EQUITY",
+      "name": "LB Pharmaceuticals Inc",
+      "exit_date": "2026-08-18",
+      "span": 8,
+      "w_max_prior": 1.316,
+      "w_last": 1.209,
+      "pre_sold_frac": 0.0,
+      "sell_days": 0
+     },
+     {
+      "key": "BABA US EQUITY",
+      "name": "ALIBABA GROUP HOLDING-SP ADR",
+      "exit_date": "2026-09-08",
+      "span": 20,
+      "w_max_prior": 2.308,
+      "w_last": 0.126,
+      "pre_sold_frac": 0.938,
+      "sell_days": 2
+     }
+    ]
+   },
+   "entries_big": {
+    "n": 44,
+    "median_first_day_frac": 0.659,
+    "share_first_day_ge_80pct": 0.386,
+    "median_buy_days_next20": 1.5,
+    "events": [
+     {
+      "key": "TSEM US EQUITY",
+      "name": "Tower Semiconductor Ltd",
+      "entry_date": "2026-02-13",
+      "w_first": 1.014,
+      "w_after20": 1.386,
+      "first_day_frac": 0.662,
+      "buy_days": 1
+     },
+     {
+      "key": "FSLY US EQUITY",
+      "name": "Fastly Inc",
+      "entry_date": "2026-02-23",
+      "w_first": 2.051,
+      "w_after20": 1.268,
+      "first_day_frac": 1.0,
+      "buy_days": 1
+     },
+     {
+      "key": "FIX US EQUITY",
+      "name": "Comfort Systems USA Inc",
+      "entry_date": "2026-02-24",
+      "w_first": 1.325,
+      "w_after20": 1.359,
+      "first_day_frac": 0.827,
+      "buy_days": 1
+     },
+     {
+      "key": "KEYS US EQUITY",
+      "name": "KEYSIGHT TECH",
+      "entry_date": "2026-03-03",
+      "w_first": 1.492,
+      "w_after20": 1.772,
+      "first_day_frac": 0.683,
+      "buy_days": 1
+     },
+     {
+      "key": "CRCL US EQUITY",
+      "name": "Circle Internet Group Inc",
+      "entry_date": "2026-03-05",
+      "w_first": 1.556,
+      "w_after20": 1.281,
+      "first_day_frac": 0.908,
+      "buy_days": 3
+     },
+     {
+      "key": "AXTI US EQUITY",
+      "name": "AXT Inc",
+      "entry_date": "2026-03-05",
+      "w_first": 0.9,
+      "w_after20": 2.388,
+      "first_day_frac": 0.402,
+      "buy_days": 3
+     },
+     {
+      "key": "HOOD US EQUITY",
+      "name": "Robinhood Markets Inc",
+      "entry_date": "2026-03-09",
+      "w_first": 1.486,
+      "w_after20": 1.469,
+      "first_day_frac": 0.547,
+      "buy_days": 2
+     },
+     {
+      "key": "COIN US EQUITY",
+      "name": "COINBASE GLOBAL INC -CLASS A",
+      "entry_date": "2026-03-09",
+      "w_first": 1.472,
+      "w_after20": 2.773,
+      "first_day_frac": 0.279,
+      "buy_days": 4
+     },
+     {
+      "key": "AAOI US EQUITY",
+      "name": "Applied Optoelectronics Inc",
+      "entry_date": "2026-03-12",
+      "w_first": 1.532,
+      "w_after20": 2.249,
+      "first_day_frac": 0.448,
+      "buy_days": 3
+     },
+     {
+      "key": "MRVL US EQUITY",
+      "name": "MARVELL TECHNOLOGY INC",
+      "entry_date": "2026-03-12",
+      "w_first": 0.653,
+      "w_after20": 1.845,
+      "first_day_frac": 0.28,
+      "buy_days": 3
+     },
+     {
+      "key": "ARM US EQUITY",
+      "name": "ARM Holdings PLC",
+      "entry_date": "2026-03-25",
+      "w_first": 1.897,
+      "w_after20": 6.664,
+      "first_day_frac": 0.184,
+      "buy_days": 3
+     },
+     {
+      "key": "AMAT US EQUITY",
+      "name": "APPLIED MATERIALS INC",
+      "entry_date": "2026-03-27",
+      "w_first": 1.636,
+      "w_after20": 1.283,
+      "first_day_frac": 0.714,
+      "buy_days": 1
+     },
+     {
+      "key": "STX US EQUITY",
+      "name": "SEAGATE TECHNOLOGY",
+      "entry_date": "2026-04-14",
+      "w_first": 0.194,
+      "w_after20": 3.311,
+      "first_day_frac": 0.044,
+      "buy_days": 4
+     },
+     {
+      "key": "GOOGL US EQUITY",
+      "name": "ALPHABET INC-CL A",
+      "entry_date": "2026-04-17",
+      "w_first": 1.712,
+      "w_after20": 8.313,
+      "first_day_frac": 0.124,
+      "buy_days": 6
+     },
+     {
+      "key": "CRCL US EQUITY",
+      "name": "Circle Internet Group Inc",
+      "entry_date": "2026-05-11",
+      "w_first": 2.019,
+      "w_after20": 1.002,
+      "first_day_frac": 1.0,
+      "buy_days": 1
+     },
+     {
+      "key": "MSFT US EQUITY",
+      "name": "MICROSOFT",
+      "entry_date": "2026-05-12",
+      "w_first": 2.415,
+      "w_after20": 2.572,
+      "first_day_frac": 0.872,
+      "buy_days": 1
+     },
+     {
+      "key": "CSCO US EQUITY",
+      "name": "CISCO SYSTEMS INC",
+      "entry_date": "2026-05-12",
+      "w_first": 0.932,
+      "w_after20": 1.111,
+      "first_day_frac": 1.0,
+      "buy_days": 0
+     },
+     {
+      "key": "AAPL US EQUITY",
+      "name": "APPLE Inc",
+      "entry_date": "2026-05-12",
+      "w_first": 3.025,
+      "w_after20": 3.686,
+      "first_day_frac": 0.777,
+      "buy_days": 2
+     },
+     {
+      "key": "AMAT US EQUITY",
+      "name": "APPLIED MATERIALS INC",
+      "entry_date": "2026-05-13",
+      "w_first": 0.907,
+      "w_after20": 1.125,
+      "first_day_frac": 0.996,
+      "buy_days": 1
+     },
+     {
+      "key": "KLAC US EQUITY",
+      "name": "KLA Corp",
+      "entry_date": "2026-05-27",
+      "w_first": 0.489,
+      "w_after20": 1.042,
+      "first_day_frac": 0.559,
+      "buy_days": 1
+     },
+     {
+      "key": "ASML US EQUITY",
+      "name": "ASML HOLDING",
+      "entry_date": "2026-05-27",
+      "w_first": 0.211,
+      "w_after20": 1.299,
+      "first_day_frac": 0.163,
+      "buy_days": 2
+     },
+     {
+      "key": "TER US EQUITY",
+      "name": "TERADYNE INC",
+      "entry_date": "2026-05-28",
+      "w_first": 0.096,
+      "w_after20": 1.203,
+      "first_day_frac": 0.085,
+      "buy_days": 3
+     },
+     {
+      "key": "DELL US EQUITY",
+      "name": "Dell Technologies Inc",
+      "entry_date": "2026-05-28",
+      "w_first": 1.321,
+      "w_after20": 3.66,
+      "first_day_frac": 0.5,
+      "buy_days": 2
+     },
+     {
+      "key": "SNOW US EQUITY",
+      "name": "Snowflake Inc   - CL A",
+      "entry_date": "2026-06-04",
+      "w_first": 1.041,
+      "w_after20": 3.605,
+      "first_day_frac": 0.243,
+      "buy_days": 2
+     },
+     {
+      "key": "DDOG US EQUITY",
+      "name": "DATADOG INC - CLASS A",
+      "entry_date": "2026-06-04",
+      "w_first": 0.2,
+      "w_after20": 2.25,
+      "first_day_frac": 0.077,
+      "buy_days": 2
+     },
+     {
+      "key": "SPCX US EQUITY",
+      "name": "Space Exploration Technologies Corp",
+      "entry_date": "2026-06-16",
+      "w_first": 8.186,
+      "w_after20": 2.083,
+      "first_day_frac": 1.0,
+      "buy_days": 0
+     },
+     {
+      "key": "NTRA US EQUITY",
+      "name": "Natera Inc",
+      "entry_date": "2026-06-29",
+      "w_first": 0.935,
+      "w_after20": 1.043,
+      "first_day_frac": 1.0,
+      "buy_days": 0
+     },
+     {
+      "key": "ILMN US EQUITY",
+      "name": "ILLUMINA INC",
+      "entry_date": "2026-07-09",
+      "w_first": 0.998,
+      "w_after20": 1.617,
+      "first_day_frac": 0.656,
+      "buy_days": 1
+     },
+     {
+      "key": "CRS US EQUITY",
+      "name": "Carpenter Technology Corp",
+      "entry_date": "2026-07-09",
+      "w_first": 0.97,
+      "w_after20": 1.017,
+      "first_day_frac": 1.0,
+      "buy_days": 0
+     },
+     {
+      "key": "LITE US EQUITY",
+      "name": "Lumentum Holdings Inc",
+      "entry_date": "2026-07-13",
+      "w_first": 1.903,
+      "w_after20": 2.409,
+      "first_day_frac": 1.0,
+      "buy_days": 3
+     },
+     {
+      "key": "AAOI US EQUITY",
+      "name": "Applied Optoelectronics Inc",
+      "entry_date": "2026-07-13",
+      "w_first": 1.776,
+      "w_after20": 3.706,
+      "first_day_frac": 0.591,
+      "buy_days": 2
+     },
+     {
+      "key": "FTNT US EQUITY",
+      "name": "FORTINET INC",
+      "entry_date": "2026-08-03",
+      "w_first": 1.851,
+      "w_after20": 1.848,
+      "first_day_frac": 1.0,
+      "buy_days": 0
+     },
+     {
+      "key": "CRWV US EQUITY",
+      "name": "Coreweave Inc",
+      "entry_date": "2026-08-05",
+      "w_first": 2.096,
+      "w_after20": 1.749,
+      "first_day_frac": 1.0,
+      "buy_days": 1
+     },
+     {
+      "key": "OKTA US EQUITY",
+      "name": "OKTA INC",
+      "entry_date": "2026-08-10",
+      "w_first": 1.278,
+      "w_after20": 2.032,
+      "first_day_frac": 0.732,
+      "buy_days": 1
+     },
+     {
+      "key": "DT US EQUITY",
+      "name": "DYNATRACE INC",
+      "entry_date": "2026-08-10",
+      "w_first": 1.987,
+      "w_after20": 2.039,
+      "first_day_frac": 1.0,
+      "buy_days": 0
+     },
+     {
+      "key": "NTAP US EQUITY",
+      "name": "NETAPP INC",
+      "entry_date": "2026-08-11",
+      "w_first": 1.463,
+      "w_after20": 2.363,
+      "first_day_frac": 0.616,
+      "buy_days": 1
+     },
+     {
+      "key": "NET US EQUITY",
+      "name": "Cloudflare Inc",
+      "entry_date": "2026-08-11",
+      "w_first": 2.628,
+      "w_after20": 1.893,
+      "first_day_frac": 1.0,
+      "buy_days": 0
+     },
+     {
+      "key": "NOW US EQUITY",
+      "name": "SERVICENOW INC",
+      "entry_date": "2026-08-11",
+      "w_first": 1.583,
+      "w_after20": 1.82,
+      "first_day_frac": 0.931,
+      "buy_days": 2
+     },
+     {
+      "key": "MDB US EQUITY",
+      "name": "MONGODB INC",
+      "entry_date": "2026-08-13",
+      "w_first": 3.241,
+      "w_after20": 2.848,
+      "first_day_frac": 1.0,
+      "buy_days": 0
+     },
+     {
+      "key": "SKHY US EQUITY",
+      "name": "SK hynix Inc",
+      "entry_date": "2026-08-18",
+      "w_first": 1.016,
+      "w_after20": 2.11,
+      "first_day_frac": 0.551,
+      "buy_days": 2
+     },
+     {
+      "key": "CRCL US EQUITY",
+      "name": "Circle Internet Group Inc",
+      "entry_date": "2026-08-25",
+      "w_first": 0.624,
+      "w_after20": 2.726,
+      "first_day_frac": 0.228,
+      "buy_days": 2
+     },
+     {
+      "key": "MSTR US EQUITY",
+      "name": "Strategy Inc",
+      "entry_date": "2026-08-25",
+      "w_first": 0.629,
+      "w_after20": 3.429,
+      "first_day_frac": 0.24,
+      "buy_days": 2
+     },
+     {
+      "key": "TEM US EQUITY",
+      "name": "Tempus AI Inc",
+      "entry_date": "2026-08-25",
+      "w_first": 0.647,
+      "w_after20": 1.54,
+      "first_day_frac": 0.418,
+      "buy_days": 2
+     },
+     {
+      "key": "TSLA US EQUITY",
+      "name": "TESLA MOTORS",
+      "entry_date": "2026-09-07",
+      "w_first": 0.135,
+      "w_after20": 1.682,
+      "first_day_frac": 0.072,
+      "buy_days": 1
+     }
+    ]
+   },
+   "holding_spells_closed": {
+    "n": 96,
+    "censored": 83,
+    "median_days": 19.5,
+    "p25": 10.0,
+    "p75": 36.25
+   },
+   "top_turnover_days": [
+    {
+     "date": "2026-05-12",
+     "buy_pp": 22.69703150598331,
+     "sell_pp": 21.74870421849733,
+     "one_way_pp": 22.22286786224032,
+     "n_buy": 5,
+     "n_sell": 12,
+     "n_new": 10,
+     "n_exit": 3,
+     "n_trade": 30
+    },
+    {
+     "date": "2026-08-13",
+     "buy_pp": 20.254936963138878,
+     "sell_pp": 20.30986385716889,
+     "one_way_pp": 20.282400410153883,
+     "n_buy": 9,
+     "n_sell": 8,
+     "n_new": 1,
+     "n_exit": 4,
+     "n_trade": 22
+    },
+    {
+     "date": "2026-08-05",
+     "buy_pp": 12.727425705038891,
+     "sell_pp": 12.884039427451995,
+     "one_way_pp": 12.805732566245442,
+     "n_buy": 8,
+     "n_sell": 2,
+     "n_new": 2,
+     "n_exit": 3,
+     "n_trade": 15
+    },
+    {
+     "date": "2026-07-30",
+     "buy_pp": 10.692595588743565,
+     "sell_pp": 13.635764737070211,
+     "one_way_pp": 12.164180162906888,
+     "n_buy": 2,
+     "n_sell": 10,
+     "n_new": 6,
+     "n_exit": 3,
+     "n_trade": 21
+    },
+    {
+     "date": "2026-05-04",
+     "buy_pp": 13.881168355390848,
+     "sell_pp": 9.854660519487805,
+     "one_way_pp": 11.867914437439326,
+     "n_buy": 12,
+     "n_sell": 2,
+     "n_new": 0,
+     "n_exit": 6,
+     "n_trade": 20
+    }
+   ]
+  }
+ ]
+}

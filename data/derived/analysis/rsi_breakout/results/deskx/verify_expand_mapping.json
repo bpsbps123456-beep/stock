@@ -1,0 +1,962 @@
+{
+ "1_reproduction": {
+  "T_off_none_vs_run_model(fresh plain book, RULE semis .50)": 0.0,
+  "TK_off_none_vs_deskx_union": 0.0,
+  "live_metrics": {
+   "앞 1/2~5/29": 2.0935,
+   "뒤 6/1~10/9": 0.0464,
+   "9/1~10/9": 0.1356,
+   "전체": 2.2369,
+   "MDD": -0.2027
+  },
+  "frozen_vs_current_desk_cache": {
+   "open": {
+    "max_rel": 0.0,
+    "rows_only_in_desk": 0,
+    "frozen_last": "2026-10-10",
+    "desk_last": "2026-10-10"
+   },
+   "adj_close": {
+    "max_rel": 3.1903130182087125e-07,
+    "rows_only_in_desk": 0,
+    "frozen_last": "2026-10-10",
+    "desk_last": "2026-10-10"
+   }
+  }
+ },
+ "2_pools": {
+  "sessions": {
+   "2026-01-05": {
+    "pdf_time": "2026-01-02",
+    "pdf_koact": "2026-01-02",
+    "pools": {
+     "T/off/m=none": {
+      "n": 40,
+      "max_abs_diff": 0.0
+     },
+     "T/on/m=none": {
+      "n": 47,
+      "max_abs_diff": 0.0
+     },
+     "TK/off/m=none": {
+      "n": 63,
+      "max_abs_diff": 0.0
+     },
+     "TK/on/m=none": {
+      "n": 69,
+      "max_abs_diff": 0.0
+     }
+    },
+    "time_nonus": {
+     "000660.KS": 0.0357,
+     "034020.KS": 0.0203,
+     "307950.KS": 0.0168,
+     "9988.HK": 0.016,
+     "1772.HK": 0.0153,
+     "108490.KS": 0.0143,
+     "267260.KS": 0.0123,
+     "0700.HK": 0.0073
+    },
+    "nonus_total": 0.138,
+    "nonus_dropped_w": 0.0537,
+    "proxy_added_T": {
+     "GEV": 0.0068,
+     "VRT": 0.0031,
+     "MU": 0.0357,
+     "CAT": 0.0068,
+     "CMI": 0.0068,
+     "BABA": 0.016,
+     "ETN": 0.0031,
+     "NVT": 0.0031,
+     "MOD": 0.0031
+    },
+    "proxy_added_to_already_held": [
+     "GEV",
+     "VRT"
+    ],
+    "cross_listing_used": true
+   },
+   "2026-02-17": {
+    "pdf_time": "2026-02-13",
+    "pdf_koact": "2026-02-13",
+    "pools": {
+     "T/off/m=none": {
+      "n": 30,
+      "max_abs_diff": 0.0
+     },
+     "T/on/m=none": {
+      "n": 37,
+      "max_abs_diff": 0.0
+     },
+     "TK/off/m=none": {
+      "n": 60,
+      "max_abs_diff": 0.0
+     },
+     "TK/on/m=none": {
+      "n": 66,
+      "max_abs_diff": 0.0
+     }
+    },
+    "time_nonus": {
+     "000660.KS": 0.0582,
+     "307950.KS": 0.0197,
+     "006400.KS": 0.0195,
+     "440110.KS": 0.0182,
+     "034020.KS": 0.017,
+     "9988.HK": 0.0156,
+     "1772.HK": 0.0132,
+     "267260.KS": 0.0131
+    },
+    "nonus_total": 0.1745,
+    "nonus_dropped_w": 0.0525,
+    "proxy_added_T": {
+     "GEV": 0.0057,
+     "VRT": 0.0033,
+     "SIMO": 0.0182,
+     "MU": 0.0582,
+     "CAT": 0.0057,
+     "CMI": 0.0057,
+     "BABA": 0.0156,
+     "ETN": 0.0033,
+     "NVT": 0.0033,
+     "MOD": 0.0033
+    },
+    "proxy_added_to_already_held": [
+     "GEV",
+     "SIMO",
+     "VRT"
+    ],
+    "cross_listing_used": true
+   },
+   "2026-03-30": {
+    "pdf_time": "2026-03-27",
+    "pdf_koact": "2026-03-27",
+    "pools": {
+     "T/off/m=none": {
+      "n": 34,
+      "max_abs_diff": 0.0
+     },
+     "T/on/m=none": {
+      "n": 42,
+      "max_abs_diff": 0.0
+     },
+     "TK/off/m=none": {
+      "n": 60,
+      "max_abs_diff": 0.0
+     },
+     "TK/on/m=none": {
+      "n": 67,
+      "max_abs_diff": 0.0
+     }
+    },
+    "time_nonus": {
+     "000660.KS": 0.0518,
+     "009150.KS": 0.0211,
+     "034020.KS": 0.018,
+     "010120.KS": 0.0154,
+     "267260.KS": 0.0134,
+     "440110.KS": 0.0118,
+     "1772.HK": 0.0112,
+     "006400.KS": 0.0101
+    },
+    "nonus_total": 0.1528,
+    "nonus_dropped_w": 0.0213,
+    "proxy_added_T": {
+     "GEV": 0.006,
+     "SIMO": 0.0118,
+     "VRT": 0.0072,
+     "MU": 0.0518,
+     "TTMI": 0.0106,
+     "APH": 0.0106,
+     "CAT": 0.006,
+     "CMI": 0.006,
+     "ETN": 0.0072,
+     "NVT": 0.0072,
+     "MOD": 0.0072
+    },
+    "proxy_added_to_already_held": [
+     "GEV",
+     "SIMO",
+     "VRT"
+    ],
+    "cross_listing_used": false
+   },
+   "2026-04-20": {
+    "pdf_time": "2026-04-17",
+    "pdf_koact": "2026-04-17",
+    "pools": {
+     "T/off/m=none": {
+      "n": 32,
+      "max_abs_diff": 0.0
+     },
+     "T/on/m=none": {
+      "n": 41,
+      "max_abs_diff": 0.0
+     },
+     "TK/off/m=none": {
+      "n": 48,
+      "max_abs_diff": 0.0
+     },
+     "TK/on/m=none": {
+      "n": 55,
+      "max_abs_diff": 0.0
+     }
+    },
+    "time_nonus": {
+     "000660.KS": 0.031,
+     "009150.KS": 0.0283,
+     "034020.KS": 0.0157,
+     "006400.KS": 0.0153,
+     "005930.KS": 0.0135,
+     "2513.HK": 0.0096,
+     "010120.KS": 0.0095,
+     "298040.KS": 0.0093,
+     "267260.KS": 0.009,
+     "440110.KS": 0.0059
+    },
+    "nonus_total": 0.1471,
+    "nonus_dropped_w": 0.0153,
+    "proxy_added_T": {
+     "GEV": 0.0052,
+     "SIMO": 0.0059,
+     "VRT": 0.0069,
+     "MU": 0.0444,
+     "TTMI": 0.0142,
+     "APH": 0.0142,
+     "CAT": 0.0052,
+     "CMI": 0.0052,
+     "BABA": 0.0096,
+     "ETN": 0.0069,
+     "NVT": 0.0069,
+     "MOD": 0.0069
+    },
+    "proxy_added_to_already_held": [
+     "GEV",
+     "SIMO",
+     "VRT"
+    ],
+    "cross_listing_used": false
+   },
+   "2026-05-18": {
+    "pdf_time": "2026-05-15",
+    "pdf_koact": "2026-05-15",
+    "pools": {
+     "T/off/m=none": {
+      "n": 30,
+      "max_abs_diff": 0.0
+     },
+     "T/on/m=none": {
+      "n": 34,
+      "max_abs_diff": 0.0
+     },
+     "TK/off/m=none": {
+      "n": 48,
+      "max_abs_diff": 0.0
+     },
+     "TK/on/m=none": {
+      "n": 51,
+      "max_abs_diff": 0.0
+     }
+    },
+    "time_nonus": {
+     "000660.KS": 0.0292,
+     "009150.KS": 0.0263,
+     "440110.KS": 0.0237,
+     "285A.T": 0.0197,
+     "005930.KS": 0.0118,
+     "2513.HK": 0.0084
+    },
+    "nonus_total": 0.1191,
+    "nonus_dropped_w": 0,
+    "proxy_added_T": {
+     "SNDK": 0.0197,
+     "SIMO": 0.0237,
+     "MU": 0.0409,
+     "TTMI": 0.0132,
+     "APH": 0.0132,
+     "BABA": 0.0084
+    },
+    "proxy_added_to_already_held": [
+     "SIMO",
+     "SNDK"
+    ],
+    "cross_listing_used": false
+   },
+   "2026-05-26": {
+    "pdf_time": "2026-05-22",
+    "pdf_koact": "2026-05-22",
+    "pools": {
+     "T/off/m=none": {
+      "n": 29,
+      "max_abs_diff": 0.0
+     },
+     "T/on/m=none": {
+      "n": 30,
+      "max_abs_diff": 0.0
+     },
+     "TK/off/m=none": {
+      "n": 57,
+      "max_abs_diff": 0.0
+     },
+     "TK/on/m=none": {
+      "n": 58,
+      "max_abs_diff": 0.0
+     }
+    },
+    "time_nonus": {
+     "9988.HK": 0.0252,
+     "285A.T": 0.0211,
+     "0700.HK": 0.0204,
+     "2513.HK": 0.0183
+    },
+    "nonus_total": 0.085,
+    "nonus_dropped_w": 0.0204,
+    "proxy_added_T": {
+     "SNDK": 0.0211,
+     "BABA": 0.0435
+    },
+    "proxy_added_to_already_held": [
+     "SNDK"
+    ],
+    "cross_listing_used": true
+   },
+   "2026-06-08": {
+    "pdf_time": "2026-06-05",
+    "pdf_koact": "2026-06-05",
+    "pools": {
+     "T/off/m=none": {
+      "n": 28,
+      "max_abs_diff": 0.0
+     },
+     "T/on/m=none": {
+      "n": 31,
+      "max_abs_diff": 0.0
+     },
+     "TK/off/m=none": {
+      "n": 65,
+      "max_abs_diff": 0.0
+     },
+     "TK/on/m=none": {
+      "n": 68,
+      "max_abs_diff": 0.0
+     }
+    },
+    "time_nonus": {
+     "285A.T": 0.0752,
+     "2513.HK": 0.0214,
+     "9988.HK": 0.0204,
+     "6981.T": 0.0154,
+     "0700.HK": 0.0074
+    },
+    "nonus_total": 0.1398,
+    "nonus_dropped_w": 0.0074,
+    "proxy_added_T": {
+     "SNDK": 0.0752,
+     "BABA": 0.0418,
+     "TTMI": 0.0077,
+     "APH": 0.0077
+    },
+    "proxy_added_to_already_held": [
+     "SNDK"
+    ],
+    "cross_listing_used": true
+   },
+   "2026-08-17": {
+    "pdf_time": "2026-08-14",
+    "pdf_koact": "2026-08-14",
+    "pools": {
+     "T/off/m=none": {
+      "n": 31,
+      "max_abs_diff": 0.0
+     },
+     "T/on/m=none": {
+      "n": 39,
+      "max_abs_diff": 0.0
+     },
+     "TK/off/m=none": {
+      "n": 61,
+      "max_abs_diff": 0.0
+     },
+     "TK/on/m=none": {
+      "n": 69,
+      "max_abs_diff": 0.0
+     }
+    },
+    "time_nonus": {
+     "285A.T": 0.0562,
+     "009150.KS": 0.0315,
+     "6981.T": 0.0258,
+     "2513.HK": 0.0216,
+     "0100.HK": 0.0156,
+     "5803.T": 0.0109,
+     "300502.SZ": 0.01,
+     "300308.SZ": 0.0097
+    },
+    "nonus_total": 0.1813,
+    "nonus_dropped_w": 0,
+    "proxy_added_T": {
+     "SNDK": 0.0562,
+     "BABA": 0.0372,
+     "AAOI": 0.0028,
+     "LITE": 0.0028,
+     "TTMI": 0.0287,
+     "APH": 0.0287,
+     "GLW": 0.0109,
+     "CIEN": 0.0028,
+     "COHR": 0.0028,
+     "FN": 0.0028,
+     "VIAV": 0.0028,
+     "IPGP": 0.0028
+    },
+    "proxy_added_to_already_held": [
+     "AAOI",
+     "BABA",
+     "LITE",
+     "SNDK"
+    ],
+    "cross_listing_used": false
+   },
+   "2026-10-12": {
+    "pdf_time": "2026-10-08",
+    "pdf_koact": "2026-10-08",
+    "pools": {
+     "T/off/m=none": {
+      "n": 33,
+      "max_abs_diff": 0.0
+     },
+     "T/on/m=none": {
+      "n": 41,
+      "max_abs_diff": 0.0
+     },
+     "TK/off/m=none": {
+      "n": 60,
+      "max_abs_diff": 0.0
+     },
+     "TK/on/m=none": {
+      "n": 68,
+      "max_abs_diff": 0.0
+     }
+    },
+    "time_nonus": {
+     "009150.KS": 0.0339,
+     "285A.T": 0.0294,
+     "6981.T": 0.0241,
+     "2513.HK": 0.0126,
+     "5803.T": 0.0109,
+     "0100.HK": 0.0107,
+     "300502.SZ": 0.009,
+     "300308.SZ": 0.0085
+    },
+    "nonus_total": 0.1391,
+    "nonus_dropped_w": 0,
+    "proxy_added_T": {
+     "SNDK": 0.0294,
+     "LITE": 0.0025,
+     "AAOI": 0.0025,
+     "BABA": 0.0233,
+     "TTMI": 0.029,
+     "APH": 0.029,
+     "GLW": 0.0109,
+     "CIEN": 0.0025,
+     "COHR": 0.0025,
+     "FN": 0.0025,
+     "VIAV": 0.0025,
+     "IPGP": 0.0025
+    },
+    "proxy_added_to_already_held": [
+     "AAOI",
+     "BABA",
+     "LITE",
+     "SNDK"
+    ],
+    "cross_listing_used": false
+   }
+  },
+  "mapping_mismatch": {},
+  "duplicate_ticker_keys": {},
+  "koact_non_us_rows": 0,
+  "spec_deviation": "9988.HK -> BABA via manual CROSS_LISTING (spec: no AI_UNIVERSE match -> drop)"
+ },
+ "3_prices": {
+  "proxies": {
+   "AAOI": {
+    "key": "AAOI US EQUITY",
+    "fetched": false,
+    "nan_open": 0,
+    "nan_adj": 0,
+    "max_abs_log_open_jump": 0.489,
+    "max_close_adj_ratio_step": 0.0
+   },
+   "APH": {
+    "key": "APH US EQUITY",
+    "fetched": true,
+    "nan_open": 0,
+    "nan_adj": 0,
+    "max_abs_log_open_jump": 0.125,
+    "max_close_adj_ratio_step": 0.002
+   },
+   "BABA": {
+    "key": "BABA US EQUITY",
+    "fetched": false,
+    "nan_open": 0,
+    "nan_adj": 0,
+    "max_abs_log_open_jump": 0.118,
+    "max_close_adj_ratio_step": 0.0091
+   },
+   "CAT": {
+    "key": "CAT US EQUITY",
+    "fetched": true,
+    "nan_open": 0,
+    "nan_adj": 0,
+    "max_abs_log_open_jump": 0.128,
+    "max_close_adj_ratio_step": 0.0037
+   },
+   "CIEN": {
+    "key": "CIEN US EQUITY",
+    "fetched": false,
+    "nan_open": 0,
+    "nan_adj": 0,
+    "max_abs_log_open_jump": 0.204,
+    "max_close_adj_ratio_step": 0.0
+   },
+   "CMI": {
+    "key": "CMI US EQUITY",
+    "fetched": true,
+    "nan_open": 0,
+    "nan_adj": 0,
+    "max_abs_log_open_jump": 0.108,
+    "max_close_adj_ratio_step": 0.0051
+   },
+   "COHR": {
+    "key": "COHR US EQUITY",
+    "fetched": false,
+    "nan_open": 0,
+    "nan_adj": 0,
+    "max_abs_log_open_jump": 0.279,
+    "max_close_adj_ratio_step": 0.0
+   },
+   "ETN": {
+    "key": "ETN US EQUITY",
+    "fetched": true,
+    "nan_open": 0,
+    "nan_adj": 0,
+    "max_abs_log_open_jump": 0.096,
+    "max_close_adj_ratio_step": 0.0031
+   },
+   "FN": {
+    "key": "FN US EQUITY",
+    "fetched": false,
+    "nan_open": 0,
+    "nan_adj": 0,
+    "max_abs_log_open_jump": 0.229,
+    "max_close_adj_ratio_step": 0.0
+   },
+   "GEV": {
+    "key": "GEV US EQUITY",
+    "fetched": false,
+    "nan_open": 0,
+    "nan_adj": 0,
+    "max_abs_log_open_jump": 0.115,
+    "max_close_adj_ratio_step": 0.0007
+   },
+   "GLW": {
+    "key": "GLW US EQUITY",
+    "fetched": false,
+    "nan_open": 0,
+    "nan_adj": 0,
+    "max_abs_log_open_jump": 0.18,
+    "max_close_adj_ratio_step": 0.0041
+   },
+   "IPGP": {
+    "key": "IPGP US EQUITY",
+    "fetched": false,
+    "nan_open": 0,
+    "nan_adj": 0,
+    "max_abs_log_open_jump": 0.293,
+    "max_close_adj_ratio_step": 0.0
+   },
+   "LITE": {
+    "key": "LITE US EQUITY",
+    "fetched": false,
+    "nan_open": 0,
+    "nan_adj": 0,
+    "max_abs_log_open_jump": 0.218,
+    "max_close_adj_ratio_step": 0.0
+   },
+   "MOD": {
+    "key": "MOD US EQUITY",
+    "fetched": true,
+    "nan_open": 0,
+    "nan_adj": 0,
+    "max_abs_log_open_jump": 0.167,
+    "max_close_adj_ratio_step": 0.0
+   },
+   "MU": {
+    "key": "MU US EQUITY",
+    "fetched": false,
+    "nan_open": 0,
+    "nan_adj": 0,
+    "max_abs_log_open_jump": 0.159,
+    "max_close_adj_ratio_step": 0.0006
+   },
+   "NVT": {
+    "key": "NVT US EQUITY",
+    "fetched": true,
+    "nan_open": 0,
+    "nan_adj": 0,
+    "max_abs_log_open_jump": 0.157,
+    "max_close_adj_ratio_step": 0.0026
+   },
+   "SIMO": {
+    "key": "SIMO US EQUITY",
+    "fetched": false,
+    "nan_open": 0,
+    "nan_adj": 0,
+    "max_abs_log_open_jump": 0.306,
+    "max_close_adj_ratio_step": 0.0065
+   },
+   "SNDK": {
+    "key": "SNDK US EQUITY",
+    "fetched": false,
+    "nan_open": 0,
+    "nan_adj": 0,
+    "max_abs_log_open_jump": 0.22,
+    "max_close_adj_ratio_step": 0.0
+   },
+   "TTMI": {
+    "key": "TTMI US EQUITY",
+    "fetched": false,
+    "nan_open": 0,
+    "nan_adj": 0,
+    "max_abs_log_open_jump": 0.241,
+    "max_close_adj_ratio_step": 0.0
+   },
+   "VIAV": {
+    "key": "VIAV US EQUITY",
+    "fetched": false,
+    "nan_open": 0,
+    "nan_adj": 0,
+    "max_abs_log_open_jump": 0.311,
+    "max_close_adj_ratio_step": 0.0
+   },
+   "VRT": {
+    "key": "VRT US EQUITY",
+    "fetched": false,
+    "nan_open": 0,
+    "nan_adj": 0,
+    "max_abs_log_open_jump": 0.15,
+    "max_close_adj_ratio_step": 0.0004
+   }
+  },
+  "alignment": {
+   "book_days_missing_in_csv": [],
+   "csv_dates_not_in_book": [],
+   "book_last": "2026-10-09",
+   "csv_last": "2026-10-09",
+   "window_start": "2025-07-11"
+  },
+  "unranked_candidates_TK_on": {
+   "XNDU": {
+    "weeks": 2,
+    "max_base_w": 0.0114,
+    "src": "koact"
+   },
+   "CBRS": {
+    "weeks": 1,
+    "max_base_w": 0.0142,
+    "src": "koact"
+   },
+   "SPCX": {
+    "weeks": 5,
+    "max_base_w": 0.0244,
+    "src": "koact"
+   },
+   "SKHY": {
+    "weeks": 12,
+    "max_base_w": 0.0486,
+    "src": "time"
+   }
+  },
+  "held_with_missing_open": {
+   "T/off/m=1": [],
+   "T/off/m=2": [],
+   "T/off/m=none": [],
+   "T/on/m=1": [],
+   "T/on/m=2": [],
+   "T/on/m=none": [],
+   "TK/off/m=1": [],
+   "TK/off/m=2": [],
+   "TK/off/m=none": [],
+   "TK/on/m=1": [],
+   "TK/on/m=2": [],
+   "TK/on/m=none": [],
+   "[사후] T/leader/m=1": []
+  }
+ },
+ "4_hindsight": {
+  "T/off/m=1": {
+   "proxy_entries": [],
+   "boosted_weeks": 0
+  },
+  "T/off/m=2": {
+   "proxy_entries": [],
+   "boosted_weeks": 0
+  },
+  "T/off/m=none": {
+   "proxy_entries": [],
+   "boosted_weeks": 0
+  },
+  "T/on/m=1": {
+   "proxy_entries": [
+    {
+     "session": "2026-02-17",
+     "ticker": "MU",
+     "weight": 0.1405,
+     "rank": 4,
+     "proxy_for": [
+      "000660.KS"
+     ],
+     "TIME_w_prior_pdf": 0,
+     "KoAct_w_prior_pdf": 0.0399,
+     "in_any_fund_2026_before": true
+    },
+    {
+     "session": "2026-03-30",
+     "ticker": "TTMI",
+     "weight": 0.0231,
+     "rank": 10,
+     "proxy_for": [
+      "009150.KS"
+     ],
+     "TIME_w_prior_pdf": 0,
+     "KoAct_w_prior_pdf": 0,
+     "in_any_fund_2026_before": false
+    },
+    {
+     "session": "2026-04-20",
+     "ticker": "MU",
+     "weight": 0.1196,
+     "rank": 10,
+     "proxy_for": [
+      "000660.KS",
+      "005930.KS"
+     ],
+     "TIME_w_prior_pdf": 0,
+     "KoAct_w_prior_pdf": 0.0359,
+     "in_any_fund_2026_before": true
+    },
+    {
+     "session": "2026-06-08",
+     "ticker": "TTMI",
+     "weight": 0.0118,
+     "rank": 8,
+     "proxy_for": [
+      "6981.T"
+     ],
+     "TIME_w_prior_pdf": 0,
+     "KoAct_w_prior_pdf": 0,
+     "in_any_fund_2026_before": true
+    }
+   ],
+   "boosted_weeks": 26
+  },
+  "T/on/m=2": {
+   "proxy_entries": [
+    {
+     "session": "2026-03-09",
+     "ticker": "MU",
+     "weight": 0.2035,
+     "rank": 6,
+     "proxy_for": [
+      "000660.KS"
+     ],
+     "TIME_w_prior_pdf": 0,
+     "KoAct_w_prior_pdf": 0.0278,
+     "in_any_fund_2026_before": true
+    },
+    {
+     "session": "2026-05-11",
+     "ticker": "MU",
+     "weight": 0.0658,
+     "rank": 5,
+     "proxy_for": [
+      "000660.KS",
+      "005930.KS"
+     ],
+     "TIME_w_prior_pdf": 0,
+     "KoAct_w_prior_pdf": 0.0411,
+     "in_any_fund_2026_before": true
+    }
+   ],
+   "boosted_weeks": 22
+  },
+  "T/on/m=none": {
+   "proxy_entries": [
+    {
+     "session": "2026-05-11",
+     "ticker": "MU",
+     "weight": 0.0826,
+     "rank": 5,
+     "proxy_for": [
+      "000660.KS",
+      "005930.KS"
+     ],
+     "TIME_w_prior_pdf": 0,
+     "KoAct_w_prior_pdf": 0.0411,
+     "in_any_fund_2026_before": true
+    }
+   ],
+   "boosted_weeks": 21
+  },
+  "TK/off/m=1": {
+   "proxy_entries": [],
+   "boosted_weeks": 0
+  },
+  "TK/off/m=2": {
+   "proxy_entries": [],
+   "boosted_weeks": 0
+  },
+  "TK/off/m=none": {
+   "proxy_entries": [],
+   "boosted_weeks": 0
+  },
+  "TK/on/m=1": {
+   "proxy_entries": [],
+   "boosted_weeks": 29
+  },
+  "TK/on/m=2": {
+   "proxy_entries": [],
+   "boosted_weeks": 28
+  },
+  "TK/on/m=none": {
+   "proxy_entries": [],
+   "boosted_weeks": 26
+  },
+  "[사후] T/leader/m=1": {
+   "proxy_entries": [
+    {
+     "session": "2026-02-17",
+     "ticker": "MU",
+     "weight": 0.1405,
+     "rank": 4,
+     "proxy_for": [
+      "000660.KS"
+     ],
+     "TIME_w_prior_pdf": 0,
+     "KoAct_w_prior_pdf": 0.0399,
+     "in_any_fund_2026_before": true
+    },
+    {
+     "session": "2026-03-30",
+     "ticker": "TTMI",
+     "weight": 0.0441,
+     "rank": 10,
+     "proxy_for": [
+      "009150.KS"
+     ],
+     "TIME_w_prior_pdf": 0,
+     "KoAct_w_prior_pdf": 0,
+     "in_any_fund_2026_before": false
+    },
+    {
+     "session": "2026-04-20",
+     "ticker": "MU",
+     "weight": 0.1111,
+     "rank": 10,
+     "proxy_for": [
+      "000660.KS",
+      "005930.KS"
+     ],
+     "TIME_w_prior_pdf": 0,
+     "KoAct_w_prior_pdf": 0.0359,
+     "in_any_fund_2026_before": true
+    },
+    {
+     "session": "2026-06-08",
+     "ticker": "TTMI",
+     "weight": 0.0231,
+     "rank": 8,
+     "proxy_for": [
+      "6981.T"
+     ],
+     "TIME_w_prior_pdf": 0,
+     "KoAct_w_prior_pdf": 0,
+     "in_any_fund_2026_before": true
+    }
+   ],
+   "boosted_weeks": 26
+  }
+ },
+ "5_sensitivity": {
+  "T/on/m=1 [no_9988_BABA]": {
+   "앞 1/2~5/29": 1.7185,
+   "뒤 6/1~10/9": 0.0311,
+   "9/1~10/9": 0.1275,
+   "전체": 1.8032,
+   "MDD": -0.2238
+  },
+  "T/on/m=2 [no_9988_BABA]": {
+   "앞 1/2~5/29": 1.894,
+   "뒤 6/1~10/9": 0.0557,
+   "9/1~10/9": 0.1344,
+   "전체": 2.055,
+   "MDD": -0.2234
+  },
+  "T/on/m=none [no_9988_BABA]": {
+   "앞 1/2~5/29": 2.0777,
+   "뒤 6/1~10/9": 0.0557,
+   "9/1~10/9": 0.1344,
+   "전체": 2.249,
+   "MDD": -0.2234
+  },
+  "T/on/m=1 [no_top_fallback]": {
+   "앞 1/2~5/29": 2.0351,
+   "뒤 6/1~10/9": -0.0012,
+   "9/1~10/9": 0.1275,
+   "전체": 2.0316,
+   "MDD": -0.2148
+  },
+  "T/on/m=2 [no_top_fallback]": {
+   "앞 1/2~5/29": 1.9035,
+   "뒤 6/1~10/9": 0.0557,
+   "9/1~10/9": 0.1344,
+   "전체": 2.0651,
+   "MDD": -0.2234
+  },
+  "T/on/m=none [no_top_fallback]": {
+   "앞 1/2~5/29": 2.026,
+   "뒤 6/1~10/9": 0.0557,
+   "9/1~10/9": 0.1344,
+   "전체": 2.1944,
+   "MDD": -0.2234
+  },
+  "T/on/m=1": {
+   "앞 1/2~5/29": 1.7185,
+   "뒤 6/1~10/9": 0.0311,
+   "9/1~10/9": 0.1275,
+   "전체": 1.8032,
+   "MDD": -0.2238
+  },
+  "T/on/m=2": {
+   "앞 1/2~5/29": 1.894,
+   "뒤 6/1~10/9": 0.0557,
+   "9/1~10/9": 0.1344,
+   "전체": 2.055,
+   "MDD": -0.2234
+  },
+  "T/on/m=none": {
+   "앞 1/2~5/29": 2.0777,
+   "뒤 6/1~10/9": 0.0557,
+   "9/1~10/9": 0.1344,
+   "전체": 2.249,
+   "MDD": -0.2234
+  },
+  "T/off/m=none": {
+   "앞 1/2~5/29": 2.0935,
+   "뒤 6/1~10/9": 0.0464,
+   "9/1~10/9": 0.1356,
+   "전체": 2.2369,
+   "MDD": -0.2027
+  }
+ }
+}

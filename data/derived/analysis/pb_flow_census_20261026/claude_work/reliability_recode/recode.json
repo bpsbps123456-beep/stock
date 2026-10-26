@@ -1,0 +1,97 @@
+{
+ "coder": "claude_blind_recode_2026-10-26",
+ "rules_applied": {
+  "note_date": "explicit covered-period end (week through/ended/to X) > explicit issue date stated relative to the article (note dated Friday, said on Friday) > publication_proxy (article NY date). 'last week' without a date stays publication_proxy.",
+  "lookback": "only extremity phrases (largest/fastest/highest/lowest since X, in N months/years) attached to the dominant fact; 'first time in N weeks' and 'N straight weeks' streaks are not lookbacks; 'since YYYY' and record without start month stay blank; 'since <Month>' without year = most recent such month before the note.",
+  "flow_direction": "net_buy/net_sell for explicit net direction in the headline scope; long selling + short adding without a total counted as net_sell; mixed only when opposing regional/client directions and no total; blank for position-only, covering-only or gross-only.",
+  "family": "D multi-month/multi-year max selling or explicit substantial deleveraging; S extreme short exposure / extreme low net length; R positive net flow, covering, return to buying; T high holdings or leverage; N ordinary selling or no flow fact."
+ },
+ "articles": {
+  "2843b81e72e4": {"notes": [
+    {"v": "A", "bank": "GS", "note_date": "2023-07-14", "note_date_basis": "issue_date_relative", "scope": "US equities / macro products", "flow_direction": "net_buy", "long_flow": "na", "short_flow": "cover", "lookback_months": 9, "family": "R", "magnitude": "net buying largest since October last year (alt: macro short covering largest since Nov 2020 = 32)", "confidence": "medium"},
+    {"v": "B", "bank": "JPM", "note_date": "2023-07-13", "note_date_basis": "explicit_issue", "scope": "US shorts", "flow_direction": "", "long_flow": "na", "short_flow": "cover", "lookback_months": null, "family": "R", "magnitude": "unwinding of short positions got 'extreme'", "confidence": "medium"}]},
+  "605294187f5f": {"notes": [
+    {"v": "A", "bank": "BofA", "note_date": "2023-04-25", "note_date_basis": "publication_proxy", "scope": "US equities, all clients (HF buyers)", "flow_direction": "net_buy", "long_flow": "na", "short_flow": "na", "lookback_months": null, "family": "R", "magnitude": "first inflow in a month (streak, not lookback)", "confidence": "high"}]},
+  "ad98d9050c54": {"notes": [
+    {"v": "A", "bank": "GS", "note_date": "2023-09-18", "note_date_basis": "publication_proxy", "scope": "energy (NA+Europe)", "flow_direction": "net_sell", "long_flow": "na", "short_flow": "add", "lookback_months": 40, "family": "S", "magnitude": "underweight energy approaching a May 2020 low", "confidence": "low"}]},
+  "89c0590362e8": {"notes": [
+    {"v": "A", "bank": "GS", "note_date": "2023-10-23", "note_date_basis": "publication_proxy", "scope": "US megacap tech", "flow_direction": "net_sell", "long_flow": "na", "short_flow": "na", "lookback_months": null, "family": "T", "magnitude": "megacap share still near record highs", "confidence": "low"},
+    {"v": "B", "bank": "JPM", "note_date": "2023-10-23", "note_date_basis": "publication_proxy", "scope": "US megacap tech", "flow_direction": "net_sell", "long_flow": "sell", "short_flow": "add", "lookback_months": null, "family": "T", "magnitude": "exposure close to record levels back to 2018", "confidence": "low"}]},
+  "cd7a6d5b86e5": {"notes": [
+    {"v": "A", "bank": "JPM", "note_date": "2023-08-16", "note_date_basis": "issue_date_relative", "scope": "US value/growth, small/large rotation", "flow_direction": "", "long_flow": "na", "short_flow": "na", "lookback_months": null, "family": "N", "magnitude": "flows mostly slowed or paused", "confidence": "high"}]},
+  "1c0b45b1f49a": {"notes": [
+    {"v": "A", "bank": "GS", "note_date": "2023-11-01", "note_date_basis": "publication_proxy", "scope": "global, October month", "flow_direction": "net_sell", "long_flow": "na", "short_flow": "na", "lookback_months": null, "family": "N", "magnitude": "third month of net selling", "confidence": "high"}]},
+  "0200d6b3c0ac": {"notes": [
+    {"v": "A", "bank": "GS", "note_date": "2023-11-03", "note_date_basis": "explicit_week_end", "scope": "US equities", "flow_direction": "net_buy", "long_flow": "na", "short_flow": "na", "lookback_months": 24, "family": "R", "magnitude": "fastest pace in two years (alt: largest five-day buying since Dec 2021 = 23)", "confidence": "medium"},
+    {"v": "B", "bank": "GS", "note_date": "2023-11-02", "note_date_basis": "explicit_issue", "scope": "US shorts squeeze", "flow_direction": "", "long_flow": "na", "short_flow": "cover", "lookback_months": null, "family": "R", "magnitude": "caught in a squeeze", "confidence": "low"}]},
+  "e9088aebdb0c": {"notes": [
+    {"v": "A", "bank": "GS", "note_date": "2023-11-10", "note_date_basis": "issue_date_relative", "scope": "US financials", "flow_direction": "net_sell", "long_flow": "na", "short_flow": "add", "lookback_months": 60, "family": "S", "magnitude": "highest level in nearly five years", "confidence": "medium"}]},
+  "7eee58bd5f5f": {"notes": [
+    {"v": "A", "bank": "GS", "note_date": "2023-11-16", "note_date_basis": "explicit_week_end", "scope": "global tech; staples", "flow_direction": "net_sell", "long_flow": "sell", "short_flow": "cover", "lookback_months": 7, "family": "D", "magnitude": "fastest weekly pace in seven months (alt staples since April 2020 = 43)", "confidence": "medium"}]},
+  "7bc5d3f97e36": {"notes": [
+    {"v": "A", "bank": "JPM", "note_date": "2023-06-13", "note_date_basis": "publication_proxy", "scope": "US equities", "flow_direction": "net_buy", "long_flow": "na", "short_flow": "na", "lookback_months": 10, "family": "R", "magnitude": "largest four-week buying spree since August", "confidence": "medium", "webfetch": "403, snippet only"}]},
+  "e3dc68ad1bf8": {"notes": [
+    {"v": "A", "bank": "GS", "note_date": "2023-07-31", "note_date_basis": "issue_date_relative", "scope": "global L/S, July", "flow_direction": "", "long_flow": "na", "short_flow": "cover", "lookback_months": null, "family": "R", "magnitude": "few times in past 10 years de-risking as high; record levels", "confidence": "medium"}]},
+  "3f346fcc12c7": {"notes": [
+    {"v": "A", "bank": "GS", "note_date": "2026-10-19", "note_date_basis": "publication_proxy", "scope": "tech", "flow_direction": "net_sell", "long_flow": "na", "short_flow": "na", "lookback_months": 120, "family": "D", "magnitude": "fastest pace in a decade", "confidence": "medium", "info": "title only"}]},
+  "c2e617490801": {"notes": [
+    {"v": "A", "bank": "GS", "note_date": "2026-08-10", "note_date_basis": "publication_proxy", "scope": "global equities", "flow_direction": "net_buy", "long_flow": "buy", "short_flow": "add", "lookback_months": null, "family": "R", "magnitude": "second consecutive week (gross fastest in seven weeks)", "confidence": "medium", "webfetch": "same article fetched via ca.investing (cd3b6e80c7a4)", "input_only": {"long_flow": "na", "short_flow": "na"}}]},
+  "b99eb62887ac": {"notes": [
+    {"v": "A", "bank": "BofA", "note_date": "2024-08-13", "note_date_basis": "publication_proxy", "scope": "US equities, institutional clients", "flow_direction": "net_buy", "long_flow": "na", "short_flow": "na", "lookback_months": null, "family": "R", "magnitude": "first time in 5 weeks (streak)", "confidence": "medium", "info": "title only"}]},
+  "576ca566e7e8": {"notes": [
+    {"v": "A", "bank": "GS", "note_date": "2025-12-15", "note_date_basis": "publication_proxy", "scope": "US equities", "flow_direction": "net_buy", "long_flow": "buy", "short_flow": "add", "lookback_months": null, "family": "R", "magnitude": "sixth consecutive week (streak)", "confidence": "medium", "webfetch": "single stocks long buys matched by short sales", "input_only": {"long_flow": "na", "short_flow": "na"}}]},
+  "9bc9d0fa44ff": {"notes": [
+    {"v": "A", "bank": "BofA", "note_date": "2026-08-11", "note_date_basis": "publication_proxy", "scope": "US equities, hedge fund clients", "flow_direction": "net_buy", "long_flow": "na", "short_flow": "na", "lookback_months": null, "family": "R", "magnitude": "biggest buying week since 2008 (since YYYY -> blank)", "confidence": "medium", "info": "title only"}]},
+  "6ebf9522baab": {"notes": [
+    {"v": "A", "bank": "GS", "note_date": "2025-03-13", "note_date_basis": "explicit_week_end", "scope": "US vs Europe/EM Asia", "flow_direction": "mixed", "long_flow": "buy", "short_flow": "add", "lookback_months": 60, "family": "R", "magnitude": "Europe net sold fastest pace in over five years", "confidence": "low"},
+    {"v": "B", "bank": "JPM", "note_date": "2025-03-17", "note_date_basis": "publication_proxy", "scope": "US", "flow_direction": "", "long_flow": "buy", "short_flow": "add", "lookback_months": null, "family": "N", "magnitude": "same trend", "confidence": "low"}]},
+  "cd3b6e80c7a4": {"notes": [
+    {"v": "A", "bank": "GS", "note_date": "2026-08-10", "note_date_basis": "publication_proxy", "scope": "global equities", "flow_direction": "net_buy", "long_flow": "buy", "short_flow": "add", "lookback_months": null, "family": "R", "magnitude": "second consecutive week; long purchases exceeded short selling 1.4 to 1", "confidence": "medium", "webfetch": "full text", "input_only": {"long_flow": "na", "short_flow": "na"}}]},
+  "ca5e7289d521": {"notes": [
+    {"v": "A", "bank": "BofA", "note_date": "2025-11-26", "note_date_basis": "publication_proxy", "scope": "US equities, all clients (HF strongest)", "flow_direction": "net_buy", "long_flow": "na", "short_flow": "na", "lookback_months": 29, "family": "R", "magnitude": "HF biggest inflow since Jun'23", "confidence": "medium", "webfetch": "full text", "input_only": {"lookback_months": null}}]},
+  "76f043c67b66": {"notes": [
+    {"v": "A", "bank": "BofA", "note_date": "2024-01-23", "note_date_basis": "publication_proxy", "scope": "US equities, hedge fund clients", "flow_direction": "net_buy", "long_flow": "na", "short_flow": "na", "lookback_months": null, "family": "R", "magnitude": "first time in ten weeks (streak); all clients biggest inflow since mid-December (alt 1)", "confidence": "medium"}]},
+  "15530de34029": {"notes": [
+    {"v": "A", "bank": "GS", "note_date": "2025-09-25", "note_date_basis": "explicit_week_end", "scope": "EM Asia", "flow_direction": "net_sell", "long_flow": "na", "short_flow": "na", "lookback_months": 5, "family": "D", "magnitude": "largest weekly selloff in more than five months", "confidence": "high"}]},
+  "47232d7a3834": {"notes": [
+    {"v": "A", "bank": "GS", "note_date": "2023-05-19", "note_date_basis": "explicit_issue", "scope": "US megacap tech; macro", "flow_direction": "net_buy", "long_flow": "na", "short_flow": "cover", "lookback_months": null, "family": "R", "magnitude": "continued to move into mega cap tech; macro short covering", "confidence": "low", "webfetch": "reddit blocked"}]},
+  "771f912c8a37": {"notes": [
+    {"v": "A", "bank": "GS", "note_date": "2025-10-23", "note_date_basis": "publication_proxy", "scope": "Europe", "flow_direction": "", "long_flow": "sell", "short_flow": "cover", "lookback_months": null, "family": "D", "magnitude": "significantly reduced exposure; reduction in gross exposure", "confidence": "medium", "webfetch": "full text", "input_only": {"flow_direction": "net_sell", "long_flow": "na", "short_flow": "na"}}]},
+  "9b9f088693dc": {"notes": [
+    {"v": "A", "bank": "JPM", "note_date": "2026-02-24", "note_date_basis": "publication_proxy", "scope": "US megacap tech/software", "flow_direction": "net_buy", "long_flow": "na", "short_flow": "na", "lookback_months": null, "family": "R", "magnitude": "rotation slowed or reversed", "confidence": "medium"},
+    {"v": "B", "bank": "GS", "note_date": "2026-02-24", "note_date_basis": "publication_proxy", "scope": "global equities", "flow_direction": "net_sell", "long_flow": "na", "short_flow": "na", "lookback_months": 10, "family": "D", "magnitude": "net sales highest since tariffs last April (leverage nearing highest in a year)", "confidence": "low"}]},
+  "bb89a0d38ddc": {"notes": [
+    {"v": "A", "bank": "GS", "note_date": "2024-02-23", "note_date_basis": "explicit_week_end", "scope": "global tech / US", "flow_direction": "net_sell", "long_flow": "sell", "short_flow": "add", "lookback_months": 8, "family": "D", "magnitude": "highest pace in almost eight months", "confidence": "medium"},
+    {"v": "B", "bank": "MS", "note_date": "2024-02-26", "note_date_basis": "publication_proxy", "scope": "tech", "flow_direction": "net_sell", "long_flow": "na", "short_flow": "add", "lookback_months": null, "family": "N", "magnitude": "tech most net sold sector", "confidence": "medium"},
+    {"v": "C", "bank": "GS", "note_date": "2024-02-26", "note_date_basis": "publication_proxy", "scope": "tech options", "flow_direction": "", "long_flow": "na", "short_flow": "na", "lookback_months": null, "family": "N", "magnitude": "two-year high in NVDA calls", "confidence": "low"}]},
+  "44c26ac783a2": {"notes": [
+    {"v": "A", "bank": "GS", "note_date": "2026-06-05", "note_date_basis": "publication_proxy", "scope": "global, May month", "flow_direction": "net_buy", "long_flow": "na", "short_flow": "na", "lookback_months": 12, "family": "R", "magnitude": "fastest pace since June 2025", "confidence": "medium"}]},
+  "2da96dc2e812": {"notes": [
+    {"v": "A", "bank": "GS", "note_date": "2026-10-07", "note_date_basis": "explicit_issue", "scope": "US/global fundamental L/S net length", "flow_direction": "", "long_flow": "na", "short_flow": "na", "lookback_months": null, "family": "S", "magnitude": "net length 2-3 percentile on 3y/5y lookback", "confidence": "low", "webfetch": "full text", "input_only": {"family": "N"}}]},
+  "e7bac6103b58": {"notes": [
+    {"v": "A", "bank": "", "note_date": "2026-10-23", "note_date_basis": "publication_proxy", "scope": "US shorts", "flow_direction": "", "long_flow": "na", "short_flow": "add", "lookback_months": null, "family": "S", "magnitude": "shorting at near-record levels", "confidence": "low", "info": "title only, no bank named; google news link unresolved"}]},
+  "7bc0099d4065": {"notes": [
+    {"v": "A", "bank": "GS", "note_date": "2025-10-30", "note_date_basis": "explicit_week_end", "scope": "global equities", "flow_direction": "net_buy", "long_flow": "buy", "short_flow": "add", "lookback_months": 4, "family": "R", "magnitude": "gross trading up by the most in four months", "confidence": "medium"}]},
+  "8217c95a8ef1": {"notes": [
+    {"v": "A", "bank": "GS", "note_date": "2024-11-25", "note_date_basis": "publication_proxy", "scope": "US equities", "flow_direction": "net_sell", "long_flow": "na", "short_flow": "add", "lookback_months": 3, "family": "D", "magnitude": "fastest pace in three months", "confidence": "medium"}]},
+  "e7a705efaff1": {"notes": [
+    {"v": "A", "bank": "GS", "note_date": "2026-02-19", "note_date_basis": "explicit_week_end", "scope": "global equities", "flow_direction": "net_sell", "long_flow": "na", "short_flow": "add", "lookback_months": 10, "family": "D", "magnitude": "fastest pace since early April 2025", "confidence": "high"}]},
+  "62661f33a75c": {"notes": [
+    {"v": "A", "bank": "BofA", "note_date": "2026-07-29", "note_date_basis": "publication_proxy", "scope": "US equities, all clients", "flow_direction": "net_buy", "long_flow": "na", "short_flow": "na", "lookback_months": null, "family": "R", "magnitude": "fourth straight week (streak)", "confidence": "medium", "info": "title only"}]},
+  "e469bc6eec97": {"notes": [
+    {"v": "A", "bank": "GS", "note_date": "2026-06-04", "note_date_basis": "explicit_week_end", "scope": "global equities", "flow_direction": "net_buy", "long_flow": "buy", "short_flow": "add", "lookback_months": 4, "family": "R", "magnitude": "largest net dollar amount in four months", "confidence": "high", "webfetch": "long buying outpaced short selling", "input_only": {"short_flow": "na"}}]},
+  "a29937f27862": {"notes": [
+    {"v": "A", "bank": "MS", "note_date": "2025-01-09", "note_date_basis": "explicit_week_end", "scope": "US vs Europe/Asia", "flow_direction": "mixed", "long_flow": "sell", "short_flow": "add", "lookback_months": null, "family": "N", "magnitude": "increased shorts", "confidence": "medium"},
+    {"v": "B", "bank": "GS", "note_date": "2025-01-09", "note_date_basis": "explicit_week_end", "scope": "all regions", "flow_direction": "net_sell", "long_flow": "buy", "short_flow": "add", "lookback_months": null, "family": "N", "magnitude": "short positions outpaced long additions", "confidence": "medium"}]},
+  "7c793123613f": {"notes": [
+    {"v": "A", "bank": "GS", "note_date": "2025-07-28", "note_date_basis": "publication_proxy", "scope": "global tech", "flow_direction": "net_sell", "long_flow": "sell", "short_flow": "na", "lookback_months": 12, "family": "D", "magnitude": "fastest pace in 12 months", "confidence": "high"}]},
+  "881ee06554a6": {"notes": [
+    {"v": "A", "bank": "GS", "note_date": "2024-10-14", "note_date_basis": "publication_proxy", "scope": "North America", "flow_direction": "net_buy", "long_flow": "buy", "short_flow": "cover", "lookback_months": 4, "family": "R", "magnitude": "largest weekly inflow since June", "confidence": "medium", "webfetch": "full text", "input_only": {"lookback_months": 5}}]},
+  "68077fe27b3f": {"notes": [
+    {"v": "A", "bank": "GS", "note_date": "2024-05-17", "note_date_basis": "publication_proxy", "scope": "US meme/most-shorted", "flow_direction": "", "long_flow": "na", "short_flow": "cover", "lookback_months": null, "family": "R", "magnitude": "squeezed from short bets", "confidence": "low", "info": "title only"}]},
+  "5d371ca00cc3": {"notes": [
+    {"v": "A", "bank": "GS", "note_date": "2026-01-19", "note_date_basis": "publication_proxy", "scope": "global equities", "flow_direction": "net_buy", "long_flow": "buy", "short_flow": "na", "lookback_months": null, "family": "R", "magnitude": "second consecutive week; industrials record since 2016", "confidence": "medium", "webfetch": "full text", "input_only": {"long_flow": "na"}}]},
+  "1b3c13c33fce": {"notes": [
+    {"v": "A", "bank": "GS", "note_date": "2024-06-07", "note_date_basis": "explicit_week_end", "scope": "US tech", "flow_direction": "net_sell", "long_flow": "na", "short_flow": "na", "lookback_months": null, "family": "N", "magnitude": "third straight week (streak)", "confidence": "high"}]}
+ }
+}

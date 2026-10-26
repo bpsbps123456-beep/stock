@@ -1,0 +1,53 @@
+== (a) Rebalance-date luck: same rule, different day of the month/week ==
+  T/MOM120 N10 FW M: +156% +158% +167% +175% +189% +205% +189% +195%   (min +156%, max +205%)
+  T/MOM120 N5 EQ M: +235% +221% +158% +154% +176% +174% +162% +165%   (min +154%, max +235%)
+  T/MOM120 N5 EQ W: +214% +222% +185% +184% +188%   (min +184%, max +222%)
+  T/W N10 FW M: +93% +102% +108% +107% +153% +141% +114% +88%   (min +88%, max +153%)
+
+== (b) 기본: rule plateaus ranked by Jan-May p25 only (N>=3). all-rule OOS median -16.5% ==
+  rank rule                  | IS p25  IS med | Jun-Sep  Jun-Jul  Aug-Sep
+     1 T/top20/MOM120/D      |   +162%   +185% |   -5.1%  -16.1%  +14.3%
+     2 T/all/MOM120/D        |   +157%   +202% |   -3.9%  -18.6%  +18.3%
+     3 I/all/MOM120/D        |   +154%   +183% |   -4.4%  -18.8%  +19.8%
+     4 T/top20/FMOM20_20/D   |   +148%   +177% |  -25.5%  -24.5%   -2.4%
+     5 I/top20/MOM120/W      |   +146%   +173% |  -10.2%  -22.4%  +17.2%
+     6 I/top20/MOM120/D      |   +146%   +168% |   -4.4%  -18.8%  +19.8%
+     7 T/all/FMOM20_60/W     |   +146%   +175% |  -28.5%  -23.1%   -6.5%
+     8 T/all/FMOM20_60/D     |   +146%   +174% |  -23.7%  -19.2%   -5.6%
+     9 T/top20/MOM20/D       |   +145%   +166% |  -25.6%  -25.0%   -0.7%
+    10 T/top20/FMOM20_60/D   |   +145%   +180% |  -24.1%  -19.2%   -4.3%
+    11 T/all/WMOM60_25/D     |   +145%   +162% |  -21.6%  -17.6%   -4.4%
+    12 T/top20/WMOM20_25/D   |   +144%   +166% |  -21.8%  -21.3%   +0.4%
+  top-10 plateaus avg: Jun-Sep -15.5%, Aug-Sep +7.0%  | all plateaus avg Jun-Sep -16.5%, Aug-Sep +6.6%
+
+== (b) +1일 지연: rule plateaus ranked by Jan-May p25 only (N>=3). all-rule OOS median -15.0% ==
+  rank rule                  | IS p25  IS med | Jun-Sep  Jun-Jul  Aug-Sep
+     1 T/all/MOM120/D        |   +171%   +207% |   -3.9%  -18.6%  +17.0%
+     2 T/top20/MOM120/D      |   +169%   +184% |   -4.1%  -15.3%  +10.2%
+     3 I/top20/MOM120/D      |   +156%   +184% |   -3.9%  -19.3%  +18.0%
+     4 K/all/MOM120/D        |   +156%   +182% |  -18.7%  -29.0%  +15.1%
+     5 I/all/FMOM20_60/D     |   +155%   +181% |  -12.6%  -19.8%   +7.7%
+     6 I/all/MOM120/D        |   +152%   +191% |   -3.9%  -19.3%  +18.0%
+     7 T/all/MOM120/W        |   +150%   +184% |   -5.3%  -21.0%  +18.2%
+     8 T/top20/FMOM5_60/W    |   +150%   +187% |  -13.8%  -19.5%   +9.3%
+     9 T/all/FMOM20_60/W     |   +149%   +181% |  -25.8%  -22.1%   -5.3%
+    10 K/all/MOM60/D         |   +147%   +164% |  -10.3%  -16.5%   +8.4%
+    11 T/all/FMOM5_20/W      |   +146%   +185% |   -2.2%  -17.3%  +20.8%
+    12 K/top20/MOM60/W       |   +146%   +167% |  -23.0%  -24.0%   +4.3%
+  top-10 plateaus avg: Jun-Sep -10.2%, Aug-Sep +11.7%  | all plateaus avg Jun-Sep -15.2%, Aug-Sep +8.2%
+
+== (b) +1일·30bp: rule plateaus ranked by Jan-May p25 only (N>=3). all-rule OOS median -16.8% ==
+  rank rule                  | IS p25  IS med | Jun-Sep  Jun-Jul  Aug-Sep
+     1 T/top20/MOM120/D      |   +160%   +178% |   -4.9%  -16.0%   +9.2%
+     2 T/all/MOM120/D        |   +159%   +201% |   -5.7%  -18.9%  +16.2%
+     3 K/all/MOM120/D        |   +148%   +170% |  -20.3%  -30.3%  +13.9%
+     4 I/top20/MOM120/D      |   +148%   +174% |   -6.5%  -19.7%  +16.9%
+     5 I/all/FMOM20_60/D     |   +144%   +162% |  -15.7%  -21.7%   +6.0%
+     6 T/all/MOM120/W        |   +144%   +179% |   -6.0%  -21.5%  +17.7%
+     7 I/all/MOM120/D        |   +143%   +186% |   -6.5%  -19.7%  +16.9%
+     8 U/top20/MOM120/W      |   +141%   +154% |  -14.7%  -26.4%  +13.8%
+     9 K/top20/MOM60/W       |   +141%   +161% |  -24.8%  -25.1%   +3.5%
+    10 T/all/FMOM20_60/W     |   +140%   +171% |  -27.5%  -23.0%   -6.4%
+    11 T/top20/FMOM5_60/W    |   +140%   +177% |  -17.2%  -20.2%   +6.8%
+    12 K/top20/MOM120/W      |   +138%   +157% |  -19.3%  -29.4%  +12.1%
+  top-10 plateaus avg: Jun-Sep -13.3%, Aug-Sep +10.8%  | all plateaus avg Jun-Sep -17.5%, Aug-Sep +6.8%

@@ -1,0 +1,298 @@
+{
+ "all": {
+  "n": 40,
+  "bank": {
+   "agree": 39,
+   "rate": 0.975,
+   "ci95": [
+    0.87,
+    1.0
+   ],
+   "kappa": 0.94
+  },
+  "flow_direction": {
+   "agree": 36,
+   "rate": 0.9,
+   "ci95": [
+    0.77,
+    0.96
+   ],
+   "kappa": 0.85
+  },
+  "long_flow": {
+   "agree": 36,
+   "rate": 0.9,
+   "ci95": [
+    0.77,
+    0.96
+   ],
+   "kappa": 0.8
+  },
+  "short_flow": {
+   "agree": 39,
+   "rate": 0.975,
+   "ci95": [
+    0.87,
+    1.0
+   ],
+   "kappa": 0.96
+  },
+  "family": {
+   "agree": 34,
+   "rate": 0.85,
+   "ci95": [
+    0.71,
+    0.93
+   ],
+   "kappa": 0.77
+  },
+  "lookback_months": {
+   "agree": 36,
+   "rate": 0.9,
+   "ci95": [
+    0.77,
+    0.96
+   ],
+   "exact": 35,
+   "both_numeric": 16,
+   "presence_agree": 37
+  },
+  "note_date": {
+   "agree": 33,
+   "rate": 0.825,
+   "ci95": [
+    0.68,
+    0.91
+   ],
+   "within3d": 38,
+   "same_week": 37
+  },
+  "all7_agree_rows": 24
+ },
+ "claude": {
+  "n": 28,
+  "bank": {
+   "agree": 27,
+   "rate": 0.964,
+   "ci95": [
+    0.82,
+    0.99
+   ],
+   "kappa": 0.91
+  },
+  "flow_direction": {
+   "agree": 26,
+   "rate": 0.929,
+   "ci95": [
+    0.77,
+    0.98
+   ],
+   "kappa": 0.88
+  },
+  "long_flow": {
+   "agree": 25,
+   "rate": 0.893,
+   "ci95": [
+    0.73,
+    0.96
+   ],
+   "kappa": 0.81
+  },
+  "short_flow": {
+   "agree": 27,
+   "rate": 0.964,
+   "ci95": [
+    0.82,
+    0.99
+   ],
+   "kappa": 0.94
+  },
+  "family": {
+   "agree": 24,
+   "rate": 0.857,
+   "ci95": [
+    0.69,
+    0.94
+   ],
+   "kappa": 0.76
+  },
+  "lookback_months": {
+   "agree": 26,
+   "rate": 0.929,
+   "ci95": [
+    0.77,
+    0.98
+   ],
+   "exact": 26,
+   "both_numeric": 12,
+   "presence_agree": 27
+  },
+  "note_date": {
+   "agree": 26,
+   "rate": 0.929,
+   "ci95": [
+    0.77,
+    0.98
+   ],
+   "within3d": 26,
+   "same_week": 26
+  },
+  "all7_agree_rows": 21
+ },
+ "codex": {
+  "n": 12,
+  "bank": {
+   "agree": 12,
+   "rate": 1.0,
+   "ci95": [
+    0.76,
+    1
+   ],
+   "kappa": 1.0
+  },
+  "flow_direction": {
+   "agree": 10,
+   "rate": 0.833,
+   "ci95": [
+    0.55,
+    0.95
+   ],
+   "kappa": 0.75
+  },
+  "long_flow": {
+   "agree": 11,
+   "rate": 0.917,
+   "ci95": [
+    0.65,
+    0.99
+   ],
+   "kappa": 0.76
+  },
+  "short_flow": {
+   "agree": 12,
+   "rate": 1.0,
+   "ci95": [
+    0.76,
+    1
+   ],
+   "kappa": 1.0
+  },
+  "family": {
+   "agree": 10,
+   "rate": 0.833,
+   "ci95": [
+    0.55,
+    0.95
+   ],
+   "kappa": 0.75
+  },
+  "lookback_months": {
+   "agree": 10,
+   "rate": 0.833,
+   "ci95": [
+    0.55,
+    0.95
+   ],
+   "exact": 9,
+   "both_numeric": 4,
+   "presence_agree": 10
+  },
+  "note_date": {
+   "agree": 7,
+   "rate": 0.583,
+   "ci95": [
+    0.32,
+    0.81
+   ],
+   "within3d": 12,
+   "same_week": 11
+  },
+  "all7_agree_rows": 3
+ },
+ "bank_excl_matched": {
+  "n": 32,
+  "agree": 31
+ },
+ "input_only_counterfactual_agree": {
+  "bank": 39,
+  "flow_direction": 35,
+  "long_flow": 33,
+  "short_flow": 34,
+  "family": 34,
+  "lookback_months": 35,
+  "note_date": 33
+ },
+ "cause_tally": {
+  "rule_interpretation": 16,
+  "information_gap": 11
+ },
+ "cause_by_field": {
+  "flow_direction": {
+   "rule_interpretation": 1,
+   "information_gap": 3
+  },
+  "lookback_months": {
+   "rule_interpretation": 2,
+   "information_gap": 2
+  },
+  "note_date": {
+   "rule_interpretation": 6,
+   "information_gap": 1
+  },
+  "family": {
+   "rule_interpretation": 4,
+   "information_gap": 2
+  },
+  "long_flow": {
+   "rule_interpretation": 2,
+   "information_gap": 2
+  },
+  "bank": {
+   "information_gap": 1
+  },
+  "short_flow": {
+   "rule_interpretation": 1
+  }
+ },
+ "field_agree_by_input_level": {
+  "evidence_text": "134/147",
+  "snippet_or_title": "81/91",
+  "title_only": "38/42"
+ },
+ "rows_by_input_level": {
+  "evidence_text": 21,
+  "snippet_or_title": 13,
+  "title_only": 6
+ },
+ "family_confusion": {
+  "R->R": 20,
+  "N->S": 1,
+  "N->T": 1,
+  "N->N": 4,
+  "S->S": 2,
+  "D->D": 8,
+  "D->R": 1,
+  "N->R": 1,
+  "T->R": 1,
+  "D->S": 1
+ },
+ "flow_confusion": {
+  "blank->net_buy": 1,
+  "net_buy->net_buy": 17,
+  "blank->blank": 6,
+  "net_sell->net_sell": 12,
+  "blank->net_sell": 1,
+  "mixed->mixed": 1,
+  "net_sell->net_buy": 1,
+  "net_sell->blank": 1
+ },
+ "supplement_claude_vs_codex_existing": {
+  "codex_rows_on_shared_ids": 12,
+  "matched_by_bank": 8,
+  "flow_direction": 7,
+  "long_flow": 5,
+  "short_flow": 7,
+  "family": 6,
+  "lookback_months": 5
+ }
+}

@@ -1,0 +1,248 @@
+// This Pine Script® code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// 이격매수매도 (보라선 이격 매수, 3분봉) — 2026-09-29
+// 저가가 보라선(EMA 60) -2%(3배 레버리지 목록 종목은 -3%)에 닿으면 사고, RSI(14)가 70을 넘은 봉 다음 봉 시가에 판다.
+// RSI 매도가 없으면 매수 뒤 처음 오는 아침 8시(한국) 이후 첫 봉 시가에 정리한다. 표시는 한국 날짜(9/28 매수 → 9/28 매수분 매도).
+// 24시간 모든 세션(정규·프리·주간거래·애프터)에서 사고팔 수 있다고 본다(사용자 선택).
+// 매수·매도는 차트 봉과 상관없이 항상 3분봉으로 계산한다(request.security_lower_tf). 40분봉 차트에서도 3분봉 자리가 그대로 보인다.
+// 3분봉보다 짧은 차트(1분 등)에서는 그 차트 봉으로 계산한다.
+// 모의매매(7종목 3분봉 9/1~9/28, 수수료 0%, 8시 정리 포함): 113회 · 승률 81% · 평균 +1.55% · 최악 -5.1%.
+// 애프터·프리장 매수 성적은 대부분 거래가 얇은 시간의 꼬리 체결이고, 7월 급락일 같은 날은 크게 물릴 수 있다(손절 옵션).
+// 전날 정규장 종가가 +7% 이상 오른 종목은 다음 날 정규장 동안 이격 매수를 쉬고 매수선도 끊는다(프리·애프터는 그대로) — 2026-10-07.
+// 근거: 사용자 78종목 두 기간(7/14~9/8, 9/10~10/6) 모두 수익 합이 늘었고 TEM 10/6 -13% 매수를 피한다(data/derived/analysis/dip_reason/report.md).
+// 3배 레버리지 ETF(목록에 있는 종목)는 보라선 대비 이격을 3%로 쓴다(사용자 선택, 2026-10-08). 검증 결과 성과는 2%와 구분되지 않았다:
+// 매수 건수는 약 40% 줄고 거래당 평균은 높지만, 수익 합의 차이는 하루·한 종목(KORU 애프터)에 몰렸고 SOXL은 3%가 같거나 조금 나빴다.
+// 지지·저항은 가로로 긴 구역으로 그린다.
+// 매수·매도 라벨과 매수선은 한 가지 색(기본 파랑)으로 그린다. 5일저가선(보라)과 같은 차트에 띄워도 어느 지표 표시인지 갈린다 — 2026-10-10.
+//@version=6
+indicator("이격매수매도", shorttitle = "이격매수매도", overlay = true, max_boxes_count = 50, max_labels_count = 500)
+
+// ── 입력 ──────────────────────────────────────────────
+const string G1 = "보라선 이격 매수 (3분봉 규칙, 24시간)"
+useDev    = input.bool(true, "보라선 아래로 크게 벌어지면 매수", group = G1, tooltip = "저가가 보라선(EMA) x (1-이격%)에 닿으면 산다. RSI가 기준을 넘은 봉 다음 봉 시가에 판다", display = display.none)
+devLen    = input.int(60, "보라선 = EMA 길이", minval = 2, group = G1, tooltip = "차트의 EMA 60 (보라 점선)", display = display.none)
+devPct    = input.float(2.0, "보라선 대비 이격 % (일반 종목)", minval = 0.1, step = 0.1, group = G1, display = display.none)
+levPct    = input.float(3.0, "3배 레버리지 이격 %", minval = 0.1, step = 0.1, group = G1, tooltip = "아래 목록에 있는 종목은 이 이격으로 산다", display = display.none)
+levList   = input.string("SOXL,SOXS,TQQQ,SQQQ,TECL,TECS,LABU,LABD,NAIL,DPST,KORU,SPXL,SPXS,UPRO,SPXU,TNA,TZA,FNGU,FNGD,YINN,YANG", "3배 레버리지 종목 (쉼표로 구분)", group = G1, tooltip = "거래소 접두사 없이 티커만 적는다(예: SOXL)", display = display.none)
+rsiLen    = input.int(14, "RSI 기간", minval = 2, group = G1, display = display.none)
+devX      = input.float(70, "매도: RSI가 이 값을 넘으면", minval = 50, maxval = 95, group = G1, display = display.none)
+useDead   = input.bool(true, "RSI 매도가 없으면 아침에 정리", group = G1, display = display.none)
+deadHr    = input.int(8, "정리 시각 (한국 시)", minval = 0, maxval = 23, group = G1, tooltip = "매수 뒤 처음 돌아오는 이 시각(한국 시간) 이후 첫 봉 시가에 판다", display = display.none)
+devStop   = input.float(0.0, "손절 % (0 = 안 함)", minval = 0.0, step = 0.5, group = G1, tooltip = "종가가 매수가 대비 이만큼 떨어지면 다음 봉 시가에 판다. 7월 급락 같은 날을 막는 용도", display = display.none)
+useHot    = input.bool(true, "전날 급등하면 다음 날 정규장은 안 삼", group = G1, tooltip = "전날 정규장 종가가 아래 % 이상 오른 종목은 다음 날 정규장 동안 이격 매수를 쉬고 매수선을 끊는다. 프리·애프터는 그대로", display = display.none)
+hotPct    = input.float(7.0, "전날 급등 기준 %", minval = 1.0, step = 0.5, group = G1, display = display.none)
+showDevLn = input.bool(true, "이격 매수선 그리기", group = G1, display = display.none)
+
+const string G3 = "지지·저항 구역"
+showSR  = input.bool(true, "지지·저항 구역 그리기 (가로로 끝까지)", group = G3, display = display.none)
+pivN    = input.int(5, "스윙 판단 좌우 봉 수", minval = 2, group = G3, display = display.none)
+srCount = input.int(3, "현재가 위·아래 각각 몇 개 구역", minval = 1, maxval = 6, group = G3, display = display.none)
+zTol    = input.float(0.5, "이 폭(%) 안의 스윙은 한 구역으로", minval = 0.0, step = 0.1, group = G3, display = display.none)
+zGap    = input.float(1.2, "구역끼리 최소 간격 (%)", minval = 0.0, step = 0.1, group = G3, tooltip = "이보다 가까운 구역은 약한 쪽(닿은 횟수가 적은 쪽, 같으면 오래된 쪽)을 그리지 않는다", display = display.none)
+srKeep  = input.int(60, "기억할 스윙 개수", minval = 10, maxval = 200, group = G3, display = display.none)
+
+const string G4 = "표시"
+showSig = input.bool(true, "매수·매도 표시", group = G4, display = display.none)
+sigCol  = input.color(#1565C0, "이 지표 색 (매수·매도 라벨, 매수선)", group = G4, tooltip = "5일저가선과 다른 색으로 둔다. 수익·손실은 라벨의 +/- 숫자로 본다", display = display.none)
+
+// ── 스윙 고점·저점 모으기 (지지·저항 후보) ───────────────
+float swHi = ta.pivothigh(high, pivN, pivN)
+float swLo = ta.pivotlow(low, pivN, pivN)
+var array<float> pvPx  = array.new<float>()
+var array<int>   pvBar = array.new<int>()
+if not na(swLo)
+    array.push(pvPx, swLo)
+    array.push(pvBar, bar_index - pivN)
+if not na(swHi)
+    array.push(pvPx, swHi)
+    array.push(pvBar, bar_index - pivN)
+while array.size(pvPx) > srKeep
+    array.shift(pvPx)
+    array.shift(pvBar)
+
+// 지금 종목이 3배 레버리지 목록에 있으면 그 이격을 쓴다
+bool  isLev  = str.contains("," + str.upper(str.replace_all(levList, " ", "")) + ",", "," + syminfo.ticker + ",")
+float gapUse = isLev ? levPct : devPct
+
+// ── 보라선 이격 매수: 항상 3분봉으로 계산 ─────────────────
+// 3분봉 한 봉씩 사고파는 상태를 이어 가며, 봉마다 [매수, 매수가, 세션, 매수 시각, 매도, 수익률, 판 것의 매수 시각, 매수선, RSI 매도 신호]를 돌려준다
+sim3() =>
+    var bool  hold = false
+    var float ent  = na
+    var int   ei   = 0
+    var int   bt   = 0
+    var int   dead = 0                                           // 늦어도 이 시각 이후 첫 봉에 정리
+    float r   = ta.rsi(close, rsiLen)
+    float lvl = ta.ema(close, devLen)[1] * (1 - gapUse / 100)    // 이번 봉이 시작할 때 이미 아는 매수선(3배 레버리지는 levPct)
+    int   em  = hour(time, "America/New_York") * 60 + minute(time, "America/New_York")
+    bool  reg = session.ismarket
+    int   ses = reg ? 0 : em >= 240 and em < 570 ? 1 : em >= 1200 or em < 240 ? 2 : 3   // 0 정규 · 1 프리 · 2 주간 · 3 애프터
+    // 전날 급등: 날짜별 정규장 종가를 기억해 '전날 수익률'을 만든다(오늘 정규장이 열리기 전에 정해지는 값)
+    var float regC0  = na                                        // 오늘 정규장 마지막 종가
+    var float regC1  = na                                        // 전날 정규장 종가
+    var float regC2  = na                                        // 그 전날 정규장 종가
+    var int   regDay = na
+    int etDay = year(time, "America/New_York") * 10000 + month(time, "America/New_York") * 100 + dayofmonth(time, "America/New_York")
+    if reg
+        if na(regDay) or etDay != regDay
+            regC2  := regC1
+            regC1  := regC0
+            regDay := etDay
+        regC0 := close
+    bool  hotNow = useHot and reg and not na(regC2) and regC1 / regC2 - 1 >= hotPct / 100
+    bool  buy  = false
+    bool  sell = false
+    float ret  = na
+    int   sbt  = 0
+    if hold
+        // RSI 매도 · 손절 · 아침 정리 모두 이번 봉 시가에 판다
+        bool rsiSell  = bar_index - 1 >= ei and r[1] > devX
+        bool stopSell = devStop > 0 and bar_index - 1 >= ei and close[1] <= ent * (1 - devStop / 100)
+        bool timeSell = useDead and time >= dead
+        if rsiSell or stopSell or timeSell
+            ret  := open / ent - 1
+            sbt  := bt
+            sell := true
+            hold := false
+    else if useDev and not hotNow and not na(lvl) and low <= lvl
+        ent := math.min(open, lvl)
+        ei  := bar_index
+        bt  := time
+        // 매수 뒤 처음 돌아오는 정리 시각(한국 시간, 서머타임 없음 → 다음 날은 +24시간)
+        int t0 = timestamp("Asia/Seoul", year(time, "Asia/Seoul"), month(time, "Asia/Seoul"), dayofmonth(time, "Asia/Seoul"), deadHr, 0)
+        dead := time >= t0 ? t0 + 86400000 : t0
+        hold := true
+        buy  := true
+    [buy, ent, ses, bt, sell, ret, sbt, hotNow ? na : lvl, hold and r > devX]   // 쉬는 동안 매수선은 끊는다
+
+string ltf = timeframe.in_seconds() >= 180 ? "3" : timeframe.period
+[aBuy, aEnt, aSes, aBt, aSell, aRet, aSbt, aLvl, aSig] = request.security_lower_tf(syminfo.tickerid, ltf, sim3())
+
+// ── 그리기 ────────────────────────────────────────────
+fmt(float v) => str.tostring(v, format.mintick)
+sesLabel(int i) => i == 0 ? "정규" : i == 1 ? "프리" : i == 2 ? "주간" : "애프터"
+md(int t) => str.tostring(month(t, "Asia/Seoul")) + "/" + str.tostring(dayofmonth(t, "Asia/Seoul"))   // 한국 날짜 9/28
+
+// 이 차트 봉 안의 3분봉들에서 난 매수·매도를 모아 표시한다 (40분봉이면 한 봉에 여러 개가 들어올 수 있다)
+string buyTxt  = ""
+string sellTxt = ""
+float  lastEnt = na
+bool   anySig  = false
+for [i, bb] in aBuy
+    if bb
+        int sx = array.get(aSes, i)
+        buyTxt += (buyTxt == "" ? "" : "\n") + md(array.get(aBt, i)) + " " + (sx == 0 ? "" : sesLabel(sx) + " ") + "매수\n" + fmt(array.get(aEnt, i))
+        lastEnt := array.get(aEnt, i)
+for [i, sl] in aSell
+    if sl
+        float rr = array.get(aRet, i)
+        sellTxt += (sellTxt == "" ? "" : "\n") + md(array.get(aSbt, i)) + " 매수분 매도\n" + str.tostring(rr * 100, "+#.##;-#.##") + "%"
+for sg in aSig
+    anySig := anySig or sg
+float lvlNow = array.size(aLvl) > 0 ? array.get(aLvl, array.size(aLvl) - 1) : na
+
+plot(useDev and showDevLn ? lvlNow : na, "보라선 이격 매수선 (3분봉)", color.new(sigCol, 25), 1, plot.style_linebr, display = display.pane)   // 상태 줄에 값은 안 띄운다
+if showSig and buyTxt != ""
+    label.new(bar_index, low, buyTxt, yloc = yloc.belowbar, style = label.style_label_up, color = sigCol, textcolor = color.white, size = size.small)
+if showSig and sellTxt != ""
+    label.new(bar_index, high, sellTxt, yloc = yloc.abovebar, style = label.style_label_down, color = sigCol, textcolor = color.white, size = size.small)
+
+// ── 지지·저항 구역 그리기 (마지막 봉에서, 가로로 끝까지) ──
+rngTxt(float lo, float hi) => hi / lo - 1 < 0.0005 ? fmt((lo + hi) / 2) : fmt(lo) + "~" + fmt(hi)
+
+// 상자는 가로로 끝까지 늘어나므로 좌표는 지금 봉~8봉 뒤로 둔다(과거 봉을 가리키면 히스토리 버퍼 한도 오류가 난다)
+drawZone(float lo, float hi, int cnt, bool isSup) =>
+    color c = isSup ? #2979FF : #FF5252
+    box   bx = box.new(bar_index, hi * 1.001, bar_index + 8, lo * 0.999, border_color = color.new(c, cnt >= 2 ? 40 : 65), border_width = 1, extend = extend.both, bgcolor = color.new(c, cnt >= 2 ? 82 : 90))
+    label lb = label.new(bar_index + 8, (lo + hi) / 2, (isSup ? "지지 " : "저항 ") + rngTxt(lo, hi) + (cnt >= 2 ? " ×" + str.tostring(cnt) : ""), style = label.style_label_left, color = color.new(c, 85), textcolor = c, size = size.small)
+    [bx, lb]
+
+var array<box>   srBx = array.new<box>()
+var array<label> srLb = array.new<label>()
+if showSR and barstate.islast
+    for x in srBx
+        box.delete(x)
+    for x in srLb
+        label.delete(x)
+    array.clear(srBx)
+    array.clear(srLb)
+    // 1) zTol % 안의 스윙을 한 구역으로: 가장 낮은·높은 스윙, 닿은 횟수, 마지막 봉
+    array<float> zLo = array.new<float>()
+    array<float> zHi = array.new<float>()
+    array<int>   zN  = array.new<int>()
+    array<int>   zL  = array.new<int>()
+    if array.size(pvPx) > 0
+        array<int> ord = array.sort_indices(pvPx, order.ascending)
+        float lo  = na
+        float hi  = na
+        int   cnt = 0
+        int   lt  = 0
+        for k in ord
+            float p = array.get(pvPx, k)
+            int   b = array.get(pvBar, k)
+            if cnt > 0 and (p - lo) / lo <= zTol / 100
+                hi := p
+                cnt += 1
+                lt := math.max(lt, b)
+            else
+                if cnt > 0
+                    array.push(zLo, lo)
+                    array.push(zHi, hi)
+                    array.push(zN, cnt)
+                    array.push(zL, lt)
+                lo := p
+                hi := p
+                cnt := 1
+                lt := b
+        if cnt > 0
+            array.push(zLo, lo)
+            array.push(zHi, hi)
+            array.push(zN, cnt)
+            array.push(zL, lt)
+    // 2) zGap % 안에 붙은 구역은 강한 쪽(닿은 횟수, 같으면 최근)만 남긴다
+    array<float> score = array.new<float>()
+    for [i, n] in zN
+        array.push(score, n * 1e7 + array.get(zL, i))
+    array<int> byStr = array.sort_indices(score, order.descending)
+    array<int> keep = array.new<int>()
+    for i in byStr
+        float mid = (array.get(zLo, i) + array.get(zHi, i)) / 2
+        bool  ok  = true
+        for j in keep
+            float mj = (array.get(zLo, j) + array.get(zHi, j)) / 2
+            if math.abs(mid - mj) / mj < zGap / 100
+                ok := false
+                break
+        if ok
+            array.push(keep, i)
+    // 3) 남은 구역을 가격 순으로 놓고, 현재가 아래(지지)·위(저항)에서 가까운 srCount개씩
+    array<float> kMid = array.new<float>()
+    for j in keep
+        array.push(kMid, (array.get(zLo, j) + array.get(zHi, j)) / 2)
+    array<int> kOrd = array.sort_indices(kMid, order.ascending)
+    array<int> zs = array.new<int>()
+    for q in kOrd
+        array.push(zs, array.get(keep, q))
+    int m = array.size(zs)
+    int split = 0
+    while split < m and (array.get(zLo, array.get(zs, split)) + array.get(zHi, array.get(zs, split))) / 2 < close
+        split += 1
+    if split > 0
+        for i = math.max(0, split - srCount) to split - 1
+            int z = array.get(zs, i)
+            [bx, lb] = drawZone(array.get(zLo, z), array.get(zHi, z), array.get(zN, z), true)
+            array.push(srBx, bx)
+            array.push(srLb, lb)
+    if split < m
+        for i = split to math.min(m - 1, split + srCount - 1)
+            int z = array.get(zs, i)
+            [bx, lb] = drawZone(array.get(zLo, z), array.get(zHi, z), array.get(zN, z), false)
+            array.push(srBx, bx)
+            array.push(srLb, lb)
+
+// ── 알림 (3분봉 기준) ─────────────────────────────────
+alertcondition(buyTxt != "", "보라선 이격 매수", "{{ticker}} 보라선(EMA) 아래로 크게 벌어짐 - 이격 매수")
+alertcondition(anySig, "이격 매수분 RSI 매도", "{{ticker}} RSI 기준 넘음 - 이격 매수분 매도")
+if buyTxt != ""
+    alert(syminfo.ticker + " 보라선 이격 매수 " + fmt(lastEnt), alert.freq_once_per_bar)
+if anySig
+    alert(syminfo.ticker + " RSI " + str.tostring(devX) + " 넘음 - 이격 매수분 매도", alert.freq_once_per_bar_close)

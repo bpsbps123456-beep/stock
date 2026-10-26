@@ -1,0 +1,3208 @@
+{
+ "family": "stops",
+ "grid": "trail {0.10,0.15,0.20} x trail_refill {False,True} = 6",
+ "selection": "best by 앞 1/2~5/29 수익",
+ "best_by_front": "trail20_cash",
+ "beats_base_both_halves": [],
+ "lower_mdd_small_cost": [
+  "trail20_refill"
+ ],
+ "lower_mdd_rule": "전체 낙폭이 기본보다 얕고 전체 수익 >= 기본 전체 수익 x 0.9",
+ "results": [
+  {
+   "name": "기본 #774",
+   "앞 1/2~5/29": {
+    "수익": 2.0700482334435883,
+    "낙폭": -0.18858766467218913
+   },
+   "뒤 6/1~10/9": {
+    "수익": 0.049154342476081636,
+    "낙폭": -0.2372620062340992
+   },
+   "9/1~10/9": {
+    "수익": 0.14617085124241624,
+    "낙폭": -0.059384218545095235
+   },
+   "전체": {
+    "수익": 2.2209544357283617,
+    "낙폭": -0.237262006234099
+   },
+   "월별": {
+    "2026-01": 0.4186992475089011,
+    "2026-02": 0.07462915609543241,
+    "2026-03": 0.04718256663063247,
+    "2026-04": 0.3937907021963638,
+    "2026-05": 0.379673346530115,
+    "2026-06": 0.03700938689388833,
+    "2026-07": -0.16238186161404267,
+    "2026-08": 0.05380744408967564,
+    "2026-09": 0.1674142147471922,
+    "2026-10": -0.018196937502064192
+   },
+   "반도체평균": 0.5590634342867777,
+   "마지막보유": {
+    "DELL": 0.252,
+    "AMD": 0.147,
+    "ARM": 0.054,
+    "INTC": 0.173,
+    "SNDK": 0.133,
+    "STX": 0.073,
+    "SNOW": 0.169
+   },
+   "거친종목수": 21,
+   "params": {
+    "trail": null,
+    "trail_refill": false
+   },
+   "stops": [],
+   "stop_count": 0,
+   "stop_count_jul": 0
+  },
+  {
+   "name": "trail10_cash",
+   "앞 1/2~5/29": {
+    "수익": 1.402480328762166,
+    "낙폭": -0.17506237809922065
+   },
+   "뒤 6/1~10/9": {
+    "수익": -0.12495655652098447,
+    "낙폭": -0.2523605964460598
+   },
+   "9/1~10/9": {
+    "수익": 0.09412298302772193,
+    "낙폭": -0.062066602305037466
+   },
+   "전체": {
+    "수익": 1.102274659770643,
+    "낙폭": -0.2523605964460598
+   },
+   "월별": {
+    "2026-01": 0.3793337413823614,
+    "2026-02": 0.051380003450766765,
+    "2026-03": 0.07108775845007642,
+    "2026-04": 0.25796742497252056,
+    "2026-05": 0.22952203552293415,
+    "2026-06": 0.002971780483871589,
+    "2026-07": -0.21666069142400202,
+    "2026-08": 0.017946233908987752,
+    "2026-09": 0.11055687549944215,
+    "2026-10": -0.014797884587702481
+   },
+   "반도체평균": 0.4814287763686375,
+   "마지막보유": {
+    "DELL": 0.251,
+    "AMD": 0.147,
+    "SNOW": 0.168
+   },
+   "거친종목수": 21,
+   "params": {
+    "trail": 0.1,
+    "trail_refill": false
+   },
+   "stops": [
+    {
+     "day": "2026-01-08",
+     "ticker": "FLNC",
+     "weight_before": 0.0798,
+     "next_reb": "2026-01-12",
+     "ret_to_next_reb": 0.09506620542645505,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-01-09",
+     "ticker": "CIEN",
+     "weight_before": 0.1262,
+     "next_reb": "2026-01-12",
+     "ret_to_next_reb": 0.03789674208707794,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-01-09",
+     "ticker": "WDC",
+     "weight_before": 0.2344,
+     "next_reb": "2026-01-12",
+     "ret_to_next_reb": 0.03007715577805703,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-01-21",
+     "ticker": "AXTI",
+     "weight_before": 0.0307,
+     "next_reb": "2026-01-26",
+     "ret_to_next_reb": -0.19606943202590155,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-01-27",
+     "ticker": "PL",
+     "weight_before": 0.0855,
+     "next_reb": "2026-02-02",
+     "ret_to_next_reb": -0.045628854966979104,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-01-30",
+     "ticker": "ECHO",
+     "weight_before": 0.0442,
+     "next_reb": "2026-02-02",
+     "ret_to_next_reb": -0.043246073339722524,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-02-05",
+     "ticker": "BE",
+     "weight_before": 0.2505,
+     "next_reb": "2026-02-09",
+     "ret_to_next_reb": 0.021270632225235175,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-02-05",
+     "ticker": "FLNC",
+     "weight_before": 0.0733,
+     "next_reb": "2026-02-09",
+     "ret_to_next_reb": -0.22857143734336816,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-02-05",
+     "ticker": "PL",
+     "weight_before": 0.0604,
+     "next_reb": "2026-02-09",
+     "ret_to_next_reb": 0.04571424211774544,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-02-05",
+     "ticker": "SNDK",
+     "weight_before": 0.2379,
+     "next_reb": "2026-02-09",
+     "ret_to_next_reb": 0.050403508695953336,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-02-06",
+     "ticker": "WDC",
+     "weight_before": 0.2394,
+     "next_reb": "2026-02-09",
+     "ret_to_next_reb": 0.03438211633076915,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-02-13",
+     "ticker": "BE",
+     "weight_before": 0.2591,
+     "next_reb": "2026-02-17",
+     "ret_to_next_reb": -0.007415092253439948,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-02-13",
+     "ticker": "PL",
+     "weight_before": 0.0793,
+     "next_reb": "2026-02-17",
+     "ret_to_next_reb": 0.023255813953488413,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-03",
+     "ticker": "STX",
+     "weight_before": 0.1105,
+     "next_reb": "2026-03-09",
+     "ret_to_next_reb": -0.052150793967241094,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-03-04",
+     "ticker": "BE",
+     "weight_before": 0.2623,
+     "next_reb": "2026-03-09",
+     "ret_to_next_reb": -0.13583811375099164,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-03-04",
+     "ticker": "LITE",
+     "weight_before": 0.1107,
+     "next_reb": "2026-03-09",
+     "ret_to_next_reb": -0.20385674931129472,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-04",
+     "ticker": "SNDK",
+     "weight_before": 0.2425,
+     "next_reb": "2026-03-09",
+     "ret_to_next_reb": -0.1190103327301999,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-04",
+     "ticker": "WDC",
+     "weight_before": 0.0857,
+     "next_reb": "2026-03-09",
+     "ret_to_next_reb": -0.06929960139530644,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-06",
+     "ticker": "CIEN",
+     "weight_before": 0.1479,
+     "next_reb": "2026-03-09",
+     "ret_to_next_reb": -0.018045545837234833,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-03-13",
+     "ticker": "AAOI",
+     "weight_before": 0.0655,
+     "next_reb": "2026-03-16",
+     "ret_to_next_reb": -0.041870294448422385,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-18",
+     "ticker": "AAOI",
+     "weight_before": 0.0729,
+     "next_reb": "2026-03-23",
+     "ret_to_next_reb": -0.05601003296628371,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-26",
+     "ticker": "SNDK",
+     "weight_before": 0.2195,
+     "next_reb": "2026-03-30",
+     "ret_to_next_reb": -0.018165145080753065,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-27",
+     "ticker": "AAOI",
+     "weight_before": 0.0525,
+     "next_reb": "2026-03-30",
+     "ret_to_next_reb": -0.014426868858695596,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-27",
+     "ticker": "AXTI",
+     "weight_before": 0.0796,
+     "next_reb": "2026-03-30",
+     "ret_to_next_reb": 0.058823566077443434,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-27",
+     "ticker": "CIEN",
+     "weight_before": 0.216,
+     "next_reb": "2026-03-30",
+     "ret_to_next_reb": 0.04098068075484962,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-27",
+     "ticker": "COHR",
+     "weight_before": 0.1255,
+     "next_reb": "2026-03-30",
+     "ret_to_next_reb": 0.015462878102670663,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-27",
+     "ticker": "LITE",
+     "weight_before": 0.1502,
+     "next_reb": "2026-03-30",
+     "ret_to_next_reb": 0.027448670581651458,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-27",
+     "ticker": "WDC",
+     "weight_before": 0.1507,
+     "next_reb": "2026-03-30",
+     "ret_to_next_reb": 0.02739177499630041,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-03-31",
+     "ticker": "AAOI",
+     "weight_before": 0.0513,
+     "next_reb": "2026-04-06",
+     "ret_to_next_reb": 0.2694814704766144,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-31",
+     "ticker": "AXTI",
+     "weight_before": 0.0912,
+     "next_reb": "2026-04-06",
+     "ret_to_next_reb": -0.09012162810384439,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-31",
+     "ticker": "CIEN",
+     "weight_before": 0.2239,
+     "next_reb": "2026-04-06",
+     "ret_to_next_reb": 0.21853018057683515,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-31",
+     "ticker": "COHR",
+     "weight_before": 0.1263,
+     "next_reb": "2026-04-06",
+     "ret_to_next_reb": 0.1727953661438606,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-03-31",
+     "ticker": "SNDK",
+     "weight_before": 0.25,
+     "next_reb": "2026-04-06",
+     "ret_to_next_reb": 0.22504721840124664,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-04-07",
+     "ticker": "AXTI",
+     "weight_before": 0.0599,
+     "next_reb": "2026-04-13",
+     "ret_to_next_reb": 0.49461354928628976,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-04-24",
+     "ticker": "AAOI",
+     "weight_before": 0.0265,
+     "next_reb": "2026-04-27",
+     "ret_to_next_reb": 0.07801719122468165,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-04-24",
+     "ticker": "TSEM",
+     "weight_before": 0.0575,
+     "next_reb": "2026-04-27",
+     "ret_to_next_reb": -0.008472912417256784,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-04-29",
+     "ticker": "AAOI",
+     "weight_before": 0.0268,
+     "next_reb": "2026-05-04",
+     "ret_to_next_reb": 0.30658181139125484,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-04-29",
+     "ticker": "COHR",
+     "weight_before": 0.0949,
+     "next_reb": "2026-05-04",
+     "ret_to_next_reb": 0.1182974186695045,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-04-29",
+     "ticker": "LITE",
+     "weight_before": 0.1342,
+     "next_reb": "2026-05-04",
+     "ret_to_next_reb": 0.20188528027737296,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-05-08",
+     "ticker": "AAOI",
+     "weight_before": 0.0318,
+     "next_reb": "2026-05-11",
+     "ret_to_next_reb": -0.12416236625903421,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-05-08",
+     "ticker": "LITE",
+     "weight_before": 0.1211,
+     "next_reb": "2026-05-11",
+     "ret_to_next_reb": 0.035676147061579844,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-05-15",
+     "ticker": "INTC",
+     "weight_before": 0.1926,
+     "next_reb": "2026-05-18",
+     "ret_to_next_reb": 0.03351853788586068,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-05-15",
+     "ticker": "SNDK",
+     "weight_before": 0.1879,
+     "next_reb": "2026-05-18",
+     "ret_to_next_reb": 0.0837774745990254,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-05-19",
+     "ticker": "AAOI",
+     "weight_before": 0.0815,
+     "next_reb": "2026-05-26",
+     "ret_to_next_reb": 0.11580868709220149,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-05-19",
+     "ticker": "CIEN",
+     "weight_before": 0.1419,
+     "next_reb": "2026-05-26",
+     "ret_to_next_reb": 0.14971602455512212,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-05-19",
+     "ticker": "LITE",
+     "weight_before": 0.1765,
+     "next_reb": "2026-05-26",
+     "ret_to_next_reb": 0.10288950446514922,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-05-19",
+     "ticker": "TSEM",
+     "weight_before": 0.0353,
+     "next_reb": "2026-05-26",
+     "ret_to_next_reb": 0.24533004400536051,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-05-19",
+     "ticker": "WDC",
+     "weight_before": 0.1495,
+     "next_reb": "2026-05-26",
+     "ret_to_next_reb": 0.1429250002729101,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-06-02",
+     "ticker": "INTC",
+     "weight_before": 0.1871,
+     "next_reb": "2026-06-08",
+     "ret_to_next_reb": 0.033038651955176856,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-06-02",
+     "ticker": "RKLB",
+     "weight_before": 0.1861,
+     "next_reb": "2026-06-08",
+     "ret_to_next_reb": -0.085128438492859,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-06-09",
+     "ticker": "ARM",
+     "weight_before": 0.0792,
+     "next_reb": "2026-06-15",
+     "ret_to_next_reb": 0.07796992377323986,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-06-09",
+     "ticker": "DELL",
+     "weight_before": 0.25,
+     "next_reb": "2026-06-15",
+     "ret_to_next_reb": 0.021046312384954025,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-06-09",
+     "ticker": "SNDK",
+     "weight_before": 0.063,
+     "next_reb": "2026-06-15",
+     "ret_to_next_reb": 0.23558960140399887,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-06-09",
+     "ticker": "WDC",
+     "weight_before": 0.0926,
+     "next_reb": "2026-06-15",
+     "ret_to_next_reb": 0.155518261992297,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-06-10",
+     "ticker": "STX",
+     "weight_before": 0.112,
+     "next_reb": "2026-06-15",
+     "ret_to_next_reb": 0.2563210740690516,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-06-24",
+     "ticker": "ARM",
+     "weight_before": 0.0683,
+     "next_reb": "2026-06-29",
+     "ret_to_next_reb": -0.09932228298272006,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-06-24",
+     "ticker": "SNDK",
+     "weight_before": 0.0601,
+     "next_reb": "2026-06-29",
+     "ret_to_next_reb": 0.05191364664670095,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-06-24",
+     "ticker": "WDC",
+     "weight_before": 0.0961,
+     "next_reb": "2026-06-29",
+     "ret_to_next_reb": -0.0879324825835317,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-06-30",
+     "ticker": "STX",
+     "weight_before": 0.1134,
+     "next_reb": "2026-07-06",
+     "ret_to_next_reb": -0.10779373578138973,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-02",
+     "ticker": "SNDK",
+     "weight_before": 0.0588,
+     "next_reb": "2026-07-06",
+     "ret_to_next_reb": -0.10525491240717666,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-07",
+     "ticker": "INTC",
+     "weight_before": 0.1388,
+     "next_reb": "2026-07-13",
+     "ret_to_next_reb": -0.08873602256253965,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-07",
+     "ticker": "WDC",
+     "weight_before": 0.0925,
+     "next_reb": "2026-07-13",
+     "ret_to_next_reb": 0.03619451091742798,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-08",
+     "ticker": "AMD",
+     "weight_before": 0.1288,
+     "next_reb": "2026-07-13",
+     "ret_to_next_reb": 0.06475704245063385,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-08",
+     "ticker": "ARM",
+     "weight_before": 0.0631,
+     "next_reb": "2026-07-13",
+     "ret_to_next_reb": 0.046700350690339176,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-08",
+     "ticker": "SNDK",
+     "weight_before": 0.0614,
+     "next_reb": "2026-07-13",
+     "ret_to_next_reb": 0.12630979416758836,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-16",
+     "ticker": "ARM",
+     "weight_before": 0.0325,
+     "next_reb": "2026-07-20",
+     "ret_to_next_reb": 0.012884454252556354,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-17",
+     "ticker": "DELL",
+     "weight_before": 0.252,
+     "next_reb": "2026-07-20",
+     "ret_to_next_reb": 0.06219981972076072,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-17",
+     "ticker": "INTC",
+     "weight_before": 0.0934,
+     "next_reb": "2026-07-20",
+     "ret_to_next_reb": 0.0590406172937028,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-17",
+     "ticker": "SNDK",
+     "weight_before": 0.0878,
+     "next_reb": "2026-07-20",
+     "ret_to_next_reb": 0.03191833801139676,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-17",
+     "ticker": "STX",
+     "weight_before": 0.1235,
+     "next_reb": "2026-07-20",
+     "ret_to_next_reb": 0.12356092988068546,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-17",
+     "ticker": "WDC",
+     "weight_before": 0.1026,
+     "next_reb": "2026-07-20",
+     "ret_to_next_reb": 0.08917602472307351,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-28",
+     "ticker": "AMD",
+     "weight_before": 0.1497,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": -0.011156298619011018,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-28",
+     "ticker": "INTC",
+     "weight_before": 0.0839,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": 0.02054951192398935,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-28",
+     "ticker": "SNDK",
+     "weight_before": 0.1093,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": -0.011724616608615013,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-28",
+     "ticker": "STX",
+     "weight_before": 0.1241,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": 0.0557556205303924,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-28",
+     "ticker": "WDC",
+     "weight_before": 0.0989,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": 0.12501875060933343,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-29",
+     "ticker": "ARM",
+     "weight_before": 0.036,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": -0.04757766249757367,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-29",
+     "ticker": "DELL",
+     "weight_before": 0.2525,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": 0.02362932477678581,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-08-07",
+     "ticker": "SNDK",
+     "weight_before": 0.0937,
+     "next_reb": "2026-08-10",
+     "ret_to_next_reb": -0.08087528503738561,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-08-07",
+     "ticker": "WDC",
+     "weight_before": 0.0889,
+     "next_reb": "2026-08-10",
+     "ret_to_next_reb": -0.04988524803862282,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-08-19",
+     "ticker": "AAOI",
+     "weight_before": 0.2535,
+     "next_reb": "2026-08-24",
+     "ret_to_next_reb": -0.19672436439312035,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-08-19",
+     "ticker": "ARM",
+     "weight_before": 0.0629,
+     "next_reb": "2026-08-24",
+     "ret_to_next_reb": -0.08038911930781845,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-08-20",
+     "ticker": "AMD",
+     "weight_before": 0.1537,
+     "next_reb": "2026-08-24",
+     "ret_to_next_reb": 0.006163152091460233,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-08-20",
+     "ticker": "DELL",
+     "weight_before": 0.1537,
+     "next_reb": "2026-08-24",
+     "ret_to_next_reb": -0.002344956748467464,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-08-20",
+     "ticker": "INTC",
+     "weight_before": 0.1515,
+     "next_reb": "2026-08-24",
+     "ret_to_next_reb": -0.03276371009298207,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-08-20",
+     "ticker": "STX",
+     "weight_before": 0.1538,
+     "next_reb": "2026-08-24",
+     "ret_to_next_reb": -0.018088495852518816,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-08-20",
+     "ticker": "TSEM",
+     "weight_before": 0.0806,
+     "next_reb": "2026-08-24",
+     "ret_to_next_reb": -0.030689799527439665,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-09-02",
+     "ticker": "DELL",
+     "weight_before": 0.1496,
+     "next_reb": "2026-09-08",
+     "ret_to_next_reb": 0.12790831767660316,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-09-15",
+     "ticker": "SNDK",
+     "weight_before": 0.1923,
+     "next_reb": "2026-09-21",
+     "ret_to_next_reb": 0.16327222572342737,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-09-15",
+     "ticker": "STX",
+     "weight_before": 0.1037,
+     "next_reb": "2026-09-21",
+     "ret_to_next_reb": 0.11750228736923707,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-09-29",
+     "ticker": "ARM",
+     "weight_before": 0.0609,
+     "next_reb": "2026-10-05",
+     "ret_to_next_reb": 0.05850412745767142,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-10-07",
+     "ticker": "INTC",
+     "weight_before": 0.182,
+     "next_reb": null,
+     "ret_to_next_reb": null,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-10-07",
+     "ticker": "SNDK",
+     "weight_before": 0.1349,
+     "next_reb": null,
+     "ret_to_next_reb": null,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-10-07",
+     "ticker": "STX",
+     "weight_before": 0.0775,
+     "next_reb": null,
+     "ret_to_next_reb": null,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-10-09",
+     "ticker": "ARM",
+     "weight_before": 0.0555,
+     "next_reb": null,
+     "ret_to_next_reb": null,
+     "rebought_next_reb": false
+    }
+   ],
+   "stop_count": 95,
+   "stop_count_jul": 19
+  },
+  {
+   "name": "trail10_refill",
+   "앞 1/2~5/29": {
+    "수익": 1.4070588793149872,
+    "낙폭": -0.1918479854165278
+   },
+   "뒤 6/1~10/9": {
+    "수익": -0.04685035044688113,
+    "낙폭": -0.24428567468881324
+   },
+   "9/1~10/9": {
+    "수익": 0.09412298302772193,
+    "낙폭": -0.062066602305037244
+   },
+   "전체": {
+    "수익": 1.2942873272728028,
+    "낙폭": -0.24428567468881301
+   },
+   "월별": {
+    "2026-01": 0.3551090294250354,
+    "2026-02": 0.008722783458174233,
+    "2026-03": 0.05252201804592049,
+    "2026-04": 0.30875035998730405,
+    "2026-05": 0.27835843273828154,
+    "2026-06": 0.08038472253507445,
+    "2026-07": -0.18387931538965607,
+    "2026-08": -0.011988198464985889,
+    "2026-09": 0.11055687549944215,
+    "2026-10": -0.014797884587702481
+   },
+   "반도체평균": 0.5187905805496621,
+   "마지막보유": {
+    "DELL": 0.251,
+    "AMD": 0.147,
+    "SNOW": 0.168,
+    "SNDK": 0.153,
+    "INTC": 0.215,
+    "NOW": 0.066
+   },
+   "거친종목수": 24,
+   "params": {
+    "trail": 0.1,
+    "trail_refill": true
+   },
+   "stops": [
+    {
+     "day": "2026-01-08",
+     "ticker": "FLNC",
+     "weight_before": 0.0798,
+     "next_reb": "2026-01-12",
+     "ret_to_next_reb": 0.09506620542645505,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-01-09",
+     "ticker": "CIEN",
+     "weight_before": 0.1262,
+     "next_reb": "2026-01-12",
+     "ret_to_next_reb": 0.03789674208707794,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-01-09",
+     "ticker": "WDC",
+     "weight_before": 0.2344,
+     "next_reb": "2026-01-12",
+     "ret_to_next_reb": 0.03007715577805703,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-01-21",
+     "ticker": "AXTI",
+     "weight_before": 0.0212,
+     "next_reb": "2026-01-26",
+     "ret_to_next_reb": -0.19606943202590155,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-01-27",
+     "ticker": "EOSE",
+     "weight_before": 0.0549,
+     "next_reb": "2026-02-02",
+     "ret_to_next_reb": -0.11282361575225441,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-01-27",
+     "ticker": "PL",
+     "weight_before": 0.0721,
+     "next_reb": "2026-02-02",
+     "ret_to_next_reb": -0.045628854966979104,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-01-30",
+     "ticker": "ECHO",
+     "weight_before": 0.136,
+     "next_reb": "2026-02-02",
+     "ret_to_next_reb": -0.043246073339722524,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-02-03",
+     "ticker": "PL",
+     "weight_before": 0.0483,
+     "next_reb": "2026-02-09",
+     "ret_to_next_reb": -0.08423688475080304,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-02-05",
+     "ticker": "BE",
+     "weight_before": 0.2532,
+     "next_reb": "2026-02-09",
+     "ret_to_next_reb": 0.021270632225235175,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-02-05",
+     "ticker": "FLNC",
+     "weight_before": 0.0515,
+     "next_reb": "2026-02-09",
+     "ret_to_next_reb": -0.22857143734336816,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-02-05",
+     "ticker": "SNDK",
+     "weight_before": 0.1671,
+     "next_reb": "2026-02-09",
+     "ret_to_next_reb": 0.050403508695953336,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-02-06",
+     "ticker": "WDC",
+     "weight_before": 0.1632,
+     "next_reb": "2026-02-09",
+     "ret_to_next_reb": 0.03438211633076915,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-02-11",
+     "ticker": "SNDK",
+     "weight_before": 0.2128,
+     "next_reb": "2026-02-17",
+     "ret_to_next_reb": 0.05790838375108032,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-02-11",
+     "ticker": "STX",
+     "weight_before": 0.1798,
+     "next_reb": "2026-02-17",
+     "ret_to_next_reb": 0.025290462311045703,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-02-13",
+     "ticker": "BE",
+     "weight_before": 0.2706,
+     "next_reb": "2026-02-17",
+     "ret_to_next_reb": -0.007415092253439948,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-02-13",
+     "ticker": "PL",
+     "weight_before": 0.0413,
+     "next_reb": "2026-02-17",
+     "ret_to_next_reb": 0.023255813953488413,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-03",
+     "ticker": "STX",
+     "weight_before": 0.1105,
+     "next_reb": "2026-03-09",
+     "ret_to_next_reb": -0.052150793967241094,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-03-04",
+     "ticker": "BE",
+     "weight_before": 0.2623,
+     "next_reb": "2026-03-09",
+     "ret_to_next_reb": -0.13583811375099164,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-03-04",
+     "ticker": "LITE",
+     "weight_before": 0.1107,
+     "next_reb": "2026-03-09",
+     "ret_to_next_reb": -0.20385674931129472,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-04",
+     "ticker": "SNDK",
+     "weight_before": 0.2425,
+     "next_reb": "2026-03-09",
+     "ret_to_next_reb": -0.1190103327301999,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-04",
+     "ticker": "WDC",
+     "weight_before": 0.0857,
+     "next_reb": "2026-03-09",
+     "ret_to_next_reb": -0.06929960139530644,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-06",
+     "ticker": "CIEN",
+     "weight_before": 0.1504,
+     "next_reb": "2026-03-09",
+     "ret_to_next_reb": -0.018045545837234833,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-03-06",
+     "ticker": "COHR",
+     "weight_before": 0.0929,
+     "next_reb": "2026-03-09",
+     "ret_to_next_reb": -0.012779275830415604,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-13",
+     "ticker": "AAOI",
+     "weight_before": 0.0655,
+     "next_reb": "2026-03-16",
+     "ret_to_next_reb": -0.041870294448422385,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-18",
+     "ticker": "AAOI",
+     "weight_before": 0.0729,
+     "next_reb": "2026-03-23",
+     "ret_to_next_reb": -0.05601003296628371,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-24",
+     "ticker": "MU",
+     "weight_before": 0.0564,
+     "next_reb": "2026-03-30",
+     "ret_to_next_reb": -0.09624201364301843,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-03-26",
+     "ticker": "SNDK",
+     "weight_before": 0.2205,
+     "next_reb": "2026-03-30",
+     "ret_to_next_reb": -0.018165145080753065,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-27",
+     "ticker": "AAOI",
+     "weight_before": 0.0673,
+     "next_reb": "2026-03-30",
+     "ret_to_next_reb": -0.014426868858695596,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-27",
+     "ticker": "AXTI",
+     "weight_before": 0.1021,
+     "next_reb": "2026-03-30",
+     "ret_to_next_reb": 0.058823566077443434,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-27",
+     "ticker": "CIEN",
+     "weight_before": 0.056,
+     "next_reb": "2026-03-30",
+     "ret_to_next_reb": 0.04098068075484962,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-27",
+     "ticker": "COHR",
+     "weight_before": 0.161,
+     "next_reb": "2026-03-30",
+     "ret_to_next_reb": 0.015462878102670663,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-27",
+     "ticker": "LITE",
+     "weight_before": 0.1927,
+     "next_reb": "2026-03-30",
+     "ret_to_next_reb": 0.027448670581651458,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-27",
+     "ticker": "WDC",
+     "weight_before": 0.1933,
+     "next_reb": "2026-03-30",
+     "ret_to_next_reb": 0.02739177499630041,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-03-31",
+     "ticker": "AAOI",
+     "weight_before": 0.0513,
+     "next_reb": "2026-04-06",
+     "ret_to_next_reb": 0.2694814704766144,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-31",
+     "ticker": "AXTI",
+     "weight_before": 0.0912,
+     "next_reb": "2026-04-06",
+     "ret_to_next_reb": -0.09012162810384439,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-31",
+     "ticker": "CIEN",
+     "weight_before": 0.2239,
+     "next_reb": "2026-04-06",
+     "ret_to_next_reb": 0.21853018057683515,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-31",
+     "ticker": "COHR",
+     "weight_before": 0.1263,
+     "next_reb": "2026-04-06",
+     "ret_to_next_reb": 0.1727953661438606,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-04-07",
+     "ticker": "AXTI",
+     "weight_before": 0.0599,
+     "next_reb": "2026-04-13",
+     "ret_to_next_reb": 0.49461354928628976,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-04-24",
+     "ticker": "AAOI",
+     "weight_before": 0.0265,
+     "next_reb": "2026-04-27",
+     "ret_to_next_reb": 0.07801719122468165,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-04-24",
+     "ticker": "TSEM",
+     "weight_before": 0.0575,
+     "next_reb": "2026-04-27",
+     "ret_to_next_reb": -0.008472912417256784,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-04-29",
+     "ticker": "AAOI",
+     "weight_before": 0.0268,
+     "next_reb": "2026-05-04",
+     "ret_to_next_reb": 0.30658181139125484,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-04-29",
+     "ticker": "COHR",
+     "weight_before": 0.0949,
+     "next_reb": "2026-05-04",
+     "ret_to_next_reb": 0.1182974186695045,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-04-29",
+     "ticker": "LITE",
+     "weight_before": 0.1342,
+     "next_reb": "2026-05-04",
+     "ret_to_next_reb": 0.20188528027737296,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-05-08",
+     "ticker": "AAOI",
+     "weight_before": 0.0318,
+     "next_reb": "2026-05-11",
+     "ret_to_next_reb": -0.12416236625903421,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-05-08",
+     "ticker": "LITE",
+     "weight_before": 0.1211,
+     "next_reb": "2026-05-11",
+     "ret_to_next_reb": 0.035676147061579844,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-05-15",
+     "ticker": "INTC",
+     "weight_before": 0.1926,
+     "next_reb": "2026-05-18",
+     "ret_to_next_reb": 0.03351853788586068,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-05-15",
+     "ticker": "SNDK",
+     "weight_before": 0.1879,
+     "next_reb": "2026-05-18",
+     "ret_to_next_reb": 0.0837774745990254,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-05-19",
+     "ticker": "AAOI",
+     "weight_before": 0.0815,
+     "next_reb": "2026-05-26",
+     "ret_to_next_reb": 0.11580868709220149,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-05-19",
+     "ticker": "CIEN",
+     "weight_before": 0.1419,
+     "next_reb": "2026-05-26",
+     "ret_to_next_reb": 0.14971602455512212,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-05-19",
+     "ticker": "LITE",
+     "weight_before": 0.1765,
+     "next_reb": "2026-05-26",
+     "ret_to_next_reb": 0.10288950446514922,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-05-19",
+     "ticker": "TSEM",
+     "weight_before": 0.0353,
+     "next_reb": "2026-05-26",
+     "ret_to_next_reb": 0.24533004400536051,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-05-19",
+     "ticker": "WDC",
+     "weight_before": 0.1495,
+     "next_reb": "2026-05-26",
+     "ret_to_next_reb": 0.1429250002729101,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-06-02",
+     "ticker": "INTC",
+     "weight_before": 0.1871,
+     "next_reb": "2026-06-08",
+     "ret_to_next_reb": 0.033038651955176856,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-06-02",
+     "ticker": "RKLB",
+     "weight_before": 0.1861,
+     "next_reb": "2026-06-08",
+     "ret_to_next_reb": -0.085128438492859,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-06-09",
+     "ticker": "ARM",
+     "weight_before": 0.0792,
+     "next_reb": "2026-06-15",
+     "ret_to_next_reb": 0.07796992377323986,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-06-09",
+     "ticker": "DELL",
+     "weight_before": 0.25,
+     "next_reb": "2026-06-15",
+     "ret_to_next_reb": 0.021046312384954025,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-06-09",
+     "ticker": "SNDK",
+     "weight_before": 0.063,
+     "next_reb": "2026-06-15",
+     "ret_to_next_reb": 0.23558960140399887,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-06-09",
+     "ticker": "WDC",
+     "weight_before": 0.0926,
+     "next_reb": "2026-06-15",
+     "ret_to_next_reb": 0.155518261992297,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-06-10",
+     "ticker": "STX",
+     "weight_before": 0.112,
+     "next_reb": "2026-06-15",
+     "ret_to_next_reb": 0.2563210740690516,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-06-24",
+     "ticker": "ARM",
+     "weight_before": 0.0683,
+     "next_reb": "2026-06-29",
+     "ret_to_next_reb": -0.09932228298272006,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-06-24",
+     "ticker": "SNDK",
+     "weight_before": 0.0601,
+     "next_reb": "2026-06-29",
+     "ret_to_next_reb": 0.05191364664670095,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-06-24",
+     "ticker": "WDC",
+     "weight_before": 0.0961,
+     "next_reb": "2026-06-29",
+     "ret_to_next_reb": -0.0879324825835317,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-06-30",
+     "ticker": "STX",
+     "weight_before": 0.1134,
+     "next_reb": "2026-07-06",
+     "ret_to_next_reb": -0.10779373578138973,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-02",
+     "ticker": "SNDK",
+     "weight_before": 0.0588,
+     "next_reb": "2026-07-06",
+     "ret_to_next_reb": -0.10525491240717666,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-07",
+     "ticker": "INTC",
+     "weight_before": 0.1388,
+     "next_reb": "2026-07-13",
+     "ret_to_next_reb": -0.08873602256253965,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-07",
+     "ticker": "WDC",
+     "weight_before": 0.0925,
+     "next_reb": "2026-07-13",
+     "ret_to_next_reb": 0.03619451091742798,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-08",
+     "ticker": "AMD",
+     "weight_before": 0.1288,
+     "next_reb": "2026-07-13",
+     "ret_to_next_reb": 0.06475704245063385,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-08",
+     "ticker": "ARM",
+     "weight_before": 0.0631,
+     "next_reb": "2026-07-13",
+     "ret_to_next_reb": 0.046700350690339176,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-08",
+     "ticker": "SNDK",
+     "weight_before": 0.0614,
+     "next_reb": "2026-07-13",
+     "ret_to_next_reb": 0.12630979416758836,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-16",
+     "ticker": "ARM",
+     "weight_before": 0.0325,
+     "next_reb": "2026-07-20",
+     "ret_to_next_reb": 0.012884454252556354,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-16",
+     "ticker": "WDC",
+     "weight_before": 0.1078,
+     "next_reb": "2026-07-20",
+     "ret_to_next_reb": 0.00961615999468246,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-17",
+     "ticker": "DELL",
+     "weight_before": 0.252,
+     "next_reb": "2026-07-20",
+     "ret_to_next_reb": 0.06219981972076072,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-17",
+     "ticker": "INTC",
+     "weight_before": 0.0934,
+     "next_reb": "2026-07-20",
+     "ret_to_next_reb": 0.0590406172937028,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-17",
+     "ticker": "SNDK",
+     "weight_before": 0.0878,
+     "next_reb": "2026-07-20",
+     "ret_to_next_reb": 0.03191833801139676,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-17",
+     "ticker": "STX",
+     "weight_before": 0.1235,
+     "next_reb": "2026-07-20",
+     "ret_to_next_reb": 0.12356092988068546,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-28",
+     "ticker": "AMD",
+     "weight_before": 0.1497,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": -0.011156298619011018,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-28",
+     "ticker": "INTC",
+     "weight_before": 0.0839,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": 0.02054951192398935,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-28",
+     "ticker": "SNDK",
+     "weight_before": 0.1093,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": -0.011724616608615013,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-28",
+     "ticker": "STX",
+     "weight_before": 0.1241,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": 0.0557556205303924,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-28",
+     "ticker": "WDC",
+     "weight_before": 0.0989,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": 0.12501875060933343,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-29",
+     "ticker": "ARM",
+     "weight_before": 0.036,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": -0.04757766249757367,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-29",
+     "ticker": "DELL",
+     "weight_before": 0.2525,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": 0.02362932477678581,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-08-07",
+     "ticker": "SNDK",
+     "weight_before": 0.0937,
+     "next_reb": "2026-08-10",
+     "ret_to_next_reb": -0.08087528503738561,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-08-07",
+     "ticker": "WDC",
+     "weight_before": 0.0889,
+     "next_reb": "2026-08-10",
+     "ret_to_next_reb": -0.04988524803862282,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-08-19",
+     "ticker": "AAOI",
+     "weight_before": 0.2535,
+     "next_reb": "2026-08-24",
+     "ret_to_next_reb": -0.19672436439312035,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-08-19",
+     "ticker": "ARM",
+     "weight_before": 0.0629,
+     "next_reb": "2026-08-24",
+     "ret_to_next_reb": -0.08038911930781845,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-08-20",
+     "ticker": "AMD",
+     "weight_before": 0.1537,
+     "next_reb": "2026-08-24",
+     "ret_to_next_reb": 0.006163152091460233,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-08-20",
+     "ticker": "DELL",
+     "weight_before": 0.1537,
+     "next_reb": "2026-08-24",
+     "ret_to_next_reb": -0.002344956748467464,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-08-20",
+     "ticker": "INTC",
+     "weight_before": 0.1515,
+     "next_reb": "2026-08-24",
+     "ret_to_next_reb": -0.03276371009298207,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-08-20",
+     "ticker": "STX",
+     "weight_before": 0.1538,
+     "next_reb": "2026-08-24",
+     "ret_to_next_reb": -0.018088495852518816,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-08-20",
+     "ticker": "TSEM",
+     "weight_before": 0.0806,
+     "next_reb": "2026-08-24",
+     "ret_to_next_reb": -0.030689799527439665,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-08-25",
+     "ticker": "AAOI",
+     "weight_before": 0.25,
+     "next_reb": "2026-08-31",
+     "ret_to_next_reb": -0.038067589574824146,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-08-25",
+     "ticker": "SNDK",
+     "weight_before": 0.1835,
+     "next_reb": "2026-08-31",
+     "ret_to_next_reb": -0.030834079115643842,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-09-02",
+     "ticker": "DELL",
+     "weight_before": 0.1496,
+     "next_reb": "2026-09-08",
+     "ret_to_next_reb": 0.12790831767660316,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-09-15",
+     "ticker": "SNDK",
+     "weight_before": 0.1923,
+     "next_reb": "2026-09-21",
+     "ret_to_next_reb": 0.16327222572342737,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-09-15",
+     "ticker": "STX",
+     "weight_before": 0.1037,
+     "next_reb": "2026-09-21",
+     "ret_to_next_reb": 0.11750228736923707,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-09-29",
+     "ticker": "ARM",
+     "weight_before": 0.0609,
+     "next_reb": "2026-10-05",
+     "ret_to_next_reb": 0.05850412745767142,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-10-07",
+     "ticker": "INTC",
+     "weight_before": 0.182,
+     "next_reb": null,
+     "ret_to_next_reb": null,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-10-07",
+     "ticker": "SNDK",
+     "weight_before": 0.1349,
+     "next_reb": null,
+     "ret_to_next_reb": null,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-10-07",
+     "ticker": "STX",
+     "weight_before": 0.0775,
+     "next_reb": null,
+     "ret_to_next_reb": null,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-10-09",
+     "ticker": "ARM",
+     "weight_before": 0.0555,
+     "next_reb": null,
+     "ret_to_next_reb": null,
+     "rebought_next_reb": false
+    }
+   ],
+   "stop_count": 101,
+   "stop_count_jul": 19
+  },
+  {
+   "name": "trail15_cash",
+   "앞 1/2~5/29": {
+    "수익": 1.7563638406017237,
+    "낙폭": -0.19113371670789747
+   },
+   "뒤 6/1~10/9": {
+    "수익": -0.03712986657646322,
+    "낙폭": -0.26487811360833224
+   },
+   "9/1~10/9": {
+    "수익": 0.15854187063718128,
+    "낙폭": -0.062066602305037244
+   },
+   "전체": {
+    "수익": 1.6540204189639933,
+    "낙폭": -0.2648781136083326
+   },
+   "월별": {
+    "2026-01": 0.4186992475089011,
+    "2026-02": 0.07568217871500393,
+    "2026-03": 0.017855536867135147,
+    "2026-04": 0.3172554062428323,
+    "2026-05": 0.34711942624545067,
+    "2026-06": 0.01831596999840146,
+    "2026-07": -0.22252067732327485,
+    "2026-08": 0.04974684799464346,
+    "2026-09": 0.1776973710726517,
+    "2026-10": -0.01626521456698482
+   },
+   "반도체평균": 0.5235927607864042,
+   "마지막보유": {
+    "DELL": 0.252,
+    "AMD": 0.147,
+    "SNOW": 0.169,
+    "SNDK": 0.133
+   },
+   "거친종목수": 21,
+   "params": {
+    "trail": 0.15,
+    "trail_refill": false
+   },
+   "stops": [
+    {
+     "day": "2026-02-03",
+     "ticker": "PL",
+     "weight_before": 0.0696,
+     "next_reb": "2026-02-09",
+     "ret_to_next_reb": -0.08423688475080304,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-02-05",
+     "ticker": "ECHO",
+     "weight_before": 0.0427,
+     "next_reb": "2026-02-09",
+     "ret_to_next_reb": 0.040234619788206194,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-02-05",
+     "ticker": "SNDK",
+     "weight_before": 0.238,
+     "next_reb": "2026-02-09",
+     "ret_to_next_reb": 0.050403508695953336,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-02-06",
+     "ticker": "BE",
+     "weight_before": 0.2429,
+     "next_reb": "2026-02-09",
+     "ret_to_next_reb": -0.05395709559555917,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-02-06",
+     "ticker": "FLNC",
+     "weight_before": 0.0633,
+     "next_reb": "2026-02-09",
+     "ret_to_next_reb": -0.0602940963351325,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-03-04",
+     "ticker": "SNDK",
+     "weight_before": 0.2425,
+     "next_reb": "2026-03-09",
+     "ret_to_next_reb": -0.1190103327301999,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-04",
+     "ticker": "STX",
+     "weight_before": 0.1046,
+     "next_reb": "2026-03-09",
+     "ret_to_next_reb": -0.06824486142113095,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-03-04",
+     "ticker": "WDC",
+     "weight_before": 0.0857,
+     "next_reb": "2026-03-09",
+     "ret_to_next_reb": -0.06929960139530644,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-06",
+     "ticker": "CIEN",
+     "weight_before": 0.1482,
+     "next_reb": "2026-03-09",
+     "ret_to_next_reb": -0.018045545837234833,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-03-06",
+     "ticker": "LITE",
+     "weight_before": 0.0995,
+     "next_reb": "2026-03-09",
+     "ret_to_next_reb": -0.053149762771319664,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-13",
+     "ticker": "AAOI",
+     "weight_before": 0.0591,
+     "next_reb": "2026-03-16",
+     "ret_to_next_reb": -0.041870294448422385,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-24",
+     "ticker": "BE",
+     "weight_before": 0.2178,
+     "next_reb": "2026-03-30",
+     "ret_to_next_reb": -0.0511689319477443,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-03-27",
+     "ticker": "SNDK",
+     "weight_before": 0.2322,
+     "next_reb": "2026-03-30",
+     "ret_to_next_reb": 0.07064609440131298,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-31",
+     "ticker": "AAOI",
+     "weight_before": 0.0466,
+     "next_reb": "2026-04-06",
+     "ret_to_next_reb": 0.2694814704766144,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-31",
+     "ticker": "AXTI",
+     "weight_before": 0.0798,
+     "next_reb": "2026-04-06",
+     "ret_to_next_reb": -0.09012162810384439,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-31",
+     "ticker": "CIEN",
+     "weight_before": 0.2034,
+     "next_reb": "2026-04-06",
+     "ret_to_next_reb": 0.21853018057683515,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-31",
+     "ticker": "LITE",
+     "weight_before": 0.15,
+     "next_reb": "2026-04-06",
+     "ret_to_next_reb": 0.22014724664027985,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-31",
+     "ticker": "WDC",
+     "weight_before": 0.1896,
+     "next_reb": "2026-04-06",
+     "ret_to_next_reb": 0.1705791223003137,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-04-24",
+     "ticker": "AAOI",
+     "weight_before": 0.0265,
+     "next_reb": "2026-04-27",
+     "ret_to_next_reb": 0.07801719122468165,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-05-19",
+     "ticker": "AAOI",
+     "weight_before": 0.0806,
+     "next_reb": "2026-05-26",
+     "ret_to_next_reb": 0.11580868709220149,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-05-19",
+     "ticker": "LITE",
+     "weight_before": 0.1746,
+     "next_reb": "2026-05-26",
+     "ret_to_next_reb": 0.10288950446514922,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-06-02",
+     "ticker": "RKLB",
+     "weight_before": 0.1861,
+     "next_reb": "2026-06-08",
+     "ret_to_next_reb": -0.085128438492859,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-06-09",
+     "ticker": "ARM",
+     "weight_before": 0.0792,
+     "next_reb": "2026-06-15",
+     "ret_to_next_reb": 0.07796992377323986,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-06-10",
+     "ticker": "DELL",
+     "weight_before": 0.2486,
+     "next_reb": "2026-06-15",
+     "ret_to_next_reb": 0.09147824270509508,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-06-11",
+     "ticker": "WDC",
+     "weight_before": 0.0894,
+     "next_reb": "2026-06-15",
+     "ret_to_next_reb": 0.24310433122531916,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-06-24",
+     "ticker": "ARM",
+     "weight_before": 0.0683,
+     "next_reb": "2026-06-29",
+     "ret_to_next_reb": -0.09932228298272006,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-06-25",
+     "ticker": "SNDK",
+     "weight_before": 0.0579,
+     "next_reb": "2026-06-29",
+     "ret_to_next_reb": -0.06594051088246555,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-02",
+     "ticker": "STX",
+     "weight_before": 0.1077,
+     "next_reb": "2026-07-06",
+     "ret_to_next_reb": -0.041221209972592265,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-02",
+     "ticker": "WDC",
+     "weight_before": 0.0944,
+     "next_reb": "2026-07-06",
+     "ret_to_next_reb": -0.04785894206549124,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-07",
+     "ticker": "SNDK",
+     "weight_before": 0.067,
+     "next_reb": "2026-07-13",
+     "ret_to_next_reb": 0.1071957616435617,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-08",
+     "ticker": "ARM",
+     "weight_before": 0.0631,
+     "next_reb": "2026-07-13",
+     "ret_to_next_reb": 0.046700350690339176,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-08",
+     "ticker": "INTC",
+     "weight_before": 0.1361,
+     "next_reb": "2026-07-13",
+     "ret_to_next_reb": -0.02142197257109446,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-17",
+     "ticker": "ARM",
+     "weight_before": 0.0341,
+     "next_reb": "2026-07-20",
+     "ret_to_next_reb": 0.08858781350012412,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-17",
+     "ticker": "SNDK",
+     "weight_before": 0.0878,
+     "next_reb": "2026-07-20",
+     "ret_to_next_reb": 0.03191833801139676,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-17",
+     "ticker": "STX",
+     "weight_before": 0.1235,
+     "next_reb": "2026-07-20",
+     "ret_to_next_reb": 0.12356092988068546,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-17",
+     "ticker": "WDC",
+     "weight_before": 0.1026,
+     "next_reb": "2026-07-20",
+     "ret_to_next_reb": 0.08917602472307351,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-21",
+     "ticker": "DELL",
+     "weight_before": 0.25,
+     "next_reb": "2026-07-27",
+     "ret_to_next_reb": 0.10390365078422059,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-28",
+     "ticker": "SNDK",
+     "weight_before": 0.1093,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": -0.011724616608615013,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-29",
+     "ticker": "AMD",
+     "weight_before": 0.1452,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": 0.020124626704377757,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-29",
+     "ticker": "ARM",
+     "weight_before": 0.036,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": -0.04757766249757367,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-29",
+     "ticker": "INTC",
+     "weight_before": 0.0861,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": 0.021138983914817944,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-29",
+     "ticker": "STX",
+     "weight_before": 0.1231,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": 0.039600985126146515,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-29",
+     "ticker": "WDC",
+     "weight_before": 0.0966,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": 0.09150706081097604,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-30",
+     "ticker": "DELL",
+     "weight_before": 0.2467,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": 0.033230215231814464,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-08-07",
+     "ticker": "WDC",
+     "weight_before": 0.0889,
+     "next_reb": "2026-08-10",
+     "ret_to_next_reb": -0.04988524803862282,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-08-19",
+     "ticker": "AAOI",
+     "weight_before": 0.2514,
+     "next_reb": "2026-08-24",
+     "ret_to_next_reb": -0.19672436439312035,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-08-20",
+     "ticker": "STX",
+     "weight_before": 0.1317,
+     "next_reb": "2026-08-24",
+     "ret_to_next_reb": -0.018088495852518816,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-08-25",
+     "ticker": "ARM",
+     "weight_before": 0.0553,
+     "next_reb": "2026-08-31",
+     "ret_to_next_reb": -0.024529246937209814,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-08-25",
+     "ticker": "INTC",
+     "weight_before": 0.1231,
+     "next_reb": "2026-08-31",
+     "ret_to_next_reb": -0.0006661954277170645,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-08-25",
+     "ticker": "SNDK",
+     "weight_before": 0.1835,
+     "next_reb": "2026-08-31",
+     "ret_to_next_reb": -0.030834079115643842,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-10-09",
+     "ticker": "ARM",
+     "weight_before": 0.0554,
+     "next_reb": null,
+     "ret_to_next_reb": null,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-10-09",
+     "ticker": "INTC",
+     "weight_before": 0.176,
+     "next_reb": null,
+     "ret_to_next_reb": null,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-10-09",
+     "ticker": "STX",
+     "weight_before": 0.0736,
+     "next_reb": null,
+     "ret_to_next_reb": null,
+     "rebought_next_reb": false
+    }
+   ],
+   "stop_count": 53,
+   "stop_count_jul": 17
+  },
+  {
+   "name": "trail15_refill",
+   "앞 1/2~5/29": {
+    "수익": 1.6033050580812667,
+    "낙폭": -0.1935108527711129
+   },
+   "뒤 6/1~10/9": {
+    "수익": 0.045937946953084285,
+    "낙폭": -0.2458336029432806
+   },
+   "9/1~10/9": {
+    "수익": 0.1585418706371815,
+    "낙폭": -0.062066602305037244
+   },
+   "전체": {
+    "수익": 1.7228955477421022,
+    "낙폭": -0.24583360294328072
+   },
+   "월별": {
+    "2026-01": 0.4186992475089011,
+    "2026-02": 0.07026449561987946,
+    "2026-03": -0.03379892452542932,
+    "2026-04": 0.3172554062428321,
+    "2026-05": 0.3471194262454509,
+    "2026-06": 0.05390186618889281,
+    "2026-07": -0.194611842177563,
+    "2026-08": 0.06362557718021788,
+    "2026-09": 0.17769737107265215,
+    "2026-10": -0.01626521456698493
+   },
+   "반도체평균": 0.541659436123222,
+   "마지막보유": {
+    "DELL": 0.252,
+    "AMD": 0.147,
+    "SNOW": 0.169,
+    "SNDK": 0.133,
+    "NOW": 0.086
+   },
+   "거친종목수": 22,
+   "params": {
+    "trail": 0.15,
+    "trail_refill": true
+   },
+   "stops": [
+    {
+     "day": "2026-02-03",
+     "ticker": "PL",
+     "weight_before": 0.0696,
+     "next_reb": "2026-02-09",
+     "ret_to_next_reb": -0.08423688475080304,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-02-05",
+     "ticker": "ECHO",
+     "weight_before": 0.0427,
+     "next_reb": "2026-02-09",
+     "ret_to_next_reb": 0.040234619788206194,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-02-05",
+     "ticker": "SNDK",
+     "weight_before": 0.238,
+     "next_reb": "2026-02-09",
+     "ret_to_next_reb": 0.050403508695953336,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-02-06",
+     "ticker": "BE",
+     "weight_before": 0.2429,
+     "next_reb": "2026-02-09",
+     "ret_to_next_reb": -0.05395709559555917,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-02-06",
+     "ticker": "FLNC",
+     "weight_before": 0.0633,
+     "next_reb": "2026-02-09",
+     "ret_to_next_reb": -0.0602940963351325,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-03-04",
+     "ticker": "SNDK",
+     "weight_before": 0.2425,
+     "next_reb": "2026-03-09",
+     "ret_to_next_reb": -0.1190103327301999,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-04",
+     "ticker": "STX",
+     "weight_before": 0.1046,
+     "next_reb": "2026-03-09",
+     "ret_to_next_reb": -0.06824486142113095,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-03-04",
+     "ticker": "WDC",
+     "weight_before": 0.0857,
+     "next_reb": "2026-03-09",
+     "ret_to_next_reb": -0.06929960139530644,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-06",
+     "ticker": "CIEN",
+     "weight_before": 0.1511,
+     "next_reb": "2026-03-09",
+     "ret_to_next_reb": -0.018045545837234833,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-03-06",
+     "ticker": "LITE",
+     "weight_before": 0.1015,
+     "next_reb": "2026-03-09",
+     "ret_to_next_reb": -0.053149762771319664,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-12",
+     "ticker": "COHR",
+     "weight_before": 0.1386,
+     "next_reb": "2026-03-16",
+     "ret_to_next_reb": 0.04170748091420351,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-03-13",
+     "ticker": "AAOI",
+     "weight_before": 0.0461,
+     "next_reb": "2026-03-16",
+     "ret_to_next_reb": -0.041870294448422385,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-24",
+     "ticker": "BE",
+     "weight_before": 0.2178,
+     "next_reb": "2026-03-30",
+     "ret_to_next_reb": -0.0511689319477443,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-03-27",
+     "ticker": "SNDK",
+     "weight_before": 0.233,
+     "next_reb": "2026-03-30",
+     "ret_to_next_reb": 0.07064609440131298,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-31",
+     "ticker": "AAOI",
+     "weight_before": 0.0466,
+     "next_reb": "2026-04-06",
+     "ret_to_next_reb": 0.2694814704766144,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-31",
+     "ticker": "AXTI",
+     "weight_before": 0.0798,
+     "next_reb": "2026-04-06",
+     "ret_to_next_reb": -0.09012162810384439,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-31",
+     "ticker": "CIEN",
+     "weight_before": 0.2034,
+     "next_reb": "2026-04-06",
+     "ret_to_next_reb": 0.21853018057683515,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-31",
+     "ticker": "LITE",
+     "weight_before": 0.15,
+     "next_reb": "2026-04-06",
+     "ret_to_next_reb": 0.22014724664027985,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-31",
+     "ticker": "WDC",
+     "weight_before": 0.1896,
+     "next_reb": "2026-04-06",
+     "ret_to_next_reb": 0.1705791223003137,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-04-24",
+     "ticker": "AAOI",
+     "weight_before": 0.0265,
+     "next_reb": "2026-04-27",
+     "ret_to_next_reb": 0.07801719122468165,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-05-19",
+     "ticker": "AAOI",
+     "weight_before": 0.0806,
+     "next_reb": "2026-05-26",
+     "ret_to_next_reb": 0.11580868709220149,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-05-19",
+     "ticker": "LITE",
+     "weight_before": 0.1746,
+     "next_reb": "2026-05-26",
+     "ret_to_next_reb": 0.10288950446514922,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-06-02",
+     "ticker": "RKLB",
+     "weight_before": 0.1861,
+     "next_reb": "2026-06-08",
+     "ret_to_next_reb": -0.085128438492859,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-06-09",
+     "ticker": "ARM",
+     "weight_before": 0.0792,
+     "next_reb": "2026-06-15",
+     "ret_to_next_reb": 0.07796992377323986,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-06-10",
+     "ticker": "DELL",
+     "weight_before": 0.2486,
+     "next_reb": "2026-06-15",
+     "ret_to_next_reb": 0.09147824270509508,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-06-11",
+     "ticker": "WDC",
+     "weight_before": 0.0894,
+     "next_reb": "2026-06-15",
+     "ret_to_next_reb": 0.24310433122531916,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-06-24",
+     "ticker": "ARM",
+     "weight_before": 0.0683,
+     "next_reb": "2026-06-29",
+     "ret_to_next_reb": -0.09932228298272006,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-06-25",
+     "ticker": "SNDK",
+     "weight_before": 0.0579,
+     "next_reb": "2026-06-29",
+     "ret_to_next_reb": -0.06594051088246555,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-02",
+     "ticker": "STX",
+     "weight_before": 0.1077,
+     "next_reb": "2026-07-06",
+     "ret_to_next_reb": -0.041221209972592265,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-02",
+     "ticker": "WDC",
+     "weight_before": 0.0944,
+     "next_reb": "2026-07-06",
+     "ret_to_next_reb": -0.04785894206549124,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-07",
+     "ticker": "ARM",
+     "weight_before": 0.0647,
+     "next_reb": "2026-07-13",
+     "ret_to_next_reb": 0.017977969246803394,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-07",
+     "ticker": "SNDK",
+     "weight_before": 0.067,
+     "next_reb": "2026-07-13",
+     "ret_to_next_reb": 0.1071957616435617,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-08",
+     "ticker": "INTC",
+     "weight_before": 0.1361,
+     "next_reb": "2026-07-13",
+     "ret_to_next_reb": -0.02142197257109446,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-16",
+     "ticker": "ARM",
+     "weight_before": 0.0325,
+     "next_reb": "2026-07-20",
+     "ret_to_next_reb": 0.012884454252556354,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-16",
+     "ticker": "SNDK",
+     "weight_before": 0.0897,
+     "next_reb": "2026-07-20",
+     "ret_to_next_reb": -0.0777157046504019,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-17",
+     "ticker": "STX",
+     "weight_before": 0.1235,
+     "next_reb": "2026-07-20",
+     "ret_to_next_reb": 0.12356092988068546,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-17",
+     "ticker": "WDC",
+     "weight_before": 0.1026,
+     "next_reb": "2026-07-20",
+     "ret_to_next_reb": 0.08917602472307351,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-21",
+     "ticker": "DELL",
+     "weight_before": 0.25,
+     "next_reb": "2026-07-27",
+     "ret_to_next_reb": 0.10390365078422059,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-28",
+     "ticker": "SNDK",
+     "weight_before": 0.1093,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": -0.011724616608615013,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-29",
+     "ticker": "AMD",
+     "weight_before": 0.1452,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": 0.020124626704377757,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-29",
+     "ticker": "ARM",
+     "weight_before": 0.036,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": -0.04757766249757367,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-29",
+     "ticker": "INTC",
+     "weight_before": 0.0861,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": 0.021138983914817944,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-07-29",
+     "ticker": "STX",
+     "weight_before": 0.1231,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": 0.039600985126146515,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-29",
+     "ticker": "WDC",
+     "weight_before": 0.0966,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": 0.09150706081097604,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-30",
+     "ticker": "DELL",
+     "weight_before": 0.2467,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": 0.033230215231814464,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-08-07",
+     "ticker": "WDC",
+     "weight_before": 0.1092,
+     "next_reb": "2026-08-10",
+     "ret_to_next_reb": -0.04988524803862282,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-08-19",
+     "ticker": "AAOI",
+     "weight_before": 0.1511,
+     "next_reb": "2026-08-24",
+     "ret_to_next_reb": -0.19672436439312035,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-08-20",
+     "ticker": "STX",
+     "weight_before": 0.1648,
+     "next_reb": "2026-08-24",
+     "ret_to_next_reb": -0.018088495852518816,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-08-25",
+     "ticker": "AAOI",
+     "weight_before": 0.1447,
+     "next_reb": "2026-08-31",
+     "ret_to_next_reb": -0.038067589574824146,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-08-25",
+     "ticker": "ARM",
+     "weight_before": 0.0707,
+     "next_reb": "2026-08-31",
+     "ret_to_next_reb": -0.024529246937209814,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-08-25",
+     "ticker": "SNDK",
+     "weight_before": 0.2347,
+     "next_reb": "2026-08-31",
+     "ret_to_next_reb": -0.030834079115643842,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-10-09",
+     "ticker": "ARM",
+     "weight_before": 0.0554,
+     "next_reb": null,
+     "ret_to_next_reb": null,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-10-09",
+     "ticker": "INTC",
+     "weight_before": 0.176,
+     "next_reb": null,
+     "ret_to_next_reb": null,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-10-09",
+     "ticker": "STX",
+     "weight_before": 0.0736,
+     "next_reb": null,
+     "ret_to_next_reb": null,
+     "rebought_next_reb": false
+    }
+   ],
+   "stop_count": 54,
+   "stop_count_jul": 17
+  },
+  {
+   "name": "trail20_cash",
+   "앞 1/2~5/29": {
+    "수익": 1.954694397295615,
+    "낙폭": -0.19958542943356172
+   },
+   "뒤 6/1~10/9": {
+    "수익": -0.06669293657734499,
+    "낙폭": -0.2541413534553342
+   },
+   "9/1~10/9": {
+    "수익": 0.15854187063718128,
+    "낙폭": -0.062066602305037244
+   },
+   "전체": {
+    "수익": 1.7576371512513447,
+    "낙폭": -0.25414135345533395
+   },
+   "월별": {
+    "2026-01": 0.4186992475089011,
+    "2026-02": 0.06004889442438466,
+    "2026-03": 0.004585883795804158,
+    "2026-04": 0.44120725925013415,
+    "2026-05": 0.3570092893865142,
+    "2026-06": -0.00681114254082571,
+    "2026-07": -0.17398747914563717,
+    "2026-08": -0.01803875145081646,
+    "2026-09": 0.17769737107265193,
+    "2026-10": -0.016265214566985042
+   },
+   "반도체평균": 0.5519989034921476,
+   "마지막보유": {
+    "DELL": 0.252,
+    "AMD": 0.147,
+    "SNOW": 0.169,
+    "ARM": 0.054,
+    "INTC": 0.173,
+    "SNDK": 0.133,
+    "STX": 0.073
+   },
+   "거친종목수": 19,
+   "params": {
+    "trail": 0.2,
+    "trail_refill": false
+   },
+   "stops": [
+    {
+     "day": "2026-02-03",
+     "ticker": "PL",
+     "weight_before": 0.0696,
+     "next_reb": "2026-02-09",
+     "ret_to_next_reb": -0.08423688475080304,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-02-06",
+     "ticker": "FLNC",
+     "weight_before": 0.0633,
+     "next_reb": "2026-02-09",
+     "ret_to_next_reb": -0.0602940963351325,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-02-11",
+     "ticker": "SNDK",
+     "weight_before": 0.2373,
+     "next_reb": "2026-02-17",
+     "ret_to_next_reb": 0.05790838375108032,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-13",
+     "ticker": "LITE",
+     "weight_before": 0.129,
+     "next_reb": "2026-03-16",
+     "ret_to_next_reb": 0.03338007045084446,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-27",
+     "ticker": "BE",
+     "weight_before": 0.1899,
+     "next_reb": "2026-03-30",
+     "ret_to_next_reb": 0.0025189220335459783,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-03-27",
+     "ticker": "SNDK",
+     "weight_before": 0.2338,
+     "next_reb": "2026-03-30",
+     "ret_to_next_reb": 0.07064609440131298,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-31",
+     "ticker": "AXTI",
+     "weight_before": 0.0645,
+     "next_reb": "2026-04-06",
+     "ret_to_next_reb": -0.09012162810384439,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-31",
+     "ticker": "WDC",
+     "weight_before": 0.1532,
+     "next_reb": "2026-04-06",
+     "ret_to_next_reb": 0.1705791223003137,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-05-19",
+     "ticker": "AAOI",
+     "weight_before": 0.0815,
+     "next_reb": "2026-05-26",
+     "ret_to_next_reb": 0.11580868709220149,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-06-04",
+     "ticker": "RKLB",
+     "weight_before": 0.1651,
+     "next_reb": "2026-06-08",
+     "ret_to_next_reb": 0.014015997677010228,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-06-10",
+     "ticker": "ARM",
+     "weight_before": 0.0797,
+     "next_reb": "2026-06-15",
+     "ret_to_next_reb": 0.24177186531041173,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-06-11",
+     "ticker": "DELL",
+     "weight_before": 0.2481,
+     "next_reb": "2026-06-15",
+     "ret_to_next_reb": 0.11587284927140384,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-06-26",
+     "ticker": "ARM",
+     "weight_before": 0.0659,
+     "next_reb": "2026-06-29",
+     "ret_to_next_reb": 0.0035216302563287893,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-07",
+     "ticker": "SNDK",
+     "weight_before": 0.067,
+     "next_reb": "2026-07-13",
+     "ret_to_next_reb": 0.1071957616435617,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-07",
+     "ticker": "STX",
+     "weight_before": 0.1076,
+     "next_reb": "2026-07-13",
+     "ret_to_next_reb": 0.05882209554611828,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-07",
+     "ticker": "WDC",
+     "weight_before": 0.0925,
+     "next_reb": "2026-07-13",
+     "ret_to_next_reb": 0.03619451091742798,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-08",
+     "ticker": "INTC",
+     "weight_before": 0.1361,
+     "next_reb": "2026-07-13",
+     "ret_to_next_reb": -0.02142197257109446,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-15",
+     "ticker": "ARM",
+     "weight_before": 0.0356,
+     "next_reb": "2026-07-20",
+     "ret_to_next_reb": -0.03233838434777947,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-17",
+     "ticker": "SNDK",
+     "weight_before": 0.0876,
+     "next_reb": "2026-07-20",
+     "ret_to_next_reb": 0.03191833801139676,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-28",
+     "ticker": "SNDK",
+     "weight_before": 0.1093,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": -0.011724616608615013,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-29",
+     "ticker": "AMD",
+     "weight_before": 0.1452,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": 0.020124626704377757,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-30",
+     "ticker": "ARM",
+     "weight_before": 0.0347,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": -0.10848839338435667,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-30",
+     "ticker": "INTC",
+     "weight_before": 0.0869,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": 0.021847177701743492,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-08-11",
+     "ticker": "WDC",
+     "weight_before": 0.1044,
+     "next_reb": "2026-08-17",
+     "ret_to_next_reb": 0.1883904568906949,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-08-20",
+     "ticker": "AAOI",
+     "weight_before": 0.2389,
+     "next_reb": "2026-08-24",
+     "ret_to_next_reb": -0.10490916474166534,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-08-25",
+     "ticker": "STX",
+     "weight_before": 0.1309,
+     "next_reb": "2026-08-31",
+     "ret_to_next_reb": 0.014732965009208066,
+     "rebought_next_reb": true
+    }
+   ],
+   "stop_count": 26,
+   "stop_count_jul": 10
+  },
+  {
+   "name": "trail20_refill",
+   "앞 1/2~5/29": {
+    "수익": 1.9408029790764516,
+    "낙폭": -0.1959289837389997
+   },
+   "뒤 6/1~10/9": {
+    "수익": 0.03240384679101127,
+    "낙폭": -0.2234401995107892
+   },
+   "9/1~10/9": {
+    "수익": 0.1585418706371815,
+    "낙폭": -0.062066602305037244
+   },
+   "전체": {
+    "수익": 2.0360963082529957,
+    "낙폭": -0.2234401995107892
+   },
+   "월별": {
+    "2026-01": 0.4186992475089011,
+    "2026-02": 0.0649413370317744,
+    "2026-03": -0.004807838727657332,
+    "2026-04": 0.4413190906031823,
+    "2026-05": 0.3570092893865142,
+    "2026-06": 0.0012285616682141676,
+    "2026-07": -0.144467363798355,
+    "2026-08": 0.04032268457589283,
+    "2026-09": 0.17769737107265193,
+    "2026-10": -0.01626521456698471
+   },
+   "반도체평균": 0.5651748717960879,
+   "마지막보유": {
+    "DELL": 0.252,
+    "AMD": 0.147,
+    "SNOW": 0.169,
+    "ARM": 0.054,
+    "INTC": 0.173,
+    "SNDK": 0.133,
+    "STX": 0.073
+   },
+   "거친종목수": 19,
+   "params": {
+    "trail": 0.2,
+    "trail_refill": true
+   },
+   "stops": [
+    {
+     "day": "2026-02-03",
+     "ticker": "PL",
+     "weight_before": 0.0696,
+     "next_reb": "2026-02-09",
+     "ret_to_next_reb": -0.08423688475080304,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-02-06",
+     "ticker": "FLNC",
+     "weight_before": 0.0633,
+     "next_reb": "2026-02-09",
+     "ret_to_next_reb": -0.0602940963351325,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-02-11",
+     "ticker": "SNDK",
+     "weight_before": 0.2373,
+     "next_reb": "2026-02-17",
+     "ret_to_next_reb": 0.05790838375108032,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-13",
+     "ticker": "LITE",
+     "weight_before": 0.129,
+     "next_reb": "2026-03-16",
+     "ret_to_next_reb": 0.03338007045084446,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-03-27",
+     "ticker": "BE",
+     "weight_before": 0.2122,
+     "next_reb": "2026-03-30",
+     "ret_to_next_reb": 0.0025189220335459783,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-03-27",
+     "ticker": "SNDK",
+     "weight_before": 0.2319,
+     "next_reb": "2026-03-30",
+     "ret_to_next_reb": 0.07064609440131298,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-31",
+     "ticker": "AAOI",
+     "weight_before": 0.0466,
+     "next_reb": "2026-04-06",
+     "ret_to_next_reb": 0.2694814704766144,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-31",
+     "ticker": "AXTI",
+     "weight_before": 0.0645,
+     "next_reb": "2026-04-06",
+     "ret_to_next_reb": -0.09012162810384439,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-03-31",
+     "ticker": "WDC",
+     "weight_before": 0.1532,
+     "next_reb": "2026-04-06",
+     "ret_to_next_reb": 0.1705791223003137,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-05-19",
+     "ticker": "AAOI",
+     "weight_before": 0.0815,
+     "next_reb": "2026-05-26",
+     "ret_to_next_reb": 0.11580868709220149,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-06-04",
+     "ticker": "RKLB",
+     "weight_before": 0.1651,
+     "next_reb": "2026-06-08",
+     "ret_to_next_reb": 0.014015997677010228,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-06-10",
+     "ticker": "ARM",
+     "weight_before": 0.0797,
+     "next_reb": "2026-06-15",
+     "ret_to_next_reb": 0.24177186531041173,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-06-11",
+     "ticker": "DELL",
+     "weight_before": 0.2481,
+     "next_reb": "2026-06-15",
+     "ret_to_next_reb": 0.11587284927140384,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-06-26",
+     "ticker": "ARM",
+     "weight_before": 0.0659,
+     "next_reb": "2026-06-29",
+     "ret_to_next_reb": 0.0035216302563287893,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-07",
+     "ticker": "SNDK",
+     "weight_before": 0.067,
+     "next_reb": "2026-07-13",
+     "ret_to_next_reb": 0.1071957616435617,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-07",
+     "ticker": "STX",
+     "weight_before": 0.1076,
+     "next_reb": "2026-07-13",
+     "ret_to_next_reb": 0.05882209554611828,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-07",
+     "ticker": "WDC",
+     "weight_before": 0.0925,
+     "next_reb": "2026-07-13",
+     "ret_to_next_reb": 0.03619451091742798,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-08",
+     "ticker": "INTC",
+     "weight_before": 0.1361,
+     "next_reb": "2026-07-13",
+     "ret_to_next_reb": -0.02142197257109446,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-15",
+     "ticker": "ARM",
+     "weight_before": 0.0356,
+     "next_reb": "2026-07-20",
+     "ret_to_next_reb": -0.03233838434777947,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-17",
+     "ticker": "SNDK",
+     "weight_before": 0.0876,
+     "next_reb": "2026-07-20",
+     "ret_to_next_reb": 0.03191833801139676,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-28",
+     "ticker": "SNDK",
+     "weight_before": 0.1093,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": -0.011724616608615013,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-29",
+     "ticker": "AMD",
+     "weight_before": 0.1452,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": 0.020124626704377757,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-29",
+     "ticker": "WDC",
+     "weight_before": 0.0966,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": 0.09150706081097604,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-30",
+     "ticker": "ARM",
+     "weight_before": 0.0347,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": -0.10848839338435667,
+     "rebought_next_reb": true
+    },
+    {
+     "day": "2026-07-30",
+     "ticker": "INTC",
+     "weight_before": 0.0869,
+     "next_reb": "2026-08-03",
+     "ret_to_next_reb": 0.021847177701743492,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-08-11",
+     "ticker": "WDC",
+     "weight_before": 0.1278,
+     "next_reb": "2026-08-17",
+     "ret_to_next_reb": 0.1883904568906949,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-08-20",
+     "ticker": "AAOI",
+     "weight_before": 0.1425,
+     "next_reb": "2026-08-24",
+     "ret_to_next_reb": -0.10490916474166534,
+     "rebought_next_reb": false
+    },
+    {
+     "day": "2026-08-25",
+     "ticker": "STX",
+     "weight_before": 0.1309,
+     "next_reb": "2026-08-31",
+     "ret_to_next_reb": 0.014732965009208066,
+     "rebought_next_reb": true
+    }
+   ],
+   "stop_count": 28,
+   "stop_count_jul": 11
+  }
+ ]
+}

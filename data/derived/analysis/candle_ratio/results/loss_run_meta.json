@@ -1,0 +1,5782 @@
+{
+ "5m": {
+  "calendar": [
+   "2026-07-17",
+   "2026-10-22"
+  ],
+  "D": 69,
+  "shifts": [
+   15,
+   54
+  ],
+  "n_shifts": 40,
+  "n_syms": 144,
+  "excluded": [],
+  "sec": 17.7,
+  "roll_min_fut_days": 6.3478260869565215,
+  "roll_min_fut_sym": "NVT/eth",
+  "per_sym": {
+   "AAOI": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "ACN": {
+    "eth": {
+     "n": 1551,
+     "bpd": 24,
+     "missing": 105,
+     "days": 69,
+     "roll_min_fut_days": 10.625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.49000644745325594
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "AAPL": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "AKAM": {
+    "eth": {
+     "n": 1542,
+     "bpd": 23,
+     "missing": 45,
+     "days": 69,
+     "roll_min_fut_days": 13.043478260869565,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.48249027237354086
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "ADI": {
+    "eth": {
+     "n": 1577,
+     "bpd": 24,
+     "missing": 79,
+     "days": 69,
+     "roll_min_fut_days": 11.708333333333334,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4920735573874445
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "AEHR": {
+    "eth": {
+     "n": 1632,
+     "bpd": 24,
+     "missing": 24,
+     "days": 69,
+     "roll_min_fut_days": 14.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5036764705882353
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "ALAB": {
+    "eth": {
+     "n": 1627,
+     "bpd": 24,
+     "missing": 29,
+     "days": 69,
+     "roll_min_fut_days": 13.791666666666666,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5021511985248924
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "AMAT": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "AMD": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "AMKR": {
+    "eth": {
+     "n": 1626,
+     "bpd": 24,
+     "missing": 30,
+     "days": 69,
+     "roll_min_fut_days": 13.75,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.501230012300123
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "AMZN": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "ANET": {
+    "eth": {
+     "n": 1598,
+     "bpd": 24,
+     "missing": 58,
+     "days": 69,
+     "roll_min_fut_days": 12.583333333333334,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4981226533166458
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "AOSL": {
+    "eth": {
+     "n": 1261,
+     "bpd": 19,
+     "missing": 50,
+     "days": 69,
+     "roll_min_fut_days": 12.368421052631579,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.44726407613005553
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "APH": {
+    "eth": {
+     "n": 1582,
+     "bpd": 24,
+     "missing": 74,
+     "days": 69,
+     "roll_min_fut_days": 11.916666666666666,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.49557522123893805
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "APLD": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "ARKG": {
+    "eth": {
+     "n": 1558,
+     "bpd": 24,
+     "missing": 98,
+     "days": 69,
+     "roll_min_fut_days": 10.916666666666666,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.49293966623876767
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "ARM": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "ASML": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "ASX": {
+    "eth": {
+     "n": 1622,
+     "bpd": 24,
+     "missing": 34,
+     "days": 69,
+     "roll_min_fut_days": 13.583333333333334,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5043156596794082
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "AVGO": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "AXTI": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "BABA": {
+    "eth": {
+     "n": 1637,
+     "bpd": 24,
+     "missing": 19,
+     "days": 69,
+     "roll_min_fut_days": 14.208333333333334,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5058032987171656
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "BE": {
+    "eth": {
+     "n": 1637,
+     "bpd": 24,
+     "missing": 19,
+     "days": 69,
+     "roll_min_fut_days": 14.208333333333334,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5058032987171656
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "BEAM": {
+    "eth": {
+     "n": 1525,
+     "bpd": 24,
+     "missing": 131,
+     "days": 69,
+     "roll_min_fut_days": 9.541666666666666,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4852459016393443
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "CAT": {
+    "eth": {
+     "n": 1610,
+     "bpd": 24,
+     "missing": 46,
+     "days": 69,
+     "roll_min_fut_days": 13.083333333333334,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5024844720496895
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "CBRS": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "CEG": {
+    "eth": {
+     "n": 1632,
+     "bpd": 24,
+     "missing": 24,
+     "days": 69,
+     "roll_min_fut_days": 14.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5024509803921569
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "CIEN": {
+    "eth": {
+     "n": 1623,
+     "bpd": 24,
+     "missing": 33,
+     "days": 69,
+     "roll_min_fut_days": 13.625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.503388786198398
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "CIFR": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "CLS": {
+    "eth": {
+     "n": 1603,
+     "bpd": 24,
+     "missing": 53,
+     "days": 69,
+     "roll_min_fut_days": 12.791666666666666,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4978165938864629
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "CMI": {
+    "eth": {
+     "n": 1390,
+     "bpd": 23,
+     "missing": 197,
+     "days": 69,
+     "roll_min_fut_days": 6.434782608695652,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.45971223021582736
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "COHR": {
+    "eth": {
+     "n": 1637,
+     "bpd": 24,
+     "missing": 19,
+     "days": 69,
+     "roll_min_fut_days": 14.208333333333334,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5058032987171656
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "COIN": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "CRCL": {
+    "eth": {
+     "n": 1637,
+     "bpd": 24,
+     "missing": 19,
+     "days": 69,
+     "roll_min_fut_days": 14.208333333333334,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5058032987171656
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "CRM": {
+    "eth": {
+     "n": 1622,
+     "bpd": 24,
+     "missing": 34,
+     "days": 69,
+     "roll_min_fut_days": 13.583333333333334,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5006165228113441
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "CRDO": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "CRSP": {
+    "eth": {
+     "n": 1564,
+     "bpd": 24,
+     "missing": 92,
+     "days": 69,
+     "roll_min_fut_days": 11.166666666666666,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.49232736572890023
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "CRWD": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "CRWV": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "CSCO": {
+    "eth": {
+     "n": 1613,
+     "bpd": 24,
+     "missing": 43,
+     "days": 69,
+     "roll_min_fut_days": 13.208333333333334,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5021698698078115
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "DDOG": {
+    "eth": {
+     "n": 1580,
+     "bpd": 24,
+     "missing": 76,
+     "days": 69,
+     "roll_min_fut_days": 11.833333333333334,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4962025316455696
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "DELL": {
+    "eth": {
+     "n": 1636,
+     "bpd": 24,
+     "missing": 20,
+     "days": 69,
+     "roll_min_fut_days": 14.166666666666666,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5055012224938875
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "DT": {
+    "eth": {
+     "n": 1414,
+     "bpd": 22,
+     "missing": 104,
+     "days": 69,
+     "roll_min_fut_days": 10.272727272727273,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.47312588401697314
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "EBAY": {
+    "eth": {
+     "n": 1402,
+     "bpd": 21,
+     "missing": 47,
+     "days": 69,
+     "roll_min_fut_days": 12.761904761904763,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4486447931526391
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "ENTG": {
+    "eth": {
+     "n": 1427,
+     "bpd": 22,
+     "missing": 91,
+     "days": 69,
+     "roll_min_fut_days": 10.863636363636363,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4772249474421864
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "EME": {
+    "eth": {
+     "n": 1332,
+     "bpd": 22,
+     "missing": 186,
+     "days": 69,
+     "roll_min_fut_days": 6.545454545454546,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4512012012012012
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "ETN": {
+    "eth": {
+     "n": 1521,
+     "bpd": 24,
+     "missing": 135,
+     "days": 69,
+     "roll_min_fut_days": 9.375,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4904667981591059
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "FIX": {
+    "eth": {
+     "n": 1535,
+     "bpd": 24,
+     "missing": 121,
+     "days": 69,
+     "roll_min_fut_days": 9.958333333333334,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.48925081433224754
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "FLEX": {
+    "eth": {
+     "n": 1499,
+     "bpd": 23,
+     "missing": 88,
+     "days": 69,
+     "roll_min_fut_days": 11.173913043478262,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4749833222148099
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "FN": {
+    "eth": {
+     "n": 1529,
+     "bpd": 24,
+     "missing": 127,
+     "days": 69,
+     "roll_min_fut_days": 9.708333333333334,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.49313276651406146
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "FORM": {
+    "eth": {
+     "n": 1519,
+     "bpd": 23,
+     "missing": 68,
+     "days": 69,
+     "roll_min_fut_days": 12.043478260869565,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4871626069782752
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "FSLY": {
+    "eth": {
+     "n": 1561,
+     "bpd": 23,
+     "missing": 26,
+     "days": 69,
+     "roll_min_fut_days": 13.869565217391305,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4817424727738629
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "FTNT": {
+    "eth": {
+     "n": 1585,
+     "bpd": 24,
+     "missing": 71,
+     "days": 69,
+     "roll_min_fut_days": 12.041666666666666,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4971608832807571
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "GEV": {
+    "eth": {
+     "n": 1616,
+     "bpd": 24,
+     "missing": 40,
+     "days": 69,
+     "roll_min_fut_days": 13.333333333333334,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4993811881188119
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "GFS": {
+    "eth": {
+     "n": 1620,
+     "bpd": 24,
+     "missing": 36,
+     "days": 69,
+     "roll_min_fut_days": 13.5,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4993827160493827
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "GH": {
+    "eth": {
+     "n": 1300,
+     "bpd": 20,
+     "missing": 80,
+     "days": 69,
+     "roll_min_fut_days": 11.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.42923076923076925
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "GLXY": {
+    "eth": {
+     "n": 1606,
+     "bpd": 24,
+     "missing": 50,
+     "days": 69,
+     "roll_min_fut_days": 12.916666666666666,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4950186799501868
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "GLW": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5058103975535169
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "GOOG": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "GRAL": {
+    "eth": {
+     "n": 1236,
+     "bpd": 18,
+     "missing": 6,
+     "days": 69,
+     "roll_min_fut_days": 14.666666666666666,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.43042071197411
+    },
+    "rth": {
+     "n": 680,
+     "bpd": 10,
+     "missing": 0,
+     "days": 68,
+     "roll_min_fut_days": 14.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "GOOGL": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "GTLB": {
+    "eth": {
+     "n": 1513,
+     "bpd": 23,
+     "missing": 74,
+     "days": 69,
+     "roll_min_fut_days": 11.782608695652174,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.47785855915399866
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "HOOD": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "HPE": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5051987767584097
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "HUT": {
+    "eth": {
+     "n": 1614,
+     "bpd": 24,
+     "missing": 42,
+     "days": 69,
+     "roll_min_fut_days": 13.25,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.49814126394052044
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "IBM": {
+    "eth": {
+     "n": 1621,
+     "bpd": 24,
+     "missing": 35,
+     "days": 69,
+     "roll_min_fut_days": 13.541666666666666,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5021591610117212
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "IGV": {
+    "eth": {
+     "n": 1615,
+     "bpd": 24,
+     "missing": 41,
+     "days": 69,
+     "roll_min_fut_days": 13.291666666666666,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5040247678018576
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "ILMN": {
+    "eth": {
+     "n": 1444,
+     "bpd": 22,
+     "missing": 74,
+     "days": 69,
+     "roll_min_fut_days": 11.636363636363637,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4695290858725762
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "IPGP": {
+    "eth": {
+     "n": 1140,
+     "bpd": 17,
+     "missing": 33,
+     "days": 69,
+     "roll_min_fut_days": 13.058823529411764,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4166666666666667
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "INTC": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "IREN": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "KEYS": {
+    "eth": {
+     "n": 1391,
+     "bpd": 22,
+     "missing": 127,
+     "days": 69,
+     "roll_min_fut_days": 9.227272727272727,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4629762760603882
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "IWM": {
+    "eth": {
+     "n": 1637,
+     "bpd": 24,
+     "missing": 19,
+     "days": 69,
+     "roll_min_fut_days": 14.208333333333334,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5058032987171656
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "KLAC": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "LITE": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "LRCX": {
+    "eth": {
+     "n": 1628,
+     "bpd": 24,
+     "missing": 28,
+     "days": 69,
+     "roll_min_fut_days": 13.833333333333334,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5012285012285013
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "MCHP": {
+    "eth": {
+     "n": 1561,
+     "bpd": 24,
+     "missing": 95,
+     "days": 69,
+     "roll_min_fut_days": 11.041666666666666,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.49007046764894296
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "MDB": {
+    "eth": {
+     "n": 1581,
+     "bpd": 24,
+     "missing": 75,
+     "days": 69,
+     "roll_min_fut_days": 11.875,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.49082858950031627
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "MELI": {
+    "eth": {
+     "n": 1586,
+     "bpd": 24,
+     "missing": 70,
+     "days": 69,
+     "roll_min_fut_days": 12.083333333333334,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4930643127364439
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "MOD": {
+    "eth": {
+     "n": 1464,
+     "bpd": 24,
+     "missing": 192,
+     "days": 69,
+     "roll_min_fut_days": 7.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.47950819672131145
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "META": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "MPWR": {
+    "eth": {
+     "n": 1580,
+     "bpd": 24,
+     "missing": 76,
+     "days": 69,
+     "roll_min_fut_days": 11.833333333333334,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.49493670886075947
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "MRVL": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "MSFT": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "MSTR": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "MTSI": {
+    "eth": {
+     "n": 1474,
+     "bpd": 23,
+     "missing": 113,
+     "days": 69,
+     "roll_min_fut_days": 10.08695652173913,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.47218453188602444
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "MU": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "NBIS": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "NET": {
+    "eth": {
+     "n": 1554,
+     "bpd": 24,
+     "missing": 102,
+     "days": 69,
+     "roll_min_fut_days": 10.75,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.49163449163449163
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "NOW": {
+    "eth": {
+     "n": 1636,
+     "bpd": 24,
+     "missing": 20,
+     "days": 69,
+     "roll_min_fut_days": 14.166666666666666,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5055012224938875
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "NTAP": {
+    "eth": {
+     "n": 1476,
+     "bpd": 23,
+     "missing": 111,
+     "days": 69,
+     "roll_min_fut_days": 10.173913043478262,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.470189701897019
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "NTLA": {
+    "eth": {
+     "n": 1594,
+     "bpd": 24,
+     "missing": 62,
+     "days": 69,
+     "roll_min_fut_days": 12.416666666666666,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.49372647427854455
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "NTRA": {
+    "eth": {
+     "n": 1390,
+     "bpd": 21,
+     "missing": 59,
+     "days": 69,
+     "roll_min_fut_days": 12.19047619047619,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4553956834532374
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "NVDA": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "NVT": {
+    "eth": {
+     "n": 1388,
+     "bpd": 23,
+     "missing": 199,
+     "days": 69,
+     "roll_min_fut_days": 6.3478260869565215,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4603746397694525
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "NVTS": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "NXPI": {
+    "eth": {
+     "n": 1513,
+     "bpd": 23,
+     "missing": 74,
+     "days": 69,
+     "roll_min_fut_days": 11.782608695652174,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.48314606741573035
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "OKLO": {
+    "eth": {
+     "n": 1637,
+     "bpd": 24,
+     "missing": 19,
+     "days": 69,
+     "roll_min_fut_days": 14.208333333333334,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5058032987171656
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "OKTA": {
+    "eth": {
+     "n": 1592,
+     "bpd": 24,
+     "missing": 64,
+     "days": 69,
+     "roll_min_fut_days": 12.333333333333334,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.49309045226130654
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "ON": {
+    "eth": {
+     "n": 1612,
+     "bpd": 24,
+     "missing": 44,
+     "days": 69,
+     "roll_min_fut_days": 13.166666666666666,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.500620347394541
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "ORCL": {
+    "eth": {
+     "n": 1637,
+     "bpd": 24,
+     "missing": 19,
+     "days": 69,
+     "roll_min_fut_days": 14.208333333333334,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5058032987171656
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "P": {
+    "eth": {
+     "n": 1567,
+     "bpd": 24,
+     "missing": 89,
+     "days": 69,
+     "roll_min_fut_days": 11.291666666666666,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4971282705807275
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "PANW": {
+    "eth": {
+     "n": 1620,
+     "bpd": 24,
+     "missing": 36,
+     "days": 69,
+     "roll_min_fut_days": 13.5,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "PDD": {
+    "eth": {
+     "n": 1633,
+     "bpd": 24,
+     "missing": 23,
+     "days": 69,
+     "roll_min_fut_days": 14.041666666666666,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033680342927128
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "PLTR": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "QCOM": {
+    "eth": {
+     "n": 1629,
+     "bpd": 24,
+     "missing": 27,
+     "days": 69,
+     "roll_min_fut_days": 13.875,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5015346838551259
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "RMBS": {
+    "eth": {
+     "n": 1545,
+     "bpd": 24,
+     "missing": 111,
+     "days": 69,
+     "roll_min_fut_days": 10.375,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.486084142394822
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "QQQ": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "ROP": {
+    "eth": {
+     "n": 1225,
+     "bpd": 18,
+     "missing": 17,
+     "days": 69,
+     "roll_min_fut_days": 14.055555555555555,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.44081632653061226
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "SAP": {
+    "eth": {
+     "n": 1538,
+     "bpd": 24,
+     "missing": 118,
+     "days": 69,
+     "roll_min_fut_days": 10.083333333333334,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5182054616384916
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "SDGR": {
+    "eth": {
+     "n": 1458,
+     "bpd": 22,
+     "missing": 60,
+     "days": 69,
+     "roll_min_fut_days": 12.272727272727273,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4876543209876543
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "RXRX": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "SIMO": {
+    "eth": {
+     "n": 1528,
+     "bpd": 24,
+     "missing": 128,
+     "days": 69,
+     "roll_min_fut_days": 9.666666666666666,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4862565445026178
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "SKHY": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "SMCI": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "SMH": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "SMR": {
+    "eth": {
+     "n": 1637,
+     "bpd": 24,
+     "missing": 19,
+     "days": 69,
+     "roll_min_fut_days": 14.208333333333334,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5058032987171656
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "SNDK": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "SNOW": {
+    "eth": {
+     "n": 1585,
+     "bpd": 24,
+     "missing": 71,
+     "days": 69,
+     "roll_min_fut_days": 12.041666666666666,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4965299684542587
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "SOXX": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "SPY": {
+    "eth": {
+     "n": 1637,
+     "bpd": 24,
+     "missing": 19,
+     "days": 69,
+     "roll_min_fut_days": 14.208333333333334,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5058032987171656
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "STM": {
+    "eth": {
+     "n": 1623,
+     "bpd": 24,
+     "missing": 33,
+     "days": 69,
+     "roll_min_fut_days": 13.625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5058533579790512
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "SWKS": {
+    "eth": {
+     "n": 1407,
+     "bpd": 21,
+     "missing": 42,
+     "days": 69,
+     "roll_min_fut_days": 13.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4626865671641791
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "STX": {
+    "eth": {
+     "n": 1634,
+     "bpd": 24,
+     "missing": 22,
+     "days": 69,
+     "roll_min_fut_days": 14.083333333333334,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.503671970624235
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "TEM": {
+    "eth": {
+     "n": 1633,
+     "bpd": 24,
+     "missing": 23,
+     "days": 69,
+     "roll_min_fut_days": 14.041666666666666,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033680342927128
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "TLN": {
+    "eth": {
+     "n": 1461,
+     "bpd": 22,
+     "missing": 57,
+     "days": 69,
+     "roll_min_fut_days": 12.409090909090908,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.46885694729637234
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "TER": {
+    "eth": {
+     "n": 1616,
+     "bpd": 24,
+     "missing": 40,
+     "days": 69,
+     "roll_min_fut_days": 13.333333333333334,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4993811881188119
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "TSEM": {
+    "eth": {
+     "n": 1610,
+     "bpd": 24,
+     "missing": 46,
+     "days": 69,
+     "roll_min_fut_days": 13.083333333333334,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5031055900621118
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "TSLA": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "TSM": {
+    "eth": {
+     "n": 1637,
+     "bpd": 24,
+     "missing": 19,
+     "days": 69,
+     "roll_min_fut_days": 14.208333333333334,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5058032987171656
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "TTMI": {
+    "eth": {
+     "n": 1596,
+     "bpd": 24,
+     "missing": 60,
+     "days": 69,
+     "roll_min_fut_days": 12.5,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.49874686716791977
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "TWST": {
+    "eth": {
+     "n": 1473,
+     "bpd": 22,
+     "missing": 45,
+     "days": 69,
+     "roll_min_fut_days": 12.954545454545455,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.48540393754243044
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "TXG": {
+    "eth": {
+     "n": 1521,
+     "bpd": 23,
+     "missing": 66,
+     "days": 69,
+     "roll_min_fut_days": 12.130434782608695,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.48454963839579224
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "VCYT": {
+    "eth": {
+     "n": 1211,
+     "bpd": 18,
+     "missing": 31,
+     "days": 69,
+     "roll_min_fut_days": 13.277777777777779,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4343517753922378
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "UMC": {
+    "eth": {
+     "n": 1612,
+     "bpd": 24,
+     "missing": 44,
+     "days": 69,
+     "roll_min_fut_days": 13.166666666666666,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5055831265508685
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "TXN": {
+    "eth": {
+     "n": 1572,
+     "bpd": 24,
+     "missing": 84,
+     "days": 69,
+     "roll_min_fut_days": 11.5,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.48791348600508905
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "VIAV": {
+    "eth": {
+     "n": 1558,
+     "bpd": 23,
+     "missing": 29,
+     "days": 69,
+     "roll_min_fut_days": 13.73913043478261,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.49229781771501924
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "VICR": {
+    "eth": {
+     "n": 1555,
+     "bpd": 23,
+     "missing": 32,
+     "days": 69,
+     "roll_min_fut_days": 13.608695652173912,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4842443729903537
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "VRT": {
+    "eth": {
+     "n": 1637,
+     "bpd": 24,
+     "missing": 19,
+     "days": 69,
+     "roll_min_fut_days": 14.208333333333334,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5058032987171656
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "VST": {
+    "eth": {
+     "n": 1632,
+     "bpd": 24,
+     "missing": 24,
+     "days": 69,
+     "roll_min_fut_days": 14.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5042892156862745
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "WDC": {
+    "eth": {
+     "n": 1635,
+     "bpd": 24,
+     "missing": 21,
+     "days": 69,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5033639143730887
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "WULF": {
+    "eth": {
+     "n": 1634,
+     "bpd": 24,
+     "missing": 22,
+     "days": 69,
+     "roll_min_fut_days": 14.083333333333334,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5030599755201959
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "XBI": {
+    "eth": {
+     "n": 1568,
+     "bpd": 24,
+     "missing": 88,
+     "days": 69,
+     "roll_min_fut_days": 11.333333333333334,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4923469387755102
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   },
+   "XE": {
+    "eth": {
+     "n": 1630,
+     "bpd": 24,
+     "missing": 26,
+     "days": 69,
+     "roll_min_fut_days": 13.916666666666666,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.501840490797546
+    },
+    "rth": {
+     "n": 690,
+     "bpd": 10,
+     "missing": 0,
+     "days": 69,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.3
+    }
+   }
+  }
+ },
+ "1h": {
+  "calendar": [
+   "2026-05-01",
+   "2026-10-22"
+  ],
+  "D": 121,
+  "shifts": [
+   15,
+   106
+  ],
+  "n_shifts": 92,
+  "n_syms": 143,
+  "excluded": [
+   "SKHY"
+  ],
+  "sec": 15.2,
+  "roll_min_fut_days": 2.5625,
+  "roll_min_fut_sym": "EME/eth",
+  "per_sym": {
+   "ACN": {
+    "eth": {
+     "n": 1875,
+     "bpd": 16,
+     "missing": 61,
+     "days": 121,
+     "roll_min_fut_days": 11.1875,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4912
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "AAOI": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "AAPL": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "ADI": {
+    "eth": {
+     "n": 1879,
+     "bpd": 16,
+     "missing": 57,
+     "days": 121,
+     "roll_min_fut_days": 11.4375,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4912187333688132
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "AEHR": {
+    "eth": {
+     "n": 1919,
+     "bpd": 16,
+     "missing": 17,
+     "days": 121,
+     "roll_min_fut_days": 13.9375,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5007816571130798
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "AKAM": {
+    "eth": {
+     "n": 1835,
+     "bpd": 15,
+     "missing": -20,
+     "days": 121,
+     "roll_min_fut_days": 16.333333333333332,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.48010899182561306
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "AMAT": {
+    "eth": {
+     "n": 1920,
+     "bpd": 16,
+     "missing": 16,
+     "days": 121,
+     "roll_min_fut_days": 14.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5010416666666667
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "AMD": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "ALAB": {
+    "eth": {
+     "n": 1916,
+     "bpd": 16,
+     "missing": 20,
+     "days": 121,
+     "roll_min_fut_days": 13.75,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "AMKR": {
+    "eth": {
+     "n": 1914,
+     "bpd": 16,
+     "missing": 22,
+     "days": 121,
+     "roll_min_fut_days": 13.625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4994775339602926
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "AMZN": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "ANET": {
+    "eth": {
+     "n": 1900,
+     "bpd": 16,
+     "missing": 36,
+     "days": 121,
+     "roll_min_fut_days": 12.75,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4968421052631579
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "AOSL": {
+    "eth": {
+     "n": 1675,
+     "bpd": 14,
+     "missing": 19,
+     "days": 121,
+     "roll_min_fut_days": 13.642857142857142,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4537313432835821
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "APH": {
+    "eth": {
+     "n": 1894,
+     "bpd": 16,
+     "missing": 42,
+     "days": 121,
+     "roll_min_fut_days": 12.375,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4947201689545935
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "APLD": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "ARM": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "ARKG": {
+    "eth": {
+     "n": 1880,
+     "bpd": 16,
+     "missing": 56,
+     "days": 121,
+     "roll_min_fut_days": 11.5,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4930851063829787
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "ASML": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "AVGO": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "ASX": {
+    "eth": {
+     "n": 1913,
+     "bpd": 16,
+     "missing": 23,
+     "days": 121,
+     "roll_min_fut_days": 13.5625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4997386304234187
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "AXTI": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "BABA": {
+    "eth": {
+     "n": 1927,
+     "bpd": 16,
+     "missing": 9,
+     "days": 121,
+     "roll_min_fut_days": 14.4375,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5023352361183187
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "BE": {
+    "eth": {
+     "n": 1927,
+     "bpd": 16,
+     "missing": 9,
+     "days": 121,
+     "roll_min_fut_days": 14.4375,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5023352361183187
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "BEAM": {
+    "eth": {
+     "n": 1823,
+     "bpd": 16,
+     "missing": 113,
+     "days": 121,
+     "roll_min_fut_days": 7.9375,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4777838727372463
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "CBRS": {
+    "eth": {
+     "n": 1769,
+     "bpd": 16,
+     "missing": 23,
+     "days": 112,
+     "roll_min_fut_days": 4.5625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.49971735443753534
+    },
+    "rth": {
+     "n": 782,
+     "bpd": 7,
+     "missing": 2,
+     "days": 112,
+     "roll_min_fut_days": 5.714285714285714,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2851662404092072
+    }
+   },
+   "CAT": {
+    "eth": {
+     "n": 1906,
+     "bpd": 16,
+     "missing": 30,
+     "days": 121,
+     "roll_min_fut_days": 13.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.49842602308499473
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "CEG": {
+    "eth": {
+     "n": 1918,
+     "bpd": 16,
+     "missing": 18,
+     "days": 121,
+     "roll_min_fut_days": 13.875,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5005213764337852
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "CIEN": {
+    "eth": {
+     "n": 1915,
+     "bpd": 16,
+     "missing": 21,
+     "days": 121,
+     "roll_min_fut_days": 13.6875,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.49973890339425586
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "CLS": {
+    "eth": {
+     "n": 1909,
+     "bpd": 16,
+     "missing": 27,
+     "days": 121,
+     "roll_min_fut_days": 13.3125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.49764274489261395
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "CIFR": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "CMI": {
+    "eth": {
+     "n": 1783,
+     "bpd": 16,
+     "missing": 153,
+     "days": 121,
+     "roll_min_fut_days": 5.4375,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4727986539540101
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "COHR": {
+    "eth": {
+     "n": 1927,
+     "bpd": 16,
+     "missing": 9,
+     "days": 121,
+     "roll_min_fut_days": 14.4375,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5023352361183187
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "COIN": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "CRCL": {
+    "eth": {
+     "n": 1927,
+     "bpd": 16,
+     "missing": 9,
+     "days": 121,
+     "roll_min_fut_days": 14.4375,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5023352361183187
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "CRDO": {
+    "eth": {
+     "n": 1920,
+     "bpd": 16,
+     "missing": 16,
+     "days": 121,
+     "roll_min_fut_days": 14.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5010416666666667
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "CRM": {
+    "eth": {
+     "n": 1911,
+     "bpd": 16,
+     "missing": 25,
+     "days": 121,
+     "roll_min_fut_days": 13.4375,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4981684981684982
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "CRSP": {
+    "eth": {
+     "n": 1872,
+     "bpd": 16,
+     "missing": 64,
+     "days": 121,
+     "roll_min_fut_days": 11.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.49038461538461536
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "CRWV": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "CRWD": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "CSCO": {
+    "eth": {
+     "n": 1908,
+     "bpd": 16,
+     "missing": 28,
+     "days": 121,
+     "roll_min_fut_days": 13.25,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.49947589098532497
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "DELL": {
+    "eth": {
+     "n": 1924,
+     "bpd": 16,
+     "missing": 12,
+     "days": 121,
+     "roll_min_fut_days": 14.25,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5015592515592515
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "DDOG": {
+    "eth": {
+     "n": 1885,
+     "bpd": 16,
+     "missing": 51,
+     "days": 121,
+     "roll_min_fut_days": 11.8125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.49496021220159153
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "DT": {
+    "eth": {
+     "n": 1773,
+     "bpd": 15,
+     "missing": 42,
+     "days": 121,
+     "roll_min_fut_days": 12.2,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.476029328821207
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "EBAY": {
+    "eth": {
+     "n": 1737,
+     "bpd": 15,
+     "missing": 78,
+     "days": 121,
+     "roll_min_fut_days": 9.8,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4542314335060449
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "EME": {
+    "eth": {
+     "n": 1737,
+     "bpd": 16,
+     "missing": 199,
+     "days": 121,
+     "roll_min_fut_days": 2.5625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4680483592400691
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "ENTG": {
+    "eth": {
+     "n": 1770,
+     "bpd": 15,
+     "missing": 45,
+     "days": 121,
+     "roll_min_fut_days": 12.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.47401129943502823
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "ETN": {
+    "eth": {
+     "n": 1851,
+     "bpd": 16,
+     "missing": 85,
+     "days": 121,
+     "roll_min_fut_days": 9.6875,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.49108589951377635
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "FIX": {
+    "eth": {
+     "n": 1858,
+     "bpd": 16,
+     "missing": 78,
+     "days": 121,
+     "roll_min_fut_days": 10.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.48869752421959095
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "FN": {
+    "eth": {
+     "n": 1861,
+     "bpd": 16,
+     "missing": 75,
+     "days": 121,
+     "roll_min_fut_days": 10.3125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.491671144545943
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "FLEX": {
+    "eth": {
+     "n": 1819,
+     "bpd": 15,
+     "missing": -4,
+     "days": 121,
+     "roll_min_fut_days": 15.266666666666667,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4766355140186916
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "FORM": {
+    "eth": {
+     "n": 1847,
+     "bpd": 16,
+     "missing": 89,
+     "days": 121,
+     "roll_min_fut_days": 9.4375,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.48727666486193827
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "FSLY": {
+    "eth": {
+     "n": 1853,
+     "bpd": 16,
+     "missing": 83,
+     "days": 121,
+     "roll_min_fut_days": 9.8125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.48300053966540746
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "FTNT": {
+    "eth": {
+     "n": 1883,
+     "bpd": 16,
+     "missing": 53,
+     "days": 121,
+     "roll_min_fut_days": 11.6875,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.49336165693043016
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "GEV": {
+    "eth": {
+     "n": 1908,
+     "bpd": 16,
+     "missing": 28,
+     "days": 121,
+     "roll_min_fut_days": 13.25,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.49842767295597484
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "GH": {
+    "eth": {
+     "n": 1622,
+     "bpd": 14,
+     "missing": 72,
+     "days": 121,
+     "roll_min_fut_days": 9.857142857142858,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4321824907521578
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "GFS": {
+    "eth": {
+     "n": 1908,
+     "bpd": 16,
+     "missing": 28,
+     "days": 121,
+     "roll_min_fut_days": 13.25,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4979035639412998
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "GLW": {
+    "eth": {
+     "n": 1926,
+     "bpd": 16,
+     "missing": 10,
+     "days": 121,
+     "roll_min_fut_days": 14.375,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5025960539979232
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "GLXY": {
+    "eth": {
+     "n": 1892,
+     "bpd": 16,
+     "missing": 44,
+     "days": 121,
+     "roll_min_fut_days": 12.25,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.49365750528541225
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "GOOG": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "GOOGL": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "GRAL": {
+    "eth": {
+     "n": 1542,
+     "bpd": 13,
+     "missing": 31,
+     "days": 121,
+     "roll_min_fut_days": 12.615384615384615,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4176394293125811
+    },
+    "rth": {
+     "n": 840,
+     "bpd": 7,
+     "missing": 0,
+     "days": 120,
+     "roll_min_fut_days": 14.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "GTLB": {
+    "eth": {
+     "n": 1822,
+     "bpd": 15,
+     "missing": -7,
+     "days": 121,
+     "roll_min_fut_days": 15.466666666666667,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.47639956092206365
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "HOOD": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "HPE": {
+    "eth": {
+     "n": 1926,
+     "bpd": 16,
+     "missing": 10,
+     "days": 121,
+     "roll_min_fut_days": 14.375,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5020768431983386
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "HUT": {
+    "eth": {
+     "n": 1899,
+     "bpd": 16,
+     "missing": 37,
+     "days": 121,
+     "roll_min_fut_days": 12.6875,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4955239599789363
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "IBM": {
+    "eth": {
+     "n": 1914,
+     "bpd": 16,
+     "missing": 22,
+     "days": 121,
+     "roll_min_fut_days": 13.625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.49895506792058514
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "IGV": {
+    "eth": {
+     "n": 1914,
+     "bpd": 16,
+     "missing": 22,
+     "days": 121,
+     "roll_min_fut_days": 13.625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "ILMN": {
+    "eth": {
+     "n": 1741,
+     "bpd": 15,
+     "missing": 74,
+     "days": 121,
+     "roll_min_fut_days": 10.066666666666666,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4623779437105112
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "INTC": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "IPGP": {
+    "eth": {
+     "n": 1529,
+     "bpd": 13,
+     "missing": 44,
+     "days": 121,
+     "roll_min_fut_days": 11.615384615384615,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4270765206017005
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "IREN": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "IWM": {
+    "eth": {
+     "n": 1927,
+     "bpd": 16,
+     "missing": 9,
+     "days": 121,
+     "roll_min_fut_days": 14.4375,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5023352361183187
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "KEYS": {
+    "eth": {
+     "n": 1790,
+     "bpd": 16,
+     "missing": 146,
+     "days": 121,
+     "roll_min_fut_days": 5.875,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4776536312849162
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "KLAC": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "LITE": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "LRCX": {
+    "eth": {
+     "n": 1913,
+     "bpd": 16,
+     "missing": 23,
+     "days": 121,
+     "roll_min_fut_days": 13.5625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4992158912702561
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "MCHP": {
+    "eth": {
+     "n": 1869,
+     "bpd": 16,
+     "missing": 67,
+     "days": 121,
+     "roll_min_fut_days": 10.8125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4884965222043874
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "MDB": {
+    "eth": {
+     "n": 1879,
+     "bpd": 16,
+     "missing": 57,
+     "days": 121,
+     "roll_min_fut_days": 11.4375,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4912187333688132
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "META": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "MELI": {
+    "eth": {
+     "n": 1888,
+     "bpd": 16,
+     "missing": 48,
+     "days": 121,
+     "roll_min_fut_days": 12.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4936440677966102
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "MOD": {
+    "eth": {
+     "n": 1817,
+     "bpd": 16,
+     "missing": 119,
+     "days": 121,
+     "roll_min_fut_days": 7.5625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.48321408915795266
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "MPWR": {
+    "eth": {
+     "n": 1875,
+     "bpd": 16,
+     "missing": 61,
+     "days": 121,
+     "roll_min_fut_days": 11.1875,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.49066666666666664
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "MRVL": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "MSFT": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "MSTR": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "MTSI": {
+    "eth": {
+     "n": 1795,
+     "bpd": 15,
+     "missing": 20,
+     "days": 121,
+     "roll_min_fut_days": 13.666666666666666,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.47298050139275766
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "MU": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "NBIS": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "NET": {
+    "eth": {
+     "n": 1873,
+     "bpd": 16,
+     "missing": 63,
+     "days": 121,
+     "roll_min_fut_days": 11.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4906567004805125
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "NOW": {
+    "eth": {
+     "n": 1927,
+     "bpd": 16,
+     "missing": 9,
+     "days": 121,
+     "roll_min_fut_days": 14.4375,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5023352361183187
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "NTAP": {
+    "eth": {
+     "n": 1770,
+     "bpd": 15,
+     "missing": 45,
+     "days": 121,
+     "roll_min_fut_days": 12.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4666666666666667
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "NTLA": {
+    "eth": {
+     "n": 1883,
+     "bpd": 16,
+     "missing": 53,
+     "days": 121,
+     "roll_min_fut_days": 11.6875,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.49123738714816784
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "NTRA": {
+    "eth": {
+     "n": 1730,
+     "bpd": 15,
+     "missing": 85,
+     "days": 121,
+     "roll_min_fut_days": 9.333333333333334,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.45838150289017343
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "NVDA": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "NVT": {
+    "eth": {
+     "n": 1782,
+     "bpd": 16,
+     "missing": 154,
+     "days": 121,
+     "roll_min_fut_days": 5.375,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.47362514029180697
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "NVTS": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "NXPI": {
+    "eth": {
+     "n": 1836,
+     "bpd": 16,
+     "missing": 100,
+     "days": 121,
+     "roll_min_fut_days": 8.75,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4831154684095861
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "OKLO": {
+    "eth": {
+     "n": 1927,
+     "bpd": 16,
+     "missing": 9,
+     "days": 121,
+     "roll_min_fut_days": 14.4375,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5023352361183187
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "OKTA": {
+    "eth": {
+     "n": 1890,
+     "bpd": 16,
+     "missing": 46,
+     "days": 121,
+     "roll_min_fut_days": 12.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.49417989417989416
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "ON": {
+    "eth": {
+     "n": 1904,
+     "bpd": 16,
+     "missing": 32,
+     "days": 121,
+     "roll_min_fut_days": 13.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.49789915966386555
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "ORCL": {
+    "eth": {
+     "n": 1927,
+     "bpd": 16,
+     "missing": 9,
+     "days": 121,
+     "roll_min_fut_days": 14.4375,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5023352361183187
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "P": {
+    "eth": {
+     "n": 1875,
+     "bpd": 16,
+     "missing": 61,
+     "days": 121,
+     "roll_min_fut_days": 11.1875,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4938666666666667
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "PANW": {
+    "eth": {
+     "n": 1911,
+     "bpd": 16,
+     "missing": 25,
+     "days": 121,
+     "roll_min_fut_days": 13.4375,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4986917844060701
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "PDD": {
+    "eth": {
+     "n": 1917,
+     "bpd": 16,
+     "missing": 19,
+     "days": 121,
+     "roll_min_fut_days": 13.8125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5002608242044861
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "PLTR": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "QQQ": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "QCOM": {
+    "eth": {
+     "n": 1917,
+     "bpd": 16,
+     "missing": 19,
+     "days": 121,
+     "roll_min_fut_days": 13.8125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5002608242044861
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "RMBS": {
+    "eth": {
+     "n": 1860,
+     "bpd": 16,
+     "missing": 76,
+     "days": 121,
+     "roll_min_fut_days": 10.25,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4881720430107527
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "RXRX": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "ROP": {
+    "eth": {
+     "n": 1564,
+     "bpd": 13,
+     "missing": 9,
+     "days": 121,
+     "roll_min_fut_days": 14.307692307692308,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4309462915601023
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "SAP": {
+    "eth": {
+     "n": 1862,
+     "bpd": 16,
+     "missing": 74,
+     "days": 121,
+     "roll_min_fut_days": 10.375,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5016111707841031
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "SIMO": {
+    "eth": {
+     "n": 1854,
+     "bpd": 16,
+     "missing": 82,
+     "days": 121,
+     "roll_min_fut_days": 9.875,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.48651564185544766
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "SDGR": {
+    "eth": {
+     "n": 1782,
+     "bpd": 15,
+     "missing": 33,
+     "days": 121,
+     "roll_min_fut_days": 12.8,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4781144781144781
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "SMCI": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "SMH": {
+    "eth": {
+     "n": 1920,
+     "bpd": 16,
+     "missing": 16,
+     "days": 121,
+     "roll_min_fut_days": 14.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5010416666666667
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "SMR": {
+    "eth": {
+     "n": 1927,
+     "bpd": 16,
+     "missing": 9,
+     "days": 121,
+     "roll_min_fut_days": 14.4375,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5023352361183187
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "SNDK": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "SNOW": {
+    "eth": {
+     "n": 1898,
+     "bpd": 16,
+     "missing": 38,
+     "days": 121,
+     "roll_min_fut_days": 12.625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4957850368809273
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "SOXX": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "SPY": {
+    "eth": {
+     "n": 1927,
+     "bpd": 16,
+     "missing": 9,
+     "days": 121,
+     "roll_min_fut_days": 14.4375,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5023352361183187
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "STM": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5018219677251432
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "STX": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "SWKS": {
+    "eth": {
+     "n": 1779,
+     "bpd": 15,
+     "missing": 36,
+     "days": 121,
+     "roll_min_fut_days": 12.6,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.47217537942664417
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "TEM": {
+    "eth": {
+     "n": 1920,
+     "bpd": 16,
+     "missing": 16,
+     "days": 121,
+     "roll_min_fut_days": 14.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5010416666666667
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "TLN": {
+    "eth": {
+     "n": 1777,
+     "bpd": 15,
+     "missing": 38,
+     "days": 121,
+     "roll_min_fut_days": 12.466666666666667,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4704558244231851
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "TER": {
+    "eth": {
+     "n": 1909,
+     "bpd": 16,
+     "missing": 27,
+     "days": 121,
+     "roll_min_fut_days": 13.3125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.49816657936092196
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "TSEM": {
+    "eth": {
+     "n": 1907,
+     "bpd": 16,
+     "missing": 29,
+     "days": 121,
+     "roll_min_fut_days": 13.1875,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.49868904037755635
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "TSLA": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "TSM": {
+    "eth": {
+     "n": 1927,
+     "bpd": 16,
+     "missing": 9,
+     "days": 121,
+     "roll_min_fut_days": 14.4375,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5023352361183187
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "TTMI": {
+    "eth": {
+     "n": 1892,
+     "bpd": 16,
+     "missing": 44,
+     "days": 121,
+     "roll_min_fut_days": 12.25,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4952431289640592
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "TWST": {
+    "eth": {
+     "n": 1732,
+     "bpd": 15,
+     "missing": 83,
+     "days": 121,
+     "roll_min_fut_days": 9.466666666666667,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4665127020785219
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "TXG": {
+    "eth": {
+     "n": 1768,
+     "bpd": 15,
+     "missing": 47,
+     "days": 121,
+     "roll_min_fut_days": 11.866666666666667,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4688914027149321
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "TXN": {
+    "eth": {
+     "n": 1885,
+     "bpd": 16,
+     "missing": 51,
+     "days": 121,
+     "roll_min_fut_days": 11.8125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.49230769230769234
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "UMC": {
+    "eth": {
+     "n": 1916,
+     "bpd": 16,
+     "missing": 20,
+     "days": 121,
+     "roll_min_fut_days": 13.75,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5010438413361169
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "VCYT": {
+    "eth": {
+     "n": 1503,
+     "bpd": 13,
+     "missing": 70,
+     "days": 121,
+     "roll_min_fut_days": 9.615384615384615,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4258150365934797
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "VIAV": {
+    "eth": {
+     "n": 1869,
+     "bpd": 16,
+     "missing": 67,
+     "days": 121,
+     "roll_min_fut_days": 10.8125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4901016586409845
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "VRT": {
+    "eth": {
+     "n": 1927,
+     "bpd": 16,
+     "missing": 9,
+     "days": 121,
+     "roll_min_fut_days": 14.4375,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5023352361183187
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "VICR": {
+    "eth": {
+     "n": 1860,
+     "bpd": 16,
+     "missing": 76,
+     "days": 121,
+     "roll_min_fut_days": 10.25,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4854838709677419
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "VST": {
+    "eth": {
+     "n": 1922,
+     "bpd": 16,
+     "missing": 14,
+     "days": 121,
+     "roll_min_fut_days": 14.125,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5010405827263268
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "WDC": {
+    "eth": {
+     "n": 1921,
+     "bpd": 16,
+     "missing": 15,
+     "days": 121,
+     "roll_min_fut_days": 14.0625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5013014055179594
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "WULF": {
+    "eth": {
+     "n": 1920,
+     "bpd": 16,
+     "missing": 16,
+     "days": 121,
+     "roll_min_fut_days": 14.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.5010416666666667
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "XBI": {
+    "eth": {
+     "n": 1884,
+     "bpd": 16,
+     "missing": 52,
+     "days": 121,
+     "roll_min_fut_days": 11.75,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.49309978768577495
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   },
+   "XE": {
+    "eth": {
+     "n": 1914,
+     "bpd": 16,
+     "missing": 22,
+     "days": 121,
+     "roll_min_fut_days": 13.625,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.4994775339602926
+    },
+    "rth": {
+     "n": 847,
+     "bpd": 7,
+     "missing": 0,
+     "days": 121,
+     "roll_min_fut_days": 15.0,
+     "roll_min_past_days": 15.0,
+     "awake_frac": 0.2857142857142857
+    }
+   }
+  }
+ }
+}

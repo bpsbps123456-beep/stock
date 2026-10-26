@@ -1,0 +1,37 @@
+{
+  "status": "complete",
+  "research_test_count": 34,
+  "research_tests": "tests.log: PASS",
+  "grid_parameter_count": 252720,
+  "major_execution_scenarios": 2,
+  "major_grid_paths": 505440,
+  "price_period": [
+    "2026-01-02",
+    "2026-09-23"
+  ],
+  "report_visual_review": "Headless Edge 1440x1600; Korean, tables and chart controls legible",
+  "local_report_links_valid": true,
+  "code_sha256": {
+    "gbrc\\etf\\research.py": "9ffda915330888a43ba5f54273dfb3477b9a4e76309ea9eead347241cd9bc286",
+    "gbrc\\etf\\research_data.py": "d924aa7c735ed0e60711c9d26748b38e571eb48424df94961bcbb8c870edb0ba",
+    "gbrc\\etf\\research_engine.py": "075ddee3c2ed6fdfe3570c9551bf743b4c449838b549a13067d3a43f53c70e23",
+    "gbrc\\etf\\research_report.py": "61cd0c51527b1939c27a8ba59ebf224683ce36c658c9f2b5e6f2cade8af1a5b6",
+    "gbrc\\etf\\research_robust.py": "a5b733b7682c72e5c3c932dc4c745f3e3a7e12a8ca34c16a8d43d0e9c052e351",
+    "gbrc\\etf\\research_stress.py": "c86058a35cc762f14aa7f7b64fd7ae44637c1a9f86115f67755f4f9daac70029",
+    "gbrc\\etf\\research_subgroups.py": "3543a677d050ba128a574142b50a57a751c8a0c634da7e77739472a302023148",
+    "gbrc\\etf\\research_validation.py": "c8f7e3e4d6cda5289f4839deca1b6cc09832506569429951aa57b717987bb250"
+  },
+  "primary_artifacts": {
+    "protocol.json": "5f2d30121770de4a234e86f8c38811082a48cb448bc3c5f727c9213c191e150a",
+    "bundle.npz": "521b55084ad4ce882ed41c2745ae8abbbb0e6620cf23f3c905e86b72ec4f4d61",
+    "evaluation.json": "5d6efe21a57ccd881fa2c194cac9af9a747d9164a86f5a11b1474ba7c9e93410",
+    "subgroup_evaluation.json": "9e784c20f38f67a7cf4509fb20cd6822728cdc4827346f587f88201f801c0b45",
+    "stress.json": "33ce6e784c9071faf6899a75590685e812c987571ca03e0a66b71b746416ed36",
+    "robust_research.json": "51aac1aac43a6fc8d778d2e795264a0c8071ada37d29526fa4641941c47c1a08"
+  },
+  "report_artifacts": {
+    "report.html": "60f9dfe2aafac80cfd8c9900f1bcf689c3e2c12c749b5cd43a073d6169fa70f9",
+    "report.md": "35bc3af8bb4805ac86af7f25e832e9a9a27136e38525d71d4177ef1e44d27e75"
+  },
+  "report_interaction_review": "Headless browser: full/train/validation/holdout controls render four selected paths and matching table returns; all legend toggles off renders zero paths."
+}

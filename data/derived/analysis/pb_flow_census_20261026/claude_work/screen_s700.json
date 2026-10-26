@@ -1,0 +1,613 @@
+{
+ "rows": [
+  {
+   "id": "076233d927ef",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "03cee518d955",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "cdc591d0501b",
+   "decision": "exclude",
+   "reason": "13f_or_manager_holdings",
+   "bank": "unknown"
+  },
+  {
+   "id": "612f3c539f56",
+   "decision": "needs_read",
+   "reason": "헤지펀드 주식 매도 vs 개인 매수, 은행 출처 본문 확인",
+   "bank": "unknown"
+  },
+  {
+   "id": "05e022fbf07e",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "2456fd3d235f",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "e457961b192a",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "f73b7e122893",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "d3319f0a072c",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "f3b623c86ec5",
+   "decision": "exclude",
+   "reason": "fund_flows_not_bank_client",
+   "bank": "BofA",
+   "note": "Hartnett Flow Show 레버리지 ETF 자금(EPFR)"
+  },
+  {
+   "id": "e960b44cdfef",
+   "decision": "include",
+   "reason": "BofA 고객 흐름(CFT) 단일 종목·ETF 매매",
+   "bank": "BofA"
+  },
+  {
+   "id": "da0cad678164",
+   "decision": "include",
+   "reason": "Goldman 데이터 헤지펀드 경기소비재 매도",
+   "bank": "GS"
+  },
+  {
+   "id": "67906d3004b8",
+   "decision": "needs_read",
+   "reason": "헤지펀드 M7 노출 2년 최저, 은행 출처 본문 확인(GS 추정)",
+   "bank": "unknown"
+  },
+  {
+   "id": "e9d06b483657",
+   "decision": "include",
+   "reason": "Goldman 데이터 헤지펀드 경기소비재 매도",
+   "bank": "GS"
+  },
+  {
+   "id": "c23408c8f4fb",
+   "decision": "exclude",
+   "reason": "13f_or_manager_holdings",
+   "bank": "unknown"
+  },
+  {
+   "id": "f6509812b020",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "af88a8047cef",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "d12e1b9fb319",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "JPM"
+  },
+  {
+   "id": "b40471d6e3db",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "8fe2d357e244",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "d0400192d251",
+   "decision": "needs_read",
+   "reason": "개인·헤지펀드 반대 포지션, 은행 출처 본문 확인",
+   "bank": "unknown"
+  },
+  {
+   "id": "ae8eb6733e4d",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "60fdcf1553c5",
+   "decision": "include",
+   "reason": "Goldman 헤지펀드 유럽 주식 매도 10년 최대",
+   "bank": "GS"
+  },
+  {
+   "id": "48b240f71eb2",
+   "decision": "needs_read",
+   "reason": "헤지펀드 숏커버 집중, 은행 출처 본문 확인(GS 추정)",
+   "bank": "unknown"
+  },
+  {
+   "id": "824a5e6e14c2",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "3876ac1443bb",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "4c3a690597dc",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "f0040a998e1c",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "3b6172f07cc4",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "4aab81430332",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "c2b0f72a2a9b",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "d59d76c62a73",
+   "decision": "include",
+   "reason": "Goldman 헤지펀드 빅테크 축소·중국 매수",
+   "bank": "GS"
+  },
+  {
+   "id": "a6b10f9075c4",
+   "decision": "include",
+   "reason": "Goldman 헤지펀드 빅테크 축소·중국 매수",
+   "bank": "GS"
+  },
+  {
+   "id": "32ab04361991",
+   "decision": "needs_read",
+   "reason": "롱숏 헤지펀드 숏 압박, PB 흐름 여부 본문 확인",
+   "bank": "unknown"
+  },
+  {
+   "id": "b4384b3fd246",
+   "decision": "needs_read",
+   "reason": "아시아 헤지펀드 레버리지 증가, 은행 출처 본문 확인",
+   "bank": "unknown"
+  },
+  {
+   "id": "ddaa1a031ffe",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "85103bb14dd4",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "660abc321c9c",
+   "decision": "include",
+   "reason": "Goldman 헤지펀드 미국 기술주 매수 10년 최고 속도",
+   "bank": "GS"
+  },
+  {
+   "id": "daa30daa8806",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "GS PB 성과 수치만"
+  },
+  {
+   "id": "456900582959",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "6cbb7a54cd17",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "5c7eecba0cf3",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "0ff48839d005",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "d6ded692a8d5",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "4e02fbc4f831",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "2cd15956a421",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "d9f81fd7ba82",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "a745a2490026",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "0a4c2172844c",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "8bd3e0872a77",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "fbd444c93c6a",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "599f8f5470fc",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "a94506be351d",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "0e8fb81ecec3",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "fb4667261852",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "f63db29e8b83",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "e51dd82a9774",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "9adbbed57948",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "GS PB 성과 수치만"
+  },
+  {
+   "id": "497737a5c097",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "e52929341c90",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "4a478495fc4d",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "3d96be1517c9",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "ef21ae204533",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "GS PB 성과 수치만"
+  },
+  {
+   "id": "eec13c49b1ce",
+   "decision": "exclude",
+   "reason": "insufficient_attribution",
+   "bank": "unknown",
+   "note": "Hazeltree 혼잡도 점수, 은행 PB 아님"
+  },
+  {
+   "id": "e10c7ff96a35",
+   "decision": "include",
+   "reason": "Goldman 헤지펀드 은행주 매도·필수소비재 매수",
+   "bank": "GS"
+  },
+  {
+   "id": "6006d3fbdb64",
+   "decision": "include",
+   "reason": "Goldman 헤지펀드 은행주 매도·필수소비재 매수",
+   "bank": "GS"
+  },
+  {
+   "id": "ec11d5f745eb",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "68d765afbd3a",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "f1b7a19d24be",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "7f79943cc21a",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "20321f78cb59",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "ce5cbd4cda0d",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "375ec913b280",
+   "decision": "exclude",
+   "reason": "13f_or_manager_holdings",
+   "bank": "unknown"
+  },
+  {
+   "id": "215440c9dd52",
+   "decision": "include",
+   "reason": "Goldman 헤지펀드 글로벌 산업재 순매수 5년 최고",
+   "bank": "GS"
+  },
+  {
+   "id": "21812463e8a2",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "7c0d15014c7e",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "162bf224ad42",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "dc401b749dca",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "f68c0dda3053",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "f96e2735b147",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "b29be093b460",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "69429fe3f191",
+   "decision": "exclude",
+   "reason": "13f_or_manager_holdings",
+   "bank": "unknown"
+  },
+  {
+   "id": "4a580db7e00f",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "2e20c94dddbb",
+   "decision": "exclude",
+   "reason": "other_bank",
+   "bank": "unknown",
+   "note": "Barclays 자금관리 기사"
+  },
+  {
+   "id": "dec8d4a175df",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "73c575b66ae7",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "3f42d08b1c67",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "15a343222c0f",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "GS PB 성과 수치만"
+  },
+  {
+   "id": "f63a5c3ded2b",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "GS PB 성과 수치만"
+  },
+  {
+   "id": "b118533c6f8b",
+   "decision": "exclude",
+   "reason": "forecast_not_observed",
+   "bank": "GS",
+   "note": "GS 자본소개 할당자 설문(의향), 관측 흐름 아님"
+  },
+  {
+   "id": "a0e0e5fc539b",
+   "decision": "needs_read",
+   "reason": "쓰레기 랠리 숏 압박, PB 데이터 여부 본문 확인",
+   "bank": "unknown"
+  },
+  {
+   "id": "25e0192919b5",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "3c30466e5095",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "cbc77838fa88",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "d16c9c8b5c62",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "4d215b21260c",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "87cbdab65c1c",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  },
+  {
+   "id": "81b5b40c365c",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "JPM"
+  },
+  {
+   "id": "769210a682eb",
+   "decision": "include",
+   "reason": "Morgan Stanley 헤지펀드 일본 매수·한국 숏 추가",
+   "bank": "MS"
+  },
+  {
+   "id": "6ad94ad82b93",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown"
+  }
+ ]
+}

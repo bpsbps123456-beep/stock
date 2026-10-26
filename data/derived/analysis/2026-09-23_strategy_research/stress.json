@@ -1,0 +1,6235 @@
+{
+  "assumptions": {
+    "one_way_bps": [
+      0,
+      15,
+      30,
+      50
+    ],
+    "delay": "one extra global valuation-session, all disclosure and market signals delayed",
+    "regime": "QQQ USD past 20 observed valuation dates, +/-3% plus MA20 confirmation; unknown during warmup",
+    "contributions": "sum of prior-NAV-weighted KRW holding P&L divided by initial NAV; fees separate",
+    "remove_top_contributor": "post-selection dependence diagnostic: removes the ex-post top contributing stock from the cached top10, refills only from remaining cached ranks; ranks11+ are not reconsidered, so this is not a fully reranked exclusion strategy",
+    "fresh_start": "cash on first holdout date, execute its close; cannot earn first-day pre-entry return"
+  },
+  "candidates": {
+    "primary_selected": {
+      "index": 163958,
+      "config": {
+        "family": "repeated_buy",
+        "lookback": 10,
+        "time_mix": 1.0,
+        "gate": "none",
+        "max_stocks": 1,
+        "rebalance": "weekly",
+        "weighting": "equal",
+        "risk_rule": "trend_cash"
+      },
+      "full": {
+        "return_pct": 413.8808786869791,
+        "max_drawdown_pct": -16.932295697310053
+      },
+      "holdout": {
+        "return_pct": 12.738154039509531,
+        "max_drawdown_pct": -15.657771366057482
+      },
+      "max_observed_stocks": 1,
+      "average_observed_stocks": 0.7513227513227513,
+      "cash_days": 47,
+      "average_cash_pct": 24.867724867724867,
+      "traded_nav_multiple": 38.94608087868198,
+      "rebalance_trade_days": 23,
+      "costs": [
+        {
+          "one_way_bps": 0,
+          "full": {
+            "return_pct": 444.8390358321249,
+            "max_drawdown_pct": -16.93229569731003
+          },
+          "holdout": {
+            "return_pct": 13.928013884254465,
+            "max_drawdown_pct": -15.532734274711169
+          }
+        },
+        {
+          "one_way_bps": 15,
+          "full": {
+            "return_pct": 413.8808786869791,
+            "max_drawdown_pct": -16.932295697310053
+          },
+          "holdout": {
+            "return_pct": 12.738154039509531,
+            "max_drawdown_pct": -15.657771366057482
+          }
+        },
+        {
+          "one_way_bps": 30,
+          "full": {
+            "return_pct": 384.68274988714154,
+            "max_drawdown_pct": -16.93229569731004
+          },
+          "holdout": {
+            "return_pct": 11.560966788327342,
+            "max_drawdown_pct": -15.91042021560478
+          }
+        },
+        {
+          "one_way_bps": 50,
+          "full": {
+            "return_pct": 348.3173172279344,
+            "max_drawdown_pct": -17.205154307569092
+          },
+          "holdout": {
+            "return_pct": 10.010850327744269,
+            "max_drawdown_pct": -16.246112186180785
+          }
+        }
+      ],
+      "extra_lag": {
+        "full": {
+          "return_pct": 214.7470616126021,
+          "max_drawdown_pct": -26.66958238380245
+        },
+        "holdout": {
+          "return_pct": 10.483338887447658,
+          "max_drawdown_pct": -19.28085405210084
+        }
+      },
+      "fresh_holdout": {
+        "return_pct": 5.920655048919743,
+        "max_drawdown_pct": -15.65777136605746
+      },
+      "contributions_pp": [
+        {
+          "symbol": "DELL",
+          "pnl_per_initial_nav_pp": 130.24204885189855
+        },
+        {
+          "symbol": "285A.T",
+          "pnl_per_initial_nav_pp": 76.85398999559796
+        },
+        {
+          "symbol": "SKHY",
+          "pnl_per_initial_nav_pp": 45.75840245269104
+        },
+        {
+          "symbol": "TSLA",
+          "pnl_per_initial_nav_pp": 39.43013970783428
+        },
+        {
+          "symbol": "INTC",
+          "pnl_per_initial_nav_pp": 33.62793599043634
+        },
+        {
+          "symbol": "SPCX",
+          "pnl_per_initial_nav_pp": 32.22752960245236
+        },
+        {
+          "symbol": "MSTR",
+          "pnl_per_initial_nav_pp": 21.494262233844523
+        },
+        {
+          "symbol": "6981.T",
+          "pnl_per_initial_nav_pp": 19.44618754642119
+        },
+        {
+          "symbol": "009150.KS",
+          "pnl_per_initial_nav_pp": 15.718960892139389
+        },
+        {
+          "symbol": "LITE",
+          "pnl_per_initial_nav_pp": 15.09258496470852
+        },
+        {
+          "symbol": "ARM",
+          "pnl_per_initial_nav_pp": 10.568815863640726
+        },
+        {
+          "symbol": "SNDK",
+          "pnl_per_initial_nav_pp": 2.012864768697058
+        },
+        {
+          "symbol": "COIN",
+          "pnl_per_initial_nav_pp": 1.9239720865627565
+        },
+        {
+          "symbol": "CCJ",
+          "pnl_per_initial_nav_pp": 0.744747739083683
+        },
+        {
+          "symbol": "SIMO",
+          "pnl_per_initial_nav_pp": -3.197326193348164
+        },
+        {
+          "symbol": "STX",
+          "pnl_per_initial_nav_pp": -5.4914702303948255
+        },
+        {
+          "symbol": "QCOM",
+          "pnl_per_initial_nav_pp": -6.431127891585107
+        }
+      ],
+      "fee_pnl_pp": -16.141639693701215,
+      "without_top_contributor": {
+        "symbol": "DELL",
+        "full": {
+          "return_pct": 182.77996171358194,
+          "max_drawdown_pct": -16.932295697310053
+        },
+        "holdout": {
+          "return_pct": 18.756911449421843,
+          "max_drawdown_pct": -15.65777136605745
+        }
+      },
+      "by_prior_regime": {
+        "unknown": {
+          "observations": 21,
+          "candidate": {
+            "return_pct": 2.193877926518417,
+            "max_drawdown_pct": -8.45271412396843
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 17.20517785376936,
+              "max_drawdown_pct": -3.77885783718106
+            },
+            "koact": {
+              "return_pct": 11.87787373975382,
+              "max_drawdown_pct": -3.5792094615623937
+            },
+            "qqq_krw": {
+              "return_pct": -0.3403706560388242,
+              "max_drawdown_pct": -3.1496481443101243
+            }
+          }
+        },
+        "up": {
+          "observations": 49,
+          "candidate": {
+            "return_pct": 193.09653568393026,
+            "max_drawdown_pct": -14.487018335235469
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 49.462689164154796,
+              "max_drawdown_pct": -5.350209659885086
+            },
+            "koact": {
+              "return_pct": 38.499582127416645,
+              "max_drawdown_pct": -5.2642980935875165
+            },
+            "qqq_krw": {
+              "return_pct": 5.5749160063739644,
+              "max_drawdown_pct": -13.511905574828697
+            }
+          }
+        },
+        "down": {
+          "observations": 29,
+          "candidate": {
+            "return_pct": 19.112426478651457,
+            "max_drawdown_pct": -3.7967659376026752
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": -19.26781802980948,
+              "max_drawdown_pct": -24.70759047030624
+            },
+            "koact": {
+              "return_pct": -26.353853755679857,
+              "max_drawdown_pct": -31.02422456187519
+            },
+            "qqq_krw": {
+              "return_pct": 11.014187095954252,
+              "max_drawdown_pct": -6.132868060760199
+            }
+          }
+        },
+        "range": {
+          "observations": 90,
+          "candidate": {
+            "return_pct": 44.035591815576524,
+            "max_drawdown_pct": -16.626176088204524
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 18.87078273574556,
+              "max_drawdown_pct": -16.838326076601984
+            },
+            "koact": {
+              "return_pct": 19.78578942297391,
+              "max_drawdown_pct": -14.285098504630511
+            },
+            "qqq_krw": {
+              "return_pct": -3.8846556067159477,
+              "max_drawdown_pct": -13.869504256356125
+            }
+          }
+        }
+      },
+      "monthly": {
+        "2026-01": {
+          "return_pct": 2.193877926518417,
+          "max_drawdown_pct": -8.45271412396843
+        },
+        "2026-02": {
+          "return_pct": -2.9501998383178574,
+          "max_drawdown_pct": -12.921511920093465
+        },
+        "2026-03": {
+          "return_pct": 10.11872098097868,
+          "max_drawdown_pct": -6.890936369784695
+        },
+        "2026-04": {
+          "return_pct": 32.10119613173046,
+          "max_drawdown_pct": -6.678261522221607
+        },
+        "2026-05": {
+          "return_pct": 111.70301161150995,
+          "max_drawdown_pct": -8.248852567790976
+        },
+        "2026-06": {
+          "return_pct": 73.26628115472104,
+          "max_drawdown_pct": -14.318929753706044
+        },
+        "2026-07": {
+          "return_pct": -13.868300848435823,
+          "max_drawdown_pct": -13.868300848435823
+        },
+        "2026-08": {
+          "return_pct": 8.474382476491105,
+          "max_drawdown_pct": -15.657771366057482
+        },
+        "2026-09": {
+          "return_pct": 3.9306714319784053,
+          "max_drawdown_pct": -12.0126346107027
+        }
+      }
+    },
+    "hindsight_best": {
+      "index": 166560,
+      "config": {
+        "family": "buy_dip",
+        "lookback": 10,
+        "time_mix": 1.0,
+        "gate": "none",
+        "max_stocks": 1,
+        "rebalance": "monthly",
+        "weighting": "equal",
+        "risk_rule": "always"
+      },
+      "full": {
+        "return_pct": 519.6341813960246,
+        "max_drawdown_pct": -30.029455789758362
+      },
+      "holdout": {
+        "return_pct": 43.0273953613735,
+        "max_drawdown_pct": -19.15601031087015
+      },
+      "max_observed_stocks": 1,
+      "average_observed_stocks": 0.8888888888888888,
+      "cash_days": 21,
+      "average_cash_pct": 11.11111111111111,
+      "traded_nav_multiple": 10.983524712930604,
+      "rebalance_trade_days": 6,
+      "costs": [
+        {
+          "one_way_bps": 0,
+          "full": {
+            "return_pct": 529.942258033657,
+            "max_drawdown_pct": -30.02945578975835
+          },
+          "holdout": {
+            "return_pct": 43.88814003087482,
+            "max_drawdown_pct": -19.15601031087011
+          }
+        },
+        {
+          "one_way_bps": 15,
+          "full": {
+            "return_pct": 519.6341813960246,
+            "max_drawdown_pct": -30.029455789758362
+          },
+          "holdout": {
+            "return_pct": 43.0273953613735,
+            "max_drawdown_pct": -19.15601031087015
+          }
+        },
+        {
+          "one_way_bps": 30,
+          "full": {
+            "return_pct": 509.4961073606296,
+            "max_drawdown_pct": -30.02945578975835
+          },
+          "holdout": {
+            "return_pct": 42.171795862611376,
+            "max_drawdown_pct": -19.15601031087011
+          }
+        },
+        {
+          "one_way_bps": 50,
+          "full": {
+            "return_pct": 496.23817104428366,
+            "max_drawdown_pct": -30.231688378189325
+          },
+          "holdout": {
+            "return_pct": 41.038940455995345,
+            "max_drawdown_pct": -19.15601031087011
+          }
+        }
+      ],
+      "extra_lag": {
+        "full": {
+          "return_pct": 63.15184500134432,
+          "max_drawdown_pct": -30.029455789758387
+        },
+        "holdout": {
+          "return_pct": 42.046225813871274,
+          "max_drawdown_pct": -19.15601031087013
+        }
+      },
+      "fresh_holdout": {
+        "return_pct": 32.43580459165272,
+        "max_drawdown_pct": -19.15601031087012
+      },
+      "contributions_pp": [
+        {
+          "symbol": "009150.KS",
+          "pnl_per_initial_nav_pp": 376.96015596425053
+        },
+        {
+          "symbol": "HOOD",
+          "pnl_per_initial_nav_pp": 90.61509258841373
+        },
+        {
+          "symbol": "SNDK",
+          "pnl_per_initial_nav_pp": 63.434170462096304
+        },
+        {
+          "symbol": "GEV",
+          "pnl_per_initial_nav_pp": 15.863643260264887
+        },
+        {
+          "symbol": "MSTR",
+          "pnl_per_initial_nav_pp": -7.8251741996628015
+        },
+        {
+          "symbol": "9988.HK",
+          "pnl_per_initial_nav_pp": -14.151732010772195
+        }
+      ],
+      "fee_pnl_pp": -5.261974668565905,
+      "without_top_contributor": {
+        "symbol": "009150.KS",
+        "full": {
+          "return_pct": 57.643706408758824,
+          "max_drawdown_pct": -30.02945578975835
+        },
+        "holdout": {
+          "return_pct": 43.02739536137352,
+          "max_drawdown_pct": -19.15601031087013
+        }
+      },
+      "by_prior_regime": {
+        "unknown": {
+          "observations": 21,
+          "candidate": {
+            "return_pct": 0.0,
+            "max_drawdown_pct": 0.0
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 17.20517785376936,
+              "max_drawdown_pct": -3.77885783718106
+            },
+            "koact": {
+              "return_pct": 11.87787373975382,
+              "max_drawdown_pct": -3.5792094615623937
+            },
+            "qqq_krw": {
+              "return_pct": -0.3403706560388242,
+              "max_drawdown_pct": -3.1496481443101243
+            }
+          }
+        },
+        "up": {
+          "observations": 49,
+          "candidate": {
+            "return_pct": 220.70128925209093,
+            "max_drawdown_pct": -17.96903073595185
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 49.462689164154796,
+              "max_drawdown_pct": -5.350209659885086
+            },
+            "koact": {
+              "return_pct": 38.499582127416645,
+              "max_drawdown_pct": -5.2642980935875165
+            },
+            "qqq_krw": {
+              "return_pct": 5.5749160063739644,
+              "max_drawdown_pct": -13.511905574828697
+            }
+          }
+        },
+        "down": {
+          "observations": 29,
+          "candidate": {
+            "return_pct": 15.153702848231209,
+            "max_drawdown_pct": -17.034106590330744
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": -19.26781802980948,
+              "max_drawdown_pct": -24.70759047030624
+            },
+            "koact": {
+              "return_pct": -26.353853755679857,
+              "max_drawdown_pct": -31.02422456187519
+            },
+            "qqq_krw": {
+              "return_pct": 11.014187095954252,
+              "max_drawdown_pct": -6.132868060760199
+            }
+          }
+        },
+        "range": {
+          "observations": 90,
+          "candidate": {
+            "return_pct": 67.78639911001913,
+            "max_drawdown_pct": -23.523280808745096
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 18.87078273574556,
+              "max_drawdown_pct": -16.838326076601984
+            },
+            "koact": {
+              "return_pct": 19.78578942297391,
+              "max_drawdown_pct": -14.285098504630511
+            },
+            "qqq_krw": {
+              "return_pct": -3.8846556067159477,
+              "max_drawdown_pct": -13.869504256356125
+            }
+          }
+        }
+      },
+      "monthly": {
+        "2026-01": {
+          "return_pct": 0.0,
+          "max_drawdown_pct": 0.0
+        },
+        "2026-02": {
+          "return_pct": 14.225632051715076,
+          "max_drawdown_pct": -4.982546075629513
+        },
+        "2026-03": {
+          "return_pct": -3.4874184260134333,
+          "max_drawdown_pct": -18.20793945941087
+        },
+        "2026-04": {
+          "return_pct": 82.25034927898285,
+          "max_drawdown_pct": -8.655774459932875
+        },
+        "2026-05": {
+          "return_pct": 155.64903846153842,
+          "max_drawdown_pct": -4.26770126091176
+        },
+        "2026-06": {
+          "return_pct": -27.339868947994507,
+          "max_drawdown_pct": -30.02945578975835
+        },
+        "2026-07": {
+          "return_pct": 16.080675070391216,
+          "max_drawdown_pct": -7.250655978635745
+        },
+        "2026-08": {
+          "return_pct": 25.813616176729724,
+          "max_drawdown_pct": -19.15601031087015
+        },
+        "2026-09": {
+          "return_pct": 13.681968381278908,
+          "max_drawdown_pct": -15.957199635117725
+        }
+      }
+    },
+    "TIME_top10_weekly": {
+      "index": 33892,
+      "config": {
+        "family": "conviction",
+        "lookback": 1,
+        "time_mix": 1.0,
+        "gate": "none",
+        "max_stocks": 10,
+        "rebalance": "weekly",
+        "weighting": "conviction",
+        "risk_rule": "always"
+      },
+      "full": {
+        "return_pct": 106.62348938637858,
+        "max_drawdown_pct": -42.859349664145164
+      },
+      "holdout": {
+        "return_pct": 11.2763599811184,
+        "max_drawdown_pct": -14.142471208477447
+      },
+      "max_observed_stocks": 10,
+      "average_observed_stocks": 9.947089947089948,
+      "cash_days": 1,
+      "average_cash_pct": 0.5291005291005328,
+      "traded_nav_multiple": 11.837317964226827,
+      "rebalance_trade_days": 34,
+      "costs": [
+        {
+          "one_way_bps": 0,
+          "full": {
+            "return_pct": 110.32841934384363,
+            "max_drawdown_pct": -42.76153690902807
+          },
+          "holdout": {
+            "return_pct": 11.661181607997783,
+            "max_drawdown_pct": -14.06916116222251
+          }
+        },
+        {
+          "one_way_bps": 15,
+          "full": {
+            "return_pct": 106.62348938637858,
+            "max_drawdown_pct": -42.859349664145164
+          },
+          "holdout": {
+            "return_pct": 11.2763599811184,
+            "max_drawdown_pct": -14.142471208477447
+          }
+        },
+        {
+          "one_way_bps": 30,
+          "full": {
+            "return_pct": 102.98367082244617,
+            "max_drawdown_pct": -42.95704741301202
+          },
+          "holdout": {
+            "return_pct": 10.892760808891389,
+            "max_drawdown_pct": -14.247477422154253
+          }
+        },
+        {
+          "one_way_bps": 50,
+          "full": {
+            "return_pct": 98.22981039282995,
+            "max_drawdown_pct": -43.087132575010976
+          },
+          "holdout": {
+            "return_pct": 10.383190325170455,
+            "max_drawdown_pct": -14.387283799892492
+          }
+        }
+      ],
+      "extra_lag": {
+        "full": {
+          "return_pct": 89.96879045849904,
+          "max_drawdown_pct": -42.267282988953184
+        },
+        "holdout": {
+          "return_pct": 11.366099152121901,
+          "max_drawdown_pct": -13.76065690540842
+        }
+      },
+      "fresh_holdout": {
+        "return_pct": 7.639425946355738,
+        "max_drawdown_pct": -14.142471208477424
+      },
+      "contributions_pp": [
+        {
+          "symbol": "SNDK",
+          "pnl_per_initial_nav_pp": 46.07297404691457
+        },
+        {
+          "symbol": "ARM",
+          "pnl_per_initial_nav_pp": 22.16001184628234
+        },
+        {
+          "symbol": "INTC",
+          "pnl_per_initial_nav_pp": 15.088170440417347
+        },
+        {
+          "symbol": "WDC",
+          "pnl_per_initial_nav_pp": 11.284069479968622
+        },
+        {
+          "symbol": "STX",
+          "pnl_per_initial_nav_pp": 11.130510486033906
+        },
+        {
+          "symbol": "000660.KS",
+          "pnl_per_initial_nav_pp": 8.78295119332104
+        },
+        {
+          "symbol": "CIEN",
+          "pnl_per_initial_nav_pp": 7.824800168262054
+        },
+        {
+          "symbol": "BE",
+          "pnl_per_initial_nav_pp": 6.797742085619241
+        },
+        {
+          "symbol": "LITE",
+          "pnl_per_initial_nav_pp": 4.4182330998150015
+        },
+        {
+          "symbol": "SNOW",
+          "pnl_per_initial_nav_pp": 4.263039139248335
+        },
+        {
+          "symbol": "009150.KS",
+          "pnl_per_initial_nav_pp": 3.2375208594271045
+        },
+        {
+          "symbol": "AMD",
+          "pnl_per_initial_nav_pp": 3.1282504147575545
+        },
+        {
+          "symbol": "GEV",
+          "pnl_per_initial_nav_pp": 2.979463803304057
+        },
+        {
+          "symbol": "COHR",
+          "pnl_per_initial_nav_pp": 1.4728972083062248
+        },
+        {
+          "symbol": "NVDA",
+          "pnl_per_initial_nav_pp": 1.4231572318495354
+        },
+        {
+          "symbol": "TSM",
+          "pnl_per_initial_nav_pp": 1.135257039309734
+        },
+        {
+          "symbol": "SKHY",
+          "pnl_per_initial_nav_pp": 0.8430371605152828
+        },
+        {
+          "symbol": "APP",
+          "pnl_per_initial_nav_pp": 0.398028528989257
+        },
+        {
+          "symbol": "RDDT",
+          "pnl_per_initial_nav_pp": 0.06808318191548648
+        },
+        {
+          "symbol": "NTAP",
+          "pnl_per_initial_nav_pp": -0.12841193672876147
+        },
+        {
+          "symbol": "CCJ",
+          "pnl_per_initial_nav_pp": -0.17705630331823433
+        },
+        {
+          "symbol": "ASML",
+          "pnl_per_initial_nav_pp": -0.3648162253650147
+        },
+        {
+          "symbol": "TSLA",
+          "pnl_per_initial_nav_pp": -0.4356595759315485
+        },
+        {
+          "symbol": "RKLB",
+          "pnl_per_initial_nav_pp": -0.6428409697160193
+        },
+        {
+          "symbol": "DELL",
+          "pnl_per_initial_nav_pp": -1.479190008656826
+        },
+        {
+          "symbol": "COIN",
+          "pnl_per_initial_nav_pp": -1.6502462362692951
+        },
+        {
+          "symbol": "CRCL",
+          "pnl_per_initial_nav_pp": -1.8361894885788315
+        },
+        {
+          "symbol": "BABA",
+          "pnl_per_initial_nav_pp": -2.249231468305543
+        },
+        {
+          "symbol": "6981.T",
+          "pnl_per_initial_nav_pp": -2.2914072868590414
+        },
+        {
+          "symbol": "AMZN",
+          "pnl_per_initial_nav_pp": -3.020735488327967
+        },
+        {
+          "symbol": "QCOM",
+          "pnl_per_initial_nav_pp": -3.13058715915264
+        },
+        {
+          "symbol": "GOOG",
+          "pnl_per_initial_nav_pp": -3.5384730700938354
+        },
+        {
+          "symbol": "2513.HK",
+          "pnl_per_initial_nav_pp": -10.786762821719888
+        },
+        {
+          "symbol": "285A.T",
+          "pnl_per_initial_nav_pp": -11.094598644373246
+        }
+      ],
+      "fee_pnl_pp": -3.0585013444814013,
+      "without_top_contributor": {
+        "symbol": "SNDK",
+        "full": {
+          "return_pct": 67.98870608157792,
+          "max_drawdown_pct": -41.213721364642666
+        },
+        "holdout": {
+          "return_pct": 7.5909893416585605,
+          "max_drawdown_pct": -13.875490165451353
+        }
+      },
+      "by_prior_regime": {
+        "unknown": {
+          "observations": 21,
+          "candidate": {
+            "return_pct": 20.247367699453676,
+            "max_drawdown_pct": -5.202207587784757
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 17.20517785376936,
+              "max_drawdown_pct": -3.77885783718106
+            },
+            "koact": {
+              "return_pct": 11.87787373975382,
+              "max_drawdown_pct": -3.5792094615623937
+            },
+            "qqq_krw": {
+              "return_pct": -0.3403706560388242,
+              "max_drawdown_pct": -3.1496481443101243
+            }
+          }
+        },
+        "up": {
+          "observations": 49,
+          "candidate": {
+            "return_pct": 44.921854478877556,
+            "max_drawdown_pct": -13.038567949101365
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 49.462689164154796,
+              "max_drawdown_pct": -5.350209659885086
+            },
+            "koact": {
+              "return_pct": 38.499582127416645,
+              "max_drawdown_pct": -5.2642980935875165
+            },
+            "qqq_krw": {
+              "return_pct": 5.5749160063739644,
+              "max_drawdown_pct": -13.511905574828697
+            }
+          }
+        },
+        "down": {
+          "observations": 29,
+          "candidate": {
+            "return_pct": 2.6916775559531647,
+            "max_drawdown_pct": -21.918791017728456
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": -19.26781802980948,
+              "max_drawdown_pct": -24.70759047030624
+            },
+            "koact": {
+              "return_pct": -26.353853755679857,
+              "max_drawdown_pct": -31.02422456187519
+            },
+            "qqq_krw": {
+              "return_pct": 11.014187095954252,
+              "max_drawdown_pct": -6.132868060760199
+            }
+          }
+        },
+        "range": {
+          "observations": 90,
+          "candidate": {
+            "return_pct": 15.460911598259731,
+            "max_drawdown_pct": -34.91320616212047
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 18.87078273574556,
+              "max_drawdown_pct": -16.838326076601984
+            },
+            "koact": {
+              "return_pct": 19.78578942297391,
+              "max_drawdown_pct": -14.285098504630511
+            },
+            "qqq_krw": {
+              "return_pct": -3.8846556067159477,
+              "max_drawdown_pct": -13.869504256356125
+            }
+          }
+        }
+      },
+      "monthly": {
+        "2026-01": {
+          "return_pct": 20.247367699453676,
+          "max_drawdown_pct": -5.202207587784757
+        },
+        "2026-02": {
+          "return_pct": 5.8378590954641485,
+          "max_drawdown_pct": -9.621336249987245
+        },
+        "2026-03": {
+          "return_pct": -2.3645262821673674,
+          "max_drawdown_pct": -17.55425735780526
+        },
+        "2026-04": {
+          "return_pct": 53.391763997469496,
+          "max_drawdown_pct": -3.0363205625637657
+        },
+        "2026-05": {
+          "return_pct": 25.09974625324547,
+          "max_drawdown_pct": -7.317338817446151
+        },
+        "2026-06": {
+          "return_pct": 17.084972489470452,
+          "max_drawdown_pct": -12.190401160717034
+        },
+        "2026-07": {
+          "return_pct": -33.489090034139004,
+          "max_drawdown_pct": -39.44361854044103
+        },
+        "2026-08": {
+          "return_pct": 0.4827571772332284,
+          "max_drawdown_pct": -13.393623594631288
+        },
+        "2026-09": {
+          "return_pct": 10.741746252889195,
+          "max_drawdown_pct": -7.901567039881662
+        }
+      }
+    },
+    "KoAct_top10_weekly": {
+      "index": 196,
+      "config": {
+        "family": "conviction",
+        "lookback": 1,
+        "time_mix": 0.0,
+        "gate": "none",
+        "max_stocks": 10,
+        "rebalance": "weekly",
+        "weighting": "conviction",
+        "risk_rule": "always"
+      },
+      "full": {
+        "return_pct": 60.577960368564554,
+        "max_drawdown_pct": -34.36320055489498
+      },
+      "holdout": {
+        "return_pct": 17.206653245718016,
+        "max_drawdown_pct": -9.75080282573899
+      },
+      "max_observed_stocks": 10,
+      "average_observed_stocks": 9.947089947089948,
+      "cash_days": 1,
+      "average_cash_pct": 0.5291005291005327,
+      "traded_nav_multiple": 16.16521427930085,
+      "rebalance_trade_days": 34,
+      "costs": [
+        {
+          "one_way_bps": 0,
+          "full": {
+            "return_pct": 64.5210430317063,
+            "max_drawdown_pct": -34.10907882624552
+          },
+          "holdout": {
+            "return_pct": 17.930237766542767,
+            "max_drawdown_pct": -9.600304111324743
+          }
+        },
+        {
+          "one_way_bps": 15,
+          "full": {
+            "return_pct": 60.577960368564554,
+            "max_drawdown_pct": -34.36320055489498
+          },
+          "holdout": {
+            "return_pct": 17.206653245718016,
+            "max_drawdown_pct": -9.75080282573899
+          }
+        },
+        {
+          "one_way_bps": 30,
+          "full": {
+            "return_pct": 56.729004508037995,
+            "max_drawdown_pct": -34.616424876456755
+          },
+          "holdout": {
+            "return_pct": 16.48754439864113,
+            "max_drawdown_pct": -9.901126992086107
+          }
+        },
+        {
+          "one_way_bps": 50,
+          "full": {
+            "return_pct": 51.73961337310882,
+            "max_drawdown_pct": -34.95266658579048
+          },
+          "holdout": {
+            "return_pct": 15.535644139227568,
+            "max_drawdown_pct": -10.101288001436215
+          }
+        }
+      ],
+      "extra_lag": {
+        "full": {
+          "return_pct": 50.03943104018893,
+          "max_drawdown_pct": -32.87443352472144
+        },
+        "holdout": {
+          "return_pct": 18.29745527245821,
+          "max_drawdown_pct": -8.2935620502806
+        }
+      },
+      "fresh_holdout": {
+        "return_pct": 12.268137084167696,
+        "max_drawdown_pct": -9.750802825738958
+      },
+      "contributions_pp": [
+        {
+          "symbol": "SNDK",
+          "pnl_per_initial_nav_pp": 35.16967009027747
+        },
+        {
+          "symbol": "BE",
+          "pnl_per_initial_nav_pp": 14.861478611324852
+        },
+        {
+          "symbol": "LITE",
+          "pnl_per_initial_nav_pp": 9.501111792564533
+        },
+        {
+          "symbol": "AMD",
+          "pnl_per_initial_nav_pp": 7.72016887487263
+        },
+        {
+          "symbol": "CIEN",
+          "pnl_per_initial_nav_pp": 5.144506086149971
+        },
+        {
+          "symbol": "MU",
+          "pnl_per_initial_nav_pp": 5.1372592930029795
+        },
+        {
+          "symbol": "WDC",
+          "pnl_per_initial_nav_pp": 3.526395840127851
+        },
+        {
+          "symbol": "MSTR",
+          "pnl_per_initial_nav_pp": 1.7993026020091536
+        },
+        {
+          "symbol": "SNOW",
+          "pnl_per_initial_nav_pp": 1.6556212436638322
+        },
+        {
+          "symbol": "INTC",
+          "pnl_per_initial_nav_pp": 1.4253207446752048
+        },
+        {
+          "symbol": "COHR",
+          "pnl_per_initial_nav_pp": 1.3359448548425608
+        },
+        {
+          "symbol": "PLTR",
+          "pnl_per_initial_nav_pp": 1.0874526353941933
+        },
+        {
+          "symbol": "NBIS",
+          "pnl_per_initial_nav_pp": 1.0484529303962309
+        },
+        {
+          "symbol": "STX",
+          "pnl_per_initial_nav_pp": 1.044647698327602
+        },
+        {
+          "symbol": "MRVL",
+          "pnl_per_initial_nav_pp": 0.36210536714614044
+        },
+        {
+          "symbol": "AAPL",
+          "pnl_per_initial_nav_pp": 0.35597487136040473
+        },
+        {
+          "symbol": "DELL",
+          "pnl_per_initial_nav_pp": 0.19596215825955846
+        },
+        {
+          "symbol": "GLW",
+          "pnl_per_initial_nav_pp": 0.04024738242954846
+        },
+        {
+          "symbol": "MSFT",
+          "pnl_per_initial_nav_pp": -0.13507668849722468
+        },
+        {
+          "symbol": "ASML",
+          "pnl_per_initial_nav_pp": -0.16739335271440237
+        },
+        {
+          "symbol": "AKAM",
+          "pnl_per_initial_nav_pp": -0.3884366788499023
+        },
+        {
+          "symbol": "RKLB",
+          "pnl_per_initial_nav_pp": -0.6373136679243196
+        },
+        {
+          "symbol": "HOOD",
+          "pnl_per_initial_nav_pp": -0.7034934088650585
+        },
+        {
+          "symbol": "AVGO",
+          "pnl_per_initial_nav_pp": -0.781501673326949
+        },
+        {
+          "symbol": "GOOG",
+          "pnl_per_initial_nav_pp": -0.8754057448602708
+        },
+        {
+          "symbol": "ARM",
+          "pnl_per_initial_nav_pp": -0.9196964278225109
+        },
+        {
+          "symbol": "FSLY",
+          "pnl_per_initial_nav_pp": -1.1668397796923164
+        },
+        {
+          "symbol": "AMZN",
+          "pnl_per_initial_nav_pp": -1.3090051603688218
+        },
+        {
+          "symbol": "NVDA",
+          "pnl_per_initial_nav_pp": -1.3741971399006914
+        },
+        {
+          "symbol": "MDB",
+          "pnl_per_initial_nav_pp": -1.4643936290286805
+        },
+        {
+          "symbol": "COIN",
+          "pnl_per_initial_nav_pp": -1.5773385002502682
+        },
+        {
+          "symbol": "CRWV",
+          "pnl_per_initial_nav_pp": -2.4823717054860746
+        },
+        {
+          "symbol": "LRCX",
+          "pnl_per_initial_nav_pp": -2.5098405405079247
+        },
+        {
+          "symbol": "TSLA",
+          "pnl_per_initial_nav_pp": -3.384778400056981
+        },
+        {
+          "symbol": "AAOI",
+          "pnl_per_initial_nav_pp": -3.7334240702584722
+        },
+        {
+          "symbol": "CRCL",
+          "pnl_per_initial_nav_pp": -3.791223856941374
+        }
+      ],
+      "fee_pnl_pp": -3.4319322829079124,
+      "without_top_contributor": {
+        "symbol": "SNDK",
+        "full": {
+          "return_pct": 29.473201250953473,
+          "max_drawdown_pct": -31.40433861995744
+        },
+        "holdout": {
+          "return_pct": 12.47413183204733,
+          "max_drawdown_pct": -9.853143283948128
+        }
+      },
+      "by_prior_regime": {
+        "unknown": {
+          "observations": 21,
+          "candidate": {
+            "return_pct": 13.62500351241913,
+            "max_drawdown_pct": -3.3411897480480124
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 17.20517785376936,
+              "max_drawdown_pct": -3.77885783718106
+            },
+            "koact": {
+              "return_pct": 11.87787373975382,
+              "max_drawdown_pct": -3.5792094615623937
+            },
+            "qqq_krw": {
+              "return_pct": -0.3403706560388242,
+              "max_drawdown_pct": -3.1496481443101243
+            }
+          }
+        },
+        "up": {
+          "observations": 49,
+          "candidate": {
+            "return_pct": 26.11503630419605,
+            "max_drawdown_pct": -15.975364495969558
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 49.462689164154796,
+              "max_drawdown_pct": -5.350209659885086
+            },
+            "koact": {
+              "return_pct": 38.499582127416645,
+              "max_drawdown_pct": -5.2642980935875165
+            },
+            "qqq_krw": {
+              "return_pct": 5.5749160063739644,
+              "max_drawdown_pct": -13.511905574828697
+            }
+          }
+        },
+        "down": {
+          "observations": 29,
+          "candidate": {
+            "return_pct": 12.59702343423088,
+            "max_drawdown_pct": -16.799609433598295
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": -19.26781802980948,
+              "max_drawdown_pct": -24.70759047030624
+            },
+            "koact": {
+              "return_pct": -26.353853755679857,
+              "max_drawdown_pct": -31.02422456187519
+            },
+            "qqq_krw": {
+              "return_pct": 11.014187095954252,
+              "max_drawdown_pct": -6.132868060760199
+            }
+          }
+        },
+        "range": {
+          "observations": 90,
+          "candidate": {
+            "return_pct": -0.4781939821485559,
+            "max_drawdown_pct": -30.179728092155354
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 18.87078273574556,
+              "max_drawdown_pct": -16.838326076601984
+            },
+            "koact": {
+              "return_pct": 19.78578942297391,
+              "max_drawdown_pct": -14.285098504630511
+            },
+            "qqq_krw": {
+              "return_pct": -3.8846556067159477,
+              "max_drawdown_pct": -13.869504256356125
+            }
+          }
+        }
+      },
+      "monthly": {
+        "2026-01": {
+          "return_pct": 13.62500351241913,
+          "max_drawdown_pct": -3.3411897480480124
+        },
+        "2026-02": {
+          "return_pct": 0.15072033647887118,
+          "max_drawdown_pct": -8.894151716400922
+        },
+        "2026-03": {
+          "return_pct": -5.756249818343695,
+          "max_drawdown_pct": -21.214725232914166
+        },
+        "2026-04": {
+          "return_pct": 35.73957562307213,
+          "max_drawdown_pct": -5.757912207571014
+        },
+        "2026-05": {
+          "return_pct": 22.352870193600083,
+          "max_drawdown_pct": -7.1574914531893015
+        },
+        "2026-06": {
+          "return_pct": 6.22221679653765,
+          "max_drawdown_pct": -12.022777001188235
+        },
+        "2026-07": {
+          "return_pct": -27.586903930918528,
+          "max_drawdown_pct": -31.942424340413144
+        },
+        "2026-08": {
+          "return_pct": 10.74996960856538,
+          "max_drawdown_pct": -8.51112119289541
+        },
+        "2026-09": {
+          "return_pct": 5.829964251884778,
+          "max_drawdown_pct": -5.648763637817988
+        }
+      }
+    },
+    "max_stocks_1": {
+      "index": 164389,
+      "config": {
+        "family": "repeated_buy",
+        "lookback": 10,
+        "time_mix": 1.0,
+        "gate": "above_ma20",
+        "max_stocks": 1,
+        "rebalance": "weekly",
+        "weighting": "equal",
+        "risk_rule": "trend_half"
+      },
+      "full": {
+        "return_pct": 403.3361294330482,
+        "max_drawdown_pct": -15.65777136605746
+      },
+      "holdout": {
+        "return_pct": 15.651936005374644,
+        "max_drawdown_pct": -15.65777136605746
+      },
+      "max_observed_stocks": 1,
+      "average_observed_stocks": 0.7566137566137566,
+      "cash_days": 46,
+      "average_cash_pct": 28.304462201712237,
+      "traded_nav_multiple": 36.96501395772371,
+      "rebalance_trade_days": 24,
+      "costs": [
+        {
+          "one_way_bps": 0,
+          "full": {
+            "return_pct": 432.0720109677737,
+            "max_drawdown_pct": -15.53273427471119
+          },
+          "holdout": {
+            "return_pct": 16.964049773061497,
+            "max_drawdown_pct": -15.53273427471119
+          }
+        },
+        {
+          "one_way_bps": 15,
+          "full": {
+            "return_pct": 403.3361294330482,
+            "max_drawdown_pct": -15.65777136605746
+          },
+          "holdout": {
+            "return_pct": 15.651936005374644,
+            "max_drawdown_pct": -15.65777136605746
+          }
+        },
+        {
+          "one_way_bps": 30,
+          "full": {
+            "return_pct": 376.15313671745963,
+            "max_drawdown_pct": -15.910420215604793
+          },
+          "holdout": {
+            "return_pct": 14.354723456196417,
+            "max_drawdown_pct": -15.91042021560478
+          }
+        },
+        {
+          "one_way_bps": 50,
+          "full": {
+            "return_pct": 342.18009612272607,
+            "max_drawdown_pct": -16.24611218618076
+          },
+          "holdout": {
+            "return_pct": 12.647981333901392,
+            "max_drawdown_pct": -16.24611218618075
+          }
+        }
+      ],
+      "extra_lag": {
+        "full": {
+          "return_pct": 129.40213658946053,
+          "max_drawdown_pct": -35.11981738215303
+        },
+        "holdout": {
+          "return_pct": -6.979617674188454,
+          "max_drawdown_pct": -35.11981738215304
+        }
+      },
+      "fresh_holdout": {
+        "return_pct": 16.866076685382648,
+        "max_drawdown_pct": -15.657771366057439
+      },
+      "contributions_pp": [
+        {
+          "symbol": "DELL",
+          "pnl_per_initial_nav_pp": 130.4274641081408
+        },
+        {
+          "symbol": "285A.T",
+          "pnl_per_initial_nav_pp": 76.58598245004546
+        },
+        {
+          "symbol": "SKHY",
+          "pnl_per_initial_nav_pp": 44.81944772575713
+        },
+        {
+          "symbol": "TSLA",
+          "pnl_per_initial_nav_pp": 38.62103986872577
+        },
+        {
+          "symbol": "INTC",
+          "pnl_per_initial_nav_pp": 33.51066764057825
+        },
+        {
+          "symbol": "6981.T",
+          "pnl_per_initial_nav_pp": 23.533774465698464
+        },
+        {
+          "symbol": "MSTR",
+          "pnl_per_initial_nav_pp": 21.419306796071087
+        },
+        {
+          "symbol": "BABA",
+          "pnl_per_initial_nav_pp": 19.244532940077757
+        },
+        {
+          "symbol": "009150.KS",
+          "pnl_per_initial_nav_pp": 15.3964104567866
+        },
+        {
+          "symbol": "LITE",
+          "pnl_per_initial_nav_pp": 14.927187863701905
+        },
+        {
+          "symbol": "ARM",
+          "pnl_per_initial_nav_pp": 10.531959971068686
+        },
+        {
+          "symbol": "WDC",
+          "pnl_per_initial_nav_pp": 10.364588852427454
+        },
+        {
+          "symbol": "CCJ",
+          "pnl_per_initial_nav_pp": 1.3313627870410385
+        },
+        {
+          "symbol": "ASML",
+          "pnl_per_initial_nav_pp": -1.7955938458676781
+        },
+        {
+          "symbol": "STX",
+          "pnl_per_initial_nav_pp": -5.4312901314591375
+        },
+        {
+          "symbol": "QCOM",
+          "pnl_per_initial_nav_pp": -6.408701068963975
+        },
+        {
+          "symbol": "COIN",
+          "pnl_per_initial_nav_pp": -8.859006864869343
+        }
+      ],
+      "fee_pnl_pp": -14.88300458191203,
+      "without_top_contributor": {
+        "symbol": "DELL",
+        "full": {
+          "return_pct": 176.97736443087163,
+          "max_drawdown_pct": -15.65777136605747
+        },
+        "holdout": {
+          "return_pct": 21.826251637322148,
+          "max_drawdown_pct": -15.65777136605746
+        }
+      },
+      "by_prior_regime": {
+        "unknown": {
+          "observations": 21,
+          "candidate": {
+            "return_pct": 0.0,
+            "max_drawdown_pct": 0.0
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 17.20517785376936,
+              "max_drawdown_pct": -3.77885783718106
+            },
+            "koact": {
+              "return_pct": 11.87787373975382,
+              "max_drawdown_pct": -3.5792094615623937
+            },
+            "qqq_krw": {
+              "return_pct": -0.3403706560388242,
+              "max_drawdown_pct": -3.1496481443101243
+            }
+          }
+        },
+        "up": {
+          "observations": 49,
+          "candidate": {
+            "return_pct": 193.53618048745633,
+            "max_drawdown_pct": -14.487018335235469
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 49.462689164154796,
+              "max_drawdown_pct": -5.350209659885086
+            },
+            "koact": {
+              "return_pct": 38.499582127416645,
+              "max_drawdown_pct": -5.2642980935875165
+            },
+            "qqq_krw": {
+              "return_pct": 5.5749160063739644,
+              "max_drawdown_pct": -13.511905574828697
+            }
+          }
+        },
+        "down": {
+          "observations": 29,
+          "candidate": {
+            "return_pct": 21.169762616251408,
+            "max_drawdown_pct": -5.16986283041676
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": -19.26781802980948,
+              "max_drawdown_pct": -24.70759047030624
+            },
+            "koact": {
+              "return_pct": -26.353853755679857,
+              "max_drawdown_pct": -31.02422456187519
+            },
+            "qqq_krw": {
+              "return_pct": 11.014187095954252,
+              "max_drawdown_pct": -6.132868060760199
+            }
+          }
+        },
+        "range": {
+          "observations": 90,
+          "candidate": {
+            "return_pct": 41.514913164915534,
+            "max_drawdown_pct": -16.626176088204524
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 18.87078273574556,
+              "max_drawdown_pct": -16.838326076601984
+            },
+            "koact": {
+              "return_pct": 19.78578942297391,
+              "max_drawdown_pct": -14.285098504630511
+            },
+            "qqq_krw": {
+              "return_pct": -3.8846556067159477,
+              "max_drawdown_pct": -13.869504256356125
+            }
+          }
+        }
+      },
+      "monthly": {
+        "2026-01": {
+          "return_pct": 0.0,
+          "max_drawdown_pct": 0.0
+        },
+        "2026-02": {
+          "return_pct": -1.9079311794210407,
+          "max_drawdown_pct": -12.921511920093465
+        },
+        "2026-03": {
+          "return_pct": 4.558826876342081,
+          "max_drawdown_pct": -13.27698415787567
+        },
+        "2026-04": {
+          "return_pct": 40.1766593436055,
+          "max_drawdown_pct": -6.678261522221629
+        },
+        "2026-05": {
+          "return_pct": 111.70301161151008,
+          "max_drawdown_pct": -8.248852567790976
+        },
+        "2026-06": {
+          "return_pct": 63.219573934427345,
+          "max_drawdown_pct": -14.318929753706044
+        },
+        "2026-07": {
+          "return_pct": -12.393643219473827,
+          "max_drawdown_pct": -14.064811248305043
+        },
+        "2026-08": {
+          "return_pct": 11.277964831649978,
+          "max_drawdown_pct": -15.65777136605746
+        },
+        "2026-09": {
+          "return_pct": 3.9306714319784275,
+          "max_drawdown_pct": -12.012634610702689
+        }
+      }
+    },
+    "max_stocks_2": {
+      "index": 245433,
+      "config": {
+        "family": "net_flow",
+        "lookback": 40,
+        "time_mix": 1.0,
+        "gate": "above_ma20",
+        "max_stocks": 2,
+        "rebalance": "weekly",
+        "weighting": "inverse_volatility",
+        "risk_rule": "trend_half"
+      },
+      "full": {
+        "return_pct": 219.19149476632026,
+        "max_drawdown_pct": -22.207088539640164
+      },
+      "holdout": {
+        "return_pct": 10.21838599142546,
+        "max_drawdown_pct": -12.714596378396282
+      },
+      "max_observed_stocks": 2,
+      "average_observed_stocks": 1.5238095238095237,
+      "cash_days": 45,
+      "average_cash_pct": 31.69716129531942,
+      "traded_nav_multiple": 20.70508472066436,
+      "rebalance_trade_days": 28,
+      "costs": [
+        {
+          "one_way_bps": 0,
+          "full": {
+            "return_pct": 229.27759011150624,
+            "max_drawdown_pct": -21.452566415758866
+          },
+          "holdout": {
+            "return_pct": 11.072434071295746,
+            "max_drawdown_pct": -12.460249458336003
+          }
+        },
+        {
+          "one_way_bps": 15,
+          "full": {
+            "return_pct": 219.19149476632026,
+            "max_drawdown_pct": -22.207088539640164
+          },
+          "holdout": {
+            "return_pct": 10.21838599142546,
+            "max_drawdown_pct": -12.714596378396282
+          }
+        },
+        {
+          "one_way_bps": 30,
+          "full": {
+            "return_pct": 209.4150062864955,
+            "max_drawdown_pct": -22.953947427581245
+          },
+          "holdout": {
+            "return_pct": 9.371088345790746,
+            "max_drawdown_pct": -12.967870850540297
+          }
+        },
+        {
+          "one_way_bps": 50,
+          "full": {
+            "return_pct": 196.84296249690482,
+            "max_drawdown_pct": -23.937982395255673
+          },
+          "holdout": {
+            "return_pct": 8.25176167484376,
+            "max_drawdown_pct": -13.303909660964464
+          }
+        }
+      ],
+      "extra_lag": {
+        "full": {
+          "return_pct": 55.6487542144847,
+          "max_drawdown_pct": -37.55567465240327
+        },
+        "holdout": {
+          "return_pct": -26.26556442370139,
+          "max_drawdown_pct": -28.990626775872318
+        }
+      },
+      "fresh_holdout": {
+        "return_pct": 8.40185231787569,
+        "max_drawdown_pct": -12.71459637839627
+      },
+      "contributions_pp": [
+        {
+          "symbol": "ARM",
+          "pnl_per_initial_nav_pp": 112.76097045225062
+        },
+        {
+          "symbol": "LITE",
+          "pnl_per_initial_nav_pp": 33.04752290901372
+        },
+        {
+          "symbol": "009150.KS",
+          "pnl_per_initial_nav_pp": 24.45753073282695
+        },
+        {
+          "symbol": "285A.T",
+          "pnl_per_initial_nav_pp": 20.608823760509264
+        },
+        {
+          "symbol": "INTC",
+          "pnl_per_initial_nav_pp": 14.409707480083556
+        },
+        {
+          "symbol": "CIEN",
+          "pnl_per_initial_nav_pp": 14.144075684102736
+        },
+        {
+          "symbol": "ACN",
+          "pnl_per_initial_nav_pp": 7.758445325137557
+        },
+        {
+          "symbol": "CRCL",
+          "pnl_per_initial_nav_pp": 6.805868862801508
+        },
+        {
+          "symbol": "SKHY",
+          "pnl_per_initial_nav_pp": 5.41429853078821
+        },
+        {
+          "symbol": "COHR",
+          "pnl_per_initial_nav_pp": 3.574590732618567
+        },
+        {
+          "symbol": "SNOW",
+          "pnl_per_initial_nav_pp": 3.1378618672767504
+        },
+        {
+          "symbol": "AMD",
+          "pnl_per_initial_nav_pp": 1.4171655605788032
+        },
+        {
+          "symbol": "MELI",
+          "pnl_per_initial_nav_pp": -2.281850498609897
+        },
+        {
+          "symbol": "BABA",
+          "pnl_per_initial_nav_pp": -8.470211779490928
+        },
+        {
+          "symbol": "COIN",
+          "pnl_per_initial_nav_pp": -10.985000899847783
+        }
+      ],
+      "fee_pnl_pp": -6.608303953719341,
+      "without_top_contributor": {
+        "symbol": "ARM",
+        "full": {
+          "return_pct": 97.84998653259277,
+          "max_drawdown_pct": -22.20708853964005
+        },
+        "holdout": {
+          "return_pct": 10.218385991425372,
+          "max_drawdown_pct": -12.71459637839627
+        }
+      },
+      "by_prior_regime": {
+        "unknown": {
+          "observations": 21,
+          "candidate": {
+            "return_pct": 0.0,
+            "max_drawdown_pct": 0.0
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 17.20517785376936,
+              "max_drawdown_pct": -3.77885783718106
+            },
+            "koact": {
+              "return_pct": 11.87787373975382,
+              "max_drawdown_pct": -3.5792094615623937
+            },
+            "qqq_krw": {
+              "return_pct": -0.3403706560388242,
+              "max_drawdown_pct": -3.1496481443101243
+            }
+          }
+        },
+        "up": {
+          "observations": 49,
+          "candidate": {
+            "return_pct": 89.92736275974038,
+            "max_drawdown_pct": -12.764826079053726
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 49.462689164154796,
+              "max_drawdown_pct": -5.350209659885086
+            },
+            "koact": {
+              "return_pct": 38.499582127416645,
+              "max_drawdown_pct": -5.2642980935875165
+            },
+            "qqq_krw": {
+              "return_pct": 5.5749160063739644,
+              "max_drawdown_pct": -13.511905574828697
+            }
+          }
+        },
+        "down": {
+          "observations": 29,
+          "candidate": {
+            "return_pct": 19.252352327918466,
+            "max_drawdown_pct": -6.675750012642833
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": -19.26781802980948,
+              "max_drawdown_pct": -24.70759047030624
+            },
+            "koact": {
+              "return_pct": -26.353853755679857,
+              "max_drawdown_pct": -31.02422456187519
+            },
+            "qqq_krw": {
+              "return_pct": 11.014187095954252,
+              "max_drawdown_pct": -6.132868060760199
+            }
+          }
+        },
+        "range": {
+          "observations": 90,
+          "candidate": {
+            "return_pct": 40.927847329028765,
+            "max_drawdown_pct": -19.707790647587387
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 18.87078273574556,
+              "max_drawdown_pct": -16.838326076601984
+            },
+            "koact": {
+              "return_pct": 19.78578942297391,
+              "max_drawdown_pct": -14.285098504630511
+            },
+            "qqq_krw": {
+              "return_pct": -3.8846556067159477,
+              "max_drawdown_pct": -13.869504256356125
+            }
+          }
+        }
+      },
+      "monthly": {
+        "2026-01": {
+          "return_pct": 0.0,
+          "max_drawdown_pct": 0.0
+        },
+        "2026-02": {
+          "return_pct": 0.0,
+          "max_drawdown_pct": 0.0
+        },
+        "2026-03": {
+          "return_pct": 20.774457449939334,
+          "max_drawdown_pct": -9.077403073438795
+        },
+        "2026-04": {
+          "return_pct": 29.626301643258834,
+          "max_drawdown_pct": -7.021348560139828
+        },
+        "2026-05": {
+          "return_pct": 56.57369330346067,
+          "max_drawdown_pct": -8.558339859971397
+        },
+        "2026-06": {
+          "return_pct": 27.308705001486278,
+          "max_drawdown_pct": -13.369741145605785
+        },
+        "2026-07": {
+          "return_pct": -7.199109961852068,
+          "max_drawdown_pct": -9.27155365104121
+        },
+        "2026-08": {
+          "return_pct": -3.2577400247068566,
+          "max_drawdown_pct": -12.714596378396282
+        },
+        "2026-09": {
+          "return_pct": 13.92992681747769,
+          "max_drawdown_pct": -8.779474797486097
+        }
+      }
+    },
+    "max_stocks_3": {
+      "index": 166401,
+      "config": {
+        "family": "buy_momentum",
+        "lookback": 10,
+        "time_mix": 1.0,
+        "gate": "above_ma20",
+        "max_stocks": 3,
+        "rebalance": "daily",
+        "weighting": "inverse_volatility",
+        "risk_rule": "trend_half"
+      },
+      "full": {
+        "return_pct": 189.2960594751557,
+        "max_drawdown_pct": -29.342802164424896
+      },
+      "holdout": {
+        "return_pct": -13.616630536498441,
+        "max_drawdown_pct": -29.342802164424896
+      },
+      "max_observed_stocks": 3,
+      "average_observed_stocks": 2.3544973544973544,
+      "cash_days": 25,
+      "average_cash_pct": 20.88308797936483,
+      "traded_nav_multiple": 86.14373699858575,
+      "rebalance_trade_days": 158,
+      "costs": [
+        {
+          "one_way_bps": 0,
+          "full": {
+            "return_pct": 229.23392969734056,
+            "max_drawdown_pct": -27.95478745875807
+          },
+          "holdout": {
+            "return_pct": -10.476575617175865,
+            "max_drawdown_pct": -27.95478745875807
+          }
+        },
+        {
+          "one_way_bps": 15,
+          "full": {
+            "return_pct": 189.2960594751557,
+            "max_drawdown_pct": -29.342802164424896
+          },
+          "holdout": {
+            "return_pct": -13.616630536498441,
+            "max_drawdown_pct": -29.342802164424896
+          }
+        },
+        {
+          "one_way_bps": 30,
+          "full": {
+            "return_pct": 154.1972701613418,
+            "max_drawdown_pct": -30.705088228171796
+          },
+          "holdout": {
+            "return_pct": -16.647787751107423,
+            "max_drawdown_pct": -30.705088228171785
+          }
+        },
+        {
+          "one_way_bps": 50,
+          "full": {
+            "return_pct": 113.92427296273962,
+            "max_drawdown_pct": -33.917048582348585
+          },
+          "holdout": {
+            "return_pct": -20.526388562243135,
+            "max_drawdown_pct": -32.57689310741051
+          }
+        }
+      ],
+      "extra_lag": {
+        "full": {
+          "return_pct": 82.5599230174894,
+          "max_drawdown_pct": -31.956884659712582
+        },
+        "holdout": {
+          "return_pct": -15.75226009190086,
+          "max_drawdown_pct": -25.16171914646973
+        }
+      },
+      "fresh_holdout": {
+        "return_pct": -15.882632040747968,
+        "max_drawdown_pct": -29.34280216442492
+      },
+      "contributions_pp": [
+        {
+          "symbol": "285A.T",
+          "pnl_per_initial_nav_pp": 64.88656964853958
+        },
+        {
+          "symbol": "INTC",
+          "pnl_per_initial_nav_pp": 60.87821150856456
+        },
+        {
+          "symbol": "SNOW",
+          "pnl_per_initial_nav_pp": 40.035680841674626
+        },
+        {
+          "symbol": "6981.T",
+          "pnl_per_initial_nav_pp": 33.035076898816186
+        },
+        {
+          "symbol": "EBAY",
+          "pnl_per_initial_nav_pp": 13.472259385030256
+        },
+        {
+          "symbol": "CRCL",
+          "pnl_per_initial_nav_pp": 11.589285884590634
+        },
+        {
+          "symbol": "QCOM",
+          "pnl_per_initial_nav_pp": 11.578201322625445
+        },
+        {
+          "symbol": "DELL",
+          "pnl_per_initial_nav_pp": 9.317718486945893
+        },
+        {
+          "symbol": "AEHR",
+          "pnl_per_initial_nav_pp": 8.096909076360063
+        },
+        {
+          "symbol": "010120.KS",
+          "pnl_per_initial_nav_pp": 7.9661909785259235
+        },
+        {
+          "symbol": "LITE",
+          "pnl_per_initial_nav_pp": 7.685857281644101
+        },
+        {
+          "symbol": "AXTI",
+          "pnl_per_initial_nav_pp": 7.544296527957768
+        },
+        {
+          "symbol": "440110.KS",
+          "pnl_per_initial_nav_pp": 7.536787114135719
+        },
+        {
+          "symbol": "AMD",
+          "pnl_per_initial_nav_pp": 6.252193400958811
+        },
+        {
+          "symbol": "BABA",
+          "pnl_per_initial_nav_pp": 5.25143270487077
+        },
+        {
+          "symbol": "UUUU",
+          "pnl_per_initial_nav_pp": 5.125806164887927
+        },
+        {
+          "symbol": "WDC",
+          "pnl_per_initial_nav_pp": 5.029919043706557
+        },
+        {
+          "symbol": "GEV",
+          "pnl_per_initial_nav_pp": 5.01841361326601
+        },
+        {
+          "symbol": "BE",
+          "pnl_per_initial_nav_pp": 4.2306564608158235
+        },
+        {
+          "symbol": "TSEM",
+          "pnl_per_initial_nav_pp": 3.237527221814841
+        },
+        {
+          "symbol": "NOW",
+          "pnl_per_initial_nav_pp": 3.1640001115657816
+        },
+        {
+          "symbol": "SKHY",
+          "pnl_per_initial_nav_pp": 1.9755236747342073
+        },
+        {
+          "symbol": "VRT",
+          "pnl_per_initial_nav_pp": 1.5671967983585362
+        },
+        {
+          "symbol": "TSLA",
+          "pnl_per_initial_nav_pp": -0.01415337584917218
+        },
+        {
+          "symbol": "IBM",
+          "pnl_per_initial_nav_pp": -0.044125569684079144
+        },
+        {
+          "symbol": "006400.KS",
+          "pnl_per_initial_nav_pp": -0.12236654967099636
+        },
+        {
+          "symbol": "AVGO",
+          "pnl_per_initial_nav_pp": -0.5011429180270995
+        },
+        {
+          "symbol": "CRWD",
+          "pnl_per_initial_nav_pp": -0.5086430294075869
+        },
+        {
+          "symbol": "ARM",
+          "pnl_per_initial_nav_pp": -0.9815644401590669
+        },
+        {
+          "symbol": "298040.KS",
+          "pnl_per_initial_nav_pp": -1.1423852144444928
+        },
+        {
+          "symbol": "STX",
+          "pnl_per_initial_nav_pp": -1.185674552209558
+        },
+        {
+          "symbol": "MELI",
+          "pnl_per_initial_nav_pp": -1.2692639734510713
+        },
+        {
+          "symbol": "009150.KS",
+          "pnl_per_initial_nav_pp": -1.5412279922258652
+        },
+        {
+          "symbol": "COHR",
+          "pnl_per_initial_nav_pp": -1.8856278307393555
+        },
+        {
+          "symbol": "CIEN",
+          "pnl_per_initial_nav_pp": -2.4252309511630954
+        },
+        {
+          "symbol": "NBIS",
+          "pnl_per_initial_nav_pp": -2.504417558130815
+        },
+        {
+          "symbol": "HOOD",
+          "pnl_per_initial_nav_pp": -3.310733030332205
+        },
+        {
+          "symbol": "5803.T",
+          "pnl_per_initial_nav_pp": -3.422992792750069
+        },
+        {
+          "symbol": "NTAP",
+          "pnl_per_initial_nav_pp": -4.0788627038840675
+        },
+        {
+          "symbol": "COIN",
+          "pnl_per_initial_nav_pp": -5.052164431703873
+        },
+        {
+          "symbol": "CRM",
+          "pnl_per_initial_nav_pp": -5.4199755316856075
+        },
+        {
+          "symbol": "2513.HK",
+          "pnl_per_initial_nav_pp": -5.606430791002618
+        },
+        {
+          "symbol": "SAP",
+          "pnl_per_initial_nav_pp": -5.903257986464572
+        },
+        {
+          "symbol": "SNDK",
+          "pnl_per_initial_nav_pp": -6.476777550495706
+        },
+        {
+          "symbol": "AMZN",
+          "pnl_per_initial_nav_pp": -6.535983096506132
+        },
+        {
+          "symbol": "CCJ",
+          "pnl_per_initial_nav_pp": -6.929123259314196
+        },
+        {
+          "symbol": "0100.HK",
+          "pnl_per_initial_nav_pp": -7.822191104770751
+        },
+        {
+          "symbol": "AAOI",
+          "pnl_per_initial_nav_pp": -13.82185290443189
+        },
+        {
+          "symbol": "MSTR",
+          "pnl_per_initial_nav_pp": -18.353751128664207
+        }
+      ],
+      "fee_pnl_pp": -28.31973440806621,
+      "without_top_contributor": {
+        "symbol": "285A.T",
+        "full": {
+          "return_pct": 144.73656896434585,
+          "max_drawdown_pct": -29.342802164424896
+        },
+        "holdout": {
+          "return_pct": -13.616630536498441,
+          "max_drawdown_pct": -29.342802164424942
+        }
+      },
+      "by_prior_regime": {
+        "unknown": {
+          "observations": 21,
+          "candidate": {
+            "return_pct": 0.0,
+            "max_drawdown_pct": 0.0
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 17.20517785376936,
+              "max_drawdown_pct": -3.77885783718106
+            },
+            "koact": {
+              "return_pct": 11.87787373975382,
+              "max_drawdown_pct": -3.5792094615623937
+            },
+            "qqq_krw": {
+              "return_pct": -0.3403706560388242,
+              "max_drawdown_pct": -3.1496481443101243
+            }
+          }
+        },
+        "up": {
+          "observations": 49,
+          "candidate": {
+            "return_pct": 73.15244437623775,
+            "max_drawdown_pct": -24.874839810824756
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 49.462689164154796,
+              "max_drawdown_pct": -5.350209659885086
+            },
+            "koact": {
+              "return_pct": 38.499582127416645,
+              "max_drawdown_pct": -5.2642980935875165
+            },
+            "qqq_krw": {
+              "return_pct": 5.5749160063739644,
+              "max_drawdown_pct": -13.511905574828697
+            }
+          }
+        },
+        "down": {
+          "observations": 29,
+          "candidate": {
+            "return_pct": 16.65534056559046,
+            "max_drawdown_pct": -7.222864649312477
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": -19.26781802980948,
+              "max_drawdown_pct": -24.70759047030624
+            },
+            "koact": {
+              "return_pct": -26.353853755679857,
+              "max_drawdown_pct": -31.02422456187519
+            },
+            "qqq_krw": {
+              "return_pct": 11.014187095954252,
+              "max_drawdown_pct": -6.132868060760199
+            }
+          }
+        },
+        "range": {
+          "observations": 90,
+          "candidate": {
+            "return_pct": 43.22184544523127,
+            "max_drawdown_pct": -14.621290436111034
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 18.87078273574556,
+              "max_drawdown_pct": -16.838326076601984
+            },
+            "koact": {
+              "return_pct": 19.78578942297391,
+              "max_drawdown_pct": -14.285098504630511
+            },
+            "qqq_krw": {
+              "return_pct": -3.8846556067159477,
+              "max_drawdown_pct": -13.869504256356125
+            }
+          }
+        }
+      },
+      "monthly": {
+        "2026-01": {
+          "return_pct": 0.0,
+          "max_drawdown_pct": 0.0
+        },
+        "2026-02": {
+          "return_pct": 14.945214467216793,
+          "max_drawdown_pct": -7.727653823114434
+        },
+        "2026-03": {
+          "return_pct": 5.26795260116284,
+          "max_drawdown_pct": -13.006934760614175
+        },
+        "2026-04": {
+          "return_pct": 41.945001995456835,
+          "max_drawdown_pct": -2.6845881207247846
+        },
+        "2026-05": {
+          "return_pct": 58.920301047357725,
+          "max_drawdown_pct": -7.401471637589474
+        },
+        "2026-06": {
+          "return_pct": 27.887051475767798,
+          "max_drawdown_pct": -7.1626473836793885
+        },
+        "2026-07": {
+          "return_pct": -4.060102974209768,
+          "max_drawdown_pct": -7.681823112221231
+        },
+        "2026-08": {
+          "return_pct": -13.236140594771484,
+          "max_drawdown_pct": -23.98582717162491
+        },
+        "2026-09": {
+          "return_pct": -0.4385350586468273,
+          "max_drawdown_pct": -12.558144811226125
+        }
+      }
+    },
+    "max_stocks_5": {
+      "index": 59742,
+      "config": {
+        "family": "net_flow",
+        "lookback": 3,
+        "time_mix": 0.5,
+        "gate": "none",
+        "max_stocks": 5,
+        "rebalance": "weekly",
+        "weighting": "conviction",
+        "risk_rule": "trend_cash"
+      },
+      "full": {
+        "return_pct": 241.34744949409773,
+        "max_drawdown_pct": -16.61927229441683
+      },
+      "holdout": {
+        "return_pct": 15.595341503589744,
+        "max_drawdown_pct": -10.13752748571035
+      },
+      "max_observed_stocks": 5,
+      "average_observed_stocks": 4.074074074074074,
+      "cash_days": 34,
+      "average_cash_pct": 18.22715849675646,
+      "traded_nav_multiple": 49.66219132911566,
+      "rebalance_trade_days": 33,
+      "costs": [
+        {
+          "one_way_bps": 0,
+          "full": {
+            "return_pct": 267.7786557303709,
+            "max_drawdown_pct": -16.446130130165425
+          },
+          "holdout": {
+            "return_pct": 17.356515531237136,
+            "max_drawdown_pct": -10.105573572163362
+          }
+        },
+        {
+          "one_way_bps": 15,
+          "full": {
+            "return_pct": 241.34744949409773,
+            "max_drawdown_pct": -16.61927229441683
+          },
+          "holdout": {
+            "return_pct": 15.595341503589744,
+            "max_drawdown_pct": -10.13752748571035
+          }
+        },
+        {
+          "one_way_bps": 30,
+          "full": {
+            "return_pct": 216.81912617213422,
+            "max_drawdown_pct": -16.79189658579411
+          },
+          "holdout": {
+            "return_pct": 13.86100499985492,
+            "max_drawdown_pct": -10.169385824241727
+          }
+        },
+        {
+          "one_way_bps": 50,
+          "full": {
+            "return_pct": 186.83881957595793,
+            "max_drawdown_pct": -17.64571724635494
+          },
+          "holdout": {
+            "return_pct": 11.589574628668831,
+            "max_drawdown_pct": -10.211715676366707
+          }
+        }
+      ],
+      "extra_lag": {
+        "full": {
+          "return_pct": 35.11745273331031,
+          "max_drawdown_pct": -29.262391806869935
+        },
+        "holdout": {
+          "return_pct": 7.551190986504275,
+          "max_drawdown_pct": -9.104683140451787
+        }
+      },
+      "fresh_holdout": {
+        "return_pct": 15.595341503589832,
+        "max_drawdown_pct": -10.13752748571033
+      },
+      "contributions_pp": [
+        {
+          "symbol": "SNDK",
+          "pnl_per_initial_nav_pp": 68.55589166344971
+        },
+        {
+          "symbol": "INTC",
+          "pnl_per_initial_nav_pp": 39.67926173244653
+        },
+        {
+          "symbol": "LITE",
+          "pnl_per_initial_nav_pp": 38.87183079730492
+        },
+        {
+          "symbol": "285A.T",
+          "pnl_per_initial_nav_pp": 37.68725021395222
+        },
+        {
+          "symbol": "AAOI",
+          "pnl_per_initial_nav_pp": 24.42792656390256
+        },
+        {
+          "symbol": "2513.HK",
+          "pnl_per_initial_nav_pp": 23.996629345440297
+        },
+        {
+          "symbol": "BE",
+          "pnl_per_initial_nav_pp": 19.596081456102702
+        },
+        {
+          "symbol": "ARM",
+          "pnl_per_initial_nav_pp": 7.262592027694797
+        },
+        {
+          "symbol": "MSTR",
+          "pnl_per_initial_nav_pp": 6.874768808118778
+        },
+        {
+          "symbol": "010120.KS",
+          "pnl_per_initial_nav_pp": 6.346448891281713
+        },
+        {
+          "symbol": "STX",
+          "pnl_per_initial_nav_pp": 6.280666772179713
+        },
+        {
+          "symbol": "AMD",
+          "pnl_per_initial_nav_pp": 6.196099281113785
+        },
+        {
+          "symbol": "COHR",
+          "pnl_per_initial_nav_pp": 5.943040984541027
+        },
+        {
+          "symbol": "CRWV",
+          "pnl_per_initial_nav_pp": 5.6678058504896605
+        },
+        {
+          "symbol": "CIEN",
+          "pnl_per_initial_nav_pp": 5.415362368134629
+        },
+        {
+          "symbol": "CRCL",
+          "pnl_per_initial_nav_pp": 4.055047595020049
+        },
+        {
+          "symbol": "QCOM",
+          "pnl_per_initial_nav_pp": 3.577969058173274
+        },
+        {
+          "symbol": "SKHY",
+          "pnl_per_initial_nav_pp": 2.959979476918281
+        },
+        {
+          "symbol": "000660.KS",
+          "pnl_per_initial_nav_pp": 2.388809475018344
+        },
+        {
+          "symbol": "AEHR",
+          "pnl_per_initial_nav_pp": 1.9285843900535227
+        },
+        {
+          "symbol": "VRT",
+          "pnl_per_initial_nav_pp": 1.7551103013980076
+        },
+        {
+          "symbol": "RKLB",
+          "pnl_per_initial_nav_pp": 1.474980014463827
+        },
+        {
+          "symbol": "TSEM",
+          "pnl_per_initial_nav_pp": 1.277986804746322
+        },
+        {
+          "symbol": "AKAM",
+          "pnl_per_initial_nav_pp": 1.2482970384387444
+        },
+        {
+          "symbol": "298040.KS",
+          "pnl_per_initial_nav_pp": 1.074274460449611
+        },
+        {
+          "symbol": "FSLR",
+          "pnl_per_initial_nav_pp": 1.027500638997408
+        },
+        {
+          "symbol": "AVGO",
+          "pnl_per_initial_nav_pp": 1.0161974122133068
+        },
+        {
+          "symbol": "COIN",
+          "pnl_per_initial_nav_pp": 0.9826344660371436
+        },
+        {
+          "symbol": "VIAV",
+          "pnl_per_initial_nav_pp": 0.7631022733135562
+        },
+        {
+          "symbol": "006400.KS",
+          "pnl_per_initial_nav_pp": 0.5994200422578904
+        },
+        {
+          "symbol": "ALAB",
+          "pnl_per_initial_nav_pp": 0.4783819996207644
+        },
+        {
+          "symbol": "005930.KS",
+          "pnl_per_initial_nav_pp": 0.3231289838638967
+        },
+        {
+          "symbol": "LRCX",
+          "pnl_per_initial_nav_pp": 0.3060132926985488
+        },
+        {
+          "symbol": "NVDA",
+          "pnl_per_initial_nav_pp": 0.25183629931543083
+        },
+        {
+          "symbol": "IREN",
+          "pnl_per_initial_nav_pp": 0.23482700221353695
+        },
+        {
+          "symbol": "440110.KS",
+          "pnl_per_initial_nav_pp": 0.21045344842575828
+        },
+        {
+          "symbol": "MELI",
+          "pnl_per_initial_nav_pp": 0.12239954087567811
+        },
+        {
+          "symbol": "TER",
+          "pnl_per_initial_nav_pp": 0.10564179252306685
+        },
+        {
+          "symbol": "1772.HK",
+          "pnl_per_initial_nav_pp": -0.031179569347496987
+        },
+        {
+          "symbol": "CCJ",
+          "pnl_per_initial_nav_pp": -0.08003136885157287
+        },
+        {
+          "symbol": "CRM",
+          "pnl_per_initial_nav_pp": -0.08931558408734765
+        },
+        {
+          "symbol": "DDOG",
+          "pnl_per_initial_nav_pp": -0.1044319557297814
+        },
+        {
+          "symbol": "CRWD",
+          "pnl_per_initial_nav_pp": -0.14148910392909692
+        },
+        {
+          "symbol": "SIMO",
+          "pnl_per_initial_nav_pp": -0.14423016006048012
+        },
+        {
+          "symbol": "BIIB",
+          "pnl_per_initial_nav_pp": -0.30652488399608546
+        },
+        {
+          "symbol": "GOOG",
+          "pnl_per_initial_nav_pp": -0.3085548726345058
+        },
+        {
+          "symbol": "NBIS",
+          "pnl_per_initial_nav_pp": -0.5545198275101592
+        },
+        {
+          "symbol": "TEM",
+          "pnl_per_initial_nav_pp": -0.6560140573516641
+        },
+        {
+          "symbol": "0100.HK",
+          "pnl_per_initial_nav_pp": -0.6640204923676628
+        },
+        {
+          "symbol": "PLTR",
+          "pnl_per_initial_nav_pp": -0.708901062212567
+        },
+        {
+          "symbol": "AXTI",
+          "pnl_per_initial_nav_pp": -0.7401654049484315
+        },
+        {
+          "symbol": "0700.HK",
+          "pnl_per_initial_nav_pp": -0.7516077139915864
+        },
+        {
+          "symbol": "HOOD",
+          "pnl_per_initial_nav_pp": -0.7639464008907774
+        },
+        {
+          "symbol": "ASTS",
+          "pnl_per_initial_nav_pp": -0.909810465447848
+        },
+        {
+          "symbol": "SNOW",
+          "pnl_per_initial_nav_pp": -0.9676065700774481
+        },
+        {
+          "symbol": "LLY",
+          "pnl_per_initial_nav_pp": -1.0244659924490396
+        },
+        {
+          "symbol": "009150.KS",
+          "pnl_per_initial_nav_pp": -1.1037018338516853
+        },
+        {
+          "symbol": "6981.T",
+          "pnl_per_initial_nav_pp": -1.172781466969896
+        },
+        {
+          "symbol": "ILMN",
+          "pnl_per_initial_nav_pp": -1.3882591349359639
+        },
+        {
+          "symbol": "VICR",
+          "pnl_per_initial_nav_pp": -1.4233494535470725
+        },
+        {
+          "symbol": "TTWO",
+          "pnl_per_initial_nav_pp": -1.5040157484388395
+        },
+        {
+          "symbol": "MSFT",
+          "pnl_per_initial_nav_pp": -1.597481196030372
+        },
+        {
+          "symbol": "META",
+          "pnl_per_initial_nav_pp": -1.7473907818306156
+        },
+        {
+          "symbol": "9988.HK",
+          "pnl_per_initial_nav_pp": -1.9038389007078709
+        },
+        {
+          "symbol": "GLW",
+          "pnl_per_initial_nav_pp": -2.3321876732211377
+        },
+        {
+          "symbol": "NVTS",
+          "pnl_per_initial_nav_pp": -3.012425804587556
+        },
+        {
+          "symbol": "DELL",
+          "pnl_per_initial_nav_pp": -3.349317677901752
+        },
+        {
+          "symbol": "MDB",
+          "pnl_per_initial_nav_pp": -3.6773353515308917
+        },
+        {
+          "symbol": "MU",
+          "pnl_per_initial_nav_pp": -5.285187493070293
+        },
+        {
+          "symbol": "NTAP",
+          "pnl_per_initial_nav_pp": -5.946995694240224
+        },
+        {
+          "symbol": "AMZN",
+          "pnl_per_initial_nav_pp": -7.157596484858653
+        },
+        {
+          "symbol": "TSLA",
+          "pnl_per_initial_nav_pp": -8.36523200357905
+        },
+        {
+          "symbol": "ASML",
+          "pnl_per_initial_nav_pp": -11.75328645884445
+        }
+      ],
+      "fee_pnl_pp": -17.949584425061403,
+      "without_top_contributor": {
+        "symbol": "SNDK",
+        "full": {
+          "return_pct": 116.28102233127406,
+          "max_drawdown_pct": -16.61927229441682
+        },
+        "holdout": {
+          "return_pct": 15.739316533350367,
+          "max_drawdown_pct": -10.137527485710319
+        }
+      },
+      "by_prior_regime": {
+        "unknown": {
+          "observations": 21,
+          "candidate": {
+            "return_pct": 33.35006055688676,
+            "max_drawdown_pct": -7.691713489137275
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 17.20517785376936,
+              "max_drawdown_pct": -3.77885783718106
+            },
+            "koact": {
+              "return_pct": 11.87787373975382,
+              "max_drawdown_pct": -3.5792094615623937
+            },
+            "qqq_krw": {
+              "return_pct": -0.3403706560388242,
+              "max_drawdown_pct": -3.1496481443101243
+            }
+          }
+        },
+        "up": {
+          "observations": 49,
+          "candidate": {
+            "return_pct": 40.12645403104065,
+            "max_drawdown_pct": -10.375469139803762
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 49.462689164154796,
+              "max_drawdown_pct": -5.350209659885086
+            },
+            "koact": {
+              "return_pct": 38.499582127416645,
+              "max_drawdown_pct": -5.2642980935875165
+            },
+            "qqq_krw": {
+              "return_pct": 5.5749160063739644,
+              "max_drawdown_pct": -13.511905574828697
+            }
+          }
+        },
+        "down": {
+          "observations": 29,
+          "candidate": {
+            "return_pct": 8.790181553825738,
+            "max_drawdown_pct": -3.7009296612102394
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": -19.26781802980948,
+              "max_drawdown_pct": -24.70759047030624
+            },
+            "koact": {
+              "return_pct": -26.353853755679857,
+              "max_drawdown_pct": -31.02422456187519
+            },
+            "qqq_krw": {
+              "return_pct": 11.014187095954252,
+              "max_drawdown_pct": -6.132868060760199
+            }
+          }
+        },
+        "range": {
+          "observations": 90,
+          "candidate": {
+            "return_pct": 67.91659200283834,
+            "max_drawdown_pct": -13.561541184219571
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 18.87078273574556,
+              "max_drawdown_pct": -16.838326076601984
+            },
+            "koact": {
+              "return_pct": 19.78578942297391,
+              "max_drawdown_pct": -14.285098504630511
+            },
+            "qqq_krw": {
+              "return_pct": -3.8846556067159477,
+              "max_drawdown_pct": -13.869504256356125
+            }
+          }
+        }
+      },
+      "monthly": {
+        "2026-01": {
+          "return_pct": 33.35006055688676,
+          "max_drawdown_pct": -7.691713489137275
+        },
+        "2026-02": {
+          "return_pct": 13.86216142613732,
+          "max_drawdown_pct": -6.6611278871173685
+        },
+        "2026-03": {
+          "return_pct": 12.506379762223375,
+          "max_drawdown_pct": -10.190235983245266
+        },
+        "2026-04": {
+          "return_pct": 34.72116530004463,
+          "max_drawdown_pct": -4.424973515253317
+        },
+        "2026-05": {
+          "return_pct": 18.305463704654912,
+          "max_drawdown_pct": -6.691157325057439
+        },
+        "2026-06": {
+          "return_pct": 18.906858298268435,
+          "max_drawdown_pct": -16.61927229441684
+        },
+        "2026-07": {
+          "return_pct": -8.786525031821512,
+          "max_drawdown_pct": -8.786525031821512
+        },
+        "2026-08": {
+          "return_pct": 4.637749496494936,
+          "max_drawdown_pct": -5.4266416716159505
+        },
+        "2026-09": {
+          "return_pct": 10.471930120651084,
+          "max_drawdown_pct": -10.137527485710319
+        }
+      }
+    },
+    "max_stocks_7": {
+      "index": 238409,
+      "config": {
+        "family": "joint_buy",
+        "lookback": 40,
+        "time_mix": 0.75,
+        "gate": "above_ma20",
+        "max_stocks": 7,
+        "rebalance": "weekly",
+        "weighting": "conviction",
+        "risk_rule": "trend_half"
+      },
+      "full": {
+        "return_pct": 181.0389615839979,
+        "max_drawdown_pct": -14.391894579474418
+      },
+      "holdout": {
+        "return_pct": 7.675171008662973,
+        "max_drawdown_pct": -14.39189457947444
+      },
+      "max_observed_stocks": 7,
+      "average_observed_stocks": 3.7566137566137567,
+      "cash_days": 45,
+      "average_cash_pct": 31.714046658485863,
+      "traded_nav_multiple": 20.542905749690306,
+      "rebalance_trade_days": 28,
+      "costs": [
+        {
+          "one_way_bps": 0,
+          "full": {
+            "return_pct": 189.84004613727498,
+            "max_drawdown_pct": -14.183789596304896
+          },
+          "holdout": {
+            "return_pct": 8.441830629199476,
+            "max_drawdown_pct": -14.183789596304896
+          }
+        },
+        {
+          "one_way_bps": 15,
+          "full": {
+            "return_pct": 181.0389615839979,
+            "max_drawdown_pct": -14.391894579474418
+          },
+          "holdout": {
+            "return_pct": 7.675171008662973,
+            "max_drawdown_pct": -14.39189457947444
+          }
+        },
+        {
+          "one_way_bps": 30,
+          "full": {
+            "return_pct": 172.50544304977387,
+            "max_drawdown_pct": -14.599332559782319
+          },
+          "holdout": {
+            "return_pct": 6.913836944212526,
+            "max_drawdown_pct": -14.59933255978234
+          }
+        },
+        {
+          "one_way_bps": 50,
+          "full": {
+            "return_pct": 161.52954779610513,
+            "max_drawdown_pct": -14.883711760639851
+          },
+          "holdout": {
+            "return_pct": 5.906943114975638,
+            "max_drawdown_pct": -14.87488418257753
+          }
+        }
+      ],
+      "extra_lag": {
+        "full": {
+          "return_pct": 65.49075867254876,
+          "max_drawdown_pct": -16.588198439247325
+        },
+        "holdout": {
+          "return_pct": 0.5826601190359604,
+          "max_drawdown_pct": -15.963312754311886
+        }
+      },
+      "fresh_holdout": {
+        "return_pct": 4.805033363830868,
+        "max_drawdown_pct": -14.391894579474407
+      },
+      "contributions_pp": [
+        {
+          "symbol": "ARM",
+          "pnl_per_initial_nav_pp": 45.52340258864685
+        },
+        {
+          "symbol": "INTC",
+          "pnl_per_initial_nav_pp": 27.056912030952514
+        },
+        {
+          "symbol": "AXTI",
+          "pnl_per_initial_nav_pp": 18.364027780347776
+        },
+        {
+          "symbol": "SKHY",
+          "pnl_per_initial_nav_pp": 16.587733159033373
+        },
+        {
+          "symbol": "LITE",
+          "pnl_per_initial_nav_pp": 16.422553269110914
+        },
+        {
+          "symbol": "AMD",
+          "pnl_per_initial_nav_pp": 15.894202074641676
+        },
+        {
+          "symbol": "MSTR",
+          "pnl_per_initial_nav_pp": 11.906792469203587
+        },
+        {
+          "symbol": "CIEN",
+          "pnl_per_initial_nav_pp": 11.438293910372648
+        },
+        {
+          "symbol": "STX",
+          "pnl_per_initial_nav_pp": 10.843201900128022
+        },
+        {
+          "symbol": "CRCL",
+          "pnl_per_initial_nav_pp": 10.510849181626925
+        },
+        {
+          "symbol": "BABA",
+          "pnl_per_initial_nav_pp": 7.6373917856359235
+        },
+        {
+          "symbol": "WDC",
+          "pnl_per_initial_nav_pp": 6.323942563239143
+        },
+        {
+          "symbol": "COHR",
+          "pnl_per_initial_nav_pp": 6.078314727249684
+        },
+        {
+          "symbol": "TSEM",
+          "pnl_per_initial_nav_pp": 5.482454875935285
+        },
+        {
+          "symbol": "BE",
+          "pnl_per_initial_nav_pp": 3.200605100115757
+        },
+        {
+          "symbol": "SNOW",
+          "pnl_per_initial_nav_pp": 2.8939169124372346
+        },
+        {
+          "symbol": "AVGO",
+          "pnl_per_initial_nav_pp": 2.4051165359908375
+        },
+        {
+          "symbol": "ASML",
+          "pnl_per_initial_nav_pp": 2.3657269855623846
+        },
+        {
+          "symbol": "TSLA",
+          "pnl_per_initial_nav_pp": 2.131870835015914
+        },
+        {
+          "symbol": "NVDA",
+          "pnl_per_initial_nav_pp": 1.8548827366246488
+        },
+        {
+          "symbol": "VRT",
+          "pnl_per_initial_nav_pp": -0.3939650812307462
+        },
+        {
+          "symbol": "DELL",
+          "pnl_per_initial_nav_pp": -1.4619092760375192
+        },
+        {
+          "symbol": "NTAP",
+          "pnl_per_initial_nav_pp": -2.029523029414177
+        },
+        {
+          "symbol": "QCOM",
+          "pnl_per_initial_nav_pp": -4.008689285770915
+        },
+        {
+          "symbol": "AMZN",
+          "pnl_per_initial_nav_pp": -4.060539218133456
+        },
+        {
+          "symbol": "COIN",
+          "pnl_per_initial_nav_pp": -4.954706897778248
+        },
+        {
+          "symbol": "META",
+          "pnl_per_initial_nav_pp": -6.241774608072088
+        },
+        {
+          "symbol": "AAOI",
+          "pnl_per_initial_nav_pp": -14.120592411414352
+        }
+      ],
+      "fee_pnl_pp": -6.611530030021706,
+      "without_top_contributor": {
+        "symbol": "ARM",
+        "full": {
+          "return_pct": 153.47053892100595,
+          "max_drawdown_pct": -14.39189457947444
+        },
+        "holdout": {
+          "return_pct": 7.675171008662929,
+          "max_drawdown_pct": -14.39189457947444
+        }
+      },
+      "by_prior_regime": {
+        "unknown": {
+          "observations": 21,
+          "candidate": {
+            "return_pct": 0.0,
+            "max_drawdown_pct": 0.0
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 17.20517785376936,
+              "max_drawdown_pct": -3.77885783718106
+            },
+            "koact": {
+              "return_pct": 11.87787373975382,
+              "max_drawdown_pct": -3.5792094615623937
+            },
+            "qqq_krw": {
+              "return_pct": -0.3403706560388242,
+              "max_drawdown_pct": -3.1496481443101243
+            }
+          }
+        },
+        "up": {
+          "observations": 49,
+          "candidate": {
+            "return_pct": 39.35774329155288,
+            "max_drawdown_pct": -19.365973426797122
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 49.462689164154796,
+              "max_drawdown_pct": -5.350209659885086
+            },
+            "koact": {
+              "return_pct": 38.499582127416645,
+              "max_drawdown_pct": -5.2642980935875165
+            },
+            "qqq_krw": {
+              "return_pct": 5.5749160063739644,
+              "max_drawdown_pct": -13.511905574828697
+            }
+          }
+        },
+        "down": {
+          "observations": 29,
+          "candidate": {
+            "return_pct": 18.45000674735644,
+            "max_drawdown_pct": -7.716777123758723
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": -19.26781802980948,
+              "max_drawdown_pct": -24.70759047030624
+            },
+            "koact": {
+              "return_pct": -26.353853755679857,
+              "max_drawdown_pct": -31.02422456187519
+            },
+            "qqq_krw": {
+              "return_pct": 11.014187095954252,
+              "max_drawdown_pct": -6.132868060760199
+            }
+          }
+        },
+        "range": {
+          "observations": 90,
+          "candidate": {
+            "return_pct": 70.25518126711468,
+            "max_drawdown_pct": -17.044705058303578
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 18.87078273574556,
+              "max_drawdown_pct": -16.838326076601984
+            },
+            "koact": {
+              "return_pct": 19.78578942297391,
+              "max_drawdown_pct": -14.285098504630511
+            },
+            "qqq_krw": {
+              "return_pct": -3.8846556067159477,
+              "max_drawdown_pct": -13.869504256356125
+            }
+          }
+        }
+      },
+      "monthly": {
+        "2026-01": {
+          "return_pct": 0.0,
+          "max_drawdown_pct": 0.0
+        },
+        "2026-02": {
+          "return_pct": 0.0,
+          "max_drawdown_pct": 0.0
+        },
+        "2026-03": {
+          "return_pct": 37.24960829287662,
+          "max_drawdown_pct": -8.310637092628214
+        },
+        "2026-04": {
+          "return_pct": 40.58859656425773,
+          "max_drawdown_pct": -6.158131581580905
+        },
+        "2026-05": {
+          "return_pct": 28.93878168811055,
+          "max_drawdown_pct": -6.165981676859033
+        },
+        "2026-06": {
+          "return_pct": 12.461701083542852,
+          "max_drawdown_pct": -13.427946565963211
+        },
+        "2026-07": {
+          "return_pct": -6.717206760415961,
+          "max_drawdown_pct": -8.496657789210694
+        },
+        "2026-08": {
+          "return_pct": -0.009891047576349177,
+          "max_drawdown_pct": -14.131576077981634
+        },
+        "2026-09": {
+          "return_pct": 7.68582226457617,
+          "max_drawdown_pct": -9.542981414172091
+        }
+      }
+    },
+    "max_stocks_10": {
+      "index": 122234,
+      "config": {
+        "family": "repeated_buy",
+        "lookback": 5,
+        "time_mix": 1.0,
+        "gate": "positive_momentum",
+        "max_stocks": 10,
+        "rebalance": "weekly",
+        "weighting": "equal",
+        "risk_rule": "trend_cash"
+      },
+      "full": {
+        "return_pct": 185.4966195992123,
+        "max_drawdown_pct": -12.487839343327634
+      },
+      "holdout": {
+        "return_pct": -3.8125448724144584,
+        "max_drawdown_pct": -12.487839343327645
+      },
+      "max_observed_stocks": 3,
+      "average_observed_stocks": 0.5026455026455027,
+      "cash_days": 119,
+      "average_cash_pct": 62.96296296296296,
+      "traded_nav_multiple": 23.973040439340988,
+      "rebalance_trade_days": 18,
+      "costs": [
+        {
+          "one_way_bps": 0,
+          "full": {
+            "return_pct": 195.96174785189615,
+            "max_drawdown_pct": -12.487839343327634
+          },
+          "holdout": {
+            "return_pct": -3.2336848640589833,
+            "max_drawdown_pct": -12.487839343327622
+          }
+        },
+        {
+          "one_way_bps": 15,
+          "full": {
+            "return_pct": 185.4966195992123,
+            "max_drawdown_pct": -12.487839343327634
+          },
+          "holdout": {
+            "return_pct": -3.8125448724144584,
+            "max_drawdown_pct": -12.487839343327645
+          }
+        },
+        {
+          "one_way_bps": 30,
+          "full": {
+            "return_pct": 175.4014908674259,
+            "max_drawdown_pct": -12.487839343327634
+          },
+          "holdout": {
+            "return_pct": -4.387944698346081,
+            "max_drawdown_pct": -12.487839343327622
+          }
+        },
+        {
+          "one_way_bps": 50,
+          "full": {
+            "return_pct": 162.49426015804826,
+            "max_drawdown_pct": -12.813560335271335
+          },
+          "holdout": {
+            "return_pct": -5.1498020915719644,
+            "max_drawdown_pct": -12.813560335271335
+          }
+        }
+      ],
+      "extra_lag": {
+        "full": {
+          "return_pct": 162.48232797474,
+          "max_drawdown_pct": -10.970841946554478
+        },
+        "holdout": {
+          "return_pct": -5.75818051257505,
+          "max_drawdown_pct": -5.75818051257505
+        }
+      },
+      "fresh_holdout": {
+        "return_pct": -2.926199448465816,
+        "max_drawdown_pct": -12.487839343327634
+      },
+      "contributions_pp": [
+        {
+          "symbol": "DELL",
+          "pnl_per_initial_nav_pp": 130.59008825219115
+        },
+        {
+          "symbol": "6981.T",
+          "pnl_per_initial_nav_pp": 32.86700482061947
+        },
+        {
+          "symbol": "AAOI",
+          "pnl_per_initial_nav_pp": 17.109373822720684
+        },
+        {
+          "symbol": "SNDK",
+          "pnl_per_initial_nav_pp": 12.587714067713367
+        },
+        {
+          "symbol": "MSTR",
+          "pnl_per_initial_nav_pp": 10.733702376348852
+        },
+        {
+          "symbol": "CRCL",
+          "pnl_per_initial_nav_pp": 7.538338979812565
+        },
+        {
+          "symbol": "TSM",
+          "pnl_per_initial_nav_pp": 6.597409359357032
+        },
+        {
+          "symbol": "TSEM",
+          "pnl_per_initial_nav_pp": 4.9869540637258325
+        },
+        {
+          "symbol": "NVDA",
+          "pnl_per_initial_nav_pp": 4.6125838096366545
+        },
+        {
+          "symbol": "COIN",
+          "pnl_per_initial_nav_pp": 1.6268085280978526
+        },
+        {
+          "symbol": "INTC",
+          "pnl_per_initial_nav_pp": -0.4236678390987153
+        },
+        {
+          "symbol": "STX",
+          "pnl_per_initial_nav_pp": -0.9134031561010978
+        },
+        {
+          "symbol": "BE",
+          "pnl_per_initial_nav_pp": -1.6431626548568758
+        },
+        {
+          "symbol": "ASML",
+          "pnl_per_initial_nav_pp": -1.8141826715137102
+        },
+        {
+          "symbol": "AMZN",
+          "pnl_per_initial_nav_pp": -6.702527185561992
+        },
+        {
+          "symbol": "0100.HK",
+          "pnl_per_initial_nav_pp": -26.192496173276268
+        }
+      ],
+      "fee_pnl_pp": -6.063918800602486,
+      "without_top_contributor": {
+        "symbol": "DELL",
+        "full": {
+          "return_pct": 45.33998526728187,
+          "max_drawdown_pct": -12.487839343327622
+        },
+        "holdout": {
+          "return_pct": -3.8125448724144806,
+          "max_drawdown_pct": -12.487839343327622
+        }
+      },
+      "by_prior_regime": {
+        "unknown": {
+          "observations": 21,
+          "candidate": {
+            "return_pct": 0.0,
+            "max_drawdown_pct": 0.0
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 17.20517785376936,
+              "max_drawdown_pct": -3.77885783718106
+            },
+            "koact": {
+              "return_pct": 11.87787373975382,
+              "max_drawdown_pct": -3.5792094615623937
+            },
+            "qqq_krw": {
+              "return_pct": -0.3403706560388242,
+              "max_drawdown_pct": -3.1496481443101243
+            }
+          }
+        },
+        "up": {
+          "observations": 49,
+          "candidate": {
+            "return_pct": 110.90401701234174,
+            "max_drawdown_pct": -14.591838712431715
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 49.462689164154796,
+              "max_drawdown_pct": -5.350209659885086
+            },
+            "koact": {
+              "return_pct": 38.499582127416645,
+              "max_drawdown_pct": -5.2642980935875165
+            },
+            "qqq_krw": {
+              "return_pct": 5.5749160063739644,
+              "max_drawdown_pct": -13.511905574828697
+            }
+          }
+        },
+        "down": {
+          "observations": 29,
+          "candidate": {
+            "return_pct": -0.3379812347403921,
+            "max_drawdown_pct": -6.555608885233721
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": -19.26781802980948,
+              "max_drawdown_pct": -24.70759047030624
+            },
+            "koact": {
+              "return_pct": -26.353853755679857,
+              "max_drawdown_pct": -31.02422456187519
+            },
+            "qqq_krw": {
+              "return_pct": 11.014187095954252,
+              "max_drawdown_pct": -6.132868060760199
+            }
+          }
+        },
+        "range": {
+          "observations": 90,
+          "candidate": {
+            "return_pct": 35.827103239948,
+            "max_drawdown_pct": -16.666192904356226
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 18.87078273574556,
+              "max_drawdown_pct": -16.838326076601984
+            },
+            "koact": {
+              "return_pct": 19.78578942297391,
+              "max_drawdown_pct": -14.285098504630511
+            },
+            "qqq_krw": {
+              "return_pct": -3.8846556067159477,
+              "max_drawdown_pct": -13.869504256356125
+            }
+          }
+        }
+      },
+      "monthly": {
+        "2026-01": {
+          "return_pct": 0.0,
+          "max_drawdown_pct": 0.0
+        },
+        "2026-02": {
+          "return_pct": 11.06132740448209,
+          "max_drawdown_pct": -11.121305971737804
+        },
+        "2026-03": {
+          "return_pct": 6.015587460158045,
+          "max_drawdown_pct": -7.837324116297939
+        },
+        "2026-04": {
+          "return_pct": 6.897332020194402,
+          "max_drawdown_pct": -6.678261522221618
+        },
+        "2026-05": {
+          "return_pct": 88.86437749078799,
+          "max_drawdown_pct": -8.682013313339375
+        },
+        "2026-06": {
+          "return_pct": 24.86278980336889,
+          "max_drawdown_pct": -12.313382760840819
+        },
+        "2026-07": {
+          "return_pct": 0.0,
+          "max_drawdown_pct": 0.0
+        },
+        "2026-08": {
+          "return_pct": -3.8125448724144584,
+          "max_drawdown_pct": -12.487839343327645
+        },
+        "2026-09": {
+          "return_pct": 0.0,
+          "max_drawdown_pct": 0.0
+        }
+      }
+    },
+    "diversified_ge3": {
+      "index": 166401,
+      "config": {
+        "family": "buy_momentum",
+        "lookback": 10,
+        "time_mix": 1.0,
+        "gate": "above_ma20",
+        "max_stocks": 3,
+        "rebalance": "daily",
+        "weighting": "inverse_volatility",
+        "risk_rule": "trend_half"
+      },
+      "full": {
+        "return_pct": 189.2960594751557,
+        "max_drawdown_pct": -29.342802164424896
+      },
+      "holdout": {
+        "return_pct": -13.616630536498441,
+        "max_drawdown_pct": -29.342802164424896
+      },
+      "max_observed_stocks": 3,
+      "average_observed_stocks": 2.3544973544973544,
+      "cash_days": 25,
+      "average_cash_pct": 20.88308797936483,
+      "traded_nav_multiple": 86.14373699858575,
+      "rebalance_trade_days": 158,
+      "costs": [
+        {
+          "one_way_bps": 0,
+          "full": {
+            "return_pct": 229.23392969734056,
+            "max_drawdown_pct": -27.95478745875807
+          },
+          "holdout": {
+            "return_pct": -10.476575617175865,
+            "max_drawdown_pct": -27.95478745875807
+          }
+        },
+        {
+          "one_way_bps": 15,
+          "full": {
+            "return_pct": 189.2960594751557,
+            "max_drawdown_pct": -29.342802164424896
+          },
+          "holdout": {
+            "return_pct": -13.616630536498441,
+            "max_drawdown_pct": -29.342802164424896
+          }
+        },
+        {
+          "one_way_bps": 30,
+          "full": {
+            "return_pct": 154.1972701613418,
+            "max_drawdown_pct": -30.705088228171796
+          },
+          "holdout": {
+            "return_pct": -16.647787751107423,
+            "max_drawdown_pct": -30.705088228171785
+          }
+        },
+        {
+          "one_way_bps": 50,
+          "full": {
+            "return_pct": 113.92427296273962,
+            "max_drawdown_pct": -33.917048582348585
+          },
+          "holdout": {
+            "return_pct": -20.526388562243135,
+            "max_drawdown_pct": -32.57689310741051
+          }
+        }
+      ],
+      "extra_lag": {
+        "full": {
+          "return_pct": 82.5599230174894,
+          "max_drawdown_pct": -31.956884659712582
+        },
+        "holdout": {
+          "return_pct": -15.75226009190086,
+          "max_drawdown_pct": -25.16171914646973
+        }
+      },
+      "fresh_holdout": {
+        "return_pct": -15.882632040747968,
+        "max_drawdown_pct": -29.34280216442492
+      },
+      "contributions_pp": [
+        {
+          "symbol": "285A.T",
+          "pnl_per_initial_nav_pp": 64.88656964853958
+        },
+        {
+          "symbol": "INTC",
+          "pnl_per_initial_nav_pp": 60.87821150856456
+        },
+        {
+          "symbol": "SNOW",
+          "pnl_per_initial_nav_pp": 40.035680841674626
+        },
+        {
+          "symbol": "6981.T",
+          "pnl_per_initial_nav_pp": 33.035076898816186
+        },
+        {
+          "symbol": "EBAY",
+          "pnl_per_initial_nav_pp": 13.472259385030256
+        },
+        {
+          "symbol": "CRCL",
+          "pnl_per_initial_nav_pp": 11.589285884590634
+        },
+        {
+          "symbol": "QCOM",
+          "pnl_per_initial_nav_pp": 11.578201322625445
+        },
+        {
+          "symbol": "DELL",
+          "pnl_per_initial_nav_pp": 9.317718486945893
+        },
+        {
+          "symbol": "AEHR",
+          "pnl_per_initial_nav_pp": 8.096909076360063
+        },
+        {
+          "symbol": "010120.KS",
+          "pnl_per_initial_nav_pp": 7.9661909785259235
+        },
+        {
+          "symbol": "LITE",
+          "pnl_per_initial_nav_pp": 7.685857281644101
+        },
+        {
+          "symbol": "AXTI",
+          "pnl_per_initial_nav_pp": 7.544296527957768
+        },
+        {
+          "symbol": "440110.KS",
+          "pnl_per_initial_nav_pp": 7.536787114135719
+        },
+        {
+          "symbol": "AMD",
+          "pnl_per_initial_nav_pp": 6.252193400958811
+        },
+        {
+          "symbol": "BABA",
+          "pnl_per_initial_nav_pp": 5.25143270487077
+        },
+        {
+          "symbol": "UUUU",
+          "pnl_per_initial_nav_pp": 5.125806164887927
+        },
+        {
+          "symbol": "WDC",
+          "pnl_per_initial_nav_pp": 5.029919043706557
+        },
+        {
+          "symbol": "GEV",
+          "pnl_per_initial_nav_pp": 5.01841361326601
+        },
+        {
+          "symbol": "BE",
+          "pnl_per_initial_nav_pp": 4.2306564608158235
+        },
+        {
+          "symbol": "TSEM",
+          "pnl_per_initial_nav_pp": 3.237527221814841
+        },
+        {
+          "symbol": "NOW",
+          "pnl_per_initial_nav_pp": 3.1640001115657816
+        },
+        {
+          "symbol": "SKHY",
+          "pnl_per_initial_nav_pp": 1.9755236747342073
+        },
+        {
+          "symbol": "VRT",
+          "pnl_per_initial_nav_pp": 1.5671967983585362
+        },
+        {
+          "symbol": "TSLA",
+          "pnl_per_initial_nav_pp": -0.01415337584917218
+        },
+        {
+          "symbol": "IBM",
+          "pnl_per_initial_nav_pp": -0.044125569684079144
+        },
+        {
+          "symbol": "006400.KS",
+          "pnl_per_initial_nav_pp": -0.12236654967099636
+        },
+        {
+          "symbol": "AVGO",
+          "pnl_per_initial_nav_pp": -0.5011429180270995
+        },
+        {
+          "symbol": "CRWD",
+          "pnl_per_initial_nav_pp": -0.5086430294075869
+        },
+        {
+          "symbol": "ARM",
+          "pnl_per_initial_nav_pp": -0.9815644401590669
+        },
+        {
+          "symbol": "298040.KS",
+          "pnl_per_initial_nav_pp": -1.1423852144444928
+        },
+        {
+          "symbol": "STX",
+          "pnl_per_initial_nav_pp": -1.185674552209558
+        },
+        {
+          "symbol": "MELI",
+          "pnl_per_initial_nav_pp": -1.2692639734510713
+        },
+        {
+          "symbol": "009150.KS",
+          "pnl_per_initial_nav_pp": -1.5412279922258652
+        },
+        {
+          "symbol": "COHR",
+          "pnl_per_initial_nav_pp": -1.8856278307393555
+        },
+        {
+          "symbol": "CIEN",
+          "pnl_per_initial_nav_pp": -2.4252309511630954
+        },
+        {
+          "symbol": "NBIS",
+          "pnl_per_initial_nav_pp": -2.504417558130815
+        },
+        {
+          "symbol": "HOOD",
+          "pnl_per_initial_nav_pp": -3.310733030332205
+        },
+        {
+          "symbol": "5803.T",
+          "pnl_per_initial_nav_pp": -3.422992792750069
+        },
+        {
+          "symbol": "NTAP",
+          "pnl_per_initial_nav_pp": -4.0788627038840675
+        },
+        {
+          "symbol": "COIN",
+          "pnl_per_initial_nav_pp": -5.052164431703873
+        },
+        {
+          "symbol": "CRM",
+          "pnl_per_initial_nav_pp": -5.4199755316856075
+        },
+        {
+          "symbol": "2513.HK",
+          "pnl_per_initial_nav_pp": -5.606430791002618
+        },
+        {
+          "symbol": "SAP",
+          "pnl_per_initial_nav_pp": -5.903257986464572
+        },
+        {
+          "symbol": "SNDK",
+          "pnl_per_initial_nav_pp": -6.476777550495706
+        },
+        {
+          "symbol": "AMZN",
+          "pnl_per_initial_nav_pp": -6.535983096506132
+        },
+        {
+          "symbol": "CCJ",
+          "pnl_per_initial_nav_pp": -6.929123259314196
+        },
+        {
+          "symbol": "0100.HK",
+          "pnl_per_initial_nav_pp": -7.822191104770751
+        },
+        {
+          "symbol": "AAOI",
+          "pnl_per_initial_nav_pp": -13.82185290443189
+        },
+        {
+          "symbol": "MSTR",
+          "pnl_per_initial_nav_pp": -18.353751128664207
+        }
+      ],
+      "fee_pnl_pp": -28.31973440806621,
+      "without_top_contributor": {
+        "symbol": "285A.T",
+        "full": {
+          "return_pct": 144.73656896434585,
+          "max_drawdown_pct": -29.342802164424896
+        },
+        "holdout": {
+          "return_pct": -13.616630536498441,
+          "max_drawdown_pct": -29.342802164424942
+        }
+      },
+      "by_prior_regime": {
+        "unknown": {
+          "observations": 21,
+          "candidate": {
+            "return_pct": 0.0,
+            "max_drawdown_pct": 0.0
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 17.20517785376936,
+              "max_drawdown_pct": -3.77885783718106
+            },
+            "koact": {
+              "return_pct": 11.87787373975382,
+              "max_drawdown_pct": -3.5792094615623937
+            },
+            "qqq_krw": {
+              "return_pct": -0.3403706560388242,
+              "max_drawdown_pct": -3.1496481443101243
+            }
+          }
+        },
+        "up": {
+          "observations": 49,
+          "candidate": {
+            "return_pct": 73.15244437623775,
+            "max_drawdown_pct": -24.874839810824756
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 49.462689164154796,
+              "max_drawdown_pct": -5.350209659885086
+            },
+            "koact": {
+              "return_pct": 38.499582127416645,
+              "max_drawdown_pct": -5.2642980935875165
+            },
+            "qqq_krw": {
+              "return_pct": 5.5749160063739644,
+              "max_drawdown_pct": -13.511905574828697
+            }
+          }
+        },
+        "down": {
+          "observations": 29,
+          "candidate": {
+            "return_pct": 16.65534056559046,
+            "max_drawdown_pct": -7.222864649312477
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": -19.26781802980948,
+              "max_drawdown_pct": -24.70759047030624
+            },
+            "koact": {
+              "return_pct": -26.353853755679857,
+              "max_drawdown_pct": -31.02422456187519
+            },
+            "qqq_krw": {
+              "return_pct": 11.014187095954252,
+              "max_drawdown_pct": -6.132868060760199
+            }
+          }
+        },
+        "range": {
+          "observations": 90,
+          "candidate": {
+            "return_pct": 43.22184544523127,
+            "max_drawdown_pct": -14.621290436111034
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 18.87078273574556,
+              "max_drawdown_pct": -16.838326076601984
+            },
+            "koact": {
+              "return_pct": 19.78578942297391,
+              "max_drawdown_pct": -14.285098504630511
+            },
+            "qqq_krw": {
+              "return_pct": -3.8846556067159477,
+              "max_drawdown_pct": -13.869504256356125
+            }
+          }
+        }
+      },
+      "monthly": {
+        "2026-01": {
+          "return_pct": 0.0,
+          "max_drawdown_pct": 0.0
+        },
+        "2026-02": {
+          "return_pct": 14.945214467216793,
+          "max_drawdown_pct": -7.727653823114434
+        },
+        "2026-03": {
+          "return_pct": 5.26795260116284,
+          "max_drawdown_pct": -13.006934760614175
+        },
+        "2026-04": {
+          "return_pct": 41.945001995456835,
+          "max_drawdown_pct": -2.6845881207247846
+        },
+        "2026-05": {
+          "return_pct": 58.920301047357725,
+          "max_drawdown_pct": -7.401471637589474
+        },
+        "2026-06": {
+          "return_pct": 27.887051475767798,
+          "max_drawdown_pct": -7.1626473836793885
+        },
+        "2026-07": {
+          "return_pct": -4.060102974209768,
+          "max_drawdown_pct": -7.681823112221231
+        },
+        "2026-08": {
+          "return_pct": -13.236140594771484,
+          "max_drawdown_pct": -23.98582717162491
+        },
+        "2026-09": {
+          "return_pct": -0.4385350586468273,
+          "max_drawdown_pct": -12.558144811226125
+        }
+      }
+    },
+    "both_funds_mixed_ge3": {
+      "index": 239206,
+      "config": {
+        "family": "new_entry",
+        "lookback": 40,
+        "time_mix": 0.75,
+        "gate": "none",
+        "max_stocks": 3,
+        "rebalance": "weekly",
+        "weighting": "inverse_volatility",
+        "risk_rule": "trend_cash"
+      },
+      "full": {
+        "return_pct": 157.49389052028863,
+        "max_drawdown_pct": -25.75240508256522
+      },
+      "holdout": {
+        "return_pct": -4.226280092620572,
+        "max_drawdown_pct": -17.932530881906583
+      },
+      "max_observed_stocks": 3,
+      "average_observed_stocks": 1.835978835978836,
+      "cash_days": 70,
+      "average_cash_pct": 39.30654880834952,
+      "traded_nav_multiple": 17.677430757911523,
+      "rebalance_trade_days": 26,
+      "costs": [
+        {
+          "one_way_bps": 0,
+          "full": {
+            "return_pct": 164.41700905772203,
+            "max_drawdown_pct": -25.076431639370345
+          },
+          "holdout": {
+            "return_pct": -3.7549115193706406,
+            "max_drawdown_pct": -17.73550822508443
+          }
+        },
+        {
+          "one_way_bps": 15,
+          "full": {
+            "return_pct": 157.49389052028863,
+            "max_drawdown_pct": -25.75240508256522
+          },
+          "holdout": {
+            "return_pct": -4.226280092620572,
+            "max_drawdown_pct": -17.932530881906583
+          }
+        },
+        {
+          "one_way_bps": 30,
+          "full": {
+            "return_pct": 150.75237276322042,
+            "max_drawdown_pct": -26.500737802103203
+          },
+          "holdout": {
+            "return_pct": -4.694936268545824,
+            "max_drawdown_pct": -18.12895269994026
+          }
+        },
+        {
+          "one_way_bps": 50,
+          "full": {
+            "return_pct": 142.03790199056115,
+            "max_drawdown_pct": -27.486662635497026
+          },
+          "holdout": {
+            "return_pct": -5.315624150987707,
+            "max_drawdown_pct": -18.389918442994833
+          }
+        }
+      ],
+      "extra_lag": {
+        "full": {
+          "return_pct": 48.08953977980164,
+          "max_drawdown_pct": -31.38765278369975
+        },
+        "holdout": {
+          "return_pct": -20.869292379256965,
+          "max_drawdown_pct": -22.68038566681159
+        }
+      },
+      "fresh_holdout": {
+        "return_pct": -4.226280092620483,
+        "max_drawdown_pct": -17.932530881906562
+      },
+      "contributions_pp": [
+        {
+          "symbol": "STX",
+          "pnl_per_initial_nav_pp": 61.32095777103355
+        },
+        {
+          "symbol": "ARM",
+          "pnl_per_initial_nav_pp": 54.8445503430118
+        },
+        {
+          "symbol": "AMD",
+          "pnl_per_initial_nav_pp": 31.312135017696285
+        },
+        {
+          "symbol": "SKHY",
+          "pnl_per_initial_nav_pp": 19.56802831820371
+        },
+        {
+          "symbol": "LITE",
+          "pnl_per_initial_nav_pp": 17.66041053452215
+        },
+        {
+          "symbol": "MSTR",
+          "pnl_per_initial_nav_pp": 16.07823567906689
+        },
+        {
+          "symbol": "COIN",
+          "pnl_per_initial_nav_pp": 5.790119046728931
+        },
+        {
+          "symbol": "SNOW",
+          "pnl_per_initial_nav_pp": 5.292014303539505
+        },
+        {
+          "symbol": "CRCL",
+          "pnl_per_initial_nav_pp": 4.064178837933812
+        },
+        {
+          "symbol": "AVGO",
+          "pnl_per_initial_nav_pp": 3.4642942962870826
+        },
+        {
+          "symbol": "COHR",
+          "pnl_per_initial_nav_pp": 3.13067529818379
+        },
+        {
+          "symbol": "CCJ",
+          "pnl_per_initial_nav_pp": 2.7804069027390574
+        },
+        {
+          "symbol": "GOOG",
+          "pnl_per_initial_nav_pp": 0.0032412093599073263
+        },
+        {
+          "symbol": "285A.T",
+          "pnl_per_initial_nav_pp": -1.9729060489132575
+        },
+        {
+          "symbol": "ASML",
+          "pnl_per_initial_nav_pp": -10.116235303934856
+        },
+        {
+          "symbol": "AAOI",
+          "pnl_per_initial_nav_pp": -14.482017810769909
+        },
+        {
+          "symbol": "BABA",
+          "pnl_per_initial_nav_pp": -35.74104057143499
+        }
+      ],
+      "fee_pnl_pp": -5.503157302964801,
+      "without_top_contributor": {
+        "symbol": "STX",
+        "full": {
+          "return_pct": 98.60922240292803,
+          "max_drawdown_pct": -26.146840816832785
+        },
+        "holdout": {
+          "return_pct": -4.226280092620427,
+          "max_drawdown_pct": -17.932530881906516
+        }
+      },
+      "by_prior_regime": {
+        "unknown": {
+          "observations": 21,
+          "candidate": {
+            "return_pct": 0.0,
+            "max_drawdown_pct": 0.0
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 17.20517785376936,
+              "max_drawdown_pct": -3.77885783718106
+            },
+            "koact": {
+              "return_pct": 11.87787373975382,
+              "max_drawdown_pct": -3.5792094615623937
+            },
+            "qqq_krw": {
+              "return_pct": -0.3403706560388242,
+              "max_drawdown_pct": -3.1496481443101243
+            }
+          }
+        },
+        "up": {
+          "observations": 49,
+          "candidate": {
+            "return_pct": 97.71523436731182,
+            "max_drawdown_pct": -11.143111950440975
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 49.462689164154796,
+              "max_drawdown_pct": -5.350209659885086
+            },
+            "koact": {
+              "return_pct": 38.499582127416645,
+              "max_drawdown_pct": -5.2642980935875165
+            },
+            "qqq_krw": {
+              "return_pct": 5.5749160063739644,
+              "max_drawdown_pct": -13.511905574828697
+            }
+          }
+        },
+        "down": {
+          "observations": 29,
+          "candidate": {
+            "return_pct": 4.2180889345163175,
+            "max_drawdown_pct": -3.870104262912799
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": -19.26781802980948,
+              "max_drawdown_pct": -24.70759047030624
+            },
+            "koact": {
+              "return_pct": -26.353853755679857,
+              "max_drawdown_pct": -31.02422456187519
+            },
+            "qqq_krw": {
+              "return_pct": 11.014187095954252,
+              "max_drawdown_pct": -6.132868060760199
+            }
+          }
+        },
+        "range": {
+          "observations": 90,
+          "candidate": {
+            "return_pct": 24.96364662195758,
+            "max_drawdown_pct": -25.718692051976454
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 18.87078273574556,
+              "max_drawdown_pct": -16.838326076601984
+            },
+            "koact": {
+              "return_pct": 19.78578942297391,
+              "max_drawdown_pct": -14.285098504630511
+            },
+            "qqq_krw": {
+              "return_pct": -3.8846556067159477,
+              "max_drawdown_pct": -13.869504256356125
+            }
+          }
+        }
+      },
+      "monthly": {
+        "2026-01": {
+          "return_pct": 0.0,
+          "max_drawdown_pct": 0.0
+        },
+        "2026-02": {
+          "return_pct": 0.0,
+          "max_drawdown_pct": 0.0
+        },
+        "2026-03": {
+          "return_pct": 19.414592788844452,
+          "max_drawdown_pct": -7.638467051239173
+        },
+        "2026-04": {
+          "return_pct": 28.560485252305057,
+          "max_drawdown_pct": -7.350026411988287
+        },
+        "2026-05": {
+          "return_pct": 52.917286429945044,
+          "max_drawdown_pct": -6.805908740583666
+        },
+        "2026-06": {
+          "return_pct": 25.34278614911285,
+          "max_drawdown_pct": -8.561038942915433
+        },
+        "2026-07": {
+          "return_pct": -8.630817051691563,
+          "max_drawdown_pct": -9.994351408916591
+        },
+        "2026-08": {
+          "return_pct": -9.925088132947646,
+          "max_drawdown_pct": -13.012056258214432
+        },
+        "2026-09": {
+          "return_pct": 6.326742843488264,
+          "max_drawdown_pct": -8.327492907132871
+        }
+      }
+    },
+    "weekly_ge3": {
+      "index": 51282,
+      "config": {
+        "family": "net_flow",
+        "lookback": 3,
+        "time_mix": 0.25,
+        "gate": "none",
+        "max_stocks": 3,
+        "rebalance": "weekly",
+        "weighting": "conviction",
+        "risk_rule": "trend_cash"
+      },
+      "full": {
+        "return_pct": 321.744033088187,
+        "max_drawdown_pct": -21.766047598734684
+      },
+      "holdout": {
+        "return_pct": 22.3682720318616,
+        "max_drawdown_pct": -12.005840539846012
+      },
+      "max_observed_stocks": 3,
+      "average_observed_stocks": 2.4603174603174605,
+      "cash_days": 34,
+      "average_cash_pct": 17.989417989417987,
+      "traded_nav_multiple": 48.85950337191031,
+      "rebalance_trade_days": 31,
+      "costs": [
+        {
+          "one_way_bps": 0,
+          "full": {
+            "return_pct": 353.8591346981554,
+            "max_drawdown_pct": -21.462302174432036
+          },
+          "holdout": {
+            "return_pct": 24.179453375589,
+            "max_drawdown_pct": -12.005840539846012
+          }
+        },
+        {
+          "one_way_bps": 15,
+          "full": {
+            "return_pct": 321.744033088187,
+            "max_drawdown_pct": -21.766047598734684
+          },
+          "holdout": {
+            "return_pct": 22.3682720318616,
+            "max_drawdown_pct": -12.005840539846012
+          }
+        },
+        {
+          "one_way_bps": 30,
+          "full": {
+            "return_pct": 291.90262170281574,
+            "max_drawdown_pct": -22.068688421334937
+          },
+          "holdout": {
+            "return_pct": 20.584030384564954,
+            "max_drawdown_pct": -12.005840539846025
+          }
+        },
+        {
+          "one_way_bps": 50,
+          "full": {
+            "return_pct": 255.37400991632109,
+            "max_drawdown_pct": -22.470499727824045
+          },
+          "holdout": {
+            "return_pct": 18.246229367108423,
+            "max_drawdown_pct": -12.005840539846025
+          }
+        }
+      ],
+      "extra_lag": {
+        "full": {
+          "return_pct": 79.00171393762993,
+          "max_drawdown_pct": -30.09603335661133
+        },
+        "holdout": {
+          "return_pct": 8.16784615747348,
+          "max_drawdown_pct": -12.805901415176347
+        }
+      },
+      "fresh_holdout": {
+        "return_pct": 22.368272031861647,
+        "max_drawdown_pct": -12.005840539846002
+      },
+      "contributions_pp": [
+        {
+          "symbol": "SNDK",
+          "pnl_per_initial_nav_pp": 78.35822864456185
+        },
+        {
+          "symbol": "LITE",
+          "pnl_per_initial_nav_pp": 69.57229084020359
+        },
+        {
+          "symbol": "285A.T",
+          "pnl_per_initial_nav_pp": 46.45835836625199
+        },
+        {
+          "symbol": "2513.HK",
+          "pnl_per_initial_nav_pp": 34.81154150934307
+        },
+        {
+          "symbol": "INTC",
+          "pnl_per_initial_nav_pp": 34.28666896740559
+        },
+        {
+          "symbol": "BE",
+          "pnl_per_initial_nav_pp": 33.945348982454156
+        },
+        {
+          "symbol": "AAOI",
+          "pnl_per_initial_nav_pp": 32.475251109117224
+        },
+        {
+          "symbol": "AMD",
+          "pnl_per_initial_nav_pp": 22.149895538547803
+        },
+        {
+          "symbol": "CRWV",
+          "pnl_per_initial_nav_pp": 21.037517487486642
+        },
+        {
+          "symbol": "QCOM",
+          "pnl_per_initial_nav_pp": 8.27788496832516
+        },
+        {
+          "symbol": "AXTI",
+          "pnl_per_initial_nav_pp": 7.272881186314592
+        },
+        {
+          "symbol": "STX",
+          "pnl_per_initial_nav_pp": 7.050513983270308
+        },
+        {
+          "symbol": "CRCL",
+          "pnl_per_initial_nav_pp": 6.138698538520101
+        },
+        {
+          "symbol": "NBIS",
+          "pnl_per_initial_nav_pp": 5.5689670295900715
+        },
+        {
+          "symbol": "LLY",
+          "pnl_per_initial_nav_pp": 4.1487801700946365
+        },
+        {
+          "symbol": "000660.KS",
+          "pnl_per_initial_nav_pp": 3.8506518885871173
+        },
+        {
+          "symbol": "AVGO",
+          "pnl_per_initial_nav_pp": 3.1305497589906737
+        },
+        {
+          "symbol": "VRT",
+          "pnl_per_initial_nav_pp": 2.5839170447115647
+        },
+        {
+          "symbol": "AKAM",
+          "pnl_per_initial_nav_pp": 2.18249216689319
+        },
+        {
+          "symbol": "IREN",
+          "pnl_per_initial_nav_pp": 1.7094912714634285
+        },
+        {
+          "symbol": "FSLR",
+          "pnl_per_initial_nav_pp": 1.4423491714183738
+        },
+        {
+          "symbol": "ALAB",
+          "pnl_per_initial_nav_pp": 1.2819043125563547
+        },
+        {
+          "symbol": "CIEN",
+          "pnl_per_initial_nav_pp": 1.2108986067463672
+        },
+        {
+          "symbol": "MSTR",
+          "pnl_per_initial_nav_pp": 1.1683590711980192
+        },
+        {
+          "symbol": "LRCX",
+          "pnl_per_initial_nav_pp": 0.497763882261789
+        },
+        {
+          "symbol": "GOOG",
+          "pnl_per_initial_nav_pp": 0.46704369587432304
+        },
+        {
+          "symbol": "TER",
+          "pnl_per_initial_nav_pp": 0.17592976202685934
+        },
+        {
+          "symbol": "440110.KS",
+          "pnl_per_initial_nav_pp": 0.14372301587203834
+        },
+        {
+          "symbol": "1772.HK",
+          "pnl_per_initial_nav_pp": -0.04696852376546877
+        },
+        {
+          "symbol": "DDOG",
+          "pnl_per_initial_nav_pp": -0.2679343998308688
+        },
+        {
+          "symbol": "ARM",
+          "pnl_per_initial_nav_pp": -0.45062257900785746
+        },
+        {
+          "symbol": "SNOW",
+          "pnl_per_initial_nav_pp": -0.708611946971565
+        },
+        {
+          "symbol": "BIIB",
+          "pnl_per_initial_nav_pp": -0.7864313595873883
+        },
+        {
+          "symbol": "0700.HK",
+          "pnl_per_initial_nav_pp": -1.0903457630532691
+        },
+        {
+          "symbol": "PLTR",
+          "pnl_per_initial_nav_pp": -1.2943107548234536
+        },
+        {
+          "symbol": "ILMN",
+          "pnl_per_initial_nav_pp": -2.7707734661416192
+        },
+        {
+          "symbol": "TTWO",
+          "pnl_per_initial_nav_pp": -3.001807613913574
+        },
+        {
+          "symbol": "GLW",
+          "pnl_per_initial_nav_pp": -3.590661915467328
+        },
+        {
+          "symbol": "VICR",
+          "pnl_per_initial_nav_pp": -4.122268638539929
+        },
+        {
+          "symbol": "ASML",
+          "pnl_per_initial_nav_pp": -4.295410849675
+        },
+        {
+          "symbol": "DELL",
+          "pnl_per_initial_nav_pp": -6.483806634075206
+        },
+        {
+          "symbol": "MU",
+          "pnl_per_initial_nav_pp": -6.88294221817306
+        },
+        {
+          "symbol": "MDB",
+          "pnl_per_initial_nav_pp": -7.278558485293435
+        },
+        {
+          "symbol": "NVTS",
+          "pnl_per_initial_nav_pp": -8.724511299839326
+        },
+        {
+          "symbol": "NVDA",
+          "pnl_per_initial_nav_pp": -9.575076400255217
+        },
+        {
+          "symbol": "FSLY",
+          "pnl_per_initial_nav_pp": -12.309571939733507
+        },
+        {
+          "symbol": "TSLA",
+          "pnl_per_initial_nav_pp": -16.220820749818373
+        }
+      ],
+      "fee_pnl_pp": -19.752432343934423,
+      "without_top_contributor": {
+        "symbol": "SNDK",
+        "full": {
+          "return_pct": 192.01770749843936,
+          "max_drawdown_pct": -21.766047598734673
+        },
+        "holdout": {
+          "return_pct": 22.787828888581974,
+          "max_drawdown_pct": -12.005840539846059
+        }
+      },
+      "by_prior_regime": {
+        "unknown": {
+          "observations": 21,
+          "candidate": {
+            "return_pct": 40.83924677463002,
+            "max_drawdown_pct": -8.766410844907647
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 17.20517785376936,
+              "max_drawdown_pct": -3.77885783718106
+            },
+            "koact": {
+              "return_pct": 11.87787373975382,
+              "max_drawdown_pct": -3.5792094615623937
+            },
+            "qqq_krw": {
+              "return_pct": -0.3403706560388242,
+              "max_drawdown_pct": -3.1496481443101243
+            }
+          }
+        },
+        "up": {
+          "observations": 49,
+          "candidate": {
+            "return_pct": 56.982497675881284,
+            "max_drawdown_pct": -13.250445300469638
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 49.462689164154796,
+              "max_drawdown_pct": -5.350209659885086
+            },
+            "koact": {
+              "return_pct": 38.499582127416645,
+              "max_drawdown_pct": -5.2642980935875165
+            },
+            "qqq_krw": {
+              "return_pct": 5.5749160063739644,
+              "max_drawdown_pct": -13.511905574828697
+            }
+          }
+        },
+        "down": {
+          "observations": 29,
+          "candidate": {
+            "return_pct": 7.918092668431531,
+            "max_drawdown_pct": -4.053032028975501
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": -19.26781802980948,
+              "max_drawdown_pct": -24.70759047030624
+            },
+            "koact": {
+              "return_pct": -26.353853755679857,
+              "max_drawdown_pct": -31.02422456187519
+            },
+            "qqq_krw": {
+              "return_pct": 11.014187095954252,
+              "max_drawdown_pct": -6.132868060760199
+            }
+          }
+        },
+        "range": {
+          "observations": 90,
+          "candidate": {
+            "return_pct": 76.75827612611317,
+            "max_drawdown_pct": -12.005840539846012
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 18.87078273574556,
+              "max_drawdown_pct": -16.838326076601984
+            },
+            "koact": {
+              "return_pct": 19.78578942297391,
+              "max_drawdown_pct": -14.285098504630511
+            },
+            "qqq_krw": {
+              "return_pct": -3.8846556067159477,
+              "max_drawdown_pct": -13.869504256356125
+            }
+          }
+        }
+      },
+      "monthly": {
+        "2026-01": {
+          "return_pct": 40.83924677463002,
+          "max_drawdown_pct": -8.766410844907647
+        },
+        "2026-02": {
+          "return_pct": 13.349876693373286,
+          "max_drawdown_pct": -7.420509396696929
+        },
+        "2026-03": {
+          "return_pct": 14.520555401435509,
+          "max_drawdown_pct": -10.625453591880962
+        },
+        "2026-04": {
+          "return_pct": 26.228446810686368,
+          "max_drawdown_pct": -10.219487332343046
+        },
+        "2026-05": {
+          "return_pct": 32.44628864295655,
+          "max_drawdown_pct": -5.512093316052747
+        },
+        "2026-06": {
+          "return_pct": 19.610989202107397,
+          "max_drawdown_pct": -19.028133305615903
+        },
+        "2026-07": {
+          "return_pct": -5.727762620795751,
+          "max_drawdown_pct": -5.94121433199345
+        },
+        "2026-08": {
+          "return_pct": 13.791475921338359,
+          "max_drawdown_pct": -5.475591745421504
+        },
+        "2026-09": {
+          "return_pct": 7.537292262956652,
+          "max_drawdown_pct": -12.005840539846002
+        }
+      }
+    },
+    "daily_ge3": {
+      "index": 166401,
+      "config": {
+        "family": "buy_momentum",
+        "lookback": 10,
+        "time_mix": 1.0,
+        "gate": "above_ma20",
+        "max_stocks": 3,
+        "rebalance": "daily",
+        "weighting": "inverse_volatility",
+        "risk_rule": "trend_half"
+      },
+      "full": {
+        "return_pct": 189.2960594751557,
+        "max_drawdown_pct": -29.342802164424896
+      },
+      "holdout": {
+        "return_pct": -13.616630536498441,
+        "max_drawdown_pct": -29.342802164424896
+      },
+      "max_observed_stocks": 3,
+      "average_observed_stocks": 2.3544973544973544,
+      "cash_days": 25,
+      "average_cash_pct": 20.88308797936483,
+      "traded_nav_multiple": 86.14373699858575,
+      "rebalance_trade_days": 158,
+      "costs": [
+        {
+          "one_way_bps": 0,
+          "full": {
+            "return_pct": 229.23392969734056,
+            "max_drawdown_pct": -27.95478745875807
+          },
+          "holdout": {
+            "return_pct": -10.476575617175865,
+            "max_drawdown_pct": -27.95478745875807
+          }
+        },
+        {
+          "one_way_bps": 15,
+          "full": {
+            "return_pct": 189.2960594751557,
+            "max_drawdown_pct": -29.342802164424896
+          },
+          "holdout": {
+            "return_pct": -13.616630536498441,
+            "max_drawdown_pct": -29.342802164424896
+          }
+        },
+        {
+          "one_way_bps": 30,
+          "full": {
+            "return_pct": 154.1972701613418,
+            "max_drawdown_pct": -30.705088228171796
+          },
+          "holdout": {
+            "return_pct": -16.647787751107423,
+            "max_drawdown_pct": -30.705088228171785
+          }
+        },
+        {
+          "one_way_bps": 50,
+          "full": {
+            "return_pct": 113.92427296273962,
+            "max_drawdown_pct": -33.917048582348585
+          },
+          "holdout": {
+            "return_pct": -20.526388562243135,
+            "max_drawdown_pct": -32.57689310741051
+          }
+        }
+      ],
+      "extra_lag": {
+        "full": {
+          "return_pct": 82.5599230174894,
+          "max_drawdown_pct": -31.956884659712582
+        },
+        "holdout": {
+          "return_pct": -15.75226009190086,
+          "max_drawdown_pct": -25.16171914646973
+        }
+      },
+      "fresh_holdout": {
+        "return_pct": -15.882632040747968,
+        "max_drawdown_pct": -29.34280216442492
+      },
+      "contributions_pp": [
+        {
+          "symbol": "285A.T",
+          "pnl_per_initial_nav_pp": 64.88656964853958
+        },
+        {
+          "symbol": "INTC",
+          "pnl_per_initial_nav_pp": 60.87821150856456
+        },
+        {
+          "symbol": "SNOW",
+          "pnl_per_initial_nav_pp": 40.035680841674626
+        },
+        {
+          "symbol": "6981.T",
+          "pnl_per_initial_nav_pp": 33.035076898816186
+        },
+        {
+          "symbol": "EBAY",
+          "pnl_per_initial_nav_pp": 13.472259385030256
+        },
+        {
+          "symbol": "CRCL",
+          "pnl_per_initial_nav_pp": 11.589285884590634
+        },
+        {
+          "symbol": "QCOM",
+          "pnl_per_initial_nav_pp": 11.578201322625445
+        },
+        {
+          "symbol": "DELL",
+          "pnl_per_initial_nav_pp": 9.317718486945893
+        },
+        {
+          "symbol": "AEHR",
+          "pnl_per_initial_nav_pp": 8.096909076360063
+        },
+        {
+          "symbol": "010120.KS",
+          "pnl_per_initial_nav_pp": 7.9661909785259235
+        },
+        {
+          "symbol": "LITE",
+          "pnl_per_initial_nav_pp": 7.685857281644101
+        },
+        {
+          "symbol": "AXTI",
+          "pnl_per_initial_nav_pp": 7.544296527957768
+        },
+        {
+          "symbol": "440110.KS",
+          "pnl_per_initial_nav_pp": 7.536787114135719
+        },
+        {
+          "symbol": "AMD",
+          "pnl_per_initial_nav_pp": 6.252193400958811
+        },
+        {
+          "symbol": "BABA",
+          "pnl_per_initial_nav_pp": 5.25143270487077
+        },
+        {
+          "symbol": "UUUU",
+          "pnl_per_initial_nav_pp": 5.125806164887927
+        },
+        {
+          "symbol": "WDC",
+          "pnl_per_initial_nav_pp": 5.029919043706557
+        },
+        {
+          "symbol": "GEV",
+          "pnl_per_initial_nav_pp": 5.01841361326601
+        },
+        {
+          "symbol": "BE",
+          "pnl_per_initial_nav_pp": 4.2306564608158235
+        },
+        {
+          "symbol": "TSEM",
+          "pnl_per_initial_nav_pp": 3.237527221814841
+        },
+        {
+          "symbol": "NOW",
+          "pnl_per_initial_nav_pp": 3.1640001115657816
+        },
+        {
+          "symbol": "SKHY",
+          "pnl_per_initial_nav_pp": 1.9755236747342073
+        },
+        {
+          "symbol": "VRT",
+          "pnl_per_initial_nav_pp": 1.5671967983585362
+        },
+        {
+          "symbol": "TSLA",
+          "pnl_per_initial_nav_pp": -0.01415337584917218
+        },
+        {
+          "symbol": "IBM",
+          "pnl_per_initial_nav_pp": -0.044125569684079144
+        },
+        {
+          "symbol": "006400.KS",
+          "pnl_per_initial_nav_pp": -0.12236654967099636
+        },
+        {
+          "symbol": "AVGO",
+          "pnl_per_initial_nav_pp": -0.5011429180270995
+        },
+        {
+          "symbol": "CRWD",
+          "pnl_per_initial_nav_pp": -0.5086430294075869
+        },
+        {
+          "symbol": "ARM",
+          "pnl_per_initial_nav_pp": -0.9815644401590669
+        },
+        {
+          "symbol": "298040.KS",
+          "pnl_per_initial_nav_pp": -1.1423852144444928
+        },
+        {
+          "symbol": "STX",
+          "pnl_per_initial_nav_pp": -1.185674552209558
+        },
+        {
+          "symbol": "MELI",
+          "pnl_per_initial_nav_pp": -1.2692639734510713
+        },
+        {
+          "symbol": "009150.KS",
+          "pnl_per_initial_nav_pp": -1.5412279922258652
+        },
+        {
+          "symbol": "COHR",
+          "pnl_per_initial_nav_pp": -1.8856278307393555
+        },
+        {
+          "symbol": "CIEN",
+          "pnl_per_initial_nav_pp": -2.4252309511630954
+        },
+        {
+          "symbol": "NBIS",
+          "pnl_per_initial_nav_pp": -2.504417558130815
+        },
+        {
+          "symbol": "HOOD",
+          "pnl_per_initial_nav_pp": -3.310733030332205
+        },
+        {
+          "symbol": "5803.T",
+          "pnl_per_initial_nav_pp": -3.422992792750069
+        },
+        {
+          "symbol": "NTAP",
+          "pnl_per_initial_nav_pp": -4.0788627038840675
+        },
+        {
+          "symbol": "COIN",
+          "pnl_per_initial_nav_pp": -5.052164431703873
+        },
+        {
+          "symbol": "CRM",
+          "pnl_per_initial_nav_pp": -5.4199755316856075
+        },
+        {
+          "symbol": "2513.HK",
+          "pnl_per_initial_nav_pp": -5.606430791002618
+        },
+        {
+          "symbol": "SAP",
+          "pnl_per_initial_nav_pp": -5.903257986464572
+        },
+        {
+          "symbol": "SNDK",
+          "pnl_per_initial_nav_pp": -6.476777550495706
+        },
+        {
+          "symbol": "AMZN",
+          "pnl_per_initial_nav_pp": -6.535983096506132
+        },
+        {
+          "symbol": "CCJ",
+          "pnl_per_initial_nav_pp": -6.929123259314196
+        },
+        {
+          "symbol": "0100.HK",
+          "pnl_per_initial_nav_pp": -7.822191104770751
+        },
+        {
+          "symbol": "AAOI",
+          "pnl_per_initial_nav_pp": -13.82185290443189
+        },
+        {
+          "symbol": "MSTR",
+          "pnl_per_initial_nav_pp": -18.353751128664207
+        }
+      ],
+      "fee_pnl_pp": -28.31973440806621,
+      "without_top_contributor": {
+        "symbol": "285A.T",
+        "full": {
+          "return_pct": 144.73656896434585,
+          "max_drawdown_pct": -29.342802164424896
+        },
+        "holdout": {
+          "return_pct": -13.616630536498441,
+          "max_drawdown_pct": -29.342802164424942
+        }
+      },
+      "by_prior_regime": {
+        "unknown": {
+          "observations": 21,
+          "candidate": {
+            "return_pct": 0.0,
+            "max_drawdown_pct": 0.0
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 17.20517785376936,
+              "max_drawdown_pct": -3.77885783718106
+            },
+            "koact": {
+              "return_pct": 11.87787373975382,
+              "max_drawdown_pct": -3.5792094615623937
+            },
+            "qqq_krw": {
+              "return_pct": -0.3403706560388242,
+              "max_drawdown_pct": -3.1496481443101243
+            }
+          }
+        },
+        "up": {
+          "observations": 49,
+          "candidate": {
+            "return_pct": 73.15244437623775,
+            "max_drawdown_pct": -24.874839810824756
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 49.462689164154796,
+              "max_drawdown_pct": -5.350209659885086
+            },
+            "koact": {
+              "return_pct": 38.499582127416645,
+              "max_drawdown_pct": -5.2642980935875165
+            },
+            "qqq_krw": {
+              "return_pct": 5.5749160063739644,
+              "max_drawdown_pct": -13.511905574828697
+            }
+          }
+        },
+        "down": {
+          "observations": 29,
+          "candidate": {
+            "return_pct": 16.65534056559046,
+            "max_drawdown_pct": -7.222864649312477
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": -19.26781802980948,
+              "max_drawdown_pct": -24.70759047030624
+            },
+            "koact": {
+              "return_pct": -26.353853755679857,
+              "max_drawdown_pct": -31.02422456187519
+            },
+            "qqq_krw": {
+              "return_pct": 11.014187095954252,
+              "max_drawdown_pct": -6.132868060760199
+            }
+          }
+        },
+        "range": {
+          "observations": 90,
+          "candidate": {
+            "return_pct": 43.22184544523127,
+            "max_drawdown_pct": -14.621290436111034
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 18.87078273574556,
+              "max_drawdown_pct": -16.838326076601984
+            },
+            "koact": {
+              "return_pct": 19.78578942297391,
+              "max_drawdown_pct": -14.285098504630511
+            },
+            "qqq_krw": {
+              "return_pct": -3.8846556067159477,
+              "max_drawdown_pct": -13.869504256356125
+            }
+          }
+        }
+      },
+      "monthly": {
+        "2026-01": {
+          "return_pct": 0.0,
+          "max_drawdown_pct": 0.0
+        },
+        "2026-02": {
+          "return_pct": 14.945214467216793,
+          "max_drawdown_pct": -7.727653823114434
+        },
+        "2026-03": {
+          "return_pct": 5.26795260116284,
+          "max_drawdown_pct": -13.006934760614175
+        },
+        "2026-04": {
+          "return_pct": 41.945001995456835,
+          "max_drawdown_pct": -2.6845881207247846
+        },
+        "2026-05": {
+          "return_pct": 58.920301047357725,
+          "max_drawdown_pct": -7.401471637589474
+        },
+        "2026-06": {
+          "return_pct": 27.887051475767798,
+          "max_drawdown_pct": -7.1626473836793885
+        },
+        "2026-07": {
+          "return_pct": -4.060102974209768,
+          "max_drawdown_pct": -7.681823112221231
+        },
+        "2026-08": {
+          "return_pct": -13.236140594771484,
+          "max_drawdown_pct": -23.98582717162491
+        },
+        "2026-09": {
+          "return_pct": -0.4385350586468273,
+          "max_drawdown_pct": -12.558144811226125
+        }
+      }
+    },
+    "monthly_ge3": {
+      "index": 77212,
+      "config": {
+        "family": "buy_only",
+        "lookback": 3,
+        "time_mix": 1.0,
+        "gate": "none",
+        "max_stocks": 3,
+        "rebalance": "monthly",
+        "weighting": "conviction",
+        "risk_rule": "always"
+      },
+      "full": {
+        "return_pct": 224.40797928097638,
+        "max_drawdown_pct": -20.407492852155972
+      },
+      "holdout": {
+        "return_pct": 3.3709321181113694,
+        "max_drawdown_pct": -10.677703292382368
+      },
+      "max_observed_stocks": 3,
+      "average_observed_stocks": 2.058201058201058,
+      "cash_days": 48,
+      "average_cash_pct": 25.396825396825395,
+      "traded_nav_multiple": 10.326686434308142,
+      "rebalance_trade_days": 8,
+      "costs": [
+        {
+          "one_way_bps": 0,
+          "full": {
+            "return_pct": 229.26718851957335,
+            "max_drawdown_pct": -20.30547550154228
+          },
+          "holdout": {
+            "return_pct": 3.525988516288514,
+            "max_drawdown_pct": -10.677703292382368
+          }
+        },
+        {
+          "one_way_bps": 15,
+          "full": {
+            "return_pct": 224.40797928097638,
+            "max_drawdown_pct": -20.407492852155972
+          },
+          "holdout": {
+            "return_pct": 3.3709321181113694,
+            "max_drawdown_pct": -10.677703292382368
+          }
+        },
+        {
+          "one_way_bps": 30,
+          "full": {
+            "return_pct": 219.62330535138267,
+            "max_drawdown_pct": -20.50920506612759
+          },
+          "holdout": {
+            "return_pct": 3.2163394977951842,
+            "max_drawdown_pct": -10.677703292382335
+          }
+        },
+        {
+          "one_way_bps": 50,
+          "full": {
+            "return_pct": 213.35760511624594,
+            "max_drawdown_pct": -20.6443490559024
+          },
+          "holdout": {
+            "return_pct": 3.010933847053243,
+            "max_drawdown_pct": -10.677703292382379
+          }
+        }
+      ],
+      "extra_lag": {
+        "full": {
+          "return_pct": -14.78299320478017,
+          "max_drawdown_pct": -57.07316516584269
+        },
+        "holdout": {
+          "return_pct": 2.372663639297401,
+          "max_drawdown_pct": -10.677703292382379
+        }
+      },
+      "fresh_holdout": {
+        "return_pct": 24.369312933136868,
+        "max_drawdown_pct": -15.53273427471118
+      },
+      "contributions_pp": [
+        {
+          "symbol": "009150.KS",
+          "pnl_per_initial_nav_pp": 120.26579810241573
+        },
+        {
+          "symbol": "INTC",
+          "pnl_per_initial_nav_pp": 37.99784428705764
+        },
+        {
+          "symbol": "285A.T",
+          "pnl_per_initial_nav_pp": 25.09779683081397
+        },
+        {
+          "symbol": "ARM",
+          "pnl_per_initial_nav_pp": 13.286682755746112
+        },
+        {
+          "symbol": "AMD",
+          "pnl_per_initial_nav_pp": 11.50532221308098
+        },
+        {
+          "symbol": "ASML",
+          "pnl_per_initial_nav_pp": 11.049001568887366
+        },
+        {
+          "symbol": "000660.KS",
+          "pnl_per_initial_nav_pp": 9.228014433827116
+        },
+        {
+          "symbol": "1772.HK",
+          "pnl_per_initial_nav_pp": 3.1272256738553037
+        },
+        {
+          "symbol": "AXTI",
+          "pnl_per_initial_nav_pp": 0.46427956038359136
+        },
+        {
+          "symbol": "BE",
+          "pnl_per_initial_nav_pp": 0.2886786602169889
+        },
+        {
+          "symbol": "MELI",
+          "pnl_per_initial_nav_pp": -0.18976095161447679
+        },
+        {
+          "symbol": "AMZN",
+          "pnl_per_initial_nav_pp": -0.2565989388708152
+        },
+        {
+          "symbol": "NTAP",
+          "pnl_per_initial_nav_pp": -4.416748276636951
+        }
+      ],
+      "fee_pnl_pp": -3.0395566381861805,
+      "without_top_contributor": {
+        "symbol": "009150.KS",
+        "full": {
+          "return_pct": 135.2256259929007,
+          "max_drawdown_pct": -20.407492852155972
+        },
+        "holdout": {
+          "return_pct": 3.3709321181113694,
+          "max_drawdown_pct": -10.677703292382368
+        }
+      },
+      "by_prior_regime": {
+        "unknown": {
+          "observations": 21,
+          "candidate": {
+            "return_pct": 17.74831082217785,
+            "max_drawdown_pct": -4.701774769252076
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 17.20517785376936,
+              "max_drawdown_pct": -3.77885783718106
+            },
+            "koact": {
+              "return_pct": 11.87787373975382,
+              "max_drawdown_pct": -3.5792094615623937
+            },
+            "qqq_krw": {
+              "return_pct": -0.3403706560388242,
+              "max_drawdown_pct": -3.1496481443101243
+            }
+          }
+        },
+        "up": {
+          "observations": 49,
+          "candidate": {
+            "return_pct": 117.3695864326255,
+            "max_drawdown_pct": -7.672165201456538
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 49.462689164154796,
+              "max_drawdown_pct": -5.350209659885086
+            },
+            "koact": {
+              "return_pct": 38.499582127416645,
+              "max_drawdown_pct": -5.2642980935875165
+            },
+            "qqq_krw": {
+              "return_pct": 5.5749160063739644,
+              "max_drawdown_pct": -13.511905574828697
+            }
+          }
+        },
+        "down": {
+          "observations": 29,
+          "candidate": {
+            "return_pct": -7.202952871898793,
+            "max_drawdown_pct": -18.221468504661985
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": -19.26781802980948,
+              "max_drawdown_pct": -24.70759047030624
+            },
+            "koact": {
+              "return_pct": -26.353853755679857,
+              "max_drawdown_pct": -31.02422456187519
+            },
+            "qqq_krw": {
+              "return_pct": 11.014187095954252,
+              "max_drawdown_pct": -6.132868060760199
+            }
+          }
+        },
+        "range": {
+          "observations": 90,
+          "candidate": {
+            "return_pct": 36.585282804479704,
+            "max_drawdown_pct": -17.335803503838164
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 18.87078273574556,
+              "max_drawdown_pct": -16.838326076601984
+            },
+            "koact": {
+              "return_pct": 19.78578942297391,
+              "max_drawdown_pct": -14.285098504630511
+            },
+            "qqq_krw": {
+              "return_pct": -3.8846556067159477,
+              "max_drawdown_pct": -13.869504256356125
+            }
+          }
+        }
+      },
+      "monthly": {
+        "2026-01": {
+          "return_pct": 17.74831082217785,
+          "max_drawdown_pct": -4.701774769252076
+        },
+        "2026-02": {
+          "return_pct": 13.459911974900173,
+          "max_drawdown_pct": -6.475863227088219
+        },
+        "2026-03": {
+          "return_pct": -17.946038896839255,
+          "max_drawdown_pct": -19.101636655284814
+        },
+        "2026-04": {
+          "return_pct": 75.93161742182657,
+          "max_drawdown_pct": -2.233382767316472
+        },
+        "2026-05": {
+          "return_pct": 53.67729919521247,
+          "max_drawdown_pct": -7.0239492057732384
+        },
+        "2026-06": {
+          "return_pct": 9.934369641283048,
+          "max_drawdown_pct": -12.650689434337659
+        },
+        "2026-07": {
+          "return_pct": -3.6815886254894292,
+          "max_drawdown_pct": -3.6815886254894292
+        },
+        "2026-08": {
+          "return_pct": 0.0,
+          "max_drawdown_pct": 0.0
+        },
+        "2026-09": {
+          "return_pct": 3.3709321181113694,
+          "max_drawdown_pct": -10.677703292382368
+        }
+      }
+    },
+    "robust_all": {
+      "index": 92233,
+      "config": {
+        "family": "sold_reversal",
+        "lookback": 5,
+        "time_mix": 0.0,
+        "gate": "positive_momentum",
+        "max_stocks": 1,
+        "rebalance": "daily",
+        "weighting": "equal",
+        "risk_rule": "trend_half"
+      },
+      "full": {
+        "return_pct": 99.66594398197547,
+        "max_drawdown_pct": -32.440328415754216
+      },
+      "holdout": {
+        "return_pct": -27.412530792164556,
+        "max_drawdown_pct": -31.42939972609724
+      },
+      "max_observed_stocks": 1,
+      "average_observed_stocks": 0.7777777777777778,
+      "cash_days": 42,
+      "average_cash_pct": 28.30725635342987,
+      "traded_nav_multiple": 122.9373703004573,
+      "rebalance_trade_days": 86,
+      "costs": [
+        {
+          "one_way_bps": 0,
+          "full": {
+            "return_pct": 140.15714596122643,
+            "max_drawdown_pct": -29.42814879399177
+          },
+          "holdout": {
+            "return_pct": -24.636597198828724,
+            "max_drawdown_pct": -29.126650538008047
+          }
+        },
+        {
+          "one_way_bps": 15,
+          "full": {
+            "return_pct": 99.66594398197547,
+            "max_drawdown_pct": -32.440328415754216
+          },
+          "holdout": {
+            "return_pct": -27.412530792164556,
+            "max_drawdown_pct": -31.42939972609724
+          }
+        },
+        {
+          "one_way_bps": 30,
+          "full": {
+            "return_pct": 66.00192071103923,
+            "max_drawdown_pct": -35.71907720003965
+          },
+          "holdout": {
+            "return_pct": -30.086067075011535,
+            "max_drawdown_pct": -33.65733706253271
+          }
+        },
+        {
+          "one_way_bps": 50,
+          "full": {
+            "return_pct": 29.775386537887982,
+            "max_drawdown_pct": -40.74992451429302
+          },
+          "holdout": {
+            "return_pct": -33.49803447304005,
+            "max_drawdown_pct": -36.515751536330754
+          }
+        }
+      ],
+      "extra_lag": {
+        "full": {
+          "return_pct": 233.1205458454277,
+          "max_drawdown_pct": -28.43734913897015
+        },
+        "holdout": {
+          "return_pct": -23.347923643801327,
+          "max_drawdown_pct": -28.43734913897016
+        }
+      },
+      "fresh_holdout": {
+        "return_pct": -27.412530792164535,
+        "max_drawdown_pct": -31.429399726097216
+      },
+      "contributions_pp": [
+        {
+          "symbol": "MU",
+          "pnl_per_initial_nav_pp": 41.124405760007704
+        },
+        {
+          "symbol": "SNDK",
+          "pnl_per_initial_nav_pp": 40.60165777851734
+        },
+        {
+          "symbol": "ARM",
+          "pnl_per_initial_nav_pp": 33.462533503432965
+        },
+        {
+          "symbol": "AXTI",
+          "pnl_per_initial_nav_pp": 32.75052671352263
+        },
+        {
+          "symbol": "SNOW",
+          "pnl_per_initial_nav_pp": 27.45741756144317
+        },
+        {
+          "symbol": "MSFT",
+          "pnl_per_initial_nav_pp": 25.69235068124286
+        },
+        {
+          "symbol": "COIN",
+          "pnl_per_initial_nav_pp": 18.470822015215692
+        },
+        {
+          "symbol": "QCOM",
+          "pnl_per_initial_nav_pp": 8.2215000413112
+        },
+        {
+          "symbol": "BE",
+          "pnl_per_initial_nav_pp": 6.8042419729584305
+        },
+        {
+          "symbol": "AMD",
+          "pnl_per_initial_nav_pp": 5.497385856948285
+        },
+        {
+          "symbol": "DG",
+          "pnl_per_initial_nav_pp": 3.048196134314936
+        },
+        {
+          "symbol": "CRCL",
+          "pnl_per_initial_nav_pp": 2.44904076994288
+        },
+        {
+          "symbol": "WDC",
+          "pnl_per_initial_nav_pp": 2.0406253360905775
+        },
+        {
+          "symbol": "AAPL",
+          "pnl_per_initial_nav_pp": 1.663561841119714
+        },
+        {
+          "symbol": "XNDU",
+          "pnl_per_initial_nav_pp": 1.1053359128866207
+        },
+        {
+          "symbol": "CIEN",
+          "pnl_per_initial_nav_pp": 0.9714005169089235
+        },
+        {
+          "symbol": "FSLY",
+          "pnl_per_initial_nav_pp": 0.6192904103989185
+        },
+        {
+          "symbol": "LITE",
+          "pnl_per_initial_nav_pp": 0.49909993175464246
+        },
+        {
+          "symbol": "GEV",
+          "pnl_per_initial_nav_pp": 0.1853357862207536
+        },
+        {
+          "symbol": "TSLA",
+          "pnl_per_initial_nav_pp": -1.2358663060793866
+        },
+        {
+          "symbol": "NVDA",
+          "pnl_per_initial_nav_pp": -6.1659859059724775
+        },
+        {
+          "symbol": "ASML",
+          "pnl_per_initial_nav_pp": -7.851946169439064
+        },
+        {
+          "symbol": "NBIS",
+          "pnl_per_initial_nav_pp": -7.925504403224632
+        },
+        {
+          "symbol": "SKHY",
+          "pnl_per_initial_nav_pp": -8.85063185174095
+        },
+        {
+          "symbol": "LLY",
+          "pnl_per_initial_nav_pp": -9.258610947986758
+        },
+        {
+          "symbol": "PLTR",
+          "pnl_per_initial_nav_pp": -14.38331574146009
+        },
+        {
+          "symbol": "AAOI",
+          "pnl_per_initial_nav_pp": -14.826093511624055
+        },
+        {
+          "symbol": "BABA",
+          "pnl_per_initial_nav_pp": -20.677925102973518
+        },
+        {
+          "symbol": "DELL",
+          "pnl_per_initial_nav_pp": -24.867312510488357
+        }
+      ],
+      "fee_pnl_pp": -36.95559209127348,
+      "without_top_contributor": {
+        "symbol": "MU",
+        "full": {
+          "return_pct": 50.9856109969673,
+          "max_drawdown_pct": -35.47847667693434
+        },
+        "holdout": {
+          "return_pct": -27.412530792164556,
+          "max_drawdown_pct": -31.42939972609724
+        }
+      },
+      "by_prior_regime": {
+        "unknown": {
+          "observations": 21,
+          "candidate": {
+            "return_pct": 0.0,
+            "max_drawdown_pct": 0.0
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 17.20517785376936,
+              "max_drawdown_pct": -3.77885783718106
+            },
+            "koact": {
+              "return_pct": 11.87787373975382,
+              "max_drawdown_pct": -3.5792094615623937
+            },
+            "qqq_krw": {
+              "return_pct": -0.3403706560388242,
+              "max_drawdown_pct": -3.1496481443101243
+            }
+          }
+        },
+        "up": {
+          "observations": 49,
+          "candidate": {
+            "return_pct": 19.27020282112535,
+            "max_drawdown_pct": -25.23198695938228
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 49.462689164154796,
+              "max_drawdown_pct": -5.350209659885086
+            },
+            "koact": {
+              "return_pct": 38.499582127416645,
+              "max_drawdown_pct": -5.2642980935875165
+            },
+            "qqq_krw": {
+              "return_pct": 5.5749160063739644,
+              "max_drawdown_pct": -13.511905574828697
+            }
+          }
+        },
+        "down": {
+          "observations": 29,
+          "candidate": {
+            "return_pct": -5.5594489086086885,
+            "max_drawdown_pct": -14.450544883896399
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": -19.26781802980948,
+              "max_drawdown_pct": -24.70759047030624
+            },
+            "koact": {
+              "return_pct": -26.353853755679857,
+              "max_drawdown_pct": -31.02422456187519
+            },
+            "qqq_krw": {
+              "return_pct": 11.014187095954252,
+              "max_drawdown_pct": -6.132868060760199
+            }
+          }
+        },
+        "range": {
+          "observations": 90,
+          "candidate": {
+            "return_pct": 77.26113481871624,
+            "max_drawdown_pct": -23.69965183868955
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 18.87078273574556,
+              "max_drawdown_pct": -16.838326076601984
+            },
+            "koact": {
+              "return_pct": 19.78578942297391,
+              "max_drawdown_pct": -14.285098504630511
+            },
+            "qqq_krw": {
+              "return_pct": -3.8846556067159477,
+              "max_drawdown_pct": -13.869504256356125
+            }
+          }
+        }
+      },
+      "monthly": {
+        "2026-01": {
+          "return_pct": 0.0,
+          "max_drawdown_pct": 0.0
+        },
+        "2026-02": {
+          "return_pct": 34.11676569112316,
+          "max_drawdown_pct": -4.883613226145799
+        },
+        "2026-03": {
+          "return_pct": 4.938236100406668,
+          "max_drawdown_pct": -11.96369113889746
+        },
+        "2026-04": {
+          "return_pct": 25.64122256293313,
+          "max_drawdown_pct": -8.901190314449725
+        },
+        "2026-05": {
+          "return_pct": 27.73051680501335,
+          "max_drawdown_pct": -12.467231552155189
+        },
+        "2026-06": {
+          "return_pct": 25.025453355878845,
+          "max_drawdown_pct": -17.02888794698846
+        },
+        "2026-07": {
+          "return_pct": -2.5907390414108944,
+          "max_drawdown_pct": -11.543234557063787
+        },
+        "2026-08": {
+          "return_pct": -20.261149390570743,
+          "max_drawdown_pct": -24.706789176776333
+        },
+        "2026-09": {
+          "return_pct": -8.968503241440152,
+          "max_drawdown_pct": -10.679728010674093
+        }
+      }
+    },
+    "robust_mixed_max_stocks_3_to_10": {
+      "index": 240068,
+      "config": {
+        "family": "repeated_buy",
+        "lookback": 40,
+        "time_mix": 0.75,
+        "gate": "positive_momentum",
+        "max_stocks": 3,
+        "rebalance": "weekly",
+        "weighting": "inverse_volatility",
+        "risk_rule": "always"
+      },
+      "full": {
+        "return_pct": 151.6288641263083,
+        "max_drawdown_pct": -17.680636481258936
+      },
+      "holdout": {
+        "return_pct": 0.17886404178624193,
+        "max_drawdown_pct": -16.103167601435008
+      },
+      "max_observed_stocks": 3,
+      "average_observed_stocks": 2.126984126984127,
+      "cash_days": 45,
+      "average_cash_pct": 23.809523809523807,
+      "traded_nav_multiple": 25.504934506749063,
+      "rebalance_trade_days": 28,
+      "costs": [
+        {
+          "one_way_bps": 0,
+          "full": {
+            "return_pct": 161.44819244412315,
+            "max_drawdown_pct": -17.507980046988347
+          },
+          "holdout": {
+            "return_pct": 1.5107624069741643,
+            "max_drawdown_pct": -15.752977354263042
+          }
+        },
+        {
+          "one_way_bps": 15,
+          "full": {
+            "return_pct": 151.6288641263083,
+            "max_drawdown_pct": -17.680636481258936
+          },
+          "holdout": {
+            "return_pct": 0.17886404178624193,
+            "max_drawdown_pct": -16.103167601435008
+          }
+        },
+        {
+          "one_way_bps": 30,
+          "full": {
+            "return_pct": 142.1768623819001,
+            "max_drawdown_pct": -17.853126848253233
+          },
+          "holdout": {
+            "return_pct": -1.1357381699492963,
+            "max_drawdown_pct": -16.45172520681537
+          }
+        },
+        {
+          "one_way_bps": 50,
+          "full": {
+            "return_pct": 130.12195019555236,
+            "max_drawdown_pct": -18.15879357484935
+          },
+          "holdout": {
+            "return_pct": -2.862029786244713,
+            "max_drawdown_pct": -16.9139461707971
+          }
+        }
+      ],
+      "extra_lag": {
+        "full": {
+          "return_pct": 73.61084234738642,
+          "max_drawdown_pct": -35.282267449342584
+        },
+        "holdout": {
+          "return_pct": -24.531475484119802,
+          "max_drawdown_pct": -34.99511806403469
+        }
+      },
+      "fresh_holdout": {
+        "return_pct": -5.325916381269358,
+        "max_drawdown_pct": -16.103167601435075
+      },
+      "contributions_pp": [
+        {
+          "symbol": "ARM",
+          "pnl_per_initial_nav_pp": 67.47759268142487
+        },
+        {
+          "symbol": "INTC",
+          "pnl_per_initial_nav_pp": 35.51115391887194
+        },
+        {
+          "symbol": "SNOW",
+          "pnl_per_initial_nav_pp": 30.38338929272763
+        },
+        {
+          "symbol": "CIEN",
+          "pnl_per_initial_nav_pp": 21.382360081801245
+        },
+        {
+          "symbol": "COHR",
+          "pnl_per_initial_nav_pp": 18.30776831741047
+        },
+        {
+          "symbol": "CRCL",
+          "pnl_per_initial_nav_pp": 12.999938280407333
+        },
+        {
+          "symbol": "AMD",
+          "pnl_per_initial_nav_pp": 8.579682105978478
+        },
+        {
+          "symbol": "AAOI",
+          "pnl_per_initial_nav_pp": 8.369009908156539
+        },
+        {
+          "symbol": "TSLA",
+          "pnl_per_initial_nav_pp": 7.499268761503955
+        },
+        {
+          "symbol": "009150.KS",
+          "pnl_per_initial_nav_pp": 6.349397738308276
+        },
+        {
+          "symbol": "BE",
+          "pnl_per_initial_nav_pp": 3.880087285141176
+        },
+        {
+          "symbol": "DELL",
+          "pnl_per_initial_nav_pp": 2.9326408405981486
+        },
+        {
+          "symbol": "SKHY",
+          "pnl_per_initial_nav_pp": 1.2405557019979525
+        },
+        {
+          "symbol": "LITE",
+          "pnl_per_initial_nav_pp": 0.855426265928648
+        },
+        {
+          "symbol": "NTAP",
+          "pnl_per_initial_nav_pp": -5.337922929236825
+        },
+        {
+          "symbol": "COIN",
+          "pnl_per_initial_nav_pp": -6.077700412949754
+        },
+        {
+          "symbol": "BABA",
+          "pnl_per_initial_nav_pp": -6.461621489573761
+        },
+        {
+          "symbol": "NVDA",
+          "pnl_per_initial_nav_pp": -6.924650545124908
+        },
+        {
+          "symbol": "6981.T",
+          "pnl_per_initial_nav_pp": -11.106406794034903
+        },
+        {
+          "symbol": "SNDK",
+          "pnl_per_initial_nav_pp": -12.471977308135546
+        },
+        {
+          "symbol": "STX",
+          "pnl_per_initial_nav_pp": -17.469458768383472
+        }
+      ],
+      "fee_pnl_pp": -8.289668806509187,
+      "without_top_contributor": {
+        "symbol": "ARM",
+        "full": {
+          "return_pct": 89.39758833246248,
+          "max_drawdown_pct": -19.733320861196425
+        },
+        "holdout": {
+          "return_pct": 0.17886404178626414,
+          "max_drawdown_pct": -16.103167601435008
+        }
+      },
+      "by_prior_regime": {
+        "unknown": {
+          "observations": 21,
+          "candidate": {
+            "return_pct": 0.0,
+            "max_drawdown_pct": 0.0
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 17.20517785376936,
+              "max_drawdown_pct": -3.77885783718106
+            },
+            "koact": {
+              "return_pct": 11.87787373975382,
+              "max_drawdown_pct": -3.5792094615623937
+            },
+            "qqq_krw": {
+              "return_pct": -0.3403706560388242,
+              "max_drawdown_pct": -3.1496481443101243
+            }
+          }
+        },
+        "up": {
+          "observations": 49,
+          "candidate": {
+            "return_pct": 33.8758976060209,
+            "max_drawdown_pct": -25.0772694632207
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 49.462689164154796,
+              "max_drawdown_pct": -5.350209659885086
+            },
+            "koact": {
+              "return_pct": 38.499582127416645,
+              "max_drawdown_pct": -5.2642980935875165
+            },
+            "qqq_krw": {
+              "return_pct": 5.5749160063739644,
+              "max_drawdown_pct": -13.511905574828697
+            }
+          }
+        },
+        "down": {
+          "observations": 29,
+          "candidate": {
+            "return_pct": 20.910351737952215,
+            "max_drawdown_pct": -14.155551965659885
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": -19.26781802980948,
+              "max_drawdown_pct": -24.70759047030624
+            },
+            "koact": {
+              "return_pct": -26.353853755679857,
+              "max_drawdown_pct": -31.02422456187519
+            },
+            "qqq_krw": {
+              "return_pct": 11.014187095954252,
+              "max_drawdown_pct": -6.132868060760199
+            }
+          }
+        },
+        "range": {
+          "observations": 90,
+          "candidate": {
+            "return_pct": 55.45137825332161,
+            "max_drawdown_pct": -19.053326742860378
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 18.87078273574556,
+              "max_drawdown_pct": -16.838326076601984
+            },
+            "koact": {
+              "return_pct": 19.78578942297391,
+              "max_drawdown_pct": -14.285098504630511
+            },
+            "qqq_krw": {
+              "return_pct": -3.8846556067159477,
+              "max_drawdown_pct": -13.869504256356125
+            }
+          }
+        }
+      },
+      "monthly": {
+        "2026-01": {
+          "return_pct": 0.0,
+          "max_drawdown_pct": 0.0
+        },
+        "2026-02": {
+          "return_pct": 0.0,
+          "max_drawdown_pct": 0.0
+        },
+        "2026-03": {
+          "return_pct": 19.995681765480946,
+          "max_drawdown_pct": -17.680636481258936
+        },
+        "2026-04": {
+          "return_pct": 36.87283101307135,
+          "max_drawdown_pct": -4.873989147821711
+        },
+        "2026-05": {
+          "return_pct": 41.180686122697296,
+          "max_drawdown_pct": -7.5842574127656714
+        },
+        "2026-06": {
+          "return_pct": 15.92450013153146,
+          "max_drawdown_pct": -10.860310772621794
+        },
+        "2026-07": {
+          "return_pct": -6.556097701122432,
+          "max_drawdown_pct": -11.223200871652306
+        },
+        "2026-08": {
+          "return_pct": -5.401580515579207,
+          "max_drawdown_pct": -16.103167601435008
+        },
+        "2026-09": {
+          "return_pct": 5.899088576511002,
+          "max_drawdown_pct": -12.61460605401954
+        }
+      }
+    },
+    "robust_mixed_max_stocks_5_to_10": {
+      "index": 136899,
+      "config": {
+        "family": "joint_buy",
+        "lookback": 10,
+        "time_mix": 0.25,
+        "gate": "none",
+        "max_stocks": 7,
+        "rebalance": "monthly",
+        "weighting": "equal",
+        "risk_rule": "manager_cash"
+      },
+      "full": {
+        "return_pct": 176.00082359075722,
+        "max_drawdown_pct": -22.35345535367651
+      },
+      "holdout": {
+        "return_pct": 3.3122937046463186,
+        "max_drawdown_pct": -16.7029785020532
+      },
+      "max_observed_stocks": 7,
+      "average_observed_stocks": 3.0211640211640214,
+      "cash_days": 35,
+      "average_cash_pct": 20.05468360720863,
+      "traded_nav_multiple": 13.46353464556616,
+      "rebalance_trade_days": 9,
+      "costs": [
+        {
+          "one_way_bps": 0,
+          "full": {
+            "return_pct": 181.63837386860035,
+            "max_drawdown_pct": -22.124269566438116
+          },
+          "holdout": {
+            "return_pct": 3.7619012594680257,
+            "max_drawdown_pct": -16.460572160685206
+          }
+        },
+        {
+          "one_way_bps": 15,
+          "full": {
+            "return_pct": 176.00082359075722,
+            "max_drawdown_pct": -22.35345535367651
+          },
+          "holdout": {
+            "return_pct": 3.3122937046463186,
+            "max_drawdown_pct": -16.7029785020532
+          }
+        },
+        {
+          "one_way_bps": 30,
+          "full": {
+            "return_pct": 170.47572117460325,
+            "max_drawdown_pct": -22.581966244709406
+          },
+          "holdout": {
+            "return_pct": 2.8648608189975944,
+            "max_drawdown_pct": -16.944669738656724
+          }
+        },
+        {
+          "one_way_bps": 50,
+          "full": {
+            "return_pct": 163.27994211707258,
+            "max_drawdown_pct": -22.885602736646327
+          },
+          "holdout": {
+            "return_pct": 2.2716435761408027,
+            "max_drawdown_pct": -17.265817794143757
+          }
+        }
+      ],
+      "extra_lag": {
+        "full": {
+          "return_pct": 128.30632806555732,
+          "max_drawdown_pct": -24.281405296125314
+        },
+        "holdout": {
+          "return_pct": -1.0281431174186784,
+          "max_drawdown_pct": -16.676804727512707
+        }
+      },
+      "fresh_holdout": {
+        "return_pct": 3.312293704646274,
+        "max_drawdown_pct": -16.702978502053245
+      },
+      "contributions_pp": [
+        {
+          "symbol": "ASML",
+          "pnl_per_initial_nav_pp": 37.12178070765913
+        },
+        {
+          "symbol": "ARM",
+          "pnl_per_initial_nav_pp": 32.6366467468952
+        },
+        {
+          "symbol": "MSTR",
+          "pnl_per_initial_nav_pp": 31.608761462846786
+        },
+        {
+          "symbol": "INTC",
+          "pnl_per_initial_nav_pp": 24.7210261743424
+        },
+        {
+          "symbol": "SKHY",
+          "pnl_per_initial_nav_pp": 18.208801843998053
+        },
+        {
+          "symbol": "WDC",
+          "pnl_per_initial_nav_pp": 16.581650282489218
+        },
+        {
+          "symbol": "SNDK",
+          "pnl_per_initial_nav_pp": 14.665019945878463
+        },
+        {
+          "symbol": "AMD",
+          "pnl_per_initial_nav_pp": 14.431289744550899
+        },
+        {
+          "symbol": "TSEM",
+          "pnl_per_initial_nav_pp": 11.65481385769627
+        },
+        {
+          "symbol": "STX",
+          "pnl_per_initial_nav_pp": 7.708945857902546
+        },
+        {
+          "symbol": "CIEN",
+          "pnl_per_initial_nav_pp": 6.44944173692577
+        },
+        {
+          "symbol": "NVDA",
+          "pnl_per_initial_nav_pp": 4.06220067004129
+        },
+        {
+          "symbol": "GEV",
+          "pnl_per_initial_nav_pp": 3.5608108533717333
+        },
+        {
+          "symbol": "COIN",
+          "pnl_per_initial_nav_pp": 1.778122372482975
+        },
+        {
+          "symbol": "CCJ",
+          "pnl_per_initial_nav_pp": 0.8643788760487525
+        },
+        {
+          "symbol": "BE",
+          "pnl_per_initial_nav_pp": 0.6944478123959139
+        },
+        {
+          "symbol": "LITE",
+          "pnl_per_initial_nav_pp": 0.5747442044413406
+        },
+        {
+          "symbol": "AMZN",
+          "pnl_per_initial_nav_pp": -0.11483543228149326
+        },
+        {
+          "symbol": "COHR",
+          "pnl_per_initial_nav_pp": -3.792572873388621
+        },
+        {
+          "symbol": "ASTS",
+          "pnl_per_initial_nav_pp": -3.9118759142909028
+        },
+        {
+          "symbol": "BABA",
+          "pnl_per_initial_nav_pp": -39.926973551688405
+        }
+      ],
+      "fee_pnl_pp": -3.5758017875600956,
+      "without_top_contributor": {
+        "symbol": "ASML",
+        "full": {
+          "return_pct": 153.73268074085527,
+          "max_drawdown_pct": -23.197216284207258
+        },
+        "holdout": {
+          "return_pct": 3.3122937046463408,
+          "max_drawdown_pct": -16.702978502053178
+        }
+      },
+      "by_prior_regime": {
+        "unknown": {
+          "observations": 21,
+          "candidate": {
+            "return_pct": 4.212092827148206,
+            "max_drawdown_pct": -13.691618735987143
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 17.20517785376936,
+              "max_drawdown_pct": -3.77885783718106
+            },
+            "koact": {
+              "return_pct": 11.87787373975382,
+              "max_drawdown_pct": -3.5792094615623937
+            },
+            "qqq_krw": {
+              "return_pct": -0.3403706560388242,
+              "max_drawdown_pct": -3.1496481443101243
+            }
+          }
+        },
+        "up": {
+          "observations": 49,
+          "candidate": {
+            "return_pct": 59.496115897612725,
+            "max_drawdown_pct": -10.407783177123452
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 49.462689164154796,
+              "max_drawdown_pct": -5.350209659885086
+            },
+            "koact": {
+              "return_pct": 38.499582127416645,
+              "max_drawdown_pct": -5.2642980935875165
+            },
+            "qqq_krw": {
+              "return_pct": 5.5749160063739644,
+              "max_drawdown_pct": -13.511905574828697
+            }
+          }
+        },
+        "down": {
+          "observations": 29,
+          "candidate": {
+            "return_pct": 20.61977701424349,
+            "max_drawdown_pct": -16.00916406739804
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": -19.26781802980948,
+              "max_drawdown_pct": -24.70759047030624
+            },
+            "koact": {
+              "return_pct": -26.353853755679857,
+              "max_drawdown_pct": -31.02422456187519
+            },
+            "qqq_krw": {
+              "return_pct": 11.014187095954252,
+              "max_drawdown_pct": -6.132868060760199
+            }
+          }
+        },
+        "range": {
+          "observations": 90,
+          "candidate": {
+            "return_pct": 37.66502806759415,
+            "max_drawdown_pct": -29.446966603115875
+          },
+          "benchmarks": {
+            "time": {
+              "return_pct": 18.87078273574556,
+              "max_drawdown_pct": -16.838326076601984
+            },
+            "koact": {
+              "return_pct": 19.78578942297391,
+              "max_drawdown_pct": -14.285098504630511
+            },
+            "qqq_krw": {
+              "return_pct": -3.8846556067159477,
+              "max_drawdown_pct": -13.869504256356125
+            }
+          }
+        }
+      },
+      "monthly": {
+        "2026-01": {
+          "return_pct": 4.212092827148206,
+          "max_drawdown_pct": -13.691618735987143
+        },
+        "2026-02": {
+          "return_pct": 6.423281153428184,
+          "max_drawdown_pct": -11.7323862025411
+        },
+        "2026-03": {
+          "return_pct": 11.062581815374761,
+          "max_drawdown_pct": -19.186844003012602
+        },
+        "2026-04": {
+          "return_pct": 48.73195553978456,
+          "max_drawdown_pct": -5.542591995555101
+        },
+        "2026-05": {
+          "return_pct": 21.052538005130494,
+          "max_drawdown_pct": -6.362522701657403
+        },
+        "2026-06": {
+          "return_pct": 29.510605555352033,
+          "max_drawdown_pct": -8.658880305465111
+        },
+        "2026-07": {
+          "return_pct": -6.985142409921508,
+          "max_drawdown_pct": -6.985142409921508
+        },
+        "2026-08": {
+          "return_pct": -13.625397642005055,
+          "max_drawdown_pct": -15.020641596552252
+        },
+        "2026-09": {
+          "return_pct": 19.609573745358745,
+          "max_drawdown_pct": -6.993204984263334
+        }
+      }
+    }
+  },
+  "regime_counts": {
+    "unknown": 21,
+    "up": 49,
+    "down": 29,
+    "range": 90
+  },
+  "fresh_holdout_benchmarks": {
+    "time": {
+      "return_pct": 4.867518021061268,
+      "max_drawdown_pct": -9.304804066240347
+    },
+    "koact": {
+      "return_pct": 4.861295417468647,
+      "max_drawdown_pct": -12.693266832917693
+    },
+    "qqq_krw": {
+      "return_pct": -0.5660408627162106,
+      "max_drawdown_pct": -8.574377595163241
+    }
+  }
+}

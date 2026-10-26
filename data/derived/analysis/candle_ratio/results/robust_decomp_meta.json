@@ -1,0 +1,1810 @@
+{
+ "syms": [
+  "AAOI",
+  "AAPL",
+  "ACN",
+  "ADI",
+  "AEHR",
+  "AKAM",
+  "ALAB",
+  "AMAT",
+  "AMD",
+  "AMKR",
+  "AMZN",
+  "ANET",
+  "AOSL",
+  "APH",
+  "APLD",
+  "ARKG",
+  "ARM",
+  "ASML",
+  "ASX",
+  "AVGO",
+  "AXTI",
+  "BABA",
+  "BE",
+  "BEAM",
+  "CAT",
+  "CBRS",
+  "CEG",
+  "CIEN",
+  "CIFR",
+  "CLS",
+  "CMI",
+  "COHR",
+  "COIN",
+  "CRCL",
+  "CRDO",
+  "CRM",
+  "CRSP",
+  "CRWD",
+  "CRWV",
+  "CSCO",
+  "DDOG",
+  "DELL",
+  "DT",
+  "EBAY",
+  "EME",
+  "ENTG",
+  "ETN",
+  "FIX",
+  "FLEX",
+  "FN",
+  "FORM",
+  "FSLY",
+  "FTNT",
+  "GEV",
+  "GFS",
+  "GH",
+  "GLW",
+  "GLXY",
+  "GOOG",
+  "GOOGL",
+  "GRAL",
+  "GTLB",
+  "HOOD",
+  "HPE",
+  "HUT",
+  "IBM",
+  "IGV",
+  "ILMN",
+  "INTC",
+  "IPGP",
+  "IREN",
+  "IWM",
+  "KEYS",
+  "KLAC",
+  "LITE",
+  "LRCX",
+  "MCHP",
+  "MDB",
+  "MELI",
+  "META",
+  "MOD",
+  "MPWR",
+  "MRVL",
+  "MSFT",
+  "MSTR",
+  "MTSI",
+  "MU",
+  "NBIS",
+  "NET",
+  "NOW",
+  "NTAP",
+  "NTLA",
+  "NTRA",
+  "NVDA",
+  "NVT",
+  "NVTS",
+  "NXPI",
+  "OKLO",
+  "OKTA",
+  "ON",
+  "ORCL",
+  "P",
+  "PANW",
+  "PDD",
+  "PLTR",
+  "QCOM",
+  "QQQ",
+  "RMBS",
+  "ROP",
+  "RXRX",
+  "SAP",
+  "SDGR",
+  "SIMO",
+  "SKHY",
+  "SMCI",
+  "SMH",
+  "SMR",
+  "SNDK",
+  "SNOW",
+  "SOXX",
+  "SPY",
+  "STM",
+  "STX",
+  "SWKS",
+  "TEM",
+  "TER",
+  "TLN",
+  "TSEM",
+  "TSLA",
+  "TSM",
+  "TTMI",
+  "TWST",
+  "TXG",
+  "TXN",
+  "UMC",
+  "VCYT",
+  "VIAV",
+  "VICR",
+  "VRT",
+  "VST",
+  "WDC",
+  "WULF",
+  "XBI",
+  "XE"
+ ],
+ "ks": [
+  0,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22,
+  23,
+  24,
+  25,
+  26,
+  27,
+  28,
+  29,
+  30,
+  31,
+  32,
+  33,
+  34,
+  35,
+  36,
+  37,
+  38,
+  39,
+  40,
+  41,
+  42,
+  43,
+  44,
+  45,
+  46,
+  47,
+  48,
+  49,
+  50,
+  51,
+  52,
+  53,
+  54
+ ],
+ "feat": [
+  "S",
+  "B",
+  "x",
+  "S_reg",
+  "S_pre",
+  "S_post",
+  "S_closed",
+  "B_reg",
+  "B_pre",
+  "B_post",
+  "B_closed",
+  "x_reg",
+  "x_pre",
+  "x_post",
+  "x_closed",
+  "E",
+  "L",
+  "E_rm3",
+  "L_rm3",
+  "E_exearn",
+  "L_exearn",
+  "n_earn_days",
+  "cost",
+  "S_rm3s"
+ ],
+ "modes": [
+  "ideal",
+  "real"
+ ],
+ "windows": [
+  "full",
+  "sel",
+  "conf"
+ ],
+ "sleep_et_min": [
+  660,
+  1140
+ ],
+ "earn": [
+  {
+   "sym": "AAOI",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-06"
+   ],
+   "earn_days": [
+    "2026-08-06",
+    "2026-08-07"
+   ]
+  },
+  {
+   "sym": "AAPL",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-30"
+   ],
+   "earn_days": [
+    "2026-07-30",
+    "2026-07-31"
+   ]
+  },
+  {
+   "sym": "ACN",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-10-01"
+   ],
+   "earn_days": [
+    "2026-10-01",
+    "2026-10-02"
+   ]
+  },
+  {
+   "sym": "ADI",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-19"
+   ],
+   "earn_days": [
+    "2026-08-19",
+    "2026-08-20"
+   ]
+  },
+  {
+   "sym": "AEHR",
+   "earn_src": "gap_fallback",
+   "earn_dates": [
+    "2026-09-14"
+   ],
+   "earn_days": [
+    "2026-09-14",
+    "2026-09-15"
+   ]
+  },
+  {
+   "sym": "AKAM",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-06"
+   ],
+   "earn_days": [
+    "2026-08-06",
+    "2026-08-07"
+   ]
+  },
+  {
+   "sym": "ALAB",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-04"
+   ],
+   "earn_days": [
+    "2026-08-04",
+    "2026-08-05"
+   ]
+  },
+  {
+   "sym": "AMAT",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-13"
+   ],
+   "earn_days": [
+    "2026-08-13",
+    "2026-08-14"
+   ]
+  },
+  {
+   "sym": "AMD",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-04"
+   ],
+   "earn_days": [
+    "2026-08-04",
+    "2026-08-05"
+   ]
+  },
+  {
+   "sym": "AMKR",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-27"
+   ],
+   "earn_days": [
+    "2026-07-27",
+    "2026-07-28"
+   ]
+  },
+  {
+   "sym": "AMZN",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-30"
+   ],
+   "earn_days": [
+    "2026-07-30",
+    "2026-07-31"
+   ]
+  },
+  {
+   "sym": "ANET",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-04"
+   ],
+   "earn_days": [
+    "2026-08-04",
+    "2026-08-05"
+   ]
+  },
+  {
+   "sym": "AOSL",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-12"
+   ],
+   "earn_days": [
+    "2026-08-12",
+    "2026-08-13"
+   ]
+  },
+  {
+   "sym": "APH",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-29"
+   ],
+   "earn_days": [
+    "2026-07-29",
+    "2026-07-30"
+   ]
+  },
+  {
+   "sym": "APLD",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-10-07",
+    "2026-07-27"
+   ],
+   "earn_days": [
+    "2026-07-27",
+    "2026-07-28",
+    "2026-10-07",
+    "2026-10-08"
+   ]
+  },
+  {
+   "sym": "ARKG",
+   "earn_src": "earnings",
+   "earn_dates": [],
+   "earn_days": []
+  },
+  {
+   "sym": "ARM",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-29"
+   ],
+   "earn_days": [
+    "2026-07-29",
+    "2026-07-30"
+   ]
+  },
+  {
+   "sym": "ASML",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-10-14"
+   ],
+   "earn_days": [
+    "2026-10-14",
+    "2026-10-15"
+   ]
+  },
+  {
+   "sym": "ASX",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-30"
+   ],
+   "earn_days": [
+    "2026-07-30",
+    "2026-07-31"
+   ]
+  },
+  {
+   "sym": "AVGO",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-09-02"
+   ],
+   "earn_days": [
+    "2026-09-02",
+    "2026-09-03"
+   ]
+  },
+  {
+   "sym": "AXTI",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-30"
+   ],
+   "earn_days": [
+    "2026-07-30",
+    "2026-07-31"
+   ]
+  },
+  {
+   "sym": "BABA",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-20"
+   ],
+   "earn_days": [
+    "2026-08-20",
+    "2026-08-21"
+   ]
+  },
+  {
+   "sym": "BE",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-10-22",
+    "2026-07-28"
+   ],
+   "earn_days": [
+    "2026-07-28",
+    "2026-07-29",
+    "2026-10-22"
+   ]
+  },
+  {
+   "sym": "BEAM",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-04"
+   ],
+   "earn_days": [
+    "2026-08-04",
+    "2026-08-05"
+   ]
+  },
+  {
+   "sym": "CAT",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-04"
+   ],
+   "earn_days": [
+    "2026-08-04",
+    "2026-08-05"
+   ]
+  },
+  {
+   "sym": "CBRS",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-12"
+   ],
+   "earn_days": [
+    "2026-08-12",
+    "2026-08-13"
+   ]
+  },
+  {
+   "sym": "CEG",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-06"
+   ],
+   "earn_days": [
+    "2026-08-06",
+    "2026-08-07"
+   ]
+  },
+  {
+   "sym": "CIEN",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-09-03"
+   ],
+   "earn_days": [
+    "2026-09-03",
+    "2026-09-04"
+   ]
+  },
+  {
+   "sym": "CIFR",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-04"
+   ],
+   "earn_days": [
+    "2026-08-04",
+    "2026-08-05"
+   ]
+  },
+  {
+   "sym": "CLS",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-27"
+   ],
+   "earn_days": [
+    "2026-07-27",
+    "2026-07-28"
+   ]
+  },
+  {
+   "sym": "CMI",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-04"
+   ],
+   "earn_days": [
+    "2026-08-04",
+    "2026-08-05"
+   ]
+  },
+  {
+   "sym": "COHR",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-12"
+   ],
+   "earn_days": [
+    "2026-08-12",
+    "2026-08-13"
+   ]
+  },
+  {
+   "sym": "COIN",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-30"
+   ],
+   "earn_days": [
+    "2026-07-30",
+    "2026-07-31"
+   ]
+  },
+  {
+   "sym": "CRCL",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-05"
+   ],
+   "earn_days": [
+    "2026-08-05",
+    "2026-08-06"
+   ]
+  },
+  {
+   "sym": "CRDO",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-09-01"
+   ],
+   "earn_days": [
+    "2026-09-01",
+    "2026-09-02"
+   ]
+  },
+  {
+   "sym": "CRM",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-26"
+   ],
+   "earn_days": [
+    "2026-08-26",
+    "2026-08-27"
+   ]
+  },
+  {
+   "sym": "CRSP",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-03"
+   ],
+   "earn_days": [
+    "2026-08-03",
+    "2026-08-04"
+   ]
+  },
+  {
+   "sym": "CRWD",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-26"
+   ],
+   "earn_days": [
+    "2026-08-26",
+    "2026-08-27"
+   ]
+  },
+  {
+   "sym": "CRWV",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-11"
+   ],
+   "earn_days": [
+    "2026-08-11",
+    "2026-08-12"
+   ]
+  },
+  {
+   "sym": "CSCO",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-12"
+   ],
+   "earn_days": [
+    "2026-08-12",
+    "2026-08-13"
+   ]
+  },
+  {
+   "sym": "DDOG",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-06"
+   ],
+   "earn_days": [
+    "2026-08-06",
+    "2026-08-07"
+   ]
+  },
+  {
+   "sym": "DELL",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-09-01"
+   ],
+   "earn_days": [
+    "2026-09-01",
+    "2026-09-02"
+   ]
+  },
+  {
+   "sym": "DT",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-05"
+   ],
+   "earn_days": [
+    "2026-08-05",
+    "2026-08-06"
+   ]
+  },
+  {
+   "sym": "EBAY",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-05"
+   ],
+   "earn_days": [
+    "2026-08-05",
+    "2026-08-06"
+   ]
+  },
+  {
+   "sym": "EME",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-30"
+   ],
+   "earn_days": [
+    "2026-07-30",
+    "2026-07-31"
+   ]
+  },
+  {
+   "sym": "ENTG",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-04"
+   ],
+   "earn_days": [
+    "2026-08-04",
+    "2026-08-05"
+   ]
+  },
+  {
+   "sym": "ETN",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-31"
+   ],
+   "earn_days": [
+    "2026-07-31",
+    "2026-08-03"
+   ]
+  },
+  {
+   "sym": "FIX",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-10-22",
+    "2026-07-23"
+   ],
+   "earn_days": [
+    "2026-07-23",
+    "2026-07-24",
+    "2026-10-22"
+   ]
+  },
+  {
+   "sym": "FLEX",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-29"
+   ],
+   "earn_days": [
+    "2026-07-29",
+    "2026-07-30"
+   ]
+  },
+  {
+   "sym": "FN",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-17"
+   ],
+   "earn_days": [
+    "2026-08-17",
+    "2026-08-18"
+   ]
+  },
+  {
+   "sym": "FORM",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-29"
+   ],
+   "earn_days": [
+    "2026-07-29",
+    "2026-07-30"
+   ]
+  },
+  {
+   "sym": "FSLY",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-05"
+   ],
+   "earn_days": [
+    "2026-08-05",
+    "2026-08-06"
+   ]
+  },
+  {
+   "sym": "FTNT",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-29"
+   ],
+   "earn_days": [
+    "2026-07-29",
+    "2026-07-30"
+   ]
+  },
+  {
+   "sym": "GEV",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-22"
+   ],
+   "earn_days": [
+    "2026-07-22",
+    "2026-07-23"
+   ]
+  },
+  {
+   "sym": "GFS",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-05"
+   ],
+   "earn_days": [
+    "2026-08-05",
+    "2026-08-06"
+   ]
+  },
+  {
+   "sym": "GH",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-30"
+   ],
+   "earn_days": [
+    "2026-07-30",
+    "2026-07-31"
+   ]
+  },
+  {
+   "sym": "GLW",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-28"
+   ],
+   "earn_days": [
+    "2026-07-28",
+    "2026-07-29"
+   ]
+  },
+  {
+   "sym": "GLXY",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-05"
+   ],
+   "earn_days": [
+    "2026-08-05",
+    "2026-08-06"
+   ]
+  },
+  {
+   "sym": "GOOG",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-22"
+   ],
+   "earn_days": [
+    "2026-07-22",
+    "2026-07-23"
+   ]
+  },
+  {
+   "sym": "GOOGL",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-22"
+   ],
+   "earn_days": [
+    "2026-07-22",
+    "2026-07-23"
+   ]
+  },
+  {
+   "sym": "GRAL",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-05"
+   ],
+   "earn_days": [
+    "2026-08-05",
+    "2026-08-06"
+   ]
+  },
+  {
+   "sym": "GTLB",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-09-01"
+   ],
+   "earn_days": [
+    "2026-09-01",
+    "2026-09-02"
+   ]
+  },
+  {
+   "sym": "HOOD",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-29"
+   ],
+   "earn_days": [
+    "2026-07-29",
+    "2026-07-30"
+   ]
+  },
+  {
+   "sym": "HPE",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-09-02"
+   ],
+   "earn_days": [
+    "2026-09-02",
+    "2026-09-03"
+   ]
+  },
+  {
+   "sym": "HUT",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-04"
+   ],
+   "earn_days": [
+    "2026-08-04",
+    "2026-08-05"
+   ]
+  },
+  {
+   "sym": "IBM",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-10-21",
+    "2026-07-22"
+   ],
+   "earn_days": [
+    "2026-07-22",
+    "2026-07-23",
+    "2026-10-21",
+    "2026-10-22"
+   ]
+  },
+  {
+   "sym": "IGV",
+   "earn_src": "earnings",
+   "earn_dates": [],
+   "earn_days": []
+  },
+  {
+   "sym": "ILMN",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-30"
+   ],
+   "earn_days": [
+    "2026-07-30",
+    "2026-07-31"
+   ]
+  },
+  {
+   "sym": "INTC",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-23"
+   ],
+   "earn_days": [
+    "2026-07-23",
+    "2026-07-24"
+   ]
+  },
+  {
+   "sym": "IPGP",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-04"
+   ],
+   "earn_days": [
+    "2026-08-04",
+    "2026-08-05"
+   ]
+  },
+  {
+   "sym": "IREN",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-27"
+   ],
+   "earn_days": [
+    "2026-08-27",
+    "2026-08-28"
+   ]
+  },
+  {
+   "sym": "IWM",
+   "earn_src": "earnings",
+   "earn_dates": [],
+   "earn_days": []
+  },
+  {
+   "sym": "KEYS",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-18"
+   ],
+   "earn_days": [
+    "2026-08-18",
+    "2026-08-19"
+   ]
+  },
+  {
+   "sym": "KLAC",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-28"
+   ],
+   "earn_days": [
+    "2026-07-28",
+    "2026-07-29"
+   ]
+  },
+  {
+   "sym": "LITE",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-11"
+   ],
+   "earn_days": [
+    "2026-08-11",
+    "2026-08-12"
+   ]
+  },
+  {
+   "sym": "LRCX",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-10-21",
+    "2026-07-29"
+   ],
+   "earn_days": [
+    "2026-07-29",
+    "2026-07-30",
+    "2026-10-21",
+    "2026-10-22"
+   ]
+  },
+  {
+   "sym": "MCHP",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-06"
+   ],
+   "earn_days": [
+    "2026-08-06",
+    "2026-08-07"
+   ]
+  },
+  {
+   "sym": "MDB",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-09-01"
+   ],
+   "earn_days": [
+    "2026-09-01",
+    "2026-09-02"
+   ]
+  },
+  {
+   "sym": "MELI",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-05"
+   ],
+   "earn_days": [
+    "2026-08-05",
+    "2026-08-06"
+   ]
+  },
+  {
+   "sym": "META",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-10-21",
+    "2026-07-29"
+   ],
+   "earn_days": [
+    "2026-07-29",
+    "2026-07-30",
+    "2026-10-21",
+    "2026-10-22"
+   ]
+  },
+  {
+   "sym": "MOD",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-29"
+   ],
+   "earn_days": [
+    "2026-07-29",
+    "2026-07-30"
+   ]
+  },
+  {
+   "sym": "MPWR",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-30"
+   ],
+   "earn_days": [
+    "2026-07-30",
+    "2026-07-31"
+   ]
+  },
+  {
+   "sym": "MRVL",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-27"
+   ],
+   "earn_days": [
+    "2026-08-27",
+    "2026-08-28"
+   ]
+  },
+  {
+   "sym": "MSFT",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-29"
+   ],
+   "earn_days": [
+    "2026-07-29",
+    "2026-07-30"
+   ]
+  },
+  {
+   "sym": "MSTR",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-30"
+   ],
+   "earn_days": [
+    "2026-07-30",
+    "2026-07-31"
+   ]
+  },
+  {
+   "sym": "MTSI",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-06"
+   ],
+   "earn_days": [
+    "2026-08-06",
+    "2026-08-07"
+   ]
+  },
+  {
+   "sym": "MU",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-09-30"
+   ],
+   "earn_days": [
+    "2026-09-30",
+    "2026-10-01"
+   ]
+  },
+  {
+   "sym": "NBIS",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-12"
+   ],
+   "earn_days": [
+    "2026-08-12",
+    "2026-08-13"
+   ]
+  },
+  {
+   "sym": "NET",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-06"
+   ],
+   "earn_days": [
+    "2026-08-06",
+    "2026-08-07"
+   ]
+  },
+  {
+   "sym": "NOW",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-22"
+   ],
+   "earn_days": [
+    "2026-07-22",
+    "2026-07-23"
+   ]
+  },
+  {
+   "sym": "NTAP",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-09-02"
+   ],
+   "earn_days": [
+    "2026-09-02",
+    "2026-09-03"
+   ]
+  },
+  {
+   "sym": "NTLA",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-06"
+   ],
+   "earn_days": [
+    "2026-08-06",
+    "2026-08-07"
+   ]
+  },
+  {
+   "sym": "NTRA",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-06"
+   ],
+   "earn_days": [
+    "2026-08-06",
+    "2026-08-07"
+   ]
+  },
+  {
+   "sym": "NVDA",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-26"
+   ],
+   "earn_days": [
+    "2026-08-26",
+    "2026-08-27"
+   ]
+  },
+  {
+   "sym": "NVT",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-31"
+   ],
+   "earn_days": [
+    "2026-07-31",
+    "2026-08-03"
+   ]
+  },
+  {
+   "sym": "NVTS",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-27"
+   ],
+   "earn_days": [
+    "2026-07-27",
+    "2026-07-28"
+   ]
+  },
+  {
+   "sym": "NXPI",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-28"
+   ],
+   "earn_days": [
+    "2026-07-28",
+    "2026-07-29"
+   ]
+  },
+  {
+   "sym": "OKLO",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-07"
+   ],
+   "earn_days": [
+    "2026-08-07",
+    "2026-08-10"
+   ]
+  },
+  {
+   "sym": "OKTA",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-26"
+   ],
+   "earn_days": [
+    "2026-08-26",
+    "2026-08-27"
+   ]
+  },
+  {
+   "sym": "ON",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-03"
+   ],
+   "earn_days": [
+    "2026-08-03",
+    "2026-08-04"
+   ]
+  },
+  {
+   "sym": "ORCL",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-09-10"
+   ],
+   "earn_days": [
+    "2026-09-10",
+    "2026-09-11"
+   ]
+  },
+  {
+   "sym": "P",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-26"
+   ],
+   "earn_days": [
+    "2026-08-26",
+    "2026-08-27"
+   ]
+  },
+  {
+   "sym": "PANW",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-09-01"
+   ],
+   "earn_days": [
+    "2026-09-01",
+    "2026-09-02"
+   ]
+  },
+  {
+   "sym": "PDD",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-24"
+   ],
+   "earn_days": [
+    "2026-08-24",
+    "2026-08-25"
+   ]
+  },
+  {
+   "sym": "PLTR",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-03"
+   ],
+   "earn_days": [
+    "2026-08-03",
+    "2026-08-04"
+   ]
+  },
+  {
+   "sym": "QCOM",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-29"
+   ],
+   "earn_days": [
+    "2026-07-29",
+    "2026-07-30"
+   ]
+  },
+  {
+   "sym": "QQQ",
+   "earn_src": "earnings",
+   "earn_dates": [],
+   "earn_days": []
+  },
+  {
+   "sym": "RMBS",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-27"
+   ],
+   "earn_days": [
+    "2026-07-27",
+    "2026-07-28"
+   ]
+  },
+  {
+   "sym": "ROP",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-10-22",
+    "2026-07-23"
+   ],
+   "earn_days": [
+    "2026-07-23",
+    "2026-07-24",
+    "2026-10-22"
+   ]
+  },
+  {
+   "sym": "RXRX",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-05"
+   ],
+   "earn_days": [
+    "2026-08-05",
+    "2026-08-06"
+   ]
+  },
+  {
+   "sym": "SAP",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-10-20",
+    "2026-07-22"
+   ],
+   "earn_days": [
+    "2026-07-22",
+    "2026-07-23",
+    "2026-10-20",
+    "2026-10-21"
+   ]
+  },
+  {
+   "sym": "SDGR",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-05"
+   ],
+   "earn_days": [
+    "2026-08-05",
+    "2026-08-06"
+   ]
+  },
+  {
+   "sym": "SIMO",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-29"
+   ],
+   "earn_days": [
+    "2026-07-29",
+    "2026-07-30"
+   ]
+  },
+  {
+   "sym": "SKHY",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-28"
+   ],
+   "earn_days": [
+    "2026-07-28",
+    "2026-07-29"
+   ]
+  },
+  {
+   "sym": "SMCI",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-11"
+   ],
+   "earn_days": [
+    "2026-08-11",
+    "2026-08-12"
+   ]
+  },
+  {
+   "sym": "SMH",
+   "earn_src": "earnings",
+   "earn_dates": [],
+   "earn_days": []
+  },
+  {
+   "sym": "SMR",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-05"
+   ],
+   "earn_days": [
+    "2026-08-05",
+    "2026-08-06"
+   ]
+  },
+  {
+   "sym": "SNDK",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-05"
+   ],
+   "earn_days": [
+    "2026-08-05",
+    "2026-08-06"
+   ]
+  },
+  {
+   "sym": "SNOW",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-09-02"
+   ],
+   "earn_days": [
+    "2026-09-02",
+    "2026-09-03"
+   ]
+  },
+  {
+   "sym": "SOXX",
+   "earn_src": "earnings",
+   "earn_dates": [],
+   "earn_days": []
+  },
+  {
+   "sym": "SPY",
+   "earn_src": "earnings",
+   "earn_dates": [],
+   "earn_days": []
+  },
+  {
+   "sym": "STM",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-23"
+   ],
+   "earn_days": [
+    "2026-07-23",
+    "2026-07-24"
+   ]
+  },
+  {
+   "sym": "STX",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-28"
+   ],
+   "earn_days": [
+    "2026-07-28",
+    "2026-07-29"
+   ]
+  },
+  {
+   "sym": "SWKS",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-28"
+   ],
+   "earn_days": [
+    "2026-07-28",
+    "2026-07-29"
+   ]
+  },
+  {
+   "sym": "TEM",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-30"
+   ],
+   "earn_days": [
+    "2026-07-30",
+    "2026-07-31"
+   ]
+  },
+  {
+   "sym": "TER",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-28"
+   ],
+   "earn_days": [
+    "2026-07-28",
+    "2026-07-29"
+   ]
+  },
+  {
+   "sym": "TLN",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-05"
+   ],
+   "earn_days": [
+    "2026-08-05",
+    "2026-08-06"
+   ]
+  },
+  {
+   "sym": "TSEM",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-04"
+   ],
+   "earn_days": [
+    "2026-08-04",
+    "2026-08-05"
+   ]
+  },
+  {
+   "sym": "TSLA",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-10-21",
+    "2026-07-22"
+   ],
+   "earn_days": [
+    "2026-07-22",
+    "2026-07-23",
+    "2026-10-21",
+    "2026-10-22"
+   ]
+  },
+  {
+   "sym": "TSM",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-10-15"
+   ],
+   "earn_days": [
+    "2026-10-15",
+    "2026-10-16"
+   ]
+  },
+  {
+   "sym": "TTMI",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-10-22",
+    "2026-08-05"
+   ],
+   "earn_days": [
+    "2026-08-05",
+    "2026-08-06",
+    "2026-10-22"
+   ]
+  },
+  {
+   "sym": "TWST",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-03"
+   ],
+   "earn_days": [
+    "2026-08-03",
+    "2026-08-04"
+   ]
+  },
+  {
+   "sym": "TXG",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-06"
+   ],
+   "earn_days": [
+    "2026-08-06",
+    "2026-08-07"
+   ]
+  },
+  {
+   "sym": "TXN",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-10-21",
+    "2026-07-22"
+   ],
+   "earn_days": [
+    "2026-07-22",
+    "2026-07-23",
+    "2026-10-21",
+    "2026-10-22"
+   ]
+  },
+  {
+   "sym": "UMC",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-29"
+   ],
+   "earn_days": [
+    "2026-07-29",
+    "2026-07-30"
+   ]
+  },
+  {
+   "sym": "VCYT",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-30"
+   ],
+   "earn_days": [
+    "2026-07-30",
+    "2026-07-31"
+   ]
+  },
+  {
+   "sym": "VIAV",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-05"
+   ],
+   "earn_days": [
+    "2026-08-05",
+    "2026-08-06"
+   ]
+  },
+  {
+   "sym": "VICR",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-10-20",
+    "2026-07-21"
+   ],
+   "earn_days": [
+    "2026-07-21",
+    "2026-07-22",
+    "2026-10-20",
+    "2026-10-21"
+   ]
+  },
+  {
+   "sym": "VRT",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-07-29"
+   ],
+   "earn_days": [
+    "2026-07-29",
+    "2026-07-30"
+   ]
+  },
+  {
+   "sym": "VST",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-10"
+   ],
+   "earn_days": [
+    "2026-08-10",
+    "2026-08-11"
+   ]
+  },
+  {
+   "sym": "WDC",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-10-22",
+    "2026-08-05"
+   ],
+   "earn_days": [
+    "2026-08-05",
+    "2026-08-06",
+    "2026-10-22"
+   ]
+  },
+  {
+   "sym": "WULF",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-05"
+   ],
+   "earn_days": [
+    "2026-08-05",
+    "2026-08-06"
+   ]
+  },
+  {
+   "sym": "XBI",
+   "earn_src": "earnings",
+   "earn_dates": [],
+   "earn_days": []
+  },
+  {
+   "sym": "XE",
+   "earn_src": "earnings",
+   "earn_dates": [
+    "2026-08-13"
+   ],
+   "earn_days": [
+    "2026-08-13",
+    "2026-08-14"
+   ]
+  }
+ ]
+}

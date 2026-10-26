@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KoAct 보유 내역 받기</title>
+<style>
+  :root { --bg: #fafaf7; --ink: #1a1a18; --muted: #6b6a64; --line: #e2e0d8; --accent: #9a6700; --done: #1baf7a; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #141412; --ink: #f1efe6; --muted: #9a988e; --line: #2c2c27; --accent: #f0b429; --done: #3fcf99; } }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.6 "Malgun Gothic", system-ui, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 24px 16px 60px; }
+  h1 { font-size: 22px; margin: 0 0 6px; }
+  .note { color: var(--muted); margin: 0 0 18px; }
+  .step { border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; margin: 0 0 14px; }
+  .step b { color: var(--accent); }
+  h2 { font-size: 17px; margin: 22px 0 8px; }
+  table { width: 100%; border-collapse: collapse; }
+  td, th { padding: 7px 8px; border-bottom: 1px solid var(--line); text-align: left; }
+  th { color: var(--muted); font-weight: 500; font-size: 13px; }
+  a { color: var(--accent); font-weight: 600; }
+  tr.done td { color: var(--muted); }
+  tr.done a { color: var(--done); }
+  tr.first td { background: color-mix(in srgb, var(--accent) 10%, transparent); }
+  input { width: 18px; height: 18px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>KoAct 다른 펀드 3개 보유 내역(PDF) 받기</h1>
+  <p class="note">연구용 일회성 자료입니다. 링크를 누르면 삼성액티브 사이트에서 그 날짜의 보유 내역 엑셀이 내려받아집니다. 받은 파일은 다운로드 폴더에 그대로 두세요.</p>
+  <div class="step"><b>1단계</b> 맨 위 노란 줄 <b>하나만</b> 받고 Claude에게 "받았다"고 알려 주세요. 파일 형식(이름에 날짜가 들어가는지)을 확인한 뒤 2단계로 갑니다.</div>
+  <div class="step"><b>2단계</b> 나머지를 <b>위에서부터 차례대로</b>, 한 파일이 다 받아진 뒤 몇 초 쉬고 다음을 눌러 주세요. 빨리 연달아 누르면 사이트가 다시 막을 수 있습니다. 내용이 빈 파일이 나오면(그날 펀드가 없음) 그냥 넘어가세요.</div>
+  <div id="lists"></div>
+</main>
+<script>
+  const FUNDS = [
+    ["2ETFS9", "KoAct 미국바이오헬스케어액티브 (0113G0)", ["2026-01-02", "2026-01-30", "2026-02-27", "2026-03-31", "2026-04-30", "2026-05-29", "2026-06-30", "2026-07-31", "2026-08-31", "2026-09-30", "2026-10-08"]],
+    ["2ETFO5", "KoAct 미국치매&뇌질환치료제액티브 (490330)", ["2026-01-02", "2026-01-30", "2026-02-27", "2026-03-31", "2026-04-30", "2026-05-29", "2026-06-30", "2026-07-31", "2026-08-31", "2026-09-30", "2026-10-08"]],
+    ["2ETFU7", "KoAct 미국로봇피지컬AI액티브 (0186L0) — 2026년 4월 출시", ["2026-04-30", "2026-05-29", "2026-06-30", "2026-07-31", "2026-08-31", "2026-09-30", "2026-10-08"]],
+  ];
+  const KEY = "koact-dl-done";
+  let done = {};
+  try { done = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (_) { done = {}; }
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(done)); } catch (_) { /* storage unavailable */ } };
+  const el = (tag, text, cls) => { const n = document.createElement(tag); if (text != null) n.textContent = text; if (cls) n.className = cls; return n; };
+  const root = document.getElementById("lists");
+  let n = 0;
+  for (const [fid, name, dates] of FUNDS) {
+    root.appendChild(el("h2", name));
+    const table = el("table");
+    const head = el("tr");
+    for (const t of ["#", "기준일", "받기", "받음"]) head.appendChild(el("th", t));
+    const thead = el("thead"); thead.appendChild(head); table.appendChild(thead);
+    const tbody = el("tbody");
+    for (const d of dates) {
+      n += 1;
+      const id = `${fid}_${d}`;
+      const tr = el("tr", null, n === 1 ? "first" : "");
+      const link = el("a", "엑셀 받기");
+      link.href = `https://www.samsungactive.co.kr/excel_pdf.do?fId=${fid}&gijunYMD=${d.replaceAll("-", "")}`;
+      const box = el("input");
+      box.type = "checkbox";
+      box.setAttribute("aria-label", `${id} 받음`);
+      const mark = (v) => { done[id] = v; box.checked = v; tr.classList.toggle("done", v); save(); };
+      box.addEventListener("change", () => mark(box.checked));
+      link.addEventListener("click", () => mark(true));
+      const cells = [el("td", String(n)), el("td", d), el("td"), el("td")];
+      cells[2].appendChild(link);
+      cells[3].appendChild(box);
+      cells.forEach((c) => tr.appendChild(c));
+      if (done[id]) { tr.classList.add("done"); box.checked = true; }
+      tbody.appendChild(tr);
+    }
+    table.appendChild(tbody);
+    root.appendChild(table);
+  }
+</script>
+</body>
+</html>

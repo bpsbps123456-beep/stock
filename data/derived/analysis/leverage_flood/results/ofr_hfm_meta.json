@@ -1,0 +1,3177 @@
+{
+ "FICC-SPONSORED_REPO_VOL": {
+  "mnemonic": "FICC-SPONSORED_REPO_VOL",
+  "description": {
+   "notes": "The data are aggregated daily repurchase agreement volumes transacted via the Fixed Income Clearing Corporation’s (FICC) sponsored repo platform. Sponsored repos are secured borrowing transactions where FICC-member dealers sponsor non-dealer counterparties (e.g., hedge funds) that need to borrow cash. Sponsored reverse repos are secured borrowing transactions where FICC-member dealers sponsor non-dealer counterparties (e.g., money market funds) that want to lend cash. Sponsored repo and reverse repo transactions are centrally cleared via FICC’s sponsored platform. Hedge funds borrowing cash comprise the majority of sponsored repo volumes, whereas money market funds lending cash comprise the majority of sponsored reverse repo volumes. See additional definitions and methodology on the Sponsored Repo Data Sets page of the Hedge Fund Monitor.",
+   "name": "Sponsored repo: repo volume (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Day",
+   "observation_frequency": "Daily",
+   "start_date": "2020-03-23 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "FICC Sponsored Repo Service Volumes",
+   "href": "/hedge-fund-monitor/datasets/ficc/",
+   "frequency": "Monthly",
+   "short_name": "Sponsored Repo"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "FICC-SPONSORED_REVREPO_VOL": {
+  "mnemonic": "FICC-SPONSORED_REVREPO_VOL",
+  "description": {
+   "notes": "The data are aggregated daily repurchase agreement volumes transacted via the Fixed Income Clearing Corporation’s (FICC) sponsored repo platform. Sponsored repos are secured borrowing transactions where FICC-member dealers sponsor non-dealer counterparties (e.g., hedge funds) that need to borrow cash. Sponsored reverse repos are secured borrowing transactions where FICC-member dealers sponsor non-dealer counterparties (e.g., money market funds) that want to lend cash. Sponsored repo and reverse repo transactions are centrally cleared via FICC’s sponsored platform. Hedge funds borrowing cash comprise the majority of sponsored repo volumes, whereas money market funds lending cash comprise the majority of sponsored reverse repo volumes. See additional definitions and methodology on the Sponsored Repo Data Sets page of the Hedge Fund Monitor.",
+   "name": "Sponsored repo: reverse repo volume (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Day",
+   "observation_frequency": "Daily",
+   "start_date": "2020-03-23 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "FICC Sponsored Repo Service Volumes",
+   "href": "/hedge-fund-monitor/datasets/ficc/",
+   "frequency": "Monthly",
+   "short_name": "Sponsored Repo"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "FPF-ALLQHF_COUNT": {
+  "mnemonic": "FPF-ALLQHF_COUNT",
+  "description": {
+   "notes": "The data are aggregated responses to SEC Form PF. Blank or null values are intentional to avoid potential disclosure of proprietary information of individual filers. Only responses from Qualifying Hedge Funds are included. See additional definitions and methodology on the SEC Form PF Data Sets page of the Hedge Fund Monitor.",
+   "name": "Qualifying Hedge Funds: number of Qualifying Hedge Funds (count)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2013-03-31 00:00:00",
+   "last_update": "2026-09-16 15:19:27"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Hedge Fund Aggregated Statistics from SEC Form PF Filings",
+   "href": "/hedge-fund-monitor/datasets/fpf/",
+   "frequency": "Quarterly",
+   "short_name": "Form PF Statistics"
+  },
+  "children": [
+   "FPF-ALLQHF_ALTERNATE_COUNT",
+   "FPF-ALLQHF_NO_COUNTNA",
+   "FPF-ALLQHF_NR_COUNT",
+   "FPF-ALLQHF_RNT_COUNT",
+   "FPF-ALLQHF_RT_COUNT",
+   "FPF-ALLQHF_YES_COUNT",
+   "FPF-STRATEGY_CREDIT_COUNT",
+   "FPF-STRATEGY_EQUITY_COUNT",
+   "FPF-STRATEGY_EVENT_COUNT",
+   "FPF-STRATEGY_FOF_COUNT",
+   "FPF-STRATEGY_FUTURES_COUNT",
+   "FPF-STRATEGY_MACRO_COUNT",
+   "FPF-STRATEGY_MULTI_COUNT",
+   "FPF-STRATEGY_OTHER_COUNT",
+   "FPF-STRATEGY_RV_COUNT"
+  ],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Count",
+   "name": "Count",
+   "precision": 0
+  }
+ },
+ "FPF-ALLQHF_GAV_SUM": {
+  "mnemonic": "FPF-ALLQHF_GAV_SUM",
+  "description": {
+   "notes": "The data are aggregated responses to SEC Form PF. Blank or null values are intentional to avoid potential disclosure of proprietary information of individual filers. Only responses from Qualifying Hedge Funds are included. Gross assets are based on SEC Form PF question 8. Gross assets reflect the market value of balance sheet assets. See additional definitions and methodology on the SEC Form PF Data Sets page of the Hedge Fund Monitor.",
+   "name": "Qualifying Hedge Funds: gross assets (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2013-03-31",
+   "last_update": "2026-09-16 15:19:27"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Hedge Fund Aggregated Statistics from SEC Form PF Filings",
+   "href": "/hedge-fund-monitor/datasets/fpf/",
+   "frequency": "Quarterly",
+   "short_name": "Form PF Statistics"
+  },
+  "children": [
+   "FPF-STRATEGY_CREDIT_GAV_SUM",
+   "FPF-STRATEGY_EQUITY_GAV_SUM",
+   "FPF-STRATEGY_EVENT_GAV_SUM",
+   "FPF-STRATEGY_FOF_GAV_SUM",
+   "FPF-STRATEGY_FUTURES_GAV_SUM",
+   "FPF-STRATEGY_MACRO_GAV_SUM",
+   "FPF-STRATEGY_MULTI_GAV_SUM",
+   "FPF-STRATEGY_OTHER_GAV_SUM",
+   "FPF-STRATEGY_RV_GAV_SUM"
+  ],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "FPF-ALLQHF_GAVN10_LEVERAGERATIO_AVERAGE": {
+  "mnemonic": "FPF-ALLQHF_GAVN10_LEVERAGERATIO_AVERAGE",
+  "description": {
+   "notes": "The data are aggregated responses to SEC Form PF. Blank or null values are intentional to avoid potential disclosure of proprietary information of individual filers. Only responses from Qualifying Hedge Funds are included. Leverage is the ratio of gross assets to net assets based on SEC Form PF questions 8 and 9, respectively. The ratio is a simple average across individual hedge funds. Size cohorts are based on hedge funds’ quarterly ranking by gross assets. See additional definitions and methodology on the SEC Form PF Data Sets page of the Hedge Fund Monitor.",
+   "name": "Top 10 largest funds: leverage (equal-weighted average ratio)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2013-03-31",
+   "last_update": "2026-09-16 15:19:27"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Hedge Fund Aggregated Statistics from SEC Form PF Filings",
+   "href": "/hedge-fund-monitor/datasets/fpf/",
+   "frequency": "Quarterly",
+   "short_name": "Form PF Statistics"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "Equal-weighted average ratio",
+   "precision": 1
+  }
+ },
+ "FPF-ALLQHF_GAVN11TO50_LEVERAGERATIO_AVERAGE": {
+  "mnemonic": "FPF-ALLQHF_GAVN11TO50_LEVERAGERATIO_AVERAGE",
+  "description": {
+   "notes": "The data are aggregated responses to SEC Form PF. Blank or null values are intentional to avoid potential disclosure of proprietary information of individual filers. Only responses from Qualifying Hedge Funds are included. Leverage is the ratio of gross assets to net assets based on SEC Form PF questions 8 and 9, respectively. The ratio is a simple average across individual hedge funds. Size cohorts are based on hedge funds’ quarterly ranking by gross assets. See additional definitions and methodology on the SEC Form PF Data Sets page of the Hedge Fund Monitor.",
+   "name": "Top 11-50 largest funds: leverage (equal-weighted average ratio)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2013-03-31",
+   "last_update": "2026-09-16 15:19:27"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Hedge Fund Aggregated Statistics from SEC Form PF Filings",
+   "href": "/hedge-fund-monitor/datasets/fpf/",
+   "frequency": "Quarterly",
+   "short_name": "Form PF Statistics"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "Equal-weighted average ratio",
+   "precision": 1
+  }
+ },
+ "FPF-ALLQHF_GAVN51_LEVERAGERATIO_AVERAGE": {
+  "mnemonic": "FPF-ALLQHF_GAVN51_LEVERAGERATIO_AVERAGE",
+  "description": {
+   "notes": "The data are aggregated responses to SEC Form PF. Blank or null values are intentional to avoid potential disclosure of proprietary information of individual filers. Only responses from Qualifying Hedge Funds are included. Leverage is the ratio of gross assets to net assets based on SEC Form PF questions 8 and 9, respectively. The ratio is a simple average across individual hedge funds. Size cohorts are based on hedge funds’ quarterly ranking by gross assets. See additional definitions and methodology on the SEC Form PF Data Sets page of the Hedge Fund Monitor.",
+   "name": "Top 51+ largest funds: leverage (equal-weighted average ratio)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2013-03-31",
+   "last_update": "2026-09-16 15:19:27"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Hedge Fund Aggregated Statistics from SEC Form PF Filings",
+   "href": "/hedge-fund-monitor/datasets/fpf/",
+   "frequency": "Quarterly",
+   "short_name": "Form PF Statistics"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "Equal-weighted average ratio",
+   "precision": 1
+  }
+ },
+ "FPF-ALLQHF_GNE_SUM": {
+  "mnemonic": "FPF-ALLQHF_GNE_SUM",
+  "description": {
+   "notes": "The data are aggregated responses to SEC Form PF. Blank or null values are intentional to avoid potential disclosure of proprietary information of individual filers. Only responses from Qualifying Hedge Funds are included. Gross notional exposure (GNE) is based on SEC Form PF questions 26 and 30. GNE is the sum of the absolute value of long and short exposures, including those on and off the balance sheet. See additional definitions and methodology on the SEC Form PF Data Sets page of the Hedge Fund Monitor.",
+   "name": "Qualifying Hedge Funds: gross notional exposure (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2013-03-31",
+   "last_update": "2026-09-16 15:19:27"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Hedge Fund Aggregated Statistics from SEC Form PF Filings",
+   "href": "/hedge-fund-monitor/datasets/fpf/",
+   "frequency": "Quarterly",
+   "short_name": "Form PF Statistics"
+  },
+  "children": [
+   "FPF-ASSETCLASS_CREDIT_GNE_SUM",
+   "FPF-ASSETCLASS_CREDIT_LGNE_SUM",
+   "FPF-ASSETCLASS_CREDIT_SGNE_SUM",
+   "FPF-ASSETCLASS_EQUITIES_GNE_SUM",
+   "FPF-ASSETCLASS_EQUITIES_LGNE_SUM",
+   "FPF-ASSETCLASS_EQUITIES_SGNE_SUM",
+   "FPF-ASSETCLASS_LEQYDERIV_SUM",
+   "FPF-ASSETCLASS_LEQYSEC_SUM",
+   "FPF-ASSETCLASS_SEQYDERIV_SUM",
+   "FPF-ASSETCLASS_SEQYSEC_SUM",
+   "FPF-ASSETCLASS_FX_GNE_SUM",
+   "FPF-ASSETCLASS_FX_LGNE_SUM",
+   "FPF-ASSETCLASS_FX_SGNE_SUM",
+   "FPF-ASSETCLASS_IRD_GNE_SUM",
+   "FPF-ASSETCLASS_IRD_LGNE_SUM",
+   "FPF-ASSETCLASS_IRD_SGNE_SUM",
+   "FPF-ASSETCLASS_LTREASURY_SUM",
+   "FPF-ASSETCLASS_STREASURY_SUM",
+   "FPF-ASSETCLASS_OTHER_GNE_SUM",
+   "FPF-ASSETCLASS_OTHER_LGNE_SUM",
+   "FPF-ASSETCLASS_OTHER_SGNE_SUM",
+   "FPF-ASSETCLASS_SOVEREIGN_GNE_SUM",
+   "FPF-ASSETCLASS_SOVEREIGN_LGNE_SUM",
+   "FPF-ASSETCLASS_SOVEREIGN_SGNE_SUM",
+   "FPF-ASSETCLASS_USGOV_GNE_SUM",
+   "FPF-ASSETCLASS_USGOV_LGNE_SUM",
+   "FPF-ASSETCLASS_USGOV_SGNE_SUM",
+   "FPF-STRATEGY_CREDIT_GNE_SUM",
+   "FPF-STRATEGY_EQUITY_GNE_SUM",
+   "FPF-STRATEGY_EVENT_GNE_SUM",
+   "FPF-STRATEGY_FOF_GNE_SUM",
+   "FPF-STRATEGY_FUTURES_GNE_SUM",
+   "FPF-STRATEGY_MACRO_GNE_SUM",
+   "FPF-STRATEGY_MULTI_GNE_SUM",
+   "FPF-STRATEGY_OTHER_GNE_SUM",
+   "FPF-STRATEGY_RV_GNE_SUM"
+  ],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "FPF-ALLQHF_NAV_SUM": {
+  "mnemonic": "FPF-ALLQHF_NAV_SUM",
+  "description": {
+   "notes": "The data are aggregated responses to SEC Form PF. Blank or null values are intentional to avoid potential disclosure of proprietary information of individual filers. Only responses from Qualifying Hedge Funds are included. Net assets are based on SEC Form PF question 9. Net assets measure the difference between gross assets and liabilities. In other words, net assets reflect the equity of investors in hedge funds. See additional definitions and methodology on the SEC Form PF Data Sets page of the Hedge Fund Monitor.",
+   "name": "Qualifying Hedge Funds: net assets (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2013-03-31",
+   "last_update": "2026-09-16 15:19:27"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Hedge Fund Aggregated Statistics from SEC Form PF Filings",
+   "href": "/hedge-fund-monitor/datasets/fpf/",
+   "frequency": "Quarterly",
+   "short_name": "Form PF Statistics"
+  },
+  "children": [
+   "FPF-STRATEGY_CREDIT_NAV_SUM",
+   "FPF-STRATEGY_EQUITY_NAV_SUM",
+   "FPF-STRATEGY_EVENT_NAV_SUM",
+   "FPF-STRATEGY_FOF_NAV_SUM",
+   "FPF-STRATEGY_FUTURES_NAV_SUM",
+   "FPF-STRATEGY_MACRO_NAV_SUM",
+   "FPF-STRATEGY_MULTI_NAV_SUM",
+   "FPF-STRATEGY_OTHER_NAV_SUM",
+   "FPF-STRATEGY_RV_NAV_SUM"
+  ],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "FPF-BORROW_OTHERSECURED_PCTCHANGE": {
+  "mnemonic": "FPF-BORROW_OTHERSECURED_PCTCHANGE",
+  "description": {
+   "notes": "The data are aggregated responses to SEC Form PF. Blank or null values are intentional to avoid potential disclosure of proprietary information of individual filers. Only responses from Qualifying Hedge Funds are included. Borrowing is based on SEC Form PF question 43. See additional definitions and methodology on the SEC Form PF Data Sets page of the Hedge Fund Monitor.",
+   "name": "Qualifying Hedge Funds: other secured borrowing (percent change year-over-year)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2013-03-31 00:00:00",
+   "last_update": "2026-09-16 15:19:27"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Hedge Fund Aggregated Statistics from SEC Form PF Filings",
+   "href": "/hedge-fund-monitor/datasets/fpf/",
+   "frequency": "Quarterly",
+   "short_name": "Form PF Statistics"
+  },
+  "children": [
+   "FPF-BORROW_OTHERSECURED_SUM"
+  ],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Percent",
+   "name": "Percent change year-over-year",
+   "precision": 1
+  }
+ },
+ "FPF-BORROW_OTHERSECURED_SUM": {
+  "mnemonic": "FPF-BORROW_OTHERSECURED_SUM",
+  "description": {
+   "notes": "The data are aggregated responses to SEC Form PF. Blank or null values are intentional to avoid potential disclosure of proprietary information of individual filers. Only responses from Qualifying Hedge Funds are included. Borrowing is based on SEC Form PF question 43. See additional definitions and methodology on the SEC Form PF Data Sets page of the Hedge Fund Monitor.",
+   "name": "Qualifying Hedge Funds: other secured borrowing (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2013-03-31 00:00:00",
+   "last_update": "2026-09-16 15:19:27"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [
+   "FPF-OCRATEALL_PERCENT",
+   "FPF-OCRATECASHSEC_PERCENT",
+   "FPF-BORROW_OTHERSECURED_PCTCHANGE"
+  ],
+  "release": {
+   "long_name": "Hedge Fund Aggregated Statistics from SEC Form PF Filings",
+   "href": "/hedge-fund-monitor/datasets/fpf/",
+   "frequency": "Quarterly",
+   "short_name": "Form PF Statistics"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "FPF-BORROW_PRIMEBROKER_PCTCHANGE": {
+  "mnemonic": "FPF-BORROW_PRIMEBROKER_PCTCHANGE",
+  "description": {
+   "notes": "The data are aggregated responses to SEC Form PF. Blank or null values are intentional to avoid potential disclosure of proprietary information of individual filers. Only responses from Qualifying Hedge Funds are included. Borrowing is based on SEC Form PF question 43. See additional definitions and methodology on the SEC Form PF Data Sets page of the Hedge Fund Monitor.",
+   "name": "Qualifying Hedge Funds: prime brokerage borrowing (percent change year-over-year)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2013-03-31 00:00:00",
+   "last_update": "2026-09-16 15:19:27"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Hedge Fund Aggregated Statistics from SEC Form PF Filings",
+   "href": "/hedge-fund-monitor/datasets/fpf/",
+   "frequency": "Quarterly",
+   "short_name": "Form PF Statistics"
+  },
+  "children": [
+   "FPF-BORROW_PRIMEBROKER_SUM"
+  ],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Percent",
+   "name": "Percent change year-over-year",
+   "precision": 1
+  }
+ },
+ "FPF-BORROW_PRIMEBROKER_SUM": {
+  "mnemonic": "FPF-BORROW_PRIMEBROKER_SUM",
+  "description": {
+   "notes": "The data are aggregated responses to SEC Form PF. Blank or null values are intentional to avoid potential disclosure of proprietary information of individual filers. Only responses from Qualifying Hedge Funds are included. Borrowing is based on SEC Form PF question 43. See additional definitions and methodology on the SEC Form PF Data Sets page of the Hedge Fund Monitor.",
+   "name": "Qualifying Hedge Funds: prime brokerage borrowing (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2013-03-31 00:00:00",
+   "last_update": "2026-09-16 15:19:27"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [
+   "FPF-OCRATEALL_PERCENT",
+   "FPF-OCRATECASHSEC_PERCENT",
+   "FPF-BORROW_PRIMEBROKER_PCTCHANGE"
+  ],
+  "release": {
+   "long_name": "Hedge Fund Aggregated Statistics from SEC Form PF Filings",
+   "href": "/hedge-fund-monitor/datasets/fpf/",
+   "frequency": "Quarterly",
+   "short_name": "Form PF Statistics"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "FPF-BORROW_REPO_PCTCHANGE": {
+  "mnemonic": "FPF-BORROW_REPO_PCTCHANGE",
+  "description": {
+   "notes": "The data are aggregated responses to SEC Form PF. Blank or null values are intentional to avoid potential disclosure of proprietary information of individual filers. Only responses from Qualifying Hedge Funds are included. Borrowing is based on SEC Form PF question 43. See additional definitions and methodology on the SEC Form PF Data Sets page of the Hedge Fund Monitor.",
+   "name": "Qualifying Hedge Funds: repo borrowing (percent change year-over-year)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2013-03-31 00:00:00",
+   "last_update": "2026-09-16 15:19:27"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Hedge Fund Aggregated Statistics from SEC Form PF Filings",
+   "href": "/hedge-fund-monitor/datasets/fpf/",
+   "frequency": "Quarterly",
+   "short_name": "Form PF Statistics"
+  },
+  "children": [
+   "FPF-BORROW_REPO_SUM"
+  ],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Percent",
+   "name": "Percent change year-over-year",
+   "precision": 1
+  }
+ },
+ "FPF-BORROW_REPO_SUM": {
+  "mnemonic": "FPF-BORROW_REPO_SUM",
+  "description": {
+   "notes": "The data are aggregated responses to SEC Form PF. Blank or null values are intentional to avoid potential disclosure of proprietary information of individual filers. Only responses from Qualifying Hedge Funds are included. Borrowing is based on SEC Form PF question 43. See additional definitions and methodology on the SEC Form PF Data Sets page of the Hedge Fund Monitor.",
+   "name": "Qualifying Hedge Funds: repo borrowing (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2013-03-31 00:00:00",
+   "last_update": "2026-09-16 15:19:27"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [
+   "FPF-OCRATEALL_PERCENT",
+   "FPF-OCRATECASHSEC_PERCENT",
+   "FPF-BORROW_REPO_PCTCHANGE"
+  ],
+  "release": {
+   "long_name": "Hedge Fund Aggregated Statistics from SEC Form PF Filings",
+   "href": "/hedge-fund-monitor/datasets/fpf/",
+   "frequency": "Quarterly",
+   "short_name": "Form PF Statistics"
+  },
+  "children": [
+   "FPF-BORROW_REPO_GAVN10_SUM"
+  ],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "FPF-BORROW_REPO_GAVN10_PERCENT": {
+  "mnemonic": "FPF-BORROW_REPO_GAVN10_PERCENT",
+  "description": {
+   "notes": "The data are aggregated responses to SEC Form PF. Blank or null values are intentional to avoid potential disclosure of proprietary information of individual filers. Only responses from Qualifying Hedge Funds are included. Repo borrowing (cash in and securities out) is based on SEC Form PF question 43. Size cohorts are based on hedge funds’ quarterly ranking by gross assets. A repurchase agreement (repo) is a sale of securities coupled with an agreement to repurchase the same, or similar, securities at a later date at an agreed upon price. See additional definitions and methodology on the SEC Form PF Data Sets page of the Hedge Fund Monitor.",
+   "name": "Top 10 largest funds: share of repo borrowing (percent of total)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2013-03-31 00:00:00",
+   "last_update": "2026-09-16 15:19:27"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Hedge Fund Aggregated Statistics from SEC Form PF Filings",
+   "href": "/hedge-fund-monitor/datasets/fpf/",
+   "frequency": "Quarterly",
+   "short_name": "Form PF Statistics"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Percent",
+   "name": "Percent of total",
+   "precision": 1
+  }
+ },
+ "FPF-BORROW_REPO_GAVN10_SUM": {
+  "mnemonic": "FPF-BORROW_REPO_GAVN10_SUM",
+  "description": {
+   "notes": "The data are aggregated responses to SEC Form PF. Blank or null values are intentional to avoid potential disclosure of proprietary information of individual filers. Only responses from Qualifying Hedge Funds are included. The top 10 hedge funds are ranked each quarter by gross assets. Repo borrowing (cash in and securities out) is based on SEC Form PF question 43. A repurchase agreement (repo) is a sale of securities coupled with an agreement to repurchase the same, or similar, securities at a later date at an agreed upon price. See additional definitions and methodology on the SEC Form PF Data Sets page of the Hedge Fund Monitor.",
+   "name": "Top 10 largest funds: repo borrowing (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2013-03-31 00:00:00",
+   "last_update": "2026-09-16 15:19:27"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [
+   "FPF-BORROW_REPO_SUM"
+  ],
+  "release": {
+   "long_name": "Hedge Fund Aggregated Statistics from SEC Form PF Filings",
+   "href": "/hedge-fund-monitor/datasets/fpf/",
+   "frequency": "Quarterly",
+   "short_name": "Form PF Statistics"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "FPF-BORROW_REPO_GAVN11TO50_PERCENT": {
+  "mnemonic": "FPF-BORROW_REPO_GAVN11TO50_PERCENT",
+  "description": {
+   "notes": "The data are aggregated responses to SEC Form PF. Blank or null values are intentional to avoid potential disclosure of proprietary information of individual filers. Only responses from Qualifying Hedge Funds are included. Repo borrowing (cash in and securities out) is based on SEC Form PF question 43. Size cohorts are based on hedge funds’ quarterly ranking by gross assets. A repurchase agreement (repo) is a sale of securities coupled with an agreement to repurchase the same, or similar, securities at a later date at an agreed upon price. See additional definitions and methodology on the SEC Form PF Data Sets page of the Hedge Fund Monitor.",
+   "name": "Top 11-50 largest funds: share of repo borrowing (percent of total)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2013-03-31 00:00:00",
+   "last_update": "2026-09-16 15:19:27"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Hedge Fund Aggregated Statistics from SEC Form PF Filings",
+   "href": "/hedge-fund-monitor/datasets/fpf/",
+   "frequency": "Quarterly",
+   "short_name": "Form PF Statistics"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Percent",
+   "name": "Percent of total",
+   "precision": 1
+  }
+ },
+ "FPF-BORROW_REPO_GAVN51_PERCENT": {
+  "mnemonic": "FPF-BORROW_REPO_GAVN51_PERCENT",
+  "description": {
+   "notes": "The data are aggregated responses to SEC Form PF. Blank or null values are intentional to avoid potential disclosure of proprietary information of individual filers. Only responses from Qualifying Hedge Funds are included. Repo borrowing (cash in and securities out) is based on SEC Form PF question 43. Size cohorts are based on hedge funds’ quarterly ranking by gross assets. A repurchase agreement (repo) is a sale of securities coupled with an agreement to repurchase the same, or similar, securities at a later date at an agreed upon price. See additional definitions and methodology on the SEC Form PF Data Sets page of the Hedge Fund Monitor.",
+   "name": "Top 51+ largest funds: share of repo borrowing (percent of total)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2013-03-31 00:00:00",
+   "last_update": "2026-09-16 15:19:27"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Hedge Fund Aggregated Statistics from SEC Form PF Filings",
+   "href": "/hedge-fund-monitor/datasets/fpf/",
+   "frequency": "Quarterly",
+   "short_name": "Form PF Statistics"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Percent",
+   "name": "Percent of total",
+   "precision": 1
+  }
+ },
+ "FPF-STRATEGY_CREDIT_LEVERAGERATIO_GAVWMEAN": {
+  "mnemonic": "FPF-STRATEGY_CREDIT_LEVERAGERATIO_GAVWMEAN",
+  "description": {
+   "notes": "The data are aggregated responses to SEC Form PF. Blank or null values are intentional to avoid potential disclosure of proprietary information of individual filers. Only responses from Qualifying Hedge Funds are included. Leverage is the ratio of gross assets to net assets based on SEC Form PF questions 8 and 9, respectively. Individual hedge funds’ ratios are weighted by their gross assets and then averaged. SEC Form PF question 20 lists several investment strategies, and funds self-report their share of net assets managed under each strategy. Reported strategies are mapped into one of nine broad strategies. See additional definitions and methodology on the SEC Form PF Data Sets page of the Hedge Fund Monitor.",
+   "name": "Credit strategy funds: leverage (gross asset-weighted average ratio)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2013-03-31",
+   "last_update": "2026-09-16 15:19:27"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Hedge Fund Aggregated Statistics from SEC Form PF Filings",
+   "href": "/hedge-fund-monitor/datasets/fpf/",
+   "frequency": "Quarterly",
+   "short_name": "Form PF Statistics"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "Gross asset-weighted average ratio",
+   "precision": 1
+  }
+ },
+ "FPF-STRATEGY_CREDIT_LEVERAGERATIO_NAVWMEAN": {
+  "mnemonic": "FPF-STRATEGY_CREDIT_LEVERAGERATIO_NAVWMEAN",
+  "description": {
+   "notes": "The data are aggregated responses to SEC Form PF. Blank or null values are intentional to avoid potential disclosure of proprietary information of individual filers. Only responses from Qualifying Hedge Funds are included. Leverage is the ratio of gross assets to net assets based on SEC Form PF questions 8 and 9, respectively. Individual hedge funds’ ratios are weighted by their net assets and then averaged. SEC Form PF question 20 lists several investment strategies, and funds self-report their share of net assets managed under each strategy. Reported strategies are mapped into one of nine broad strategies. See additional definitions and methodology on the SEC Form PF Data Sets page of the Hedge Fund Monitor.",
+   "name": "Credit strategy funds: leverage (net asset-weighted average ratio)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2013-03-31",
+   "last_update": "2026-09-16 15:19:27"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Hedge Fund Aggregated Statistics from SEC Form PF Filings",
+   "href": "/hedge-fund-monitor/datasets/fpf/",
+   "frequency": "Quarterly",
+   "short_name": "Form PF Statistics"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "Net asset-weighted average ratio",
+   "precision": 1
+  }
+ },
+ "FPF-STRATEGY_EQUITY_LEVERAGERATIO_GAVWMEAN": {
+  "mnemonic": "FPF-STRATEGY_EQUITY_LEVERAGERATIO_GAVWMEAN",
+  "description": {
+   "notes": "The data are aggregated responses to SEC Form PF. Blank or null values are intentional to avoid potential disclosure of proprietary information of individual filers. Only responses from Qualifying Hedge Funds are included. Leverage is the ratio of gross assets to net assets based on SEC Form PF questions 8 and 9, respectively. Individual hedge funds’ ratios are weighted by their gross assets and then averaged. SEC Form PF question 20 lists several investment strategies, and funds self-report their share of net assets managed under each strategy. Reported strategies are mapped into one of nine broad strategies. See additional definitions and methodology on the SEC Form PF Data Sets page of the Hedge Fund Monitor.",
+   "name": "Equity strategy funds: leverage (gross asset-weighted average ratio)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2013-03-31",
+   "last_update": "2026-09-16 15:19:27"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Hedge Fund Aggregated Statistics from SEC Form PF Filings",
+   "href": "/hedge-fund-monitor/datasets/fpf/",
+   "frequency": "Quarterly",
+   "short_name": "Form PF Statistics"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "Gross asset-weighted average ratio",
+   "precision": 1
+  }
+ },
+ "FPF-STRATEGY_EQUITY_LEVERAGERATIO_NAVWMEAN": {
+  "mnemonic": "FPF-STRATEGY_EQUITY_LEVERAGERATIO_NAVWMEAN",
+  "description": {
+   "notes": "The data are aggregated responses to SEC Form PF. Blank or null values are intentional to avoid potential disclosure of proprietary information of individual filers. Only responses from Qualifying Hedge Funds are included. Leverage is the ratio of gross assets to net assets based on SEC Form PF questions 8 and 9, respectively. Individual hedge funds’ ratios are weighted by their net assets and then averaged. SEC Form PF question 20 lists several investment strategies, and funds self-report their share of net assets managed under each strategy. Reported strategies are mapped into one of nine broad strategies. See additional definitions and methodology on the SEC Form PF Data Sets page of the Hedge Fund Monitor.",
+   "name": "Equity strategy funds: leverage (net asset-weighted average ratio)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2013-03-31",
+   "last_update": "2026-09-16 15:19:27"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Hedge Fund Aggregated Statistics from SEC Form PF Filings",
+   "href": "/hedge-fund-monitor/datasets/fpf/",
+   "frequency": "Quarterly",
+   "short_name": "Form PF Statistics"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "Net asset-weighted average ratio",
+   "precision": 1
+  }
+ },
+ "FPF-STRATEGY_EVENT_LEVERAGERATIO_GAVWMEAN": {
+  "mnemonic": "FPF-STRATEGY_EVENT_LEVERAGERATIO_GAVWMEAN",
+  "description": {
+   "notes": "The data are aggregated responses to SEC Form PF. Blank or null values are intentional to avoid potential disclosure of proprietary information of individual filers. Only responses from Qualifying Hedge Funds are included. Leverage is the ratio of gross assets to net assets based on SEC Form PF questions 8 and 9, respectively. Individual hedge funds’ ratios are weighted by their gross assets and then averaged. SEC Form PF question 20 lists several investment strategies, and funds self-report their share of net assets managed under each strategy. Reported strategies are mapped into one of nine broad strategies. See additional definitions and methodology on the SEC Form PF Data Sets page of the Hedge Fund Monitor.",
+   "name": "Event strategy funds: leverage (gross asset-weighted average ratio)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2013-03-31",
+   "last_update": "2026-09-16 15:19:27"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Hedge Fund Aggregated Statistics from SEC Form PF Filings",
+   "href": "/hedge-fund-monitor/datasets/fpf/",
+   "frequency": "Quarterly",
+   "short_name": "Form PF Statistics"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "Gross asset-weighted average ratio",
+   "precision": 1
+  }
+ },
+ "FPF-STRATEGY_EVENT_LEVERAGERATIO_NAVWMEAN": {
+  "mnemonic": "FPF-STRATEGY_EVENT_LEVERAGERATIO_NAVWMEAN",
+  "description": {
+   "notes": "The data are aggregated responses to SEC Form PF. Blank or null values are intentional to avoid potential disclosure of proprietary information of individual filers. Only responses from Qualifying Hedge Funds are included. Leverage is the ratio of gross assets to net assets based on SEC Form PF questions 8 and 9, respectively. Individual hedge funds’ ratios are weighted by their net assets and then averaged. SEC Form PF question 20 lists several investment strategies, and funds self-report their share of net assets managed under each strategy. Reported strategies are mapped into one of nine broad strategies. See additional definitions and methodology on the SEC Form PF Data Sets page of the Hedge Fund Monitor.",
+   "name": "Event strategy funds: leverage (net asset-weighted average ratio)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2013-03-31",
+   "last_update": "2026-09-16 15:19:27"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Hedge Fund Aggregated Statistics from SEC Form PF Filings",
+   "href": "/hedge-fund-monitor/datasets/fpf/",
+   "frequency": "Quarterly",
+   "short_name": "Form PF Statistics"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "Net asset-weighted average ratio",
+   "precision": 1
+  }
+ },
+ "FPF-STRATEGY_FOF_LEVERAGERATIO_GAVWMEAN": {
+  "mnemonic": "FPF-STRATEGY_FOF_LEVERAGERATIO_GAVWMEAN",
+  "description": {
+   "notes": "The data are aggregated responses to SEC Form PF. Blank or null values are intentional to avoid potential disclosure of proprietary information of individual filers. Only responses from Qualifying Hedge Funds are included. Leverage is the ratio of gross assets to net assets based on SEC Form PF questions 8 and 9, respectively. Individual hedge funds’ ratios are weighted by their gross assets and then averaged. SEC Form PF question 20 lists several investment strategies, and funds self-report their share of net assets managed under each strategy. Reported strategies are mapped into one of nine broad strategies. See additional definitions and methodology on the SEC Form PF Data Sets page of the Hedge Fund Monitor.",
+   "name": "Fund of funds: leverage (gross asset-weighted average ratio)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2013-09-30",
+   "last_update": "2026-09-16 15:19:27"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Hedge Fund Aggregated Statistics from SEC Form PF Filings",
+   "href": "/hedge-fund-monitor/datasets/fpf/",
+   "frequency": "Quarterly",
+   "short_name": "Form PF Statistics"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "Gross asset-weighted average ratio",
+   "precision": 1
+  }
+ },
+ "FPF-STRATEGY_FOF_LEVERAGERATIO_NAVWMEAN": {
+  "mnemonic": "FPF-STRATEGY_FOF_LEVERAGERATIO_NAVWMEAN",
+  "description": {
+   "notes": "The data are aggregated responses to SEC Form PF. Blank or null values are intentional to avoid potential disclosure of proprietary information of individual filers. Only responses from Qualifying Hedge Funds are included. Leverage is the ratio of gross assets to net assets based on SEC Form PF questions 8 and 9, respectively. Individual hedge funds’ ratios are weighted by their net assets and then averaged. SEC Form PF question 20 lists several investment strategies, and funds self-report their share of net assets managed under each strategy. Reported strategies are mapped into one of nine broad strategies. See additional definitions and methodology on the SEC Form PF Data Sets page of the Hedge Fund Monitor.",
+   "name": "Fund of funds: leverage (net asset-weighted average ratio)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2013-09-30",
+   "last_update": "2026-09-16 15:19:27"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Hedge Fund Aggregated Statistics from SEC Form PF Filings",
+   "href": "/hedge-fund-monitor/datasets/fpf/",
+   "frequency": "Quarterly",
+   "short_name": "Form PF Statistics"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "Net asset-weighted average ratio",
+   "precision": 1
+  }
+ },
+ "FPF-STRATEGY_FUTURES_LEVERAGERATIO_GAVWMEAN": {
+  "mnemonic": "FPF-STRATEGY_FUTURES_LEVERAGERATIO_GAVWMEAN",
+  "description": {
+   "notes": "The data are aggregated responses to SEC Form PF. Blank or null values are intentional to avoid potential disclosure of proprietary information of individual filers. Only responses from Qualifying Hedge Funds are included. Leverage is the ratio of gross assets to net assets based on SEC Form PF questions 8 and 9, respectively. Individual hedge funds’ ratios are weighted by their gross assets and then averaged. SEC Form PF question 20 lists several investment strategies, and funds self-report their share of net assets managed under each strategy. Reported strategies are mapped into one of nine broad strategies. See additional definitions and methodology on the SEC Form PF Data Sets page of the Hedge Fund Monitor.",
+   "name": "Managed futures strategy funds: leverage (gross asset-weighted average ratio)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2013-03-31",
+   "last_update": "2026-09-16 15:19:27"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Hedge Fund Aggregated Statistics from SEC Form PF Filings",
+   "href": "/hedge-fund-monitor/datasets/fpf/",
+   "frequency": "Quarterly",
+   "short_name": "Form PF Statistics"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "Gross asset-weighted average ratio",
+   "precision": 1
+  }
+ },
+ "FPF-STRATEGY_FUTURES_LEVERAGERATIO_NAVWMEAN": {
+  "mnemonic": "FPF-STRATEGY_FUTURES_LEVERAGERATIO_NAVWMEAN",
+  "description": {
+   "notes": "The data are aggregated responses to SEC Form PF. Blank or null values are intentional to avoid potential disclosure of proprietary information of individual filers. Only responses from Qualifying Hedge Funds are included. Leverage is the ratio of gross assets to net assets based on SEC Form PF questions 8 and 9, respectively. Individual hedge funds’ ratios are weighted by their net assets and then averaged. SEC Form PF question 20 lists several investment strategies, and funds self-report their share of net assets managed under each strategy. Reported strategies are mapped into one of nine broad strategies. See additional definitions and methodology on the SEC Form PF Data Sets page of the Hedge Fund Monitor.",
+   "name": "Managed futures strategy funds: leverage (net asset-weighted average ratio)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2013-03-31",
+   "last_update": "2026-09-16 15:19:27"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Hedge Fund Aggregated Statistics from SEC Form PF Filings",
+   "href": "/hedge-fund-monitor/datasets/fpf/",
+   "frequency": "Quarterly",
+   "short_name": "Form PF Statistics"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "Net asset-weighted average ratio",
+   "precision": 1
+  }
+ },
+ "FPF-STRATEGY_MACRO_LEVERAGERATIO_GAVWMEAN": {
+  "mnemonic": "FPF-STRATEGY_MACRO_LEVERAGERATIO_GAVWMEAN",
+  "description": {
+   "notes": "The data are aggregated responses to SEC Form PF. Blank or null values are intentional to avoid potential disclosure of proprietary information of individual filers. Only responses from Qualifying Hedge Funds are included. Leverage is the ratio of gross assets to net assets based on SEC Form PF questions 8 and 9, respectively. Individual hedge funds’ ratios are weighted by their gross assets and then averaged. SEC Form PF question 20 lists several investment strategies, and funds self-report their share of net assets managed under each strategy. Reported strategies are mapped into one of nine broad strategies. See additional definitions and methodology on the SEC Form PF Data Sets page of the Hedge Fund Monitor.",
+   "name": "Macro strategy funds: leverage (gross asset-weighted average ratio)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2013-03-31",
+   "last_update": "2026-09-16 15:19:27"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Hedge Fund Aggregated Statistics from SEC Form PF Filings",
+   "href": "/hedge-fund-monitor/datasets/fpf/",
+   "frequency": "Quarterly",
+   "short_name": "Form PF Statistics"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "Gross asset-weighted average ratio",
+   "precision": 1
+  }
+ },
+ "FPF-STRATEGY_MACRO_LEVERAGERATIO_NAVWMEAN": {
+  "mnemonic": "FPF-STRATEGY_MACRO_LEVERAGERATIO_NAVWMEAN",
+  "description": {
+   "notes": "The data are aggregated responses to SEC Form PF. Blank or null values are intentional to avoid potential disclosure of proprietary information of individual filers. Only responses from Qualifying Hedge Funds are included. Leverage is the ratio of gross assets to net assets based on SEC Form PF questions 8 and 9, respectively. Individual hedge funds’ ratios are weighted by their net assets and then averaged. SEC Form PF question 20 lists several investment strategies, and funds self-report their share of net assets managed under each strategy. Reported strategies are mapped into one of nine broad strategies. See additional definitions and methodology on the SEC Form PF Data Sets page of the Hedge Fund Monitor.",
+   "name": "Macro strategy funds: leverage (net asset-weighted average ratio)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2013-03-31",
+   "last_update": "2026-09-16 15:19:27"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Hedge Fund Aggregated Statistics from SEC Form PF Filings",
+   "href": "/hedge-fund-monitor/datasets/fpf/",
+   "frequency": "Quarterly",
+   "short_name": "Form PF Statistics"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "Net asset-weighted average ratio",
+   "precision": 1
+  }
+ },
+ "FPF-STRATEGY_MULTI_LEVERAGERATIO_GAVWMEAN": {
+  "mnemonic": "FPF-STRATEGY_MULTI_LEVERAGERATIO_GAVWMEAN",
+  "description": {
+   "notes": "The data are aggregated responses to SEC Form PF. Blank or null values are intentional to avoid potential disclosure of proprietary information of individual filers. Only responses from Qualifying Hedge Funds are included. Leverage is the ratio of gross assets to net assets based on SEC Form PF questions 8 and 9, respectively. Individual hedge funds’ ratios are weighted by their gross assets and then averaged. SEC Form PF question 20 lists several investment strategies, and funds self-report their share of net assets managed under each strategy. Reported strategies are mapped into one of nine broad strategies. See additional definitions and methodology on the SEC Form PF Data Sets page of the Hedge Fund Monitor.",
+   "name": "Multi strategy funds: leverage (gross asset-weighted average ratio)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2013-03-31",
+   "last_update": "2026-09-16 15:19:27"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Hedge Fund Aggregated Statistics from SEC Form PF Filings",
+   "href": "/hedge-fund-monitor/datasets/fpf/",
+   "frequency": "Quarterly",
+   "short_name": "Form PF Statistics"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "Gross asset-weighted average ratio",
+   "precision": 1
+  }
+ },
+ "FPF-STRATEGY_MULTI_LEVERAGERATIO_NAVWMEAN": {
+  "mnemonic": "FPF-STRATEGY_MULTI_LEVERAGERATIO_NAVWMEAN",
+  "description": {
+   "notes": "The data are aggregated responses to SEC Form PF. Blank or null values are intentional to avoid potential disclosure of proprietary information of individual filers. Only responses from Qualifying Hedge Funds are included. Leverage is the ratio of gross assets to net assets based on SEC Form PF questions 8 and 9, respectively. Individual hedge funds’ ratios are weighted by their net assets and then averaged. SEC Form PF question 20 lists several investment strategies, and funds self-report their share of net assets managed under each strategy. Reported strategies are mapped into one of nine broad strategies. See additional definitions and methodology on the SEC Form PF Data Sets page of the Hedge Fund Monitor.",
+   "name": "Multi strategy funds: leverage (net asset-weighted average ratio)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2013-03-31",
+   "last_update": "2026-09-16 15:19:27"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Hedge Fund Aggregated Statistics from SEC Form PF Filings",
+   "href": "/hedge-fund-monitor/datasets/fpf/",
+   "frequency": "Quarterly",
+   "short_name": "Form PF Statistics"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "Net asset-weighted average ratio",
+   "precision": 1
+  }
+ },
+ "FPF-STRATEGY_OTHER_LEVERAGERATIO_GAVWMEAN": {
+  "mnemonic": "FPF-STRATEGY_OTHER_LEVERAGERATIO_GAVWMEAN",
+  "description": {
+   "notes": "The data are aggregated responses to SEC Form PF. Blank or null values are intentional to avoid potential disclosure of proprietary information of individual filers. Only responses from Qualifying Hedge Funds are included. Leverage is the ratio of gross assets to net assets based on SEC Form PF questions 8 and 9, respectively. Individual hedge funds’ ratios are weighted by their gross assets and then averaged. SEC Form PF question 20 lists several investment strategies, and funds self-report their share of net assets managed under each strategy. Reported strategies are mapped into one of nine broad strategies. See additional definitions and methodology on the SEC Form PF Data Sets page of the Hedge Fund Monitor.",
+   "name": "Other strategy funds: leverage (gross asset-weighted average ratio)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2013-03-31",
+   "last_update": "2026-09-16 15:19:27"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Hedge Fund Aggregated Statistics from SEC Form PF Filings",
+   "href": "/hedge-fund-monitor/datasets/fpf/",
+   "frequency": "Quarterly",
+   "short_name": "Form PF Statistics"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "Gross asset-weighted average ratio",
+   "precision": 1
+  }
+ },
+ "FPF-STRATEGY_OTHER_LEVERAGERATIO_NAVWMEAN": {
+  "mnemonic": "FPF-STRATEGY_OTHER_LEVERAGERATIO_NAVWMEAN",
+  "description": {
+   "notes": "The data are aggregated responses to SEC Form PF. Blank or null values are intentional to avoid potential disclosure of proprietary information of individual filers. Only responses from Qualifying Hedge Funds are included. Leverage is the ratio of gross assets to net assets based on SEC Form PF questions 8 and 9, respectively. Individual hedge funds’ ratios are weighted by their net assets and then averaged. SEC Form PF question 20 lists several investment strategies, and funds self-report their share of net assets managed under each strategy. Reported strategies are mapped into one of nine broad strategies. See additional definitions and methodology on the SEC Form PF Data Sets page of the Hedge Fund Monitor.",
+   "name": "Other strategy funds: leverage (net asset-weighted average ratio)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2013-03-31",
+   "last_update": "2026-09-16 15:19:27"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Hedge Fund Aggregated Statistics from SEC Form PF Filings",
+   "href": "/hedge-fund-monitor/datasets/fpf/",
+   "frequency": "Quarterly",
+   "short_name": "Form PF Statistics"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "Net asset-weighted average ratio",
+   "precision": 1
+  }
+ },
+ "FPF-STRATEGY_RV_LEVERAGERATIO_GAVWMEAN": {
+  "mnemonic": "FPF-STRATEGY_RV_LEVERAGERATIO_GAVWMEAN",
+  "description": {
+   "notes": "The data are aggregated responses to SEC Form PF. Blank or null values are intentional to avoid potential disclosure of proprietary information of individual filers. Only responses from Qualifying Hedge Funds are included. Leverage is the ratio of gross assets to net assets based on SEC Form PF questions 8 and 9, respectively. Individual hedge funds’ ratios are weighted by their gross assets and then averaged. SEC Form PF question 20 lists several investment strategies, and funds self-report their share of net assets managed under each strategy. Reported strategies are mapped into one of nine broad strategies. See additional definitions and methodology on the SEC Form PF Data Sets page of the Hedge Fund Monitor.",
+   "name": "Relative value strategy funds: leverage (gross asset-weighted average ratio)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2013-03-31 00:00:00",
+   "last_update": "2026-09-16 15:19:27"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Hedge Fund Aggregated Statistics from SEC Form PF Filings",
+   "href": "/hedge-fund-monitor/datasets/fpf/",
+   "frequency": "Quarterly",
+   "short_name": "Form PF Statistics"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "Gross asset-weighted average ratio",
+   "precision": 1
+  }
+ },
+ "FPF-STRATEGY_RV_LEVERAGERATIO_NAVWMEAN": {
+  "mnemonic": "FPF-STRATEGY_RV_LEVERAGERATIO_NAVWMEAN",
+  "description": {
+   "notes": "The data are aggregated responses to SEC Form PF. Blank or null values are intentional to avoid potential disclosure of proprietary information of individual filers. Only responses from Qualifying Hedge Funds are included. Leverage is the ratio of gross assets to net assets based on SEC Form PF questions 8 and 9, respectively. Individual hedge funds’ ratios are weighted by their net assets and then averaged. SEC Form PF question 20 lists several investment strategies, and funds self-report their share of net assets managed under each strategy. Reported strategies are mapped into one of nine broad strategies. See additional definitions and methodology on the SEC Form PF Data Sets page of the Hedge Fund Monitor.",
+   "name": "Relative value strategy funds: leverage (net asset-weighted average ratio)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2013-03-31 00:00:00",
+   "last_update": "2026-09-16 15:19:27"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Hedge Fund Aggregated Statistics from SEC Form PF Filings",
+   "href": "/hedge-fund-monitor/datasets/fpf/",
+   "frequency": "Quarterly",
+   "short_name": "Form PF Statistics"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "Net asset-weighted average ratio",
+   "precision": 1
+  }
+ },
+ "SCOOS-NET_HF_CREDITAVAILABILITY": {
+  "mnemonic": "SCOOS-NET_HF_CREDITAVAILABILITY",
+  "description": {
+   "notes": "The data are derived from responses to question 9 of the Federal Reserve Board’s quarterly Senior Credit Officer Opinion Survey on Dealer Financing Terms (SCOOS). The net percent represents the fraction of dealers reporting an increase—either \"considerably\" or \"somewhat\"—in the availability of leverage offered to hedge funds minus those reporting a decrease. A positive net percent indicates an overall increase in the availability of leverage compared with the prior quarter, while a negative net percent indicates an overall decrease over the same period. See additional definitions and methodology on the SCOOS Data Sets page of the Hedge Fund Monitor.",
+   "name": "Survey: availability of leverage offered to hedge funds (net percent of respondents reporting a change)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "Single Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2011-09-30 00:00:00",
+   "last_update": "2026-09-21 15:18:02"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Senior Credit Officer Opinion Survey on Dealer Financing Terms",
+   "href": "/hedge-fund-monitor/datasets/scoos/",
+   "frequency": "Quarterly",
+   "short_name": "SCOOS"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Percent",
+   "name": "Net percent of respondents reporting a change",
+   "precision": 1
+  }
+ },
+ "SCOOS-NET_HF_CREDITPRICE": {
+  "mnemonic": "SCOOS-NET_HF_CREDITPRICE",
+  "description": {
+   "notes": "The data are derived from responses to question 4 of the Federal Reserve Board’s quarterly Senior Credit Officer Opinion Survey on Dealer Financing Terms (SCOOS). The net percent represents the fraction of dealers reporting a tightening of the credit terms offered to hedge funds—either ‘considerably’ or ‘somewhat’—minus those reporting an easing of credit terms. A positive net percent indicates an overall tightening compared with the prior quarter, while a negative net percent indicates an overall easing over the same period. See additional definitions and methodology on the SCOOS Data Sets page of the Hedge Fund Monitor.",
+   "name": "Survey: credit price terms offered to hedge funds (net percent of respondents reporting a change)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "Single Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2011-09-30 00:00:00",
+   "last_update": "2026-09-21 15:18:02"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Senior Credit Officer Opinion Survey on Dealer Financing Terms",
+   "href": "/hedge-fund-monitor/datasets/scoos/",
+   "frequency": "Quarterly",
+   "short_name": "SCOOS"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Percent",
+   "name": "Net percent of respondents reporting a change",
+   "precision": 1
+  }
+ },
+ "SCOOS-NET_HF_CREDITTERMS": {
+  "mnemonic": "SCOOS-NET_HF_CREDITTERMS",
+  "description": {
+   "notes": "The data are derived from responses to question 5 of the Federal Reserve Board’s quarterly Senior Credit Officer Opinion Survey on Dealer Financing Terms (SCOOS). The net percent represents the fraction of dealers reporting a tightening of the credit terms offered to hedge funds—either ‘considerably’ or ‘somewhat’—minus those reporting an easing of credit terms. A positive net percent indicates an overall tightening compared with the prior quarter, while a negative net percent indicates an overall easing over the same period. See additional definitions and methodology on the SCOOS Data Sets page of the Hedge Fund Monitor.",
+   "name": "Survey: credit nonprice terms offered to hedge funds (net percent of respondents reporting a change)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "Single Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2011-09-30 00:00:00",
+   "last_update": "2026-09-21 15:18:02"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Senior Credit Officer Opinion Survey on Dealer Financing Terms",
+   "href": "/hedge-fund-monitor/datasets/scoos/",
+   "frequency": "Quarterly",
+   "short_name": "SCOOS"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Percent",
+   "name": "Net percent of respondents reporting a change",
+   "precision": 1
+  }
+ },
+ "SCOOS-NET_HF_LEVERAGEUSE": {
+  "mnemonic": "SCOOS-NET_HF_LEVERAGEUSE",
+  "description": {
+   "notes": "The data are derived from responses to question 8 of the Federal Reserve Board’s quarterly Senior Credit Officer Opinion Survey on Dealer Financing Terms (SCOOS). The net percent represents the fraction of dealers reporting an increase—either \"considerably\" or \"somewhat\"—in the use of leverage offered to hedge funds minus those reporting a decrease. A positive net percent indicates an overall increase in the use of leverage compared with the prior quarter, while a negative net percent indicates an overall decrease over the same period. See additional definitions and methodology on the SCOOS Data Sets page of the Hedge Fund Monitor.",
+   "name": "Survey: use of leverage offered to hedge funds (net percent of respondents reporting a change)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "Single Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2011-09-30 00:00:00",
+   "last_update": "2026-09-21 15:18:02"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Senior Credit Officer Opinion Survey on Dealer Financing Terms",
+   "href": "/hedge-fund-monitor/datasets/scoos/",
+   "frequency": "Quarterly",
+   "short_name": "SCOOS"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Percent",
+   "name": "Net percent of respondents reporting a change",
+   "precision": 1
+  }
+ },
+ "SCOOS-NET_HF_MOSTFAVORED": {
+  "mnemonic": "SCOOS-NET_HF_MOSTFAVORED",
+  "description": {
+   "notes": "The data are derived from responses to question 10 of the Federal Reserve Board’s quarterly Senior Credit Officer Opinion Survey on Dealer Financing Terms (SCOOS). The net percent represents the fraction of dealers reporting an increase—either 'considerably’ or ‘somewhat’—in the provision of differential terms offered to their most-favored hedge fund clients minus those reporting a decrease. A positive net percent indicates that the terms provided by dealers to their most-favored hedge fund clients have become more beneficial relative to the average hedge fund client compared with the prior quarter, while a negative net percent indicates the terms provided to all hedge fund clients have become more similar. See additional definitions and methodology on the SCOOS Data Sets page of the Hedge Fund Monitor.",
+   "name": "Survey: provision of differential terms offered to most-favored hedge funds (net percent of respondents reporting a change)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "Single Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2011-09-30 00:00:00",
+   "last_update": "2026-09-21 15:18:02"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Senior Credit Officer Opinion Survey on Dealer Financing Terms",
+   "href": "/hedge-fund-monitor/datasets/scoos/",
+   "frequency": "Quarterly",
+   "short_name": "SCOOS"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Percent",
+   "name": "Net percent of respondents reporting a change",
+   "precision": 1
+  }
+ },
+ "SCOOS-NET_HF_NEGOTIATIONEFFORTS": {
+  "mnemonic": "SCOOS-NET_HF_NEGOTIATIONEFFORTS",
+  "description": {
+   "notes": "The data are derived from responses to question 7 of the Federal Reserve Board’s quarterly Senior Credit Officer Opinion Survey on Dealer Financing Terms (SCOOS). The net percent represents the fraction of dealers reporting that hedge funds increased—either \"considerably\" or \"somewhat\"—the intensity of their efforts to negotiate better credit terms minus those reporting a decrease. A positive net percent indicates overall greater efforts by hedge funds to negotiate better credit terms compared with the prior quarter, while a negative net percent indicates an overall reduction in efforts over the same period. See additional definitions and methodology on the SCOOS Data Sets page of the Hedge Fund Monitor.",
+   "name": "Survey: hedge funds’ efforts to negotiate more favorable credit terms (net percent of respondents reporting a change)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "Single Quarter",
+   "observation_frequency": "Quarterly",
+   "start_date": "2011-09-30 00:00:00",
+   "last_update": "2026-09-21 15:18:02"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "Senior Credit Officer Opinion Survey on Dealer Financing Terms",
+   "href": "/hedge-fund-monitor/datasets/scoos/",
+   "frequency": "Quarterly",
+   "short_name": "SCOOS"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Percent",
+   "name": "Net percent of respondents reporting a change",
+   "precision": 1
+  }
+ },
+ "TFF-LF_AD_NET_POSITION": {
+  "mnemonic": "TFF-LF_AD_NET_POSITION",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The notional position is the number of contracts held multiplied by the contract size. Fungible contracts are consolidated. USD and foreign currency denominated contracts are combined using historical market exchange rates. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net notional position in Australian dollar futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_BITCOIN_NET_POSITION": {
+  "mnemonic": "TFF-LF_BITCOIN_NET_POSITION",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The notional position is the number of contracts held multiplied by the contract size. Fungible contracts are consolidated. USD and foreign currency denominated contracts are combined using historical market exchange rates. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net notional position in Bitcoin futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_BP_NET_POSITION": {
+  "mnemonic": "TFF-LF_BP_NET_POSITION",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The notional position is the number of contracts held multiplied by the contract size. Fungible contracts are consolidated. USD and foreign currency denominated contracts are combined using historical market exchange rates. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net notional position in British pound futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_BR_NET_POSITION": {
+  "mnemonic": "TFF-LF_BR_NET_POSITION",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The notional position is the number of contracts held multiplied by the contract size. Fungible contracts are consolidated. USD and foreign currency denominated contracts are combined using historical market exchange rates. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net notional position in Brazilian real futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_CD_NET_POSITION": {
+  "mnemonic": "TFF-LF_CD_NET_POSITION",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The notional position is the number of contracts held multiplied by the contract size. Fungible contracts are consolidated. USD and foreign currency denominated contracts are combined using historical market exchange rates. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net notional position in Canadian dollar futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_DJ_NET_POSITION": {
+  "mnemonic": "TFF-LF_DJ_NET_POSITION",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The notional position is the number of contracts held multiplied by the contract size. Fungible contracts are consolidated. USD and foreign currency denominated contracts are combined using historical market exchange rates. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net notional position in DJIA Index futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_DX_NET_POSITION": {
+  "mnemonic": "TFF-LF_DX_NET_POSITION",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The notional position is the number of contracts held multiplied by the contract size. Fungible contracts are consolidated. USD and foreign currency denominated contracts are combined using historical market exchange rates. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net notional position in U.S. Dollar Index futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_EC_NET_POSITION": {
+  "mnemonic": "TFF-LF_EC_NET_POSITION",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The notional position is the number of contracts held multiplied by the contract size. Fungible contracts are consolidated. USD and foreign currency denominated contracts are combined using historical market exchange rates. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net notional position in Euro futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_ED_NET_DV01": {
+  "mnemonic": "TFF-LF_ED_NET_DV01",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The series is the product of the net number of contracts held by leveraged funds and the fixed DV01 of short-term interest rate futures. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. Data for eurodollar futures is unavailable after June 13, 2023. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: DV01 of net position in 3-month eurodollar futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_ED_NET_POS10YREQV": {
+  "mnemonic": "TFF-LF_ED_NET_POS10YREQV",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The 10-year equivalent positions are calculated by scaling the number of contracts held by the ratio of the dollar value of a one basis point change in yield (DV01) of the contract and the DV01 of the 10-year Treasury futures contract and multiplying by the notional value of the contract. Deliverable securities for the 10-year Treasury futures contract have a remaining term to maturity of at least 6 years and 6 months, but less than eight years. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net 10-year equivalent position in 3-month eurodollar futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_ED_NET_POSITION": {
+  "mnemonic": "TFF-LF_ED_NET_POSITION",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The notional position is the number of contracts held multiplied by the contract size. Fungible contracts are consolidated. USD and foreign currency denominated contracts are combined using historical market exchange rates. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. Data for eurodollar futures is unavailable after June 13, 2023. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net notional position in 3-month eurodollar futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_ETHER_NET_POSITION": {
+  "mnemonic": "TFF-LF_ETHER_NET_POSITION",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The notional position is the number of contracts held multiplied by the contract size. Fungible contracts are consolidated. USD and foreign currency denominated contracts are combined using historical market exchange rates. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net notional position in Ether futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_FF_NET_DV01": {
+  "mnemonic": "TFF-LF_FF_NET_DV01",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The series is the product of the net number of contracts held by leveraged funds and the fixed DV01 of short-term interest rate futures. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: DV01 of net position in 30-day Fed Funds futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_FF_NET_POS10YREQV": {
+  "mnemonic": "TFF-LF_FF_NET_POS10YREQV",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The 10-year equivalent positions are calculated by scaling the number of contracts held by the ratio of the dollar value of a one basis point change in yield (DV01) of the contract and the DV01 of the 10-year Treasury futures contract and multiplying by the notional value of the contract. Deliverable securities for the 10-year Treasury futures contract have a remaining term to maturity of at least 6 years and 6 months, but less than eight years. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net 10-year equivalent position in 30-day Fed Funds futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_FF_NET_POSITION": {
+  "mnemonic": "TFF-LF_FF_NET_POSITION",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The notional position is the number of contracts held multiplied by the contract size. Fungible contracts are consolidated. USD and foreign currency denominated contracts are combined using historical market exchange rates. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net notional position in 30-day Fed Funds futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_FV_NET_POS10YREQV": {
+  "mnemonic": "TFF-LF_FV_NET_POS10YREQV",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The 10-year equivalent positions are calculated by scaling the number of contracts held by the ratio of the dollar value of a one basis point change in yield (DV01) of the contract and the DV01 of the 10-year Treasury futures contract and multiplying by the notional value of the contract. Deliverable securities for the 10-year Treasury futures contract have a remaining term to maturity of at least 6 years and 6 months, but less than eight years. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net 10-year equivalent position in 5-year Treasury futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_FV_NET_POSITION": {
+  "mnemonic": "TFF-LF_FV_NET_POSITION",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The notional position is the number of contracts held multiplied by the contract size. Fungible contracts are consolidated. USD and foreign currency denominated contracts are combined using historical market exchange rates. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net notional position in 5-year Treasury futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_JY_NET_POSITION": {
+  "mnemonic": "TFF-LF_JY_NET_POSITION",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The notional position is the number of contracts held multiplied by the contract size. Fungible contracts are consolidated. USD and foreign currency denominated contracts are combined using historical market exchange rates. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net notional position in Japanese yen futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_ND_NET_POSITION": {
+  "mnemonic": "TFF-LF_ND_NET_POSITION",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The notional position is the number of contracts held multiplied by the contract size. Fungible contracts are consolidated. USD and foreign currency denominated contracts are combined using historical market exchange rates. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net notional position in NASDAQ 100 Index futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_NV_NET_POSITION": {
+  "mnemonic": "TFF-LF_NV_NET_POSITION",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The notional position is the number of contracts held multiplied by the contract size. Fungible contracts are consolidated. USD and foreign currency denominated contracts are combined using historical market exchange rates. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net notional position in New Zealand dollar futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_NX_NET_POSITION": {
+  "mnemonic": "TFF-LF_NX_NET_POSITION",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The notional position is the number of contracts held multiplied by the contract size. Fungible contracts are consolidated. USD and foreign currency denominated contracts are combined using historical market exchange rates. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net notional position in Nikkei 225 Index futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_PE_NET_POSITION": {
+  "mnemonic": "TFF-LF_PE_NET_POSITION",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The notional position is the number of contracts held multiplied by the contract size. Fungible contracts are consolidated. USD and foreign currency denominated contracts are combined using historical market exchange rates. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net notional position in Mexican peso futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_RA_NET_POSITION": {
+  "mnemonic": "TFF-LF_RA_NET_POSITION",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The notional position is the number of contracts held multiplied by the contract size. Fungible contracts are consolidated. USD and foreign currency denominated contracts are combined using historical market exchange rates. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net notional position in South African rand futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_SER_NET_DV01": {
+  "mnemonic": "TFF-LF_SER_NET_DV01",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report.The series is the product of the net number of contracts held by leveraged funds and the fixed DV01 of short-term interest rate futures. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: DV01 of net position in 1-month SOFR futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_SER_NET_POS10YREQV": {
+  "mnemonic": "TFF-LF_SER_NET_POS10YREQV",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The 10-year equivalent positions are calculated by scaling the number of contracts held by the ratio of the dollar value of a one basis point change in yield (DV01) of the contract and the DV01 of the 10-year Treasury futures contract and multiplying by the notional value of the contract. Deliverable securities for the 10-year Treasury futures contract have a remaining term to maturity of at least 6 years and 6 months, but less than eight years. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net 10-year equivalent position in 1-month SOFR futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_SER_NET_POSITION": {
+  "mnemonic": "TFF-LF_SER_NET_POSITION",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The notional position is the number of contracts held multiplied by the contract size. Fungible contracts are consolidated. USD and foreign currency denominated contracts are combined using historical market exchange rates. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net notional position in 1-month SOFR futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_SF_NET_POSITION": {
+  "mnemonic": "TFF-LF_SF_NET_POSITION",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The notional position is the number of contracts held multiplied by the contract size. Fungible contracts are consolidated. USD and foreign currency denominated contracts are combined using historical market exchange rates. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net notional position in Swiss franc futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_SFR_NET_DV01": {
+  "mnemonic": "TFF-LF_SFR_NET_DV01",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The series is the product of the net number of contracts held by leveraged funds and the fixed DV01 of short-term interest rate futures. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: DV01 of net position in 3-month SOFR futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_SFR_NET_POS10YREQV": {
+  "mnemonic": "TFF-LF_SFR_NET_POS10YREQV",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The 10-year equivalent positions are calculated by scaling the number of contracts held by the ratio of the dollar value of a one basis point change in yield (DV01) of the contract and the DV01 of the 10-year Treasury futures contract and multiplying by the notional value of the contract. Deliverable securities for the 10-year Treasury futures contract have a remaining term to maturity of at least 6 years and 6 months, but less than eight years. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net 10-year equivalent position in 3-month SOFR futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_SFR_NET_POSITION": {
+  "mnemonic": "TFF-LF_SFR_NET_POSITION",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The notional position is the number of contracts held multiplied by the contract size. Fungible contracts are consolidated. USD and foreign currency denominated contracts are combined using historical market exchange rates. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net notional position in 3-month SOFR future (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_SP_NET_POSITION": {
+  "mnemonic": "TFF-LF_SP_NET_POSITION",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The notional position is the number of contracts held multiplied by the contract size. Fungible contracts are consolidated. USD and foreign currency denominated contracts are combined using historical market exchange rates. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net notional position in S&P 500 Index futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_TREAS_NET_DV01": {
+  "mnemonic": "TFF-LF_TREAS_NET_DV01",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. DV01 is the number of contracts held by leveraged funds multiplied by the notional value per contract and the dollar value of a one basis point change in yield (DV01). Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: DV01 of net position in all maturities of Treasury futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_TREAS_NET_POS10YREQV": {
+  "mnemonic": "TFF-LF_TREAS_NET_POS10YREQV",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The 10-year equivalent positions are calculated by scaling the number of contracts held by the ratio of the dollar value of a one basis point change in yield (DV01) of the contract and the DV01 of the 10-year Treasury futures contract and multiplying by the notional value of the contract. Deliverable securities for the 10-year Treasury futures contract have a remaining term to maturity of at least 6 years and 6 months, but less than eight years. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net 10-year equivalent position in all maturities of Treasury futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_TREAS_NET_POSITION": {
+  "mnemonic": "TFF-LF_TREAS_NET_POSITION",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The notional position is the number of contracts held multiplied by the contract size. Fungible contracts are consolidated. USD and foreign currency denominated contracts are combined using historical market exchange rates. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net notional position in all maturities of Treasury futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_TU_NET_POS10YREQV": {
+  "mnemonic": "TFF-LF_TU_NET_POS10YREQV",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The 10-year equivalent positions are calculated by scaling the number of contracts held by the ratio of the dollar value of a one basis point change in yield (DV01) of the contract and the DV01 of the 10-year Treasury futures contract and multiplying by the notional value of the contract. Deliverable securities for the 10-year Treasury futures contract have a remaining term to maturity of at least 6 years and 6 months, but less than eight years. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net 10-year equivalent position in 2-year Treasury futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_TU_NET_POSITION": {
+  "mnemonic": "TFF-LF_TU_NET_POSITION",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The notional position is the number of contracts held multiplied by the contract size. Fungible contracts are consolidated. USD and foreign currency denominated contracts are combined using historical market exchange rates. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net notional position in 2-year Treasury futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_TY_NET_POS10YREQV": {
+  "mnemonic": "TFF-LF_TY_NET_POS10YREQV",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The 10-year equivalent positions are calculated by scaling the number of contracts held by the ratio of the dollar value of a one basis point change in yield (DV01) of the contract and the DV01 of the 10-year Treasury futures contract and multiplying by the notional value of the contract. Deliverable securities for the 10-year Treasury futures contract have a remaining term to maturity of at least 6 years and 6 months, but less than eight years. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net 10-year equivalent position in 10-year Treasury futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_TY_NET_POSITION": {
+  "mnemonic": "TFF-LF_TY_NET_POSITION",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The notional position is the number of contracts held multiplied by the contract size. Fungible contracts are consolidated. USD and foreign currency denominated contracts are combined using historical market exchange rates. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net notional position in 10-year Treasury futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_US_NET_POS10YREQV": {
+  "mnemonic": "TFF-LF_US_NET_POS10YREQV",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The 10-year equivalent positions are calculated by scaling the number of contracts held by the ratio of the dollar value of a one basis point change in yield (DV01) of the contract and the DV01 of the 10-year Treasury futures contract and multiplying by the notional value of the contract. Deliverable securities for the 10-year Treasury futures contract have a remaining term to maturity of at least 6 years and 6 months, but less than eight years. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net 10-year equivalent position in 30-year Treasury futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_US_NET_POSITION": {
+  "mnemonic": "TFF-LF_US_NET_POSITION",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The notional position is the number of contracts held multiplied by the contract size. Fungible contracts are consolidated. USD and foreign currency denominated contracts are combined using historical market exchange rates. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net notional position in 30-year Treasury futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_UXY_NET_POS10YREQV": {
+  "mnemonic": "TFF-LF_UXY_NET_POS10YREQV",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The 10-year equivalent positions are calculated by scaling the number of contracts held by the ratio of the dollar value of a one basis point change in yield (DV01) of the contract and the DV01 of the 10-year Treasury futures contract and multiplying by the notional value of the contract. Deliverable securities for the 10-year Treasury futures contract have a remaining term to maturity of at least 6 years and 6 months, but less than eight years. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net 10-year equivalent position in ultra 10-year Treasury futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_UXY_NET_POSITION": {
+  "mnemonic": "TFF-LF_UXY_NET_POSITION",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The notional position is the number of contracts held multiplied by the contract size. Fungible contracts are consolidated. USD and foreign currency denominated contracts are combined using historical market exchange rates. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net notional position in ultra 10-year Treasury futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_VIX_NET_POSITION": {
+  "mnemonic": "TFF-LF_VIX_NET_POSITION",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The notional position is the number of contracts held multiplied by the contract size. Fungible contracts are consolidated. USD and foreign currency denominated contracts are combined using historical market exchange rates. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net notional position in VIX Index (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_WN_NET_POS10YREQV": {
+  "mnemonic": "TFF-LF_WN_NET_POS10YREQV",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The 10-year equivalent positions are calculated by scaling the number of contracts held by the ratio of the dollar value of a one basis point change in yield (DV01) of the contract and the DV01 of the 10-year Treasury futures contract and multiplying by the notional value of the contract. Deliverable securities for the 10-year Treasury futures contract have a remaining term to maturity of at least 6 years and 6 months, but less than eight years. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net 10-year equivalent position in ultra 30-year Treasury futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ },
+ "TFF-LF_WN_NET_POSITION": {
+  "mnemonic": "TFF-LF_WN_NET_POSITION",
+  "description": {
+   "notes": "The data are compiled from the Commodity Futures Trading Commission (CFTC) Traders in Financial Futures (TFF) combined options and futures report. The notional position is the number of contracts held multiplied by the contract size. Fungible contracts are consolidated. USD and foreign currency denominated contracts are combined using historical market exchange rates. Leveraged funds are typically hedge funds and various types of money managers, including registered commodity trading advisors (CTAs), registered commodity pool operators (CPOs), or unregistered funds identified by the CFTC. See additional definitions and methodology on the CFTC Traders in Financial Futures Data Sets page of the Hedge Fund Monitor.",
+   "name": "Leveraged funds: net notional position in ultra 30-year Treasury futures (U.S. dollars)",
+   "description": "",
+   "vintage_approach": "Current vintage, as of last update",
+   "subsetting": "None",
+   "subtype": "None"
+  },
+  "schedule": {
+   "observation_period": "End of Week",
+   "observation_frequency": "Weekly",
+   "start_date": "2014-05-13 00:00:00",
+   "last_update": "2026-09-21 15:26:15"
+  },
+  "rights": {
+   "description": ""
+  },
+  "parents": [],
+  "release": {
+   "long_name": "CFTC Commitments of Traders",
+   "href": "/hedge-fund-monitor/datasets/tff/",
+   "frequency": "Monthly",
+   "short_name": "CFTC Commitments of Traders"
+  },
+  "children": [],
+  "unit": {
+   "display_magnitude": 0,
+   "magnitude": 0,
+   "type": "Value",
+   "name": "U.S. dollars",
+   "precision": 0
+  }
+ }
+}

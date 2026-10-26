@@ -1,0 +1,79 @@
+{
+  "created_before_grid_execution": "2026-09-27T03:52:32.876016+00:00",
+  "period": [
+    "2026-01-02",
+    "2026-09-23"
+  ],
+  "candidate_count": 252720,
+  "search_space": {
+    "hypotheses": 13,
+    "flow_windows_krx": [
+      1,
+      3,
+      5,
+      10,
+      20,
+      40
+    ],
+    "time_mix": [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      1
+    ],
+    "price_gates": 3,
+    "max_stocks": [
+      1,
+      2,
+      3,
+      5,
+      7,
+      10
+    ],
+    "rebalance": [
+      "daily",
+      "calendar_week",
+      "calendar_month"
+    ],
+    "weighting": [
+      "equal",
+      "conviction",
+      "inverse_volatility"
+    ],
+    "risk_rules": 4
+  },
+  "selection": "Jan-May log wealth minus half absolute max drawdown; reject train drawdown below -50%; top 1% shortlisted, Jun-Jul same-objective winner; Aug-Sep retrospective holdout inspected after selection",
+  "regime": "Prior 20 observed valuation sessions QQQ USD return >3% and above MA20 = up; <-3% and below MA20 = down; otherwise range; first 21 sessions unknown.",
+  "price_basis": "split-adjusted Close, dividends excluded; all values KRW; same-date local closes not synchronized",
+  "disclosure_rule": "Latest snapshot as_of STRICTLY BEFORE local execution calendar date",
+  "execution": "Earn existing positions close-to-close return then rebalance at current local close; freeze closed-market positions, no leverage, cash in KRW with zero interest",
+  "fees": {
+    "one_way_fraction_of_traded_value": 0.0015,
+    "includes": "assumed commission + slippage + currency exchange allowance",
+    "sensitivity_bps": [
+      0,
+      15,
+      30,
+      50
+    ],
+    "tax": "not deducted; account/jurisdiction dependent",
+    "terminal": "mark to market, no forced sale fee"
+  },
+  "first_entry": "All accounts begin cash; first disclosure-following date benchmark entry; strategy waits in cash until its first eligible signal; subsequent rebalances calendar-based",
+  "targets": "Strategy cumulative percentage return >=2x or3x EACH ETF cumulative percentage return; ratios defined only for positive ETF returns. This is not multiplying ending wealth.",
+  "stress": [
+    "same selected rule at 0/15/30/50bps",
+    "one extra global valuation-session delay",
+    "fresh cash start in holdout",
+    "selected daily path by prior-information regime",
+    "chronological monthly walk-forward with switch surcharge"
+  ],
+  "limitations": [
+    "retrospectively retrieved holdings; historical publication timestamp not verified",
+    "252720 parameter rows are correlated and include duplicates; count unique rounded return paths separately",
+    "holdout is retrospective, not future/live validation; no proof of 2x/3x future returns",
+    "eight-plus-month history cannot validate an entire bull/bear cycle",
+    "prices/features use only this sample; full lookback required, no external warmup"
+  ]
+}

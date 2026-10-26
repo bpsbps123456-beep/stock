@@ -1,0 +1,135 @@
+{
+ "main": {
+  "n_cells": 42,
+  "n_eligible": 12,
+  "n_selected": 10,
+  "selected": [
+   "N20|gap_size≤0.01087(하위3분위)",
+   "N40|sub_cobreak_n≤0(하위3분위)",
+   "N40|sub_cobreak_share≤0(하위3분위)",
+   "N60|earn_pm3=0(lo)",
+   "N20|sub_cobreak_n≤0(하위3분위)",
+   "N20|sub_cobreak_share≤0(하위3분위)",
+   "N60|sub_cobreak_n≥1(상위3분위)",
+   "N20|earn_pm3=0(lo)",
+   "N60|gap_pct≥-0.002126(상위3분위)",
+   "N60|earn_post3=0(lo)"
+  ],
+  "n_pass": 0,
+  "passed": [],
+  "passed_one_regime": [],
+  "n_pass_shift": 0,
+  "passed_shift": [],
+  "events": {
+   "f": 425,
+   "b": 448,
+   "a": 1169
+  },
+  "dates": {
+   "f": 57,
+   "b": 52,
+   "a": 127
+  },
+  "params": {
+   "front": [
+    "2026-01-02",
+    "2026-05-29"
+   ],
+   "back": [
+    "2026-06-01",
+    "2026-09-29"
+   ],
+   "aux": [
+    "2025-01-01",
+    "2025-12-31"
+   ],
+   "top": 10,
+   "min_on": 15,
+   "min_dates": 8,
+   "nperm": 200,
+   "nnull": 200,
+   "seed": 20261014,
+   "y": "short_ret_h10",
+   "n_shift": 51
+  },
+  "null": {
+   "mean": 0.05,
+   "q50": 0.0,
+   "q90": 0.0,
+   "q95": 0.0,
+   "max": 2,
+   "p_value": 1.0
+  },
+  "null_shift": {
+   "mean": 0.09,
+   "q50": 0.0,
+   "q90": 0.0,
+   "q95": 1.0,
+   "max": 2,
+   "p_value": 1.0
+  }
+ },
+ "variant": {
+  "n_cells": 6,
+  "n_eligible": 3,
+  "n_selected": 3,
+  "selected": [
+   "N40|gap_next≥0.01004(상위3분위)",
+   "N60|gap_next≥0.01049(상위3분위)",
+   "N60|gap_next≤-0.004653(하위3분위)"
+  ],
+  "n_pass": 0,
+  "passed": [],
+  "passed_one_regime": [],
+  "n_pass_shift": 0,
+  "passed_shift": [],
+  "events": {
+   "f": 425,
+   "b": 448,
+   "a": 1169
+  },
+  "dates": {
+   "f": 57,
+   "b": 52,
+   "a": 127
+  },
+  "params": {
+   "front": [
+    "2026-01-02",
+    "2026-05-29"
+   ],
+   "back": [
+    "2026-06-01",
+    "2026-09-29"
+   ],
+   "aux": [
+    "2025-01-01",
+    "2025-12-31"
+   ],
+   "top": 10,
+   "min_on": 15,
+   "min_dates": 8,
+   "nperm": 200,
+   "nnull": 200,
+   "seed": 20261014,
+   "y": "short_ret_h10",
+   "n_shift": 51
+  },
+  "null": {
+   "mean": 0.02,
+   "q50": 0.0,
+   "q90": 0.0,
+   "q95": 0.0,
+   "max": 1,
+   "p_value": 1.0
+  },
+  "null_shift": {
+   "mean": 0.04,
+   "q50": 0.0,
+   "q90": 0.0,
+   "q95": 0.0,
+   "max": 1,
+   "p_value": 1.0
+  }
+ }
+}

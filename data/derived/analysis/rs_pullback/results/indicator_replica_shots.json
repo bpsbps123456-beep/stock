@@ -1,0 +1,2422 @@
+{
+ "meta": {
+  "panel": [
+   "ALAB",
+   "AMAT",
+   "AMD",
+   "ARM",
+   "AVGO",
+   "BE",
+   "CRDO",
+   "CRWV",
+   "DELL",
+   "GLW",
+   "IREN",
+   "KLAC",
+   "MCHP",
+   "MPWR",
+   "MU",
+   "NBIS",
+   "NOW",
+   "NVDA",
+   "NXPI",
+   "ON",
+   "QCOM",
+   "SNDK",
+   "STX",
+   "TSM",
+   "TXN",
+   "WDC"
+  ],
+  "yfinance": [
+   "ENTG",
+   "ORCL",
+   "SOXX",
+   "SWKS",
+   "UMC"
+  ],
+  "panel_vs_yf_max_abs_diff_pct": {
+   "ALAB": 0.0,
+   "AMAT": 0.0,
+   "AMD": 0.0,
+   "QQQ": 0.0
+  },
+  "yf_split_events_jun_oct": {
+   "ENTG": 0,
+   "ORCL": 0,
+   "SOXX": 0,
+   "SWKS": 0,
+   "UMC": 0
+  }
+ },
+ "shots": {
+  "S5": {
+   "et": "2026-07-07 08:59 프리장",
+   "bar": "2026-07-06",
+   "entry": "2026-07-07"
+  },
+  "S6": {
+   "et": "2026-07-08 11:09 장중",
+   "bar": "2026-07-08(장중)",
+   "entry": "2026-07-09"
+  },
+  "S1": {
+   "et": "2026-07-09 09:08 프리장",
+   "bar": "2026-07-08",
+   "entry": "2026-07-09"
+  },
+  "S2": {
+   "et": "2026-07-10 08:38 프리장",
+   "bar": "2026-07-09",
+   "entry": "2026-07-10"
+  },
+  "S3": {
+   "et": "2026-07-13 10:21 장중",
+   "bar": "2026-07-13(장중)",
+   "entry": "2026-07-14"
+  },
+  "S4": {
+   "et": "2026-07-14 09:19 프리장",
+   "bar": "2026-07-13",
+   "entry": "2026-07-14"
+  }
+ },
+ "n_rows": 118,
+ "n_unique_tickers": 31,
+ "n_unique_ticker_entry": 86,
+ "entry_dates": [
+  "2026-07-07",
+  "2026-07-09",
+  "2026-07-10",
+  "2026-07-14"
+ ],
+ "context": {
+  "QQQ": {
+   "open 06-22→07-29": -8.96,
+   "open 07-07→08-04": -0.84,
+   "open 07-14→08-11": 0.43
+  },
+  "SOXX": {
+   "open 06-22→07-29": -25.28,
+   "open 07-07→08-04": -4.1,
+   "open 07-14→08-11": -7.34
+  }
+ },
+ "by_state": {
+  "h1": {
+   "0": {
+    "n": 94,
+    "mean_x": -1.46,
+    "median_x": -1.27,
+    "hit": 24.5
+   },
+   "1": {
+    "n": 18,
+    "mean_x": -1.19,
+    "median_x": -1.67,
+    "hit": 22.2
+   },
+   "2": {
+    "n": 6,
+    "mean_x": -1.13,
+    "median_x": -1.01,
+    "hit": 33.3
+   },
+   "all": {
+    "n": 118,
+    "mean_x": -1.4,
+    "median_x": -1.43
+   }
+  },
+  "h5": {
+   "0": {
+    "n": 94,
+    "mean_x": -5.34,
+    "median_x": -5.35,
+    "hit": 22.3
+   },
+   "1": {
+    "n": 18,
+    "mean_x": -4.65,
+    "median_x": -4.39,
+    "hit": 27.8
+   },
+   "2": {
+    "n": 6,
+    "mean_x": -9.12,
+    "median_x": -7.92,
+    "hit": 0.0
+   },
+   "all": {
+    "n": 118,
+    "mean_x": -5.42,
+    "median_x": -5.31
+   }
+  },
+  "h10": {
+   "0": {
+    "n": 94,
+    "mean_x": -5.63,
+    "median_x": -4.65,
+    "hit": 24.5
+   },
+   "1": {
+    "n": 18,
+    "mean_x": -2.38,
+    "median_x": -3.44,
+    "hit": 38.9
+   },
+   "2": {
+    "n": 6,
+    "mean_x": -3.58,
+    "median_x": -3.16,
+    "hit": 50.0
+   },
+   "all": {
+    "n": 118,
+    "mean_x": -5.03,
+    "median_x": -4.45
+   }
+  },
+  "h20": {
+   "0": {
+    "n": 94,
+    "mean_x": -8.68,
+    "median_x": -9.34,
+    "hit": 19.1
+   },
+   "1": {
+    "n": 18,
+    "mean_x": -2.58,
+    "median_x": -5.77,
+    "hit": 44.4
+   },
+   "2": {
+    "n": 6,
+    "mean_x": -0.97,
+    "median_x": 2.17,
+    "hit": 66.7
+   },
+   "all": {
+    "n": 118,
+    "mean_x": -7.36,
+    "median_x": -7.76
+   }
+  }
+ },
+ "group_diffs": {
+  "state_ge1": {
+   "h1": {
+    "n_in": 24,
+    "n_out": 94,
+    "mean_in": -1.17,
+    "mean_out": -1.46,
+    "diff": 0.29,
+    "diff_within_shot": 0.53,
+    "perm_p": 0.448
+   },
+   "h5": {
+    "n_in": 24,
+    "n_out": 94,
+    "mean_in": -5.77,
+    "mean_out": -5.34,
+    "diff": -0.43,
+    "diff_within_shot": 1.58,
+    "perm_p": 0.265
+   },
+   "h10": {
+    "n_in": 24,
+    "n_out": 94,
+    "mean_in": -2.68,
+    "mean_out": -5.63,
+    "diff": 2.95,
+    "diff_within_shot": 2.75,
+    "perm_p": 0.089
+   },
+   "h20": {
+    "n_in": 24,
+    "n_out": 94,
+    "mean_in": -2.18,
+    "mean_out": -8.68,
+    "diff": 6.51,
+    "diff_within_shot": 7.73,
+    "perm_p": 0.002
+   }
+  },
+  "state2": {
+   "h1": {
+    "n_in": 6,
+    "n_out": 112,
+    "mean_in": -1.13,
+    "mean_out": -1.42,
+    "diff": 0.29,
+    "diff_within_shot": 0.15,
+    "perm_p": 0.884
+   },
+   "h5": {
+    "n_in": 6,
+    "n_out": 112,
+    "mean_in": -9.12,
+    "mean_out": -5.23,
+    "diff": -3.9,
+    "diff_within_shot": -1.62,
+    "perm_p": 0.567
+   },
+   "h10": {
+    "n_in": 6,
+    "n_out": 112,
+    "mean_in": -3.58,
+    "mean_out": -5.11,
+    "diff": 1.52,
+    "diff_within_shot": 0.31,
+    "perm_p": 0.918
+   },
+   "h20": {
+    "n_in": 6,
+    "n_out": 112,
+    "mean_in": -0.97,
+    "mean_out": -7.7,
+    "diff": 6.73,
+    "diff_within_shot": 6.64,
+    "perm_p": 0.122
+   }
+  },
+  "score_top5": {
+   "h1": {
+    "n_in": 30,
+    "n_out": 88,
+    "mean_in": -1.04,
+    "mean_out": -1.53,
+    "diff": 0.49,
+    "diff_within_shot": 0.46,
+    "perm_p": 0.498
+   },
+   "h5": {
+    "n_in": 30,
+    "n_out": 88,
+    "mean_in": -3.84,
+    "mean_out": -5.96,
+    "diff": 2.12,
+    "diff_within_shot": 1.96,
+    "perm_p": 0.13
+   },
+   "h10": {
+    "n_in": 30,
+    "n_out": 88,
+    "mean_in": -2.92,
+    "mean_out": -5.75,
+    "diff": 2.83,
+    "diff_within_shot": 2.77,
+    "perm_p": 0.087
+   },
+   "h20": {
+    "n_in": 30,
+    "n_out": 88,
+    "mean_in": -3.59,
+    "mean_out": -8.64,
+    "diff": 5.05,
+    "diff_within_shot": 4.95,
+    "perm_p": 0.036
+   }
+  },
+  "fade_hi": {
+   "h1": {
+    "n_in": 58,
+    "n_out": 59,
+    "mean_in": -1.46,
+    "mean_out": -1.36,
+    "diff": -0.1,
+    "diff_within_shot": -0.07,
+    "perm_p": 0.91
+   },
+   "h5": {
+    "n_in": 58,
+    "n_out": 59,
+    "mean_in": -6.28,
+    "mean_out": -4.72,
+    "diff": -1.57,
+    "diff_within_shot": -1.44,
+    "perm_p": 0.205
+   },
+   "h10": {
+    "n_in": 58,
+    "n_out": 59,
+    "mean_in": -5.56,
+    "mean_out": -4.37,
+    "diff": -1.19,
+    "diff_within_shot": -1.13,
+    "perm_p": 0.418
+   },
+   "h20": {
+    "n_in": 58,
+    "n_out": 59,
+    "mean_in": -8.45,
+    "mean_out": -6.14,
+    "diff": -2.32,
+    "diff_within_shot": -2.23,
+    "perm_p": 0.283
+   }
+  },
+  "rsmain_hi": {
+   "h1": {
+    "n_in": 59,
+    "n_out": 59,
+    "mean_in": -1.39,
+    "mean_out": -1.41,
+    "diff": 0.02,
+    "diff_within_shot": 0.02,
+    "perm_p": 0.975
+   },
+   "h5": {
+    "n_in": 59,
+    "n_out": 59,
+    "mean_in": -5.47,
+    "mean_out": -5.38,
+    "diff": -0.09,
+    "diff_within_shot": -0.09,
+    "perm_p": 0.932
+   },
+   "h10": {
+    "n_in": 59,
+    "n_out": 59,
+    "mean_in": -4.22,
+    "mean_out": -5.84,
+    "diff": 1.62,
+    "diff_within_shot": 1.62,
+    "perm_p": 0.251
+   },
+   "h20": {
+    "n_in": 59,
+    "n_out": 59,
+    "mean_in": -7.07,
+    "mean_out": -7.65,
+    "diff": 0.59,
+    "diff_within_shot": 0.59,
+    "perm_p": 0.777
+   }
+  },
+  "latent_hi": {
+   "h1": {
+    "n_in": 59,
+    "n_out": 59,
+    "mean_in": -1.26,
+    "mean_out": -1.55,
+    "diff": 0.29,
+    "diff_within_shot": 0.29,
+    "perm_p": 0.617
+   },
+   "h5": {
+    "n_in": 59,
+    "n_out": 59,
+    "mean_in": -5.05,
+    "mean_out": -5.8,
+    "diff": 0.75,
+    "diff_within_shot": 0.75,
+    "perm_p": 0.508
+   },
+   "h10": {
+    "n_in": 59,
+    "n_out": 59,
+    "mean_in": -3.96,
+    "mean_out": -6.1,
+    "diff": 2.14,
+    "diff_within_shot": 2.14,
+    "perm_p": 0.125
+   },
+   "h20": {
+    "n_in": 59,
+    "n_out": 59,
+    "mean_in": -4.87,
+    "mean_out": -9.85,
+    "diff": 4.97,
+    "diff_within_shot": 4.97,
+    "perm_p": 0.018
+   }
+  }
+ },
+ "spearman_within_shot": {
+  "score": {
+   "h5": {
+    "mean_rho": 0.196,
+    "per_shot": [
+     0.341,
+     0.212,
+     0.081,
+     -0.063,
+     0.059,
+     0.549
+    ],
+    "perm_p": 0.04
+   },
+   "h10": {
+    "mean_rho": 0.207,
+    "per_shot": [
+     0.229,
+     0.162,
+     0.062,
+     0.307,
+     0.131,
+     0.35
+    ],
+    "perm_p": 0.025
+   },
+   "h20": {
+    "mean_rho": 0.182,
+    "per_shot": [
+     0.516,
+     0.197,
+     -0.274,
+     0.119,
+     0.151,
+     0.386
+    ],
+    "perm_p": 0.04
+   }
+  },
+  "rs_main": {
+   "h5": {
+    "mean_rho": 0.071,
+    "per_shot": [
+     0.236,
+     -0.117,
+     -0.28,
+     0.039,
+     0.024,
+     0.525
+    ],
+    "perm_p": 0.441
+   },
+   "h10": {
+    "mean_rho": 0.172,
+    "per_shot": [
+     0.195,
+     0.441,
+     -0.257,
+     0.065,
+     0.125,
+     0.466
+    ],
+    "perm_p": 0.075
+   },
+   "h20": {
+    "mean_rho": 0.134,
+    "per_shot": [
+     0.537,
+     -0.108,
+     -0.26,
+     -0.032,
+     0.067,
+     0.6
+    ],
+    "perm_p": 0.161
+   }
+  },
+  "latent": {
+   "h5": {
+    "mean_rho": 0.057,
+    "per_shot": [
+     0.205,
+     -0.209,
+     -0.063,
+     0.248,
+     -0.088,
+     0.247
+    ],
+    "perm_p": 0.568
+   },
+   "h10": {
+    "mean_rho": 0.128,
+    "per_shot": [
+     0.205,
+     -0.036,
+     0.198,
+     0.582,
+     -0.247,
+     0.063
+    ],
+    "perm_p": 0.192
+   },
+   "h20": {
+    "mean_rho": 0.182,
+    "per_shot": [
+     0.423,
+     -0.09,
+     0.263,
+     0.283,
+     -0.15,
+     0.365
+    ],
+    "perm_p": 0.056
+   }
+  },
+  "fade_gap": {
+   "h5": {
+    "mean_rho": -0.055,
+    "per_shot": [
+     -0.063,
+     -0.301,
+     -0.008,
+     0.347,
+     -0.049,
+     -0.257
+    ],
+    "perm_p": 0.579
+   },
+   "h10": {
+    "mean_rho": -0.021,
+    "per_shot": [
+     -0.01,
+     -0.371,
+     0.246,
+     0.662,
+     -0.255,
+     -0.398
+    ],
+    "perm_p": 0.837
+   },
+   "h20": {
+    "mean_rho": -0.036,
+    "per_shot": [
+     -0.213,
+     -0.397,
+     0.217,
+     0.392,
+     0.096,
+     -0.314
+    ],
+    "perm_p": 0.705
+   }
+  },
+  "rs_short": {
+   "h5": {
+    "mean_rho": 0.049,
+    "per_shot": [
+     0.376,
+     0.412,
+     0.581,
+     -0.472,
+     -0.222,
+     -0.383
+    ],
+    "perm_p": 0.61
+   },
+   "h10": {
+    "mean_rho": 0.066,
+    "per_shot": [
+     0.191,
+     0.197,
+     0.396,
+     -0.368,
+     -0.034,
+     0.014
+    ],
+    "perm_p": 0.499
+   },
+   "h20": {
+    "mean_rho": 0.083,
+    "per_shot": [
+     0.38,
+     0.38,
+     0.211,
+     -0.314,
+     0.172,
+     -0.329
+    ],
+    "perm_p": 0.372
+   }
+  }
+ },
+ "leave_one_ticker_out": {
+  "state_ge1_h10": {
+   "base": 2.75,
+   "min": 2.05,
+   "min_drop": "GLW",
+   "max": 3.18,
+   "max_drop": "TXN",
+   "drop_SNDK": 2.97,
+   "drop_SOXX": 2.87,
+   "sign_flips": 0
+  },
+  "state_ge1_h20": {
+   "base": 7.73,
+   "min": 5.89,
+   "min_drop": "NOW",
+   "max": 8.75,
+   "max_drop": "QCOM",
+   "drop_SNDK": 8.5,
+   "drop_SOXX": 7.87,
+   "sign_flips": 0
+  },
+  "score_top5_h10": {
+   "base": 2.77,
+   "min": 2.01,
+   "min_drop": "GLW",
+   "max": 3.44,
+   "max_drop": "AMD",
+   "drop_SNDK": 2.95,
+   "drop_SOXX": 2.88,
+   "sign_flips": 0
+  },
+  "score_top5_h20": {
+   "base": 4.95,
+   "min": 3.31,
+   "min_drop": "NOW",
+   "max": 6.13,
+   "max_drop": "AMD",
+   "drop_SNDK": 5.49,
+   "drop_SOXX": 5.04,
+   "sign_flips": 0
+  },
+  "fade_hi_h10": {
+   "base": -1.13,
+   "min": -1.8,
+   "min_drop": "NOW",
+   "max": -0.14,
+   "max_drop": "NVDA",
+   "drop_SNDK": -0.97,
+   "drop_SOXX": -1.28,
+   "sign_flips": 0
+  },
+  "fade_hi_h20": {
+   "base": -2.23,
+   "min": -4.66,
+   "min_drop": "NOW",
+   "max": -0.57,
+   "max_drop": "NVDA",
+   "drop_SNDK": -1.48,
+   "drop_SOXX": -2.35,
+   "sign_flips": 0
+  },
+  "rsmain_hi_h10": {
+   "base": 1.62,
+   "min": 0.48,
+   "min_drop": "GLW",
+   "max": 2.25,
+   "max_drop": "CRDO",
+   "drop_SNDK": 1.64,
+   "drop_SOXX": 1.81,
+   "sign_flips": 0
+  },
+  "rsmain_hi_h20": {
+   "base": 0.59,
+   "min": -1.03,
+   "min_drop": "AVGO",
+   "max": 1.86,
+   "max_drop": "NXPI",
+   "drop_SNDK": 0.51,
+   "drop_SOXX": 0.62,
+   "sign_flips": 4
+  }
+ },
+ "dedup_entry": {
+  "shots": [
+   "S5",
+   "S6",
+   "S2",
+   "S3"
+  ],
+  "n": 78,
+  "state_ge1_h5": {
+   "n_in": 14,
+   "n_out": 64,
+   "mean_in": -6.59,
+   "mean_out": -4.68,
+   "diff": -1.91,
+   "diff_within_shot": 0.25,
+   "perm_p": 0.9
+  },
+  "state_ge1_h10": {
+   "n_in": 14,
+   "n_out": 64,
+   "mean_in": -3.69,
+   "mean_out": -4.23,
+   "diff": 0.53,
+   "diff_within_shot": 0.69,
+   "perm_p": 0.737
+  },
+  "state_ge1_h20": {
+   "n_in": 14,
+   "n_out": 64,
+   "mean_in": -2.67,
+   "mean_out": -7.3,
+   "diff": 4.63,
+   "diff_within_shot": 5.69,
+   "perm_p": 0.078
+  },
+  "score_top5_h5": {
+   "n_in": 20,
+   "n_out": 58,
+   "mean_in": -3.53,
+   "mean_out": -5.54,
+   "diff": 2.0,
+   "diff_within_shot": 1.77,
+   "perm_p": 0.287
+  },
+  "score_top5_h10": {
+   "n_in": 20,
+   "n_out": 58,
+   "mean_in": -2.96,
+   "mean_out": -4.54,
+   "diff": 1.58,
+   "diff_within_shot": 1.51,
+   "perm_p": 0.447
+  },
+  "score_top5_h20": {
+   "n_in": 20,
+   "n_out": 58,
+   "mean_in": -4.37,
+   "mean_out": -7.19,
+   "diff": 2.82,
+   "diff_within_shot": 2.71,
+   "perm_p": 0.35
+  },
+  "fade_hi_h5": {
+   "n_in": 38,
+   "n_out": 39,
+   "mean_in": -6.28,
+   "mean_out": -3.99,
+   "diff": -2.29,
+   "diff_within_shot": -2.12,
+   "perm_p": 0.152
+  },
+  "fade_hi_h10": {
+   "n_in": 38,
+   "n_out": 39,
+   "mean_in": -5.84,
+   "mean_out": -2.24,
+   "diff": -3.6,
+   "diff_within_shot": -3.53,
+   "perm_p": 0.037
+  },
+  "fade_hi_h20": {
+   "n_in": 38,
+   "n_out": 39,
+   "mean_in": -8.04,
+   "mean_out": -4.68,
+   "diff": -3.36,
+   "diff_within_shot": -3.25,
+   "perm_p": 0.202
+  },
+  "rsmain_hi_h5": {
+   "n_in": 39,
+   "n_out": 39,
+   "mean_in": -5.16,
+   "mean_out": -4.88,
+   "diff": -0.28,
+   "diff_within_shot": -0.28,
+   "perm_p": 0.84
+  },
+  "rsmain_hi_h10": {
+   "n_in": 39,
+   "n_out": 39,
+   "mean_in": -3.39,
+   "mean_out": -4.87,
+   "diff": 1.49,
+   "diff_within_shot": 1.49,
+   "perm_p": 0.387
+  },
+  "rsmain_hi_h20": {
+   "n_in": 39,
+   "n_out": 39,
+   "mean_in": -6.54,
+   "mean_out": -6.4,
+   "diff": -0.14,
+   "diff_within_shot": -0.14,
+   "perm_p": 0.959
+  }
+ },
+ "ticker_cluster_bootstrap": {
+  "state_ge1_h10": {
+   "ci95": [
+    -0.23,
+    5.68
+   ],
+   "share_gt0": 0.965
+  },
+  "state_ge1_h20": {
+   "ci95": [
+    1.02,
+    12.49
+   ],
+   "share_gt0": 0.986
+  },
+  "score_top5_h10": {
+   "ci95": [
+    -0.21,
+    5.84
+   ],
+   "share_gt0": 0.964
+  },
+  "score_top5_h20": {
+   "ci95": [
+    -1.52,
+    10.3
+   ],
+   "share_gt0": 0.939
+  },
+  "fade_hi_h10": {
+   "ci95": [
+    -4.49,
+    1.89
+   ],
+   "share_gt0": 0.256
+  },
+  "fade_hi_h20": {
+   "ci95": [
+    -8.39,
+    4.03
+   ],
+   "share_gt0": 0.237
+  },
+  "rsmain_hi_h10": {
+   "ci95": [
+    -1.97,
+    5.17
+   ],
+   "share_gt0": 0.787
+  },
+  "rsmain_hi_h20": {
+   "ci95": [
+    -4.35,
+    5.49
+   ],
+   "share_gt0": 0.573
+  }
+ },
+ "rows": [
+  {
+   "shot": "S5",
+   "ticker": "NOW",
+   "score": 76.21,
+   "state": 2,
+   "rs_main": 8.15,
+   "latent": 17.36,
+   "fade_gap": 9.21,
+   "x1": -3.496,
+   "x5": -7.848,
+   "x10": -7.811,
+   "x20": 1.774
+  },
+  {
+   "shot": "S5",
+   "ticker": "CRDO",
+   "score": 65.2,
+   "state": 1,
+   "rs_main": 8.07,
+   "latent": 16.77,
+   "fade_gap": 8.7,
+   "x1": -1.815,
+   "x5": 0.211,
+   "x10": -9.11,
+   "x20": -7.107
+  },
+  {
+   "shot": "S5",
+   "ticker": "TXN",
+   "score": 59.12,
+   "state": 0,
+   "rs_main": 6.5,
+   "latent": 6.84,
+   "fade_gap": 0.34,
+   "x1": -0.308,
+   "x5": 4.736,
+   "x10": 2.236,
+   "x20": -4.348
+  },
+  {
+   "shot": "S5",
+   "ticker": "AMD",
+   "score": 51.32,
+   "state": 0,
+   "rs_main": 2.56,
+   "latent": 10.29,
+   "fade_gap": 7.73,
+   "x1": -0.861,
+   "x5": 9.098,
+   "x10": 3.02,
+   "x20": -1.467
+  },
+  {
+   "shot": "S5",
+   "ticker": "TSM",
+   "score": 44.54,
+   "state": 0,
+   "rs_main": -0.53,
+   "latent": 5.84,
+   "fade_gap": 6.37,
+   "x1": -0.768,
+   "x5": -2.479,
+   "x10": -3.337,
+   "x20": -3.729
+  },
+  {
+   "shot": "S5",
+   "ticker": "MPWR",
+   "score": 44.06,
+   "state": 0,
+   "rs_main": 2.58,
+   "latent": 4.21,
+   "fade_gap": 1.64,
+   "x1": 0.478,
+   "x5": 6.456,
+   "x10": 9.791,
+   "x20": 10.846
+  },
+  {
+   "shot": "S5",
+   "ticker": "ON",
+   "score": 42.09,
+   "state": 0,
+   "rs_main": 7.02,
+   "latent": 10.13,
+   "fade_gap": 3.11,
+   "x1": 1.623,
+   "x5": 4.833,
+   "x10": 1.884,
+   "x20": -5.714
+  },
+  {
+   "shot": "S5",
+   "ticker": "NVDA",
+   "score": 41.58,
+   "state": 0,
+   "rs_main": 0.56,
+   "latent": 1.42,
+   "fade_gap": 0.85,
+   "x1": 2.752,
+   "x5": 7.382,
+   "x10": 8.95,
+   "x20": 10.682
+  },
+  {
+   "shot": "S5",
+   "ticker": "BE",
+   "score": 39.54,
+   "state": 0,
+   "rs_main": 7.47,
+   "latent": 11.04,
+   "fade_gap": 3.57,
+   "x1": -7.053,
+   "x5": -14.777,
+   "x10": -25.264,
+   "x20": -20.494
+  },
+  {
+   "shot": "S5",
+   "ticker": "QCOM",
+   "score": 37.6,
+   "state": 0,
+   "rs_main": -1.01,
+   "latent": -0.97,
+   "fade_gap": 0.04,
+   "x1": 2.14,
+   "x5": 4.924,
+   "x10": -0.897,
+   "x20": -11.46
+  },
+  {
+   "shot": "S5",
+   "ticker": "NXPI",
+   "score": 34.76,
+   "state": 0,
+   "rs_main": 0.85,
+   "latent": 2.87,
+   "fade_gap": 2.02,
+   "x1": 2.253,
+   "x5": 6.441,
+   "x10": 3.965,
+   "x20": -13.72
+  },
+  {
+   "shot": "S5",
+   "ticker": "DELL",
+   "score": 33.66,
+   "state": 0,
+   "rs_main": -0.47,
+   "latent": 8.85,
+   "fade_gap": 9.32,
+   "x1": 7.609,
+   "x5": 10.253,
+   "x10": 0.247,
+   "x20": 13.797
+  },
+  {
+   "shot": "S5",
+   "ticker": "AVGO",
+   "score": 33.31,
+   "state": 0,
+   "rs_main": 0.62,
+   "latent": 2.2,
+   "fade_gap": 1.58,
+   "x1": 4.281,
+   "x5": 7.108,
+   "x10": 7.516,
+   "x20": 10.774
+  },
+  {
+   "shot": "S5",
+   "ticker": "MCHP",
+   "score": 30.57,
+   "state": 0,
+   "rs_main": -1.55,
+   "latent": 0.9,
+   "fade_gap": 2.45,
+   "x1": 0.314,
+   "x5": 3.965,
+   "x10": 0.147,
+   "x20": -6.853
+  },
+  {
+   "shot": "S5",
+   "ticker": "ORCL",
+   "score": 19.72,
+   "state": 0,
+   "rs_main": -2.54,
+   "latent": -2.42,
+   "fade_gap": 0.12,
+   "x1": -1.951,
+   "x5": -9.002,
+   "x10": -13.485,
+   "x20": -1.044
+  },
+  {
+   "shot": "S5",
+   "ticker": "IREN",
+   "score": 2.58,
+   "state": 0,
+   "rs_main": -4.23,
+   "latent": -2.23,
+   "fade_gap": 2.0,
+   "x1": -2.249,
+   "x5": -6.021,
+   "x10": -2.073,
+   "x20": -6.297
+  },
+  {
+   "shot": "S5",
+   "ticker": "GLW",
+   "score": 0.0,
+   "state": 0,
+   "rs_main": -23.64,
+   "latent": 30.43,
+   "fade_gap": null,
+   "x1": -0.639,
+   "x5": 2.334,
+   "x10": -12.693,
+   "x20": -16.284
+  },
+  {
+   "shot": "S5",
+   "ticker": "SOXX",
+   "score": 0.0,
+   "state": 0,
+   "rs_main": -5.13,
+   "latent": 4.07,
+   "fade_gap": 9.2,
+   "x1": -0.026,
+   "x5": 4.331,
+   "x10": 0.551,
+   "x20": -3.257
+  },
+  {
+   "shot": "S6",
+   "ticker": "DELL",
+   "score": 77.09,
+   "state": 2,
+   "rs_main": 5.33,
+   "latent": 8.85,
+   "fade_gap": 3.52,
+   "x1": 0.86,
+   "x5": -7.984,
+   "x10": 1.98,
+   "x20": 2.56
+  },
+  {
+   "shot": "S6",
+   "ticker": "AVGO",
+   "score": 65.41,
+   "state": 1,
+   "rs_main": 6.49,
+   "latent": 6.71,
+   "fade_gap": 0.22,
+   "x1": -1.247,
+   "x5": -3.509,
+   "x10": 0.807,
+   "x20": 5.61
+  },
+  {
+   "shot": "S6",
+   "ticker": "TXN",
+   "score": 64.46,
+   "state": 1,
+   "rs_main": 2.76,
+   "latent": 6.84,
+   "fade_gap": 4.08,
+   "x1": -2.153,
+   "x5": -4.394,
+   "x10": -7.211,
+   "x20": -10.325
+  },
+  {
+   "shot": "S6",
+   "ticker": "NVDA",
+   "score": 61.09,
+   "state": 1,
+   "rs_main": 3.98,
+   "latent": 5.04,
+   "fade_gap": 1.06,
+   "x1": -1.533,
+   "x5": 3.673,
+   "x10": 5.739,
+   "x20": 9.394
+  },
+  {
+   "shot": "S6",
+   "ticker": "NXPI",
+   "score": 56.2,
+   "state": 0,
+   "rs_main": 2.45,
+   "latent": 2.87,
+   "fade_gap": 0.42,
+   "x1": -2.697,
+   "x5": -5.294,
+   "x10": -3.794,
+   "x20": -20.796
+  },
+  {
+   "shot": "S6",
+   "ticker": "QCOM",
+   "score": 55.27,
+   "state": 0,
+   "rs_main": 3.22,
+   "latent": 3.2,
+   "fade_gap": 0.0,
+   "x1": -2.907,
+   "x5": -9.194,
+   "x10": -7.768,
+   "x20": -18.204
+  },
+  {
+   "shot": "S6",
+   "ticker": "CRDO",
+   "score": 54.03,
+   "state": 0,
+   "rs_main": 1.96,
+   "latent": 16.77,
+   "fade_gap": 14.81,
+   "x1": -4.14,
+   "x5": -19.339,
+   "x10": -15.032,
+   "x20": -20.173
+  },
+  {
+   "shot": "S6",
+   "ticker": "ON",
+   "score": 52.78,
+   "state": 0,
+   "rs_main": -0.32,
+   "latent": 10.13,
+   "fade_gap": 10.45,
+   "x1": -2.044,
+   "x5": -8.355,
+   "x10": -6.033,
+   "x20": -21.536
+  },
+  {
+   "shot": "S6",
+   "ticker": "ORCL",
+   "score": 39.25,
+   "state": 0,
+   "rs_main": -0.54,
+   "latent": 2.44,
+   "fade_gap": 2.98,
+   "x1": 2.661,
+   "x5": -6.149,
+   "x10": -9.052,
+   "x20": -0.489
+  },
+  {
+   "shot": "S6",
+   "ticker": "MCHP",
+   "score": 16.76,
+   "state": 0,
+   "rs_main": -2.93,
+   "latent": 0.9,
+   "fade_gap": 3.83,
+   "x1": -1.087,
+   "x5": -4.364,
+   "x10": -4.933,
+   "x20": -12.368
+  },
+  {
+   "shot": "S6",
+   "ticker": "MPWR",
+   "score": 12.41,
+   "state": 0,
+   "rs_main": -3.31,
+   "latent": 4.21,
+   "fade_gap": 7.52,
+   "x1": -4.864,
+   "x5": -4.921,
+   "x10": 0.479,
+   "x20": -5.097
+  },
+  {
+   "shot": "S6",
+   "ticker": "NOW",
+   "score": 7.37,
+   "state": 0,
+   "rs_main": 5.93,
+   "latent": 19.54,
+   "fade_gap": 13.62,
+   "x1": 8.726,
+   "x5": 3.732,
+   "x10": 1.314,
+   "x20": 11.797
+  },
+  {
+   "shot": "S6",
+   "ticker": "TSM",
+   "score": 5.03,
+   "state": 0,
+   "rs_main": -2.5,
+   "latent": 5.84,
+   "fade_gap": 8.34,
+   "x1": -2.134,
+   "x5": -8.396,
+   "x10": -3.621,
+   "x20": -7.279
+  },
+  {
+   "shot": "S6",
+   "ticker": "GLW",
+   "score": 0.0,
+   "state": 0,
+   "rs_main": -15.94,
+   "latent": 1.65,
+   "fade_gap": 17.59,
+   "x1": -6.382,
+   "x5": -16.553,
+   "x10": -21.237,
+   "x20": -22.994
+  },
+  {
+   "shot": "S6",
+   "ticker": "SOXX",
+   "score": 0.0,
+   "state": 0,
+   "rs_main": -6.55,
+   "latent": -0.12,
+   "fade_gap": 6.43,
+   "x1": -3.3,
+   "x5": -7.678,
+   "x10": -4.17,
+   "x20": -10.293
+  },
+  {
+   "shot": "S6",
+   "ticker": "WDC",
+   "score": 0.0,
+   "state": 0,
+   "rs_main": -5.43,
+   "latent": -1.85,
+   "fade_gap": 3.58,
+   "x1": -5.403,
+   "x5": -17.207,
+   "x10": -3.173,
+   "x20": -26.768
+  },
+  {
+   "shot": "S6",
+   "ticker": "STX",
+   "score": 0.0,
+   "state": 0,
+   "rs_main": -5.67,
+   "latent": -2.21,
+   "fade_gap": 3.46,
+   "x1": -6.907,
+   "x5": -13.994,
+   "x10": 1.419,
+   "x20": -13.948
+  },
+  {
+   "shot": "S6",
+   "ticker": "BE",
+   "score": 0.0,
+   "state": 0,
+   "rs_main": -10.94,
+   "latent": 11.04,
+   "fade_gap": 21.98,
+   "x1": -9.34,
+   "x5": -16.427,
+   "x10": -18.823,
+   "x20": -18.181
+  },
+  {
+   "shot": "S6",
+   "ticker": "CRWV",
+   "score": 0.0,
+   "state": 0,
+   "rs_main": 0.76,
+   "latent": 1.08,
+   "fade_gap": 0.32,
+   "x1": -4.016,
+   "x5": -18.149,
+   "x10": -9.917,
+   "x20": -6.433
+  },
+  {
+   "shot": "S6",
+   "ticker": "SNDK",
+   "score": 0.0,
+   "state": 0,
+   "rs_main": -17.0,
+   "latent": -5.51,
+   "fade_gap": 11.49,
+   "x1": -3.415,
+   "x5": -15.906,
+   "x10": -11.307,
+   "x20": -35.038
+  },
+  {
+   "shot": "S1",
+   "ticker": "AVGO",
+   "score": 69.45,
+   "state": 1,
+   "rs_main": 7.15,
+   "latent": 9.15,
+   "fade_gap": 2.0,
+   "x1": -1.247,
+   "x5": -3.509,
+   "x10": 0.807,
+   "x20": 5.61
+  },
+  {
+   "shot": "S1",
+   "ticker": "ON",
+   "score": 68.12,
+   "state": 1,
+   "rs_main": 0.93,
+   "latent": 10.13,
+   "fade_gap": 9.2,
+   "x1": -2.044,
+   "x5": -8.355,
+   "x10": -6.033,
+   "x20": -21.536
+  },
+  {
+   "shot": "S1",
+   "ticker": "NOW",
+   "score": 67.16,
+   "state": 1,
+   "rs_main": 3.73,
+   "latent": 19.54,
+   "fade_gap": 15.81,
+   "x1": 8.726,
+   "x5": 3.732,
+   "x10": 1.314,
+   "x20": 11.797
+  },
+  {
+   "shot": "S1",
+   "ticker": "CRWV",
+   "score": 64.88,
+   "state": 1,
+   "rs_main": 6.95,
+   "latent": 6.98,
+   "fade_gap": 0.02,
+   "x1": -4.016,
+   "x5": -18.149,
+   "x10": -9.917,
+   "x20": -6.433
+  },
+  {
+   "shot": "S1",
+   "ticker": "NVDA",
+   "score": 64.84,
+   "state": 1,
+   "rs_main": 5.24,
+   "latent": 5.63,
+   "fade_gap": 0.39,
+   "x1": -1.533,
+   "x5": 3.673,
+   "x10": 5.739,
+   "x20": 9.394
+  },
+  {
+   "shot": "S1",
+   "ticker": "TXN",
+   "score": 64.42,
+   "state": 1,
+   "rs_main": 2.82,
+   "latent": 6.84,
+   "fade_gap": 4.02,
+   "x1": -2.153,
+   "x5": -4.394,
+   "x10": -7.211,
+   "x20": -10.325
+  },
+  {
+   "shot": "S1",
+   "ticker": "MPWR",
+   "score": 60.84,
+   "state": 1,
+   "rs_main": 0.74,
+   "latent": 4.21,
+   "fade_gap": 3.47,
+   "x1": -4.864,
+   "x5": -4.921,
+   "x10": 0.479,
+   "x20": -5.097
+  },
+  {
+   "shot": "S1",
+   "ticker": "NXPI",
+   "score": 60.18,
+   "state": 1,
+   "rs_main": 3.5,
+   "latent": 4.2,
+   "fade_gap": 0.7,
+   "x1": -2.697,
+   "x5": -5.294,
+   "x10": -3.794,
+   "x20": -20.796
+  },
+  {
+   "shot": "S1",
+   "ticker": "QCOM",
+   "score": 56.57,
+   "state": 0,
+   "rs_main": 4.43,
+   "latent": 4.61,
+   "fade_gap": 0.19,
+   "x1": -2.907,
+   "x5": -9.194,
+   "x10": -7.768,
+   "x20": -18.204
+  },
+  {
+   "shot": "S1",
+   "ticker": "DELL",
+   "score": 50.23,
+   "state": 0,
+   "rs_main": 3.42,
+   "latent": 8.85,
+   "fade_gap": 5.43,
+   "x1": 0.86,
+   "x5": -7.984,
+   "x10": 1.98,
+   "x20": 2.56
+  },
+  {
+   "shot": "S1",
+   "ticker": "CRDO",
+   "score": 49.13,
+   "state": 0,
+   "rs_main": 1.75,
+   "latent": 16.77,
+   "fade_gap": 15.02,
+   "x1": -4.14,
+   "x5": -19.339,
+   "x10": -15.032,
+   "x20": -20.173
+  },
+  {
+   "shot": "S1",
+   "ticker": "TSM",
+   "score": 44.85,
+   "state": 0,
+   "rs_main": -0.0,
+   "latent": 5.84,
+   "fade_gap": 5.84,
+   "x1": -2.134,
+   "x5": -8.396,
+   "x10": -3.621,
+   "x20": -7.279
+  },
+  {
+   "shot": "S1",
+   "ticker": "IREN",
+   "score": 39.55,
+   "state": 0,
+   "rs_main": 1.1,
+   "latent": 1.53,
+   "fade_gap": 0.43,
+   "x1": -4.566,
+   "x5": -15.762,
+   "x10": -5.46,
+   "x20": -15.226
+  },
+  {
+   "shot": "S1",
+   "ticker": "ORCL",
+   "score": 31.71,
+   "state": 0,
+   "rs_main": 0.38,
+   "latent": 2.44,
+   "fade_gap": 2.06,
+   "x1": 2.661,
+   "x5": -6.149,
+   "x10": -9.052,
+   "x20": -0.489
+  },
+  {
+   "shot": "S1",
+   "ticker": "MCHP",
+   "score": 30.41,
+   "state": 0,
+   "rs_main": -1.75,
+   "latent": 0.9,
+   "fade_gap": 2.65,
+   "x1": -1.087,
+   "x5": -4.364,
+   "x10": -4.933,
+   "x20": -12.368
+  },
+  {
+   "shot": "S1",
+   "ticker": "UMC",
+   "score": 22.14,
+   "state": 0,
+   "rs_main": -1.94,
+   "latent": 2.28,
+   "fade_gap": 4.23,
+   "x1": -2.848,
+   "x5": -8.273,
+   "x10": -13.892,
+   "x20": -23.415
+  },
+  {
+   "shot": "S1",
+   "ticker": "AMD",
+   "score": 0.71,
+   "state": 0,
+   "rs_main": -2.51,
+   "latent": 8.3,
+   "fade_gap": 10.81,
+   "x1": 0.925,
+   "x5": -4.321,
+   "x10": 4.684,
+   "x20": -11.15
+  },
+  {
+   "shot": "S1",
+   "ticker": "SOXX",
+   "score": 0.7,
+   "state": 0,
+   "rs_main": -4.32,
+   "latent": -0.12,
+   "fade_gap": 4.2,
+   "x1": -3.3,
+   "x5": -7.678,
+   "x10": -4.17,
+   "x20": -10.293
+  },
+  {
+   "shot": "S1",
+   "ticker": "GLW",
+   "score": 0.0,
+   "state": 0,
+   "rs_main": -14.7,
+   "latent": 1.65,
+   "fade_gap": 16.35,
+   "x1": -6.382,
+   "x5": -16.553,
+   "x10": -21.237,
+   "x20": -22.994
+  },
+  {
+   "shot": "S1",
+   "ticker": "WDC",
+   "score": 0.0,
+   "state": 0,
+   "rs_main": -6.08,
+   "latent": -1.85,
+   "fade_gap": 4.23,
+   "x1": -5.403,
+   "x5": -17.207,
+   "x10": -3.173,
+   "x20": -26.768
+  },
+  {
+   "shot": "S2",
+   "ticker": "DELL",
+   "score": 77.72,
+   "state": 2,
+   "rs_main": 12.62,
+   "latent": 15.44,
+   "fade_gap": 2.82,
+   "x1": -3.296,
+   "x5": -12.059,
+   "x10": 1.938,
+   "x20": -0.85
+  },
+  {
+   "shot": "S2",
+   "ticker": "NOW",
+   "score": 73.26,
+   "state": 2,
+   "rs_main": 1.02,
+   "latent": 19.54,
+   "fade_gap": 18.52,
+   "x1": -1.177,
+   "x5": -3.509,
+   "x10": -10.491,
+   "x20": 9.423
+  },
+  {
+   "shot": "S2",
+   "ticker": "SNDK",
+   "score": 73.21,
+   "state": 2,
+   "rs_main": 5.15,
+   "latent": 11.31,
+   "fade_gap": 6.16,
+   "x1": 1.193,
+   "x5": -19.228,
+   "x10": -8.603,
+   "x20": -26.325
+  },
+  {
+   "shot": "S2",
+   "ticker": "AVGO",
+   "score": 71.89,
+   "state": 2,
+   "rs_main": 9.9,
+   "latent": 11.28,
+   "fade_gap": 1.38,
+   "x1": -0.846,
+   "x5": -4.112,
+   "x10": 1.488,
+   "x20": 7.579
+  },
+  {
+   "shot": "S2",
+   "ticker": "QCOM",
+   "score": 68.21,
+   "state": 1,
+   "rs_main": 7.11,
+   "latent": 11.01,
+   "fade_gap": 3.9,
+   "x1": -0.893,
+   "x5": -7.099,
+   "x10": -5.301,
+   "x20": -12.958
+  },
+  {
+   "shot": "S2",
+   "ticker": "CRDO",
+   "score": 62.25,
+   "state": 1,
+   "rs_main": 8.37,
+   "latent": 16.77,
+   "fade_gap": 8.4,
+   "x1": -5.354,
+   "x5": -22.587,
+   "x10": -8.086,
+   "x20": -8.489
+  },
+  {
+   "shot": "S2",
+   "ticker": "TXN",
+   "score": 52.29,
+   "state": 0,
+   "rs_main": 3.7,
+   "latent": 6.84,
+   "fade_gap": 3.14,
+   "x1": 1.834,
+   "x5": -2.974,
+   "x10": -3.388,
+   "x20": -6.65
+  },
+  {
+   "shot": "S2",
+   "ticker": "NXPI",
+   "score": 50.54,
+   "state": 0,
+   "rs_main": 4.76,
+   "latent": 8.66,
+   "fade_gap": 3.9,
+   "x1": -0.277,
+   "x5": -4.868,
+   "x10": 0.104,
+   "x20": -16.78
+  },
+  {
+   "shot": "S2",
+   "ticker": "MPWR",
+   "score": 48.33,
+   "state": 0,
+   "rs_main": 5.14,
+   "latent": 8.75,
+   "fade_gap": 3.61,
+   "x1": -1.727,
+   "x5": -2.705,
+   "x10": 7.051,
+   "x20": 3.835
+  },
+  {
+   "shot": "S2",
+   "ticker": "NVDA",
+   "score": 48.32,
+   "state": 0,
+   "rs_main": 2.67,
+   "latent": 5.63,
+   "fade_gap": 2.95,
+   "x1": 3.651,
+   "x5": 4.348,
+   "x10": 6.901,
+   "x20": 9.75
+  },
+  {
+   "shot": "S2",
+   "ticker": "MCHP",
+   "score": 44.46,
+   "state": 0,
+   "rs_main": 2.81,
+   "latent": 6.87,
+   "fade_gap": 4.06,
+   "x1": -0.52,
+   "x5": -6.058,
+   "x10": -4.371,
+   "x20": -7.291
+  },
+  {
+   "shot": "S2",
+   "ticker": "AMD",
+   "score": 43.23,
+   "state": 0,
+   "rs_main": 4.12,
+   "latent": 8.3,
+   "fade_gap": 4.18,
+   "x1": -0.783,
+   "x5": -8.309,
+   "x10": 4.738,
+   "x20": -8.392
+  },
+  {
+   "shot": "S2",
+   "ticker": "ARM",
+   "score": 42.74,
+   "state": 0,
+   "rs_main": 2.65,
+   "latent": 5.77,
+   "fade_gap": 3.11,
+   "x1": -3.079,
+   "x5": -18.54,
+   "x10": -8.171,
+   "x20": -7.279
+  },
+  {
+   "shot": "S2",
+   "ticker": "ALAB",
+   "score": 34.99,
+   "state": 0,
+   "rs_main": 1.26,
+   "latent": 10.14,
+   "fade_gap": 8.88,
+   "x1": -1.02,
+   "x5": -21.668,
+   "x10": -18.287,
+   "x20": -16.866
+  },
+  {
+   "shot": "S2",
+   "ticker": "SOXX",
+   "score": 32.49,
+   "state": 0,
+   "rs_main": 1.32,
+   "latent": 4.1,
+   "fade_gap": 2.78,
+   "x1": -1.057,
+   "x5": -7.06,
+   "x10": -0.628,
+   "x20": -4.607
+  },
+  {
+   "shot": "S2",
+   "ticker": "UMC",
+   "score": 30.06,
+   "state": 0,
+   "rs_main": -0.27,
+   "latent": 2.63,
+   "fade_gap": 2.9,
+   "x1": -2.99,
+   "x5": -11.713,
+   "x10": -14.452,
+   "x20": -23.704
+  },
+  {
+   "shot": "S2",
+   "ticker": "ON",
+   "score": 29.45,
+   "state": 0,
+   "rs_main": 5.69,
+   "latent": 12.15,
+   "fade_gap": 6.47,
+   "x1": -3.044,
+   "x5": -8.324,
+   "x10": -3.926,
+   "x20": -16.628
+  },
+  {
+   "shot": "S2",
+   "ticker": "WDC",
+   "score": 27.62,
+   "state": 0,
+   "rs_main": 5.79,
+   "latent": 9.8,
+   "fade_gap": 4.01,
+   "x1": -1.773,
+   "x5": -15.982,
+   "x10": -0.318,
+   "x20": -18.816
+  },
+  {
+   "shot": "S2",
+   "ticker": "TSM",
+   "score": 23.21,
+   "state": 0,
+   "rs_main": -0.95,
+   "latent": 2.58,
+   "fade_gap": 3.54,
+   "x1": -0.692,
+   "x5": -6.581,
+   "x10": -2.025,
+   "x20": -3.088
+  },
+  {
+   "shot": "S2",
+   "ticker": "ORCL",
+   "score": 23.16,
+   "state": 0,
+   "rs_main": 1.31,
+   "latent": 4.51,
+   "fade_gap": 3.2,
+   "x1": -4.132,
+   "x5": -12.413,
+   "x10": -11.712,
+   "x20": -0.15
+  },
+  {
+   "shot": "S3",
+   "ticker": "NVDA",
+   "score": 64.82,
+   "state": 1,
+   "rs_main": 7.75,
+   "latent": 8.25,
+   "fade_gap": 0.5,
+   "x1": 1.302,
+   "x5": 1.578,
+   "x10": -0.232,
+   "x20": 6.284
+  },
+  {
+   "shot": "S3",
+   "ticker": "QCOM",
+   "score": 61.14,
+   "state": 1,
+   "rs_main": 0.87,
+   "latent": 11.01,
+   "fade_gap": 10.14,
+   "x1": -5.432,
+   "x5": -5.415,
+   "x10": -6.796,
+   "x20": -13.937
+  },
+  {
+   "shot": "S3",
+   "ticker": "NXPI",
+   "score": 43.07,
+   "state": 0,
+   "rs_main": 4.25,
+   "latent": 8.66,
+   "fade_gap": 4.41,
+   "x1": -0.802,
+   "x5": -2.194,
+   "x10": -2.815,
+   "x20": -18.676
+  },
+  {
+   "shot": "S3",
+   "ticker": "AVGO",
+   "score": 39.4,
+   "state": 0,
+   "rs_main": 5.85,
+   "latent": 11.28,
+   "fade_gap": 5.43,
+   "x1": -0.411,
+   "x5": 0.503,
+   "x10": 0.71,
+   "x20": 7.243
+  },
+  {
+   "shot": "S3",
+   "ticker": "AMD",
+   "score": 32.83,
+   "state": 0,
+   "rs_main": 3.15,
+   "latent": 7.61,
+   "fade_gap": 4.46,
+   "x1": -2.479,
+   "x5": -5.372,
+   "x10": -11.561,
+   "x20": -16.729
+  },
+  {
+   "shot": "S3",
+   "ticker": "TXN",
+   "score": 32.57,
+   "state": 0,
+   "rs_main": 3.06,
+   "latent": 6.66,
+   "fade_gap": 3.6,
+   "x1": 0.464,
+   "x5": -2.282,
+   "x10": -4.752,
+   "x20": -8.257
+  },
+  {
+   "shot": "S3",
+   "ticker": "MCHP",
+   "score": 30.87,
+   "state": 0,
+   "rs_main": 2.53,
+   "latent": 6.87,
+   "fade_gap": 4.34,
+   "x1": -0.345,
+   "x5": -3.571,
+   "x10": -7.256,
+   "x20": -6.926
+  },
+  {
+   "shot": "S3",
+   "ticker": "KLAC",
+   "score": 28.52,
+   "state": 0,
+   "rs_main": 2.33,
+   "latent": 3.04,
+   "fade_gap": 0.71,
+   "x1": -1.111,
+   "x5": -5.329,
+   "x10": -12.481,
+   "x20": -16.74
+  },
+  {
+   "shot": "S3",
+   "ticker": "AMAT",
+   "score": 28.41,
+   "state": 0,
+   "rs_main": 7.08,
+   "latent": 7.73,
+   "fade_gap": 0.64,
+   "x1": -1.077,
+   "x5": -6.078,
+   "x10": -13.925,
+   "x20": -12.466
+  },
+  {
+   "shot": "S3",
+   "ticker": "IREN",
+   "score": 28.13,
+   "state": 0,
+   "rs_main": -0.08,
+   "latent": 11.64,
+   "fade_gap": 11.72,
+   "x1": -2.839,
+   "x5": 4.043,
+   "x10": -6.464,
+   "x20": -0.052
+  },
+  {
+   "shot": "S3",
+   "ticker": "NOW",
+   "score": 27.91,
+   "state": 0,
+   "rs_main": -2.69,
+   "latent": 19.54,
+   "fade_gap": 22.23,
+   "x1": 2.156,
+   "x5": -0.119,
+   "x10": 9.135,
+   "x20": 21.282
+  },
+  {
+   "shot": "S3",
+   "ticker": "MPWR",
+   "score": 25.22,
+   "state": 0,
+   "rs_main": 1.46,
+   "latent": 8.75,
+   "fade_gap": 7.29,
+   "x1": 2.301,
+   "x5": 3.222,
+   "x10": -0.027,
+   "x20": 2.944
+  },
+  {
+   "shot": "S3",
+   "ticker": "ON",
+   "score": 22.91,
+   "state": 0,
+   "rs_main": 0.51,
+   "latent": 12.15,
+   "fade_gap": 11.64,
+   "x1": -1.426,
+   "x5": -2.704,
+   "x10": -3.584,
+   "x20": -15.043
+  },
+  {
+   "shot": "S3",
+   "ticker": "NBIS",
+   "score": 20.58,
+   "state": 0,
+   "rs_main": 3.64,
+   "latent": 6.02,
+   "fade_gap": 2.38,
+   "x1": -9.544,
+   "x5": -9.158,
+   "x10": -11.479,
+   "x20": -14.037
+  },
+  {
+   "shot": "S3",
+   "ticker": "SOXX",
+   "score": 20.3,
+   "state": 0,
+   "rs_main": 1.27,
+   "latent": 4.1,
+   "fade_gap": 2.84,
+   "x1": -1.433,
+   "x5": -3.516,
+   "x10": -8.323,
+   "x20": -7.765
+  },
+  {
+   "shot": "S3",
+   "ticker": "TSM",
+   "score": 12.92,
+   "state": 0,
+   "rs_main": -2.46,
+   "latent": 1.14,
+   "fade_gap": 3.6,
+   "x1": -1.692,
+   "x5": -0.92,
+   "x10": -4.538,
+   "x20": -1.974
+  },
+  {
+   "shot": "S3",
+   "ticker": "DELL",
+   "score": 11.8,
+   "state": 0,
+   "rs_main": 2.8,
+   "latent": 15.44,
+   "fade_gap": 12.64,
+   "x1": 3.467,
+   "x5": -8.831,
+   "x10": -3.089,
+   "x20": 1.21
+  },
+  {
+   "shot": "S3",
+   "ticker": "CRWV",
+   "score": 10.14,
+   "state": 0,
+   "rs_main": 2.64,
+   "latent": 12.88,
+   "fade_gap": 10.25,
+   "x1": -7.503,
+   "x5": -9.513,
+   "x10": -12.425,
+   "x20": 6.992
+  },
+  {
+   "shot": "S3",
+   "ticker": "SWKS",
+   "score": 6.82,
+   "state": 0,
+   "rs_main": -3.39,
+   "latent": -1.4,
+   "fade_gap": 1.99,
+   "x1": -3.964,
+   "x5": 5.997,
+   "x10": 13.872,
+   "x20": 16.029
+  },
+  {
+   "shot": "S3",
+   "ticker": "STX",
+   "score": 6.74,
+   "state": 0,
+   "rs_main": 3.82,
+   "latent": 12.28,
+   "fade_gap": 8.46,
+   "x1": -1.849,
+   "x5": -2.226,
+   "x10": -7.911,
+   "x20": -11.095
+  },
+  {
+   "shot": "S4",
+   "ticker": "DELL",
+   "score": 65.95,
+   "state": 1,
+   "rs_main": 1.98,
+   "latent": 15.44,
+   "fade_gap": 13.47,
+   "x1": 3.467,
+   "x5": -8.831,
+   "x10": -3.089,
+   "x20": 1.21
+  },
+  {
+   "shot": "S4",
+   "ticker": "NOW",
+   "score": 65.05,
+   "state": 1,
+   "rs_main": 0.21,
+   "latent": 8.04,
+   "fade_gap": 7.83,
+   "x1": 2.156,
+   "x5": -0.119,
+   "x10": 9.135,
+   "x20": 21.282
+  },
+  {
+   "shot": "S4",
+   "ticker": "AMD",
+   "score": 51.35,
+   "state": 0,
+   "rs_main": 3.1,
+   "latent": 7.61,
+   "fade_gap": 4.51,
+   "x1": -2.479,
+   "x5": -5.372,
+   "x10": -11.561,
+   "x20": -16.729
+  },
+  {
+   "shot": "S4",
+   "ticker": "QCOM",
+   "score": 46.52,
+   "state": 0,
+   "rs_main": 0.17,
+   "latent": 11.01,
+   "fade_gap": 10.84,
+   "x1": -5.432,
+   "x5": -5.415,
+   "x10": -6.796,
+   "x20": -13.937
+  },
+  {
+   "shot": "S4",
+   "ticker": "STX",
+   "score": 44.71,
+   "state": 0,
+   "rs_main": 3.79,
+   "latent": 12.28,
+   "fade_gap": 8.49,
+   "x1": -1.849,
+   "x5": -2.226,
+   "x10": -7.911,
+   "x20": -11.095
+  },
+  {
+   "shot": "S4",
+   "ticker": "WDC",
+   "score": 40.14,
+   "state": 0,
+   "rs_main": 4.01,
+   "latent": 9.8,
+   "fade_gap": 5.79,
+   "x1": -4.76,
+   "x5": -8.118,
+   "x10": -14.578,
+   "x20": -25.174
+  },
+  {
+   "shot": "S4",
+   "ticker": "MPWR",
+   "score": 39.79,
+   "state": 0,
+   "rs_main": 1.19,
+   "latent": 8.75,
+   "fade_gap": 7.56,
+   "x1": 2.301,
+   "x5": 3.222,
+   "x10": -0.027,
+   "x20": 2.944
+  },
+  {
+   "shot": "S4",
+   "ticker": "NBIS",
+   "score": 38.34,
+   "state": 0,
+   "rs_main": 7.56,
+   "latent": 8.1,
+   "fade_gap": 0.54,
+   "x1": -9.544,
+   "x5": -9.158,
+   "x10": -11.479,
+   "x20": -14.037
+  },
+  {
+   "shot": "S4",
+   "ticker": "TXN",
+   "score": 37.64,
+   "state": 0,
+   "rs_main": 1.46,
+   "latent": 6.66,
+   "fade_gap": 5.21,
+   "x1": 0.464,
+   "x5": -2.282,
+   "x10": -4.752,
+   "x20": -8.257
+  },
+  {
+   "shot": "S4",
+   "ticker": "AMAT",
+   "score": 37.54,
+   "state": 0,
+   "rs_main": 3.41,
+   "latent": 7.73,
+   "fade_gap": 4.31,
+   "x1": -1.077,
+   "x5": -6.078,
+   "x10": -13.925,
+   "x20": -12.466
+  },
+  {
+   "shot": "S4",
+   "ticker": "AVGO",
+   "score": 36.74,
+   "state": 0,
+   "rs_main": 3.12,
+   "latent": 11.28,
+   "fade_gap": 8.16,
+   "x1": -0.411,
+   "x5": 0.503,
+   "x10": 0.71,
+   "x20": 7.243
+  },
+  {
+   "shot": "S4",
+   "ticker": "KLAC",
+   "score": 36.32,
+   "state": 0,
+   "rs_main": 2.35,
+   "latent": 3.04,
+   "fade_gap": 0.69,
+   "x1": -1.111,
+   "x5": -5.329,
+   "x10": -12.481,
+   "x20": -16.74
+  },
+  {
+   "shot": "S4",
+   "ticker": "MU",
+   "score": 27.54,
+   "state": 0,
+   "rs_main": -0.6,
+   "latent": 5.1,
+   "fade_gap": 5.7,
+   "x1": -1.776,
+   "x5": -4.482,
+   "x10": -8.944,
+   "x20": -12.221
+  },
+  {
+   "shot": "S4",
+   "ticker": "SOXX",
+   "score": 26.05,
+   "state": 0,
+   "rs_main": 0.08,
+   "latent": 4.1,
+   "fade_gap": 4.03,
+   "x1": -1.433,
+   "x5": -3.516,
+   "x10": -8.323,
+   "x20": -7.765
+  },
+  {
+   "shot": "S4",
+   "ticker": "NVDA",
+   "score": 25.88,
+   "state": 0,
+   "rs_main": 3.01,
+   "latent": 8.25,
+   "fade_gap": 5.24,
+   "x1": 1.302,
+   "x5": 1.578,
+   "x10": -0.232,
+   "x20": 6.284
+  },
+  {
+   "shot": "S4",
+   "ticker": "NXPI",
+   "score": 25.55,
+   "state": 0,
+   "rs_main": 1.71,
+   "latent": 8.66,
+   "fade_gap": 6.95,
+   "x1": -0.802,
+   "x5": -2.194,
+   "x10": -2.815,
+   "x20": -18.676
+  },
+  {
+   "shot": "S4",
+   "ticker": "GLW",
+   "score": 24.29,
+   "state": 0,
+   "rs_main": -1.48,
+   "latent": 1.52,
+   "fade_gap": 3.0,
+   "x1": -3.81,
+   "x5": -14.521,
+   "x10": -30.803,
+   "x20": -17.646
+  },
+  {
+   "shot": "S4",
+   "ticker": "UMC",
+   "score": 16.45,
+   "state": 0,
+   "rs_main": -2.05,
+   "latent": 2.63,
+   "fade_gap": 4.68,
+   "x1": 5.412,
+   "x5": -9.11,
+   "x10": -23.971,
+   "x20": -20.368
+  },
+  {
+   "shot": "S4",
+   "ticker": "ENTG",
+   "score": 14.87,
+   "state": 0,
+   "rs_main": 0.49,
+   "latent": 4.75,
+   "fade_gap": 4.26,
+   "x1": -0.525,
+   "x5": -0.894,
+   "x10": -11.744,
+   "x20": 2.238
+  },
+  {
+   "shot": "S4",
+   "ticker": "MCHP",
+   "score": 14.12,
+   "state": 0,
+   "rs_main": -0.21,
+   "latent": 6.87,
+   "fade_gap": 7.09,
+   "x1": -0.345,
+   "x5": -3.571,
+   "x10": -7.256,
+   "x20": -6.926
+  }
+ ]
+}

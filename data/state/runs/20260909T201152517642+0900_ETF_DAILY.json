@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "run_id": "20260909T201152517642+0900",
+  "workflow": "ETF_DAILY",
+  "requested_date": "2026-06-12",
+  "started_at": "2026-09-09T20:11:52+09:00",
+  "funds": {
+    "time": {
+      "fund_id": "456600",
+      "expected": true,
+      "fetch_requested": true,
+      "requested_date": "2026-06-12",
+      "as_of_date": "2026-06-12",
+      "holdings_count": 36,
+      "cash_weight_pct": 0.50275591,
+      "nav_weight_sum_pct": 100.00000001,
+      "quality_status": "valid",
+      "content_sha256": "380c1e67f8839efa218cb1a3a0cd72ed017c9eb167c2cccbddecdbf889cb1e79",
+      "raw_capture_status": "created",
+      "raw_capture_path": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\raw\\etf_holdings\\2026-06-12_456600_f09e61dc8ce0.html",
+      "storage_status": "created",
+      "snapshot_path": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\normalized\\etf_holdings\\2026-06-12_456600.json",
+      "report_status": "generated"
+    },
+    "koact": {
+      "fund_id": "2ETFQ1",
+      "expected": true,
+      "fetch_requested": true,
+      "requested_date": "2026-06-12",
+      "as_of_date": "2026-06-12",
+      "holdings_count": 54,
+      "cash_weight_pct": 4.60490541,
+      "nav_weight_sum_pct": 99.99999999,
+      "quality_status": "valid",
+      "content_sha256": "d9ef4c5c574c2fa691c6b9725d310d8cba168b1b6c1a43771f6344f603116e34",
+      "raw_capture_status": "created",
+      "raw_capture_path": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\raw\\etf_holdings\\2026-06-12_2ETFQ1_e447d4e2a12d.json",
+      "storage_status": "unchanged",
+      "snapshot_path": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\normalized\\etf_holdings\\2026-06-12_2ETFQ1.json",
+      "report_status": "generated"
+    }
+  },
+  "errors": [],
+  "performance_status": "generated",
+  "finished_at": "2026-09-09T20:11:58+09:00",
+  "status": "success",
+  "report_contract_status": "passed",
+  "report_path": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\briefings\\2026-06-12.md",
+  "manifest_path": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\state\\runs\\20260909T201152517642+0900_ETF_DAILY.json"
+}

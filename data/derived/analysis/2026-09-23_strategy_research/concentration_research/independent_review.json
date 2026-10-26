@@ -1,0 +1,45 @@
+{
+  "scope": "Independent synthetic implementation audit only; no new configurations or performance search",
+  "engine_sha256": "d50860a70e05c161cd1b9b48c11d3d631ad181625dd87aca6318c0252060a375",
+  "allocation": {
+    "cash_preserves_original_name_targets": true,
+    "redistribution_has_no_unnamed_buys": true,
+    "conservative_known_plus_unknown_budget": true,
+    "frozen_assets_preserved": true,
+    "randomized_scenarios_including_both_overflows": 400,
+    "maximal_feasible_allocation_lp_oracle_passed": true,
+    "largest_total_allocation_gap_to_lp": 3.3306690738754696e-16,
+    "permutation_invariance_passed": true,
+    "largest_permutation_gap": 2.220446049250313e-16
+  },
+  "simulation": {
+    "overnight_gap_before_trim": true,
+    "current_close_cannot_change_current_order": true,
+    "coincident_trim_and_regular_event_one_fill": true,
+    "known_unknown_separate_with_shared_constraint": true,
+    "same_security_sleeves_merge_before_cap": true,
+    "fresh_momentum_buffer_reset": true,
+    "frozen_holdings_count_toward_total_ten": true,
+    "idle_krw_cash_no_fx_gain": true
+  },
+  "input_causality": {
+    "price_mutation_starts_at": "2026-04-29",
+    "current_and_future_close_changes_preserve_prior_and_current_signals": true,
+    "future_pdf_weights_and_flows_preserve_prior_and_current_signals": true,
+    "all_three_disclosure_delays_checked": true,
+    "actual_conservative_mask_equals_known_or_unknown": true
+  },
+  "representatives": {
+    "representative_full_and_fresh_paths_checked": 42,
+    "target_events_checked": 3569,
+    "all_recorded_target_constraints_pass": true,
+    "independent_cash_share_ledger_matches": true,
+    "maximum_return_error": 8.881784197001252e-16,
+    "maximum_close_weight_error": 3.3306690738754696e-16,
+    "same_open_exposure_control_reconstructions": 42,
+    "exposure_control_maximum_daily_return_error": 8.881784197001252e-16,
+    "all_recorded_source_and_engine_hashes_match": true,
+    "control_scope": "Matches investment fraction at event opens; between-event realized cash can drift differently. Conditional explanatory replay, not an independently selected strategy.",
+    "slot_policy": "If frozen old names plus selected new names exceed10, retain the largest raw new targets within remaining slots. Removed target allocation becomes cash; frozen holdings consume the remaining investment budget. Redistribution only redistributes cap overflow within the surviving selected names."
+  }
+}

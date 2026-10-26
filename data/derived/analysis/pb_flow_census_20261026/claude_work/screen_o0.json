@@ -1,0 +1,949 @@
+{
+ "rows": [
+  {
+   "id": "ec779a937e6b",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "JPM",
+   "note": "JPM 옵션 고래 헤지 거래, PB 흐름 아님"
+  },
+  {
+   "id": "d97ed41cf0f4",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "JPM",
+   "note": "JPM-X 다크풀 분기 문서"
+  },
+  {
+   "id": "6ca51737967a",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "JPM",
+   "note": "JPM-X 다크풀 분기 문서"
+  },
+  {
+   "id": "a5d888fb7cd3",
+   "decision": "exclude",
+   "reason": "fund_flows_not_bank_client",
+   "bank": "MS",
+   "note": "MMF 자금 흐름(Prime funds=MMF)"
+  },
+  {
+   "id": "de387d792eff",
+   "decision": "exclude",
+   "reason": "junk_page",
+   "bank": "JPM",
+   "note": "연차보고서 시각요소"
+  },
+  {
+   "id": "d5c0539033c3",
+   "decision": "needs_read",
+   "reason": "PB 흐름 가능, 본문 확인 필요",
+   "bank": "BofA",
+   "note": "Hartnett Flow Show; GWIM 개인고객 4주 흐름 언급, CFT 포함 여부 본문 확인 필요"
+  },
+  {
+   "id": "88bdce2e6a09",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "FINRA 증거금 레딧 글"
+  },
+  {
+   "id": "1f4c087b2c44",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "1b064f5a7ef0",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "JPM",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "4d5c65fc7987",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "410f4cfff536",
+   "decision": "exclude",
+   "reason": "out_of_window",
+   "bank": "MS",
+   "note": "4.7년 전 블록딜 조사"
+  },
+  {
+   "id": "3c0838c04b8d",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "BofA",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "70dc5b415956",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "BofA",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "415393a07792",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "645bfa3b2fe2",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "032cd78a43ea",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "4ec3227e6a5c",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "a11ced508095",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "720f07241262",
+   "decision": "exclude",
+   "reason": "out_of_window",
+   "bank": "unknown",
+   "note": "10년 이상 전 자료"
+  },
+  {
+   "id": "b9c5e02cdffe",
+   "decision": "exclude",
+   "reason": "out_of_window",
+   "bank": "unknown",
+   "note": "13년 전 자료"
+  },
+  {
+   "id": "ac9f84dbfd79",
+   "decision": "exclude",
+   "reason": "out_of_window",
+   "bank": "unknown",
+   "note": "13.9년 전 자료"
+  },
+  {
+   "id": "dbfb09409d60",
+   "decision": "exclude",
+   "reason": "out_of_window",
+   "bank": "unknown",
+   "note": "14년 전 자료"
+  },
+  {
+   "id": "d7dbed58fc4d",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "491b1c8369ba",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "JPM",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "e389ab87e25c",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "JPM",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "1636fb713a58",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "1f2822157cd9",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "27b357ce696a",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "d8c0ff12f97c",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "ab8c86444e53",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "343d01463783",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "35ad06330494",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "7d1b0734a1da",
+   "decision": "exclude",
+   "reason": "out_of_window",
+   "bank": "unknown",
+   "note": "12.9년 전 자료"
+  },
+  {
+   "id": "a1aef02df0ec",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "ceb6066d35dd",
+   "decision": "exclude",
+   "reason": "13f_or_manager_holdings",
+   "bank": "JPM",
+   "note": "13F 보유 현황"
+  },
+  {
+   "id": "d5c07942c99f",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "BofA",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "81841c1035d4",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "BofA",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "84c21f5bbfab",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "MS",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "85d9770a7424",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "MS",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "d88f64668a96",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "MS",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "1abb867b26ad",
+   "decision": "exclude",
+   "reason": "out_of_window",
+   "bank": "MS",
+   "note": "4.7년 전 블록딜 조사"
+  },
+  {
+   "id": "c3b3098ce3f7",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "MS",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "a4acaca28335",
+   "decision": "exclude",
+   "reason": "out_of_window",
+   "bank": "MS",
+   "note": "4.7년 전 Archegos 블록딜"
+  },
+  {
+   "id": "c65a6a9314b9",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "JPM",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "e9d76fb96212",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "117c8943bca5",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "BofA",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "19b79d5adc9b",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "027cc7f98450",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "42fcc535d7d1",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "5b4cc9e872e9",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "f77fd6db594c",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "LSEG ETF 보고서 샘플"
+  },
+  {
+   "id": "8b776dcd0583",
+   "decision": "exclude",
+   "reason": "out_of_window",
+   "bank": "unknown",
+   "note": "13.4년 전 자료"
+  },
+  {
+   "id": "3fde660a44c2",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "591d8a491f4e",
+   "decision": "exclude",
+   "reason": "fund_flows_not_bank_client",
+   "bank": "unknown",
+   "note": "AJ Bell 플랫폼 펀드 순유입"
+  },
+  {
+   "id": "272e5e267ce1",
+   "decision": "exclude",
+   "reason": "out_of_window",
+   "bank": "unknown",
+   "note": "13.2년 전 자료"
+  },
+  {
+   "id": "cd4576c945b0",
+   "decision": "exclude",
+   "reason": "forecast_not_observed",
+   "bank": "GS",
+   "note": "연기금 리밸런싱 매도 추정치"
+  },
+  {
+   "id": "9c276710912e",
+   "decision": "exclude",
+   "reason": "forecast_not_observed",
+   "bank": "GS",
+   "note": "연기금 리밸런싱 매도 추정치"
+  },
+  {
+   "id": "2c14dd64a8b3",
+   "decision": "exclude",
+   "reason": "forecast_not_observed",
+   "bank": "GS",
+   "note": "연기금 리밸런싱 매도 추정치"
+  },
+  {
+   "id": "a5eac2f0a3d5",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "6afc442293a6",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "JPM",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "62a751877a21",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "BofA",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "b764a6c07a0c",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "BofA",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "20934ed86d25",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "JPM",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "b374efb5092e",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "JPM",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "c1620063bc10",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "7d61512934a0",
+   "decision": "exclude",
+   "reason": "fund_flows_not_bank_client",
+   "bank": "JPM",
+   "note": "JPM 개인투자자 매수세 추적, PB 고객 흐름 아님"
+  },
+  {
+   "id": "12106611465f",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "국채 매도 뉴스레터"
+  },
+  {
+   "id": "e6d1238acbcd",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "19ddaefa770c",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "MS",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "f6ecd414bf75",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "GS 리서치 PDF 면책 문구만, 내용 불명"
+  },
+  {
+   "id": "3518f7391387",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "GS 리서치 PDF 면책 문구만, 내용 불명"
+  },
+  {
+   "id": "20b89c24bb76",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "927cdb8a7f0e",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "15fa6f921d24",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "a0b6a351db92",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "JPM",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "6ea6973deaf4",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "MS",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "dce9de1207e3",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "01f2d486e670",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "2f67d187a6da",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "JPM",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "b37eb7ec59b6",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "f84aaf81e9fd",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "14c76e1c2e19",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "926080f566ef",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "00bb61c00763",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "MS",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "3494bc1adb59",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "3954ad707659",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "de383b03b58b",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "7cfbf6f26ba6",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "724dd46c353a",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "JPM",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "e52c076ef00f",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "81ecd1fc7ccb",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "67f06bd97dee",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "244b524b06ab",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "68abd5d67221",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "ff03ab1bcd93",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "골드만 Most Short 바구니 수익률(가격 지수)"
+  },
+  {
+   "id": "c6b90baa71a3",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "b9ef7f392e43",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "BofA",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "bd591b854edf",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "JPM",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "5e7cd3f37f48",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "f52d2317c16b",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "cc3c790dcf5f",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "c27af528dd14",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "9a84466cd185",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "JPM",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "655e994a457d",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "4b2183c37575",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "fc4910bf133e",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "f44149b36ee2",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "c843ed648c88",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "JPM",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "95a7c9e45f1f",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "165c5208a8c5",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "4a402eadc3e5",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "JPM",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "0316a2f653f7",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "d8b9b4eae51f",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "85e7c5ab85f5",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "368a5f2e1551",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "f4584060b3b6",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "811db4178860",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "959859945a61",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "MS",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "c377417ed46c",
+   "decision": "exclude",
+   "reason": "fund_flows_not_bank_client",
+   "bank": "unknown",
+   "note": "중국 본토 자금(남향) 유출, 은행 출처 없음"
+  },
+  {
+   "id": "268dd81b443c",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "JPM",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "16de38402ead",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "78b5e449cccd",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "b6137a53d258",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "MS",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "5ace7c03b0fc",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "BofA",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "5e715ccd19ee",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "7c2818345680",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "ed57b1c9eee4",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "53cf86c0ac13",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "91aca288b79f",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "BofA",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "1f6dbafd1b17",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "b978ac437d54",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "8169efa08489",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "b8dbfed72a55",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "GS",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "a9c791f6680a",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  },
+  {
+   "id": "0e04775aa71f",
+   "decision": "exclude",
+   "reason": "unrelated",
+   "bank": "unknown",
+   "note": "PB 흐름 관측 없음(기업·인사·실적·공시 등)"
+  }
+ ]
+}

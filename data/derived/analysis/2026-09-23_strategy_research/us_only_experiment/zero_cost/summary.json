@@ -1,0 +1,1465 @@
+{
+  "research_status": "Additional adaptive research after earlier results; August-September is reused historical evaluation, not independent validation.",
+  "explicit_cost_deduction": 0,
+  "benchmarks": {
+    "time": {
+      "segments": {
+        "train": {
+          "return_pct": 93.31285774116989,
+          "max_drawdown_pct": -13.187802408011706,
+          "compound_log_return": 0.6591397150402626,
+          "selection_objective": 0.593200703000204
+        },
+        "validation": {
+          "return_pct": -17.67891962157867,
+          "max_drawdown_pct": -30.98046926202647,
+          "compound_log_return": -0.19454297041793522,
+          "selection_objective": -0.34944531672806756
+        },
+        "holdout": {
+          "return_pct": 5.7987542766909845,
+          "max_drawdown_pct": -9.30480406624036,
+          "compound_log_return": 0.0563685590443983,
+          "selection_objective": 0.009844538713196509
+        },
+        "full": {
+          "return_pct": 68.36521010749695,
+          "max_drawdown_pct": -30.98046926202646,
+          "compound_log_return": 0.5209653036667257,
+          "selection_objective": 0.36606295735659333
+        }
+      },
+      "fresh_holdout": {
+        "return_pct": 5.024819298092871,
+        "max_drawdown_pct": -9.30480406624036,
+        "compound_log_return": 0.0490265105049875,
+        "selection_objective": 0.002502490173785697
+      }
+    },
+    "koact": {
+      "segments": {
+        "train": {
+          "return_pct": 68.74350986500524,
+          "max_drawdown_pct": -13.488372093023255,
+          "compound_log_return": 0.5232096829657126,
+          "selection_objective": 0.45576782250059633
+        },
+        "validation": {
+          "return_pct": -21.046153846153842,
+          "max_drawdown_pct": -33.20588797553047,
+          "compound_log_return": -0.2363067301482014,
+          "selection_objective": -0.40233617002585376
+        },
+        "holdout": {
+          "return_pct": 2.7539620680696335,
+          "max_drawdown_pct": -12.69326683291771,
+          "compound_log_return": 0.027167226918008183,
+          "selection_objective": -0.036299107246580364
+        },
+        "full": {
+          "return_pct": 36.89858082381452,
+          "max_drawdown_pct": -33.20588797553048,
+          "compound_log_return": 0.3140701797355194,
+          "selection_objective": 0.14804073985786698
+        }
+      },
+      "fresh_holdout": {
+        "return_pct": 5.0185873605948075,
+        "max_drawdown_pct": -12.693266832917708,
+        "compound_log_return": 0.048967170984656645,
+        "selection_objective": -0.014499163179931891
+      }
+    },
+    "qqq_krw": {
+      "segments": {
+        "train": {
+          "return_pct": 24.015372445775515,
+          "max_drawdown_pct": -8.29068952677694,
+          "compound_log_return": 0.21523534327003369,
+          "selection_objective": 0.173781895636149
+        },
+        "validation": {
+          "return_pct": -11.470149073191026,
+          "max_drawdown_pct": -15.302197153881059,
+          "compound_log_return": -0.12183039223858372,
+          "selection_objective": -0.198341378007989
+        },
+        "holdout": {
+          "return_pct": 2.408715896741856,
+          "max_drawdown_pct": -8.574377595163254,
+          "compound_log_return": 0.02380163917425929,
+          "selection_objective": -0.019070248801556975
+        },
+        "full": {
+          "return_pct": 12.435168574484543,
+          "max_drawdown_pct": -16.496874611482884,
+          "compound_log_return": 0.11720659020570931,
+          "selection_objective": 0.03472221714829489
+        }
+      },
+      "fresh_holdout": {
+        "return_pct": -0.4168899240102824,
+        "max_drawdown_pct": -8.574377595163254,
+        "compound_log_return": -0.004177613327741338,
+        "selection_objective": -0.04704950130355761
+      }
+    }
+  },
+  "candidates": {
+    "기본조건 선택 / 전체": {
+      "index": 239120,
+      "config": {
+        "family": "new_entry",
+        "lookback": 40,
+        "time_mix": 0.75,
+        "gate": "none",
+        "max_stocks": 1,
+        "rebalance": "daily",
+        "weighting": "inverse_volatility",
+        "risk_rule": "always"
+      },
+      "rule_korean": "신규 편입 신호, D-40(KRX거래일), TIME/KoAct 신호배합 75%/25%, 추가 가격필터 없음, 매 미국거래일 교체, 최대1종목, 최근20미국거래일 변동성이 낮을수록 높은 비중 배분, 주식 목표100%(적격종목이 없으면 현금)",
+      "scenarios": {
+        "base_zero": {
+          "segments": {
+            "train": {
+              "return_pct": 199.46189000872155,
+              "max_drawdown_pct": -17.331295053249598,
+              "compound_log_return": 1.0968169780911379,
+              "selection_objective": 1.01016050282489
+            },
+            "validation": {
+              "return_pct": 37.05226172896642,
+              "max_drawdown_pct": -12.729446028759137,
+              "compound_log_return": 0.31519213957211556,
+              "selection_objective": 0.25154490942831986
+            },
+            "holdout": {
+              "return_pct": 21.48333247644747,
+              "max_drawdown_pct": -11.561445264021824,
+              "compound_log_return": 0.19460688611849475,
+              "selection_objective": 0.13679965979838563
+            },
+            "full": {
+              "return_pct": 398.59103459464313,
+              "max_drawdown_pct": -17.331295053249598,
+              "compound_log_return": 1.6066160037817472,
+              "selection_objective": 1.5199595285154992
+            }
+          },
+          "fresh_holdout": {
+            "return_pct": 15.43706368519209,
+            "max_drawdown_pct": -11.56144476660541,
+            "compound_log_return": 0.14355529230156788,
+            "selection_objective": 0.08574806846854083
+          },
+          "actual_max_stocks": 1,
+          "actual_mean_stocks": 0.7637362637362637,
+          "mean_cash_pct": 23.626373626373624
+        },
+        "lag1_zero": {
+          "segments": {
+            "train": {
+              "return_pct": 49.3781706739796,
+              "max_drawdown_pct": -38.35020767002894,
+              "compound_log_return": 0.4013109627417291,
+              "selection_objective": 0.20955992439158444
+            },
+            "validation": {
+              "return_pct": 43.96292778901319,
+              "max_drawdown_pct": -12.729446028759137,
+              "compound_log_return": 0.3643856345333916,
+              "selection_objective": 0.3007384043895959
+            },
+            "holdout": {
+              "return_pct": 18.622953084105887,
+              "max_drawdown_pct": -11.561445264021824,
+              "compound_log_return": 0.17077981544312226,
+              "selection_objective": 0.11297258912301314
+            },
+            "full": {
+              "return_pct": 155.09769736518314,
+              "max_drawdown_pct": -38.35020767002894,
+              "compound_log_return": 0.9364764127182429,
+              "selection_objective": 0.7447253743680982
+            }
+          },
+          "fresh_holdout": {
+            "return_pct": 11.936522662277707,
+            "max_drawdown_pct": -11.561444766605407,
+            "compound_log_return": 0.11276176269279284,
+            "selection_objective": 0.054954538859765804
+          },
+          "actual_max_stocks": 1,
+          "actual_mean_stocks": 0.7582417582417582,
+          "mean_cash_pct": 24.175824175824175
+        }
+      }
+    },
+    "두 실행조건 강건 선택 / 전체": {
+      "index": 240024,
+      "config": {
+        "family": "repeated_buy",
+        "lookback": 40,
+        "time_mix": 0.75,
+        "gate": "positive_momentum",
+        "max_stocks": 2,
+        "rebalance": "weekly",
+        "weighting": "equal",
+        "risk_rule": "always"
+      },
+      "rule_korean": "반복 매수 신호, D-40(KRX거래일), TIME/KoAct 신호배합 75%/25%, 원화 환산 최근20미국거래일 수익률 양수, 매주 첫 미국거래일 교체, 최대2종목, 동일비중 배분, 주식 목표100%(적격종목이 없으면 현금)",
+      "scenarios": {
+        "base_zero": {
+          "segments": {
+            "train": {
+              "return_pct": 186.93449899154518,
+              "max_drawdown_pct": -17.856845287341326,
+              "compound_log_return": 1.054083777213601,
+              "selection_objective": 0.9647995507768943
+            },
+            "validation": {
+              "return_pct": 21.968379764756587,
+              "max_drawdown_pct": -12.56436532780841,
+              "compound_log_return": 0.198591642895546,
+              "selection_objective": 0.13576981625650397
+            },
+            "holdout": {
+              "return_pct": 14.352133061354374,
+              "max_drawdown_pct": -14.760494983541546,
+              "compound_log_return": 0.13411238810081053,
+              "selection_objective": 0.06030991318310279
+            },
+            "full": {
+              "return_pct": 300.1974275420439,
+              "max_drawdown_pct": -17.856845287341326,
+              "compound_log_return": 1.3867878082099576,
+              "selection_objective": 1.297503581773251
+            }
+          },
+          "fresh_holdout": {
+            "return_pct": 7.906435737492077,
+            "max_drawdown_pct": -14.760495083095455,
+            "compound_log_return": 0.07609432988645799,
+            "selection_objective": 0.0022918544709807226
+          },
+          "actual_max_stocks": 2,
+          "actual_mean_stocks": 1.4230769230769231,
+          "mean_cash_pct": 23.626373626373624
+        },
+        "lag1_zero": {
+          "segments": {
+            "train": {
+              "return_pct": 139.68806730483553,
+              "max_drawdown_pct": -17.783820876461455,
+              "compound_log_return": 0.8741681724226695,
+              "selection_objective": 0.7852490680403623
+            },
+            "validation": {
+              "return_pct": 25.808800747831402,
+              "max_drawdown_pct": -12.095167699067167,
+              "compound_log_return": 0.22959311408113667,
+              "selection_objective": 0.16911727558580084
+            },
+            "holdout": {
+              "return_pct": -21.662196990793852,
+              "max_drawdown_pct": -34.36073221328595,
+              "compound_log_return": -0.24413990244789105,
+              "selection_objective": -0.4159435635143208
+            },
+            "full": {
+              "return_pct": 136.2266132746931,
+              "max_drawdown_pct": -34.36073221328596,
+              "compound_log_return": 0.8596213840559154,
+              "selection_objective": 0.6878177229894856
+            }
+          },
+          "fresh_holdout": {
+            "return_pct": -26.07787149914661,
+            "max_drawdown_pct": -34.360732350004,
+            "compound_log_return": -0.30215796441481885,
+            "selection_objective": -0.47396162616483883
+          },
+          "actual_max_stocks": 2,
+          "actual_mean_stocks": 1.3846153846153846,
+          "mean_cash_pct": 24.175824175824175
+        }
+      }
+    },
+    "기본조건 선택 / 최대3종목": {
+      "index": 201609,
+      "config": {
+        "family": "sold_reversal",
+        "lookback": 20,
+        "time_mix": 0.75,
+        "gate": "none",
+        "max_stocks": 3,
+        "rebalance": "daily",
+        "weighting": "inverse_volatility",
+        "risk_rule": "trend_half"
+      },
+      "rule_korean": "실매도 종목 역발상 신호, D-20(KRX거래일), TIME/KoAct 신호배합 75%/25%, 추가 가격필터 없음, 매 미국거래일 교체, 최대3종목, 최근20미국거래일 변동성이 낮을수록 높은 비중 배분, 교체일 QQQ하락국면이면 주식50%·현금50%(적격종목이 없으면 현금)",
+      "scenarios": {
+        "base_zero": {
+          "segments": {
+            "train": {
+              "return_pct": 144.09276662974725,
+              "max_drawdown_pct": -9.401033725029949,
+              "compound_log_return": 0.8923781581563068,
+              "selection_objective": 0.8453729895311571
+            },
+            "validation": {
+              "return_pct": 14.363995797960587,
+              "max_drawdown_pct": -16.37186145748873,
+              "compound_log_return": 0.13421612137643055,
+              "selection_objective": 0.05235681408898689
+            },
+            "holdout": {
+              "return_pct": 5.204919271537645,
+              "max_drawdown_pct": -10.084108626302326,
+              "compound_log_return": 0.05073987435853967,
+              "selection_objective": 0.0003193312270280413
+            },
+            "full": {
+              "return_pct": 193.68399427803328,
+              "max_drawdown_pct": -16.37186145748872,
+              "compound_log_return": 1.0773341538912764,
+              "selection_objective": 0.9954748466038328
+            }
+          },
+          "fresh_holdout": {
+            "return_pct": 2.8488300117212852,
+            "max_drawdown_pct": -10.08410840271329,
+            "compound_log_return": 0.028090054370150747,
+            "selection_objective": -0.022330487643415706
+          },
+          "actual_max_stocks": 3,
+          "actual_mean_stocks": 2.6538461538461537,
+          "mean_cash_pct": 20.054945054945055
+        },
+        "lag1_zero": {
+          "segments": {
+            "train": {
+              "return_pct": 126.07009722155978,
+              "max_drawdown_pct": -16.638631371558734,
+              "compound_log_return": 0.8156749298902358,
+              "selection_objective": 0.7324817730324421
+            },
+            "validation": {
+              "return_pct": 11.192835487542112,
+              "max_drawdown_pct": -17.343452650322185,
+              "compound_log_return": 0.10609576468388313,
+              "selection_objective": 0.019378501432272197
+            },
+            "holdout": {
+              "return_pct": 23.904135711900835,
+              "max_drawdown_pct": -11.593875316647539,
+              "compound_log_return": 0.21433798152415234,
+              "selection_objective": 0.15636860494091465
+            },
+            "full": {
+              "return_pct": 211.4624739425758,
+              "max_drawdown_pct": -17.343452650322188,
+              "compound_log_return": 1.1361086760982708,
+              "selection_objective": 1.04939141284666
+            }
+          },
+          "fresh_holdout": {
+            "return_pct": 21.14142826953452,
+            "max_drawdown_pct": -11.593875272787194,
+            "compound_log_return": 0.19178850573405734,
+            "selection_objective": 0.13381912937012136
+          },
+          "actual_max_stocks": 3,
+          "actual_mean_stocks": 2.6373626373626373,
+          "mean_cash_pct": 20.604395604395602
+        }
+      }
+    },
+    "두 실행조건 강건 선택 / 최대3종목": {
+      "index": 201609,
+      "config": {
+        "family": "sold_reversal",
+        "lookback": 20,
+        "time_mix": 0.75,
+        "gate": "none",
+        "max_stocks": 3,
+        "rebalance": "daily",
+        "weighting": "inverse_volatility",
+        "risk_rule": "trend_half"
+      },
+      "rule_korean": "실매도 종목 역발상 신호, D-20(KRX거래일), TIME/KoAct 신호배합 75%/25%, 추가 가격필터 없음, 매 미국거래일 교체, 최대3종목, 최근20미국거래일 변동성이 낮을수록 높은 비중 배분, 교체일 QQQ하락국면이면 주식50%·현금50%(적격종목이 없으면 현금)",
+      "scenarios": {
+        "base_zero": {
+          "segments": {
+            "train": {
+              "return_pct": 144.09276662974725,
+              "max_drawdown_pct": -9.401033725029949,
+              "compound_log_return": 0.8923781581563068,
+              "selection_objective": 0.8453729895311571
+            },
+            "validation": {
+              "return_pct": 14.363995797960587,
+              "max_drawdown_pct": -16.37186145748873,
+              "compound_log_return": 0.13421612137643055,
+              "selection_objective": 0.05235681408898689
+            },
+            "holdout": {
+              "return_pct": 5.204919271537645,
+              "max_drawdown_pct": -10.084108626302326,
+              "compound_log_return": 0.05073987435853967,
+              "selection_objective": 0.0003193312270280413
+            },
+            "full": {
+              "return_pct": 193.68399427803328,
+              "max_drawdown_pct": -16.37186145748872,
+              "compound_log_return": 1.0773341538912764,
+              "selection_objective": 0.9954748466038328
+            }
+          },
+          "fresh_holdout": {
+            "return_pct": 2.8488300117212852,
+            "max_drawdown_pct": -10.08410840271329,
+            "compound_log_return": 0.028090054370150747,
+            "selection_objective": -0.022330487643415706
+          },
+          "actual_max_stocks": 3,
+          "actual_mean_stocks": 2.6538461538461537,
+          "mean_cash_pct": 20.054945054945055
+        },
+        "lag1_zero": {
+          "segments": {
+            "train": {
+              "return_pct": 126.07009722155978,
+              "max_drawdown_pct": -16.638631371558734,
+              "compound_log_return": 0.8156749298902358,
+              "selection_objective": 0.7324817730324421
+            },
+            "validation": {
+              "return_pct": 11.192835487542112,
+              "max_drawdown_pct": -17.343452650322185,
+              "compound_log_return": 0.10609576468388313,
+              "selection_objective": 0.019378501432272197
+            },
+            "holdout": {
+              "return_pct": 23.904135711900835,
+              "max_drawdown_pct": -11.593875316647539,
+              "compound_log_return": 0.21433798152415234,
+              "selection_objective": 0.15636860494091465
+            },
+            "full": {
+              "return_pct": 211.4624739425758,
+              "max_drawdown_pct": -17.343452650322188,
+              "compound_log_return": 1.1361086760982708,
+              "selection_objective": 1.04939141284666
+            }
+          },
+          "fresh_holdout": {
+            "return_pct": 21.14142826953452,
+            "max_drawdown_pct": -11.593875272787194,
+            "compound_log_return": 0.19178850573405734,
+            "selection_objective": 0.13381912937012136
+          },
+          "actual_max_stocks": 3,
+          "actual_mean_stocks": 2.6373626373626373,
+          "mean_cash_pct": 20.604395604395602
+        }
+      }
+    },
+    "기본조건 선택 / 최대5종목": {
+      "index": 246798,
+      "config": {
+        "family": "joint_buy",
+        "lookback": 40,
+        "time_mix": 1.0,
+        "gate": "above_ma20",
+        "max_stocks": 5,
+        "rebalance": "weekly",
+        "weighting": "conviction",
+        "risk_rule": "trend_cash"
+      },
+      "rule_korean": "두 펀드 동시 매수 신호, D-40(KRX거래일), TIME/KoAct 신호배합 100%/0%, 원화 환산 직전종가가20미국거래일 평균보다 높음, 매주 첫 미국거래일 교체, 최대5종목, 선정종목의 혼합 펀드비중 비례 배분, 교체일 QQQ하락국면이면 전액현금, 그 외 주식 목표100%(적격종목이 없으면 현금)",
+      "scenarios": {
+        "base_zero": {
+          "segments": {
+            "train": {
+              "return_pct": 137.65932956941208,
+              "max_drawdown_pct": -6.41091319458987,
+              "compound_log_return": 0.8656680739046163,
+              "selection_objective": 0.833613507931667
+            },
+            "validation": {
+              "return_pct": 4.03611679772806,
+              "max_drawdown_pct": -11.486885040073174,
+              "compound_log_return": 0.03956792976784662,
+              "selection_objective": -0.017866495432519253
+            },
+            "holdout": {
+              "return_pct": 7.730935219058856,
+              "max_drawdown_pct": -13.571333681120217,
+              "compound_log_return": 0.07446659201890551,
+              "selection_objective": 0.006609923613304425
+            },
+            "full": {
+              "return_pct": 166.36639389859002,
+              "max_drawdown_pct": -13.57133368112023,
+              "compound_log_return": 0.979702595691368,
+              "selection_objective": 0.9118459272857669
+            }
+          },
+          "fresh_holdout": {
+            "return_pct": 7.730935242649033,
+            "max_drawdown_pct": -13.571333943541852,
+            "compound_log_return": 0.0744665922378786,
+            "selection_objective": 0.006609922520169342
+          },
+          "actual_max_stocks": 5,
+          "actual_mean_stocks": 2.3241758241758244,
+          "mean_cash_pct": 44.505494505494504
+        },
+        "lag1_zero": {
+          "segments": {
+            "train": {
+              "return_pct": 54.64533963809344,
+              "max_drawdown_pct": -18.217648669242898,
+              "compound_log_return": 0.43596417779136915,
+              "selection_objective": 0.34487593444515463
+            },
+            "validation": {
+              "return_pct": -2.818959792685814,
+              "max_drawdown_pct": -13.753355421897881,
+              "compound_log_return": -0.0285945531438282,
+              "selection_objective": -0.09736133025331761
+            },
+            "holdout": {
+              "return_pct": 13.577411720968405,
+              "max_drawdown_pct": -15.285990363238296,
+              "compound_log_return": 0.12731446004313648,
+              "selection_objective": 0.050884508226945
+            },
+            "full": {
+              "return_pct": 70.69089184094229,
+              "max_drawdown_pct": -18.217648669242898,
+              "compound_log_return": 0.5346840846906775,
+              "selection_objective": 0.44359584134446306
+            }
+          },
+          "fresh_holdout": {
+            "return_pct": 7.924622620442058,
+            "max_drawdown_pct": -15.285990018521101,
+            "compound_log_return": 0.07626285876391792,
+            "selection_objective": -0.00016709132868758525
+          },
+          "actual_max_stocks": 5,
+          "actual_mean_stocks": 2.7472527472527473,
+          "mean_cash_pct": 34.61538461538461
+        }
+      }
+    },
+    "두 실행조건 강건 선택 / 최대5종목": {
+      "index": 162139,
+      "config": {
+        "family": "joint_buy",
+        "lookback": 10,
+        "time_mix": 1.0,
+        "gate": "none",
+        "max_stocks": 5,
+        "rebalance": "monthly",
+        "weighting": "conviction",
+        "risk_rule": "manager_cash"
+      },
+      "rule_korean": "두 펀드 동시 매수 신호, D-10(KRX거래일), TIME/KoAct 신호배합 100%/0%, 추가 가격필터 없음, 매월 첫 미국거래일 교체, 최대5종목, 선정종목의 혼합 펀드비중 비례 배분, 두 펀드의 평균 현금비중 반영(적격종목이 없으면 현금)",
+      "scenarios": {
+        "base_zero": {
+          "segments": {
+            "train": {
+              "return_pct": 139.80315012048442,
+              "max_drawdown_pct": -19.85150479637614,
+              "compound_log_return": 0.8746481929680994,
+              "selection_objective": 0.7753906689862187
+            },
+            "validation": {
+              "return_pct": 20.343753267132637,
+              "max_drawdown_pct": -8.272556837457838,
+              "compound_log_return": 0.18518207217542723,
+              "selection_objective": 0.14381928798813803
+            },
+            "holdout": {
+              "return_pct": 2.241762684069893,
+              "max_drawdown_pct": -16.46057167761206,
+              "compound_log_return": 0.02217004514265089,
+              "selection_objective": -0.060132813245409394
+            },
+            "full": {
+              "return_pct": 195.0575718977682,
+              "max_drawdown_pct": -20.789566866381637,
+              "compound_log_return": 1.0820003102861784,
+              "selection_objective": 0.9780524759542701
+            }
+          },
+          "fresh_holdout": {
+            "return_pct": 2.2417617389399935,
+            "max_drawdown_pct": -16.46057216068517,
+            "compound_log_return": 0.022170035898581943,
+            "selection_objective": -0.060132824904843916
+          },
+          "actual_max_stocks": 5,
+          "actual_mean_stocks": 2.6868131868131866,
+          "mean_cash_pct": 19.679297019338176
+        },
+        "lag1_zero": {
+          "segments": {
+            "train": {
+              "return_pct": 117.81158810781749,
+              "max_drawdown_pct": -13.237213015286542,
+              "compound_log_return": 0.7784602283654712,
+              "selection_objective": 0.7122741632890386
+            },
+            "validation": {
+              "return_pct": -0.05802782066369051,
+              "max_drawdown_pct": -13.287451065481026,
+              "compound_log_return": -0.0005804466331947797,
+              "selection_objective": -0.06701770196059992
+            },
+            "holdout": {
+              "return_pct": -0.8372958406596603,
+              "max_drawdown_pct": -16.434339274055386,
+              "compound_log_return": -0.008408208525933242,
+              "selection_objective": -0.09057990489621018
+            },
+            "full": {
+              "return_pct": 115.8625276916303,
+              "max_drawdown_pct": -24.984256006662708,
+              "compound_log_return": 0.7694715732063431,
+              "selection_objective": 0.6445502931730296
+            }
+          },
+          "fresh_holdout": {
+            "return_pct": -0.8372947811533591,
+            "max_drawdown_pct": -16.434339301170606,
+            "compound_log_return": -0.008408197841409212,
+            "selection_objective": -0.09057989434726224
+          },
+          "actual_max_stocks": 5,
+          "actual_mean_stocks": 2.9945054945054945,
+          "mean_cash_pct": 20.215562013076514
+        }
+      }
+    },
+    "기본조건 선택 / 두 펀드 혼합·상한3~10": {
+      "index": 201608,
+      "config": {
+        "family": "sold_reversal",
+        "lookback": 20,
+        "time_mix": 0.75,
+        "gate": "none",
+        "max_stocks": 3,
+        "rebalance": "daily",
+        "weighting": "inverse_volatility",
+        "risk_rule": "always"
+      },
+      "rule_korean": "실매도 종목 역발상 신호, D-20(KRX거래일), TIME/KoAct 신호배합 75%/25%, 추가 가격필터 없음, 매 미국거래일 교체, 최대3종목, 최근20미국거래일 변동성이 낮을수록 높은 비중 배분, 주식 목표100%(적격종목이 없으면 현금)",
+      "scenarios": {
+        "base_zero": {
+          "segments": {
+            "train": {
+              "return_pct": 144.95333212122978,
+              "max_drawdown_pct": -13.874521088817227,
+              "compound_log_return": 0.8958975252749619,
+              "selection_objective": 0.8265249198308757
+            },
+            "validation": {
+              "return_pct": 17.382515099159058,
+              "max_drawdown_pct": -16.37186145748873,
+              "compound_log_return": 0.16026777589464394,
+              "selection_objective": 0.07840846860720029
+            },
+            "holdout": {
+              "return_pct": 12.461798155608186,
+              "max_drawdown_pct": -10.084108626302324,
+              "compound_log_return": 0.11744340603862408,
+              "selection_objective": 0.06702286290711246
+            },
+            "full": {
+              "return_pct": 223.36408714781055,
+              "max_drawdown_pct": -16.37186145748872,
+              "compound_log_return": 1.1736087072082289,
+              "selection_objective": 1.0917493999207852
+            }
+          },
+          "fresh_holdout": {
+            "return_pct": 7.534918854345052,
+            "max_drawdown_pct": -10.084108402713296,
+            "compound_log_return": 0.07264543538695027,
+            "selection_objective": 0.02222489337338379
+          },
+          "actual_max_stocks": 3,
+          "actual_mean_stocks": 2.6538461538461537,
+          "mean_cash_pct": 11.538461538461538
+        },
+        "lag1_zero": {
+          "segments": {
+            "train": {
+              "return_pct": 134.0740329912704,
+              "max_drawdown_pct": -19.596467828156044,
+              "compound_log_return": 0.8504672596364895,
+              "selection_objective": 0.7524849204957093
+            },
+            "validation": {
+              "return_pct": 9.157387308017793,
+              "max_drawdown_pct": -20.322364839104,
+              "compound_log_return": 0.08762057504763568,
+              "selection_objective": -0.013991249147884327
+            },
+            "holdout": {
+              "return_pct": 31.96783679859505,
+              "max_drawdown_pct": -11.59387531664754,
+              "compound_log_return": 0.27738804629150426,
+              "selection_objective": 0.21941866970826657
+            },
+            "full": {
+              "return_pct": 237.18983048325885,
+              "max_drawdown_pct": -20.322364839103997,
+              "compound_log_return": 1.2154758809756292,
+              "selection_objective": 1.1138640567801092
+            }
+          },
+          "fresh_holdout": {
+            "return_pct": 26.211183992035618,
+            "max_drawdown_pct": -11.593875272787155,
+            "compound_log_return": 0.23278638136542118,
+            "selection_objective": 0.1748170050014854
+          },
+          "actual_max_stocks": 3,
+          "actual_mean_stocks": 2.6373626373626373,
+          "mean_cash_pct": 12.087912087912088
+        }
+      }
+    },
+    "두 실행조건 강건 선택 / 두 펀드 혼합·상한3~10": {
+      "index": 201610,
+      "config": {
+        "family": "sold_reversal",
+        "lookback": 20,
+        "time_mix": 0.75,
+        "gate": "none",
+        "max_stocks": 3,
+        "rebalance": "daily",
+        "weighting": "inverse_volatility",
+        "risk_rule": "trend_cash"
+      },
+      "rule_korean": "실매도 종목 역발상 신호, D-20(KRX거래일), TIME/KoAct 신호배합 75%/25%, 추가 가격필터 없음, 매 미국거래일 교체, 최대3종목, 최근20미국거래일 변동성이 낮을수록 높은 비중 배분, 교체일 QQQ하락국면이면 전액현금, 그 외 주식 목표100%(적격종목이 없으면 현금)",
+      "scenarios": {
+        "base_zero": {
+          "segments": {
+            "train": {
+              "return_pct": 142.0495312069584,
+              "max_drawdown_pct": -8.33358466625214,
+              "compound_log_return": 0.8839721936345648,
+              "selection_objective": 0.8423042703033041
+            },
+            "validation": {
+              "return_pct": 11.184975137347822,
+              "max_drawdown_pct": -16.37186145748873,
+              "compound_log_return": 0.10602507102811347,
+              "selection_objective": 0.02416576374066981
+            },
+            "holdout": {
+              "return_pct": -1.743245460085795,
+              "max_drawdown_pct": -10.084108626302326,
+              "compound_log_return": -0.01758618910393592,
+              "selection_objective": -0.06800673223544755
+            },
+            "full": {
+              "return_pct": 164.4312416493434,
+              "max_drawdown_pct": -19.015205189401932,
+              "compound_log_return": 0.9724110755587424,
+              "selection_objective": 0.8773350496117327
+            }
+          },
+          "fresh_holdout": {
+            "return_pct": -1.7432451319601001,
+            "max_drawdown_pct": -10.084108402713257,
+            "compound_log_return": -0.01758618576446378,
+            "selection_objective": -0.06800672777803007
+          },
+          "actual_max_stocks": 3,
+          "actual_mean_stocks": 2.142857142857143,
+          "mean_cash_pct": 28.57142857142857
+        },
+        "lag1_zero": {
+          "segments": {
+            "train": {
+              "return_pct": 116.50012584446313,
+              "max_drawdown_pct": -13.733510097696943,
+              "compound_log_return": 0.7724209427220123,
+              "selection_objective": 0.7037533922335276
+            },
+            "validation": {
+              "return_pct": 13.060270447972561,
+              "max_drawdown_pct": -17.343452650322185,
+              "compound_log_return": 0.1227508573309541,
+              "selection_objective": 0.03603359407934317
+            },
+            "holdout": {
+              "return_pct": 16.106050150117373,
+              "max_drawdown_pct": -11.593875316647539,
+              "compound_log_return": 0.14933381290078043,
+              "selection_objective": 0.09136443631754274
+            },
+            "full": {
+              "return_pct": 184.19931316867562,
+              "max_drawdown_pct": -17.5833540933432,
+              "compound_log_return": 1.0445056129537467,
+              "selection_objective": 0.9565888424870307
+            }
+          },
+          "fresh_holdout": {
+            "return_pct": 16.10605006411251,
+            "max_drawdown_pct": -11.593875272787173,
+            "compound_log_return": 0.14933381216003644,
+            "selection_objective": 0.09136443579610057
+          },
+          "actual_max_stocks": 3,
+          "actual_mean_stocks": 2.1263736263736264,
+          "mean_cash_pct": 29.120879120879124
+        }
+      }
+    },
+    "기본조건 선택 / 두 펀드 혼합·상한5~10": {
+      "index": 238409,
+      "config": {
+        "family": "joint_buy",
+        "lookback": 40,
+        "time_mix": 0.75,
+        "gate": "above_ma20",
+        "max_stocks": 7,
+        "rebalance": "weekly",
+        "weighting": "conviction",
+        "risk_rule": "trend_half"
+      },
+      "rule_korean": "두 펀드 동시 매수 신호, D-40(KRX거래일), TIME/KoAct 신호배합 75%/25%, 원화 환산 직전종가가20미국거래일 평균보다 높음, 매주 첫 미국거래일 교체, 최대7종목, 선정종목의 혼합 펀드비중 비례 배분, 교체일 QQQ하락국면이면 주식50%·현금50%(적격종목이 없으면 현금)",
+      "scenarios": {
+        "base_zero": {
+          "segments": {
+            "train": {
+              "return_pct": 134.75273499607852,
+              "max_drawdown_pct": -8.137684479400088,
+              "compound_log_return": 0.8533625827079331,
+              "selection_objective": 0.8126741603109326
+            },
+            "validation": {
+              "return_pct": 5.954932008414698,
+              "max_drawdown_pct": -12.653333421835633,
+              "compound_log_return": 0.0578436479817611,
+              "selection_objective": -0.005423019127417064
+            },
+            "holdout": {
+              "return_pct": 12.908117244581094,
+              "max_drawdown_pct": -14.183789527145846,
+              "compound_log_return": 0.12140418023209254,
+              "selection_objective": 0.05048523259636331
+            },
+            "full": {
+              "return_pct": 180.83873194309413,
+              "max_drawdown_pct": -14.183789527145855,
+              "compound_log_return": 1.0326104109217862,
+              "selection_objective": 0.9616914632860569
+            }
+          },
+          "fresh_holdout": {
+            "return_pct": 9.97736065236261,
+            "max_drawdown_pct": -14.183789596304882,
+            "compound_log_return": 0.09510434637082804,
+            "selection_objective": 0.024185398389303628
+          },
+          "actual_max_stocks": 7,
+          "actual_mean_stocks": 3.7362637362637363,
+          "mean_cash_pct": 34.0272332004815
+        },
+        "lag1_zero": {
+          "segments": {
+            "train": {
+              "return_pct": 63.51046938004323,
+              "max_drawdown_pct": -15.525522721351326,
+              "compound_log_return": 0.4917068352046609,
+              "selection_objective": 0.4140792215979043
+            },
+            "validation": {
+              "return_pct": -0.8621984591954455,
+              "max_drawdown_pct": -13.686076114393778,
+              "compound_log_return": -0.008659368941069542,
+              "selection_objective": -0.07708974951303843
+            },
+            "holdout": {
+              "return_pct": 15.97861206569919,
+              "max_drawdown_pct": -15.689041084022476,
+              "compound_log_return": 0.14823560937445054,
+              "selection_objective": 0.06979040395433816
+            },
+            "full": {
+              "return_pct": 88.00212418568292,
+              "max_drawdown_pct": -15.689041084022485,
+              "compound_log_return": 0.6312830756380418,
+              "selection_objective": 0.5528378702179293
+            }
+          },
+          "fresh_holdout": {
+            "return_pct": 10.206314901591652,
+            "max_drawdown_pct": -15.689041008564516,
+            "compound_log_return": 0.09718401309609463,
+            "selection_objective": 0.01873880805327205
+          },
+          "actual_max_stocks": 7,
+          "actual_mean_stocks": 3.71978021978022,
+          "mean_cash_pct": 29.328384804009893
+        }
+      }
+    },
+    "두 실행조건 강건 선택 / 두 펀드 혼합·상한5~10": {
+      "index": 229747,
+      "config": {
+        "family": "joint_buy",
+        "lookback": 40,
+        "time_mix": 0.5,
+        "gate": "positive_momentum",
+        "max_stocks": 5,
+        "rebalance": "monthly",
+        "weighting": "conviction",
+        "risk_rule": "manager_cash"
+      },
+      "rule_korean": "두 펀드 동시 매수 신호, D-40(KRX거래일), TIME/KoAct 신호배합 50%/50%, 원화 환산 최근20미국거래일 수익률 양수, 매월 첫 미국거래일 교체, 최대5종목, 선정종목의 혼합 펀드비중 비례 배분, 두 펀드의 평균 현금비중 반영(적격종목이 없으면 현금)",
+      "scenarios": {
+        "base_zero": {
+          "segments": {
+            "train": {
+              "return_pct": 122.64907050851508,
+              "max_drawdown_pct": -15.239735798748011,
+              "compound_log_return": 0.800426671095474,
+              "selection_objective": 0.724227992101734
+            },
+            "validation": {
+              "return_pct": -8.957285016256076,
+              "max_drawdown_pct": -27.245610869188734,
+              "compound_log_return": -0.09384139417705463,
+              "selection_objective": -0.23006944852299832
+            },
+            "holdout": {
+              "return_pct": -0.07893182813500578,
+              "max_drawdown_pct": -16.46057167761206,
+              "compound_log_return": -0.0007896299570430351,
+              "selection_objective": -0.08309248834510333
+            },
+            "full": {
+              "return_pct": 102.54575931596368,
+              "max_drawdown_pct": -32.69732335443948,
+              "compound_log_return": 0.7057956469613763,
+              "selection_objective": 0.5423090301891789
+            }
+          },
+          "fresh_holdout": {
+            "return_pct": -1.01010803201643,
+            "max_drawdown_pct": -16.46057216068517,
+            "compound_log_return": -0.010152442399696704,
+            "selection_objective": -0.09245530320312256
+          },
+          "actual_max_stocks": 5,
+          "actual_mean_stocks": 3.0274725274725274,
+          "mean_cash_pct": 25.10328022783513
+        },
+        "lag1_zero": {
+          "segments": {
+            "train": {
+              "return_pct": 117.69236497337778,
+              "max_drawdown_pct": -15.191958449374459,
+              "compound_log_return": 0.7779127103162111,
+              "selection_objective": 0.7019529180693388
+            },
+            "validation": {
+              "return_pct": -5.368660911098085,
+              "max_drawdown_pct": -22.478120305652073,
+              "compound_log_return": -0.05518148478183123,
+              "selection_objective": -0.1675720863100916
+            },
+            "holdout": {
+              "return_pct": -1.2410226196384129,
+              "max_drawdown_pct": -17.43534043447513,
+              "compound_log_return": -0.012487876158063349,
+              "selection_objective": -0.099664578330439
+            },
+            "full": {
+              "return_pct": 103.44862893812436,
+              "max_drawdown_pct": -28.7724287476219,
+              "compound_log_return": 0.710243349376317,
+              "selection_objective": 0.5663812056382075
+            }
+          },
+          "fresh_holdout": {
+            "return_pct": -3.5863571874507514,
+            "max_drawdown_pct": -17.435340161434933,
+            "compound_log_return": -0.03652247143326394,
+            "selection_objective": -0.12369917224043861
+          },
+          "actual_max_stocks": 5,
+          "actual_mean_stocks": 3.32967032967033,
+          "mean_cash_pct": 25.672451462186185
+        }
+      }
+    },
+    "primary_selected": {
+      "index": 239120,
+      "config": {
+        "family": "new_entry",
+        "lookback": 40,
+        "time_mix": 0.75,
+        "gate": "none",
+        "max_stocks": 1,
+        "rebalance": "daily",
+        "weighting": "inverse_volatility",
+        "risk_rule": "always"
+      },
+      "rule_korean": "신규 편입 신호, D-40(KRX거래일), TIME/KoAct 신호배합 75%/25%, 추가 가격필터 없음, 매 미국거래일 교체, 최대1종목, 최근20미국거래일 변동성이 낮을수록 높은 비중 배분, 주식 목표100%(적격종목이 없으면 현금)",
+      "scenarios": {
+        "base_zero": {
+          "segments": {
+            "train": {
+              "return_pct": 199.46189000872155,
+              "max_drawdown_pct": -17.331295053249598,
+              "compound_log_return": 1.0968169780911379,
+              "selection_objective": 1.01016050282489
+            },
+            "validation": {
+              "return_pct": 37.05226172896642,
+              "max_drawdown_pct": -12.729446028759137,
+              "compound_log_return": 0.31519213957211556,
+              "selection_objective": 0.25154490942831986
+            },
+            "holdout": {
+              "return_pct": 21.48333247644747,
+              "max_drawdown_pct": -11.561445264021824,
+              "compound_log_return": 0.19460688611849475,
+              "selection_objective": 0.13679965979838563
+            },
+            "full": {
+              "return_pct": 398.59103459464313,
+              "max_drawdown_pct": -17.331295053249598,
+              "compound_log_return": 1.6066160037817472,
+              "selection_objective": 1.5199595285154992
+            }
+          },
+          "fresh_holdout": {
+            "return_pct": 15.43706368519209,
+            "max_drawdown_pct": -11.56144476660541,
+            "compound_log_return": 0.14355529230156788,
+            "selection_objective": 0.08574806846854083
+          },
+          "actual_max_stocks": 1,
+          "actual_mean_stocks": 0.7637362637362637,
+          "mean_cash_pct": 23.626373626373624
+        },
+        "lag1_zero": {
+          "segments": {
+            "train": {
+              "return_pct": 49.3781706739796,
+              "max_drawdown_pct": -38.35020767002894,
+              "compound_log_return": 0.4013109627417291,
+              "selection_objective": 0.20955992439158444
+            },
+            "validation": {
+              "return_pct": 43.96292778901319,
+              "max_drawdown_pct": -12.729446028759137,
+              "compound_log_return": 0.3643856345333916,
+              "selection_objective": 0.3007384043895959
+            },
+            "holdout": {
+              "return_pct": 18.622953084105887,
+              "max_drawdown_pct": -11.561445264021824,
+              "compound_log_return": 0.17077981544312226,
+              "selection_objective": 0.11297258912301314
+            },
+            "full": {
+              "return_pct": 155.09769736518314,
+              "max_drawdown_pct": -38.35020767002894,
+              "compound_log_return": 0.9364764127182429,
+              "selection_objective": 0.7447253743680982
+            }
+          },
+          "fresh_holdout": {
+            "return_pct": 11.936522662277707,
+            "max_drawdown_pct": -11.561444766605407,
+            "compound_log_return": 0.11276176269279284,
+            "selection_objective": 0.054954538859765804
+          },
+          "actual_max_stocks": 1,
+          "actual_mean_stocks": 0.7582417582417582,
+          "mean_cash_pct": 24.175824175824175
+        }
+      }
+    },
+    "max_stocks_3": {
+      "index": 201609,
+      "config": {
+        "family": "sold_reversal",
+        "lookback": 20,
+        "time_mix": 0.75,
+        "gate": "none",
+        "max_stocks": 3,
+        "rebalance": "daily",
+        "weighting": "inverse_volatility",
+        "risk_rule": "trend_half"
+      },
+      "rule_korean": "실매도 종목 역발상 신호, D-20(KRX거래일), TIME/KoAct 신호배합 75%/25%, 추가 가격필터 없음, 매 미국거래일 교체, 최대3종목, 최근20미국거래일 변동성이 낮을수록 높은 비중 배분, 교체일 QQQ하락국면이면 주식50%·현금50%(적격종목이 없으면 현금)",
+      "scenarios": {
+        "base_zero": {
+          "segments": {
+            "train": {
+              "return_pct": 144.09276662974725,
+              "max_drawdown_pct": -9.401033725029949,
+              "compound_log_return": 0.8923781581563068,
+              "selection_objective": 0.8453729895311571
+            },
+            "validation": {
+              "return_pct": 14.363995797960587,
+              "max_drawdown_pct": -16.37186145748873,
+              "compound_log_return": 0.13421612137643055,
+              "selection_objective": 0.05235681408898689
+            },
+            "holdout": {
+              "return_pct": 5.204919271537645,
+              "max_drawdown_pct": -10.084108626302326,
+              "compound_log_return": 0.05073987435853967,
+              "selection_objective": 0.0003193312270280413
+            },
+            "full": {
+              "return_pct": 193.68399427803328,
+              "max_drawdown_pct": -16.37186145748872,
+              "compound_log_return": 1.0773341538912764,
+              "selection_objective": 0.9954748466038328
+            }
+          },
+          "fresh_holdout": {
+            "return_pct": 2.8488300117212852,
+            "max_drawdown_pct": -10.08410840271329,
+            "compound_log_return": 0.028090054370150747,
+            "selection_objective": -0.022330487643415706
+          },
+          "actual_max_stocks": 3,
+          "actual_mean_stocks": 2.6538461538461537,
+          "mean_cash_pct": 20.054945054945055
+        },
+        "lag1_zero": {
+          "segments": {
+            "train": {
+              "return_pct": 126.07009722155978,
+              "max_drawdown_pct": -16.638631371558734,
+              "compound_log_return": 0.8156749298902358,
+              "selection_objective": 0.7324817730324421
+            },
+            "validation": {
+              "return_pct": 11.192835487542112,
+              "max_drawdown_pct": -17.343452650322185,
+              "compound_log_return": 0.10609576468388313,
+              "selection_objective": 0.019378501432272197
+            },
+            "holdout": {
+              "return_pct": 23.904135711900835,
+              "max_drawdown_pct": -11.593875316647539,
+              "compound_log_return": 0.21433798152415234,
+              "selection_objective": 0.15636860494091465
+            },
+            "full": {
+              "return_pct": 211.4624739425758,
+              "max_drawdown_pct": -17.343452650322188,
+              "compound_log_return": 1.1361086760982708,
+              "selection_objective": 1.04939141284666
+            }
+          },
+          "fresh_holdout": {
+            "return_pct": 21.14142826953452,
+            "max_drawdown_pct": -11.593875272787194,
+            "compound_log_return": 0.19178850573405734,
+            "selection_objective": 0.13381912937012136
+          },
+          "actual_max_stocks": 3,
+          "actual_mean_stocks": 2.6373626373626373,
+          "mean_cash_pct": 20.604395604395602
+        }
+      }
+    },
+    "max_stocks_5": {
+      "index": 246798,
+      "config": {
+        "family": "joint_buy",
+        "lookback": 40,
+        "time_mix": 1.0,
+        "gate": "above_ma20",
+        "max_stocks": 5,
+        "rebalance": "weekly",
+        "weighting": "conviction",
+        "risk_rule": "trend_cash"
+      },
+      "rule_korean": "두 펀드 동시 매수 신호, D-40(KRX거래일), TIME/KoAct 신호배합 100%/0%, 원화 환산 직전종가가20미국거래일 평균보다 높음, 매주 첫 미국거래일 교체, 최대5종목, 선정종목의 혼합 펀드비중 비례 배분, 교체일 QQQ하락국면이면 전액현금, 그 외 주식 목표100%(적격종목이 없으면 현금)",
+      "scenarios": {
+        "base_zero": {
+          "segments": {
+            "train": {
+              "return_pct": 137.65932956941208,
+              "max_drawdown_pct": -6.41091319458987,
+              "compound_log_return": 0.8656680739046163,
+              "selection_objective": 0.833613507931667
+            },
+            "validation": {
+              "return_pct": 4.03611679772806,
+              "max_drawdown_pct": -11.486885040073174,
+              "compound_log_return": 0.03956792976784662,
+              "selection_objective": -0.017866495432519253
+            },
+            "holdout": {
+              "return_pct": 7.730935219058856,
+              "max_drawdown_pct": -13.571333681120217,
+              "compound_log_return": 0.07446659201890551,
+              "selection_objective": 0.006609923613304425
+            },
+            "full": {
+              "return_pct": 166.36639389859002,
+              "max_drawdown_pct": -13.57133368112023,
+              "compound_log_return": 0.979702595691368,
+              "selection_objective": 0.9118459272857669
+            }
+          },
+          "fresh_holdout": {
+            "return_pct": 7.730935242649033,
+            "max_drawdown_pct": -13.571333943541852,
+            "compound_log_return": 0.0744665922378786,
+            "selection_objective": 0.006609922520169342
+          },
+          "actual_max_stocks": 5,
+          "actual_mean_stocks": 2.3241758241758244,
+          "mean_cash_pct": 44.505494505494504
+        },
+        "lag1_zero": {
+          "segments": {
+            "train": {
+              "return_pct": 54.64533963809344,
+              "max_drawdown_pct": -18.217648669242898,
+              "compound_log_return": 0.43596417779136915,
+              "selection_objective": 0.34487593444515463
+            },
+            "validation": {
+              "return_pct": -2.818959792685814,
+              "max_drawdown_pct": -13.753355421897881,
+              "compound_log_return": -0.0285945531438282,
+              "selection_objective": -0.09736133025331761
+            },
+            "holdout": {
+              "return_pct": 13.577411720968405,
+              "max_drawdown_pct": -15.285990363238296,
+              "compound_log_return": 0.12731446004313648,
+              "selection_objective": 0.050884508226945
+            },
+            "full": {
+              "return_pct": 70.69089184094229,
+              "max_drawdown_pct": -18.217648669242898,
+              "compound_log_return": 0.5346840846906775,
+              "selection_objective": 0.44359584134446306
+            }
+          },
+          "fresh_holdout": {
+            "return_pct": 7.924622620442058,
+            "max_drawdown_pct": -15.285990018521101,
+            "compound_log_return": 0.07626285876391792,
+            "selection_objective": -0.00016709132868758525
+          },
+          "actual_max_stocks": 5,
+          "actual_mean_stocks": 2.7472527472527473,
+          "mean_cash_pct": 34.61538461538461
+        }
+      }
+    },
+    "robust_mixed_max_stocks_3_to_10": {
+      "index": 239840,
+      "config": {
+        "family": "repeated_buy",
+        "lookback": 40,
+        "time_mix": 0.75,
+        "gate": "none",
+        "max_stocks": 3,
+        "rebalance": "daily",
+        "weighting": "inverse_volatility",
+        "risk_rule": "always"
+      },
+      "rule_korean": "반복 매수 신호, D-40(KRX거래일), TIME/KoAct 신호배합 75%/25%, 추가 가격필터 없음, 매 미국거래일 교체, 최대3종목, 최근20미국거래일 변동성이 낮을수록 높은 비중 배분, 주식 목표100%(적격종목이 없으면 현금)",
+      "scenarios": {
+        "base_zero": {
+          "segments": {
+            "train": {
+              "return_pct": 130.11348951502652,
+              "max_drawdown_pct": -17.166617729716357,
+              "compound_log_return": 0.833402433911262,
+              "selection_objective": 0.7475693452626803
+            },
+            "validation": {
+              "return_pct": 8.46397577195052,
+              "max_drawdown_pct": -12.747277563524605,
+              "compound_log_return": 0.08124791132638337,
+              "selection_objective": 0.01751152350876034
+            },
+            "holdout": {
+              "return_pct": 0.46761412266152474,
+              "max_drawdown_pct": -16.285721639134298,
+              "compound_log_return": 0.004665242042438587,
+              "selection_objective": -0.0767633661532329
+            },
+            "full": {
+              "return_pct": 150.75735872432782,
+              "max_drawdown_pct": -17.166617729716357,
+              "compound_log_return": 0.9193155872800841,
+              "selection_objective": 0.8334824986315024
+            }
+          },
+          "fresh_holdout": {
+            "return_pct": -3.06273718502986,
+            "max_drawdown_pct": -16.285721770074556,
+            "compound_log_return": -0.031106191837356023,
+            "selection_objective": -0.11253480068772881
+          },
+          "actual_max_stocks": 3,
+          "actual_mean_stocks": 2.2252747252747254,
+          "mean_cash_pct": 23.626373626373624
+        },
+        "lag1_zero": {
+          "segments": {
+            "train": {
+              "return_pct": 121.19051944452339,
+              "max_drawdown_pct": -13.348540386577934,
+              "compound_log_return": 0.7938542230875337,
+              "selection_objective": 0.7271115211546441
+            },
+            "validation": {
+              "return_pct": 9.000025675128445,
+              "max_drawdown_pct": -11.275923178939875,
+              "compound_log_return": 0.0861779317926617,
+              "selection_objective": 0.02979831589796233
+            },
+            "holdout": {
+              "return_pct": 12.699482419407552,
+              "max_drawdown_pct": -9.50553767237948,
+              "compound_log_return": 0.11955464249525272,
+              "selection_objective": 0.07202695413335532
+            },
+            "full": {
+              "return_pct": 171.71588592961356,
+              "max_drawdown_pct": -13.348540386577934,
+              "compound_log_return": 0.9995867973754484,
+              "selection_objective": 0.9328440954425588
+            }
+          },
+          "fresh_holdout": {
+            "return_pct": 12.318051559189522,
+            "max_drawdown_pct": -9.505537460576292,
+            "compound_log_return": 0.11616440690950668,
+            "selection_objective": 0.06863671960662521
+          },
+          "actual_max_stocks": 3,
+          "actual_mean_stocks": 2.208791208791209,
+          "mean_cash_pct": 24.175824175824175
+        }
+      }
+    },
+    "robust_mixed_max_stocks_5_to_10": {
+      "index": 229747,
+      "config": {
+        "family": "joint_buy",
+        "lookback": 40,
+        "time_mix": 0.5,
+        "gate": "positive_momentum",
+        "max_stocks": 5,
+        "rebalance": "monthly",
+        "weighting": "conviction",
+        "risk_rule": "manager_cash"
+      },
+      "rule_korean": "두 펀드 동시 매수 신호, D-40(KRX거래일), TIME/KoAct 신호배합 50%/50%, 원화 환산 최근20미국거래일 수익률 양수, 매월 첫 미국거래일 교체, 최대5종목, 선정종목의 혼합 펀드비중 비례 배분, 두 펀드의 평균 현금비중 반영(적격종목이 없으면 현금)",
+      "scenarios": {
+        "base_zero": {
+          "segments": {
+            "train": {
+              "return_pct": 122.64907050851508,
+              "max_drawdown_pct": -15.239735798748011,
+              "compound_log_return": 0.800426671095474,
+              "selection_objective": 0.724227992101734
+            },
+            "validation": {
+              "return_pct": -8.957285016256076,
+              "max_drawdown_pct": -27.245610869188734,
+              "compound_log_return": -0.09384139417705463,
+              "selection_objective": -0.23006944852299832
+            },
+            "holdout": {
+              "return_pct": -0.07893182813500578,
+              "max_drawdown_pct": -16.46057167761206,
+              "compound_log_return": -0.0007896299570430351,
+              "selection_objective": -0.08309248834510333
+            },
+            "full": {
+              "return_pct": 102.54575931596368,
+              "max_drawdown_pct": -32.69732335443948,
+              "compound_log_return": 0.7057956469613763,
+              "selection_objective": 0.5423090301891789
+            }
+          },
+          "fresh_holdout": {
+            "return_pct": -1.01010803201643,
+            "max_drawdown_pct": -16.46057216068517,
+            "compound_log_return": -0.010152442399696704,
+            "selection_objective": -0.09245530320312256
+          },
+          "actual_max_stocks": 5,
+          "actual_mean_stocks": 3.0274725274725274,
+          "mean_cash_pct": 25.10328022783513
+        },
+        "lag1_zero": {
+          "segments": {
+            "train": {
+              "return_pct": 117.69236497337778,
+              "max_drawdown_pct": -15.191958449374459,
+              "compound_log_return": 0.7779127103162111,
+              "selection_objective": 0.7019529180693388
+            },
+            "validation": {
+              "return_pct": -5.368660911098085,
+              "max_drawdown_pct": -22.478120305652073,
+              "compound_log_return": -0.05518148478183123,
+              "selection_objective": -0.1675720863100916
+            },
+            "holdout": {
+              "return_pct": -1.2410226196384129,
+              "max_drawdown_pct": -17.43534043447513,
+              "compound_log_return": -0.012487876158063349,
+              "selection_objective": -0.099664578330439
+            },
+            "full": {
+              "return_pct": 103.44862893812436,
+              "max_drawdown_pct": -28.7724287476219,
+              "compound_log_return": 0.710243349376317,
+              "selection_objective": 0.5663812056382075
+            }
+          },
+          "fresh_holdout": {
+            "return_pct": -3.5863571874507514,
+            "max_drawdown_pct": -17.435340161434933,
+            "compound_log_return": -0.03652247143326394,
+            "selection_objective": -0.12369917224043861
+          },
+          "actual_max_stocks": 5,
+          "actual_mean_stocks": 3.32967032967033,
+          "mean_cash_pct": 25.672451462186185
+        }
+      }
+    }
+  },
+  "targets": {
+    "at_least_1x_both_zero_cost_etfs_in_both_scenarios": 20425,
+    "at_least_2x_both_zero_cost_etfs_in_both_scenarios": 1631,
+    "at_least_3x_both_zero_cost_etfs_in_both_scenarios": 107
+  }
+}

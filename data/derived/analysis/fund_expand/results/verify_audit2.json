@@ -1,0 +1,110 @@
+{
+ "a_names_dropped_for_missing_open_w0_or_w1": {
+  "U0_daily": {
+   "S": 0,
+   "TOP7": 0,
+   "ALL": 0
+  },
+  "U4_daily": {
+   "S": 0,
+   "TOP7": 0,
+   "ALL": 0
+  }
+ },
+ "c_U0_daily_vs_monthly_S": {
+  "repro_ret_daily_monthly": [
+   58.4,
+   83.6
+  ],
+  "weeks": 39,
+  "weeks_same_picks": 14,
+  "total_log_gap": 0.148,
+  "top3_weeks_log_gap": [
+   [
+    0.1,
+    "2026-04-24",
+    [
+     "AAOI",
+     "AEHR",
+     "CIEN",
+     "FORM",
+     "SNDK",
+     "WDC"
+    ],
+    [
+     "AAOI",
+     "AXTI",
+     "CIEN",
+     "SNDK",
+     "STX",
+     "WDC"
+    ]
+   ],
+   [
+    -0.04,
+    "2026-04-02",
+    [
+     "AXTI",
+     "CIEN",
+     "FSLY",
+     "LITE",
+     "SNDK",
+     "TSEM"
+    ],
+    [
+     "AXTI",
+     "CIEN",
+     "FSLY",
+     "LITE",
+     "PL",
+     "TSEM"
+    ]
+   ],
+   [
+    0.039,
+    "2026-03-06",
+    [
+     "AAOI",
+     "AXTI",
+     "CIEN",
+     "LITE",
+     "TER",
+     "VICR"
+    ],
+    [
+     "AXTI",
+     "CIEN",
+     "COHR",
+     "FSLY",
+     "LITE",
+     "SNDK",
+     "TER"
+    ]
+   ]
+  ],
+  "share_of_gap_in_top3_weeks": 0.67
+ },
+ "b_U0_monthly_phase_sensitivity_y2026": {
+  "monthly_minus_5d": {
+   "S": 49.0,
+   "SA": 81.1,
+   "BUF": 79.5,
+   "TOP7": 108.5,
+   "ALL": 59.7
+  },
+  "monthly_minus_10d": {
+   "S": 77.8,
+   "SA": 90.4,
+   "BUF": 102.6,
+   "TOP7": 137.2,
+   "ALL": 66.3
+  },
+  "monthly_minus_15d": {
+   "S": 79.7,
+   "SA": 87.8,
+   "BUF": 108.8,
+   "TOP7": 103.3,
+   "ALL": 59.9
+  }
+ }
+}

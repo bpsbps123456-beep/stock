@@ -1,0 +1,172 @@
+{
+ "n_cells": 30,
+ "n_eligible": 10,
+ "n_selected": 10,
+ "selected": [
+  "b2|bounce|N60|stock",
+  "b2|bounce|N40|stock",
+  "b2|bounce|N20|stock",
+  "b2|hold2|N20|stock",
+  "b2|hold3|N20|stock",
+  "b2|hold3|N40|stock",
+  "b2|retest|N20|stock",
+  "b2|hold2|N40|stock",
+  "b2|hold1|N20|stock",
+  "b2|hold2|N60|stock"
+ ],
+ "n_pass": 0,
+ "passed": [],
+ "passed_one_regime": [],
+ "n_pass_shift": 0,
+ "passed_shift": [],
+ "events": {
+  "f": 3026,
+  "b": 3262,
+  "a": 8999
+ },
+ "dates": {
+  "f": 57,
+  "b": 52,
+  "a": 127
+ },
+ "params": {
+  "front": [
+   "2026-01-02",
+   "2026-05-29"
+  ],
+  "back": [
+   "2026-06-01",
+   "2026-09-29"
+  ],
+  "aux": [
+   "2025-01-01",
+   "2025-12-31"
+  ],
+  "top": 10,
+  "min_on": 15,
+  "min_dates": 8,
+  "nperm": 200,
+  "nnull": 200,
+  "seed": 20261014,
+  "y": "y_h10",
+  "n_shift": 51
+ },
+ "null": {
+  "mean": 0.02,
+  "q50": 0.0,
+  "q90": 0.0,
+  "q95": 0.0,
+  "max": 1,
+  "p_value": 1.0
+ },
+ "null_shift": {
+  "mean": 0.035,
+  "q50": 0.0,
+  "q90": 0.0,
+  "q95": 0.0,
+  "max": 1,
+  "p_value": 1.0
+ },
+ "same_event_set": {
+  "f": {
+   "events": 425,
+   "dates": 57
+  },
+  "b": {
+   "events": 448,
+   "dates": 52
+  },
+  "a": {
+   "events": 1169,
+   "dates": 127
+  }
+ },
+ "trace": [
+  {
+   "variant": "hold2",
+   "sym": "GOOGL",
+   "t": "2026-06-01",
+   "L": 378.4599914550781,
+   "atr": 9.339006042480468,
+   "closes_t1_td": [
+    361.85,
+    358.99
+   ],
+   "highs_t1_td": [
+    373.54,
+    366.45
+   ],
+   "d": "t+2 2026-06-03",
+   "o_t1": 366.5899963378906,
+   "entry": 358.8999938964844,
+   "imm": -0.008528873655027575,
+   "var": -0.030116780119102737,
+   "why": "time",
+   "missed": 0.020977120265764912
+  },
+  {
+   "variant": "retest",
+   "sym": "AMZN",
+   "t": "2026-06-03",
+   "L": 254.3699951171875,
+   "atr": 6.452496337890625,
+   "closes_t1_td": [
+    253.79
+   ],
+   "highs_t1_td": [
+    255.83
+   ],
+   "d": "t+1 2026-06-04",
+   "o_t1": 253.1199951171875,
+   "entry": 254.25999450683594,
+   "imm": 0.060709842835434145,
+   "var": 0.06491675792074059,
+   "why": "time",
+   "missed": -0.004503790343076806
+  },
+  {
+   "variant": "bounce",
+   "sym": "GOOGL",
+   "t": "2026-06-01",
+   "L": 378.4599914550781,
+   "atr": 9.339006042480468,
+   "closes_t1_td": [
+    361.85,
+    358.99,
+    372.19,
+    368.53
+   ],
+   "highs_t1_td": [
+    373.54,
+    366.45,
+    373.25,
+    372.08
+   ],
+   "d": "t+4 2026-06-05",
+   "o_t1": 366.5899963378906,
+   "entry": 365.17999267578125,
+   "imm": -0.008528873655027575,
+   "var": -0.012419063232844328,
+   "why": "time",
+   "missed": 0.003846268791278627
+  }
+ ],
+ "imm_reproduce_maxdiff": 0.0,
+ "independent_check": {
+  "events": 4742,
+  "status_mismatch": {
+   "hold1": 0,
+   "hold2": 0,
+   "hold3": 0,
+   "retest": 0,
+   "bounce": 0
+  },
+  "pnl_mismatch": {
+   "hold1": 0,
+   "hold2": 0,
+   "hold3": 0,
+   "retest": 0,
+   "bounce": 0
+  }
+ }
+}

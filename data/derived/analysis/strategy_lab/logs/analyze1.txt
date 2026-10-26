@@ -1,0 +1,116 @@
+== Benchmarks (KRW) ==
+ETF_T_adj          total   +68.4%  mdd  -31.0%
+ETF_T_close        total   +68.4%  mdd  -31.0%
+ETF_K_adj          total   +36.9%  mdd  -33.2%
+ETF_K_close        total   +36.9%  mdd  -33.2%
+ETF_blend          total   +52.6%  mdd  -32.0%
+QQQ_krw            total   +16.4%  mdd  -16.5% sharpe 0.99
+REPL_T_c0.0        total   +84.9%  mdd  -21.5% sharpe 2.12 hold 31.6
+REPL_T_c0.001      total   +82.3%  mdd  -21.7% sharpe 2.08 hold 31.6
+REPL_K_c0.0        total   +54.8%  mdd  -31.4% sharpe 1.49 hold 47.8
+REPL_K_c0.001      total   +52.2%  mdd  -31.6% sharpe 1.44 hold 47.8
+REPL_U_c0.0        total   +67.6%  mdd  -27.2% sharpe 1.77 hold 60.0
+REPL_U_c0.001      total   +65.0%  mdd  -27.3% sharpe 1.73 hold 60.0
+
+== Variants: 1,684,800 ==
+total return percentiles %: [-47.6 -13.1   6.8  29.2  55.   87.4 210.9 411.9]
+  >= 1x TIME ETF (+68%): 16.96% of variants
+  >= 2x TIME ETF (+137%):  3.15% of variants
+  >= 3x TIME ETF (+205%):  1.08% of variants
+  >= 1x KoAct ETF (+37%): 41.36% of variants
+  >= 2x KoAct ETF (+74%): 14.53% of variants
+  >= 3x KoAct ETF (+111%):  5.54% of variants
+  >= 1x 50/50 (+53%): 26.76% of variants
+  >= 2x 50/50 (+105%):  6.32% of variants
+  >= 3x 50/50 (+158%):  2.15% of variants
+
+== Top 25 by full-period total (cost 0.10%/side) ==
+ 1 +1019.0% mdd  -28.8% sh 3.38 IS +687.5% OOS  +42.1% hold 1.0 | I/top20/RADJ120 N1 EQ buf0 M none none
+ 2 +1019.0% mdd  -28.8% sh 3.38 IS +687.5% OOS  +42.1% hold 1.0 | I/all/RADJ120 N1 IV buf0 M none none
+ 3 +1019.0% mdd  -28.8% sh 3.38 IS +687.5% OOS  +42.1% hold 1.0 | I/all/RADJ120 N1 EQ buf0 M none none
+ 4 +1019.0% mdd  -28.8% sh 3.38 IS +687.5% OOS  +42.1% hold 1.0 | I/all/RADJ120 N1 FW buf0 M none none
+ 5 +1019.0% mdd  -28.8% sh 3.38 IS +687.5% OOS  +42.1% hold 1.0 | I/top20/RADJ120 N1 FW buf0 M none none
+ 6 +1019.0% mdd  -28.8% sh 3.38 IS +687.5% OOS  +42.1% hold 1.0 | I/top20/RADJ120 N1 IV buf0 M none none
+ 7 +1009.3% mdd  -41.6% sh 3.50 IS +844.8% OOS  +17.4% hold 1.0 | I/top20/RADJ120 N1 IV buf0 2W none none
+ 8 +1009.3% mdd  -41.6% sh 3.50 IS +844.8% OOS  +17.4% hold 1.0 | I/all/RADJ120 N1 FW buf0 2W none none
+ 9 +1009.3% mdd  -41.6% sh 3.50 IS +844.8% OOS  +17.4% hold 1.0 | I/all/RADJ120 N1 EQ buf0 2W none none
+10 +1009.3% mdd  -41.6% sh 3.50 IS +844.8% OOS  +17.4% hold 1.0 | I/top20/RADJ120 N1 FW buf0 2W none none
+11 +1009.3% mdd  -41.6% sh 3.50 IS +844.8% OOS  +17.4% hold 1.0 | I/top20/RADJ120 N1 EQ buf0 2W none none
+12 +1009.3% mdd  -41.6% sh 3.50 IS +844.8% OOS  +17.4% hold 1.0 | I/all/RADJ120 N1 IV buf0 2W none none
+13  +930.6% mdd  -37.7% sh 3.14 IS +625.3% OOS  +42.1% hold 1.0 | T/all/RADJ120 N1 IV buf0 M none none
+14  +930.6% mdd  -37.7% sh 3.14 IS +625.3% OOS  +42.1% hold 1.0 | T/all/RADJ120 N1 FW buf0 M none none
+15  +930.6% mdd  -37.7% sh 3.14 IS +625.3% OOS  +42.1% hold 1.0 | T/all/RADJ120 N1 EQ buf0 M none none
+16  +913.5% mdd  -51.7% sh 3.31 IS +1077.8% OOS  -13.9% hold 0.9 | K/all/MOM120 N1 FW buf0 W stop15 none
+17  +913.5% mdd  -51.7% sh 3.31 IS +1077.8% OOS  -13.9% hold 0.9 | K/all/MOM120 N1 IV buf0 W stop15 none
+18  +913.5% mdd  -51.7% sh 3.31 IS +1077.8% OOS  -13.9% hold 0.9 | K/all/MOM120 N1 EQ buf0 W stop15 none
+19  +912.0% mdd  -41.6% sh 3.42 IS +844.8% OOS   +7.1% hold 1.0 | K/all/RADJ120 N1 FW buf0 2W none none
+20  +912.0% mdd  -41.6% sh 3.42 IS +844.8% OOS   +7.1% hold 1.0 | K/all/RADJ120 N1 EQ buf0 2W drop none
+21  +912.0% mdd  -41.6% sh 3.42 IS +844.8% OOS   +7.1% hold 1.0 | K/all/RADJ120 N1 EQ buf0 2W none none
+22  +912.0% mdd  -41.6% sh 3.42 IS +844.8% OOS   +7.1% hold 1.0 | K/all/RADJ120 N1 FW buf0 2W drop none
+23  +912.0% mdd  -41.6% sh 3.42 IS +844.8% OOS   +7.1% hold 1.0 | K/all/RADJ120 N1 IV buf0 2W none none
+24  +912.0% mdd  -41.6% sh 3.42 IS +844.8% OOS   +7.1% hold 1.0 | K/all/RADJ120 N1 IV buf0 2W drop none
+25  +908.3% mdd  -37.2% sh 3.99 IS +727.6% OOS  +21.8% hold 1.0 | K/top20/FMOM5_20 N1 IV buf1 D none VIX<25
+
+== Marginal effect: median / p90 total by dimension (all overlays) ==
+-- source
+   I        n= 28080  median  +35.8%  p90  +97.1%  (no overlay median  +73.3%)
+   K        n= 28080  median  +19.7%  p90  +70.0%  (no overlay median  +39.6%)
+   T        n= 28080  median  +37.1%  p90  +97.6%  (no overlay median  +69.9%)
+   U        n= 28080  median  +24.8%  p90  +79.8%  (no overlay median  +48.9%)
+-- prefilter
+   all      n= 56160  median  +28.4%  p90  +88.3%  (no overlay median  +55.7%)
+   top20    n= 56160  median  +29.9%  p90  +86.6%  (no overlay median  +57.9%)
+-- family
+   BOTH     n=  2880  median  +31.5%  p90  +73.5%  (no overlay median  +62.4%)
+   CONS     n=  5760  median  +21.4%  p90  +61.1%  (no overlay median  +46.3%)
+   DW       n=  5760  median  +20.2%  p90  +62.6%  (no overlay median  +40.3%)
+   FLOW     n= 14400  median  +14.5%  p90  +56.3%  (no overlay median  +33.3%)
+   FMOM     n= 11520  median  +36.1%  p90  +93.2%  (no overlay median  +63.5%)
+   HIGH     n=  5760  median   +9.9%  p90  +49.4%  (no overlay median  +30.7%)
+   MOM      n= 17280  median  +34.3%  p90 +110.1%  (no overlay median  +68.8%)
+   NEW      n=  8640  median  +18.8%  p90  +58.4%  (no overlay median  +36.6%)
+   PULL     n=  2880  median  +48.8%  p90 +123.9%  (no overlay median +104.3%)
+   RADJ     n=  8640  median  +44.0%  p90 +128.9%  (no overlay median  +82.1%)
+   REV5     n=  2880  median  +24.4%  p90  +84.4%  (no overlay median  +65.4%)
+   W        n=  2880  median  +29.9%  p90  +72.5%  (no overlay median  +56.4%)
+   WFLOW    n=  5760  median  +23.1%  p90  +62.9%  (no overlay median  +45.5%)
+   WMOM     n= 17280  median  +46.8%  p90 +106.5%  (no overlay median  +84.8%)
+-- N
+   1        n= 18720  median  +14.9%  p90 +132.8%  (no overlay median  +38.3%)
+   10       n= 18720  median  +31.2%  p90  +66.1%  (no overlay median  +62.0%)
+   2        n= 18720  median  +26.2%  p90 +106.1%  (no overlay median  +50.4%)
+   3        n= 18720  median  +29.4%  p90  +91.2%  (no overlay median  +55.6%)
+   5        n= 18720  median  +31.2%  p90  +79.9%  (no overlay median  +59.3%)
+   7        n= 18720  median  +32.7%  p90  +74.6%  (no overlay median  +63.2%)
+-- weighting
+   EQ       n= 37440  median  +31.0%  p90  +88.0%  (no overlay median  +59.7%)
+   FW       n= 37440  median  +33.0%  p90  +94.4%  (no overlay median  +61.5%)
+   IV       n= 37440  median  +24.2%  p90  +78.3%  (no overlay median  +50.4%)
+-- buffer
+   no       n= 56160  median  +27.6%  p90  +82.6%  (no overlay median  +54.1%)
+   yes      n= 56160  median  +30.8%  p90  +92.1%  (no overlay median  +60.0%)
+-- rebalance
+   2W       n= 33696  median  +26.4%  p90  +85.5%  (no overlay median  +52.0%)
+   D        n= 11232  median  +40.3%  p90 +103.2%  (no overlay median  +75.2%)
+   M        n= 33696  median  +25.5%  p90  +82.8%  (no overlay median  +50.3%)
+   W        n= 33696  median  +31.9%  p90  +87.3%  (no overlay median  +62.4%)
+-- exit
+   drop     n= 33696  median  +31.0%  p90  +89.2%  (no overlay median  +65.5%)
+   none     n= 44928  median  +35.5%  p90  +97.6%  (no overlay median  +71.0%)
+   stop15   n= 33696  median  +20.6%  p90  +68.0%  (no overlay median  +35.3%)
+-- overlay
+   none            median  +56.9%  p90 +134.2%  median MDD  -37.9%  exposure 1.00
+   QQQ>MA20        median  +21.8%  p90  +59.2%  median MDD  -36.4%  exposure 0.53
+   QQQ>MA50        median  +14.4%  p90  +49.2%  median MDD  -39.8%  exposure 0.60
+   QQQ>MA100       median  +31.8%  p90  +80.3%  median MDD  -37.8%  exposure 0.74
+   SMH>MA20        median  +45.6%  p90 +105.0%  median MDD  -34.5%  exposure 0.64
+   SMH>MA50        median  +27.7%  p90  +75.1%  median MDD  -37.3%  exposure 0.64
+   QQQ20>50        median  +26.7%  p90  +72.6%  median MDD  -36.7%  exposure 0.58
+   VIX<25          median  +54.1%  p90 +118.7%  median MDD  -37.9%  exposure 0.92
+   BREADTH>50      median  +31.2%  p90  +82.2%  median MDD  -36.7%  exposure 0.63
+   FUNDCASH        median  +38.4%  p90  +76.2%  median MDD  -33.3%  exposure 0.56
+   SELF>MA10       median   -0.0%  p90  +37.0%  median MDD  -39.2%  exposure 0.58
+   SELF>MA20       median  +10.6%  p90  +58.6%  median MDD  -36.3%  exposure 0.59
+   SELFDD15        median  +30.2%  p90  +96.1%  median MDD  -33.0%  exposure 0.66
+   QQQ>MA50/half   median  +35.9%  p90  +88.3%  median MDD  -37.8%  exposure 0.80
+   SELF>MA20/half  median  +32.9%  p90  +92.3%  median MDD  -35.4%  exposure 0.80

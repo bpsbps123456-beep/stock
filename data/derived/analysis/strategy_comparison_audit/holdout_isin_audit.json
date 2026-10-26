@@ -1,0 +1,1031 @@
+{
+  "purpose": "Historical identity-filter sensitivity, not a new optimization or independent validation",
+  "change": "Resolve three US ISIN rows before original US-listed filter; all other simulation assumptions unchanged",
+  "mapping_basis": "Original PDF snapshot company names paired with their ISIN identifiers; see every omitted source row",
+  "rule": "H6e: TIME MOM120, five names, weekly equal targets, rank-10 retention buffer, open/+1 US-session PDF shift, zero cost",
+  "snapshot_count": 137,
+  "affected_snapshots": 81,
+  "omitted_rows": [
+    {
+      "date": "2023-05-22",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-05-22.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 3.8,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2023-05-22",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-05-22.json",
+      "code": "US12430A1025",
+      "name": "BuzzFeed Inc",
+      "weight_pct": 2.85,
+      "mapped_code": "BZFD US EQUITY"
+    },
+    {
+      "date": "2023-05-22",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-05-22.json",
+      "code": "US0404131064",
+      "name": "Arista Networks Inc",
+      "weight_pct": 1.32,
+      "mapped_code": "ANET US EQUITY"
+    },
+    {
+      "date": "2023-05-30",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-05-30.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 4.12,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2023-05-30",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-05-30.json",
+      "code": "US12430A1025",
+      "name": "BuzzFeed Inc",
+      "weight_pct": 2.02,
+      "mapped_code": "BZFD US EQUITY"
+    },
+    {
+      "date": "2023-05-30",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-05-30.json",
+      "code": "US0404131064",
+      "name": "Arista Networks Inc",
+      "weight_pct": 1.28,
+      "mapped_code": "ANET US EQUITY"
+    },
+    {
+      "date": "2023-06-05",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-06-05.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 4.11,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2023-06-05",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-06-05.json",
+      "code": "US12430A1025",
+      "name": "BuzzFeed Inc",
+      "weight_pct": 2.15,
+      "mapped_code": "BZFD US EQUITY"
+    },
+    {
+      "date": "2023-06-05",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-06-05.json",
+      "code": "US0404131064",
+      "name": "Arista Networks Inc",
+      "weight_pct": 1.3,
+      "mapped_code": "ANET US EQUITY"
+    },
+    {
+      "date": "2023-06-12",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-06-12.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 4.36,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2023-06-12",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-06-12.json",
+      "code": "US12430A1025",
+      "name": "BuzzFeed Inc",
+      "weight_pct": 1.8,
+      "mapped_code": "BZFD US EQUITY"
+    },
+    {
+      "date": "2023-06-12",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-06-12.json",
+      "code": "US0404131064",
+      "name": "Arista Networks Inc",
+      "weight_pct": 1.08,
+      "mapped_code": "ANET US EQUITY"
+    },
+    {
+      "date": "2023-06-19",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-06-19.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 3.4,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2023-06-26",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-06-26.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 3.1,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2023-07-03",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-07-03.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 3.26,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2023-07-10",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-07-10.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 3.36,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2023-07-17",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-07-17.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 3.63,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2023-07-24",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-07-24.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 3.06,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2023-07-31",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-07-31.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 3.12,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2023-08-07",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-08-07.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 3.13,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2023-08-14",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-08-14.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 3.82,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2023-08-21",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-08-21.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 3.46,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2023-08-28",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-08-28.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 3.87,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2023-09-04",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-09-04.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 3.81,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2023-09-11",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-09-11.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 3.6,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2023-09-18",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-09-18.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 3.41,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2023-09-25",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-09-25.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 2.56,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2023-10-04",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-10-04.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 2.79,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2023-10-10",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-10-10.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 3.12,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2023-10-16",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-10-16.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 3.08,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2023-10-23",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-10-23.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 2.83,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2023-10-30",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-10-30.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 3.22,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2023-11-06",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-11-06.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 3.19,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2023-11-13",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-11-13.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 3.71,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2023-11-20",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-11-20.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 4.1,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2023-11-27",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-11-27.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 3.98,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2023-12-04",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-12-04.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 3.24,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2023-12-11",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-12-11.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 2.97,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2023-12-18",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-12-18.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 3.26,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2023-12-26",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-12-26.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 3.3,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-01-02",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-01-02.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 3.17,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-01-08",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-01-08.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 3.27,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-01-15",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-01-15.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 4.06,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-01-22",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-01-22.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 3.61,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-01-29",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-01-29.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 5.2,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-02-05",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-02-05.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 8.3,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-02-13",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-02-13.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 6.96,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-02-19",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-02-19.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 7.17,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-02-26",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-02-26.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 5.42,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-03-04",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-03-04.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 4.3,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-03-11",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-03-11.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 6.9,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-03-18",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-03-18.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 6.97,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-03-25",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-03-25.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 4.19,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-04-01",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-04-01.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 5.06,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-04-08",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-04-08.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 3.83,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-04-15",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-04-15.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 3.59,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-04-22",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-04-22.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 5.54,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-04-29",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-04-29.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 4.47,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-05-07",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-05-07.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 2.29,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-05-13",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-05-13.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 2.31,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-05-20",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-05-20.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 3.14,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-05-27",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-05-27.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 2.88,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-06-03",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-06-03.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 2.77,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-06-10",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-06-10.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 2.59,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-06-17",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-06-17.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 1.95,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-06-24",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-06-24.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 1.76,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-07-01",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-07-01.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 2.59,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-07-08",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-07-08.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 2.4,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-07-15",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-07-15.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 3.08,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-07-22",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-07-22.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 3.74,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-07-29",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-07-29.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 3.47,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-07-29",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-07-29.json",
+      "code": "US0404131064",
+      "name": "Arista Networks Inc",
+      "weight_pct": 2.91,
+      "mapped_code": "ANET US EQUITY"
+    },
+    {
+      "date": "2024-08-05",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-08-05.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 3.67,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-08-05",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-08-05.json",
+      "code": "US0404131064",
+      "name": "Arista Networks Inc",
+      "weight_pct": 3.33,
+      "mapped_code": "ANET US EQUITY"
+    },
+    {
+      "date": "2024-08-12",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-08-12.json",
+      "code": "US0404131064",
+      "name": "Arista Networks Inc",
+      "weight_pct": 3.35,
+      "mapped_code": "ANET US EQUITY"
+    },
+    {
+      "date": "2024-08-12",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-08-12.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 2.27,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-08-19",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-08-19.json",
+      "code": "US0404131064",
+      "name": "Arista Networks Inc",
+      "weight_pct": 3.32,
+      "mapped_code": "ANET US EQUITY"
+    },
+    {
+      "date": "2024-08-19",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-08-19.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 2.6,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-08-26",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-08-26.json",
+      "code": "US0404131064",
+      "name": "Arista Networks Inc",
+      "weight_pct": 3.3,
+      "mapped_code": "ANET US EQUITY"
+    },
+    {
+      "date": "2024-08-26",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-08-26.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 2.52,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-09-02",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-09-02.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 1.91,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-09-02",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-09-02.json",
+      "code": "US0404131064",
+      "name": "Arista Networks Inc",
+      "weight_pct": 1.73,
+      "mapped_code": "ANET US EQUITY"
+    },
+    {
+      "date": "2024-09-09",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-09-09.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 1.83,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-09-09",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-09-09.json",
+      "code": "US0404131064",
+      "name": "Arista Networks Inc",
+      "weight_pct": 1.69,
+      "mapped_code": "ANET US EQUITY"
+    },
+    {
+      "date": "2024-09-19",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-09-19.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 2.3,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-09-19",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-09-19.json",
+      "code": "US0404131064",
+      "name": "Arista Networks Inc",
+      "weight_pct": 1.72,
+      "mapped_code": "ANET US EQUITY"
+    },
+    {
+      "date": "2024-09-23",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-09-23.json",
+      "code": "US86800U1043",
+      "name": "Super Micro Computer Inc",
+      "weight_pct": 2.21,
+      "mapped_code": "SMCI US EQUITY"
+    },
+    {
+      "date": "2024-09-23",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-09-23.json",
+      "code": "US0404131064",
+      "name": "Arista Networks Inc",
+      "weight_pct": 1.79,
+      "mapped_code": "ANET US EQUITY"
+    },
+    {
+      "date": "2024-09-30",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-09-30.json",
+      "code": "US0404131064",
+      "name": "Arista Networks Inc",
+      "weight_pct": 1.87,
+      "mapped_code": "ANET US EQUITY"
+    },
+    {
+      "date": "2024-10-07",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-10-07.json",
+      "code": "US0404131064",
+      "name": "Arista Networks Inc",
+      "weight_pct": 1.9,
+      "mapped_code": "ANET US EQUITY"
+    },
+    {
+      "date": "2024-10-14",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-10-14.json",
+      "code": "US0404131064",
+      "name": "Arista Networks Inc",
+      "weight_pct": 1.93,
+      "mapped_code": "ANET US EQUITY"
+    },
+    {
+      "date": "2024-10-21",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-10-21.json",
+      "code": "US0404131064",
+      "name": "Arista Networks Inc",
+      "weight_pct": 1.91,
+      "mapped_code": "ANET US EQUITY"
+    },
+    {
+      "date": "2024-10-28",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-10-28.json",
+      "code": "US0404131064",
+      "name": "Arista Networks Inc",
+      "weight_pct": 1.97,
+      "mapped_code": "ANET US EQUITY"
+    },
+    {
+      "date": "2024-11-04",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-11-04.json",
+      "code": "US0404131064",
+      "name": "Arista Networks Inc",
+      "weight_pct": 1.84,
+      "mapped_code": "ANET US EQUITY"
+    },
+    {
+      "date": "2024-11-11",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-11-11.json",
+      "code": "US0404131064",
+      "name": "Arista Networks Inc",
+      "weight_pct": 1.99,
+      "mapped_code": "ANET US EQUITY"
+    },
+    {
+      "date": "2024-11-18",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-11-18.json",
+      "code": "US0404131064",
+      "name": "Arista Networks Inc",
+      "weight_pct": 1.81,
+      "mapped_code": "ANET US EQUITY"
+    },
+    {
+      "date": "2024-11-25",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-11-25.json",
+      "code": "US0404131064",
+      "name": "Arista Networks Inc",
+      "weight_pct": 1.73,
+      "mapped_code": "ANET US EQUITY"
+    },
+    {
+      "date": "2024-12-02",
+      "source": "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-12-02.json",
+      "code": "US0404131064",
+      "name": "Arista Networks Inc",
+      "weight_pct": 1.51,
+      "mapped_code": "ANET US EQUITY"
+    }
+  ],
+  "max_omitted_nav_weight_pct": 8.3,
+  "added_prices": [
+    {
+      "file": "added_prices_adj_close.csv",
+      "sha256": "ff988080f51ed3ce098fd9567fa271251438902c361ceb31075f763e6fd19c23",
+      "source": "Yahoo Finance via yfinance",
+      "field": "Adj Close",
+      "symbols": [
+        "SMCI",
+        "BZFD"
+      ],
+      "start": "2022-09-01",
+      "end_exclusive": "2026-01-16"
+    },
+    {
+      "file": "added_prices_close.csv",
+      "sha256": "ff988080f51ed3ce098fd9567fa271251438902c361ceb31075f763e6fd19c23",
+      "source": "Yahoo Finance via yfinance",
+      "field": "Close",
+      "symbols": [
+        "SMCI",
+        "BZFD"
+      ],
+      "start": "2022-09-01",
+      "end_exclusive": "2026-01-16"
+    },
+    {
+      "file": "added_prices_open.csv",
+      "sha256": "83860ac7d6ed1979c584226786ae875996ea0123e039bbe6c73454fdd9feb1c4",
+      "source": "Yahoo Finance via yfinance",
+      "field": "Open",
+      "symbols": [
+        "SMCI",
+        "BZFD"
+      ],
+      "start": "2022-09-01",
+      "end_exclusive": "2026-01-16"
+    }
+  ],
+  "original": {
+    "total": 1.9245779363916973,
+    "mdd": -0.5230218091291063,
+    "sharpe": 0.9543606204772753,
+    "start": "2023-05-23",
+    "end": "2025-12-31",
+    "sessions": 655,
+    "universe_count": 118,
+    "omitted_price_companies": [],
+    "average_holdings": 5.0
+  },
+  "isin_corrected": {
+    "total": 2.122731957741781,
+    "mdd": -0.5230218091291061,
+    "sharpe": 0.9871336801497388,
+    "start": "2023-05-23",
+    "end": "2025-12-31",
+    "sessions": 655,
+    "universe_count": 120,
+    "omitted_price_companies": [],
+    "average_holdings": 5.0
+  },
+  "same_original_etf_benchmark_total": 2.281703097010905,
+  "original_return_multiple": 0.8434830714447241,
+  "corrected_return_multiple": 0.9303278592743374,
+  "total_change_percentage_points": 19.815402135008362,
+  "original_2026_h6e_trade_and_weight_audit": {
+    "scope": "Original Claude 2026 engine, close execution, no information delay; distinct from common open/+1 comparison",
+    "start": "2026-01-02",
+    "end": "2026-09-22",
+    "initial_position_entries": 5,
+    "later_zero_to_positive_entries": 12,
+    "reported_total_entries": 17,
+    "days_with_any_turnover_including_initial_entry": 39,
+    "max_end_of_day_weight_pct": 24.73260234460323,
+    "max_weight_date": "2026-05-08",
+    "max_weight_symbol": "SNDK",
+    "interpretation": "17 includes initial five plus twelve later position entries, not seventeen trading days or complete portfolio replacements. Weekly targets reset all selected names to equal weights, including retained names. Twenty percent is the five-name rebalance target, not a continuously enforced maximum.",
+    "fee_note": "Original report baseline fee is 0.10% per side. This holdings/turnover trace precedes the engine's separate fee adjustment and is unchanged by that scalar fee assumption."
+  },
+  "original_inputs_unchanged": true,
+  "input_sha256": {
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-05-22.json": "468597baebaf4222bbfb607a78466261df1fae82d06b21679bafe5d106a457fa",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-05-30.json": "4d81a698687a9cb3236b38c3c67da1ad5dd8d12a50d790c36c510415d1f35d56",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-06-05.json": "a3a6856b321ceaaf51a2814e06541a76e187b3404213c4cb3f12abf4118d0871",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-06-12.json": "b3c61504b2b97e4d180501d8a3f95c4f0604021097b566e68f3126b81711cacc",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-06-19.json": "04fcba961b3d5446e725a63162b76ac85360e7b549601270c32efa8d4fe42b0d",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-06-26.json": "af93caddaaf82947e2940a610571b66e31c9ebf3254abcf1c28081f0268ccfd1",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-07-03.json": "9da413edd53b044ea4622a3c6199768aed979ef89568d7edfffabc8b0922e1af",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-07-10.json": "65b308a924f5b289a61ff40e0f7114aab6956880ceb62b2b86e29bff2024624e",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-07-17.json": "cfc9a708660401f84c3932d5cfc1ef8b6eb9888055aeec0e6d0355934c45de49",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-07-24.json": "d84a38d10fea0b28a52ab45908a8b56d488e7114831d9f6db03d21a5b13555ac",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-07-31.json": "0cba7c952e8a34a23b3cb524969eb97861633a9aebba6f327f5e771224990e8a",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-08-07.json": "fcf5c64dcc7b74f1091d8b5a07dd348be23629561fc9d62172fe51237a8d8266",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-08-14.json": "0ff180e16d008b20520ad9e00971c04f764b5c045ae69c0a4864fd36fc9685ab",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-08-21.json": "7c5cfcb7f3e2790b948433360e3ee810a5136117a48227aeef47ec1e1191557e",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-08-28.json": "75fe99680b31c817c8123aa33c250f516b837e687518cbe8d2bf56e7f9afe2f5",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-09-04.json": "32dc055db6d046d8cdb4010fdbc509f582982c42e5c72823ecf20236b3fbad15",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-09-11.json": "ad6a37fb5d2ca07fc6460c6139795a48f7eb78b0c40eb3bb4d7095299f3af017",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-09-18.json": "39c93a5fa22fc310b19fde37bdc93df03bfddaa88411993107df7486722b2527",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-09-25.json": "005516af5fef48ae04828812df01c5d53a1a252817f0086cfa26aed005d761cc",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-10-04.json": "d1d8476e2f2dabb7f3d857d1e7bb39e9437aa0e985e40845c3ec059c9724a2da",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-10-10.json": "9524b7bbdb629abe587e9932e25fb641db497372a3d519e5b4400339c92d4a0f",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-10-16.json": "1441a915d08225a80194b29ffdcc29d5f62c9ed68a9be3d5c2fc86174503d301",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-10-23.json": "d2806dd9784d0b9fb59baf21ef5506fb58adcb67f0d3629cf6822cad7e3ae773",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-10-30.json": "5a83841b5a1bced2427fb2a8cb7ec5dbc0eb366f652da25e7550fbcc057d5e47",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-11-06.json": "756e7597415d349e5ca3886b95f480be92a8fd18e27862cc3684666037075fc0",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-11-13.json": "50c6216fcbb40beabd2b7ca31af83fe4f591a7537b16a50673c41e997709c1f8",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-11-20.json": "9e7e1226d3f69279b8a3bb8f94844aabec16ad676853a11c4d1e612205bdd060",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-11-27.json": "2e927664e6741045740e78736308b1c2884e356fe10c60e7b52de74fadb9fa50",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-12-04.json": "b0590d9e7992a6624a0b9792bc245d472bb477a434d979d5053af47b5e48afe7",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-12-11.json": "8054f1a740d49cc7b4846478f7e4773971640c6e3d9f954db4123c0a6743035a",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-12-18.json": "16cd11e35a225957d293d92c7664e6757d1746ce8012a3af21c22f63a6b7e993",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2023-12-26.json": "ee838d6292794fd1848e4b4dce334b5d694089f313dc9c1f6346cb302a5eb856",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-01-02.json": "4f0c31890bbf9e5e82dbfbe2409580ff9772b1377c5826fe0faed656233a11b6",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-01-08.json": "9eda263d5a4c0855ccf86c3580680ff593143a8b4942b95f300df63bf1d2afb6",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-01-15.json": "d29c5cff46d8eed33126e0c0669d1d5d55f6d06cb23db6acbf45276896b2db29",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-01-22.json": "9d8a36ea52604c30e557f87038a474a5596681735d7db1b2a742384a0d616e45",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-01-29.json": "66c797895f2f85cf0354b704c1986a71c8fe2e89d79d2aad1cc7119a7dfe2caa",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-02-05.json": "12a7458acdb7013cc660fa4fa63834ab85acce8c8cc8bb0b46964c2dcdef723a",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-02-13.json": "ad405e4c70a3f1acf03f7bc7874748233e3bded76111f096692b8535e400fbe9",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-02-19.json": "ad0eb2db6701e030f5ad1b641aa384970f575cb9cf5ae305c245f8f77dc322da",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-02-26.json": "97b29aff49bbc80843f5aa51ba4f692dbfc10612d134e19e9909ba48b515a5d9",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-03-04.json": "2c7e5642b4518fa33949f41454ce0a1f41299a53be6672e59f01576aae490506",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-03-11.json": "0795db02499d49264c755272471455cfdac36d56965ccc069701c452fd9979ce",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-03-18.json": "93c393d130be869f227da55407f18df6303c41e47ea28dd33462593a540979ee",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-03-25.json": "b658517fbe047c568975ec5068cef7e99466ed00e488b53e505fea400bafea26",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-04-01.json": "8705c8b170694e34acf485e40f665dc79fc20e0703ba2ac952b61540d4578070",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-04-08.json": "5e5571d088a918cc4ea438e5db2804c72703924b4b907debb125c68f385d5b88",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-04-15.json": "9c1d4ba47b13ce6c01ecef9833c0edefcd06f0bf0b5de81f091a5ca4593ab625",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-04-22.json": "48c6d9b086769118267cbd573cd64f3692b76e9b5a978c0082b5cc899482ba96",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-04-29.json": "704e1ab757eb6234410f5b3cc3cd4c919f7834d718ebe5f8b3b33051d969130b",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-05-07.json": "c183d97645efe33906221700bddb34dfc48a0b7c084b45ebc7225f7a62b66064",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-05-13.json": "a48d075ad496979addc9ab95e796c265c9c2e8b3c37c09c1cb22e7d283f00e47",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-05-20.json": "0882d335745bb11257327d6662131c172f02234ca570bc7eafb5caea8cfd9999",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-05-27.json": "c80aa7ddf2cd205dc39d23147755c95196d10c636b9b9537022d6c8e6327b1bb",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-06-03.json": "14772848cb89eefb724245cee29685cafaca66dd9240bd7710c05875823e3bff",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-06-10.json": "cdc0ad782d454c96a37a2ce0644abb9edd9ec6fed6b6846ab3dcfe32b67380bf",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-06-17.json": "2c0f8c52a9d0c98631d73e6a2ef81ddc41f6741561807663554a4ab10ee3cf01",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-06-24.json": "1fb14a71b2e64f7e92c1e90412684697ea738f1ea0e0901c574205353f489cf5",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-07-01.json": "6076616a0dfbe6e1887a40a94ab91e6a0d9e4fd02f0f8b0e37abb3d012815d6f",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-07-08.json": "585a496cf50495a3136f2befecaabe854e728b60c51bd2439e861c44e3b76544",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-07-15.json": "d4fe5b293876881612440ea285a0a532ab069230d801d87b0d6d5956fa8b401b",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-07-22.json": "0358abc92f264174cc7bd58a1dac73600ee7971a0eae074d2401ea4e4da82193",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-07-29.json": "31acacb1606e25987bb70a8216667b89ffd727e868d156513554c8a70b406a1c",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-08-05.json": "62b72218e2d184686e17143d4889aec11355f348f569027603826833ca2e9fc5",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-08-12.json": "e939c306269c2a3f646c46abe1b5b42ec2df8faec3bb9a22591a9cc0e6b7e44a",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-08-19.json": "48ffaeb244532d666592ba22ec18212eb19febe908facd71ee6c9d224a17b340",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-08-26.json": "3fba0f2216bf304e74bb03f7dca611a4b3a46974c86aae6d36e27ec47838e4ba",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-09-02.json": "03d9cd1b9f02c14a825dc917f8e21da8db72d4a1b896488356ee7a33d7ac8b94",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-09-09.json": "71df1405f89323e7bc5d9e1131dce61173c534f79a62d65aab66a088263a3428",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-09-19.json": "03c936ce709e6902401db9681b80e709ab0d03956832d8cc24c087e40f8366dd",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-09-23.json": "57cad8b3be73199bb3d0fd9105b3739cfa562ecf0b861d8bf4463b5381bad728",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-09-30.json": "da9f252f2c36767dd549b1b1ca4967fab8f872aa591b2e1b9312366da340b402",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-10-07.json": "8c342cdee8b5cea40997c20eb15df00d4a2e8cd0b5719f19f654e405db1e7a0f",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-10-14.json": "017896e7ac3accfd2b033ae7b93233dc00f65b1a1827cc40331231471037b85d",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-10-21.json": "50a2421fb750719dacda1df1d5399c0226e83000a6ae08633230208893f98760",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-10-28.json": "a87f16341d60ae2963ef753790501d8e5d4cd4ffd59215ab3b2972020be5b2c7",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-11-04.json": "84be6b24ae56bf52b0086512c22b10c3cba5ecb3c6689de07256c1a31b98db17",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-11-11.json": "394bd7c6f53e5a428aadb2431a1fe276f6b313249004601793f29a10aecc80da",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-11-18.json": "ae6505a90fc64e5496254be550f00facd306bbd51e19856793b31c78735df66a",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-11-25.json": "4a9d3f8c1bd6eda1e10b9dc48ad17be4b6f16f82562a1ced9e992b81be1f12e3",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-12-02.json": "e31d9ce5ea1935dc6877028dbd75d1bbc263cc3cf74b56d8d5514ce410721880",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-12-09.json": "2daff8bf2034766d0d9ca0301a2b2770341c617fb99c1e4771beb7cc9de9c728",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-12-16.json": "05edd7f0aadd6420c45724035c66145b11a115e2f691853d9e454c0d07edb9d7",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-12-23.json": "e612259f2bab426a557d857d66feb817258785ab02020df5f2b4f3df6b86f259",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2024-12-30.json": "ff739a2fdd847854482b078cbe734ef1892c0c5f380389245631f666bd52d8b3",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-01-06.json": "111ee718d1b8917ef7ac339d79e651d457e484c6c4d357df9ac5bdb152dcdd1f",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-01-13.json": "3e054b031506495c1d76fdbd53683876508ac41809487e380c61acc872c50c39",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-01-20.json": "53d20ea8f392ac7b52a09a57e5c29617f33e089c79fe317d76a4c9e239d92efe",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-01-31.json": "ce3ae16ea90d3f2476985375373d819cc5bf56c735daeeb1089d01579ea8458d",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-02-03.json": "286a29afaed635b78c510c344ab862182f920b3b56cff3f1bb9a946c2e7529ad",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-02-10.json": "1634e79b347c7610544e5dfe413b2904f02ffe0e8bdf8010f1d22b6f72ca75e7",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-02-17.json": "18ba4b4922f25743023debe9146da2f1ea2db65a5b075467a016851b7dcb0dc6",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-02-24.json": "2edf302121f11432a25dafe416feede32b27f6250a30896108fb27427fb2e1ca",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-03-04.json": "7c1e7313a0ca8471aa86666c6af11aa8079449a2061de86a14f238ce38855168",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-03-10.json": "660fa7d39e0c61ceafe343354da416460291a4e8acb983453e60a5766241bc58",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-03-17.json": "5fd1637cc7b3bbbcecda63b1d6264cebff30d497e194137bcbde18be6ce5367f",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-03-24.json": "01dfbb21375d6cacc854cb1b1bbede67f36d0bc04f4512d246a1030cfc7b2e80",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-03-31.json": "9944bd900f926ac671f4652b7099fbf34345b4521b57ac17d56734fd976a9a25",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-04-07.json": "0e70468bbcbf5ef0787ad65afe900228a90e366a61935265cdcb31b0abde7ac9",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-04-14.json": "8c6fd108fd801c04f4073ae80c2609bc9e6580e84d6befb64440f44fdae48430",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-04-21.json": "cfd44eaee8a6a007a7ccb5349b42e75c9c6095141fc69c45be6741dd072a350d",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-04-28.json": "3c6da89fddef5f79cafbac0123b8eadc5cf803f2e5949296e46b36cc372c4355",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-05-07.json": "a7ed4efb6fbae4399794d5c8f4f721c5cc2d6cad802ddde497e016543fbe24a5",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-05-12.json": "802378d5fd229ddbbac0b7a7efa8038fd16151d26ac9ababf3bcea7b0009b353",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-05-19.json": "09db1aeee89bbd3251f06633c25a573db87185bfc2f11cd54ebaf9e5b1da3b6d",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-05-26.json": "ff6e6e014cbc8a686ce3413ba00f877b7ee30c2b527047365445a2a436652c10",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-06-02.json": "9f171b94982bfe1b7ab1ac768d89fb3744fc9326d441daaad8f4ab4d59945f1a",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-06-09.json": "c8aff2beac55e117b188d9871ecb7dcf401ee6b2deb46be4d477e5f31fd9a525",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-06-16.json": "4d2993aa9d8f087f310ca329251c7f9895239be75b532230c5c1eae066a6b8bb",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-06-23.json": "906625ebf8b2f5ac318e5492ea141b7112c611a339dd27940d7368efbb496418",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-06-30.json": "88d1b5fc14e310e1d6702f2c9f36cb0a7b30b0bdd03f10fcb2e6f71bfa2c9052",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-07-07.json": "989cf6c5e6484b340fac8a08e23c7ddcd3e8831c39ad2c86e279f7a5588d4fd3",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-07-14.json": "ffd9453c5db21dd97c92f09dc2c1f64e05d15ba1d0bb1bbdc92111b673763f9e",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-07-21.json": "c1be11cd17d1f6020ff5171d26e04faf17dea3019b0d1ee265e5ba84b59bfe7d",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-07-28.json": "a98ecab9c3fd3fe877a5e3fe4d64e6295c1abf4695c958bba6af4041322d0b68",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-08-04.json": "c38a5e937238dc1dff1266055ec8d68898c1692968b959ebf6fad407a712e028",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-08-11.json": "44ea4530cfb7c2b04e1b1eb25acae52137db3edd1e76fc9364a94f4e414bad83",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-08-18.json": "1930fccb96123dc7c24536346e0106e492140a9aa256c78e00d74a88686d6a06",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-08-25.json": "a99fc62e39b47c7b68a717aea8276f65542bdca0a5780793d654058e7afe110a",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-09-01.json": "c4fd653511a3a7d50fd59401d6bd8b1ebfc44d3d1205b27508b7c08bcadc47eb",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-09-08.json": "8af724a9b885f628691ff3f0f6472d5b7fbe498a1985f6bfc18a385e3e38c16c",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-09-15.json": "3fee6edc03a3ebb598493288b6fbf142d645f3da3c4291acd0547777f1cc6f80",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-09-22.json": "a91e281869fbe0ec82628006372b1b14cc35b3a06626f0e635b01e4b7d3c387b",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-09-29.json": "fa0d81d219519b1f6b0eec60fc4646622d1cbfe801e7562c14c3a618d4e848e6",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-10-10.json": "56ecb69d6f01f589ab733995b83ab8f7769777871827d01bc318b1106ddcb400",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-10-13.json": "79b1d70e23b5898187581c395dcad409a822f9e6562862df8587243bb63079b5",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-10-20.json": "26ce89f29bfedfe425667ea4b6b2b4fbc7ca0a3202e14dad12b1364b8568dd35",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-10-27.json": "0ea76130e23ad217494092e4288fe6cce56fae9af8365964afc330aba9e4f901",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-11-03.json": "095a03357a55d652e40820a02d6ae2de73541219dbc580da94db50f8286a9b92",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-11-10.json": "1b1fa66dae075f302d17900c67dff57545d8624b63e2d3753768625e60359d17",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-11-17.json": "f24d704c2594783a88df74358fbb342c82b645aa8e862a6184a9d0b9f756b893",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-11-24.json": "6ce3b504a4c3a017513ce66d4dc3adee636721859032f84cf1c34416b5c1d381",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-12-01.json": "c22a8516e71db1af2a6050163d4e2b5d54df8ffba8e08a68afd7f5bb98ea214b",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-12-08.json": "3f2238d2f93955624ee5721ee8d13ad49502cf08e545cdb057f1a848978741a7",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-12-15.json": "57efb4b366666d1ae6d17a1d34b0aece4903ca0243e924bb51dd4cbf95144209",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-12-22.json": "f7ed6382daa9b88e7d6dd218ed937af39c37683e0746dad522990c89f9482642",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\time_weekly\\2025-12-29.json": "7146579e1c643cc721b93f87eb76cb2e516b3f8d93d09d639b9b194db02aa1f7",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\prices_adj_close.csv": "473c0f8c13a5f9ca3378096ff8592ff756fab3f5e26a6d7cdbb57f8084b70373",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\prices_close.csv": "9cf26c518b9c1755704111e2fd03ac3a4a408f9be93011e082b107daf977b8a7",
+    "data\\derived\\analysis\\strategy_lab\\holdout\\prices_open.csv": "051d90c08bc58adafe97e2bcb1214ce43292fb1c75a5f8b0537a4a8597f93466",
+    "data\\derived\\analysis\\strategy_lab\\code\\holdout.py": "4e7805d488f10a396b53424909856334cc2bafaceb120d4f6d55a0541ef5c200",
+    "data\\derived\\analysis\\strategy_lab\\code\\engine.py": "291d040e05b494b73dc4eefec8b7dacd3232035c75aed4a60565385d689a9f11",
+    "data\\derived\\analysis\\strategy_lab\\code\\common.py": "d6b2224d0b377e89e9e806fd013cdf8dfd53d23f7c6ef6b4c856958bec92a67a",
+    "data\\derived\\analysis\\strategy_lab\\code\\data.py": "dd92bd34ff68335f82f43d0682a7bcfd6527ab80255300666687d09f4675f5e2",
+    "data\\derived\\analysis\\strategy_lab\\lab_panels.json": "02c3977cf7b84343d300b0af8c42a1ab03b310a9c9f1adf1584380b580569e86",
+    "data\\derived\\analysis\\strategy_lab\\prices_adj_close.csv": "116fc1c0488c1931ce39924c3d4c5df9ac9c591b0dd29bfab67319452d5bf575",
+    "data\\derived\\analysis\\strategy_lab\\prices_close.csv": "a8c59e82fa5d268ad5cacaf6440318939a6d63e0362ee784cc5531119d86a44e",
+    "data\\derived\\analysis\\strategy_lab\\prices_open.csv": "8dc06d6fdfb4daf00afbac720f97c001557f1fdb2c02a0d4dcd388b339eedf23"
+  },
+  "remaining_limitations": [
+    "Preserves original synthetic adjusted-open, whole-NAV FX, weekly PDF and close-availability assumptions.",
+    "Historical PDF +1-session shift recalculates momentum on delayed date; differs from 2026 feature-row delay.",
+    "ETF investment interval follows original comparison and is not exactly the same open-to-open interval.",
+    "This repairs only the three verified ISIN exclusions and does not certify all historical identifiers or delistings.",
+    "Retrospective diagnostic after both periods were viewed; not proof of prospective performance."
+  ]
+}

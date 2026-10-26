@@ -1,0 +1,282 @@
+{
+ "spikes": {
+  "rule": "시가 튐 |O/앞C|>1% & |C/앞C|<0.5%, 종가 튐 |C/O|>1% & |다음O/O|<0.5%",
+  "bad_open": 7,
+  "bad_close": 4,
+  "by_part": {
+   "pre": 1,
+   "rth": 0,
+   "post": 9
+  },
+  "wick_gt2pct": 157,
+  "wick_by_part": {
+   "pre": 45,
+   "rth": 1,
+   "post": 111
+  },
+  "color_flips_5m": 3,
+  "worst": [
+   [
+    "2026-07-27 16:55:00-04:00",
+    "post",
+    "895.93",
+    "710.22",
+    "0.0",
+    "-23.23",
+    "23.19"
+   ],
+   [
+    "2026-09-04 19:40:00-04:00",
+    "post",
+    "950.5",
+    "1013.62",
+    "-6.37",
+    "6.43",
+    "0.02"
+   ],
+   [
+    "2026-09-18 18:45:00-04:00",
+    "post",
+    "1015.0",
+    "958.39",
+    "0.0",
+    "-5.74",
+    "5.76"
+   ],
+   [
+    "2026-09-09 17:15:00-04:00",
+    "post",
+    "1001.72",
+    "1026.18",
+    "-2.39",
+    "2.41",
+    "0.0"
+   ],
+   [
+    "2026-07-22 16:10:00-04:00",
+    "post",
+    "958.95",
+    "977.88",
+    "0.0",
+    "1.95",
+    "-1.9"
+   ],
+   [
+    "2026-09-24 16:55:00-04:00",
+    "post",
+    "1057.41",
+    "1078.15",
+    "-1.86",
+    "1.94",
+    "0.0"
+   ]
+  ],
+  "color_flips_tf": {
+   "eth5": [
+    3,
+    13049
+   ],
+   "eth40": [
+    1,
+    1635
+   ],
+   "eth70": [
+    1,
+    953
+   ]
+  }
+ },
+ "clean_grid": {
+  "cells": 304128,
+  "secs": 45.1,
+  "changed_cells_sel": 45705,
+  "changed_cells_conf": 95612,
+  "abs_dsel_logpp_med": 0.0,
+  "abs_dsel_logpp_p95": 1.4685470885027279,
+  "abs_dconf_logpp_med": 0.0,
+  "abs_dconf_logpp_p95": 1.468547088502731,
+  "by_sess_ratio": [
+   [
+    "eth",
+    "body",
+    "0.0"
+   ],
+   [
+    "eth",
+    "count",
+    "0.0"
+   ],
+   [
+    "eth",
+    "vol",
+    "0.0"
+   ],
+   [
+    "rth",
+    "body",
+    "0.0"
+   ],
+   [
+    "rth",
+    "count",
+    "0.0"
+   ],
+   [
+    "rth",
+    "vol",
+    "0.0"
+   ]
+  ],
+  "spearman_sel": 0.9946866826097472,
+  "top_raw": [
+   "70",
+   "eth",
+   "15",
+   "vol",
+   "fade",
+   "False",
+   "0.8",
+   "0.2",
+   84.0,
+   81.4
+  ],
+  "top_clean": [
+   "70",
+   "eth",
+   "15",
+   "vol",
+   "fade",
+   "False",
+   "0.8",
+   "0.2",
+   81.4,
+   -5.7
+  ],
+  "top20_conf_median_raw": -5.2,
+  "top20_conf_median_clean": -4.5,
+  "top20_overlap": 20
+ },
+ "zero_volume": {
+  "pre": [
+   4554,
+   4554
+  ],
+  "rth": [
+   0,
+   5382
+  ],
+  "post": [
+   3112,
+   3113
+  ]
+ },
+ "missing_post": {
+  "2026-10-06": 37,
+  "2026-10-07": 1,
+  "2026-10-08": 1,
+  "2026-10-12": 1,
+  "2026-10-13": 1
+ },
+ "missing_pre_days": 0,
+ "missing_rth_days": 0,
+ "eth40_effect": {
+  "days_lt24": {
+   "2026-10-06": 23,
+   "2026-10-07": 19,
+   "2026-10-08": 19,
+   "2026-10-12": 19,
+   "2026-10-13": 19
+  },
+  "partial_bars": [
+   [
+    "2026-10-06",
+    22,
+    5
+   ],
+   [
+    "2026-10-07",
+    18,
+    1
+   ],
+   [
+    "2026-10-08",
+    18,
+    1
+   ],
+   [
+    "2026-10-12",
+    18,
+    1
+   ],
+   [
+    "2026-10-13",
+    18,
+    1
+   ]
+  ],
+  "conf_bars": 771
+ },
+ "missing_post_placebo": {
+  "원안 eth 밤보유": {
+   "base_conf_pct": -9.19,
+   "abs_dconf_logpp_median": 0.69,
+   "abs_dconf_logpp_max": 2.27
+  },
+  "원안 eth dayflat": {
+   "base_conf_pct": -9.88,
+   "abs_dconf_logpp_median": 0.99,
+   "abs_dconf_logpp_max": 2.75
+  },
+  "고르기 1위": {
+   "base_conf_pct": -7.08,
+   "abs_dconf_logpp_median": 0.0,
+   "abs_dconf_logpp_max": 4.03
+  },
+  "body 40 eth N10": {
+   "base_conf_pct": -3.99,
+   "abs_dconf_logpp_median": 2.77,
+   "abs_dconf_logpp_max": 4.33
+  }
+ },
+ "vs_structure_map_40m_rth": {
+  "overlap_bars": 583,
+  "overlap_days": 59,
+  "first": "2026-07-30 09:30:00-04:00",
+  "last": "2026-10-22 10:50:00-04:00",
+  "open_match_1e5": 1.0,
+  "close_match_1e5": 0.9982847341337907,
+  "color_match": 1.0,
+  "color_mismatch": 0,
+  "vol_ratio_median": 1.0,
+  "mismatches": []
+ },
+ "vs_yf_1h_rth": {
+  "overlap_bars": 483,
+  "open_match_1e5": 1.0,
+  "close_match_1e5": 1.0,
+  "color_match": 1.0,
+  "color_mismatch": 0,
+  "vol_ratio_median": 1.0
+ },
+ "vs_old_cache": {
+  "overlap": 11415,
+  "price_diff": 1,
+  "color_flip": 1,
+  "diff_by_part": {
+   "pre": 0,
+   "rth": 0,
+   "post": 1
+  },
+  "flip_by_part": {
+   "pre": 0,
+   "rth": 0,
+   "post": 1
+  },
+  "overlap_days": [
+   "2026-07-17",
+   "2026-10-09"
+  ],
+  "old_only_bars": 0,
+  "new_only_first": "2026-10-12 04:00:00-04:00"
+ }
+}

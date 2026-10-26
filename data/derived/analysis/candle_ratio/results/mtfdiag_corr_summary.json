@@ -1,0 +1,691 @@
+{
+ "check_cov_vs_diag": {
+  "rows": 23194,
+  "n_match": true,
+  "max_abs_diff": 4.7016858295556574e-08
+ },
+ "corr_family": {
+  "real0_sel": {
+   "clean": {
+    "pass_": {
+     "n": 120,
+     "obs": 6,
+     "null_mean": 4.92,
+     "null_q95": 10.149999999999991,
+     "null_max": 13,
+     "p": 0.317
+    },
+    "reverse": {
+     "n": 120,
+     "obs": 22,
+     "null_mean": 4.17,
+     "null_q95": 8.099999999999994,
+     "null_max": 11,
+     "p": 0.024
+    },
+    "mean_z": {
+     "obs": -0.808,
+     "null_med": -0.007,
+     "null_q05": -0.246,
+     "null_q95": 0.31,
+     "p_low": 0.024,
+     "p_high": 1.0,
+     "neg_share": 0.675
+    },
+    "n_stocks_defined": 143
+   },
+   "zgtb": {
+    "pass_": {
+     "n": 102,
+     "obs": 5,
+     "null_mean": 4.15,
+     "null_q95": 9.049999999999997,
+     "null_max": 11,
+     "p": 0.293
+    },
+    "reverse": {
+     "n": 102,
+     "obs": 17,
+     "null_mean": 3.58,
+     "null_q95": 7.1499999999999915,
+     "null_max": 10,
+     "p": 0.024
+    },
+    "mean_z": {
+     "obs": -0.754,
+     "null_med": -0.017,
+     "null_q05": -0.261,
+     "null_q95": 0.3,
+     "p_low": 0.024,
+     "p_high": 1.0,
+     "neg_share": 0.676
+    },
+    "n_stocks_defined": 142
+   },
+   "noext": {
+    "pass_": {
+     "n": 86,
+     "obs": 4,
+     "null_mean": 3.4,
+     "null_q95": 7.0,
+     "null_max": 11,
+     "p": 0.439
+    },
+    "reverse": {
+     "n": 86,
+     "obs": 17,
+     "null_mean": 2.88,
+     "null_q95": 6.1499999999999915,
+     "null_max": 10,
+     "p": 0.024
+    },
+    "mean_z": {
+     "obs": -0.94,
+     "null_med": -0.037,
+     "null_q05": -0.267,
+     "null_q95": 0.351,
+     "p_low": 0.024,
+     "p_high": 1.0,
+     "neg_share": 0.709
+    },
+    "n_stocks_defined": 142
+   },
+   "struct": {
+    "pass_": {
+     "n": 43,
+     "obs": 0,
+     "null_mean": 1.62,
+     "null_q95": 4.049999999999997,
+     "null_max": 6,
+     "p": 1.0
+    },
+    "reverse": {
+     "n": 43,
+     "obs": 22,
+     "null_mean": 1.75,
+     "null_q95": 4.049999999999997,
+     "null_max": 5,
+     "p": 0.024
+    },
+    "mean_z": {
+     "obs": -2.105,
+     "null_med": -0.019,
+     "null_q05": -0.373,
+     "null_q95": 0.394,
+     "p_low": 0.024,
+     "p_high": 1.0,
+     "neg_share": 0.837
+    },
+    "n_stocks_defined": 144
+   }
+  },
+  "real0_conf": {
+   "clean": {
+    "pass_": {
+     "n": 120,
+     "obs": 2,
+     "null_mean": 3.7,
+     "null_q95": 9.049999999999997,
+     "null_max": 12,
+     "p": 0.829
+    },
+    "reverse": {
+     "n": 120,
+     "obs": 23,
+     "null_mean": 3.8,
+     "null_q95": 8.0,
+     "null_max": 10,
+     "p": 0.024
+    },
+    "mean_z": {
+     "obs": -1.038,
+     "null_med": 0.022,
+     "null_q05": -0.433,
+     "null_q95": 0.282,
+     "p_low": 0.024,
+     "p_high": 1.0,
+     "neg_share": 0.742
+    },
+    "n_stocks_defined": 143
+   },
+   "zgtb": {
+    "pass_": {
+     "n": 102,
+     "obs": 2,
+     "null_mean": 3.1,
+     "null_q95": 6.049999999999997,
+     "null_max": 9,
+     "p": 0.756
+    },
+    "reverse": {
+     "n": 102,
+     "obs": 21,
+     "null_mean": 3.2,
+     "null_q95": 6.0,
+     "null_max": 8,
+     "p": 0.024
+    },
+    "mean_z": {
+     "obs": -1.133,
+     "null_med": 0.013,
+     "null_q05": -0.473,
+     "null_q95": 0.303,
+     "p_low": 0.024,
+     "p_high": 1.0,
+     "neg_share": 0.775
+    },
+    "n_stocks_defined": 142
+   },
+   "noext": {
+    "pass_": {
+     "n": 86,
+     "obs": 2,
+     "null_mean": 2.7,
+     "null_q95": 7.099999999999994,
+     "null_max": 11,
+     "p": 0.634
+    },
+    "reverse": {
+     "n": 86,
+     "obs": 19,
+     "null_mean": 2.8,
+     "null_q95": 6.0,
+     "null_max": 7,
+     "p": 0.024
+    },
+    "mean_z": {
+     "obs": -1.185,
+     "null_med": 0.038,
+     "null_q05": -0.372,
+     "null_q95": 0.303,
+     "p_low": 0.024,
+     "p_high": 1.0,
+     "neg_share": 0.744
+    },
+    "n_stocks_defined": 143
+   },
+   "struct": {
+    "pass_": {
+     "n": 43,
+     "obs": 9,
+     "null_mean": 1.18,
+     "null_q95": 3.049999999999997,
+     "null_max": 5,
+     "p": 0.024
+    },
+    "reverse": {
+     "n": 43,
+     "obs": 0,
+     "null_mean": 1.05,
+     "null_q95": 3.0,
+     "null_max": 3,
+     "p": 1.0
+    },
+    "mean_z": {
+     "obs": 1.069,
+     "null_med": -0.011,
+     "null_q05": -0.391,
+     "null_q95": 0.374,
+     "p_low": 1.0,
+     "p_high": 0.024,
+     "neg_share": 0.233
+    },
+    "n_stocks_defined": 144
+   }
+  },
+  "ideal_sel": {
+   "clean": {
+    "pass_": {
+     "n": 120,
+     "obs": 5,
+     "null_mean": 3.58,
+     "null_q95": 7.099999999999994,
+     "null_max": 11,
+     "p": 0.341
+    },
+    "reverse": {
+     "n": 120,
+     "obs": 20,
+     "null_mean": 2.92,
+     "null_q95": 6.0,
+     "null_max": 7,
+     "p": 0.024
+    },
+    "mean_z": {
+     "obs": -0.826,
+     "null_med": -0.022,
+     "null_q05": -0.208,
+     "null_q95": 0.252,
+     "p_low": 0.024,
+     "p_high": 1.0,
+     "neg_share": 0.742
+    },
+    "n_stocks_defined": 144
+   },
+   "zgtb": {
+    "pass_": {
+     "n": 102,
+     "obs": 5,
+     "null_mean": 2.85,
+     "null_q95": 6.0,
+     "null_max": 10,
+     "p": 0.244
+    },
+    "reverse": {
+     "n": 102,
+     "obs": 16,
+     "null_mean": 2.48,
+     "null_q95": 5.049999999999997,
+     "null_max": 6,
+     "p": 0.024
+    },
+    "mean_z": {
+     "obs": -0.741,
+     "null_med": -0.04,
+     "null_q05": -0.226,
+     "null_q95": 0.248,
+     "p_low": 0.024,
+     "p_high": 1.0,
+     "neg_share": 0.725
+    },
+    "n_stocks_defined": 142
+   },
+   "noext": {
+    "pass_": {
+     "n": 86,
+     "obs": 4,
+     "null_mean": 2.83,
+     "null_q95": 7.049999999999997,
+     "null_max": 9,
+     "p": 0.341
+    },
+    "reverse": {
+     "n": 86,
+     "obs": 15,
+     "null_mean": 2.08,
+     "null_q95": 5.0,
+     "null_max": 7,
+     "p": 0.024
+    },
+    "mean_z": {
+     "obs": -1.013,
+     "null_med": -0.023,
+     "null_q05": -0.325,
+     "null_q95": 0.365,
+     "p_low": 0.024,
+     "p_high": 1.0,
+     "neg_share": 0.791
+    },
+    "n_stocks_defined": 142
+   },
+   "struct": {
+    "pass_": {
+     "n": 43,
+     "obs": 0,
+     "null_mean": 1.43,
+     "null_q95": 4.0,
+     "null_max": 6,
+     "p": 1.0
+    },
+    "reverse": {
+     "n": 43,
+     "obs": 25,
+     "null_mean": 1.27,
+     "null_q95": 4.0,
+     "null_max": 7,
+     "p": 0.024
+    },
+    "mean_z": {
+     "obs": -2.746,
+     "null_med": 0.011,
+     "null_q05": -0.413,
+     "null_q95": 0.271,
+     "p_low": 0.024,
+     "p_high": 1.0,
+     "neg_share": 0.953
+    },
+    "n_stocks_defined": 144
+   }
+  },
+  "ideal_conf": {
+   "clean": {
+    "pass_": {
+     "n": 120,
+     "obs": 1,
+     "null_mean": 4.47,
+     "null_q95": 8.099999999999994,
+     "null_max": 12,
+     "p": 0.951
+    },
+    "reverse": {
+     "n": 120,
+     "obs": 22,
+     "null_mean": 4.85,
+     "null_q95": 9.0,
+     "null_max": 9,
+     "p": 0.024
+    },
+    "mean_z": {
+     "obs": -0.772,
+     "null_med": -0.004,
+     "null_q05": -0.37,
+     "null_q95": 0.3,
+     "p_low": 0.024,
+     "p_high": 1.0,
+     "neg_share": 0.683
+    },
+    "n_stocks_defined": 144
+   },
+   "zgtb": {
+    "pass_": {
+     "n": 102,
+     "obs": 1,
+     "null_mean": 3.77,
+     "null_q95": 8.0,
+     "null_max": 9,
+     "p": 0.951
+    },
+    "reverse": {
+     "n": 102,
+     "obs": 20,
+     "null_mean": 4.15,
+     "null_q95": 9.0,
+     "null_max": 9,
+     "p": 0.024
+    },
+    "mean_z": {
+     "obs": -0.828,
+     "null_med": -0.003,
+     "null_q05": -0.496,
+     "null_q95": 0.325,
+     "p_low": 0.024,
+     "p_high": 1.0,
+     "neg_share": 0.706
+    },
+    "n_stocks_defined": 143
+   },
+   "noext": {
+    "pass_": {
+     "n": 86,
+     "obs": 1,
+     "null_mean": 3.17,
+     "null_q95": 6.1499999999999915,
+     "null_max": 12,
+     "p": 0.902
+    },
+    "reverse": {
+     "n": 86,
+     "obs": 17,
+     "null_mean": 3.5,
+     "null_q95": 7.0,
+     "null_max": 8,
+     "p": 0.024
+    },
+    "mean_z": {
+     "obs": -0.881,
+     "null_med": 0.017,
+     "null_q05": -0.357,
+     "null_q95": 0.354,
+     "p_low": 0.024,
+     "p_high": 1.0,
+     "neg_share": 0.663
+    },
+    "n_stocks_defined": 143
+   },
+   "struct": {
+    "pass_": {
+     "n": 43,
+     "obs": 14,
+     "null_mean": 1.35,
+     "null_q95": 3.049999999999997,
+     "null_max": 5,
+     "p": 0.024
+    },
+    "reverse": {
+     "n": 43,
+     "obs": 0,
+     "null_mean": 1.43,
+     "null_q95": 3.0999999999999943,
+     "null_max": 6,
+     "p": 1.0
+    },
+    "mean_z": {
+     "obs": 0.967,
+     "null_med": 0.003,
+     "null_q05": -0.48,
+     "null_q95": 0.513,
+     "p_low": 1.0,
+     "p_high": 0.024,
+     "neg_share": 0.326
+    },
+    "n_stocks_defined": 144
+   }
+  }
+ },
+ "composition": {
+  "real0_sel": {
+   "clean": {
+    "xbar_T": 0.4787,
+    "xbar_T_null": 0.4772,
+    "sd_pos_T": 0.4952,
+    "sd_pos_T_null": 0.4956,
+    "sd_r_T": 0.0119,
+    "sd_r_T_null": 0.0114,
+    "xbar_A": 0.4777,
+    "xbar_A_null": 0.4791,
+    "sd_pos_A": 0.4962,
+    "sd_pos_A_null": 0.4958,
+    "sd_r_A": 0.0113,
+    "sd_r_A_null": 0.0116,
+    "lopsided_T": 0.007,
+    "lopsided_T_null": 0.007,
+    "lopsided_A": 0.0,
+    "lopsided_A_null": 0.007
+   },
+   "zgtb": {
+    "xbar_T": 0.4786,
+    "xbar_T_null": 0.4766,
+    "sd_pos_T": 0.495,
+    "sd_pos_T_null": 0.4954,
+    "sd_r_T": 0.0119,
+    "sd_r_T_null": 0.0113,
+    "xbar_A": 0.4777,
+    "xbar_A_null": 0.4789,
+    "sd_pos_A": 0.4962,
+    "sd_pos_A_null": 0.4958,
+    "sd_r_A": 0.0113,
+    "sd_r_A_null": 0.0115,
+    "lopsided_T": 0.007,
+    "lopsided_T_null": 0.007,
+    "lopsided_A": 0.0,
+    "lopsided_A_null": 0.007
+   },
+   "struct": {
+    "xbar_T": 0.4653,
+    "xbar_T_null": 0.4789,
+    "sd_pos_T": 0.4937,
+    "sd_pos_T_null": 0.4969,
+    "sd_r_T": 0.0119,
+    "sd_r_T_null": 0.0118,
+    "xbar_A": 0.5043,
+    "xbar_A_null": 0.4783,
+    "sd_pos_A": 0.4949,
+    "sd_pos_A_null": 0.4966,
+    "sd_r_A": 0.0117,
+    "sd_r_A_null": 0.0117,
+    "lopsided_T": 0.007,
+    "lopsided_T_null": 0.0,
+    "lopsided_A": 0.0,
+    "lopsided_A_null": 0.0
+   }
+  },
+  "real0_conf": {
+   "clean": {
+    "xbar_T": 0.4726,
+    "xbar_T_null": 0.4789,
+    "sd_pos_T": 0.494,
+    "sd_pos_T_null": 0.4948,
+    "sd_r_T": 0.01,
+    "sd_r_T_null": 0.0098,
+    "xbar_A": 0.4821,
+    "xbar_A_null": 0.4774,
+    "sd_pos_A": 0.4951,
+    "sd_pos_A_null": 0.4948,
+    "sd_r_A": 0.0097,
+    "sd_r_A_null": 0.0098,
+    "lopsided_T": 0.017,
+    "lopsided_T_null": 0.014,
+    "lopsided_A": 0.007,
+    "lopsided_A_null": 0.014
+   },
+   "zgtb": {
+    "xbar_T": 0.4726,
+    "xbar_T_null": 0.4791,
+    "sd_pos_T": 0.4939,
+    "sd_pos_T_null": 0.4946,
+    "sd_r_T": 0.01,
+    "sd_r_T_null": 0.0098,
+    "xbar_A": 0.4818,
+    "xbar_A_null": 0.4767,
+    "sd_pos_A": 0.4953,
+    "sd_pos_A_null": 0.4948,
+    "sd_r_A": 0.0097,
+    "sd_r_A_null": 0.0098,
+    "lopsided_T": 0.021,
+    "lopsided_T_null": 0.017,
+    "lopsided_A": 0.007,
+    "lopsided_A_null": 0.014
+   },
+   "struct": {
+    "xbar_T": 0.4727,
+    "xbar_T_null": 0.4787,
+    "sd_pos_T": 0.4904,
+    "sd_pos_T_null": 0.4966,
+    "sd_r_T": 0.01,
+    "sd_r_T_null": 0.0099,
+    "xbar_A": 0.4832,
+    "xbar_A_null": 0.4784,
+    "sd_pos_A": 0.4947,
+    "sd_pos_A_null": 0.4961,
+    "sd_r_A": 0.0098,
+    "sd_r_A_null": 0.0098,
+    "lopsided_T": 0.014,
+    "lopsided_T_null": 0.0,
+    "lopsided_A": 0.007,
+    "lopsided_A_null": 0.0
+   }
+  },
+  "ideal_sel": {
+   "clean": {
+    "xbar_T": 0.4887,
+    "xbar_T_null": 0.4875,
+    "sd_pos_T": 0.4965,
+    "sd_pos_T_null": 0.4967,
+    "sd_r_T": 0.0119,
+    "sd_r_T_null": 0.0114,
+    "xbar_A": 0.4854,
+    "xbar_A_null": 0.4876,
+    "sd_pos_A": 0.497,
+    "sd_pos_A_null": 0.497,
+    "sd_r_A": 0.0113,
+    "sd_r_A_null": 0.0116,
+    "lopsided_T": 0.007,
+    "lopsided_T_null": 0.0,
+    "lopsided_A": 0.0,
+    "lopsided_A_null": 0.0
+   },
+   "zgtb": {
+    "xbar_T": 0.4886,
+    "xbar_T_null": 0.4873,
+    "sd_pos_T": 0.4963,
+    "sd_pos_T_null": 0.4966,
+    "sd_r_T": 0.0119,
+    "sd_r_T_null": 0.0113,
+    "xbar_A": 0.486,
+    "xbar_A_null": 0.4876,
+    "sd_pos_A": 0.4972,
+    "sd_pos_A_null": 0.497,
+    "sd_r_A": 0.0113,
+    "sd_r_A_null": 0.0115,
+    "lopsided_T": 0.007,
+    "lopsided_T_null": 0.007,
+    "lopsided_A": 0.0,
+    "lopsided_A_null": 0.0
+   },
+   "struct": {
+    "xbar_T": 0.4709,
+    "xbar_T_null": 0.4877,
+    "sd_pos_T": 0.4934,
+    "sd_pos_T_null": 0.4977,
+    "sd_r_T": 0.0119,
+    "sd_r_T_null": 0.0118,
+    "xbar_A": 0.509,
+    "xbar_A_null": 0.4879,
+    "sd_pos_A": 0.4937,
+    "sd_pos_A_null": 0.4974,
+    "sd_r_A": 0.0117,
+    "sd_r_A_null": 0.0117,
+    "lopsided_T": 0.014,
+    "lopsided_T_null": 0.0,
+    "lopsided_A": 0.0,
+    "lopsided_A_null": 0.0
+   }
+  },
+  "ideal_conf": {
+   "clean": {
+    "xbar_T": 0.4747,
+    "xbar_T_null": 0.4816,
+    "sd_pos_T": 0.4955,
+    "sd_pos_T_null": 0.4958,
+    "sd_r_T": 0.01,
+    "sd_r_T_null": 0.0098,
+    "xbar_A": 0.4868,
+    "xbar_A_null": 0.4802,
+    "sd_pos_A": 0.4963,
+    "sd_pos_A_null": 0.4958,
+    "sd_r_A": 0.0097,
+    "sd_r_A_null": 0.0098,
+    "lopsided_T": 0.007,
+    "lopsided_T_null": 0.007,
+    "lopsided_A": 0.0,
+    "lopsided_A_null": 0.007
+   },
+   "zgtb": {
+    "xbar_T": 0.4753,
+    "xbar_T_null": 0.482,
+    "sd_pos_T": 0.4955,
+    "sd_pos_T_null": 0.4957,
+    "sd_r_T": 0.01,
+    "sd_r_T_null": 0.0098,
+    "xbar_A": 0.4862,
+    "xbar_A_null": 0.4796,
+    "sd_pos_A": 0.4964,
+    "sd_pos_A_null": 0.4958,
+    "sd_r_A": 0.0097,
+    "sd_r_A_null": 0.0098,
+    "lopsided_T": 0.014,
+    "lopsided_T_null": 0.007,
+    "lopsided_A": 0.0,
+    "lopsided_A_null": 0.007
+   },
+   "struct": {
+    "xbar_T": 0.4718,
+    "xbar_T_null": 0.4814,
+    "sd_pos_T": 0.4869,
+    "sd_pos_T_null": 0.4971,
+    "sd_r_T": 0.01,
+    "sd_r_T_null": 0.0099,
+    "xbar_A": 0.4913,
+    "xbar_A_null": 0.4813,
+    "sd_pos_A": 0.4925,
+    "sd_pos_A_null": 0.4966,
+    "sd_r_A": 0.0098,
+    "sd_r_A_null": 0.0098,
+    "lopsided_T": 0.035,
+    "lopsided_T_null": 0.0,
+    "lopsided_A": 0.021,
+    "lopsided_A_null": 0.0
+   }
+  }
+ }
+}

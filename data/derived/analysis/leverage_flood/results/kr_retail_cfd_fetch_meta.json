@@ -1,0 +1,25 @@
+{
+  "source": "https://freesis.kofia.or.kr/meta/getMetaDataList.do",
+  "fetched_at": "2026-10-14T14:05:25",
+  "start": "20240601",
+  "end": "20261014",
+  "unit": "억원(백만원/100)",
+  "tables": {
+    "STATDRV0100000320": {
+      "file": "kr_retail_cfd_gross_long.csv",
+      "rows": 573,
+      "first": "2024-06-03",
+      "last": "2026-10-13",
+      "overlap_rows": 332,
+      "overlap_max_abs_diff_cfd_total": 0.0
+    },
+    "STATDRV0100000310": {
+      "file": "kr_retail_cfd_net_of_margin_long.csv",
+      "rows": 573,
+      "first": "2024-06-03",
+      "last": "2026-10-13",
+      "overlap_rows": 332,
+      "overlap_max_abs_diff_cfd_total": 0.0
+    }
+  }
+}

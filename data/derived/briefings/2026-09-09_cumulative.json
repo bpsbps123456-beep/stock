@@ -1,0 +1,2859 @@
+{
+  "start": "2026-09-04",
+  "end": "2026-09-09",
+  "generated_at": "2026-09-09T20:15:30.529364+09:00",
+  "span_sessions": [
+    "2026-09-07",
+    "2026-09-08",
+    "2026-09-09"
+  ],
+  "observed_snapshot_dates": [
+    "2026-09-07",
+    "2026-09-08",
+    "2026-09-09"
+  ],
+  "missing_snapshot_dates": [],
+  "horizons": {
+    "1": {
+      "price_base": "2026-09-08",
+      "snapshot_base": "2026-09-08",
+      "snapshot_fallback": false
+    },
+    "3": {
+      "price_base": "2026-09-04",
+      "snapshot_base": "2026-09-04",
+      "snapshot_fallback": false
+    },
+    "5": {
+      "price_base": "2026-09-02",
+      "snapshot_base": "2026-09-02",
+      "snapshot_fallback": false
+    },
+    "20": {
+      "price_base": "2026-08-11",
+      "snapshot_base": "2026-08-11",
+      "snapshot_fallback": false
+    }
+  },
+  "performance": [
+    {
+      "period": "D-1",
+      "base": "2026-09-08",
+      "time_return": 0.541201117318435,
+      "koact_return": 0.5518763796909409,
+      "gap_pp": -0.010675262372505934,
+      "winner": "KoAct"
+    },
+    {
+      "period": "D-3",
+      "base": "2026-09-04",
+      "time_return": 0.6906198094239091,
+      "koact_return": 1.4194266629557584,
+      "gap_pp": -0.7288068535318493,
+      "winner": "KoAct"
+    },
+    {
+      "period": "D-5",
+      "base": "2026-09-02",
+      "time_return": 3.2263846567485155,
+      "koact_return": 4.08454727220795,
+      "gap_pp": -0.8581626154594346,
+      "winner": "KoAct"
+    },
+    {
+      "period": "D-20",
+      "base": "2026-08-11",
+      "time_return": -0.9800550206327419,
+      "koact_return": -4.980443285528036,
+      "gap_pp": 4.000388264895294,
+      "winner": "TIME"
+    },
+    {
+      "period": "누적 3거래일",
+      "base": "2026-09-04",
+      "time_return": 0.6906198094239091,
+      "koact_return": 1.4194266629557584,
+      "gap_pp": -0.7288068535318493,
+      "winner": "KoAct"
+    }
+  ],
+  "intraday_price_warning": null,
+  "funds": {
+    "time": {
+      "holdings_count": 43,
+      "cash_regime": [
+        "중립/혼조",
+        "연속 방향성 없음 (최근 현금 2.07%)"
+      ],
+      "cash_series": [
+        [
+          "2026-09-04",
+          2.15862915
+        ],
+        [
+          "2026-09-07",
+          2.0811171
+        ],
+        [
+          "2026-09-08",
+          2.09525856
+        ],
+        [
+          "2026-09-09",
+          2.06885224
+        ]
+      ],
+      "top5_start": 21.19708083,
+      "top5_current": 22.29191788,
+      "sectors": {
+        "엔터프라이즈 SW": {
+          "start": 18.378121269999998,
+          "current": 18.135308969999997,
+          "delta": -0.24281230000000065
+        },
+        "전자부품/AI 하드웨어": {
+          "start": 4.5404049,
+          "current": 4.649907649999999,
+          "delta": 0.10950274999999898
+        },
+        "중국 AI/플랫폼": {
+          "start": 9.580190009999999,
+          "current": 9.087105489999999,
+          "delta": -0.49308452
+        },
+        "반도체 장비": {
+          "start": 1.63861461,
+          "current": 1.59830582,
+          "delta": -0.040308790000000094
+        },
+        "지수선물": {
+          "start": 4.2642527,
+          "current": 4.13331935,
+          "delta": -0.13093335000000028
+        },
+        "반도체(적자)": {
+          "start": 3.14665403,
+          "current": 3.20319635,
+          "delta": 0.0565423199999997
+        },
+        "전기차/자율주행": {
+          "start": 1.95603349,
+          "current": 1.85630815,
+          "delta": -0.09972534
+        },
+        "네트워크/광통신": {
+          "start": 6.88060783,
+          "current": 6.85548897,
+          "delta": -0.025118860000000076
+        },
+        "빅테크": {
+          "start": 7.80725758,
+          "current": 7.59924922,
+          "delta": -0.20800836
+        },
+        "이커머스/플랫폼": {
+          "start": 2.79889894,
+          "current": 2.6269656,
+          "delta": -0.17193333999999982
+        },
+        "AI 반도체": {
+          "start": 9.993417049999998,
+          "current": 9.899671529999999,
+          "delta": -0.0937455199999988
+        },
+        "핀테크/디지털자산": {
+          "start": 5.63721088,
+          "current": 6.008516,
+          "delta": 0.3713051200000006
+        },
+        "AI 인프라": {
+          "start": 2.0974569,
+          "current": 2.1372312,
+          "delta": 0.03977429999999993
+        },
+        "메모리": {
+          "start": 19.12225067,
+          "current": 20.140573449999998,
+          "delta": 1.0183227799999983
+        }
+      },
+      "cumulative_changes": {
+        "increased": [
+          {
+            "code": "285A JP EQUITY",
+            "name": "Kioxia Holdings Corp",
+            "prev": 3.7926278,
+            "curr": 4.32942665,
+            "delta": 0.5367988500000003,
+            "relative_pct": 14.15374453564888
+          },
+          {
+            "code": "SNDK US EQUITY",
+            "name": "Sandisk Corp",
+            "prev": 5.10658369,
+            "curr": 5.47329904,
+            "delta": 0.3667153499999998,
+            "relative_pct": 7.181226672503624
+          },
+          {
+            "code": "MSTR US EQUITY",
+            "name": "Strategy Inc",
+            "prev": 2.21983427,
+            "curr": 2.46221559,
+            "delta": 0.2423813199999998,
+            "relative_pct": 10.918892607239536
+          },
+          {
+            "code": "SNOW US EQUITY",
+            "name": "Snowflake Inc",
+            "prev": 3.83543743,
+            "curr": 4.0460868,
+            "delta": 0.2106493700000005,
+            "relative_pct": 5.492186324103337
+          },
+          {
+            "code": "6981 JP EQUITY",
+            "name": "Murata Manufacturing Co Ltd",
+            "prev": 2.00482521,
+            "curr": 2.15898611,
+            "delta": 0.15416089999999993,
+            "relative_pct": 7.689493290040978
+          },
+          {
+            "code": "SKHY US EQUITY",
+            "name": "SK hynix Inc",
+            "prev": 4.19817921,
+            "curr": 4.30978604,
+            "delta": 0.11160682999999949,
+            "relative_pct": 2.6584579746894486
+          },
+          {
+            "code": "HOOD US EQUITY",
+            "name": "Robinhood Markets Inc",
+            "prev": 1.15935539,
+            "curr": 1.26612737,
+            "delta": 0.10677197999999999,
+            "relative_pct": 9.209598792653216
+          }
+        ],
+        "decreased": [
+          {
+            "code": "2513 HK EQUITY",
+            "name": "Z AI Co Ltd",
+            "prev": 2.08126002,
+            "curr": 1.81516916,
+            "delta": -0.26609086000000026,
+            "relative_pct": -12.785084873729533
+          },
+          {
+            "code": "NQU6 INDEX",
+            "name": "NASDAQ 100 E-MINI INDEX SEPT 2026",
+            "prev": 4.2642527,
+            "curr": 4.13331935,
+            "delta": -0.13093335000000028,
+            "relative_pct": -3.0704875909441363
+          },
+          {
+            "code": "CRM US EQUITY",
+            "name": "Salesforce Inc",
+            "prev": 3.47233155,
+            "curr": 3.35231173,
+            "delta": -0.12001982,
+            "relative_pct": -3.4564619844553732
+          },
+          {
+            "code": "MELI US EQUITY",
+            "name": "MercadoLibre Inc",
+            "prev": 1.95447378,
+            "curr": 1.84387493,
+            "delta": -0.11059885000000014,
+            "relative_pct": -5.658753324385868
+          },
+          {
+            "code": "GOOG US EQUITY",
+            "name": "Alphabet Inc",
+            "prev": 2.72281731,
+            "curr": 2.6173239,
+            "delta": -0.10549340999999979,
+            "relative_pct": -3.8744211597508826
+          },
+          {
+            "code": "ACN US EQUITY",
+            "name": "Accenture PLC",
+            "prev": 2.12512426,
+            "curr": 2.02306552,
+            "delta": -0.10205874000000037,
+            "relative_pct": -4.802483408664318
+          }
+        ],
+        "new_in": [],
+        "new_out": [],
+        "prev_date": "2026-09-04",
+        "curr_date": "2026-09-09"
+      },
+      "horizon_changes": {
+        "1": {
+          "increased": [
+            {
+              "code": "285A JP EQUITY",
+              "name": "Kioxia Holdings Corp",
+              "prev": 3.92677088,
+              "curr": 4.32942665,
+              "delta": 0.4026557700000004,
+              "relative_pct": 10.254119282864817
+            },
+            {
+              "code": "6981 JP EQUITY",
+              "name": "Murata Manufacturing Co Ltd",
+              "prev": 2.01998233,
+              "curr": 2.15898611,
+              "delta": 0.1390037799999999,
+              "relative_pct": 6.881435443051618
+            }
+          ],
+          "decreased": [
+            {
+              "code": "009150",
+              "name": "삼성전기",
+              "prev": 2.66426998,
+              "curr": 2.49092154,
+              "delta": -0.17334843999999983,
+              "relative_pct": -6.5064141885500595
+            },
+            {
+              "code": "2513 HK EQUITY",
+              "name": "Z AI Co Ltd",
+              "prev": 1.92466413,
+              "curr": 1.81516916,
+              "delta": -0.10949497000000008,
+              "relative_pct": -5.689043002011997
+            }
+          ],
+          "new_in": [],
+          "new_out": [],
+          "prev_date": "2026-09-08",
+          "curr_date": "2026-09-09"
+        },
+        "3": {
+          "increased": [
+            {
+              "code": "285A JP EQUITY",
+              "name": "Kioxia Holdings Corp",
+              "prev": 3.7926278,
+              "curr": 4.32942665,
+              "delta": 0.5367988500000003,
+              "relative_pct": 14.15374453564888
+            },
+            {
+              "code": "SNDK US EQUITY",
+              "name": "Sandisk Corp",
+              "prev": 5.10658369,
+              "curr": 5.47329904,
+              "delta": 0.3667153499999998,
+              "relative_pct": 7.181226672503624
+            },
+            {
+              "code": "MSTR US EQUITY",
+              "name": "Strategy Inc",
+              "prev": 2.21983427,
+              "curr": 2.46221559,
+              "delta": 0.2423813199999998,
+              "relative_pct": 10.918892607239536
+            },
+            {
+              "code": "SNOW US EQUITY",
+              "name": "Snowflake Inc",
+              "prev": 3.83543743,
+              "curr": 4.0460868,
+              "delta": 0.2106493700000005,
+              "relative_pct": 5.492186324103337
+            },
+            {
+              "code": "6981 JP EQUITY",
+              "name": "Murata Manufacturing Co Ltd",
+              "prev": 2.00482521,
+              "curr": 2.15898611,
+              "delta": 0.15416089999999993,
+              "relative_pct": 7.689493290040978
+            },
+            {
+              "code": "SKHY US EQUITY",
+              "name": "SK hynix Inc",
+              "prev": 4.19817921,
+              "curr": 4.30978604,
+              "delta": 0.11160682999999949,
+              "relative_pct": 2.6584579746894486
+            },
+            {
+              "code": "HOOD US EQUITY",
+              "name": "Robinhood Markets Inc",
+              "prev": 1.15935539,
+              "curr": 1.26612737,
+              "delta": 0.10677197999999999,
+              "relative_pct": 9.209598792653216
+            }
+          ],
+          "decreased": [
+            {
+              "code": "2513 HK EQUITY",
+              "name": "Z AI Co Ltd",
+              "prev": 2.08126002,
+              "curr": 1.81516916,
+              "delta": -0.26609086000000026,
+              "relative_pct": -12.785084873729533
+            },
+            {
+              "code": "NQU6 INDEX",
+              "name": "NASDAQ 100 E-MINI INDEX SEPT 2026",
+              "prev": 4.2642527,
+              "curr": 4.13331935,
+              "delta": -0.13093335000000028,
+              "relative_pct": -3.0704875909441363
+            },
+            {
+              "code": "CRM US EQUITY",
+              "name": "Salesforce Inc",
+              "prev": 3.47233155,
+              "curr": 3.35231173,
+              "delta": -0.12001982,
+              "relative_pct": -3.4564619844553732
+            },
+            {
+              "code": "MELI US EQUITY",
+              "name": "MercadoLibre Inc",
+              "prev": 1.95447378,
+              "curr": 1.84387493,
+              "delta": -0.11059885000000014,
+              "relative_pct": -5.658753324385868
+            },
+            {
+              "code": "GOOG US EQUITY",
+              "name": "Alphabet Inc",
+              "prev": 2.72281731,
+              "curr": 2.6173239,
+              "delta": -0.10549340999999979,
+              "relative_pct": -3.8744211597508826
+            },
+            {
+              "code": "ACN US EQUITY",
+              "name": "Accenture PLC",
+              "prev": 2.12512426,
+              "curr": 2.02306552,
+              "delta": -0.10205874000000037,
+              "relative_pct": -4.802483408664318
+            }
+          ],
+          "new_in": [],
+          "new_out": [],
+          "prev_date": "2026-09-04",
+          "curr_date": "2026-09-09"
+        },
+        "5": {
+          "increased": [
+            {
+              "code": "TSLA US EQUITY",
+              "name": "Tesla Inc",
+              "prev": 0.96836111,
+              "curr": 1.85630815,
+              "delta": 0.88794704,
+              "relative_pct": 91.69585920277198
+            },
+            {
+              "code": "285A JP EQUITY",
+              "name": "Kioxia Holdings Corp",
+              "prev": 3.58873507,
+              "curr": 4.32942665,
+              "delta": 0.7406915800000005,
+              "relative_pct": 20.639349674814543
+            },
+            {
+              "code": "SNDK US EQUITY",
+              "name": "Sandisk Corp",
+              "prev": 5.06029104,
+              "curr": 5.47329904,
+              "delta": 0.4130079999999996,
+              "relative_pct": 8.161743993286198
+            },
+            {
+              "code": "DELL US EQUITY",
+              "name": "Dell Technologies Inc",
+              "prev": 1.90927413,
+              "curr": 2.1372312,
+              "delta": 0.22795706999999998,
+              "relative_pct": 11.939462564236388
+            },
+            {
+              "code": "SKHY US EQUITY",
+              "name": "SK hynix Inc",
+              "prev": 4.09511664,
+              "curr": 4.30978604,
+              "delta": 0.2146694,
+              "relative_pct": 5.242082677283644
+            },
+            {
+              "code": "HOOD US EQUITY",
+              "name": "Robinhood Markets Inc",
+              "prev": 1.1033448,
+              "curr": 1.26612737,
+              "delta": 0.16278257000000007,
+              "relative_pct": 14.753553920768928
+            },
+            {
+              "code": "6981 JP EQUITY",
+              "name": "Murata Manufacturing Co Ltd",
+              "prev": 2.01116598,
+              "curr": 2.15898611,
+              "delta": 0.14782012999999994,
+              "relative_pct": 7.349971681601334
+            },
+            {
+              "code": "INTC US EQUITY",
+              "name": "Intel Corp",
+              "prev": 3.06241102,
+              "curr": 3.20319635,
+              "delta": 0.14078532999999993,
+              "relative_pct": 4.597205570400538
+            },
+            {
+              "code": "MSTR US EQUITY",
+              "name": "Strategy Inc",
+              "prev": 2.35365754,
+              "curr": 2.46221559,
+              "delta": 0.10855805000000007,
+              "relative_pct": 4.6123128855865785
+            }
+          ],
+          "decreased": [
+            {
+              "code": "GOOG US EQUITY",
+              "name": "Alphabet Inc",
+              "prev": 3.16977901,
+              "curr": 2.6173239,
+              "delta": -0.5524551099999999,
+              "relative_pct": -17.428821007935184
+            },
+            {
+              "code": "AMD US EQUITY",
+              "name": "Advanced Micro Devices Inc",
+              "prev": 3.26600259,
+              "curr": 2.72627258,
+              "delta": -0.53973001,
+              "relative_pct": -16.525706735584677
+            },
+            {
+              "code": "STX US EQUITY",
+              "name": "Seagate Technology Holdings PLC",
+              "prev": 3.36925909,
+              "curr": 2.86936005,
+              "delta": -0.49989903999999985,
+              "relative_pct": -14.83706140271925
+            },
+            {
+              "code": "2513 HK EQUITY",
+              "name": "Z AI Co Ltd",
+              "prev": 2.17012386,
+              "curr": 1.81516916,
+              "delta": -0.35495469999999996,
+              "relative_pct": -16.35642584935221
+            },
+            {
+              "code": "NOW US EQUITY",
+              "name": "ServiceNow Inc",
+              "prev": 2.97418198,
+              "curr": 2.78126307,
+              "delta": -0.19291890999999994,
+              "relative_pct": -6.486452789280901
+            },
+            {
+              "code": "SAP US EQUITY",
+              "name": "SAP SE",
+              "prev": 2.7481174,
+              "curr": 2.60633415,
+              "delta": -0.14178325000000003,
+              "relative_pct": -5.15928649918668
+            },
+            {
+              "code": "LITE US EQUITY",
+              "name": "Lumentum Holdings Inc",
+              "prev": 2.18858315,
+              "curr": 2.05337251,
+              "delta": -0.13521063999999994,
+              "relative_pct": -6.177998766005301
+            },
+            {
+              "code": "009150",
+              "name": "삼성전기",
+              "prev": 2.62140349,
+              "curr": 2.49092154,
+              "delta": -0.13048195000000007,
+              "relative_pct": -4.977560703560369
+            },
+            {
+              "code": "0043Y0",
+              "name": "TIME 차이나AI테크액티브",
+              "prev": 2.79435982,
+              "curr": 2.67619822,
+              "delta": -0.11816160000000009,
+              "relative_pct": -4.228574972853714
+            },
+            {
+              "code": "COIN US EQUITY",
+              "name": "Coinbase Global Inc",
+              "prev": 2.38543021,
+              "curr": 2.28017304,
+              "delta": -0.10525716999999979,
+              "relative_pct": -4.412502598430653
+            },
+            {
+              "code": "NQU6 INDEX",
+              "name": "NASDAQ 100 E-MINI INDEX SEPT 2026",
+              "prev": 4.23662957,
+              "curr": 4.13331935,
+              "delta": -0.10331022000000001,
+              "relative_pct": -2.438500187308092
+            }
+          ],
+          "new_in": [],
+          "new_out": [],
+          "prev_date": "2026-09-02",
+          "curr_date": "2026-09-09"
+        },
+        "20": {
+          "increased": [
+            {
+              "code": "SKHY US EQUITY",
+              "name": "SK hynix Inc",
+              "prev": 2.49273848,
+              "curr": 4.30978604,
+              "delta": 1.8170475599999998,
+              "relative_pct": 72.89362982032515
+            },
+            {
+              "code": "CRM US EQUITY",
+              "name": "Salesforce Inc",
+              "prev": 1.77697012,
+              "curr": 3.35231173,
+              "delta": 1.5753416099999997,
+              "relative_pct": 88.65324139496502
+            },
+            {
+              "code": "SAP US EQUITY",
+              "name": "SAP SE",
+              "prev": 1.15042127,
+              "curr": 2.60633415,
+              "delta": 1.4559128799999999,
+              "relative_pct": 126.55476024013359
+            },
+            {
+              "code": "COIN US EQUITY",
+              "name": "Coinbase Global Inc",
+              "prev": 1.04345547,
+              "curr": 2.28017304,
+              "delta": 1.2367175700000002,
+              "relative_pct": 118.52135577956193
+            },
+            {
+              "code": "SNDK US EQUITY",
+              "name": "Sandisk Corp",
+              "prev": 4.26452387,
+              "curr": 5.47329904,
+              "delta": 1.20877517,
+              "relative_pct": 28.344903366668227
+            },
+            {
+              "code": "DELL US EQUITY",
+              "name": "Dell Technologies Inc",
+              "prev": 0.93579212,
+              "curr": 2.1372312,
+              "delta": 1.20143908,
+              "relative_pct": 128.3873901395964
+            },
+            {
+              "code": "NOW US EQUITY",
+              "name": "ServiceNow Inc",
+              "prev": 1.63610558,
+              "curr": 2.78126307,
+              "delta": 1.1451574900000001,
+              "relative_pct": 69.99288456677716
+            },
+            {
+              "code": "MSTR US EQUITY",
+              "name": "Strategy Inc",
+              "prev": 1.4073305,
+              "curr": 2.46221559,
+              "delta": 1.05488509,
+              "relative_pct": 74.95645763379675
+            },
+            {
+              "code": "SNOW US EQUITY",
+              "name": "Snowflake Inc",
+              "prev": 3.04695896,
+              "curr": 4.0460868,
+              "delta": 0.9991278400000003,
+              "relative_pct": 32.790984490319495
+            },
+            {
+              "code": "LITE US EQUITY",
+              "name": "Lumentum Holdings Inc",
+              "prev": 1.18784649,
+              "curr": 2.05337251,
+              "delta": 0.8655260199999999,
+              "relative_pct": 72.86514101666452
+            },
+            {
+              "code": "100 HK EQUITY",
+              "name": "Minimax Group Inc",
+              "prev": 0.9993318,
+              "curr": 1.52205557,
+              "delta": 0.52272377,
+              "relative_pct": 52.307328757075474
+            },
+            {
+              "code": "ACN US EQUITY",
+              "name": "Accenture PLC",
+              "prev": 1.5134714,
+              "curr": 2.02306552,
+              "delta": 0.5095941199999998,
+              "relative_pct": 33.67054838300875
+            }
+          ],
+          "decreased": [
+            {
+              "code": "AMD US EQUITY",
+              "name": "Advanced Micro Devices Inc",
+              "prev": 5.10134443,
+              "curr": 2.72627258,
+              "delta": -2.3750718500000003,
+              "relative_pct": -46.557763009152474
+            },
+            {
+              "code": "STX US EQUITY",
+              "name": "Seagate Technology Holdings PLC",
+              "prev": 4.73258307,
+              "curr": 2.86936005,
+              "delta": -1.8632230199999995,
+              "relative_pct": -39.370107031211596
+            },
+            {
+              "code": "AMZN US EQUITY",
+              "name": "Amazon.com Inc",
+              "prev": 4.52839496,
+              "curr": 3.04182957,
+              "delta": -1.48656539,
+              "relative_pct": -32.82764430070826
+            },
+            {
+              "code": "BABA US EQUITY",
+              "name": "Alibaba Group Holding Ltd",
+              "prev": 3.69183158,
+              "curr": 2.26915653,
+              "delta": -1.42267505,
+              "relative_pct": -38.53575167694947
+            },
+            {
+              "code": "GOOG US EQUITY",
+              "name": "Alphabet Inc",
+              "prev": 3.8591331,
+              "curr": 2.6173239,
+              "delta": -1.2418092,
+              "relative_pct": -32.17844961087245
+            },
+            {
+              "code": "285A JP EQUITY",
+              "name": "Kioxia Holdings Corp",
+              "prev": 5.48289965,
+              "curr": 4.32942665,
+              "delta": -1.153473,
+              "relative_pct": -21.037645655251048
+            },
+            {
+              "code": "INTC US EQUITY",
+              "name": "Intel Corp",
+              "prev": 4.01994093,
+              "curr": 3.20319635,
+              "delta": -0.8167445799999999,
+              "relative_pct": -20.31732789665643
+            },
+            {
+              "code": "WDC US EQUITY",
+              "name": "Western Digital Corp",
+              "prev": 3.95135258,
+              "curr": 3.15870167,
+              "delta": -0.7926509099999999,
+              "relative_pct": -20.060242510679718
+            },
+            {
+              "code": "PDD US EQUITY",
+              "name": "PDD Holdings Inc",
+              "prev": 1.42481363,
+              "curr": 0.80452601,
+              "delta": -0.62028762,
+              "relative_pct": -43.53464951061705
+            },
+            {
+              "code": "AAOI US EQUITY",
+              "name": "Applied Optoelectronics Inc",
+              "prev": 2.41862082,
+              "curr": 1.85647473,
+              "delta": -0.5621460900000002,
+              "relative_pct": -23.24242334108412
+            },
+            {
+              "code": "ASML US EQUITY",
+              "name": "ASML Holding NV",
+              "prev": 2.11198566,
+              "curr": 1.59830582,
+              "delta": -0.5136798400000002,
+              "relative_pct": -24.32212726292849
+            },
+            {
+              "code": "6981 JP EQUITY",
+              "name": "Murata Manufacturing Co Ltd",
+              "prev": 2.54190807,
+              "curr": 2.15898611,
+              "delta": -0.38292196,
+              "relative_pct": -15.064351245401255
+            },
+            {
+              "code": "ARM US EQUITY",
+              "name": "ARM Holdings PLC",
+              "prev": 1.85103441,
+              "curr": 1.61530469,
+              "delta": -0.23572971999999992,
+              "relative_pct": -12.735026357505689
+            },
+            {
+              "code": "009150",
+              "name": "삼성전기",
+              "prev": 2.72398935,
+              "curr": 2.49092154,
+              "delta": -0.2330678100000001,
+              "relative_pct": -8.55612045619782
+            },
+            {
+              "code": "0043Y0",
+              "name": "TIME 차이나AI테크액티브",
+              "prev": 2.83260426,
+              "curr": 2.67619822,
+              "delta": -0.15640604000000025,
+              "relative_pct": -5.521634003332334
+            }
+          ],
+          "new_in": [
+            {
+              "code": "NQU6 INDEX",
+              "name": "NASDAQ 100 E-MINI INDEX SEPT 2026",
+              "weight": 4.13331935,
+              "entry_date": "2026-08-25"
+            },
+            {
+              "code": "TSLA US EQUITY",
+              "name": "Tesla Inc",
+              "weight": 1.85630815,
+              "entry_date": "2026-09-02"
+            },
+            {
+              "code": "HOOD US EQUITY",
+              "name": "Robinhood Markets Inc",
+              "weight": 1.26612737,
+              "entry_date": "2026-08-24"
+            }
+          ],
+          "new_out": [
+            {
+              "code": "TSEM US EQUITY",
+              "name": "Tower Semiconductor Ltd",
+              "weight": 2.17468924
+            },
+            {
+              "code": "700 HK EQUITY",
+              "name": "Tencent Holdings Ltd",
+              "weight": 0.87363598
+            }
+          ],
+          "prev_date": "2026-08-11",
+          "curr_date": "2026-09-09"
+        }
+      },
+      "cells": {
+        "SNDK US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "285A JP EQUITY": {
+          "1": "+0.40(-0.7%)",
+          "3": "+0.54(+4.7%)",
+          "5": "+0.74(+11.8%)",
+          "20": "N/A"
+        },
+        "SKHY US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "NQU6 INDEX": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "신규(8/25)"
+        },
+        "SNOW US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "CRM US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "INTC US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "WDC US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "NVDA US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "AMZN US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "STX US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "NOW US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "AMD US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "0043Y0": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "GOOG US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "SAP US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "009150": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "MSTR US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "COIN US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "BABA US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "6981 JP EQUITY": {
+          "1": "+0.14(+1.5%)",
+          "3": "+0.15(-0.9%)",
+          "5": "+0.15(+3.0%)",
+          "20": "N/A"
+        },
+        "DELL US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "LITE US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "ACN US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "IBM US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "META US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "AAOI US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "TSLA US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "신규(9/2)"
+        },
+        "MELI US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "2513 HK EQUITY": {
+          "1": "-0.11(-0.3%)",
+          "3": "-0.27(-15.0%)",
+          "5": "-0.35(-18.2%)",
+          "20": "+0.06(-23.4%)"
+        },
+        "ARM US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "ASML US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "100 HK EQUITY": {
+          "1": "-0.05(-3.1%)",
+          "3": "-0.03(-11.2%)",
+          "5": "-0.03(-6.4%)",
+          "20": "+0.52(-2.2%)"
+        },
+        "ROP US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "HOOD US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "신규(8/24)"
+        },
+        "QCOM US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "TSM US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "5803 JP EQUITY": {
+          "1": "+0.04(+8.1%)",
+          "3": "+0.01(+8.7%)",
+          "5": "-0.04(+7.9%)",
+          "20": "N/A"
+        },
+        "300502 CH EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "300308 CH EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "PDD US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "EBAY US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        }
+      }
+    },
+    "koact": {
+      "holdings_count": 48,
+      "cash_regime": [
+        "중립/혼조",
+        "연속 방향성 없음 (최근 현금 0.36%)"
+      ],
+      "cash_series": [
+        [
+          "2026-09-04",
+          0.29666268
+        ],
+        [
+          "2026-09-07",
+          0.38797613
+        ],
+        [
+          "2026-09-08",
+          0.36134262
+        ],
+        [
+          "2026-09-09",
+          0.36082603
+        ]
+      ],
+      "top5_start": 30.407908640000002,
+      "top5_current": 30.65830858,
+      "sectors": {
+        "엔터프라이즈 SW": {
+          "start": 28.643415719999997,
+          "current": 28.934007420000004,
+          "delta": 0.29059170000000734
+        },
+        "중국 AI/플랫폼": {
+          "start": 0.13049438,
+          "current": 0,
+          "delta": -0.13049438
+        },
+        "반도체 소재": {
+          "start": 0.72746728,
+          "current": 0.74706629,
+          "delta": 0.019599009999999972
+        },
+        "헬스케어": {
+          "start": 3.1678821299999997,
+          "current": 2.8818056899999998,
+          "delta": -0.28607644
+        },
+        "반도체 장비": {
+          "start": 2.76091533,
+          "current": 1.7021899299999999,
+          "delta": -1.0587254000000001
+        },
+        "반도체(적자)": {
+          "start": 1.67775067,
+          "current": 1.6935029,
+          "delta": 0.015752229999999923
+        },
+        "전기차/자율주행": {
+          "start": 0,
+          "current": 1.86706036,
+          "delta": 1.86706036
+        },
+        "네트워크/광통신": {
+          "start": 6.55833017,
+          "current": 6.32696982,
+          "delta": -0.23136034999999922
+        },
+        "헬스케어 AI": {
+          "start": 0.62298428,
+          "current": 1.36787431,
+          "delta": 0.74489003
+        },
+        "빅테크": {
+          "start": 5.59683608,
+          "current": 5.352610159999999,
+          "delta": -0.24422592000000076
+        },
+        "인터넷 인프라/CDN": {
+          "start": 3.76547731,
+          "current": 2.57053626,
+          "delta": -1.1949410500000002
+        },
+        "원자력/에너지": {
+          "start": 3.05843073,
+          "current": 3.37717008,
+          "delta": 0.31873935
+        },
+        "AI 반도체": {
+          "start": 13.7638633,
+          "current": 12.36873172,
+          "delta": -1.395131580000001
+        },
+        "핀테크/디지털자산": {
+          "start": 5.7582904599999996,
+          "current": 6.31185385,
+          "delta": 0.5535633900000008
+        },
+        "AI 인프라": {
+          "start": 8.79877603,
+          "current": 9.84822312,
+          "delta": 1.0494470899999992
+        },
+        "메모리": {
+          "start": 14.672423440000001,
+          "current": 14.289572070000002,
+          "delta": -0.38285136999999914
+        }
+      },
+      "cumulative_changes": {
+        "increased": [
+          {
+            "code": "DELL US EQUITY",
+            "name": "Dell Technologies Inc",
+            "prev": 2.12539062,
+            "curr": 3.08484671,
+            "delta": 0.9594560899999998,
+            "relative_pct": 45.14257666197848
+          },
+          {
+            "code": "NOW US EQUITY",
+            "name": "SERVICENOW INC",
+            "prev": 1.10386906,
+            "curr": 1.9874231,
+            "delta": 0.8835540399999999,
+            "relative_pct": 80.04156217586169
+          },
+          {
+            "code": "TEM US EQUITY",
+            "name": "Tempus AI Inc",
+            "prev": 0.62298428,
+            "curr": 1.36787431,
+            "delta": 0.74489003,
+            "relative_pct": 119.56802987067347
+          },
+          {
+            "code": "SNOW US EQUITY",
+            "name": "Snowflake Inc   - CL A",
+            "prev": 5.48297828,
+            "curr": 5.94391059,
+            "delta": 0.46093230999999957,
+            "relative_pct": 8.406604703894606
+          },
+          {
+            "code": "SNDK US EQUITY",
+            "name": "Sandisk Corp/DE",
+            "prev": 5.82449322,
+            "curr": 6.19014493,
+            "delta": 0.36565170999999985,
+            "relative_pct": 6.277828751597377
+          },
+          {
+            "code": "BE US EQUITY",
+            "name": "BLOOM ENERGY CORPORATION",
+            "prev": 3.05843073,
+            "curr": 3.37717008,
+            "delta": 0.31873935,
+            "relative_pct": 10.421663203730626
+          },
+          {
+            "code": "MSTR US EQUITY",
+            "name": "Strategy Inc",
+            "prev": 2.91035322,
+            "curr": 3.2009227,
+            "delta": 0.2905694799999998,
+            "relative_pct": 9.98399362672548
+          },
+          {
+            "code": "CRCL US EQUITY",
+            "name": "Circle Internet Group Inc",
+            "prev": 2.84793724,
+            "curr": 3.11093115,
+            "delta": 0.26299391000000005,
+            "relative_pct": 9.234540224629392
+          },
+          {
+            "code": "NBIS US EQUITY",
+            "name": "YANDEX NV-A",
+            "prev": 2.47876859,
+            "curr": 2.60884473,
+            "delta": 0.1300761399999999,
+            "relative_pct": 5.247611274596629
+          }
+        ],
+        "decreased": [
+          {
+            "code": "AKAM US EQUITY",
+            "name": "Akamai Technologies Inc",
+            "prev": 1.90398596,
+            "curr": 0.86783385,
+            "delta": -1.03615211,
+            "relative_pct": -54.42015496794945
+          },
+          {
+            "code": "AVGO US EQUITY",
+            "name": "BROADCOM LTD",
+            "prev": 0.91432716,
+            "curr": 0.05707399,
+            "delta": -0.85725317,
+            "relative_pct": -93.75781530978473
+          },
+          {
+            "code": "AMAT US EQUITY",
+            "name": "APPLIED MATERIALS INC",
+            "prev": 1.08269202,
+            "curr": 0.52317979,
+            "delta": -0.55951223,
+            "relative_pct": -51.6778751172471
+          },
+          {
+            "code": "AMD US EQUITY",
+            "name": "ADVANCED MICRO DEVICES",
+            "prev": 3.25376011,
+            "curr": 2.72748071,
+            "delta": -0.5262794,
+            "relative_pct": -16.17449910897088
+          },
+          {
+            "code": "STX US EQUITY",
+            "name": "SEAGATE TECHNOLOGY",
+            "prev": 1.96351132,
+            "curr": 1.45055647,
+            "delta": -0.5129548500000001,
+            "relative_pct": -26.12436428428638
+          },
+          {
+            "code": "LRCX US EQUITY",
+            "name": "LAM RESEARCH",
+            "prev": 0.92481087,
+            "curr": 0.43192358,
+            "delta": -0.49288729,
+            "relative_pct": -53.29600959383187
+          },
+          {
+            "code": "PLTR US EQUITY",
+            "name": "Palantir Technologies Inc -A",
+            "prev": 8.95512046,
+            "curr": 8.47997976,
+            "delta": -0.47514069999999897,
+            "relative_pct": -5.305799091394902
+          },
+          {
+            "code": "JAZZ US EQUITY",
+            "name": "JAZZ PHARMACEUTICALS PLC",
+            "prev": 0.80697376,
+            "curr": 0.47525247,
+            "delta": -0.33172129,
+            "relative_pct": -41.10682483653496
+          },
+          {
+            "code": "SKHY US EQUITY",
+            "name": "SK hynix Inc",
+            "prev": 2.20926652,
+            "curr": 1.9323244,
+            "delta": -0.27694211999999996,
+            "relative_pct": -12.535478064457337
+          },
+          {
+            "code": "PANW US EQUITY",
+            "name": "PALO ALTO NETWORKS INC",
+            "prev": 1.48292133,
+            "curr": 1.27102062,
+            "delta": -0.21190070999999988,
+            "relative_pct": -14.289410079494905
+          },
+          {
+            "code": "MDB US EQUITY",
+            "name": "MONGODB INC",
+            "prev": 2.98083435,
+            "curr": 2.7780532,
+            "delta": -0.20278114999999985,
+            "relative_pct": -6.802831898391129
+          },
+          {
+            "code": "NET US EQUITY",
+            "name": "Cloudflare Inc",
+            "prev": 1.86149135,
+            "curr": 1.70270241,
+            "delta": -0.15878894,
+            "relative_pct": -8.530200261204543
+          },
+          {
+            "code": "LITE US EQUITY",
+            "name": "Lumentum Holdings Inc",
+            "prev": 3.86869113,
+            "curr": 3.71564052,
+            "delta": -0.1530506100000002,
+            "relative_pct": -3.9561341253934685
+          },
+          {
+            "code": "NVDA US EQUITY",
+            "name": "NVIDIA Corp",
+            "prev": 5.4701643,
+            "curr": 5.32772703,
+            "delta": -0.14243727000000028,
+            "relative_pct": -2.6038938172295896
+          },
+          {
+            "code": "CRWD US EQUITY",
+            "name": "CROWDSTRIKE HOLDINGS INC - A",
+            "prev": 1.00269534,
+            "curr": 0.87308654,
+            "delta": -0.12960880000000008,
+            "relative_pct": -12.926039927541707
+          },
+          {
+            "code": "NTAP US EQUITY",
+            "name": "NETAPP INC",
+            "prev": 2.52520749,
+            "curr": 2.40559869,
+            "delta": -0.11960879999999996,
+            "relative_pct": -4.736592952209244
+          },
+          {
+            "code": "MSFT US EQUITY",
+            "name": "MICROSOFT",
+            "prev": 2.31781054,
+            "curr": 2.21189718,
+            "delta": -0.10591336000000018,
+            "relative_pct": -4.569543462340118
+          }
+        ],
+        "new_in": [
+          {
+            "code": "TSLA US EQUITY",
+            "name": "TESLA MOTORS",
+            "weight": 1.86706036,
+            "entry_date": "2026-09-07"
+          },
+          {
+            "code": "GTLB US EQUITY",
+            "name": "Gitlab Inc",
+            "weight": 0.17779271,
+            "entry_date": "2026-09-07"
+          },
+          {
+            "code": "VRTX US EQUITY",
+            "name": "Vertex Pharmaceuticals Inc",
+            "weight": 0.13755413,
+            "entry_date": "2026-09-07"
+          }
+        ],
+        "new_out": [
+          {
+            "code": "BABA US EQUITY",
+            "name": "ALIBABA GROUP HOLDING-SP ADR",
+            "weight": 0.13049438
+          }
+        ],
+        "prev_date": "2026-09-04",
+        "curr_date": "2026-09-09"
+      },
+      "horizon_changes": {
+        "1": {
+          "increased": [],
+          "decreased": [],
+          "new_in": [],
+          "new_out": [],
+          "prev_date": "2026-09-08",
+          "curr_date": "2026-09-09"
+        },
+        "3": {
+          "increased": [
+            {
+              "code": "DELL US EQUITY",
+              "name": "Dell Technologies Inc",
+              "prev": 2.12539062,
+              "curr": 3.08484671,
+              "delta": 0.9594560899999998,
+              "relative_pct": 45.14257666197848
+            },
+            {
+              "code": "NOW US EQUITY",
+              "name": "SERVICENOW INC",
+              "prev": 1.10386906,
+              "curr": 1.9874231,
+              "delta": 0.8835540399999999,
+              "relative_pct": 80.04156217586169
+            },
+            {
+              "code": "TEM US EQUITY",
+              "name": "Tempus AI Inc",
+              "prev": 0.62298428,
+              "curr": 1.36787431,
+              "delta": 0.74489003,
+              "relative_pct": 119.56802987067347
+            },
+            {
+              "code": "SNOW US EQUITY",
+              "name": "Snowflake Inc   - CL A",
+              "prev": 5.48297828,
+              "curr": 5.94391059,
+              "delta": 0.46093230999999957,
+              "relative_pct": 8.406604703894606
+            },
+            {
+              "code": "SNDK US EQUITY",
+              "name": "Sandisk Corp/DE",
+              "prev": 5.82449322,
+              "curr": 6.19014493,
+              "delta": 0.36565170999999985,
+              "relative_pct": 6.277828751597377
+            },
+            {
+              "code": "BE US EQUITY",
+              "name": "BLOOM ENERGY CORPORATION",
+              "prev": 3.05843073,
+              "curr": 3.37717008,
+              "delta": 0.31873935,
+              "relative_pct": 10.421663203730626
+            },
+            {
+              "code": "MSTR US EQUITY",
+              "name": "Strategy Inc",
+              "prev": 2.91035322,
+              "curr": 3.2009227,
+              "delta": 0.2905694799999998,
+              "relative_pct": 9.98399362672548
+            },
+            {
+              "code": "CRCL US EQUITY",
+              "name": "Circle Internet Group Inc",
+              "prev": 2.84793724,
+              "curr": 3.11093115,
+              "delta": 0.26299391000000005,
+              "relative_pct": 9.234540224629392
+            },
+            {
+              "code": "NBIS US EQUITY",
+              "name": "YANDEX NV-A",
+              "prev": 2.47876859,
+              "curr": 2.60884473,
+              "delta": 0.1300761399999999,
+              "relative_pct": 5.247611274596629
+            }
+          ],
+          "decreased": [
+            {
+              "code": "AKAM US EQUITY",
+              "name": "Akamai Technologies Inc",
+              "prev": 1.90398596,
+              "curr": 0.86783385,
+              "delta": -1.03615211,
+              "relative_pct": -54.42015496794945
+            },
+            {
+              "code": "AVGO US EQUITY",
+              "name": "BROADCOM LTD",
+              "prev": 0.91432716,
+              "curr": 0.05707399,
+              "delta": -0.85725317,
+              "relative_pct": -93.75781530978473
+            },
+            {
+              "code": "AMAT US EQUITY",
+              "name": "APPLIED MATERIALS INC",
+              "prev": 1.08269202,
+              "curr": 0.52317979,
+              "delta": -0.55951223,
+              "relative_pct": -51.6778751172471
+            },
+            {
+              "code": "AMD US EQUITY",
+              "name": "ADVANCED MICRO DEVICES",
+              "prev": 3.25376011,
+              "curr": 2.72748071,
+              "delta": -0.5262794,
+              "relative_pct": -16.17449910897088
+            },
+            {
+              "code": "STX US EQUITY",
+              "name": "SEAGATE TECHNOLOGY",
+              "prev": 1.96351132,
+              "curr": 1.45055647,
+              "delta": -0.5129548500000001,
+              "relative_pct": -26.12436428428638
+            },
+            {
+              "code": "LRCX US EQUITY",
+              "name": "LAM RESEARCH",
+              "prev": 0.92481087,
+              "curr": 0.43192358,
+              "delta": -0.49288729,
+              "relative_pct": -53.29600959383187
+            },
+            {
+              "code": "PLTR US EQUITY",
+              "name": "Palantir Technologies Inc -A",
+              "prev": 8.95512046,
+              "curr": 8.47997976,
+              "delta": -0.47514069999999897,
+              "relative_pct": -5.305799091394902
+            },
+            {
+              "code": "JAZZ US EQUITY",
+              "name": "JAZZ PHARMACEUTICALS PLC",
+              "prev": 0.80697376,
+              "curr": 0.47525247,
+              "delta": -0.33172129,
+              "relative_pct": -41.10682483653496
+            },
+            {
+              "code": "SKHY US EQUITY",
+              "name": "SK hynix Inc",
+              "prev": 2.20926652,
+              "curr": 1.9323244,
+              "delta": -0.27694211999999996,
+              "relative_pct": -12.535478064457337
+            },
+            {
+              "code": "PANW US EQUITY",
+              "name": "PALO ALTO NETWORKS INC",
+              "prev": 1.48292133,
+              "curr": 1.27102062,
+              "delta": -0.21190070999999988,
+              "relative_pct": -14.289410079494905
+            },
+            {
+              "code": "MDB US EQUITY",
+              "name": "MONGODB INC",
+              "prev": 2.98083435,
+              "curr": 2.7780532,
+              "delta": -0.20278114999999985,
+              "relative_pct": -6.802831898391129
+            },
+            {
+              "code": "NET US EQUITY",
+              "name": "Cloudflare Inc",
+              "prev": 1.86149135,
+              "curr": 1.70270241,
+              "delta": -0.15878894,
+              "relative_pct": -8.530200261204543
+            },
+            {
+              "code": "LITE US EQUITY",
+              "name": "Lumentum Holdings Inc",
+              "prev": 3.86869113,
+              "curr": 3.71564052,
+              "delta": -0.1530506100000002,
+              "relative_pct": -3.9561341253934685
+            },
+            {
+              "code": "NVDA US EQUITY",
+              "name": "NVIDIA Corp",
+              "prev": 5.4701643,
+              "curr": 5.32772703,
+              "delta": -0.14243727000000028,
+              "relative_pct": -2.6038938172295896
+            },
+            {
+              "code": "CRWD US EQUITY",
+              "name": "CROWDSTRIKE HOLDINGS INC - A",
+              "prev": 1.00269534,
+              "curr": 0.87308654,
+              "delta": -0.12960880000000008,
+              "relative_pct": -12.926039927541707
+            },
+            {
+              "code": "NTAP US EQUITY",
+              "name": "NETAPP INC",
+              "prev": 2.52520749,
+              "curr": 2.40559869,
+              "delta": -0.11960879999999996,
+              "relative_pct": -4.736592952209244
+            },
+            {
+              "code": "MSFT US EQUITY",
+              "name": "MICROSOFT",
+              "prev": 2.31781054,
+              "curr": 2.21189718,
+              "delta": -0.10591336000000018,
+              "relative_pct": -4.569543462340118
+            }
+          ],
+          "new_in": [
+            {
+              "code": "TSLA US EQUITY",
+              "name": "TESLA MOTORS",
+              "weight": 1.86706036,
+              "entry_date": "2026-09-07"
+            },
+            {
+              "code": "GTLB US EQUITY",
+              "name": "Gitlab Inc",
+              "weight": 0.17779271,
+              "entry_date": "2026-09-07"
+            },
+            {
+              "code": "VRTX US EQUITY",
+              "name": "Vertex Pharmaceuticals Inc",
+              "weight": 0.13755413,
+              "entry_date": "2026-09-07"
+            }
+          ],
+          "new_out": [
+            {
+              "code": "BABA US EQUITY",
+              "name": "ALIBABA GROUP HOLDING-SP ADR",
+              "weight": 0.13049438
+            }
+          ],
+          "prev_date": "2026-09-04",
+          "curr_date": "2026-09-09"
+        },
+        "5": {
+          "increased": [
+            {
+              "code": "DELL US EQUITY",
+              "name": "Dell Technologies Inc",
+              "prev": 1.88555348,
+              "curr": 3.08484671,
+              "delta": 1.1992932299999999,
+              "relative_pct": 63.60430731458223
+            },
+            {
+              "code": "NOW US EQUITY",
+              "name": "SERVICENOW INC",
+              "prev": 1.14449396,
+              "curr": 1.9874231,
+              "delta": 0.8429291400000001,
+              "relative_pct": 73.65081594663899
+            },
+            {
+              "code": "TEM US EQUITY",
+              "name": "Tempus AI Inc",
+              "prev": 0.6073018,
+              "curr": 1.36787431,
+              "delta": 0.7605725099999999,
+              "relative_pct": 125.23798052302824
+            },
+            {
+              "code": "BE US EQUITY",
+              "name": "BLOOM ENERGY CORPORATION",
+              "prev": 2.7809422,
+              "curr": 3.37717008,
+              "delta": 0.5962278799999998,
+              "relative_pct": 21.43977965453578
+            },
+            {
+              "code": "SNDK US EQUITY",
+              "name": "Sandisk Corp/DE",
+              "prev": 5.6239574,
+              "curr": 6.19014493,
+              "delta": 0.5661875299999997,
+              "relative_pct": 10.067422096760541
+            },
+            {
+              "code": "SNOW US EQUITY",
+              "name": "Snowflake Inc   - CL A",
+              "prev": 5.69028902,
+              "curr": 5.94391059,
+              "delta": 0.25362156999999996,
+              "relative_pct": 4.457094694286723
+            },
+            {
+              "code": "MU US EQUITY",
+              "name": "MICRON TECH",
+              "prev": 4.48983841,
+              "curr": 4.71654627,
+              "delta": 0.22670786000000032,
+              "relative_pct": 5.049354549042675
+            },
+            {
+              "code": "NBIS US EQUITY",
+              "name": "YANDEX NV-A",
+              "prev": 2.40005403,
+              "curr": 2.60884473,
+              "delta": 0.20879069999999977,
+              "relative_pct": 8.699416654382558
+            },
+            {
+              "code": "MSTR US EQUITY",
+              "name": "Strategy Inc",
+              "prev": 3.00783676,
+              "curr": 3.2009227,
+              "delta": 0.19308594,
+              "relative_pct": 6.419428825652094
+            },
+            {
+              "code": "NVDA US EQUITY",
+              "name": "NVIDIA Corp",
+              "prev": 5.15376861,
+              "curr": 5.32772703,
+              "delta": 0.17395841999999995,
+              "relative_pct": 3.3753634119790243
+            },
+            {
+              "code": "CRCL US EQUITY",
+              "name": "Circle Internet Group Inc",
+              "prev": 2.93999189,
+              "curr": 3.11093115,
+              "delta": 0.17093925999999993,
+              "relative_pct": 5.814276582919415
+            }
+          ],
+          "decreased": [
+            {
+              "code": "AKAM US EQUITY",
+              "name": "Akamai Technologies Inc",
+              "prev": 1.88462637,
+              "curr": 0.86783385,
+              "delta": -1.01679252,
+              "relative_pct": -53.95194167849833
+            },
+            {
+              "code": "PLTR US EQUITY",
+              "name": "Palantir Technologies Inc -A",
+              "prev": 9.43241826,
+              "curr": 8.47997976,
+              "delta": -0.9524384999999995,
+              "relative_pct": -10.097500701797754
+            },
+            {
+              "code": "AVGO US EQUITY",
+              "name": "BROADCOM LTD",
+              "prev": 0.88274613,
+              "curr": 0.05707399,
+              "delta": -0.82567214,
+              "relative_pct": -93.53449558595062
+            },
+            {
+              "code": "MDB US EQUITY",
+              "name": "MONGODB INC",
+              "prev": 3.44761679,
+              "curr": 2.7780532,
+              "delta": -0.6695635900000001,
+              "relative_pct": -19.421056073926362
+            },
+            {
+              "code": "AMAT US EQUITY",
+              "name": "APPLIED MATERIALS INC",
+              "prev": 1.08436121,
+              "curr": 0.52317979,
+              "delta": -0.5611814199999999,
+              "relative_pct": -51.75225882526727
+            },
+            {
+              "code": "LRCX US EQUITY",
+              "name": "LAM RESEARCH",
+              "prev": 0.92602875,
+              "curr": 0.43192358,
+              "delta": -0.49410517,
+              "relative_pct": -53.35743301706346
+            },
+            {
+              "code": "AMD US EQUITY",
+              "name": "ADVANCED MICRO DEVICES",
+              "prev": 3.20908423,
+              "curr": 2.72748071,
+              "delta": -0.4816035200000002,
+              "relative_pct": -15.007506362648515
+            },
+            {
+              "code": "STX US EQUITY",
+              "name": "SEAGATE TECHNOLOGY",
+              "prev": 1.92725554,
+              "curr": 1.45055647,
+              "delta": -0.47669907,
+              "relative_pct": -24.73460628889929
+            },
+            {
+              "code": "PANW US EQUITY",
+              "name": "PALO ALTO NETWORKS INC",
+              "prev": 1.65181034,
+              "curr": 1.27102062,
+              "delta": -0.3807897199999999,
+              "relative_pct": -23.052871796407324
+            },
+            {
+              "code": "JAZZ US EQUITY",
+              "name": "JAZZ PHARMACEUTICALS PLC",
+              "prev": 0.7891676,
+              "curr": 0.47525247,
+              "delta": -0.31391513,
+              "relative_pct": -39.77800533118694
+            },
+            {
+              "code": "NET US EQUITY",
+              "name": "Cloudflare Inc",
+              "prev": 1.99390194,
+              "curr": 1.70270241,
+              "delta": -0.2911995299999999,
+              "relative_pct": -14.60450607716445
+            },
+            {
+              "code": "CRWD US EQUITY",
+              "name": "CROWDSTRIKE HOLDINGS INC - A",
+              "prev": 1.09047229,
+              "curr": 0.87308654,
+              "delta": -0.21738574999999993,
+              "relative_pct": -19.935009077580503
+            },
+            {
+              "code": "FTNT US EQUITY",
+              "name": "FORTINET INC",
+              "prev": 2.00865532,
+              "curr": 1.81966968,
+              "delta": -0.18898563999999984,
+              "relative_pct": -9.408564929895482
+            },
+            {
+              "code": "SKHY US EQUITY",
+              "name": "SK hynix Inc",
+              "prev": 2.11077696,
+              "curr": 1.9323244,
+              "delta": -0.17845255999999998,
+              "relative_pct": -8.454354172977139
+            },
+            {
+              "code": "LITE US EQUITY",
+              "name": "Lumentum Holdings Inc",
+              "prev": 3.89372513,
+              "curr": 3.71564052,
+              "delta": -0.17808460999999998,
+              "relative_pct": -4.5736307534373895
+            },
+            {
+              "code": "DDOG US EQUITY",
+              "name": "DATADOG INC - CLASS A",
+              "prev": 1.50455965,
+              "curr": 1.33889195,
+              "delta": -0.16566769999999997,
+              "relative_pct": -11.011042333881543
+            },
+            {
+              "code": "DT US EQUITY",
+              "name": "DYNATRACE INC",
+              "prev": 2.28306667,
+              "curr": 2.15051529,
+              "delta": -0.13255138000000022,
+              "relative_pct": -5.80584797376943
+            }
+          ],
+          "new_in": [
+            {
+              "code": "TSLA US EQUITY",
+              "name": "TESLA MOTORS",
+              "weight": 1.86706036,
+              "entry_date": "2026-09-07"
+            },
+            {
+              "code": "GTLB US EQUITY",
+              "name": "Gitlab Inc",
+              "weight": 0.17779271,
+              "entry_date": "2026-09-07"
+            },
+            {
+              "code": "VRTX US EQUITY",
+              "name": "Vertex Pharmaceuticals Inc",
+              "weight": 0.13755413,
+              "entry_date": "2026-09-07"
+            }
+          ],
+          "new_out": [
+            {
+              "code": "BABA US EQUITY",
+              "name": "ALIBABA GROUP HOLDING-SP ADR",
+              "weight": 0.12741252
+            }
+          ],
+          "prev_date": "2026-09-02",
+          "curr_date": "2026-09-09"
+        },
+        "20": {
+          "increased": [
+            {
+              "code": "PLTR US EQUITY",
+              "name": "Palantir Technologies Inc -A",
+              "prev": 3.45460327,
+              "curr": 8.47997976,
+              "delta": 5.025376490000001,
+              "relative_pct": 145.4689901338512
+            },
+            {
+              "code": "NVDA US EQUITY",
+              "name": "NVIDIA Corp",
+              "prev": 1.09350139,
+              "curr": 5.32772703,
+              "delta": 4.23422564,
+              "relative_pct": 387.21721606590734
+            },
+            {
+              "code": "SNDK US EQUITY",
+              "name": "Sandisk Corp/DE",
+              "prev": 2.92554192,
+              "curr": 6.19014493,
+              "delta": 3.2646030099999996,
+              "relative_pct": 111.58968489502963
+            },
+            {
+              "code": "MU US EQUITY",
+              "name": "MICRON TECH",
+              "prev": 1.66316234,
+              "curr": 4.71654627,
+              "delta": 3.0533839300000003,
+              "relative_pct": 183.58904940091418
+            },
+            {
+              "code": "LITE US EQUITY",
+              "name": "Lumentum Holdings Inc",
+              "prev": 2.32343941,
+              "curr": 3.71564052,
+              "delta": 1.3922011099999998,
+              "relative_pct": 59.91983711768062
+            },
+            {
+              "code": "DELL US EQUITY",
+              "name": "Dell Technologies Inc",
+              "prev": 1.92912769,
+              "curr": 3.08484671,
+              "delta": 1.1557190199999998,
+              "relative_pct": 59.90889177481039
+            },
+            {
+              "code": "NTAP US EQUITY",
+              "name": "NETAPP INC",
+              "prev": 1.46341471,
+              "curr": 2.40559869,
+              "delta": 0.9421839800000003,
+              "relative_pct": 64.38256862950354
+            },
+            {
+              "code": "OKTA US EQUITY",
+              "name": "OKTA INC",
+              "prev": 1.30226734,
+              "curr": 2.11366398,
+              "delta": 0.8113966400000001,
+              "relative_pct": 62.30645698294177
+            },
+            {
+              "code": "PANW US EQUITY",
+              "name": "PALO ALTO NETWORKS INC",
+              "prev": 0.55284227,
+              "curr": 1.27102062,
+              "delta": 0.7181783500000001,
+              "relative_pct": 129.9065554448288
+            },
+            {
+              "code": "NBIS US EQUITY",
+              "name": "YANDEX NV-A",
+              "prev": 2.09604275,
+              "curr": 2.60884473,
+              "delta": 0.5128019799999999,
+              "relative_pct": 24.46524432767413
+            },
+            {
+              "code": "SNOW US EQUITY",
+              "name": "Snowflake Inc   - CL A",
+              "prev": 5.43912858,
+              "curr": 5.94391059,
+              "delta": 0.5047820099999996,
+              "relative_pct": 9.280567697114444
+            },
+            {
+              "code": "NOW US EQUITY",
+              "name": "SERVICENOW INC",
+              "prev": 1.58318677,
+              "curr": 1.9874231,
+              "delta": 0.40423633000000003,
+              "relative_pct": 25.533079082008754
+            },
+            {
+              "code": "CRWD US EQUITY",
+              "name": "CROWDSTRIKE HOLDINGS INC - A",
+              "prev": 0.56123309,
+              "curr": 0.87308654,
+              "delta": 0.31185345,
+              "relative_pct": 55.565763237516876
+            },
+            {
+              "code": "DT US EQUITY",
+              "name": "DYNATRACE INC",
+              "prev": 1.96326288,
+              "curr": 2.15051529,
+              "delta": 0.18725240999999992,
+              "relative_pct": 9.53781645380062
+            }
+          ],
+          "decreased": [
+            {
+              "code": "AMD US EQUITY",
+              "name": "ADVANCED MICRO DEVICES",
+              "prev": 6.61180541,
+              "curr": 2.72748071,
+              "delta": -3.8843246999999996,
+              "relative_pct": -58.74832151177903
+            },
+            {
+              "code": "INTC US EQUITY",
+              "name": "INTEL Corp",
+              "prev": 4.38982467,
+              "curr": 1.6935029,
+              "delta": -2.6963217700000004,
+              "relative_pct": -61.42208340179563
+            },
+            {
+              "code": "AMZN US EQUITY",
+              "name": "Amazon.com Inc",
+              "prev": 4.10512408,
+              "curr": 1.76612362,
+              "delta": -2.3390004600000003,
+              "relative_pct": -56.97758251438773
+            },
+            {
+              "code": "BE US EQUITY",
+              "name": "BLOOM ENERGY CORPORATION",
+              "prev": 5.35858356,
+              "curr": 3.37717008,
+              "delta": -1.9814134799999996,
+              "relative_pct": -36.976440841392794
+            },
+            {
+              "code": "STX US EQUITY",
+              "name": "SEAGATE TECHNOLOGY",
+              "prev": 3.22861872,
+              "curr": 1.45055647,
+              "delta": -1.77806225,
+              "relative_pct": -55.07191787576578
+            },
+            {
+              "code": "GOOGL US EQUITY",
+              "name": "ALPHABET INC-CL A",
+              "prev": 2.99741182,
+              "curr": 1.37458936,
+              "delta": -1.6228224599999999,
+              "relative_pct": -54.14079070389467
+            },
+            {
+              "code": "ALAB US EQUITY",
+              "name": "Astera Labs Inc",
+              "prev": 2.34292521,
+              "curr": 0.7679429,
+              "delta": -1.5749823100000002,
+              "relative_pct": -67.22290166488072
+            },
+            {
+              "code": "AVGO US EQUITY",
+              "name": "BROADCOM LTD",
+              "prev": 1.59813919,
+              "curr": 0.05707399,
+              "delta": -1.5410652,
+              "relative_pct": -96.4287222066058
+            },
+            {
+              "code": "LRCX US EQUITY",
+              "name": "LAM RESEARCH",
+              "prev": 1.91509153,
+              "curr": 0.43192358,
+              "delta": -1.48316795,
+              "relative_pct": -77.4463218476038
+            },
+            {
+              "code": "ARM US EQUITY",
+              "name": "ARM Holdings PLC",
+              "prev": 3.04929271,
+              "curr": 1.75532518,
+              "delta": -1.29396753,
+              "relative_pct": -42.435005526248744
+            },
+            {
+              "code": "AAOI US EQUITY",
+              "name": "Applied Optoelectronics Inc",
+              "prev": 3.67806869,
+              "curr": 2.6113293,
+              "delta": -1.06673939,
+              "relative_pct": -29.002704405718973
+            },
+            {
+              "code": "CRWV US EQUITY",
+              "name": "Coreweave Inc",
+              "prev": 2.69921077,
+              "curr": 1.74893299,
+              "delta": -0.9502777800000002,
+              "relative_pct": -35.20576423900384
+            },
+            {
+              "code": "NET US EQUITY",
+              "name": "Cloudflare Inc",
+              "prev": 2.62759061,
+              "curr": 1.70270241,
+              "delta": -0.9248881999999998,
+              "relative_pct": -35.19909823395205
+            },
+            {
+              "code": "AXTI US EQUITY",
+              "name": "AXT Inc",
+              "prev": 1.64000913,
+              "curr": 0.74706629,
+              "delta": -0.8929428399999999,
+              "relative_pct": -54.44743103350894
+            },
+            {
+              "code": "AMAT US EQUITY",
+              "name": "APPLIED MATERIALS INC",
+              "prev": 1.2964091,
+              "curr": 0.52317979,
+              "delta": -0.77322931,
+              "relative_pct": -59.64392798538671
+            },
+            {
+              "code": "AKAM US EQUITY",
+              "name": "Akamai Technologies Inc",
+              "prev": 1.40138904,
+              "curr": 0.86783385,
+              "delta": -0.53355519,
+              "relative_pct": -38.07330974987502
+            },
+            {
+              "code": "JAZZ US EQUITY",
+              "name": "JAZZ PHARMACEUTICALS PLC",
+              "prev": 0.99957752,
+              "curr": 0.47525247,
+              "delta": -0.5243250500000001,
+              "relative_pct": -52.45466604731167
+            },
+            {
+              "code": "MSFT US EQUITY",
+              "name": "MICROSOFT",
+              "prev": 2.5917057,
+              "curr": 2.21189718,
+              "delta": -0.3798085200000001,
+              "relative_pct": -14.65477040853829
+            },
+            {
+              "code": "TER US EQUITY",
+              "name": "TERADYNE INC",
+              "prev": 0.98781259,
+              "curr": 0.74708656,
+              "delta": -0.24072603000000004,
+              "relative_pct": -24.36960537220932
+            },
+            {
+              "code": "ORKA US EQUITY",
+              "name": "Oruka Therapeutics Inc",
+              "prev": 0.54792161,
+              "curr": 0.33738189,
+              "delta": -0.21053971999999993,
+              "relative_pct": -38.425153554356065
+            }
+          ],
+          "new_in": [
+            {
+              "code": "MSTR US EQUITY",
+              "name": "Strategy Inc",
+              "weight": 3.2009227,
+              "entry_date": "2026-08-25"
+            },
+            {
+              "code": "CRCL US EQUITY",
+              "name": "Circle Internet Group Inc",
+              "weight": 3.11093115,
+              "entry_date": "2026-08-25"
+            },
+            {
+              "code": "MDB US EQUITY",
+              "name": "MONGODB INC",
+              "weight": 2.7780532,
+              "entry_date": "2026-08-12"
+            },
+            {
+              "code": "SKHY US EQUITY",
+              "name": "SK hynix Inc",
+              "weight": 1.9323244,
+              "entry_date": "2026-08-18"
+            },
+            {
+              "code": "TSLA US EQUITY",
+              "name": "TESLA MOTORS",
+              "weight": 1.86706036,
+              "entry_date": "2026-09-07"
+            },
+            {
+              "code": "TEM US EQUITY",
+              "name": "Tempus AI Inc",
+              "weight": 1.36787431,
+              "entry_date": "2026-08-25"
+            },
+            {
+              "code": "ILMN US EQUITY",
+              "name": "ILLUMINA INC",
+              "weight": 0.58899574,
+              "entry_date": "2026-08-25"
+            },
+            {
+              "code": "GTLB US EQUITY",
+              "name": "Gitlab Inc",
+              "weight": 0.17779271,
+              "entry_date": "2026-09-07"
+            },
+            {
+              "code": "VRTX US EQUITY",
+              "name": "Vertex Pharmaceuticals Inc",
+              "weight": 0.13755413,
+              "entry_date": "2026-09-07"
+            }
+          ],
+          "new_out": [
+            {
+              "code": "BABA US EQUITY",
+              "name": "ALIBABA GROUP HOLDING-SP ADR",
+              "weight": 2.22870805
+            },
+            {
+              "code": "MOG/A US EQUITY",
+              "name": "Moog Inc",
+              "weight": 1.44982731
+            },
+            {
+              "code": "TKR US EQUITY",
+              "name": "Timken Co/The",
+              "weight": 1.38672144
+            },
+            {
+              "code": "LBRX US EQUITY",
+              "name": "LB Pharmaceuticals Inc",
+              "weight": 1.29231144
+            },
+            {
+              "code": "ONC US EQUITY",
+              "name": "BeOne Medicines Ltd",
+              "weight": 1.04399503
+            },
+            {
+              "code": "CRS US EQUITY",
+              "name": "Carpenter Technology Corp",
+              "weight": 1.01700424
+            },
+            {
+              "code": "WDC US EQUITY",
+              "name": "WESTERN DIGITAL",
+              "weight": 0.49920421
+            },
+            {
+              "code": "GILD US EQUITY",
+              "name": "GILEAD SCIENCES INC",
+              "weight": 0.42904222
+            }
+          ],
+          "prev_date": "2026-08-11",
+          "curr_date": "2026-09-09"
+        }
+      },
+      "cells": {
+        "PLTR US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "SNDK US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "SNOW US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "NVDA US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "MU US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "LITE US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "BE US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "MSTR US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "신규(8/25)"
+        },
+        "CRCL US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "신규(8/25)"
+        },
+        "DELL US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "MDB US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "신규(8/12)"
+        },
+        "AMD US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "AAOI US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "NBIS US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "NTAP US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "MSFT US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "DT US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "OKTA US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "NOW US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "SKHY US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "신규(8/18)"
+        },
+        "TSLA US EQUITY": {
+          "1": "N/A",
+          "3": "신규(9/7)",
+          "5": "신규(9/7)",
+          "20": "신규(9/7)"
+        },
+        "FTNT US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "AMZN US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "ARM US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "CRWV US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "MRVL US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "NET US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "INTC US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "STX US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "GOOGL US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "TEM US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "신규(8/25)"
+        },
+        "NTRA US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "DDOG US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "PANW US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "CRWD US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "AKAM US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "ALAB US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "TER US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "AXTI US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "ILMN US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "신규(8/25)"
+        },
+        "AMAT US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "JAZZ US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "LRCX US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "ORKA US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        },
+        "GTLB US EQUITY": {
+          "1": "N/A",
+          "3": "신규(9/7)",
+          "5": "신규(9/7)",
+          "20": "신규(9/7)"
+        },
+        "VRTX US EQUITY": {
+          "1": "N/A",
+          "3": "신규(9/7)",
+          "5": "신규(9/7)",
+          "20": "신규(9/7)"
+        },
+        "AVGO US EQUITY": {
+          "1": "N/A",
+          "3": "N/A",
+          "5": "N/A",
+          "20": "N/A"
+        }
+      }
+    }
+  },
+  "validation": {
+    "time": {
+      "all_11_sections": true,
+      "all_holdings_rows": 43,
+      "exact_8_columns": true
+    },
+    "koact": {
+      "all_11_sections": true,
+      "all_holdings_rows": 48,
+      "exact_8_columns": true
+    },
+    "actual_trade_dates": true,
+    "price_missing_is_na": true,
+    "input_sha256": {
+      "data\\normalized\\etf_holdings\\2026-04-10_456600.json": "b1662f280763fd72eceaa9678e09f23f32ef531f1dcc0b07889a694bba25f2b1",
+      "data\\normalized\\etf_holdings\\2026-04-13_456600.json": "53820bd99a6c85f286ffbe1873831180203237bd4b4d01a3d20a55902c9b9724",
+      "data\\normalized\\etf_holdings\\2026-04-14_456600.json": "4e131e3e42f1884bfba2cc2eb7d992a8f809bb7f4827f984028dbbf362a9e5d2",
+      "data\\normalized\\etf_holdings\\2026-04-15_456600.json": "0265e9e15073fc7f3f3a3b3d41cea53d0a8f4224e6d246c119897201c119b395",
+      "data\\normalized\\etf_holdings\\2026-04-16_456600.json": "8f4789746c8f5916cbe9b2284aac7568309b6e20737227f1d6d4521779b70b8e",
+      "data\\normalized\\etf_holdings\\2026-04-17_456600.json": "61e37e185c8d0db07f264981fb1561b3ddcaac4e5494cee63528652f5eaadf08",
+      "data\\normalized\\etf_holdings\\2026-04-20_456600.json": "a6a85449661471d2054a9f223c334f37d7118c0e650c9ea8020878dcae76ef3d",
+      "data\\normalized\\etf_holdings\\2026-04-21_456600.json": "25dee622ce8a7998fce2ea37bb9dc81648547cab862ae7b0bd577575e7733a69",
+      "data\\normalized\\etf_holdings\\2026-04-22_456600.json": "90ad918aeb55828f563805426e69154afcde315cd1cea2d759a396d0dc288fb2",
+      "data\\normalized\\etf_holdings\\2026-04-23_456600.json": "e38b72297e3fad8f87ccc7e6d61aa96f786e1978bcc69859723b79b0f5247805",
+      "data\\normalized\\etf_holdings\\2026-04-24_456600.json": "11eececd8ffe3293a96b80b96d614156995a8e194743f34aff0a82ff94b35a12",
+      "data\\normalized\\etf_holdings\\2026-04-27_456600.json": "ed31da69f34715b08c4871751f62fd29e85a2734f704e365d28002f31ae2bea6",
+      "data\\normalized\\etf_holdings\\2026-04-28_456600.json": "8ee8d51ea3dae70bbbfbbf58edcfa1c2ea003ce3ebb24f877e3ff1a7d46e86ce",
+      "data\\normalized\\etf_holdings\\2026-04-29_456600.json": "d22e4320e6afc3ade3a95670db7923b4bd660b1c281d3b4e99e08fb65deb4f7c",
+      "data\\normalized\\etf_holdings\\2026-04-30_456600.json": "5e507157fe90aafe2cb70a27c9c02d77a12e680c492ecb8ffc69db87b8fe9815",
+      "data\\normalized\\etf_holdings\\2026-05-04_456600.json": "f07b6832e73f53063cd9742947e2d3e9d026ea962839962f61c370ea47d10a82",
+      "data\\normalized\\etf_holdings\\2026-05-06_456600.json": "e24e4c85ef7c3d4864e8b7c9aeda2d99210954a2479ebaa4621d5989068f1025",
+      "data\\normalized\\etf_holdings\\2026-05-07_456600.json": "056ed81244a54ad03a6ca2d96f29c4b140ec14329763090905662ada46b29d0d",
+      "data\\normalized\\etf_holdings\\2026-05-08_456600.json": "8fb8a8c0de37f7e4542302355519d2e7f4a755f9083041358158279410e4c722",
+      "data\\normalized\\etf_holdings\\2026-05-11_456600.json": "2b47fdb782c2e8a909dd1c8a94667eb39ad353f1082d8414567b1f7e5726d873",
+      "data\\normalized\\etf_holdings\\2026-05-12_456600.json": "fc9d5c4c10845bdd7a916388102bf922b8af4dc4e85210580f24220dfde79b0c",
+      "data\\normalized\\etf_holdings\\2026-05-13_456600.json": "9ced43fd2482bb80a03df05b2291b988095d07397a70b108c65aea9e419b6b3c",
+      "data\\normalized\\etf_holdings\\2026-05-14_456600.json": "f3c0cd117dea590f9d63264a7759806d14060c88a9b75b400f896b0554e1b77f",
+      "data\\normalized\\etf_holdings\\2026-05-15_456600.json": "9ddb67a04b18bc0f24e83146e0e98896ceeb82b94e88ef739bbcc5fd2a57fb4c",
+      "data\\normalized\\etf_holdings\\2026-05-18_456600.json": "478829e316c82dd7f0e9eba8b397c599a319238ff1419c2be2edc87b194e711b",
+      "data\\normalized\\etf_holdings\\2026-05-19_456600.json": "00f8458164afb29ffdbfcb05532d440b18ef4fe8e5fc05a884aa12899978b102",
+      "data\\normalized\\etf_holdings\\2026-05-20_456600.json": "6210e900099e8cd3e276ed8631e7c1b43341fec0fab5c8e961e144f19d65d499",
+      "data\\normalized\\etf_holdings\\2026-05-21_456600.json": "5d98a54dab48da6f53affe441c62bff35eea8ca2d4d319cc529a3498d9052d8b",
+      "data\\normalized\\etf_holdings\\2026-05-22_456600.json": "558c9553762ae70bb6246d4da0a82b4cd178673fe91ae37a3205ffcdfec683d6",
+      "data\\normalized\\etf_holdings\\2026-05-26_456600.json": "342a7d2538b7ab531fac09c78d52b763f9abdc1fe8838d6f45ca34e5f19bca16",
+      "data\\normalized\\etf_holdings\\2026-05-27_456600.json": "04459da1f1c6191c24e3e0c3f1a59f4f1085fd1d4330411a636f76e565f9d9ff",
+      "data\\normalized\\etf_holdings\\2026-05-28_456600.json": "f1d1c247b91238049e3b1808d645905cb50fed4ede0ed87502cc9e5d43c9057c",
+      "data\\normalized\\etf_holdings\\2026-05-29_456600.json": "cdcf2679b379a8b6770ac380ee7c4f0e156ee2b78dc9a491d456a63153ea71a0",
+      "data\\normalized\\etf_holdings\\2026-06-01_456600.json": "38b07e53d847e140ad6dee3e09ffcd6fa448450cc7ed52d50f01d40b61ef0dd7",
+      "data\\normalized\\etf_holdings\\2026-06-02_456600.json": "ec55105fdbd2696fa697ad4713f1e85edf21b0e652bd5bd8543df4e570f73054",
+      "data\\normalized\\etf_holdings\\2026-06-04_456600.json": "6c4f85bfdd7eaab2ff91bd53d6777670e45101a06f949d3f54ec283e1201a480",
+      "data\\normalized\\etf_holdings\\2026-06-05_456600.json": "b4a083a0d461ce7486f28ff6398e9673576fb9e06d3d03ffbeedba3ffb314147",
+      "data\\normalized\\etf_holdings\\2026-06-08_456600.json": "dda94d73a32d38d47dc43e75e142606e63169306b99760385ad3ee8a7db6b250",
+      "data\\normalized\\etf_holdings\\2026-06-09_456600.json": "7e2ed31b6904374a524126e1f1745acbac94d38434c361ae26b56e40686acfbf",
+      "data\\normalized\\etf_holdings\\2026-06-10_456600.json": "cd7d038b55f4f3aee14bd6c89ea1e9cb042d77e56eed6665dfb5c795ab1d9ff3",
+      "data\\normalized\\etf_holdings\\2026-06-11_456600.json": "b061a3f82d8842188d6948160fa90d56f1577cca1bb12eb7a66e522d4e1d3980",
+      "data\\normalized\\etf_holdings\\2026-06-12_456600.json": "56a6e39aceb4861629f8275f792a953964d7ad6cf3db06300719883b93170c00",
+      "data\\normalized\\etf_holdings\\2026-06-15_456600.json": "114afe88560eadf06067ebadb87bcd9d57f00ad90ad88db40e18755c79dfbee1",
+      "data\\normalized\\etf_holdings\\2026-06-16_456600.json": "9569bac25ddafb236cf2d956bf45b56c135d95c6b25c446811bf53d7f007fd4d",
+      "data\\normalized\\etf_holdings\\2026-06-17_456600.json": "799016696d74e09c1583e097b01d642ce69218ce4e1e278796c22fd109aa0788",
+      "data\\normalized\\etf_holdings\\2026-06-18_456600.json": "d11a8d5e3f77b6df6f134141e808f8bf800b63f5972adb7336c80f2ca45950a9",
+      "data\\normalized\\etf_holdings\\2026-06-19_456600.json": "f13667932c3dd70e166cd503ddc60a9316e2210993bc9a22a5c0ff739005d2b8",
+      "data\\normalized\\etf_holdings\\2026-06-22_456600.json": "fab9b5e2b6cf8d099fd3f2906b128feae72d8e7e1e1149e2c5294e122d27ed49",
+      "data\\normalized\\etf_holdings\\2026-06-23_456600.json": "a2ecd0b6eb601383de5505fbcfa57974ecb1f9f1596e001a99fcfd4fa39628cc",
+      "data\\normalized\\etf_holdings\\2026-06-24_456600.json": "57368c83611e57e0abb4a9f08667ad51ef4cddf88878cd373a6bb57869587c37",
+      "data\\normalized\\etf_holdings\\2026-06-25_456600.json": "3d6a130e6b0dec6984913308245632fed0ede021076e8888b55f4160fffdb5ae",
+      "data\\normalized\\etf_holdings\\2026-06-26_456600.json": "4fe7df5629915cf5a635bdf1a46010bcf38d236d646beef8189d0aa2819267ad",
+      "data\\normalized\\etf_holdings\\2026-06-29_456600.json": "47c463331f25e8955f76cfa7c736d9fdbb2ea50d267c1055bcb6c68a6d84efd2",
+      "data\\normalized\\etf_holdings\\2026-06-30_456600.json": "74c6a59f034b3c18f50b06af6e1deba913d07224a6c0d2fc4a7f682ccfc3f8ad",
+      "data\\normalized\\etf_holdings\\2026-07-01_456600.json": "1780d4151fed2c7478fb637e40f56e49465390f552baf3255f98db077ab7b877",
+      "data\\normalized\\etf_holdings\\2026-07-02_456600.json": "862548a2ab804f565f2dee311608517901b381d34ad3316f7bf9bac2ea0d055e",
+      "data\\normalized\\etf_holdings\\2026-07-03_456600.json": "931861b6eb757cf73fc37b6533fee4f4fa26fd0392540481d06f0fe4fee2f409",
+      "data\\normalized\\etf_holdings\\2026-07-06_456600.json": "0d235a0ec5e29c4d6f95eb82ca873dc9dc6dfa16596252c0c6c2091c919217f8",
+      "data\\normalized\\etf_holdings\\2026-07-07_456600.json": "fc5136586ffb11d581c7b5ff17fa43ae0ef4c1e1197498a484ab89fd4d2349b2",
+      "data\\normalized\\etf_holdings\\2026-07-08_456600.json": "e8126da9bd0bbe1988d37f32c587445680f1fd69cf36eb8eeb7ce974a075f86f",
+      "data\\normalized\\etf_holdings\\2026-07-09_456600.json": "1a79e71984812c27fb1ac6ff6d65bd14a49267fcea641c7b8b861dc71af03bdb",
+      "data\\normalized\\etf_holdings\\2026-07-10_456600.json": "589964ce5e8cefc401eec59a3feb85295c2b8df0f0e6d3536fee0e81ad8662d6",
+      "data\\normalized\\etf_holdings\\2026-07-13_456600.json": "e0691768891b5c15022509bc6c4e2d034afff248e0c47f7423e97edf3089eb42",
+      "data\\normalized\\etf_holdings\\2026-07-14_456600.json": "6148c6d97cef8f8b379dd6c608e8ffda94034b0b9885d46665f542414d312f9c",
+      "data\\normalized\\etf_holdings\\2026-07-15_456600.json": "3ef89739f78660dbfb6205fc9c974a4a265cadc35aaf005cf71b369ac5c0c83a",
+      "data\\normalized\\etf_holdings\\2026-07-16_456600.json": "ac754f8bdc1ac0ba7cb24ca198946b98b837656397e67f6b0ec0e28f781451d2",
+      "data\\normalized\\etf_holdings\\2026-07-20_456600.json": "063a40d0cfcbaf9680e0f8848c711177ee7e10e595fca96b2e3cbc91358fbd99",
+      "data\\normalized\\etf_holdings\\2026-07-21_456600.json": "6bb8d909adb8ea0df7e79ad9e62d797874a18d4d4a9f7a8cc67129e723dac9ab",
+      "data\\normalized\\etf_holdings\\2026-07-22_456600.json": "57a4e3129043dbeaf1b7eafc0b385736c3f27be5f11f7ce7f27f5e89c720b58f",
+      "data\\normalized\\etf_holdings\\2026-07-23_456600.json": "a1ae2da48e5f8ad9b32e4b758b061e831c5829aff31133ea0ad0165e0c8117d6",
+      "data\\normalized\\etf_holdings\\2026-07-24_456600.json": "3179bcd034f3e372f59cd90a83df5c2fe17213bca5cba340039467bdaa03d7c6",
+      "data\\normalized\\etf_holdings\\2026-07-27_456600.json": "a3ceab55050fb84be164dead6174f292ee25cd797602857992422ee1f0b7a446",
+      "data\\normalized\\etf_holdings\\2026-07-28_456600.json": "d5214832505397d71f136434c57326730ef96eebc7c0426025f5468c8c720baf",
+      "data\\normalized\\etf_holdings\\2026-07-29_456600.json": "4900aae817fe5d3c251b36cff62be7841a810ace2aa46cf3eaffb542a03fc9b0",
+      "data\\normalized\\etf_holdings\\2026-07-30_456600.json": "9e2875c0eb6265f176b7fe0b29e64f34c48a9adb7257aaa208d4b26862b3ef8c",
+      "data\\normalized\\etf_holdings\\2026-07-31_456600.json": "78e3e70cbd875d47824347bdfbbf7f6d9eb13482a9b4d0c8ec881324afdc9167",
+      "data\\normalized\\etf_holdings\\2026-08-03_456600.json": "6bd483f102ee2cdd6795100f5266f0f9fc0038d9506fe99c18bf95af57e252b0",
+      "data\\normalized\\etf_holdings\\2026-08-04_456600.json": "60a871830664bc1ed21f5b74f4edeb2f3ef75f0f469ee1333c58a5da8e34d8b7",
+      "data\\normalized\\etf_holdings\\2026-08-05_456600.json": "0e41a76855262b960b863ad8d2c820ba61fa8e1165706957682f27bf4e6c22a4",
+      "data\\normalized\\etf_holdings\\2026-08-06_456600.json": "1fb8dabb5bd81b557eb0806c76513d5f1a4c1365275575757b56a40ee2aed362",
+      "data\\normalized\\etf_holdings\\2026-08-07_456600.json": "f883abdda76816816d2af7f840c51f9c715a2d2952e1603f6d3469567304228e",
+      "data\\normalized\\etf_holdings\\2026-08-10_456600.json": "745759619dd5207edbc049036efeaa8c34dea05afa08e762659ead6b1a579e67",
+      "data\\normalized\\etf_holdings\\2026-08-11_456600.json": "0c5010c2be20400fb10563e9513cf7f65cf555f64cc75e3bcf29caa1ae44171a",
+      "data\\normalized\\etf_holdings\\2026-08-12_456600.json": "646a19505da38c06a3a11d2f02402205595610a16ca696073db8c634872b8c7f",
+      "data\\normalized\\etf_holdings\\2026-08-13_456600.json": "cd450b6f0fba1f90f981dbddfc7d325de589ca129b3317325268b1ead7570e5d",
+      "data\\normalized\\etf_holdings\\2026-08-14_456600.json": "1c9deccebfc254012c1ef7f2a59690574723d392ac1c3deef1edf87a6d9f9f16",
+      "data\\normalized\\etf_holdings\\2026-08-18_456600.json": "119b9c8aafae685bf1d312763419bd524452101f3d04b83a236fe524643e9d85",
+      "data\\normalized\\etf_holdings\\2026-08-19_456600.json": "2e049ec5c2ae9611176df116c9864662cc353a08f00ebb6dcb2ef1eed3f40b58",
+      "data\\normalized\\etf_holdings\\2026-08-20_456600.json": "e2607484e990f01b5f1204feb27cf8cb9c4e4e9a66244f1da11372fe01fb28af",
+      "data\\normalized\\etf_holdings\\2026-08-21_456600.json": "031f9bb64c4d219fc4e2da8b1f8fa98e6cfb1ef7f65222886d27b244c7c64ad7",
+      "data\\normalized\\etf_holdings\\2026-08-24_456600.json": "9878a338426c8696099be531a9a9c2a5bd5d3c86d4bd9b9b8707b2c669b8ae07",
+      "data\\normalized\\etf_holdings\\2026-08-25_456600.json": "53ee2c83146d7fa31e10df95d1ff4584703281a5bc04089790a59a59276b0841",
+      "data\\normalized\\etf_holdings\\2026-08-26_456600.json": "6c653fbc5c9e10dc5ed85315ee6e6be41f2e52df4ce2b1749cad2c3c2b387e92",
+      "data\\normalized\\etf_holdings\\2026-08-27_456600.json": "3f6c363e508d5d997cf37669eeee9a423f2cf02201fdebcbb39a57121fe338d0",
+      "data\\normalized\\etf_holdings\\2026-08-28_456600.json": "aafa3dfd344475e813ef5a9330b94c63964b5752a2c9694761521f653d230f35",
+      "data\\normalized\\etf_holdings\\2026-08-31_456600.json": "da53be8e5053193a285202226c103c4e9adbad419337c0f7f888e22601143e61",
+      "data\\normalized\\etf_holdings\\2026-09-01_456600.json": "40f5e6dcadb0146bab4a1e3b54c31934023521f5db8687e856a4061d8661b170",
+      "data\\normalized\\etf_holdings\\2026-09-02_456600.json": "c7093d11324b428124a74bd7bacadf7b5c0c170991bf6701e8f776b070cc8ca7",
+      "data\\normalized\\etf_holdings\\2026-09-03_456600.json": "6e7341f9a7f306e4b3ba7cc84de825ba81f4a35380a699a74a63c386070650bd",
+      "data\\normalized\\etf_holdings\\2026-09-04_456600.json": "bd190f3c36dda5d6633bc2538da04389da36ffd283ab20ff537684f578c53c26",
+      "data\\normalized\\etf_holdings\\2026-09-07_456600.json": "078d6869ca8cbd761ca1434c607bc1215a1574ef943db4e2687b65d7ba19e74b",
+      "data\\normalized\\etf_holdings\\2026-09-08_456600.json": "937a464bed32f006b0561b98fe22fb923b5904a7153bc98e7e3299daedb6a786",
+      "data\\normalized\\etf_holdings\\2026-09-09_456600.json": "e25290e49f193c9c8297a08d327d21979b720b450b010f91b0126d09af4d7ba9",
+      "data\\normalized\\etf_holdings\\2026-06-04_2ETFQ1.json": "4831cd2cbbe44786dc7727f7fbf399c424239187e13a06cb6b93e04bae42fdc0",
+      "data\\normalized\\etf_holdings\\2026-06-05_2ETFQ1.json": "1e7b35350a8f69b5462c7b77868b509627328cd2de26462fd4d1956946a872ed",
+      "data\\normalized\\etf_holdings\\2026-06-08_2ETFQ1.json": "2f2a49632341eb7e3a36c2dd417052f04d4f9f8848f2f9214056d190ec2461bc",
+      "data\\normalized\\etf_holdings\\2026-06-09_2ETFQ1.json": "a5a98ed19efee7531377f0e2b389627fb5a15a79ebbe14ac615afd580497783e",
+      "data\\normalized\\etf_holdings\\2026-06-10_2ETFQ1.json": "a931e03c32b32e97d107d50145bf0189c253df4db0087b88e07270d058d1b448",
+      "data\\normalized\\etf_holdings\\2026-06-11_2ETFQ1.json": "0ae2e714c649ad2c34e5406acbe98eabc23d83c29ad23f1764621b8fb0c6fce1",
+      "data\\normalized\\etf_holdings\\2026-06-12_2ETFQ1.json": "5919daf1c4ec1caec329d6c9ba9b4d7d47c55976b68e267ab1f1898cf0b20fea",
+      "data\\normalized\\etf_holdings\\2026-06-15_2ETFQ1.json": "e2976f43dc6842046204c6f0bf8416bd5a367e4545542b1d0f1edb57558d27a4",
+      "data\\normalized\\etf_holdings\\2026-06-16_2ETFQ1.json": "1d0647f65dc692603e377114821141410f576928d68d8c579cb5eb47cd15faed",
+      "data\\normalized\\etf_holdings\\2026-06-17_2ETFQ1.json": "107b2941e64637d424687426c0443389f4611909309ab72641d51dc5c0b04680",
+      "data\\normalized\\etf_holdings\\2026-06-18_2ETFQ1.json": "bbaf73d66a296b262fe707673a6f8dca7a4af500cd9c0e30ad18ccd489c348e9",
+      "data\\normalized\\etf_holdings\\2026-06-19_2ETFQ1.json": "d8bbcd41bfcf35b14faf443bfc3ccb6e13572755458a0b03a56531bb9776568d",
+      "data\\normalized\\etf_holdings\\2026-06-22_2ETFQ1.json": "ae01166de20006497cad4d633dd37ae815dc028343e7b68970b1257f79960d52",
+      "data\\normalized\\etf_holdings\\2026-06-23_2ETFQ1.json": "10f37114ec6a4d95ce2cda064aff4c2ea912811aa39cb34539d84dacfa5fc5c9",
+      "data\\normalized\\etf_holdings\\2026-06-24_2ETFQ1.json": "acfeff98bb6d0e501560ea3a2ce2657da440c25adbf5c2ded6dd7f14a0074bba",
+      "data\\normalized\\etf_holdings\\2026-06-25_2ETFQ1.json": "eda4bc6d3bdc2ccd2c5e95a017f3fcc6ca704f855cdb5216229212d84821f891",
+      "data\\normalized\\etf_holdings\\2026-06-26_2ETFQ1.json": "8a5b1e84d08f42cc12fa38e3ce910624e6f8b8fbdf6d4c85010644fa821e396b",
+      "data\\normalized\\etf_holdings\\2026-06-29_2ETFQ1.json": "2a1ac2dc842ab0dfd2ef0623ea4ce8270fc62a8830c35a0b524b671b7bdf51ac",
+      "data\\normalized\\etf_holdings\\2026-06-30_2ETFQ1.json": "767476e0e95d76075ebe410a70e4f90b52d8b9ed739ca8f476bd6d88e8c9ceb2",
+      "data\\normalized\\etf_holdings\\2026-07-01_2ETFQ1.json": "56179d01db86cc59900232fb8170d87ce9c085bb57f162054a34b55c268816e9",
+      "data\\normalized\\etf_holdings\\2026-07-02_2ETFQ1.json": "c7a0c4b1c71e2a3b028b56ecf160fe090892ab542948aa3a1de1b714440662bb",
+      "data\\normalized\\etf_holdings\\2026-07-03_2ETFQ1.json": "6fff3769da1374f6d20fed9625f85ad2653bd774532cdf7bebbb3c86b06eecd9",
+      "data\\normalized\\etf_holdings\\2026-07-06_2ETFQ1.json": "61dd80c0ebf70d2b2879ae682372007bd765ebcd18c824ad7a37af91960dd241",
+      "data\\normalized\\etf_holdings\\2026-07-07_2ETFQ1.json": "6785a810ebb401b7e834f149ff3c1704bd5c9b031601481fdd29cd64eef385fb",
+      "data\\normalized\\etf_holdings\\2026-07-08_2ETFQ1.json": "55c6059caa425a502a1fb7909f5a09cf2f8373884812c38e10dee245d5e9700a",
+      "data\\normalized\\etf_holdings\\2026-07-09_2ETFQ1.json": "101e112e531a02aba98840bd9c684d756cf41b4abf1ec520e88546e41479f6ac",
+      "data\\normalized\\etf_holdings\\2026-07-10_2ETFQ1.json": "0801c3663911175bb6eb82bc12a5dee7df13eb3437663fdb2cb59fbb36bda42c",
+      "data\\normalized\\etf_holdings\\2026-07-13_2ETFQ1.json": "bcc8eb54f4ea492461383def48116aca32fe6826a20c24db0acc983a143605f2",
+      "data\\normalized\\etf_holdings\\2026-07-14_2ETFQ1.json": "c6351e10f7a7f2ffbf85989df2e84d5d5d60eeeb2a6b202a1cc7d1b1a2b70c40",
+      "data\\normalized\\etf_holdings\\2026-07-15_2ETFQ1.json": "f3e4c68f8effdef0d8f5c870676f107058375d3ffab6c0d03f3fa26b386c0f3d",
+      "data\\normalized\\etf_holdings\\2026-07-16_2ETFQ1.json": "8d4e76b30e73e7be7635143336f07dfbc3c0f3957928c30f8485fc14d64557f6",
+      "data\\normalized\\etf_holdings\\2026-07-20_2ETFQ1.json": "a9329f08add1d724f1487718b65eeb7d35813209e2bf1c1350004bdd54e479f0",
+      "data\\normalized\\etf_holdings\\2026-07-21_2ETFQ1.json": "92c983f9913b26a92bd427f097ef997f4b6ea4e8a64db18eac53368c8ca47286",
+      "data\\normalized\\etf_holdings\\2026-07-22_2ETFQ1.json": "4a89a782fe9e3d115bd4a19ad18d4337e08c4e11ef063eae0681ae7f437189e4",
+      "data\\normalized\\etf_holdings\\2026-07-23_2ETFQ1.json": "cb10b411af58428d0a422da8b8c421c6f7cf6385900c6a6dbb279c31f937f663",
+      "data\\normalized\\etf_holdings\\2026-07-24_2ETFQ1.json": "179b9b713c87c8e98c1991b5c1911d3d59bc58d1b0ca8f3eeff5119e84e74ea9",
+      "data\\normalized\\etf_holdings\\2026-07-27_2ETFQ1.json": "3637d230529058d70c5df4653dc92ba9d18b81e4a5648d710e5787531b9a5627",
+      "data\\normalized\\etf_holdings\\2026-07-28_2ETFQ1.json": "972f782af4f1e13c5917964307e01e19f6d2cafdd96cd71013ff92a533df2c6e",
+      "data\\normalized\\etf_holdings\\2026-07-29_2ETFQ1.json": "d6b70fff455b99cc691544edaebf3e9de5ae8153949b664a55e7d0a995d60b75",
+      "data\\normalized\\etf_holdings\\2026-07-30_2ETFQ1.json": "4bc4acb2bafdb449964d7bc5fab12acb4a30818fc64fb3af5b7fd7e350392ad7",
+      "data\\normalized\\etf_holdings\\2026-07-31_2ETFQ1.json": "9129f9ba5b31d4c4ed5c8b7cf6f0aea16c839876cf20a38a5a88557eb5957023",
+      "data\\normalized\\etf_holdings\\2026-08-03_2ETFQ1.json": "9138a5e903d67713b2da610f491c2ea2294a2e086338f13ca8a453d056e320ab",
+      "data\\normalized\\etf_holdings\\2026-08-04_2ETFQ1.json": "dfcd1da55b493e4af4a104fe997633302a44e9dee88ff9e866b184ba252543ac",
+      "data\\normalized\\etf_holdings\\2026-08-05_2ETFQ1.json": "5417e5f383cf745dd688c9d8a4d8f0b6d47d9d78a4ac1f410b69c8c2833672d9",
+      "data\\normalized\\etf_holdings\\2026-08-06_2ETFQ1.json": "9f83c7ba29380d5431bc949757bdcb437d02a8f978c1f210f01bae4635099186",
+      "data\\normalized\\etf_holdings\\2026-08-07_2ETFQ1.json": "4661f1c9825c27676aff4374baa49c6a124f51d2d51ae80b9aea5bd1fbf2c48c",
+      "data\\normalized\\etf_holdings\\2026-08-10_2ETFQ1.json": "21da725b679edf56af9eedb6dd607faaada7770b6f5bb4f404f5a618657e5dd6",
+      "data\\normalized\\etf_holdings\\2026-08-11_2ETFQ1.json": "cc81f231cdf7292873a43ff48fdef2fc568dde58472626ee6a9515ecb59bc655",
+      "data\\normalized\\etf_holdings\\2026-08-12_2ETFQ1.json": "b5926dd53e0a74363f355be451918f74919f8a4b6d1fd225cd4fc2b046b3bead",
+      "data\\normalized\\etf_holdings\\2026-08-13_2ETFQ1.json": "0f70ef560fec3bfd23267538407d62fd0ce6292669d39501025a4d88360ef576",
+      "data\\normalized\\etf_holdings\\2026-08-14_2ETFQ1.json": "93b94b7219d9849e5c7f968da8b546b05306fff5896e1b54d72dfe74a6634c29",
+      "data\\normalized\\etf_holdings\\2026-08-18_2ETFQ1.json": "2222e94b46b3eae07cf203b1984b2e81357fb87f6d0e83947653a134b1ade6bd",
+      "data\\normalized\\etf_holdings\\2026-08-19_2ETFQ1.json": "eefb54a4a946bb7b6c16606ac2b4be8c0c6f835523b6331ec9ab3f60c84b9702",
+      "data\\normalized\\etf_holdings\\2026-08-20_2ETFQ1.json": "e47ba7becf597c7f9a95d659bb490746824233e0433671e06ed54b98796dde5b",
+      "data\\normalized\\etf_holdings\\2026-08-21_2ETFQ1.json": "508a51b920c695be061849d3c59254162cdb5c9e7ba27346d622f9f7fe7522cc",
+      "data\\normalized\\etf_holdings\\2026-08-24_2ETFQ1.json": "94c627f5d7952ee559f6c4522f12ddabf7940b47aa638e7dfcdcbd1e3e35b4e1",
+      "data\\normalized\\etf_holdings\\2026-08-25_2ETFQ1.json": "f32dca0cd43ce206d147184667f1c960b72d7279d9bc721a6142917c9658f753",
+      "data\\normalized\\etf_holdings\\2026-08-26_2ETFQ1.json": "96a83a66cbb001330f19a86b7715d9abc7480547e11bf4b7bd5a3d25b93213f4",
+      "data\\normalized\\etf_holdings\\2026-08-27_2ETFQ1.json": "395bc09460629cef7a8e803f93fe9d51c09077682c1fd34f47bd07efa5ca2204",
+      "data\\normalized\\etf_holdings\\2026-08-28_2ETFQ1.json": "b5ed1402309f2e0f8e4827e8b8b44b9896f1a742bb07ce2600a0d75d0af1a062",
+      "data\\normalized\\etf_holdings\\2026-08-31_2ETFQ1.json": "b937293e4d72f99b63d410313fbff2b0a13fdc4d01b1801d1dbf71e4318fdde5",
+      "data\\normalized\\etf_holdings\\2026-09-01_2ETFQ1.json": "c1123618ff6f09d107c04a7e38be2149af82f258dc4f6a1ec3d775f8d2c7d133",
+      "data\\normalized\\etf_holdings\\2026-09-02_2ETFQ1.json": "3175ee2f4b3a4c226ae4c2e502d877fb5c00bd61207ecad9ead06306b5987940",
+      "data\\normalized\\etf_holdings\\2026-09-03_2ETFQ1.json": "4670cf2195081dd9cde7e0a9fd8c21ec5764713d2b06eced315a6c7237c6d057",
+      "data\\normalized\\etf_holdings\\2026-09-04_2ETFQ1.json": "d44b8758e086e6d3a0f21a0947945d1906876acdc1e3b7014f16ee61646d87bb",
+      "data\\normalized\\etf_holdings\\2026-09-07_2ETFQ1.json": "0fbc9cf89f8bdba5af1d3e9496f5ca66ffae25abd8aed2420b384c8c947dbe84",
+      "data\\normalized\\etf_holdings\\2026-09-08_2ETFQ1.json": "464dd4cb3726d04556509769d3af0d140b0849824f24e4efa6eb36034e4c54dd",
+      "data\\normalized\\etf_holdings\\2026-09-09_2ETFQ1.json": "e683b8eb377646b29036ad12276761b6e012e4ada7fcb2b3a4fa6293bd11b402"
+    }
+  }
+}

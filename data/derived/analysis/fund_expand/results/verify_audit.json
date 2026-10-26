@@ -1,0 +1,353 @@
+{
+ "1_module_identity": {
+  "FC.H_is_H": true,
+  "FL.H_is_H": true,
+  "composite_calls_H.universe_mask": true
+ },
+ "2_base_membership": {
+  "days_mismatch_vs_independent": 0,
+  "snapshot_days": 187,
+  "held_but_not_in_150_panel(snap-days)": {},
+  "of_which_in_extended_panel(U0 excludes, U4 can add)": {}
+ },
+ "3_anchoring": {
+  "month_anchors": [
+   "2026-01-02",
+   "2026-01-30",
+   "2026-02-27",
+   "2026-03-31",
+   "2026-04-30",
+   "2026-05-29",
+   "2026-06-30",
+   "2026-07-31",
+   "2026-08-31",
+   "2026-09-30",
+   "2026-10-08"
+  ],
+  "all_anchors_US_trading_days": true,
+  "anchors_with_base_snapshot": {
+   "2026-01-02": true,
+   "2026-01-30": true,
+   "2026-02-27": true,
+   "2026-03-31": true,
+   "2026-04-30": true,
+   "2026-05-29": true,
+   "2026-06-30": true,
+   "2026-07-31": true,
+   "2026-08-31": true,
+   "2026-09-30": true,
+   "2026-10-08": true
+  },
+  "rows_not_equal_base_at_anchor": 0,
+  "member_cells_seen_before_first_daily_appearance": 0,
+  "extra_cells_set_before_fund_first_pdf": 0
+ },
+ "4_decision_day_match": {
+  "weekly": {
+   "decision_days": 39,
+   "identical_to_daily": 39,
+   "mean_jaccard": 1.0,
+   "min_jaccard": 1.0
+  },
+  "biweekly": {
+   "decision_days": 39,
+   "identical_to_daily": 21,
+   "mean_jaccard": 0.937,
+   "min_jaccard": 0.667
+  },
+  "monthly": {
+   "decision_days": 39,
+   "identical_to_daily": 6,
+   "mean_jaccard": 0.826,
+   "min_jaccard": 0.447
+  }
+ },
+ "7_missing_columns": {
+  "no_price": [
+   "CNTA",
+   "CPRX",
+   "MNMD",
+   "SLNO",
+   "TERN",
+   "VTYX"
+  ],
+  "no_price_pdf_count": {
+   "SLNO": 4,
+   "CNTA": 8,
+   "TERN": 2,
+   "CPRX": 3,
+   "VTYX": 1,
+   "MNMD": 1
+  },
+  "never_reach_MIN_BARS_in_2026": {
+   "APGE": 1,
+   "COAG": 112,
+   "CRNX": 1,
+   "HONA": 82,
+   "NUVL": 1,
+   "PBLS": 85,
+   "SPCX": 83
+  }
+ },
+ "1_monkeypatch_effect": {
+  "score_cells_outside_um": 0,
+  "score_cells_outside_original_harness_mask_2026": 17861,
+  "extra_only_names_with_score_2026": 122,
+  "grade_cells_outside_um": 0
+ },
+ "5_U1_start": {
+  "compare_style_U0_vs_U1_before_0430": {
+   "grade_cells_diff": 10,
+   "days_with_diff": 4,
+   "first": "2026-01-02",
+   "last": "2026-01-09",
+   "mask_days_diff": 0
+  },
+  "compare_style_weeks_with_diff_picks_before_0430": {
+   "S": 0,
+   "SA": 2,
+   "BUF": 0,
+   "TOP7": 0,
+   "ALL": 0
+  },
+  "lag_check2_style_U0_vs_U1_before_0430": {
+   "grade_cells_diff": 0,
+   "days_with_diff": 0,
+   "first": null,
+   "last": null,
+   "mask_days_diff": 0
+  },
+  "lag_check2_style_weeks_with_diff_picks_before_0430": {
+   "S": 0,
+   "SA": 0,
+   "BUF": 0,
+   "TOP7": 0,
+   "ALL": 0
+  }
+ },
+ "6_aux_leak_U4": {
+  "cmp_U4(aux with extras)": {
+   "y2026": {
+    "S": 77.9,
+    "SA": 63.2,
+    "BUF": 79.3,
+    "TOP7": 52.2,
+    "ALL": 30.4
+   },
+   "front": {
+    "S": 71.7,
+    "SA": 58.9,
+    "BUF": 78.9,
+    "TOP7": 70.2,
+    "ALL": 19.2
+   },
+   "back": {
+    "S": 6.6,
+    "SA": 3.3,
+    "BUF": 5.8,
+    "TOP7": -7.9,
+    "ALL": 9.7
+   }
+  },
+  "U4(aux = base only)": {
+   "y2026": {
+    "S": 80.1,
+    "SA": 62.2,
+    "BUF": 78.5,
+    "TOP7": 52.2,
+    "ALL": 30.4
+   },
+   "front": {
+    "S": 73.8,
+    "SA": 57.9,
+    "BUF": 78.1,
+    "TOP7": 70.2,
+    "ALL": 19.2
+   },
+   "back": {
+    "S": 6.6,
+    "SA": 3.3,
+    "BUF": 5.8,
+    "TOP7": -7.9,
+    "ALL": 9.7
+   }
+  },
+  "grade_diff_2026": {
+   "grade_cells_diff": 146,
+   "days_with_diff": 9,
+   "first": "2026-01-02",
+   "last": "2026-01-14",
+   "mask_days_diff": 0
+  },
+  "weeks_diff_picks_2026": {
+   "S": 2,
+   "SA": 2,
+   "BUF": 3,
+   "TOP7": 0,
+   "ALL": 0
+  }
+ },
+ "8_reproduction": {
+  "cmp_U4": {
+   "y2026": {
+    "S": 77.9,
+    "SA": 63.2,
+    "BUF": 79.3,
+    "TOP7": 52.2,
+    "ALL": 30.4
+   },
+   "front": {
+    "S": 71.7,
+    "SA": 58.9,
+    "BUF": 78.9,
+    "TOP7": 70.2,
+    "ALL": 19.2
+   },
+   "back": {
+    "S": 6.6,
+    "SA": 3.3,
+    "BUF": 5.8,
+    "TOP7": -7.9,
+    "ALL": 9.7
+   }
+  },
+  "cmp_U0": {
+   "y2026": {
+    "S": 58.4,
+    "SA": 86.9,
+    "BUF": 87.9,
+    "TOP7": 113.5,
+    "ALL": 63.4
+   },
+   "front": {
+    "S": 59.5,
+    "SA": 97.2,
+    "BUF": 87.6,
+    "TOP7": 124.1,
+    "ALL": 50.1
+   },
+   "back": {
+    "S": -2.5,
+    "SA": -1.7,
+    "BUF": 4.6,
+    "TOP7": -2.2,
+    "ALL": 8.5
+   }
+  },
+  "cmp_U1": {
+   "y2026": {
+    "S": 66.6,
+    "SA": 93.3,
+    "BUF": 90.2,
+    "TOP7": 101.8,
+    "ALL": 49.9
+   },
+   "front": {
+    "S": 71.1,
+    "SA": 98.5,
+    "BUF": 91.5,
+    "TOP7": 124.1,
+    "ALL": 45.2
+   },
+   "back": {
+    "S": -0.3,
+    "SA": -3.4,
+    "BUF": 2.8,
+    "TOP7": -7.5,
+    "ALL": 3.6
+   }
+  },
+  "U4_daily_aux_base": {
+   "y2026": {
+    "S": 80.1,
+    "SA": 62.2,
+    "BUF": 78.5,
+    "TOP7": 52.2,
+    "ALL": 30.4
+   },
+   "front": {
+    "S": 73.8,
+    "SA": 57.9,
+    "BUF": 78.1,
+    "TOP7": 70.2,
+    "ALL": 19.2
+   },
+   "back": {
+    "S": 6.6,
+    "SA": 3.3,
+    "BUF": 5.8,
+    "TOP7": -7.9,
+    "ALL": 9.7
+   }
+  },
+  "mon_U0": {
+   "y2026": {
+    "S": 83.6,
+    "SA": 98.5,
+    "BUF": 113.6,
+    "TOP7": 119.2,
+    "ALL": 52.7
+   },
+   "front": {
+    "S": 83.4,
+    "SA": 106.7,
+    "BUF": 109.2,
+    "TOP7": 144.2,
+    "ALL": 48.1
+   },
+   "back": {
+    "S": 2.1,
+    "SA": 3.0,
+    "BUF": 7.4,
+    "TOP7": 1.3,
+    "ALL": 8.1
+   }
+  },
+  "mon_U1": {
+   "y2026": {
+    "S": 105.4,
+    "SA": 89.2,
+    "BUF": 117.6,
+    "TOP7": 113.0,
+    "ALL": 43.7
+   },
+   "front": {
+    "S": 99.2,
+    "SA": 104.5,
+    "BUF": 118.2,
+    "TOP7": 144.2,
+    "ALL": 44.5
+   },
+   "back": {
+    "S": 7.2,
+    "SA": -1.7,
+    "BUF": 9.9,
+    "TOP7": -1.5,
+    "ALL": 3.4
+   }
+  },
+  "mon_U4": {
+   "y2026": {
+    "S": 81.7,
+    "SA": 60.9,
+    "BUF": 73.8,
+    "TOP7": 54.3,
+    "ALL": 29.2
+   },
+   "front": {
+    "S": 78.4,
+    "SA": 61.1,
+    "BUF": 79.9,
+    "TOP7": 80.9,
+    "ALL": 20.2
+   },
+   "back": {
+    "S": 9.4,
+    "SA": 3.8,
+    "BUF": 4.3,
+    "TOP7": -6.3,
+    "ALL": 9.7
+   }
+  }
+ }
+}

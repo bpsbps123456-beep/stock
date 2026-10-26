@@ -1,0 +1,20 @@
+{
+  "source": "https://freesis.kofia.or.kr STATSCU0100000070BO TMPV9 (예탁증권담보융자, 백만원 -> 억원)",
+  "fetched_at": "2026-10-14T14:04:37",
+  "start": "20240601",
+  "end": "20261014",
+  "rows": 574,
+  "first": "2024-06-03",
+  "last": "2026-10-12",
+  "compare_with_existing_csv": {
+    "overlap_rows": 332,
+    "max_abs_diff_100m_krw": 0.0,
+    "rows_in_old_not_new": 0,
+    "rows_in_new_not_old_within_old_range": 0
+  },
+  "prices": {
+    "source": "yfinance ^KS11, ^SOX Close",
+    "rows": 612,
+    "last": "2026-10-14"
+  }
+}

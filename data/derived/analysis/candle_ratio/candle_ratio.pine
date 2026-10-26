@@ -1,0 +1,61 @@
+// This Pine Script® code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// 양봉 비율 매매 — 2026-10-23 (연구: data/derived/analysis/candle_ratio, 계산은 code/engine.py와 같다)
+// 비율 p = 최근 N봉(지금 봉 포함) 안 양봉 비중. 개수 = count, 몸통 = body(몸통 크기 가중), 거래량 = vol(거래량 가중). 도지(종가 = 시가)는 세지 않는다.
+// 따라가기(follow): 현금이고 p > 매수 문턱이면 매수, 보유이고 p < 매도 문턱이면 매도.
+// 거꾸로(fade): 현금이고 p < 1 - 매수 문턱이면 매수, 보유이고 p > 1 - 매도 문턱이면 매도.
+// 판단은 봉 마감에만 하고 체결은 다음 봉 시가다. ▲·▼는 신호가 난 봉(체결 바로 앞 봉)에 찍힌다.
+// 장 마감 청산을 켜면 세션 마지막 봉 종가에 판다(▼는 그 봉이 시작할 때부터 보인다). 그 봉 마감에 신호가 살아 있으면 같은 봉에 ▲가 함께 찍히고 다음 세션 첫 봉 시가에 다시 산다(engine.py와 같다).
+// 차트 맨 앞 몇 봉은 계산 시작점이 연구와 달라 첫 신호가 다를 수 있다. 비율이 한 번 문턱을 넘으면 같아진다.
+// 거래량 비율: 연구 자료(야후)는 프리·애프터 거래량이 0이라 연장 차트에서는 트레이딩뷰 신호가 연구와 다르다.
+//@version=6
+indicator("양봉 비율 매매", shorttitle = "양봉비율", overlay = false, precision = 2)
+
+// ── 입력 ──────────────────────────────────────────────
+n       = input.int(10, "봉 개수", minval = 1, maxval = 500, display = display.none)
+kind    = input.string("개수", "비율", options = ["개수", "몸통", "거래량"], display = display.none)
+dir     = input.string("따라가기", "방향", options = ["따라가기", "거꾸로"], display = display.none)
+b       = input.float(0.5, "매수 문턱", minval = 0.0, maxval = 1.0, step = 0.05, display = display.none)
+s       = input.float(0.5, "매도 문턱", minval = 0.0, maxval = 1.0, step = 0.05, display = display.none)
+dayflat = input.bool(false, "장 마감 청산", display = display.none)
+
+bool fol = dir == "따라가기"
+
+// ── 비율 p (봉 마감 때 안다) ─────────────────────────────
+float up  = close > open ? 1.0 : 0.0
+float dn  = close < open ? 1.0 : 0.0
+float num = kind == "몸통" ? close - open : kind == "거래량" ? volume * up : up
+float den = kind == "몸통" ? math.abs(close - open) : kind == "거래량" ? volume * (up + dn) : up + dn
+float sNum = math.sum(num, n)
+float sDen = math.sum(den, n)
+float r    = bar_index < n - 1 or na(sNum) or na(sDen) ? na : sDen > 1e-12 ? sNum / sDen : kind == "몸통" ? 0.0 : 0.5
+float p    = kind == "몸통" ? (1.0 + r) / 2.0 : r
+
+// ── 상태 기계 (봉 마감에만 판단) ──────────────────────────
+var int st = 0                  // 0 현금, 1 보유 (다음 봉 시가부터의 포지션)
+int was = st                    // 이 봉 동안 들고 있는 포지션 = 직전 봉 마감 때 정한 상태
+if barstate.isconfirmed and not na(p)
+    if st == 0
+        if fol ? p > b : p < 1.0 - b
+            st := 1
+    else
+        if fol ? p < s : p > 1.0 - s
+            st := 0
+
+// 연장 세션 차트면 session.islastbar는 애프터 마지막 봉(20:00 ET 마감 봉), 정규장 차트면 정규장 마지막 봉(16:00 ET 마감 봉)에서만 참이다.
+bool flat    = dayflat and session.islastbar and was == 1                           // 이 봉 종가에 판다(봉 시작 때 이미 정해진다)
+bool buySig  = barstate.isconfirmed and st == 1 and (was == 0 or flat)               // 다음 봉 시가에 산다
+bool sellSig = barstate.isconfirmed and st == 0 and was == 1 and not flat           // 다음 봉 시가에 판다
+
+// ── 표시 ──────────────────────────────────────────────
+float buyLv  = fol ? b : 1.0 - b    // 실제로 넘는 선을 긋는다(거꾸로면 1 - 문턱)
+float sellLv = fol ? s : 1.0 - s
+plot(p, "비율", color = #1565C0, linewidth = 2, display = display.pane)
+hline(0.5, "0.5", color = color.gray, linestyle = hline.style_dotted)
+hline(buyLv, "매수 문턱", color = color.new(color.green, 30), linestyle = hline.style_dashed)
+hline(sellLv, "매도 문턱", color = color.new(color.red, 30), linestyle = hline.style_dashed)
+
+plotshape(buySig, "매수", shape.triangleup, location.belowbar, color.green, text = "매수", textcolor = color.green, size = size.small, display = display.pane, force_overlay = true)
+plotshape(sellSig or flat, "매도", shape.triangledown, location.abovebar, color.red, text = "매도", textcolor = color.red, size = size.small, display = display.pane, force_overlay = true)
+
+alertcondition(buySig, "매수", "{{ticker}} 양봉 비율 매수 - 다음 봉 시가")
+alertcondition(sellSig or flat, "매도", "{{ticker}} 양봉 비율 매도")

@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "run_id": "20260927T133544213845+0900",
+  "workflow": "ETF_DAILY",
+  "requested_date": "2026-09-23",
+  "started_at": "2026-09-27T13:35:44+09:00",
+  "funds": {
+    "time": {
+      "fund_id": "456600",
+      "expected": true,
+      "fetch_requested": false,
+      "quality_status": "existing",
+      "as_of_date": "2026-09-23",
+      "storage_status": "skipped",
+      "holdings_count": 44,
+      "report_status": "generated"
+    },
+    "koact": {
+      "fund_id": "2ETFQ1",
+      "expected": true,
+      "fetch_requested": false,
+      "quality_status": "existing",
+      "as_of_date": "2026-09-23",
+      "storage_status": "skipped",
+      "holdings_count": 48,
+      "report_status": "generated"
+    }
+  },
+  "errors": [],
+  "core_digest_status": "generated",
+  "performance_status": "generated",
+  "finished_at": "2026-09-27T13:35:48+09:00",
+  "status": "success",
+  "report_contract_status": "passed",
+  "report_path": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\briefings\\2026-09-23.md",
+  "manifest_path": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\state\\runs\\20260927T133544213845+0900_ETF_DAILY.json"
+}

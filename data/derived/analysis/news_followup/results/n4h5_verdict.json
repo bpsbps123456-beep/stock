@@ -1,0 +1,242 @@
+{
+ "sessions": {
+  "start": "2023-01-03",
+  "end": "2026-10-23",
+  "S": 956
+ },
+ "notes": {
+  "groups": 252,
+  "with_published_at": 245,
+  "by_family": {
+   "R": 82,
+   "D": 64,
+   "S": 11,
+   "T": 20
+  },
+  "by_family_first": {
+   "R": 64,
+   "D": 45,
+   "S": 10,
+   "T": 16
+  },
+  "exact": 17,
+  "R_in_range": 82
+ },
+ "base_rate_pre": {
+  "R": 0.4246861924686193,
+  "D": 0.3158995815899582,
+  "S": 0.0596234309623431,
+  "T": 0.09937238493723849
+ },
+ "base_rate_any": {
+  "R": 0.6527196652719666,
+  "D": 0.47384937238493724,
+  "S": 0.10669456066945607,
+  "T": 0.1705020920502092
+ },
+ "soxx_events": {
+  "ZZA3": {
+   "-1": 17,
+   "1": 17
+  },
+  "ZZP8": {
+   "-1": 18,
+   "1": 18
+  }
+ },
+ "soxx_counts": {
+  "ZZA3_1_ALL": {
+   "n": 17,
+   "R_pre": 8,
+   "R_any": 14,
+   "R_post": 11
+  },
+  "ZZA3_1_Y2026": {
+   "n": 5,
+   "R_pre": 4,
+   "R_any": 5,
+   "R_post": 4
+  },
+  "ZZA3_1_P2": {
+   "n": 3,
+   "R_pre": 3,
+   "R_any": 3,
+   "R_post": 3
+  },
+  "ZZA3_-1_ALL": {
+   "n": 17,
+   "R_pre": 6,
+   "R_any": 9,
+   "R_post": 6
+  },
+  "ZZA3_-1_Y2026": {
+   "n": 5,
+   "R_pre": 3,
+   "R_any": 5,
+   "R_post": 4
+  },
+  "ZZA3_-1_P2": {
+   "n": 4,
+   "R_pre": 2,
+   "R_any": 4,
+   "R_post": 4
+  },
+  "ZZP8_1_ALL": {
+   "n": 18,
+   "R_pre": 7,
+   "R_any": 13,
+   "R_post": 11
+  },
+  "ZZP8_1_Y2026": {
+   "n": 7,
+   "R_pre": 4,
+   "R_any": 5,
+   "R_post": 4
+  },
+  "ZZP8_1_P2": {
+   "n": 4,
+   "R_pre": 3,
+   "R_any": 3,
+   "R_post": 3
+  },
+  "ZZP8_-1_ALL": {
+   "n": 18,
+   "R_pre": 6,
+   "R_any": 11,
+   "R_post": 6
+  },
+  "ZZP8_-1_Y2026": {
+   "n": 7,
+   "R_pre": 4,
+   "R_any": 6,
+   "R_post": 3
+  },
+  "ZZP8_-1_P2": {
+   "n": 5,
+   "R_pre": 3,
+   "R_any": 5,
+   "R_post": 3
+  }
+ },
+ "soxx_registered_cells": 96,
+ "soxx_registered_pass": 2,
+ "soxx_registered_pass_rows": [
+  {
+   "det": "ZZP8",
+   "type": -1,
+   "period": "Y2026",
+   "variant": "all",
+   "window": "any",
+   "outcome": "y1",
+   "diff": 0.1284854158553289,
+   "boot_lo": 0.06859885766476362,
+   "null_q95": 0.12355769065145236
+  },
+  {
+   "det": "ZZP8",
+   "type": -1,
+   "period": "Y2026",
+   "variant": "first",
+   "window": "any",
+   "outcome": "y1",
+   "diff": 0.1284854158553289,
+   "boot_lo": 0.06859885766476362,
+   "null_q95": 0.10135335729161711
+  }
+ ],
+ "soxx_family_null": {
+  "ZZA3_all_any": {
+   "cells": 12,
+   "passed_full": 0,
+   "passed_shift_only": 0,
+   "null_mean": 0.31308900523560207,
+   "null_q95": 2.0,
+   "p": 1.0,
+   "reps": 955
+  },
+  "ZZA3_all_pre": {
+   "cells": 12,
+   "passed_full": 0,
+   "passed_shift_only": 0,
+   "null_mean": 0.22303664921465968,
+   "null_q95": 1.0,
+   "p": 1.0,
+   "reps": 955
+  },
+  "ZZA3_first_any": {
+   "cells": 12,
+   "passed_full": 0,
+   "passed_shift_only": 0,
+   "null_mean": 0.30157068062827225,
+   "null_q95": 2.0,
+   "p": 1.0,
+   "reps": 955
+  },
+  "ZZA3_first_pre": {
+   "cells": 12,
+   "passed_full": 0,
+   "passed_shift_only": 0,
+   "null_mean": 0.21256544502617802,
+   "null_q95": 1.0,
+   "p": 1.0,
+   "reps": 955
+  },
+  "ZZP8_all_any": {
+   "cells": 12,
+   "passed_full": 1,
+   "passed_shift_only": 1,
+   "null_mean": 0.34764397905759165,
+   "null_q95": 2.0,
+   "p": 0.2523560209424084,
+   "reps": 955
+  },
+  "ZZP8_all_pre": {
+   "cells": 12,
+   "passed_full": 0,
+   "passed_shift_only": 0,
+   "null_mean": 0.4607329842931937,
+   "null_q95": 3.0,
+   "p": 1.0,
+   "reps": 955
+  },
+  "ZZP8_first_any": {
+   "cells": 12,
+   "passed_full": 1,
+   "passed_shift_only": 1,
+   "null_mean": 0.3769633507853403,
+   "null_q95": 2.0,
+   "p": 0.26910994764397905,
+   "reps": 955
+  },
+  "ZZP8_first_pre": {
+   "cells": 12,
+   "passed_full": 0,
+   "passed_shift_only": 0,
+   "null_mean": 0.4261780104712042,
+   "null_q95": 2.0,
+   "p": 1.0,
+   "reps": 955
+  }
+ },
+ "soxx_cells_total": 6480,
+ "soxx_pass_total": 95,
+ "stock_events": {
+  "n": 3559,
+  "dates": 767
+ },
+ "stock_reg_cells": 72,
+ "stock_reg_pass": 0,
+ "stock_reg_pass_rows": [],
+ "stock_cells_total": 3360,
+ "stock_pass_total": 123,
+ "boot": {
+  "B_soxx": 5000,
+  "B_stock": 3000,
+  "block_sessions": 20,
+  "seed": 20261026
+ },
+ "nulls": {
+  "soxx_shift": "k=1..955",
+  "stock": "날짜 표지 원형 회전 k=1..D−1"
+ }
+}

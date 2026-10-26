@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "run_id": "20260710T182213+0900",
+  "workflow": "ETF_DAILY",
+  "requested_date": "2026-07-10",
+  "started_at": "2026-07-10T18:22:13+09:00",
+  "funds": {
+    "time": {
+      "fund_id": "456600",
+      "expected": true,
+      "fetch_requested": true,
+      "requested_date": "2026-07-10",
+      "as_of_date": "2026-07-10",
+      "holdings_count": 35,
+      "cash_weight_pct": 1.23901798,
+      "nav_weight_sum_pct": 100.00000001,
+      "quality_status": "valid",
+      "content_sha256": "75833bb4e7df2f53004be6b21137ba3b947f7ed6d48eeaa9b58e7ac4bbb937e4",
+      "raw_capture_status": "created",
+      "raw_capture_path": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\raw\\etf_holdings\\2026-07-10_456600_481240ee0160.html",
+      "storage_status": "created",
+      "snapshot_path": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\normalized\\etf_holdings\\2026-07-10_456600.json",
+      "report_status": "generated"
+    },
+    "koact": {
+      "fund_id": "2ETFQ1",
+      "expected": true,
+      "fetch_requested": true,
+      "requested_date": "2026-07-10",
+      "as_of_date": "2026-07-10",
+      "holdings_count": 56,
+      "cash_weight_pct": 4.31748431,
+      "nav_weight_sum_pct": 99.99999997,
+      "quality_status": "valid",
+      "content_sha256": "426b82fd17e5067ace94eeafe28f7148e520111686a919b181d081d95e5bef28",
+      "raw_capture_status": "created",
+      "raw_capture_path": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\raw\\etf_holdings\\2026-07-10_2ETFQ1_ef49e33c5605.json",
+      "storage_status": "created",
+      "snapshot_path": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\normalized\\etf_holdings\\2026-07-10_2ETFQ1.json",
+      "report_status": "generated"
+    }
+  },
+  "errors": [],
+  "performance_status": "generated",
+  "finished_at": "2026-07-10T18:22:18+09:00",
+  "status": "success",
+  "report_path": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\briefings\\2026-07-10.md"
+}

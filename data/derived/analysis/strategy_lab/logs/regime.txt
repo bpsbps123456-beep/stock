@@ -1,0 +1,24 @@
+static rules: REPL_T +82% (IS +94% / OOS -6%), H1b_T_W5 +103% (IS +110% / OOS -4%), H6_T_MOM120 +253% (IS +262% / OOS -3%), H6c_T_MOM120_N10M +156% (IS +164% / OOS -3%), H7_I_RADJ120 +190% (IS +195% / OOS -2%), H9b_I_PULL +146% (IS +144% / OOS +1%), H9c_I_PULL_W +156% (IS +160% / OOS -1%), H10_K_REV5 +181% (IS +65% / OOS +71%)
+
+[QQQ trend] days bull/box/bear [86, 42, 53], label changes 27
+  IS-fitted map: bull->H6_T_MOM120, box->H10_K_REV5, bear->H6_T_MOM120
+  total +310%  IS +273%  OOS +10%  MDD -40%
+  fixed H6_T_MOM120/H9c_I_PULL_W/CASH: total +134%  IS +126%  OOS +3%  MDD -35%
+  fixed H6_T_MOM120/H9c_I_PULL_W/H10_K_REV5: total +249%  IS +152%  OOS +38%  MDD -32%
+  fixed H6_T_MOM120/H6_T_MOM120/CASH: total +137%  IS +134%  OOS +1%  MDD -38%
+
+[SMH trend] days bull/box/bear [105, 28, 48], label changes 19
+  IS-fitted map: bull->H6_T_MOM120, box->H9c_I_PULL_W, bear->H1b_T_W5
+  total +275%  IS +299%  OOS -6%  MDD -43%
+  fixed H6_T_MOM120/H9c_I_PULL_W/CASH: total +185%  IS +252%  OOS -19%  MDD -36%
+  fixed H6_T_MOM120/H9c_I_PULL_W/H10_K_REV5: total +366%  IS +251%  OOS +33%  MDD -33%
+  fixed H6_T_MOM120/H6_T_MOM120/CASH: total +160%  IS +218%  OOS -18%  MDD -37%
+
+[breadth] days bull/box/bear [82, 73, 26], label changes 39
+  IS-fitted map: bull->H6_T_MOM120, box->H6_T_MOM120, bear->H10_K_REV5
+  total +305%  IS +277%  OOS +8%  MDD -39%
+  fixed H6_T_MOM120/H9c_I_PULL_W/CASH: total +129%  IS +135%  OOS -2%  MDD -29%
+  fixed H6_T_MOM120/H9c_I_PULL_W/H10_K_REV5: total +305%  IS +235%  OOS +21%  MDD -29%
+  fixed H6_T_MOM120/H6_T_MOM120/CASH: total +130%  IS +164%  OOS -13%  MDD -43%
+
+[user] not implemented yet
