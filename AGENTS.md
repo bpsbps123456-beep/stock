@@ -79,17 +79,17 @@
 
 ## 공동 작업 규칙 (Codex·Claude)
 
-두 에이전트가 같은 폴더를 승인 없이, 때로는 같은 요청으로 동시에 고친다. 파일을 바꾸는 작업은 아래 순서를 지킨다.
+두 에이전트가 같은 폴더를 승인 없이, 때로는 같은 요청으로 동시에 고친다. 2026-10-26부터는 GitHub 저장소 `origin`(`github.com/bpsbps123456-beep/stock`, 기본 브랜치 `master`)을 통해 클라우드 세션도 같은 이력을 고친다. 파일을 바꾸는 작업은 아래 순서를 지킨다.
 
 | 시점 | 필수 |
 |---|---|
-| 시작 | `git status --short`로 커밋되지 않은 다른 작업을 확인한다. 내가 고칠 파일에 남의 변경이 있으면 덮어쓰지 않고 그 위에 고친다. |
+| 시작 | `git status --short`로 커밋되지 않은 다른 작업을 확인한다. 내가 고칠 파일에 남의 변경이 있으면 덮어쓰지 않고 그 위에 고친다. 그다음 `git pull --ff-only origin master`로 원격 변경을 받는다. 앞서 나가지 못하면(갈라짐) 작업 트리가 깨끗할 때만 `git pull --rebase origin master`를 쓴다. |
 | 공유 파일을 고치기 직전 | 정본 문서, `docs/operations_changelog.md`, `watchlist.py`, `gbrc/`, `desk/`는 고치기 직전에 다시 읽는다(세션 중에 다른 에이전트가 바꿀 수 있다). 같은 절이 동시에 바뀌고 있으면 새 절로 나눈다. 같은 계산의 두 번째 정본 모듈을 만들지 않는다. |
 | 사실·결정 기록 | 사용자가 알려 준 사실(매매 조건 등)과 결정은 해당 정본 한 곳에 쓴다. 에이전트 개인 메모리(Claude 자동 메모리, Codex 메모리)에만 두지 않는다. 다른 에이전트는 그 메모리를 보지 못한다. |
 | 코드 | 실행 경로에 미구현 자리표시(`NotImplementedError`, 사용자 작성 대기 TODO)를 남기지 않는다. 설계 선택은 근거로 직접 정해 구현하고 기준값과 근거를 정본에 남긴다. 손실 한도처럼 사용자 개인 사실이 필요한 값만 묻는다. |
 | 정리 | 참조 0건·중복·빈 템플릿인 문서와 코드는 발견한 작업에서 `git rm`으로 지운다. 되살릴 때는 git 이력을 쓰고, 보관용 사본을 만들지 않는다. |
 | 검증 | 코드를 바꿨으면 `py -m unittest`가 전부 통과해야 한다. `py -m pytest`와 같은 테스트를 모으며, 모듈 함수 방식 테스트 파일에 `load_tests` 훅이 빠지면 `tests/test_suite_contract.py`가 실패한다. 영역별 추가 검증은 해당 정본을 따른다(데스크 §6, 탐방 §8.1, 거인의 어깨 §9, 급락 후 담기 §10, 추세 등급 §11). |
-| 종결 | 바꾼 파일만 경로를 지정해 커밋한다: 새 파일은 `git add <경로>`, 그다음 `git commit -m "<영역>: <요약> (codex\|claude)" -- <바꾼 경로…>`. 루틴 실행이 만든 추적 데이터(`data/normalized/` 스냅샷 등)는 `data: <날짜> <내용>` 커밋으로 따로 넣는다. `git add -A`, `git add .`, 푸시, `reset --hard`·`checkout -- .`·`clean`은 쓰지 않는다. |
+| 종결 | 바꾼 파일만 경로를 지정해 커밋한다: 새 파일은 `git add <경로>`, 그다음 `git commit -m "<영역>: <요약> (codex\|claude)" -- <바꾼 경로…>`. 루틴 실행이 만든 추적 데이터(`data/normalized/` 스냅샷, `data/derived/` 연구 결과 등)는 `data: <날짜> <내용>` 커밋으로 따로 넣는다. 커밋 뒤 `git push origin master`로 올린다. 거부되면 `git pull --rebase origin master` 뒤 다시 올린다. 10MB 넘는 결과·캐시·바이너리는 올리지 않는다(`.gitignore`에 경로를 더하고, `tests/test_repo_files.py`가 50MB 넘는 추적 파일을 막는다). `git add -A`, `git add .`, 강제 푸시(`--force`), `reset --hard`·`checkout -- .`·`clean`은 쓰지 않는다. |
 
 ## 연구 보고 규칙
 
@@ -104,13 +104,14 @@
 
 ## 기본 위치
 
-- 작업 디렉터리: `C:\Users\geunt\OneDrive\Desktop\주식`
+- 작업 디렉터리: `C:\Users\geunt\OneDrive\Desktop\주식`(로컬 Windows). 클라우드 세션은 저장소 루트이고, 리눅스라 `py` 대신 `python3`를 쓴다. 트레이딩뷰 MCP·크롬 같은 로컬 도구와 예약 작업(`.codex/schedule/`)은 클라우드에 없다
 - ETF 원본 v1 보존: `data/etf_holdings/`
 - ETF 검증 스냅샷 정본: `data/normalized/etf_holdings/`
 - 옵션 로그: `data/options_log/`
 - 실적 로그: `data/earnings_log/`, `data/earnings_prefill/`
 - 애널리스트 콜 로그: `data/analyst_log/`
-- 야간 데스크 매매 기록: `data/journal/` (Git 제외 개인 데이터)
+- 야간 데스크 매매 기록: `data/journal/` (Git 제외 개인 데이터, 전략 설정 `settings.json`만 올림)
+- 연구 결과: `data/derived/analysis/<주제>/`(보고서·코드·10MB 이하 결과는 Git에 올림, 캐시·큰 파일은 코드로 다시 만든다)
 
 ## 규칙 변경 원칙
 

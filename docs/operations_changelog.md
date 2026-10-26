@@ -2,6 +2,13 @@
 
 이 문서는 변경의 시행일과 이유를 보존한다. 현재 실행 규칙은 `AGENTS.md`와 해당 도메인 정본 문서를 따른다. 과거 항목이 활성 정본보다 우선하지 않는다.
 
+## 2026-10-26 — GitHub 저장소와 클라우드 세션 (공동 작업 규칙 변경)
+
+- 사용자 요청: 로컬에서 하던 일을 클라우드 세션에서도 할 수 있게 `github.com/bpsbps123456-beep/stock`에 올린다. 올릴 범위는 에이전트가 정하되 필요한 것은 다 넣는다.
+- 바뀐 규칙(`AGENTS.md`): 작업 시작 때 `git pull --ff-only origin master`, 커밋 뒤 `git push origin master`. 기존 '푸시 금지'를 대신하고, 강제 푸시·`git add -A`·`reset --hard` 금지는 그대로다.
+- 올린 범위(`.gitignore`): `data/raw`·`data/state`·`data/derived`(연구 보고서·코드·10MB 이하 결과, 지난 브리핑, 데스크 캐시)를 새로 추적한다. 다시 만들 수 있는 캐시·바이너리와 10MB 넘는 결과 15개 경로는 뺀다. 개인 매매 기록은 `data/journal/settings.json`만 올린다. 공개 저장소인 동안 커뮤니티 글 원문(`data/derived/desk/ant/`)과 개미 지수 라벨(`ant_index`의 md·py 밖 파일)은 임시로 빼고, 비공개 전환 뒤 2차로 올린다.
+- 검증: `tests/test_repo_files.py`(50MB 넘는 추적 파일 0, journal은 settings.json만).
+
 ## 2026-10-26 — PB 자금 흐름 보도 전수 표본과 Codex 뉴스 연구 이어 분석 (규칙 변경 없음)
 
 - 배경: 사용자가 Codex의 뉴스 분석을 이어서 분석하고, 필요한 자료는 Codex에게 조사시키되 사용량을 넘으면 Claude가 이어서 하라고 했다.

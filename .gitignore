@@ -3,13 +3,11 @@ __pycache__/
 *.pyo
 .env
 config.json
-data/raw/
-data/derived/
-data/state/
 data/quarantine/
 .codex/schedule/
-# 야간 데스크 매매 기록(개인 데이터)
-data/journal/
+# 야간 데스크 매매 기록(개인 데이터). 전략 설정 파일만 올린다
+data/journal/*
+!data/journal/settings.json
 # 에이전트·도구의 로컬 상태
 .claude/settings.local.json
 .omx/
@@ -18,3 +16,40 @@ data/journal/
 .codex-worktrees/
 # AI 산업 지도 설명 사이트 빌드 결과(py -m aimap, Vercel 연결 .vercel 포함)
 aimap/dist/
+
+# 산출물(data/raw·data/state·data/derived)은 올린다(2026-10-26, 클라우드 세션용).
+# 다시 만들 수 있는 캐시·바이너리는 뺀다.
+data/**/cache/
+data/**/*.parquet
+data/**/*.npy
+data/**/*.npz
+data/**/*.pkl
+data/**/*.exe
+data/**/*.log
+data/**/*.nbi
+data/**/*.nbc
+data/**/*.gz
+data/derived/analysis/giant_ui_tools/
+# 10MB 넘는 결과(코드로 다시 만든다). GitHub 파일 한도는 100MB다
+data/derived/analysis/structure_map/results/bt_rows_fee0.*.json
+data/derived/analysis/structure_map/results/bt_us_rows.json
+data/derived/analysis/2026-09-23_strategy_research/configurations.json
+data/derived/analysis/2026-09-23_strategy_research/all_results.csv
+data/derived/analysis/2026-09-23_strategy_research/us_only_experiment/configurations.json
+data/derived/analysis/2026-09-23_strategy_research/us_only_experiment/all_results.csv
+data/derived/analysis/swing_trend/results/critic_exec_gaps.csv
+data/derived/analysis/swing_trend/results/capture_confirm_events.csv
+data/derived/analysis/swing_trend/results/trade_actual.csv
+data/derived/analysis/trend_zones/results/dip_gap_limit.csv
+data/derived/analysis/premarket_shock/results/supports_trades.csv
+data/derived/analysis/premarket_shock/results/closebuy.csv
+data/derived/analysis/premarket_shock/results/timeslot.csv
+data/derived/analysis/stop_research/results/p4_LEVIDX.json
+data/derived/analysis/stop_research/results/p7_MASAM.json
+
+# 임시(공개 저장소인 동안): 커뮤니티 글 원문·라벨은 비공개로 바꾼 뒤 이 블록을 지우고 올린다
+data/derived/desk/ant/
+data/derived/analysis/ant_index/**
+!data/derived/analysis/ant_index/**/
+!data/derived/analysis/ant_index/**/*.md
+!data/derived/analysis/ant_index/**/*.py
