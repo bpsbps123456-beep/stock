@@ -26,7 +26,7 @@
   THR: SOXX 10%, 종목 20%
   첫 신호: 같은 계열(종목)에서 직전 채택 신호와 20거래일 이하로 붙은 신호는 버린다.
   대조(matched): 같은 계열 묶음·같은 기간 조각(SOXX는 같은 해, 종목은 같은 반기)의 in_dd 날 가운데 up 구간(0~3·3~8·8~15·15%+)이 같은 날의 평균.
-  통계: 신호 날짜를 20거래일 안이면 같은 묶음으로 묶은 부트스트랩(B=5000) 95% 구간.
+  통계: 고정 20거래일 달력 블록 단위 부트스트랩(B=5000) 95% 구간.
 """
 from __future__ import annotations
 
@@ -240,14 +240,8 @@ def base_rates(fr: dict, kind: str) -> pd.DataFrame:
 
 
 def _clusters(dates: pd.DatetimeIndex, pos: np.ndarray) -> np.ndarray:
-    o = np.argsort(pos, kind="stable")
-    lab = np.empty(len(pos), int)
-    k = 0
-    for j, t in enumerate(o):
-        if j > 0 and pos[t] - pos[o[j - 1]] > COOL:
-            k += 1
-        lab[t] = k
-    return lab
+    """고정 20거래일 달력 블록. 여러 종목 신호가 촘촘해도 블록 단위로 묶인다(간격 기준 묶기는 종목 묶음을 한 덩어리로 만들었다)."""
+    return np.asarray(pos, int) // COOL
 
 
 def _boot(v: np.ndarray, lab: np.ndarray, rng) -> tuple[float, float]:
