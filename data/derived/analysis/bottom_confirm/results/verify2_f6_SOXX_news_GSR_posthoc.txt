@@ -1,0 +1,225 @@
+======================================================================================================================
+Independent verification round 2 (fixed censoring): family f6, kind SOXX, rule news_GSR_posthoc  (no bc_lib import)
+======================================================================================================================
+Data: SOXX close 2023-01-03..2026-10-23 N=956; open from 2023-12-01; overlap max|us_prices_close - prices.csv| = 2.84e-14 (n=718); XNYS missing=0 extra=0
+
+[1] Independent re-implementation vs family files (results/f6_SOXX_signals.csv, _summary.csv)
+
+  rule news_GSR_posthoc: mine 11 first signals, family 11; dates identical: True
+      date  pos       banks     up    dd60      Ldd        low  hold20  base20  hold40  near5  win20     r20     r60  margin20
+2024-05-20  346        R:GS 0.1758 -0.0189 198.3900 2024-04-19  1.0000  1.0000  1.0000 1.0000 1.0000  0.1264  0.0067    0.1720
+2024-08-07  400 N:BofA/R:GS 0.0000 -0.2494 199.2900 2024-08-07  1.0000  0.4000  1.0000 1.0000 1.0000  0.0369  0.0622    0.0627
+2024-09-24  433        R:GS 0.1403 -0.1440 199.2900 2024-08-07  1.0000  1.0000  1.0000 0.0000 1.0000  0.0093 -0.0460    0.1246
+2024-12-17  492        R:GS 0.0599 -0.0664 211.2100 2024-11-15  1.0000  0.9062  1.0000 0.0000 1.0000  0.0195 -0.1060    0.0036
+2025-04-11  570        R:GS 0.1124 -0.2695 154.8600 2025-04-08  1.0000  1.0000  1.0000 0.0000 1.0000  0.1708  0.3886    0.0567
+2025-06-03  605        R:GS 0.0546 -0.0054 202.5600 2025-05-23  1.0000  0.6400  1.0000 1.0000 1.0000  0.1242  0.1725    0.0658
+2025-11-25  727   R:GS/R:GS 0.0577 -0.0840 268.1000 2025-11-20  1.0000  0.6400  1.0000 1.0000 1.0000  0.0677  0.2627    0.0639
+2026-04-14  821        R:GS 0.0000  0.0000 401.2400 2026-04-14  1.0000  0.2667  1.0000 1.0000 1.0000  0.2890  0.4522    0.0015
+2026-06-09  860        R:GS 0.0414 -0.0870 539.7700 2026-06-05  1.0000  0.3077  0.0000 0.0000 1.0000  0.0545 -0.0897    0.0032
+2026-08-03  897        R:GS 0.0918 -0.2249 465.0000 2026-07-29  1.0000  0.9688  1.0000 0.0000 0.0000 -0.0345     NaN    0.0886
+2026-09-21  931        R:GS 0.2029 -0.1271 465.0000 2026-07-29  1.0000  1.0000     NaN 0.0000 0.0000 -0.0936     NaN    0.0611
+  per-signal field mismatches: none
+  period       mine hold20 (n)   family hold20 (n)  mine base  family base
+  2024~2026    1.0000 (11)        1.0000 (11)        0.7390      0.7390   OK
+  2026         1.0000 ( 4)        1.0000 ( 4)        0.6358      0.6358   OK
+  2026H1       1.0000 ( 1)        1.0000 ( 1)        0.2667      0.2667   OK
+  2026H2       1.0000 ( 3)        1.0000 ( 3)        0.7588      0.7588   OK
+  2025         1.0000 ( 3)        1.0000 ( 3)        0.7600      0.7600   OK
+  2024         1.0000 ( 4)        1.0000 ( 4)        0.8266      0.8266   OK
+  my block bootstrap (20-session calendar blocks, B=5000) main hold20 - base: [+0.101, +0.445]  (family dlo +0.104, dhi +0.437)
+  NOTE: hold20 = 11/11 has zero variance, so the bootstrap interval of the diff only resamples the baseline; it says nothing about the signal's own sampling error.
+
+  rule news_R: mine 13 first signals, family 13; dates identical: True
+      date  pos       banks     up    dd60      Ldd        low  hold20  base20  hold40  near5  win20     r20     r60  margin20
+2024-05-20  346        R:GS 0.1758 -0.0189 198.3900 2024-04-19  1.0000  1.0000  1.0000 1.0000 1.0000  0.1264  0.0067    0.1720
+2024-08-07  400 N:BofA/R:GS 0.0000 -0.2494 199.2900 2024-08-07  1.0000  0.4000  1.0000 1.0000 1.0000  0.0369  0.0622    0.0627
+2024-09-24  433        R:GS 0.1403 -0.1440 199.2900 2024-08-07  1.0000  1.0000  1.0000 0.0000 1.0000  0.0093 -0.0460    0.1246
+2024-12-04  483      R:BofA 0.0545 -0.0712 211.2100 2024-11-15  1.0000  0.9062  1.0000 1.0000 1.0000  0.0006 -0.0706    0.0036
+2025-01-10  507      R:BofA 0.0331 -0.0729 211.2100 2024-11-15  1.0000  0.6400  0.0000 0.0000 1.0000  0.0274 -0.2758    0.0063
+2025-04-11  570        R:GS 0.1124 -0.2695 154.8600 2025-04-08  1.0000  1.0000  1.0000 0.0000 1.0000  0.1708  0.3886    0.0567
+2025-06-03  605        R:GS 0.0546 -0.0054 202.5600 2025-05-23  1.0000  0.6400  1.0000 1.0000 1.0000  0.1242  0.1725    0.0658
+2025-11-25  727   R:GS/R:GS 0.0577 -0.0840 268.1000 2025-11-20  1.0000  0.6400  1.0000 1.0000 1.0000  0.0677  0.2627    0.0639
+2026-04-14  821        R:GS 0.0000  0.0000 401.2400 2026-04-14  1.0000  0.2667  1.0000 1.0000 1.0000  0.2890  0.4522    0.0015
+2026-06-09  860        R:GS 0.0414 -0.0870 539.7700 2026-06-05  1.0000  0.3077  0.0000 0.0000 1.0000  0.0545 -0.0897    0.0032
+2026-07-16  885      R:BofA 0.0000 -0.1901 530.5000 2026-07-16  0.0000  0.2667  0.0000 0.0000 1.0000  0.0830  0.1000   -0.1235
+2026-08-20  910      R:BofA 0.1233 -0.2025 465.0000 2026-07-29  1.0000  0.9688  1.0000 0.0000 1.0000  0.0093     NaN    0.0697
+2026-09-21  931        R:GS 0.2029 -0.1271 465.0000 2026-07-29  1.0000  1.0000     NaN 0.0000 0.0000 -0.0936     NaN    0.0611
+  per-signal field mismatches: none
+  period       mine hold20 (n)   family hold20 (n)  mine base  family base
+  2024~2026    0.9231 (13)        0.9231 (13)        0.6951      0.6951   OK
+  2026         0.8000 ( 5)        0.8000 ( 5)        0.5620      0.5620   OK
+  2026H1       1.0000 ( 1)        1.0000 ( 1)        0.2667      0.2667   OK
+  2026H2       0.7500 ( 4)        0.7500 ( 4)        0.6358      0.6358   OK
+  2025         1.0000 ( 4)        1.0000 ( 4)        0.7300      0.7300   OK
+  2024         1.0000 ( 4)        1.0000 ( 4)        0.8266      0.8266   OK
+
+  => independent match (both rules, all fields, all periods): True
+
+[1b] Overlap with news_R (family R, any bank)
+  raw note-entry sessions: news_R 77, GS R 52, GS R subset of news_R: True
+  in the main period: news_R 61, GS R 44; on in_dd days: news_R 33, GS R 22
+  R notes total 82 = GS 53, BofA 18, MS 6, JPM 5
+  first signals: GS R 11, news_R 13, shared 9 (82% of GS R, 69% of news_R)
+    shared       n= 9 hold20=1.000  2024-05-20[GS] h=1 up=0.176  2024-08-07[BofA/GS] h=1 up=0.000  2024-09-24[GS] h=1 up=0.140  2025-04-11[GS] h=1 up=0.112  2025-06-03[GS] h=1 up=0.055  2025-11-25[GS/GS] h=1 up=0.058  2026-04-14[GS] h=1 up=0.000  2026-06-09[GS] h=1 up=0.041  2026-09-21[GS] h=1 up=0.203
+    GS R only    n= 2 hold20=1.000  2024-12-17[GS] h=1 up=0.060  2026-08-03[GS] h=1 up=0.092
+    news_R only  n= 4 hold20=0.750  2024-12-04[BofA] h=1 up=0.054  2025-01-10[BofA] h=1 up=0.033  2026-07-16[BofA] h=0 up=0.000  2026-08-20[BofA] h=1 up=0.123
+    GS-only 2024-12-17 is suppressed in news_R by the cooldown after news_R first signal 2024-12-04[BofA]
+    GS-only 2026-08-03 is suppressed in news_R by the cooldown after news_R first signal 2026-07-16[BofA]
+  non-GS R (BofA/MS/JPM) as its own rule   main 0.857( 7)  2026 0.667( 3)  H1   -  ( 0)  H2 0.667( 3)  2025 1.000( 2)  2024 1.000( 2)  upmed 0.107  base 0.836  L1=F diff=+0.021
+  2024-08-14[BofA]h=1  2024-12-04[BofA]h=1  2025-01-10[BofA]h=1  2025-11-28[BofA/GS]h=1  2026-07-09[BofA]h=0  2026-08-12[BofA]h=1  2026-09-24[BofA]h=1
+
+[2] Look-ahead / data audit
+  (a) truncation test (Ldd, dd60, up, in_dd recomputed with data cut at t): 0 differences
+  (b) GS R notes: 53; entry earlier than first session after publication, or note_date after published date: 0 
+      precision mix: {'date_article': 39, 'date_feed': 11, 'exact': 2, 'date_url': 1}; verification mix: {'headline_summary_only': 31, 'syndicated_article_read': 20, 'original_article_read': 2}
+      calendar days from note_date to signal session: median 4, max 8; the rule's signal day IS the entry session, trade at the NEXT open (one session conservative)
+  (c) SOXX daily |close return| > 8%: 2025-04-03 -0.101, 2025-04-09 +0.186, 2025-04-10 -0.082, 2026-06-05 -0.104, 2026-06-11 +0.084, 2026-07-30 +0.085
+      OHLC rows where H < max(O,C) or L > min(O,C): 0 []
+      signal 2025-04-11: window contains |ret|>8% on 2025-04-03 -0.101, 2025-04-09 +0.186, 2025-04-10 -0.082
+      signal 2025-06-03: window contains |ret|>8% on 2025-04-03 -0.101, 2025-04-09 +0.186, 2025-04-10 -0.082
+      signal 2026-06-09: window contains |ret|>8% on 2026-06-05 -0.104, 2026-06-11 +0.084
+      signal 2026-08-03: window contains |ret|>8% on 2026-06-05 -0.104, 2026-06-11 +0.084, 2026-07-30 +0.085
+      signal 2026-09-21: window contains |ret|>8% on 2026-07-30 +0.085
+      (back-adjusted yfinance closes: an ex-dividend inside a window lowers the pre-ex Ldd by ~0.1-0.2%; hold margins below are reported so this can be judged)
+  (d) hold margins min(C[t+1..t+20])/Ldd - 1: 2024-05-20 +0.172, 2024-08-07 +0.063, 2024-09-24 +0.125, 2024-12-17 +0.004, 2025-04-11 +0.057, 2025-06-03 +0.066, 2025-11-25 +0.064, 2026-04-14 +0.002, 2026-06-09 +0.003, 2026-08-03 +0.089, 2026-09-21 +0.061
+      smallest margin +0.0015
+
+[3] Robustness (hold20 (n) per period; main = 2024~2026; base = same-year x up-bucket matched mean)
+  registered (GS R, thr10 cool20 d0)       main 1.000(11)  2026 1.000( 4)  H1 1.000( 1)  H2 1.000( 3)  2025 1.000( 3)  2024 1.000( 4)  upmed 0.060  base 0.739  L1=T diff=+0.261
+  delay +1 session                         main 0.909(11)  2026 1.000( 4)  H1 1.000( 1)  H2 1.000( 3)  2025 0.667( 3)  2024 1.000( 4)  upmed 0.087  base 0.739  L1=T diff=+0.170
+  delay +2 sessions                        main 1.000(11)  2026 1.000( 4)  H1 1.000( 1)  H2 1.000( 3)  2025 1.000( 3)  2024 1.000( 4)  upmed 0.107  base 0.800  L1=T diff=+0.200
+  cooldown 10                              main 0.929(14)  2026 1.000( 4)  H1 1.000( 1)  H2 1.000( 3)  2025 0.800( 5)  2024 1.000( 5)  upmed 0.076  base 0.745  L1=T diff=+0.184
+  cooldown 30                              main 1.000(11)  2026 1.000( 4)  H1 1.000( 1)  H2 1.000( 3)  2025 1.000( 3)  2024 1.000( 4)  upmed 0.060  base 0.739  L1=T diff=+0.261
+  in_dd thr 8%                             main 0.750(16)  2026 0.800( 5)  H1 0.500( 2)  H2 1.000( 3)  2025 0.800( 5)  2024 0.667( 6)  upmed 0.057  base 0.578  L1=T diff=+0.172
+  in_dd thr 12%                            main 1.000(10)  2026 1.000( 4)  H1 1.000( 1)  H2 1.000( 3)  2025 1.000( 3)  2024 1.000( 3)  upmed 0.075  base 0.668  L1=T diff=+0.332
+  -- outcome-window neighbours (not registered; shows how close to the edge the 11/11 is)
+  hold window 10 sessions                  main 1.000(11)  2026 1.000( 4)  H1 1.000( 1)  H2 1.000( 3)  2025 1.000( 3)  2024 1.000( 4)  upmed 0.060  base 0.753  L1=T diff=+0.247
+  hold window 15 sessions                  main 1.000(11)  2026 1.000( 4)  H1 1.000( 1)  H2 1.000( 3)  2025 1.000( 3)  2024 1.000( 4)  upmed 0.060  base 0.739  L1=T diff=+0.261
+  hold window 25 sessions                  main 0.900(10)  2026 0.667( 3)  H1 1.000( 1)  H2 0.500( 2)  2025 1.000( 3)  2024 1.000( 4)  upmed 0.060  base 0.701  L1=F diff=+0.199
+  hold window 30 sessions                  main 0.900(10)  2026 0.667( 3)  H1 1.000( 1)  H2 0.500( 2)  2025 1.000( 3)  2024 1.000( 4)  upmed 0.060  base 0.647  L1=F diff=+0.253
+  hold window 40 sessions                  main 0.900(10)  2026 0.667( 3)  H1 1.000( 1)  H2 0.500( 2)  2025 1.000( 3)  2024 1.000( 4)  upmed 0.060  base 0.589  L1=F diff=+0.311
+  -- rule neighbours (label / coding / quality variants of 'GS R')
+  news_R (any bank)                        main 0.923(13)  2026 0.800( 5)  H1 1.000( 1)  H2 0.750( 4)  2025 1.000( 4)  2024 1.000( 4)  upmed 0.055  base 0.695  L1=T diff=+0.228
+  non-GS R only                            main 0.857( 7)  2026 0.667( 3)  H1   -  ( 0)  H2 0.667( 3)  2025 1.000( 2)  2024 1.000( 2)  upmed 0.107  base 0.836  L1=F diff=+0.021
+  GS R, fam_altA == R                      main 0.917(12)  2026 1.000( 4)  H1 1.000( 1)  H2 1.000( 3)  2025 0.750( 4)  2024 1.000( 4)  upmed 0.059  base 0.731  L1=T diff=+0.186
+  GS R, fam_altB == R                      main 0.700(10)  2026 0.667( 3)  H1 1.000( 1)  H2 0.500( 2)  2025 0.667( 3)  2024 0.750( 4)  upmed 0.052  base 0.547  L1=F diff=+0.153
+  GS R, no possible_dup flag               main 0.900(10)  2026 0.667( 3)  H1 1.000( 1)  H2 0.500( 2)  2025 1.000( 3)  2024 1.000( 4)  upmed 0.059  base 0.712  L1=F diff=+0.188
+  GS R, article read (not headline-only)   main 1.000( 4)  2026 1.000( 1)  H1   -  ( 0)  H2 1.000( 1)  2025 1.000( 1)  2024 1.000( 2)  upmed 0.145  base 0.992  L1=F diff=+0.008
+  GS R, headline-only                      main 1.000(10)  2026 1.000( 4)  H1 1.000( 1)  H2 1.000( 3)  2025 1.000( 3)  2024 1.000( 3)  upmed 0.059  base 0.713  L1=T diff=+0.287
+  GS R, flow_direction net_buy             main 1.000(10)  2026 1.000( 4)  H1 1.000( 1)  H2 1.000( 3)  2025 1.000( 3)  2024 1.000( 3)  upmed 0.059  base 0.713  L1=T diff=+0.287
+  GS any family                            main 0.667(18)  2026 0.571( 7)  H1 0.500( 2)  H2 0.600( 5)  2025 0.667( 6)  2024 0.800( 5)  upmed 0.054  base 0.578  L1=F diff=+0.089
+  GS R or GS S                             main 0.846(13)  2026 0.800( 5)  H1 0.500( 2)  H2 1.000( 3)  2025 0.750( 4)  2024 1.000( 4)  upmed 0.059  base 0.698  L1=T diff=+0.148
+  BofA R                                   main 0.857( 7)  2026 0.667( 3)  H1   -  ( 0)  H2 0.667( 3)  2025 1.000( 2)  2024 1.000( 2)  upmed 0.107  base 0.836  L1=F diff=+0.021
+  all notes (any family, any bank)         main 0.684(19)  2026 0.571( 7)  H1 0.500( 2)  H2 0.600( 5)  2025 0.667( 6)  2024 0.833( 6)  upmed 0.055  base 0.598  L1=F diff=+0.086
+  GS R, signal-day dd60 <= -5% (drop near-high days) main 1.000( 8)  2026 1.000( 3)  H1   -  ( 0)  H2 1.000( 3)  2025 1.000( 2)  2024 1.000( 3)  upmed 0.076  base 0.778  L1=T diff=+0.222
+  L1 per core variant: registered (GS R, thr10 cool20 d0)=True, delay +1 session=True, delay +2 sessions=True, cooldown 10=True, cooldown 30=True, in_dd thr 8%=True, in_dd thr 12%=True
+  -- where the failures are
+      delay +1 session: failures 2025-06-04(up +0.000); signals 2024-05-21 2024-08-08 2024-09-25 2024-12-18 2025-04-14 2025-06-04 2025-11-26 2026-04-15 2026-06-10 2026-08-04 2026-09-22
+      cooldown 10: failures 2025-12-16(up +0.000); signals 2024-05-20 2024-08-07 2024-09-24 2024-10-15 2024-12-17 2025-04-11 2025-04-30 2025-06-03 2025-11-25 2025-12-16 2026-04-14 2026-06-09 2026-08-03 2026-09-21
+      in_dd thr 8%: failures 2024-03-19(up +0.000), 2024-11-12(up +0.022), 2025-02-12(up +0.036), 2026-02-17(up +0.072); signals 2024-03-19 2024-05-20 2024-08-07 2024-09-24 2024-11-12 2024-12-17 2025-02-12 2025-04-11 2025-06-03 2025-11-25 2025-12-31 2026-02-17 2026-04-14 2026-06-09 2026-08-03 2026-09-21
+      GS R, fam_altB == R: failures 2024-07-30(up +0.000), 2025-03-18(up +0.049), 2026-10-05(up +0.000); signals 2024-04-22 2024-07-30 2024-09-27 2024-12-17 2025-03-18 2025-06-03 2025-11-25 2026-04-16 2026-06-08 2026-10-05
+      GS R, no possible_dup flag: failures 2026-06-16(up +0.000); signals 2024-05-20 2024-08-07 2024-09-24 2024-12-17 2025-04-11 2025-06-03 2025-11-25 2026-04-16 2026-06-16 2026-09-21
+      news_R (any bank): failures 2026-07-16(up +0.000); signals 2024-05-20 2024-08-07 2024-09-24 2024-12-04 2025-01-10 2025-04-11 2025-06-03 2025-11-25 2026-04-14 2026-06-09 2026-07-16 2026-08-20 2026-09-21
+      GS any family: failures 2024-07-23(up +0.026), 2025-03-03(up +0.000), 2025-04-01(up +0.001), 2026-03-09(up +0.040), 2026-07-10(up +0.054), 2026-10-20(up +0.013); signals 2024-04-22 2024-07-23 2024-09-03 2024-10-15 2024-11-19 2025-01-06 2025-03-03 2025-04-01 2025-05-01 2025-06-03 2025-11-25 2026-03-09 2026-04-14 2026-06-08 2026-07-10 2026-08-11 2026-09-21 2026-10-20
+      raw GS R in_dd days (no cooldown) that FAILED hold20: 2024-10-21(up +0.007, first-signal cover 2024-09-24), 2025-12-16(up +0.000, first-signal cover 2025-11-25), 2026-06-16(up +0.000, first-signal cover 2026-06-09)
+      2026-06-09 signal (Ldd 539.77 set 2026-06-05): first close below Ldd 2026-07-16 = session t+25 (close 530.50)
+      2026-04-14 signal (Ldd 401.24): first close below Ldd - = t+-
+      2024-12-17 signal (Ldd 211.21): first close below Ldd 2025-02-27 = t+47
+      data check 2025-04-03: SOXX -0.101  ^SOX -0.099  SMH -0.087  SOXL -0.298
+      data check 2025-04-09: SOXX +0.186  ^SOX +0.187  SMH +0.172  SOXL +0.548
+      data check 2025-04-10: SOXX -0.082  ^SOX -0.080  SMH -0.069  SOXL -0.246
+      data check 2026-06-05: SOXX -0.104  ^SOX -0.103  SMH -0.092  SOXL -0.305
+      data check 2026-06-11: SOXX +0.084  ^SOX +0.079  SMH +0.068  SOXL +0.240
+      data check 2026-07-30: SOXX +0.085  ^SOX +0.082  SMH +0.069  SOXL +0.247
+
+[4] Same-state nulls (main period 2024-01-02..2026-10-23; pool = in_dd days with Ldd and hold20 defined)
+  observed hold20 = 1.0000 (n=11); year x bucket mix of first signals:
+  col_0  0  1  2  3
+  row_0            
+  2024   1  1  1  1
+  2025   0  2  1  0
+  2026   1  1  1  1
+  pool days 380; pool hold20 by bucket: b0 0.317(n161), b1 0.639(n83), b2 0.987(n77), b3 1.000(n59)
+  analytic: prod(matched base_i) = P(all 11 hold | independent matched Bernoulli) = 0.0118
+  (a) year x bucket, spacing > 20 sessions: draws 5000 (attempts 6336); null mean 0.7401 sd 0.0887 q95 0.909; p = P(null >= 1.000) = 0.0090
+      context, news_R (any bank) same null: observed 0.9231 (n=13), null mean 0.7079, p = 0.0034
+      finer pools (same year, |up - up_sig| <= 2pp) sizes: 22, 40, 22, 27, 8, 19, 20, 55, 23, 19, 6
+  (b) same year, up within +-2pp, spacing > 20: draws 5000 (attempts 7012); null mean 0.7189 sd 0.0858; p = 0.0024
+      context, news_R (any bank) same null: observed 0.9231 (n=13), null mean 0.6921, p = 0.0008
+  (c) any year in main period, up within +-2pp, spacing > 20: draws 5000; null mean 0.7117; p = 0.0018
+  (d) 2026 only (n=4), up +-2pp: null mean 0.5946; p = P(null >= 1.000) = 0.0344
+  (e) bank-label permutation inside R notes (53 of 82 R notes labelled 'GS' at random, 5000 draws):
+      main hold20 mean 0.8977, share with hold20 >= 1.000: 0.1382, share passing L1: 0.7160, n median 11
+      => this measures how much of GS R's 11/11 is just 'R' plus a random sub-sample
+
+[5] Mechanical comparison: plain rule up >= candidate median up (in_dd, cooldown 20)
+  up >= 0.0599                             main 0.733(15)  2026 0.600( 5)  H1 0.000( 1)  H2 0.750( 4)  2025 0.800( 5)  2024 0.800( 5)  upmed 0.087  base 0.861  L1=F diff=-0.127
+  up >= 0.0500                             main 0.750(16)  2026 0.600( 5)  H1 0.000( 1)  H2 0.750( 4)  2025 0.800( 5)  2024 0.833( 6)  upmed 0.075  base 0.806  L1=F diff=-0.056
+  up >= 0.0300                             main 0.667(18)  2026 0.500( 6)  H1 0.000( 1)  H2 0.600( 5)  2025 0.800( 5)  2024 0.714( 7)  upmed 0.054  base 0.764  L1=F diff=-0.097
+  up >= 0.0800                             main 1.000(12)  2026 1.000( 4)  H1 1.000( 1)  H2 1.000( 3)  2025 1.000( 4)  2024 1.000( 4)  upmed 0.094  base 0.990  L1=T diff=+0.010
+  all in_dd days 2024~2026 with up >= 0.0599 (no cooldown): hold20 0.9568 (162 days); up < it: 0.3853
+  within-bucket comparison (candidate first signals vs all in_dd pool days):
+    bucket 0-3%   cand 1.000 (n=2)   pool 0.317 (days=161)
+    bucket 3-8%   cand 1.000 (n=4)   pool 0.639 (days=83)
+    bucket 8-15%  cand 1.000 (n=3)   pool 0.987 (days=77)
+    bucket 15%+   cand 1.000 (n=2)   pool 1.000 (days=59)
+  raw GS R in_dd days (no cooldown): hold20 0.8636 (22 days), matched base avg 0.7421
+  other outcomes, main period (GS R first signals vs matched base):
+    hold40 +0.9000 vs base +0.5885 (n=10)
+    near5  +0.4545 vs base +0.3554 (n=11)
+    win20  +0.8182 vs base +0.5307 (n=11)
+    r20    +0.0700 vs base +0.0307 (n=11)
+    r60    +0.1226 vs base +0.0972 (n=9)
+
+[6] Verdict inputs
+  independent match=True; look-ahead found=False (truncation diffs 0, note-timing violations 0)
+  main hold20 1.0000 (n=11) vs matched base 0.7390; 2026 1.000 (n=4); up median 0.0599
+  nulls: year x bucket p=0.0090; year + up+-2pp p=0.0024; up+-2pp any year p=0.0018; bank-label permutation p=0.1382; analytic prod(base)=0.0118
+  L1 per core variant: registered (GS R, thr10 cool20 d0)=True, delay +1 session=True, delay +2 sessions=True, cooldown 10=True, cooldown 30=True, in_dd thr 8%=True, in_dd thr 12%=True
+
+VERDICT: fragile  (numbers reproduce and survive the timing grid, but the cell is post-hoc, carries no information
+beyond news_R, and L1 flips under alternative coding, de-duplication and a 25-session window)
+
+What holds up
+  - Exact reproduction without bc_lib: 11 first signals, every field (up, dd60, hold20/40, near5, win20, r20, r60,
+    matched base) and every period equal to results/f6_SOXX_signals.csv / _summary.csv (news_R 13/13 too).
+  - No look-ahead: truncation test 0 differences; all 53 GS R notes enter on or after the first session after
+    publication; the signal day is the entry session and the trade is the NEXT open (one session conservative);
+    the large SOXX days (2025-04, 2026-06-05/06-11, 2026-07-30) match ^SOX/SMH, no OHLC errors.
+  - hold20 11/11 (2024~2026) vs same-year x up-bucket base 0.739; 2026 4/4 (base 0.636), 2025 3/3, 2024 4/4.
+    Core grid (delay +1/+2, cooldown 10/30, in_dd 8%/12%) all keep L1 (lowest 0.750 n16 at in_dd 8%).
+    Same-state nulls with 20-session spacing: year x bucket p=0.009, year + up+-2pp p=0.0024,
+    up+-2pp any year p=0.0018, 2026 only p=0.034; prod(matched base) = 0.012.
+  - Plain 'up >= 6.0%' (the candidate's median) scores only 0.733 (n15) and fails L1, so this is not pure
+    rebound size; within the 0-8% up buckets the 6 signals all held vs pool 0.32/0.64.
+
+Why it cannot be confirmed
+  1. Post-hoc and circular. GS R was picked in news_followup on the same 2024~2026 SOXX path (10-day excess
+     return, which moves with hold20). 109 cells here plus the bank x family split upstream; the best nominal
+     p (0.0018) is above a 109-cell Bonferroni bar (0.00046).
+  2. Overlap with news_R (family R, any bank). GS R notes are a strict subset (53 of 82 R notes; 52 of 77 R entry
+     sessions). 9 of the 11 GS R first signals (82%) ARE news_R first signals. The other 2 (2024-12-17,
+     2026-08-03) are GS notes that news_R skips only because a BofA R note opened the cooldown 9 and 12 sessions
+     earlier. news_R's extra 4 first signals are all BofA (3 hold, 1 fail = 2026-07-16, news_R's ONLY failure).
+     So GS R = news_R minus BofA, and 12/13 -> 11/11 is exactly the removal of that one BofA failure.
+     Bank-label permutation inside R (random 53 of 82): 13.8% of draws reach 11/11-level hold20 and 71.6% pass
+     L1. The 'GS' label adds no demonstrable information; GS R's evidence is news_R's evidence, not extra.
+     (news_R under the same nulls: p=0.0034 year x bucket, 0.0008 year + up+-2pp; GS R is not better.)
+  3. Coding / de-dup sensitivity. fam_altB recodes 5 of the 11 first-signal notes (to D: 2025-04-11, 2026-04-14,
+     2026-08-03, each of which also reports a record-selling fact; to T: 2024-09-24, 2026-09-21)
+     -> 0.700 (n10), 2026 2/3, L1 fails. Dropping possible-duplicate
+     reports -> 0.900 (n10), 2026 2/3, L1 fails: 2026-06-09 is G0212, a possible re-report of G0210 that was
+     published 06-01, BEFORE the 06-05 -10.4% day; without it the next GS R day (2026-06-16) breaks Ldd.
+  4. Window edge and thin margins. The 2026-06-09 low (539.77, 06-05) is broken at t+25 (2026-07-16), so hold
+     windows of 25/30/40 sessions give 2026 2/3 and fail L1. 3 of 11 holds clear Ldd by <0.4%
+     (2024-12-17 +0.36%, 2026-04-14 +0.15%, 2026-06-09 +0.32%).
+  5. The cooldown hides 3 failing GS R in_dd days (2024-10-21, 2025-12-16, 2026-06-16); raw GS R in_dd days hold
+     19/22 = 86% vs matched 74%. 5 of the 11 signals sit in up buckets where any in_dd day holds ~99-100%;
+     the evidence rests on 6 signals, two of them at/near a 60-day high (2026-04-14 dd60 0, 2025-06-03 -0.5%)
+     where 'hold' means 'the breakout close was not undercut', not 'the decline low is in'.
+  6. Little practical edge now: near5 5/11 (45%); 2026H2 near5 0/3, win20 1/3, mean r20 -2.5%.
+
+Bottom line: a true statement about 11 past dates, not a confirmed 70%+ bottom rule. Treat it as a duplicate of
+news_R (itself fragile under alternative coding); only a pre-registered out-of-sample test on notes after
+2026-10-23 (GS vs BofA split fixed in advance) could promote it.
+
