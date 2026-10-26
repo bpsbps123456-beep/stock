@@ -8,7 +8,7 @@
   SOXX OHLC  research/news_turning_points_20261025/prices.csv (2023-12-01~2026-10-23, Codex 10/25 스냅샷)
              + 2023 종가 data/derived/analysis/leverage_flood/results/us_prices_close.csv (같은 yfinance 값, 겹치는 날 오차 0)
   시장 지표   us_prices_close.csv(^VIX·^VIX3M·^VXN·^SKEW·^SOX 등, ~2026-10-13), us_daily_panel.csv(풋콜·레버리지 ETF 자금, 2023-06~2026-10-13)
-  종목       data/derived/desk/prices_open.csv·prices_close.csv(84종목 + QQQ, 2025-06-02~2026-10-23)
+  종목       data/derived/desk/prices_open.csv·prices_close.csv(미국 82종목, QQQ·한국·환율 제외, 2025-06-02~2026-10-23)
   뉴스       data/derived/analysis/news_followup/results/n4h14_signals.csv(전수 노트 245개의 진입일·family·lookback)
 
 정의(신호일 t = 그날 종가까지 앎, 진입 e = t+1 정규장 시가)
@@ -106,11 +106,11 @@ def load_market() -> pd.DataFrame:
 
 
 def load_stocks():
-    """종목 시가·종가(desk 캐시 84종목 + QQQ), XNYS 세션 2025-06-02~2026-10-23."""
+    """종목 시가·종가(desk 캐시 미국 82종목), XNYS 세션 2025-06-02~2026-10-23."""
     o = pd.read_csv(ROOT / "data/derived/desk/prices_open.csv", index_col=0, parse_dates=True)
     c = pd.read_csv(ROOT / "data/derived/desk/prices_close.csv", index_col=0, parse_dates=True)
     cal = xnys("2025-06-02", "2026-10-23")
-    drop = [x for x in c.columns if x.endswith(".KS") or x.endswith("=X")]
+    drop = [x for x in c.columns if x.endswith(".KS") or x.endswith("=X") or x == "QQQ"]
     o, c = o.drop(columns=drop).reindex(cal), c.drop(columns=drop).reindex(cal)
     return o, c
 
