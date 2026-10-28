@@ -1,0 +1,57 @@
+/* 예측 점검 — style.css 토큰만 쓴다. 판정은 색과 글자(적중·빗나감)를 함께 보여 색만으로 읽지 않는다. */
+.fc-page { padding: 28px var(--page-pad) 60px; max-width: 1500px; margin: auto; }
+.fc-page > *, .fc-page .card, .fc-sides > div { min-width: 0; }
+.fc-page .page-heading p { overflow-wrap: anywhere; }
+.fc-page h1 { font-size: clamp(25px, 3vw, 34px); margin: 8px 0; }
+.fc-page h2 { font-size: 18px; margin: 0 0 12px; }
+.fc-page h3 { font-size: 14px; margin: 10px 0 6px; color: var(--ink-2); }
+.fc-page p, .fc-page li { line-height: 1.75; }
+.fc-page .card { padding: 20px; margin: 16px 0; }
+.fc-page ul { padding-left: 20px; margin: 6px 0; }
+.fc-dim { color: var(--muted); font-size: 12.5px; }
+.fc-tools { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.fc-tools select { background: var(--surface); color: var(--ink); border: 1px solid var(--line-2); border-radius: 6px; padding: 8px 10px; font: inherit; }
+.fc-progress { height: 6px; border-radius: 3px; background: var(--surface-2); overflow: hidden; margin: 14px 0 8px; }
+.fc-progress i { display: block; height: 100%; background: var(--accent); }
+.fc-lock { font-size: 12.5px; color: var(--ink-2); margin: 6px 0 12px; }
+.fc-lock code { font-family: var(--mono); background: var(--surface-2); padding: 1px 6px; border-radius: 4px; }
+.fc-note { padding: 12px 16px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 13px; }
+.fc-error { color: var(--serious); padding: 12px 0; }
+.fc-summary { border-top: 3px solid var(--accent); }
+.fc-summary details { margin-top: 10px; font-size: 13.5px; }
+.fc-summary summary, .fc-pick summary { cursor: pointer; }
+.fc-tiles { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; margin: 16px 0; }
+.fc-tile { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+.fc-tile strong { display: block; font: 600 22px/1.3 var(--mono); margin: 6px 0 2px; }
+.fc-tile p { margin: 0; line-height: 1.5; }
+.fc-scroll { overflow-x: auto; }
+.fc-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.fc-table th { text-align: right; color: var(--muted); font-weight: 500; padding: 8px 10px; border-bottom: 1px solid var(--line-2); white-space: nowrap; }
+.fc-table td { text-align: right; padding: 9px 10px; border-bottom: 1px solid var(--line); font-family: var(--mono); white-space: nowrap; }
+.fc-table th:first-child, .fc-table td:first-child { text-align: left; }
+.fc-table td small { display: block; font-family: var(--sans); color: var(--muted); font-size: 11.5px; white-space: normal; }
+.fc-claims td:first-child, .fc-mini td:first-child { font-family: var(--sans); white-space: normal; min-width: 260px; }
+.fc-claims td:nth-child(4), .fc-mini td:nth-child(4) { font-family: var(--sans); white-space: normal; }
+.fc-table tr.fc-main td { background: var(--accent-soft); }
+.fc-table td:nth-child(2) b { font-family: var(--sans); }
+.fc-chip { display: inline-block; padding: 2px 8px; border-radius: 6px; font: 600 11.5px/1.6 var(--sans); border: 1px solid var(--line-2); color: var(--ink-2); }
+.fc-chip.up { color: var(--up); border-color: color-mix(in srgb, var(--up) 45%, var(--line)); }
+.fc-chip.down { color: var(--down); border-color: color-mix(in srgb, var(--down) 45%, var(--line)); }
+.fc-chip.s-hit { background: color-mix(in srgb, var(--up) 14%, transparent); }
+.fc-chip.s-miss { background: color-mix(in srgb, var(--down) 14%, transparent); }
+.fc-chip.s-off_track, .fc-chip.s-on_track { border-style: dashed; }
+.fc-reasons > h2 { margin-top: 28px; }
+.fc-pick summary { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; font-size: 15px; }
+.fc-pick summary .fc-ret { margin-left: auto; font: 600 13px var(--mono); }
+.fc-rank { display: inline-grid; place-items: center; min-width: 24px; height: 22px; border-radius: 6px; background: var(--surface-2); font: 700 12px var(--mono); }
+.fc-sides { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.fc-mini { margin-top: 8px; }
+.fc-page footer { padding: 18px 0; }
+@media (max-width: 1100px) { .fc-tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 620px) {
+  .fc-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .fc-sides { grid-template-columns: 1fr; gap: 4px; }
+  .fc-page .card { padding: 14px; }
+  .fc-tile strong { font-size: 18px; }
+  .fc-claims td:first-child, .fc-mini td:first-child { min-width: 180px; }
+}

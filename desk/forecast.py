@@ -13,7 +13,7 @@ import json
 import math
 import os
 import time
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import pandas as pd
@@ -145,6 +145,15 @@ def schedule(fc: dict) -> dict:
     return {"baseline": days[0], "target": days[-1], "days": days, "closes": closes}
 
 
+CLOSE_GRACE_SEC = 20 * 60  # Yahoo's daily bar settles a few minutes after the closing auction
+
+
+def final_close(day: str, at: datetime) -> bool:
+    """True when `day` is a session whose close had settled at `at`; an intraday bar never enters the cache."""
+    cal = market_calendar()
+    return cal.is_session(day) and (at - cal.session_close(day).to_pydatetime()).total_seconds() >= CLOSE_GRACE_SEC
+
+
 def tickers_of(data: dict) -> list[str]:
     out = set()
     for fc in data["forecasts"]:
@@ -161,14 +170,22 @@ def refresh_prices(data: dict | None = None, path: Path = PRICES) -> dict:
         raise ForecastError("기록된 예측이 없습니다")
     start = min(schedule(fc)["baseline"] for fc in data["forecasts"])
     start = (pd.Timestamp(start) - pd.Timedelta(days=40)).strftime("%Y-%m-%d")
-    frame = yf.download(tickers, start=start, auto_adjust=False, progress=False, threads=True)
+    frame = yf.download(tickers, start=start, auto_adjust=False, actions=True, progress=False, threads=True)
+    fetched = datetime.now(timezone.utc)
     snap = {"source": "Yahoo Finance / yfinance · 종가(분할 반영)와 수정 종가(배당 반영)", "fetched_at": now_iso(),
-            "fetched_epoch": time.time(), "close": {}, "adj": {}}
+            "fetched_epoch": time.time(), "close": {}, "adj": {}, "splits": {}}
+    final = lambda d: final_close(d, fetched)
     for field, key in (("Close", "close"), ("Adj Close", "adj")):
         for t in tickers:
             if t in frame[field]:
                 s = frame[field][t].dropna()
-                snap[key][t] = {d.strftime("%Y-%m-%d"): float(v) for d, v in s.items()}
+                snap[key][t] = {d.strftime("%Y-%m-%d"): float(v) for d, v in s.items() if final(d.strftime("%Y-%m-%d"))}
+    if "Stock Splits" in frame:
+        for t in tickers:
+            if t in frame["Stock Splits"]:
+                s = frame["Stock Splits"][t].fillna(0)
+                if (s != 0).any():
+                    snap["splits"][t] = {d.strftime("%Y-%m-%d"): float(v) for d, v in s[s != 0].items()}
     bench = {fc["benchmark"] for fc in data["forecasts"]}
     if any(not snap["adj"].get(b) for b in bench):
         raise ForecastError("비교 지수 가격이 누락되어 기존 캐시를 유지합니다")
@@ -196,6 +213,30 @@ def refresh_estimates(data: dict | None = None, path: Path = ESTIMATES) -> dict:
     return snap
 
 
+SPLIT_TOL = 1.35
+
+
+def unadjusted(series: dict, splits: dict, after: str) -> bool:
+    """A split inside the window whose day still shows the ~1/k drop: Yahoo has not rescaled history yet."""
+    days = sorted(series)
+    for day, k in splits.items():
+        if day <= after or not k or k <= 0 or day not in series:
+            continue
+        i = days.index(day)
+        if i and abs(math.log(series[day] / series[days[i - 1]] * k)) < math.log(SPLIT_TOL):
+            return True
+    return False
+
+
+def split_factor(splits: dict, after: str) -> float:
+    """Product of split ratios after a date. yfinance rescales every earlier close by it."""
+    factor = 1.0
+    for day, k in splits.items():
+        if day > after and k and k > 0:
+            factor *= k
+    return factor
+
+
 def _read(path: Path) -> dict | None:
     return json.loads(path.read_text(encoding="utf-8")) if path.exists() else None
 
@@ -220,7 +261,7 @@ def evaluate(fc: dict, prices: dict | None, estimates: dict | None = None, now: 
            "latest": days[-1] if days else None}
     if not days or days[0] != base:
         out.update(status="기준 종가 대기", paths={}, returns={}, baskets={}, claims=[
-            {**c, "value": None, "state": "pending"} for c in fc["claims"]], picks=[], brier=None)
+            {**c, "observed": None, "state": "pending"} for c in fc["claims"]], picks=[], brier=None, resolved=0)
         return out
 
     def path(t: str, field: dict = adj) -> list[float | None]:
@@ -232,7 +273,15 @@ def evaluate(fc: dict, prices: dict | None, estimates: dict | None = None, now: 
             vals.append(None if b is None or last is None else last / b - 1)
         return vals
 
-    paths = {t: path(t) for t in set(fc["universe"]) | {bench}}
+    splits = (prices or {}).get("splits", {})
+    recorded_day = stamp(fc["recorded_at"]).astimezone(config.NY).date().isoformat()
+    bad = sorted(t for t in set(fc["universe"]) | {bench} if unadjusted(adj.get(t, {}), splits.get(t, {}), base))
+    out["price_issues"] = bad
+    if bench in bad:
+        out.update(status="분할 반영 대기", paths={}, returns={}, baskets={}, picks=[], brier=None, resolved=0,
+                   claims=[{**c, "observed": None, "state": "pending"} for c in fc["claims"]])
+        return out
+    paths = {t: path(t) for t in (set(fc["universe"]) | {bench}) - set(bad)}
     returns = {t: p[-1] for t, p in paths.items() if p and p[-1] is not None}
     r_bench = returns.get(bench)
 
@@ -271,13 +320,18 @@ def evaluate(fc: dict, prices: dict | None, estimates: dict | None = None, now: 
     for c in fc["claims"]:
         value, final = None, out["complete"]
         k = c["kind"]
+        threshold, note = c.get("value"), None
         if k == "benchmark_return":
             value = r_bench
         elif k == "benchmark_min_close":
             closes = [close.get(bench, {}).get(d) for d in days]
             closes = [v for v in closes if v is not None]
             value = min(closes) if closes else None
-            if value is not None and not OPS[c["op"]](value, c["value"]):
+            factor = split_factor(splits.get(bench, {}), recorded_day)
+            if factor != 1:  # the recorded level is in pre-split units
+                threshold = c["value"] / factor
+                note = f"기록 뒤 {bench} 분할 {factor:g}:1 반영 — 기준 {c['value']:g} → {threshold:.2f}"
+            if value is not None and not OPS[c["op"]](value, threshold):
                 final = True  # a broken low cannot be repaired later
         elif k in ("basket_excess", "basket_count_beat"):
             b = baskets[c["basket"]]
@@ -311,9 +365,9 @@ def evaluate(fc: dict, prices: dict | None, estimates: dict | None = None, now: 
         elif value is None:
             state = "pending"
         else:
-            ok = OPS[c["op"]](value, c["value"])
+            ok = OPS[c["op"]](value, threshold)
             state = ("hit" if ok else "miss") if final else ("on_track" if ok else "off_track")
-        claims.append({**c, "value": value, "state": state})
+        claims.append({**c, "observed": value, "state": state, "threshold": threshold, "note": note})
     resolved = [(c["probability"], 1.0 if c["state"] == "hit" else 0.0) for c in claims if c["state"] in ("hit", "miss")]
     out.update(status="완료" if out["complete"] else "진행 중", paths=paths, returns=returns, baskets=baskets,
                picks=picks, claims=claims,
@@ -326,6 +380,18 @@ def _stale(snap: dict | None, max_age: float) -> bool:
     return snap is None or time.time() - snap.get("fetched_epoch", 0) > max_age
 
 
+def _missed_close(snap: dict | None, now: datetime) -> bool:
+    """A session settled after this snapshot was fetched, so its close is not in the cache yet."""
+    if snap is None:
+        return True
+    cal = market_calendar()
+    last = cal.date_to_session(now.astimezone(config.NY).date().isoformat(), direction="previous")
+    while not final_close(last.strftime("%Y-%m-%d"), now):
+        last = cal.previous_session(last)
+    settled = cal.session_close(last).to_pydatetime() + timedelta(seconds=CLOSE_GRACE_SEC)
+    return datetime.fromtimestamp(snap.get("fetched_epoch", 0), timezone.utc) < settled
+
+
 def payload(force: bool = False, data: dict | None = None, prices: dict | None = None,
             estimates: dict | None = None, now: datetime | None = None) -> dict:
     data = data if data is not None else read_ledger()
@@ -333,7 +399,7 @@ def payload(force: bool = False, data: dict | None = None, prices: dict | None =
     warning = None
     if data["forecasts"] and prices is None:
         prices = _read(PRICES)
-        if force or _stale(prices, PRICE_MAX_AGE_SEC):
+        if force or _stale(prices, PRICE_MAX_AGE_SEC) or _missed_close(prices, now or datetime.now(timezone.utc)):
             try:
                 prices = refresh_prices(data)
             except Exception as exc:

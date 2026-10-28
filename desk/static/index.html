@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="/static/trend.css">
   <link rel="stylesheet" href="/static/news.css">
   <link rel="stylesheet" href="/static/bottom.css">
+  <link rel="stylesheet" href="/static/forecast.css">
 </head>
 <body>
   <header class="topbar">
@@ -25,6 +26,7 @@
       <a href="#dip" class="tab" role="tab" id="tab-dip" aria-controls="dip-view" aria-selected="false" data-sub="급락 종목 관찰·3분봉">급락 후 담기</a>
       <a href="#trend" class="tab" role="tab" id="tab-trend" aria-controls="trend-view" aria-selected="false" data-sub="두 펀드 보유 종목 이평선 추세">추세 등급</a>
       <a href="#news" class="tab" role="tab" id="tab-news" aria-controls="news-view" aria-selected="false" data-sub="바닥 감지기·중요 기사·가격 반응">뉴스 근거</a>
+      <a href="#forecast" class="tab" role="tab" id="tab-forecast" aria-controls="forecast-view" aria-selected="false" data-sub="잠긴 탑픽 예측과 한 달 뒤 점검">예측 점검</a>
     </nav>
     <div class="tools">
       <button class="btn ghost" id="btn-theme" aria-label="밝은 화면·어두운 화면 전환">◐</button>
@@ -190,6 +192,7 @@
     <section id="bd-view" class="bd" aria-label="바닥 감지기"></section>
     <div id="nw-body"></div>
   </main>
+  <main id="forecast-view" class="fc-page" role="tabpanel" aria-labelledby="tab-forecast" hidden></main>
 
   <div class="toast" id="toast" role="status"></div>
   <div class="tr-tip" id="tr-tip" role="presentation"></div>
@@ -200,5 +203,6 @@
   <script src="/static/trend.js"></script>
   <script src="/static/news.js"></script>
   <script src="/static/bottom.js"></script>
+  <script src="/static/forecast.js"></script>
 </body>
 </html>
