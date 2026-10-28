@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="/static/dip.css">
   <link rel="stylesheet" href="/static/trend.css">
   <link rel="stylesheet" href="/static/news.css">
+  <link rel="stylesheet" href="/static/bottom.css">
 </head>
 <body>
   <header class="topbar">
@@ -23,7 +24,7 @@
       <a href="#giant" class="tab" role="tab" id="tab-giant" aria-controls="giant-view" aria-selected="false" data-sub="AI 섹터·주도주 분석">거인의 어깨</a>
       <a href="#dip" class="tab" role="tab" id="tab-dip" aria-controls="dip-view" aria-selected="false" data-sub="급락 종목 관찰·3분봉">급락 후 담기</a>
       <a href="#trend" class="tab" role="tab" id="tab-trend" aria-controls="trend-view" aria-selected="false" data-sub="두 펀드 보유 종목 이평선 추세">추세 등급</a>
-      <a href="#news" class="tab" role="tab" id="tab-news" aria-controls="news-view" aria-selected="false" data-sub="중요 기사·매물 소화·가격 반응">뉴스 근거</a>
+      <a href="#news" class="tab" role="tab" id="tab-news" aria-controls="news-view" aria-selected="false" data-sub="바닥 감지기·중요 기사·가격 반응">뉴스 근거</a>
     </nav>
     <div class="tools">
       <button class="btn ghost" id="btn-theme" aria-label="밝은 화면·어두운 화면 전환">◐</button>
@@ -185,7 +186,10 @@
   <main id="dip-view" class="dp-page" role="tabpanel" aria-labelledby="tab-dip" hidden></main>
 
   <main id="trend-view" class="tg-page" role="tabpanel" aria-labelledby="tab-trend" hidden></main>
-  <main id="news-view" class="nw-page" role="tabpanel" aria-labelledby="tab-news" hidden></main>
+  <main id="news-view" class="nw-page" role="tabpanel" aria-labelledby="tab-news" hidden>
+    <section id="bd-view" class="bd" aria-label="바닥 감지기"></section>
+    <div id="nw-body"></div>
+  </main>
 
   <div class="toast" id="toast" role="status"></div>
   <div class="tr-tip" id="tr-tip" role="presentation"></div>
@@ -195,5 +199,6 @@
   <script src="/static/dip.js"></script>
   <script src="/static/trend.js"></script>
   <script src="/static/news.js"></script>
+  <script src="/static/bottom.js"></script>
 </body>
 </html>

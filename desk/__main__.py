@@ -1,4 +1,4 @@
-"""py -m desk [serve|open|validate|digest|ant|news]   (open = 야간데스크.cmd: reuse or start, then show the page)"""
+"""py -m desk [serve|open|validate|digest|ant|news|bottom]   (open = 야간데스크.cmd: reuse or start, then show the page)"""
 
 import sys
 
@@ -19,6 +19,9 @@ def main() -> int:
         return run(sys.argv[2:])
     if command == "news":
         from .news import main as run
+        return run(sys.argv[2:])
+    if command == "bottom":
+        from .bottom import main as run
         return run(sys.argv[2:])
     if command == "digest":
         from .digest import briefing_block

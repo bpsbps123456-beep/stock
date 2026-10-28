@@ -1,0 +1,54 @@
+/* 바닥 감지기(뉴스 근거 탭 맨 위, §13.6) */
+/* main은 grid라 자식이 표의 최소 폭만큼 화면 밖으로 늘어난다(휴대폰 780px) — 두 칸 모두 화면 폭에 묶는다 */
+#news-view > #bd-view, #news-view > #nw-body { min-width: 0; }
+/* minmax(0, …): 넓은 표가 grid 열을 화면보다 넓게 밀지 않고 표 안에서 가로 스크롤되게 한다 */
+.bd { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; margin-bottom: 28px; }
+.bd .card { padding: 22px; }
+.bd h3 { font-size: 15px; margin: 0 0 6px; }
+.bd p { margin: 8px 0; line-height: 1.75; }
+.bd-card { border-top: 4px solid var(--context); }
+.bd-card.bd-falling { border-top-color: var(--serious); }
+.bd-card.bd-confirmed { border-top-color: var(--accent); }
+.bd-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.bd-title { font-size: clamp(22px, 2.6vw, 30px); margin: 10px 0 4px; letter-spacing: -0.01em; }
+.bd-falling .bd-title { color: var(--serious); }
+.bd-confirmed .bd-title { color: var(--accent); }
+.bd-gauge-wrap { margin: 14px 0 26px; max-width: 640px; }
+.bd-gauge { position: relative; height: 12px; background: var(--surface-2); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+.bd-fill { position: absolute; inset: 0 auto 0 0; background: var(--context); }
+.bd-falling .bd-fill { background: var(--serious); }
+.bd-confirmed .bd-fill { background: var(--accent); }
+.bd-tick { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--ink-2); opacity: 0.55; }
+.bd-tick.main { width: 2px; opacity: 1; background: var(--ink); }
+.bd-ticklabels { position: relative; height: 16px; font: 11px/16px var(--mono); color: var(--muted); }
+.bd-ticklabels span { position: absolute; top: 2px; transform: translateX(-50%); white-space: nowrap; }
+.bd-ticklabels span:first-child { transform: none; }
+.bd-warn { color: var(--serious); font-size: 13px; }
+.bd-signal { font-weight: 600; }
+.bd-live { font-size: 13px; padding: 10px 14px; background: var(--surface-2); border-left: 3px solid var(--accent); }
+.bd-live small { color: var(--muted); }
+.bd-tiles { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin: 16px 0 6px; }
+.bd-tile { padding: 12px 14px; background: var(--surface-2); border-radius: 6px; min-width: 0; }
+.bd-tile b { display: block; font: 600 20px/1.3 var(--mono); margin: 4px 0 2px; }
+.bd-tile small { color: var(--muted); font-size: 12px; overflow-wrap: anywhere; }
+.bd-chart-card .legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12px; color: var(--ink-2); margin-bottom: 10px; }
+.bd-chart-card .legend span { display: inline-flex; align-items: center; gap: 6px; }
+.bd-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }  /* 두 표 모두 칸이 많아 위아래로 둔다 */
+.bd-table .scroll { max-height: 520px; }
+.bd-table table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.bd-table td, .bd-table th { padding: 9px 10px; text-align: right; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.bd-table td:first-child, .bd-table th:first-child { text-align: left; min-width: 0; white-space: nowrap; }  /* 뉴스 표의 240px 첫 칸 규칙을 풀어 휴대폰에서 숫자 칸이 보이게 */
+.bd-table td:not(:first-child) { font-family: var(--mono); }
+.bd-table td small { display: block; color: var(--muted); font-size: 11px; }
+.bd-table tr.on td { background: var(--accent-soft); font-weight: 600; }
+.bd-held { color: var(--ink); }
+.bd-broke { color: var(--critical); }
+.bd-watching { color: var(--accent); }
+.bd-notes { font-size: 13px; }
+.bd-notes summary { cursor: pointer; color: var(--ink-2); }
+.bd-notes li { line-height: 1.75; margin: 4px 0; }
+@media (max-width: 760px) { .bd-tiles { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 620px) {
+  .bd .card { padding: 16px; }
+  .bd-tile b { font-size: 17px; }
+}

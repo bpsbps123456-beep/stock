@@ -79,7 +79,7 @@ def live_quotes(tickers: list[str]) -> dict[str, dict]:
         ts = ts.tz_localize("UTC") if ts.tzinfo is None else ts
         out[t] = {"price": float(s.iloc[-1]), "session": _session(ts),
                   "time_kst": ts.tz_convert(config.KST).strftime("%m-%d %H:%M"),
-                  "time_ny": ts.tz_convert(config.NY).strftime("%m-%d %H:%M")}
+                  "time_ny": ts.tz_convert(config.NY).strftime("%m-%d %H:%M"), "epoch": ts.timestamp()}
     return out
 
 

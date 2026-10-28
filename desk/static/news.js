@@ -22,7 +22,7 @@ async function nwLoad(refresh = false) {
     const errorBox = h("div", {class: "nw-error", role: "alert"}, error.message,
       h("button", {class: "btn", onclick: () => nwLoad()}, "다시 불러오기"));
     if (NW.data) { nwRender(); $("#nw-status").append(errorBox); }
-    else mount($("#news-view"), errorBox);
+    else mount($("#nw-body"), errorBox);
   }
 }
 
@@ -44,7 +44,7 @@ function nwArticle(event, data) {
 }
 
 function nwRender() {
-  const data = NW.data, root = $("#news-view");
+  const data = NW.data, root = $("#nw-body");  // #bd-view(바닥 감지기, bottom.js) 아래
   const ep = data.episodes.find(e => e.id === NW.episode) || data.episodes[0];
   const controls = h("div", {class: "nw-controls"},
     h("label", {}, "비교 국면", h("select", {id: "nw-episode", onchange: e => { NW.episode = e.target.value; nwRender(); }},
