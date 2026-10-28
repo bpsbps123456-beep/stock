@@ -1,0 +1,23 @@
+{
+ "source": "yfinance ^SOX Close",
+ "first": "1994-05-04",
+ "last": "2026-10-27",
+ "sessions": 8176,
+ "missing_sessions": 0,
+ "missing_sample": [],
+ "non_xnys_rows": [],
+ "thresholds": [
+  0.07,
+  0.08,
+  0.09
+ ],
+ "periods": [
+  "1994~2023",
+  "2000~02",
+  "2007~09",
+  "2022",
+  "1994~2023 약세장 밖",
+  "2024~2026"
+ ],
+ "thr_in_dd": 0.1
+}
