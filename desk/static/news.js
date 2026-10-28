@@ -31,7 +31,11 @@ function nwArticle(event, data) {
   const facts = [["대상", event.scope], ["측정값", event.measurement], ["집계 기간", event.window]];
   return h("article", {class: "nw-article card", id: "nw-e-" + event.id},
     h("div", {class: "nw-article-top"}, h("span", {class: "nw-tag"}, data.kinds[event.kind]),
+      event.family && h("span", {class: "nw-tag"}, `${event.family} · ${data.families[event.family]}`),
+      event.bank && h("span", {class: "nw-tag"}, event.bank),
       h("span", {class: "sub"}, direction[event.stance], event.duplicate_source ? " · 같은 원자료 재보도" : "")),
+    event.prior_t && h("p", {class: "nw-meta"}, `기록 때 확인: 앞 ${event.prior_t.sessions}거래일(${event.prior_t.from}~) 안 쏠림(T) 기사 `,
+      event.prior_t.found ? h("b", {}, `있음 · ${event.prior_t.ids.join(", ")}`) : "없음"),
     h("h3", {}, h("a", {href: event.url, target: "_blank", rel: "noopener noreferrer"}, event.title, " ↗")),
     h("p", {class: "nw-meta"}, event.source, " · ", data.qualities[event.quality], " · 기사일 ", event.published_date),
     h("p", {}, event.summary),
@@ -83,6 +87,18 @@ function nwRender() {
     h("div", {class:"scroll"}, h("table", {},
       h("thead", {}, h("tr", {}, ["국면·기사", "기준 종가일", "+1일", "+3일", "+5일", "5일 내 최대 하락"].map(s=>h("th",{},s)))),
       h("tbody", {}, compareRows))));
+  const fr = data.forward_r, frRate = (s) => s.dd_n ? `${s.held}/${s.dd_n}` : "—";
+  const forward = h("section", {class:"card nw-comparison"}, h("h2", {}, "매수 복귀(R) 기사 전방 채점"),
+    h("p", {class:"sub"}, `공개 뒤 ${fr.lag_h}시간 안에 기록한 R 기사만 셉니다(2026-10-28부터). 사후에 찾은 후보(GS의 R 10일 초과 +1.9~2.1%p, R 뒤 SOXX 한 달 저점 유지 12/13)를 새 기사로 확인하는 표이며 매매 규칙이 아닙니다.`),
+    h("p", {}, `전체 ${fr.all.n}건 · 10일 평균 ${nwPct(fr.all.mean10)}(${fr.all.n10}건) · 하락 국면 저점 20일 유지 ${frRate(fr.all)}`,
+      ` · GS ${fr.gs.n}건 · 10일 평균 ${nwPct(fr.gs.mean10)} · 같은 해 아무 날 10일 평균 ${nwPct(fr.base10)}`),
+    fr.items.length ? h("div", {class:"scroll"}, h("table", {},
+      h("thead", {}, h("tr", {}, ["기사", "기관", "기준 종가일", ...fr.horizons.map(n => `+${n}일`), "저점 20일"].map(s => h("th", {}, s)))),
+      h("tbody", {}, fr.items.slice().reverse().map(i => h("tr", {},
+        h("td", {}, h("a", {href:i.url, target:"_blank", rel:"noopener noreferrer"}, i.title)), h("td", {}, i.bank || "—"),
+        h("td", {}, i.anchor || "대기"), fr.horizons.map(n => h("td", {class:cls(i.returns[n])}, nwPct(i.returns[n]))),
+        h("td", {}, !i.in_dd ? "하락 국면 아님" : i.hold20 == null ? "관찰 중" : i.hold20 ? "유지" : "이탈"))))))
+      : h("p", {class:"nw-meta"}, "아직 전방으로 기록한 R 기사가 없습니다."));
   mount(root,
     h("section", {class:"page-heading"}, h("div", {}, h("div", {class:"eyebrow"}, "중요 뉴스와 가격의 반응을 함께 추적"),
       h("h1", {}, "바닥을 찾는 뉴스 근거"), h("p", {}, "매도 압력 → 매물 소화 단서 → 가격이 버티는지 확인"))),
@@ -95,7 +111,7 @@ function nwRender() {
     h("section", {class:"card nw-quote"}, h("h2", {}, ep?.benchmark || "가격"),
       quote ? h("p", {}, `${quote.day} 종가 ${usd(quote.close)} · 하루 ${nwPct(quote.day_return)} · 직전 5거래일 최저 종가 대비 ${nwPct(quote.above_prior5_low)}`) : h("p", {}, "가격 자료가 없습니다. 가격 갱신을 눌러 주세요."),
       h("p", {class:"sub"}, "해당 조회 시각에 장이 끝난 종가만 사용합니다. 가격 갱신은 기사를 새로 수집하지 않습니다.")),
-    compare,
+    compare, forward,
     h("section", {class:"nw-articles"}, h("h2", {}, ep?.label || "기사"),
       (ep?.events || []).slice().reverse().map(e => nwArticle(e,data)),
       !ep?.events.length && h("p", {}, "해당 시각까지 확인된 기사가 없습니다.")),

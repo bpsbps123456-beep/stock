@@ -23,6 +23,12 @@ LEDGER = config.ROOT / "data" / "news_evidence" / "ledger.json"
 PRICES = config.CACHE / "news_prices.json"
 KINDS = {"pressure": "매도 압력", "relief": "매물 소화·자금 안정", "squeeze": "반등 연료", "fundamental": "사업·신용 위험"}
 QUALITIES = {"article": "보도 원문 확인", "syndicated": "통신사 재게재 확인", "chart": "재게재 차트 확인"}
+# 전수 표본(§13.2·§13.3)과 같은 부호. 2026-10-28부터 기록하는 기사는 bank·family 칸이 필수다(없으면 null, §13.1).
+FAMILIES = {"D": "기록적 매도·디그로싱", "R": "매수 복귀·숏 청산·매물 인수", "S": "극단적 숏", "T": "롱·레버리지 쏠림"}
+FIELDS_FROM = "2026-10-28T00:00:00+00:00"
+PRIOR_T_SESSIONS = 30          # D를 기록할 때 앞 30거래일 안에 공개된 T 기사가 있었는지 그 시점 값으로 고정한다
+FORWARD_LAG_H = 48             # R 전방 채점: 공개 뒤 이 시간 안에 기록한 기사만(결과를 보고 고른 기사를 빼려고)
+R_HORIZONS = (1, 3, 5, 10, 20)
 
 
 class NewsError(ValueError):
@@ -81,7 +87,24 @@ def validate(data: dict) -> None:
             raise NewsError("기사 공개가 기록 시각보다 늦습니다")
         if row["time_precision"] == "unknown" and available != recorded:
             raise NewsError("공개 시각 미확인 기사는 첫 기록 시각부터만 사용합니다")
+        newer = recorded >= stamp(FIELDS_FROM)
+        if newer and ("bank" not in row or "family" not in row):
+            raise NewsError("2026-10-28부터 기록하는 기사는 bank·family 칸이 필요합니다(해당 없으면 null)")
+        bank = row.get("bank")
+        if bank is not None and not (isinstance(bank, str) and bank.strip()):
+            raise NewsError("bank는 원 노트를 낸 기관 이름 또는 null입니다")
+        if row.get("family") not in (None, *FAMILIES):
+            raise NewsError("family는 D·R·S·T 또는 null입니다")
+        if newer and row.get("family") == "D":
+            p = row.get("prior_t")
+            if not isinstance(p, dict) or not isinstance(p.get("found"), bool) or not isinstance(p.get("ids"), list):
+                raise NewsError("D 기사에는 기록 때 계산한 prior_t(앞 30거래일 T 기사 유무)가 필요합니다")
         events[row["id"]] = row
+    for row in events.values():
+        for t_id in (row.get("prior_t") or {}).get("ids", []):
+            t = events.get(t_id)
+            if not t or t.get("family") != "T" or stamp(t["recorded_at"]) > stamp(row["recorded_at"]):
+                raise NewsError("prior_t는 그 D보다 먼저 기록된 T 기사만 가리킬 수 있습니다")
     for row in events.values():
         previous = events.get(row.get("supersedes"))
         if row.get("supersedes") and (not previous or previous["episode"] != row["episode"] or
@@ -151,8 +174,8 @@ def import_records(incoming: dict, path: Path = LEDGER) -> int:
                     raise NewsError("기록 id가 필요합니다")
                 if row["id"] in known:
                     old = known[row["id"]]
-                    comparable = {k: v for k, v in row.items() if k != "recorded_at"}
-                    expected = {k: v for k, v in old.items() if k != "recorded_at"}
+                    comparable = {k: v for k, v in row.items() if k not in ("recorded_at", "prior_t")}
+                    expected = {k: v for k, v in old.items() if k not in ("recorded_at", "prior_t")}
                     if section == "events" and row.get("time_precision") == "unknown":
                         comparable.pop("available_at", None)
                         expected.pop("available_at", None)
@@ -163,6 +186,8 @@ def import_records(incoming: dict, path: Path = LEDGER) -> int:
                     row["recorded_at"] = at
                 if section == "events" and row.get("time_precision") == "unknown":
                     row["available_at"] = at
+                if section == "events" and row.get("family") == "D":
+                    row["prior_t"] = prior_t(data["events"], row)   # 가져오는 값은 쓰지 않고 지금 원장으로 계산
                 data[section].append(row)
                 known[row["id"]] = row
                 added += 1
@@ -217,15 +242,82 @@ def completed_prices(series: dict, cutoff: datetime) -> list[tuple[str, float, d
     return rows
 
 
-def reaction(event: dict, rows: list) -> dict:
-    empty = {"anchor": None, "returns": {str(n): None for n in (1, 3, 5)}, "worst_close_5": None}
+def anchor_session(event: dict):
+    """기사 공개 뒤 첫 정규장(그 종가가 기준). 공개 시각 미확인이면 None."""
     if event["time_precision"] != "exact":
-        return {**empty, "reason": "기사 공개 시각 미확인"}
+        return None
     available = stamp(event["available_at"])
     calendar = market_calendar()
     anchor = calendar.date_to_session(available.astimezone(config.NY).date().isoformat(), direction="next")
     if calendar.session_close(anchor).to_pydatetime() <= available:
         anchor = calendar.next_session(anchor)
+    return anchor
+
+
+def prior_t(events: list[dict], row: dict) -> dict:
+    """D 기사 공개 전 PRIOR_T_SESSIONS 거래일(공개일 포함) 안에 공개된 T 기사. 그때 원장에 있던 기사만 본다."""
+    calendar = market_calendar()
+    end = stamp(row["available_at"])
+    last = calendar.date_to_session(end.astimezone(config.NY).date().isoformat(), direction="previous")
+    first = calendar.sessions_window(last, -PRIOR_T_SESSIONS)[0].strftime("%Y-%m-%d")
+    ids = [e["id"] for e in events if e.get("family") == "T" and stamp(e["available_at"]) <= end
+           and stamp(e["available_at"]).astimezone(config.NY).date().isoformat() >= first]
+    return {"found": bool(ids), "ids": ids, "sessions": PRIOR_T_SESSIONS, "from": first}
+
+
+def forward_r(events: list[dict], series: dict, cutoff: datetime) -> dict:
+    """R 전방 채점: 공개 뒤 FORWARD_LAG_H 안에 기록한 R 기사의 1~20거래일 종가 변화와 SOXX 하락 저점의 20거래일 유지.
+
+    저점·하락 국면은 바닥 감지기(desk/bottom.py, §13.6)와 같은 정의다. 사후 후보(§13.3 GS의 R, §13.5 R 뉴스)를
+    새 기사로 확인하는 표이며 매매 규칙이 아니다.
+    """
+    import pandas as pd
+
+    from .bottom import frame
+    rows = completed_prices(series, cutoff)
+    prices = {r[0]: r[1] for r in rows}
+    fr = frame(pd.Series([r[1] for r in rows], index=pd.DatetimeIndex([r[0] for r in rows]))) if len(rows) > 60 else None
+    calendar, items = market_calendar(), []
+    for e in events:
+        lag_h = (stamp(e["recorded_at"]) - stamp(e["available_at"])).total_seconds() / 3600
+        if e.get("family") != "R" or lag_h > FORWARD_LAG_H:
+            continue
+        item = {"id": e["id"], "title": e["title"], "url": e["url"], "bank": e.get("bank"), "available_at": e["available_at"],
+                "anchor": None, "returns": {str(n): None for n in R_HORIZONS}, "in_dd": None, "low": None, "hold20": None}
+        anchor = anchor_session(e)
+        days = [s.strftime("%Y-%m-%d") for s in calendar.sessions_window(anchor, max(R_HORIZONS) + 1)] if anchor is not None else []
+        if days and days[0] in prices:
+            base = prices[days[0]]
+            item["anchor"] = days[0]
+            item["returns"] = {str(n): prices[days[n]] / base - 1 if days[n] in prices else None for n in R_HORIZONS}
+            if fr is not None and pd.Timestamp(days[0]) in fr.index:
+                r = fr.loc[pd.Timestamp(days[0])]
+                item.update(in_dd=bool(r["in_dd"]), low=None if math.isnan(r["low"]) else float(r["low"]),
+                            hold20=None if math.isnan(r["hold"]) else int(r["hold"]))
+        items.append(item)
+
+    def summary(group: list[dict]) -> dict:
+        r10 = [i["returns"]["10"] for i in group if i["returns"]["10"] is not None]
+        held = [i["hold20"] for i in group if i["in_dd"] and i["hold20"] is not None]
+        return {"n": len(group), "n10": len(r10), "mean10": sum(r10) / len(r10) if r10 else None,
+                "dd_n": len(held), "held": sum(held)}
+
+    base10 = None  # 아무 날 대조: 첫 R 기준일이 든 해 1월부터 조회 시각까지 모든 장의 10거래일 변화 평균
+    anchors = sorted(i["anchor"] for i in items if i["anchor"])
+    if anchors:
+        seq = [r[1] for r in rows if r[0] >= anchors[0][:4] + "-01-01"]
+        moves = [seq[k + 10] / seq[k] - 1 for k in range(len(seq) - 10)]
+        base10 = sum(moves) / len(moves) if moves else None
+    return {"items": items, "all": summary(items), "gs": summary([i for i in items if i["bank"] == "GS"]),
+            "base10": base10, "lag_h": FORWARD_LAG_H, "horizons": [str(n) for n in R_HORIZONS]}
+
+
+def reaction(event: dict, rows: list) -> dict:
+    empty = {"anchor": None, "returns": {str(n): None for n in (1, 3, 5)}, "worst_close_5": None}
+    if event["time_precision"] != "exact":
+        return {**empty, "reason": "기사 공개 시각 미확인"}
+    calendar = market_calendar()
+    anchor = anchor_session(event)
     days = [s.strftime("%Y-%m-%d") for s in calendar.sessions_window(anchor, 6)]
     prices = {r[0]: r[1] for r in rows}
     if days[0] not in prices:
@@ -270,7 +362,11 @@ def payload(as_of: str | None = None, basis: str = "public", force: bool = False
                      "above_prior5_low": rows[-1][1] / min(r[1] for r in rows[-6:-1]) - 1 if len(rows) >= 6 else None}
         episodes.append({**ep, "events": items, "assessment": assessment, "quote": quote,
                          "groups": len(groups), "counts": {k: len({r["source_group"] for r in items if r["kind"] == k}) for k in KINDS}})
-    return {"as_of": cutoff.isoformat(), "basis": basis, "kinds": KINDS, "qualities": QUALITIES,
+    soxx_eps = {ep["id"] for ep in data["episodes"] if ep["benchmark"] == "SOXX"}
+    forward = forward_r([e for e in visible_events(data, cutoff, "recorded") if e["episode"] in soxx_eps],
+                        prices.get("series", {}).get("SOXX", {}), cutoff)
+    return {"as_of": cutoff.isoformat(), "basis": basis, "kinds": KINDS, "qualities": QUALITIES, "families": FAMILIES,
+            "forward_r": forward,
             "episodes": episodes, "price_source": prices.get("source"), "prices_fetched_at": prices.get("fetched_at"),
             "warning": warning, "last_recorded_at": max((e["recorded_at"] for e in events), key=stamp, default=None),
             "method": "중요 기사를 확인하고 해석을 기록합니다. 같은 원자료의 재보도는 독립 근거로 세지 않습니다.",

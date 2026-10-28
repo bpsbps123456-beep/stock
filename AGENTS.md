@@ -90,6 +90,7 @@
 | 정리 | 참조 0건·중복·빈 템플릿인 문서와 코드는 발견한 작업에서 `git rm`으로 지운다. 되살릴 때는 git 이력을 쓰고, 보관용 사본을 만들지 않는다. |
 | 검증 | 코드를 바꿨으면 `py -m unittest`가 전부 통과해야 한다. `py -m pytest`와 같은 테스트를 모으며, 모듈 함수 방식 테스트 파일에 `load_tests` 훅이 빠지면 `tests/test_suite_contract.py`가 실패한다. 영역별 추가 검증은 해당 정본을 따른다(데스크 §6, 탐방 §8.1, 거인의 어깨 §9, 급락 후 담기 §10, 추세 등급 §11). |
 | 종결 | 바꾼 파일만 경로를 지정해 커밋한다: 새 파일은 `git add <경로>`, 그다음 `git commit -m "<영역>: <요약> (codex\|claude)" -- <바꾼 경로…>`. 루틴 실행이 만든 추적 데이터(`data/normalized/` 스냅샷, `data/derived/` 연구 결과 등)는 `data: <날짜> <내용>` 커밋으로 따로 넣는다. 커밋 뒤 `git push origin master`로 올린다. 거부되면 `git pull --rebase origin master` 뒤 다시 올린다. 10MB 넘는 결과·캐시·바이너리는 올리지 않는다(`.gitignore`에 경로를 더하고, `tests/test_repo_files.py`가 50MB 넘는 추적 파일을 막는다). `git add -A`, `git add .`, 강제 푸시(`--force`), `reset --hard`·`checkout -- .`·`clean`은 쓰지 않는다. |
+| 클라우드 세션 | 세션이 지정 브랜치(예: `claude/…`)를 받았으면 그 브랜치에 커밋·푸시한 뒤 `master`에 빨리감기로 합친다(`git push origin HEAD:master`, 거부되면 `git pull --rebase origin master` 뒤 다시). 로컬 세션은 위 순서대로 `master`에서 직접 작업한다(2026-10-28 사용자 결정). |
 
 ## 연구 보고 규칙
 

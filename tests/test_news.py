@@ -19,7 +19,8 @@ def example():
                  available_at="2026-07-20T13:16:00+00:00", recorded_at="2026-10-25T07:00:00+00:00",
                  time_precision="exact", kind="pressure", stance="against", quality="article",
                  time_note="당시 기사, 후일 수집", scope="기술주", measurement="순매도", window="8주",
-                 summary="기록적인 매도", interpretation="매도 소진과 다름", next_check="매도 감소")
+                 summary="기록적인 매도", interpretation="매도 소진과 다름", next_check="매도 감소",
+                 bank=None, family=None)
     return {"version": 1, "episodes": [{"id": "test", "label": "시험 국면", "benchmark": "SOXX"}],
             "events": [event], "assessments": []}
 
@@ -152,6 +153,64 @@ class NewsRecordingTests(unittest.TestCase):
         self.assertEqual({e["benchmark"] for e in data["episodes"]}, {"SOXX"})
         self.assertGreaterEqual(len(data["events"]), 6)
         self.assertEqual(news.visible_events(data, news.stamp("2026-07-31T21:00:00Z"), "recorded"), [])
+
+
+def note(event_id, family, available, bank="GS"):
+    row = example()["events"][0]
+    row.update(id=event_id, source_group=event_id, family=family, bank=bank, available_at=available,
+               published_date=available[:10])
+    return row
+
+
+class NewsFamilyTests(unittest.TestCase):
+    """2026-10-28 사용자 결정: 은행·계열 칸, D의 앞 30거래일 T 유무, R 전방 채점(§13.1)."""
+
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.path = Path(self.temp.name) / "ledger.json"
+
+    def test_new_records_need_bank_and_family(self):
+        data = example()
+        del data["events"][0]["bank"]
+        with mock.patch.object(news, "now_iso", return_value="2026-10-28T12:00:00Z"):
+            with self.assertRaises(news.NewsError):
+                news.import_records(data, self.path)
+        bad = example()
+        bad["events"][0]["family"] = "X"
+        with self.assertRaises(news.NewsError):
+            news.validate(bad)
+
+    def test_prior_t_is_fixed_when_d_is_recorded(self):
+        base = {"episodes": example()["episodes"]}
+        with mock.patch.object(news, "now_iso", return_value="2026-10-28T12:00:00Z"):
+            news.import_records({**base, "events": [note("t1", "T", "2026-10-01T13:00:00+00:00")]}, self.path)
+            news.import_records({**base, "events": [note("d1", "D", "2026-10-20T13:00:00+00:00")]}, self.path)
+        with mock.patch.object(news, "now_iso", return_value="2026-12-02T12:00:00Z"):
+            news.import_records({**base, "events": [note("d2", "D", "2026-12-01T13:00:00+00:00"),
+                                                    note("t2", "T", "2026-10-19T13:00:00+00:00")]}, self.path)
+        rows = {e["id"]: e for e in news.read_ledger(self.path)["events"]}
+        self.assertEqual((rows["d1"]["prior_t"]["found"], rows["d1"]["prior_t"]["ids"]), (True, ["t1"]))
+        self.assertFalse(rows["d2"]["prior_t"]["found"])          # 10/1은 12/1 앞 30거래일 밖, t2는 d2보다 늦게 들어옴
+        self.assertEqual(rows["d1"]["prior_t"]["ids"], ["t1"])    # 나중에 넣은 T(t2)가 d1을 바꾸지 않음
+
+    def test_forward_r_scores_only_promptly_recorded_r(self):
+        cal = news.market_calendar()
+        days = [s.strftime("%Y-%m-%d") for s in cal.sessions_window("2026-03-02", 100)]
+        values = [100 + i * 10 / 59 for i in range(60)] + [108, 105, 102, 99, 97, 95] + \
+                 [95 + i * 15 / 33 for i in range(1, 35)]
+        series = dict(zip(days, values))
+        prompt = note("r1", "R", days[68] + "T14:00:00+00:00")
+        prompt["recorded_at"] = days[68] + "T15:00:00+00:00"
+        late = note("r2", "R", days[68] + "T14:00:00+00:00")
+        late["recorded_at"] = days[75] + "T15:00:00+00:00"
+        result = news.forward_r([prompt, late], series, news.stamp(days[-1] + "T23:00:00+00:00"))
+        self.assertEqual([i["id"] for i in result["items"]], ["r1"])
+        item = result["items"][0]
+        self.assertEqual(item["anchor"], days[68])
+        self.assertAlmostEqual(item["returns"]["10"], values[78] / values[68] - 1)
+        self.assertEqual((item["in_dd"], item["hold20"]), (True, 1))
+        self.assertEqual((result["gs"]["n"], result["all"]["held"]), (1, 1))
 
 
 class NewsHttpTests(unittest.TestCase):
