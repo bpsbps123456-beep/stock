@@ -1,0 +1,566 @@
+{
+ "2026-03-30": {
+  "entry": "2026-04-01",
+  "exit": "2026-05-01",
+  "soxx": 0.3758,
+  "all": 0.4922,
+  "rules": {
+   "beta": {
+    "top10": 0.6584,
+    "vs_soxx": 0.2827,
+    "vs_all": 0.1663,
+    "rho": 0.207,
+    "p": 0.189,
+    "top": [
+     "AEHR",
+     "NVTS",
+     "SNDK",
+     "WDC",
+     "MU",
+     "AMKR",
+     "LRCX",
+     "RMBS",
+     "STX",
+     "ALAB"
+    ]
+   },
+   "early": {
+    "top10": 0.5959,
+    "vs_soxx": 0.2202,
+    "vs_all": 0.1038,
+    "rho": 0.143,
+    "p": 0.3673,
+    "top": [
+     "AEHR",
+     "MRVL",
+     "SNDK",
+     "WDC",
+     "TSEM",
+     "STX",
+     "INTC",
+     "MU",
+     "ARM",
+     "TER"
+    ]
+   },
+   "deep": {
+    "top10": 0.7238,
+    "vs_soxx": 0.348,
+    "vs_all": 0.2316,
+    "rho": 0.078,
+    "p": 0.6226,
+    "top": [
+     "CRDO",
+     "AEHR",
+     "SIMO",
+     "MU",
+     "ALAB",
+     "RMBS",
+     "ENTG",
+     "NVTS",
+     "MCHP",
+     "ON"
+    ]
+   },
+   "resilient": {
+    "top10": 0.5392,
+    "vs_soxx": 0.1634,
+    "vs_all": 0.047,
+    "rho": -0.045,
+    "p": 0.7765,
+    "top": [
+     "AXTI",
+     "TSEM",
+     "MRVL",
+     "ARM",
+     "AMD",
+     "SNDK",
+     "AOSL",
+     "STM",
+     "KLAC",
+     "KEYS"
+    ]
+   },
+   "mom120": {
+    "top10": 0.452,
+    "vs_soxx": 0.0763,
+    "vs_all": -0.0401,
+    "rho": -0.143,
+    "p": 0.3679,
+    "top": [
+     "AXTI",
+     "SNDK",
+     "FORM",
+     "MU",
+     "WDC",
+     "TER",
+     "LRCX",
+     "AMAT",
+     "ASX",
+     "STX"
+    ]
+   },
+   "near_high": {
+    "top10": 0.3728,
+    "vs_soxx": -0.0029,
+    "vs_all": -0.1193,
+    "rho": -0.3,
+    "p": 0.0539,
+    "top": [
+     "MRVL",
+     "TSEM",
+     "STM",
+     "STX",
+     "WDC",
+     "FORM",
+     "KEYS",
+     "TER",
+     "MPWR",
+     "KLAC"
+    ]
+   },
+   "prior": {
+    "top10": 0.5196,
+    "vs_soxx": 0.1438,
+    "vs_all": 0.0274,
+    "rho": -0.043,
+    "p": 0.7852,
+    "top": [
+     "AXTI",
+     "SNDK",
+     "TER",
+     "FORM",
+     "AEHR",
+     "MU",
+     "WDC",
+     "ENTG",
+     "ASX",
+     "AMAT"
+    ]
+   }
+  }
+ },
+ "2026-06-05": {
+  "entry": "2026-06-11",
+  "exit": "2026-07-14",
+  "soxx": -0.0319,
+  "all": -0.0787,
+  "rules": {
+   "beta": {
+    "top10": -0.1678,
+    "vs_soxx": -0.1359,
+    "vs_all": -0.0891,
+    "rho": -0.36,
+    "p": 0.0178,
+    "top": [
+     "AEHR",
+     "NVTS",
+     "RMBS",
+     "AOSL",
+     "MRVL",
+     "INTC",
+     "MU",
+     "AMKR",
+     "ALAB",
+     "FORM"
+    ]
+   },
+   "early": {
+    "top10": -0.0452,
+    "vs_soxx": -0.0133,
+    "vs_all": 0.0335,
+    "rho": 0.217,
+    "p": 0.1619,
+    "top": [
+     "CRDO",
+     "KLAC",
+     "AMAT",
+     "SNDK",
+     "LRCX",
+     "INTC",
+     "AMKR",
+     "ALAB",
+     "ASML",
+     "ENTG"
+    ]
+   },
+   "deep": {
+    "top10": -0.124,
+    "vs_soxx": -0.0921,
+    "vs_all": -0.0453,
+    "rho": -0.213,
+    "p": 0.1707,
+    "top": [
+     "AOSL",
+     "MU",
+     "AVGO",
+     "NVTS",
+     "ARM",
+     "AXTI",
+     "SIMO",
+     "SNDK",
+     "RMBS",
+     "ASX"
+    ]
+   },
+   "resilient": {
+    "top10": -0.0616,
+    "vs_soxx": -0.0297,
+    "vs_all": 0.0171,
+    "rho": 0.101,
+    "p": 0.5179,
+    "top": [
+     "CRDO",
+     "ASML",
+     "FORM",
+     "AEHR",
+     "TSM",
+     "NVDA",
+     "KEYS",
+     "KLAC",
+     "NXPI",
+     "AMAT"
+    ]
+   },
+   "mom120": {
+    "top10": -0.1246,
+    "vs_soxx": -0.0927,
+    "vs_all": -0.0459,
+    "rho": -0.087,
+    "p": 0.5826,
+    "top": [
+     "SNDK",
+     "AXTI",
+     "AEHR",
+     "MU",
+     "WDC",
+     "MRVL",
+     "NVTS",
+     "STX",
+     "SIMO",
+     "STM"
+    ]
+   },
+   "near_high": {
+    "top10": -0.0447,
+    "vs_soxx": -0.0128,
+    "vs_all": 0.034,
+    "rho": 0.357,
+    "p": 0.0189,
+    "top": [
+     "ALAB",
+     "ASML",
+     "AMAT",
+     "SNDK",
+     "LRCX",
+     "KLAC",
+     "CRDO",
+     "STM",
+     "AMKR",
+     "TSM"
+    ]
+   },
+   "prior": {
+    "top10": -0.1024,
+    "vs_soxx": -0.0704,
+    "vs_all": -0.0237,
+    "rho": -0.216,
+    "p": 0.1696,
+    "top": [
+     "NVTS",
+     "AEHR",
+     "ALAB",
+     "MRVL",
+     "MU",
+     "SNDK",
+     "ARM",
+     "SIMO",
+     "AMD",
+     "INTC"
+    ]
+   }
+  }
+ },
+ "2026-07-29": {
+  "entry": "2026-07-30",
+  "exit": "2026-08-28",
+  "soxx": 0.0081,
+  "all": 0.0037,
+  "rules": {
+   "beta": {
+    "top10": -0.0024,
+    "vs_soxx": -0.0105,
+    "vs_all": -0.0061,
+    "rho": 0.012,
+    "p": 0.9387,
+    "top": [
+     "AEHR",
+     "NVTS",
+     "AOSL",
+     "MRVL",
+     "RMBS",
+     "MU",
+     "INTC",
+     "ALAB",
+     "FORM",
+     "TER"
+    ]
+   },
+   "early": {
+    "top10": 0.0181,
+    "vs_soxx": 0.01,
+    "vs_all": 0.0144,
+    "rho": 0.07,
+    "p": 0.6545,
+    "top": [
+     "AXTI",
+     "FORM",
+     "SNDK",
+     "SIMO",
+     "ALAB",
+     "CBRS",
+     "MU",
+     "LRCX",
+     "AEHR",
+     "WDC"
+    ]
+   },
+   "deep": {
+    "top10": 0.0236,
+    "vs_soxx": 0.0155,
+    "vs_all": 0.0199,
+    "rho": 0.183,
+    "p": 0.2409,
+    "top": [
+     "AXTI",
+     "NVTS",
+     "SNDK",
+     "AMKR",
+     "GFS",
+     "MRVL",
+     "FORM",
+     "ARM",
+     "AOSL",
+     "ALAB"
+    ]
+   },
+   "resilient": {
+    "top10": -0.018,
+    "vs_soxx": -0.0261,
+    "vs_all": -0.0217,
+    "rho": -0.186,
+    "p": 0.2315,
+    "top": [
+     "AVGO",
+     "MPWR",
+     "AMD",
+     "AEHR",
+     "TER",
+     "ASML",
+     "NVDA",
+     "AOSL",
+     "MU",
+     "TXN"
+    ]
+   },
+   "mom120": {
+    "top10": 0.0482,
+    "vs_soxx": 0.0401,
+    "vs_all": 0.0445,
+    "rho": 0.097,
+    "p": 0.5432,
+    "top": [
+     "SNDK",
+     "AXTI",
+     "AEHR",
+     "MU",
+     "WDC",
+     "INTC",
+     "STX",
+     "SIMO",
+     "ARM",
+     "MRVL"
+    ]
+   },
+   "near_high": {
+    "top10": -0.0041,
+    "vs_soxx": -0.0122,
+    "vs_all": -0.0078,
+    "rho": -0.131,
+    "p": 0.4038,
+    "top": [
+     "TSM",
+     "TXN",
+     "KEYS",
+     "AMD",
+     "ASML",
+     "NVDA",
+     "ADI",
+     "AVGO",
+     "MPWR",
+     "STX"
+    ]
+   },
+   "prior": {
+    "top10": 0.0313,
+    "vs_soxx": 0.0232,
+    "vs_all": 0.0276,
+    "rho": 0.079,
+    "p": 0.6153,
+    "top": [
+     "ENTG",
+     "CRDO",
+     "SNDK",
+     "AMKR",
+     "WDC",
+     "INTC",
+     "AMAT",
+     "MU",
+     "UMC",
+     "KLAC"
+    ]
+   }
+  }
+ },
+ "2026-09-14": {
+  "entry": "2026-09-18",
+  "exit": "2026-10-19",
+  "soxx": -0.0584,
+  "all": -0.0856,
+  "rules": {
+   "beta": {
+    "top10": -0.1461,
+    "vs_soxx": -0.0877,
+    "vs_all": -0.0604,
+    "rho": -0.436,
+    "p": 0.0035,
+    "top": [
+     "SNDK",
+     "AEHR",
+     "MRVL",
+     "FORM",
+     "AOSL",
+     "MU",
+     "ALAB",
+     "AXTI",
+     "NVTS",
+     "TER"
+    ]
+   },
+   "early": {
+    "top10": -0.112,
+    "vs_soxx": -0.0535,
+    "vs_all": -0.0263,
+    "rho": -0.366,
+    "p": 0.0158,
+    "top": [
+     "AXTI",
+     "ALAB",
+     "CRDO",
+     "TSEM",
+     "SNDK",
+     "ARM",
+     "MTSI",
+     "FORM",
+     "SIMO",
+     "AMD"
+    ]
+   },
+   "deep": {
+    "top10": -0.164,
+    "vs_soxx": -0.1056,
+    "vs_all": -0.0783,
+    "rho": -0.294,
+    "p": 0.0555,
+    "top": [
+     "CRDO",
+     "AEHR",
+     "AXTI",
+     "CBRS",
+     "TSEM",
+     "MTSI",
+     "TER",
+     "FORM",
+     "NVTS",
+     "AMKR"
+    ]
+   },
+   "resilient": {
+    "top10": -0.109,
+    "vs_soxx": -0.0506,
+    "vs_all": -0.0233,
+    "rho": 0.04,
+    "p": 0.8011,
+    "top": [
+     "UMC",
+     "SWKS",
+     "QCOM",
+     "MRVL",
+     "SNDK",
+     "MU",
+     "AMD",
+     "INTC",
+     "ASX",
+     "SIMO"
+    ]
+   },
+   "mom120": {
+    "top10": -0.1378,
+    "vs_soxx": -0.0794,
+    "vs_all": -0.0522,
+    "rho": -0.675,
+    "p": 0.0,
+    "top": [
+     "AEHR",
+     "MRVL",
+     "SNDK",
+     "AXTI",
+     "STX",
+     "ALAB",
+     "MU",
+     "AMD",
+     "CRDO",
+     "INTC"
+    ]
+   },
+   "near_high": {
+    "top10": -0.0472,
+    "vs_soxx": 0.0112,
+    "vs_all": 0.0385,
+    "rho": 0.192,
+    "p": 0.2183,
+    "top": [
+     "SWKS",
+     "AMD",
+     "NVDA",
+     "ASX",
+     "TSM",
+     "KEYS",
+     "UMC",
+     "ADI",
+     "ASML",
+     "MU"
+    ]
+   },
+   "prior": {
+    "top10": -0.165,
+    "vs_soxx": -0.1066,
+    "vs_all": -0.0794,
+    "rho": -0.463,
+    "p": 0.0018,
+    "top": [
+     "AXTI",
+     "AEHR",
+     "SNDK",
+     "FORM",
+     "CRDO",
+     "ENTG",
+     "NVTS",
+     "CBRS",
+     "AMKR",
+     "MRVL"
+    ]
+   }
+  }
+ }
+}
