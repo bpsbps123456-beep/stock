@@ -58,6 +58,8 @@ def validate_forecast(fc: dict, locked: bool = True) -> None:
             raise ForecastError(f"바스켓 {key}: 이름과 중복 없는 유니버스 종목이 필요합니다")
     if fc["primary_basket"] not in baskets:
         raise ForecastError("primary_basket이 바스켓에 없습니다")
+    if fc.get("headline_basket", fc["primary_basket"]) not in baskets:
+        raise ForecastError("headline_basket이 바스켓에 없습니다")
     picks = [p.get("ticker") for p in fc["picks"]]
     if picks != baskets[fc["primary_basket"]]["tickers"]:
         raise ForecastError("picks와 primary 바스켓의 종목·순서가 같아야 합니다")

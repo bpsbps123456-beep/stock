@@ -4,6 +4,7 @@ const FC = { data: null, id: null, request: 0 };
 const fcTime = s => s ? new Date(s).toLocaleString("ko-KR", {timeZone: "Asia/Seoul", hour12: false}) + " KST" : "—";
 const FC_STATE = {pending: ["대기", ""], on_track: ["지금은 맞는 쪽", "up"], off_track: ["지금은 틀린 쪽", "down"],
   hit: ["적중", "up"], miss: ["빗나감", "down"], manual: ["직접 확인", ""]};
+const FC_COLORS = ["var(--muted)", "var(--accent)", "var(--s-account)", "var(--s-etf)", "var(--s-strategy)"];
 const FC_SERIES = [["picks", "var(--accent)", 2.6], ["all43", "var(--muted)", 1.4], ["july10", "var(--s-etf)", 1.6],
   ["beta10", "var(--s-account)", 1.6]];
 
@@ -67,7 +68,8 @@ function fcRender() {
       h("h1", {}, "예측 점검"), h("p", {}, "기록된 예측이 없습니다. ‘예측 기록’ 요청으로 만들 수 있습니다."))));
     return;
   }
-  const r = fc.result, B = r.baskets || {}, P = B[fc.primary_basket] || {}, M = B.all43;
+  const headKey = fc.headline_basket || fc.primary_basket, many = fc.picks.length > 20;
+  const r = fc.result, B = r.baskets || {}, P = B[headKey] || {};
   const soxx = r.returns?.[fc.benchmark];
   const byTicker = {};
   for (const c of r.claims) if (c.ticker) (byTicker[c.ticker] ||= []).push(c);
@@ -75,7 +77,7 @@ function fcRender() {
   const hits = resolved.filter(c => c.state === "hit").length;
   const progress = r.sessions ? Math.min(1, r.elapsed / r.sessions) : 0;
   const waiting = r.status === "기준 종가 대기";
-  const label = fc.baskets[fc.primary_basket].label;
+  const label = fc.baskets[headKey].label;
 
   const head = h("section", {class: "page-heading"},
     h("div", {}, h("div", {class: "eyebrow"}, "잠긴 예측과 실제 가격 비교 · ", fc.author),
@@ -93,11 +95,10 @@ function fcRender() {
 
   const tiles = h("section", {class: "fc-tiles"},
     fcTile(`${fc.benchmark} 수익`, waiting ? "—" : pct(soxx), `기준 ${md(r.baseline)} 이후`, cls(soxx)),
-    fcTile(fc.baskets[fc.primary_basket].label, waiting ? "—" : pct(P.return),
-      `베타 ${fc.baskets[fc.primary_basket].beta.toFixed(2)}배 · 같은 금액`, cls(P.return)),
+    fcTile(label, waiting ? "—" : pct(P.return), `베타 ${fc.baskets[headKey].beta.toFixed(2)}배 · 같은 금액`, cls(P.return)),
     fcTile(`${fc.benchmark} 대비`, waiting ? "—" : pct(P.excess), `${label} − ${fc.benchmark}`, cls(P.excess)),
     fcTile("베타 조정 초과", waiting ? "—" : pct(P.alpha), `바스켓 − 베타 × ${fc.benchmark} · 종목 선택 효과`, cls(P.alpha)),
-    fcTile("SOXX를 이긴 종목", waiting ? "—" : `${P.beat}/${fc.picks.length}`, "기준가 이후 수익 기준"),
+    fcTile(`${fc.benchmark}를 이긴 종목`, waiting ? "—" : `${P.beat}/${fc.baskets[headKey].tickers.length}`, label),
     fcTile("판정된 예측", `${hits}/${resolved.length}`, r.brier == null ? "판정되면 확률 점수(Brier)가 나옵니다"
       : `Brier ${r.brier.toFixed(3)} · 0에 가까울수록 확률이 정확`));
 
@@ -105,7 +106,7 @@ function fcRender() {
   const chart = h("section", {class: "card"}, h("header", {}, h("h2", {}, "기준가 이후 누적 수익"),
     h("span", {class: "sub"}, "같은 금액으로 사서 들고 있는 바스켓 · 수정 종가")), chartHost);
 
-  const bRows = Object.entries(B).map(([k, b]) => h("tr", {class: k === fc.primary_basket ? "fc-main" : ""},
+  const bRows = Object.entries(B).map(([k, b]) => h("tr", {class: k === headKey ? "fc-main" : ""},
     h("td", {}, b.label, fc.baskets[k]?.note ? h("small", {}, fc.baskets[k].note) : null),
     h("td", {}, b.tickers.length), h("td", {}, b.beta == null ? "—" : b.beta.toFixed(2)),
     h("td", {class: cls(b.return)}, pct(b.return)), h("td", {class: cls(b.excess)}, pct(b.excess)),
@@ -121,18 +122,21 @@ function fcRender() {
     const x = res[p.ticker] || {};
     const verdict = (byTicker[p.ticker] || []).find(c => c.kind === "ticker_excess");
     return h("tr", {}, h("td", {}, p.rank), h("td", {}, h("b", {}, p.ticker), h("small", {}, p.theme)),
+      h("td", {}, verdict ? Math.round(verdict.probability * 100) + "%" : "—"),
       h("td", {}, usd(x.base_close)), h("td", {}, usd(x.last_close)), h("td", {class: cls(x.return)}, pct(x.return)),
       h("td", {class: cls(x.excess)}, pct(x.excess)), h("td", {}, x.rank ? `${x.rank}/${x.of}` : "—"),
       h("td", {class: cls(x.worst)}, pct(x.worst)), h("td", {}, verdict ? fcChip(verdict.state) : "—"));
   });
-  const picks = h("section", {class: "card"}, h("header", {}, h("h2", {}, `${label} 성적`),
+  const picks = h("section", {class: "card"}, h("header", {}, h("h2", {}, many ? `예측 순위 ${fc.picks.length}종목 성적` : `${label} 성적`),
     h("span", {class: "sub"}, `순위는 이 기록의 ${Object.keys(fc.universe).length}종목 중 기준가 이후 수익 순 · 최악은 기간 중 가장 낮았던 종가`)),
     h("div", {class: "fc-scroll"}, h("table", {class: "fc-table"},
-      h("thead", {}, h("tr", {}, ["#", "종목", "기준 종가", "최근 종가", "수익", "SOXX 대비", "순위", "최악", "판정"].map(s => h("th", {}, s)))),
+      h("thead", {}, h("tr", {}, ["#", "종목", "이길 확률", "기준 종가", "최근 종가", "수익", "SOXX 대비", "실제 순위", "최악", "판정"].map(s => h("th", {}, s)))),
       h("tbody", {}, pRows))));
+  if (many) picks.querySelector(".fc-scroll").classList.add("tall");
 
   const cards = h("section", {class: "fc-reasons"}, h("h2", {}, "판단 이유와 확인할 것"),
-    fc.picks.map(p => h("details", {class: "card fc-pick", open: p.rank <= 3},
+    many && h("p", {class: "fc-dim"}, `카드는 예측 순위 12위까지입니다. 나머지 ${fc.picks.length - 12}종목의 근거는 위 표와 원장에 있습니다.`),
+    fc.picks.slice(0, many ? 12 : undefined).map(p => h("details", {class: "card fc-pick", open: p.rank <= 3},
       h("summary", {}, h("span", {class: "fc-rank"}, p.rank), h("b", {}, p.ticker), h("span", {class: "fc-dim"}, p.theme),
         res[p.ticker]?.return != null && h("span", {class: "fc-ret " + cls(res[p.ticker].excess)}, `SOXX 대비 ${pct(res[p.ticker].excess)}`)),
       h("p", {}, p.thesis),
@@ -165,7 +169,9 @@ function fcRender() {
       "가격: ", data.price_source || "미수집"));
 
   if (!waiting && r.days?.length) {
-    const series = FC_SERIES.filter(([k]) => B[k]).map(([k, color, width]) =>
+    const flagged = Object.keys(fc.baskets).filter(k => fc.baskets[k].chart);
+    const plan = flagged.length ? flagged.map((k, i) => [k, FC_COLORS[i % FC_COLORS.length], k === headKey ? 2.6 : 1.6]) : FC_SERIES;
+    const series = plan.filter(([k]) => B[k]).map(([k, color, width]) =>
       ({label: B[k].label, values: B[k].path.map(v => v == null ? null : v * 100), color, width}));
     series.splice(1, 0, {label: fc.benchmark, values: r.paths[fc.benchmark].map(v => v == null ? null : v * 100), color: "var(--ink-2)", width: 2});
     lineChart(chartHost, {dates: r.days, series, baseline: 0, endLabels: true, height: 300,
