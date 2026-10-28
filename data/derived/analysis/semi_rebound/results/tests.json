@@ -1,0 +1,347 @@
+{
+ "asof_close": "2026-10-27",
+ "episodes": {
+  "2026-03-30": {
+   "window": "2026-02-25→2026-03-30→2026-06-03",
+   "soxx_drop": -0.1577,
+   "soxx_rebound": 0.9874,
+   "prior_rebound→rebound": {
+    "rho": -0.117,
+    "p": 0.4615,
+    "n": 42
+   },
+   "prior_rebound→rebound10": {
+    "rho": 0.158,
+    "p": 0.3168,
+    "n": 42
+   },
+   "drop→rebound": {
+    "rho": -0.053,
+    "p": 0.7377,
+    "n": 42
+   },
+   "drop→rebound10": {
+    "rho": -0.111,
+    "p": 0.4856,
+    "n": 42
+   },
+   "beta→rebound": {
+    "rho": 0.337,
+    "p": 0.029,
+    "n": 42
+   },
+   "beta→rebound10": {
+    "rho": 0.713,
+    "p": 0.0,
+    "n": 42
+   },
+   "beta→drop": {
+    "rho": -0.178,
+    "p": 0.2593,
+    "n": 42
+   },
+   "entry_plus7": {
+    "entry": "2026-04-01",
+    "exit": "2026-04-30",
+    "beta→fwd": {
+     "rho": 0.157,
+     "p": 0.3214,
+     "n": 42
+    },
+    "prior_rebound→fwd": {
+     "rho": -0.104,
+     "p": 0.5117,
+     "n": 42
+    },
+    "prior_rebound_net_beta→fwd": {
+     "rho": -0.159,
+     "p": 0.3133,
+     "n": 42
+    },
+    "top_beta": [
+     "AEHR",
+     "NVTS",
+     "SNDK",
+     "WDC",
+     "MU",
+     "AMKR",
+     "LRCX",
+     "RMBS",
+     "STX",
+     "ALAB"
+    ],
+    "top_beta_fwd": 0.6032,
+    "all_fwd": 0.4614,
+    "soxx_fwd": 0.363,
+    "top_beta_worst_path": 0.0,
+    "soxx_worst_path": 0.0
+   }
+  },
+  "2026-06-05": {
+   "window": "2026-06-03→2026-06-05→2026-06-22",
+   "soxx_drop": -0.1233,
+   "soxx_rebound": 0.2141,
+   "prior_rebound→rebound": {
+    "rho": 0.146,
+    "p": 0.3575,
+    "n": 42
+   },
+   "prior_rebound→rebound10": {
+    "rho": 0.146,
+    "p": 0.3575,
+    "n": 42
+   },
+   "drop→rebound": {
+    "rho": 0.002,
+    "p": 0.9877,
+    "n": 43
+   },
+   "drop→rebound10": {
+    "rho": 0.002,
+    "p": 0.9877,
+    "n": 43
+   },
+   "beta→rebound": {
+    "rho": 0.341,
+    "p": 0.0253,
+    "n": 43
+   },
+   "beta→rebound10": {
+    "rho": 0.341,
+    "p": 0.0253,
+    "n": 43
+   },
+   "beta→drop": {
+    "rho": -0.562,
+    "p": 0.0001,
+    "n": 43
+   },
+   "entry_plus7": {
+    "entry": "2026-06-11",
+    "exit": "2026-07-13",
+    "beta→fwd": {
+     "rho": -0.434,
+     "p": 0.0036,
+     "n": 43
+    },
+    "prior_rebound→fwd": {
+     "rho": -0.223,
+     "p": 0.1562,
+     "n": 42
+    },
+    "prior_rebound_net_beta→fwd": {
+     "rho": 0.007,
+     "p": 0.9638,
+     "n": 42
+    },
+    "top_beta": [
+     "AEHR",
+     "NVTS",
+     "RMBS",
+     "AOSL",
+     "MRVL",
+     "INTC",
+     "MU",
+     "AMKR",
+     "ALAB",
+     "FORM"
+    ],
+    "top_beta_fwd": -0.1949,
+    "all_fwd": -0.1012,
+    "soxx_fwd": -0.0563,
+    "top_beta_worst_path": -0.1949,
+    "soxx_worst_path": -0.0596
+   }
+  },
+  "2026-07-29": {
+   "window": "2026-06-22→2026-07-29→2026-08-17",
+   "soxx_drop": -0.2901,
+   "soxx_rebound": 0.2024,
+   "prior_rebound→rebound": {
+    "rho": 0.404,
+    "p": 0.0072,
+    "n": 43
+   },
+   "prior_rebound→rebound10": {
+    "rho": 0.275,
+    "p": 0.0738,
+    "n": 43
+   },
+   "drop→rebound": {
+    "rho": -0.588,
+    "p": 0.0,
+    "n": 43
+   },
+   "drop→rebound10": {
+    "rho": -0.595,
+    "p": 0.0,
+    "n": 43
+   },
+   "beta→rebound": {
+    "rho": 0.471,
+    "p": 0.0014,
+    "n": 43
+   },
+   "beta→rebound10": {
+    "rho": 0.504,
+    "p": 0.0006,
+    "n": 43
+   },
+   "beta→drop": {
+    "rho": -0.7,
+    "p": 0.0,
+    "n": 43
+   },
+   "entry_plus7": {
+    "entry": "2026-07-30",
+    "exit": "2026-08-27",
+    "beta→fwd": {
+     "rho": 0.168,
+     "p": 0.2826,
+     "n": 43
+    },
+    "prior_rebound→fwd": {
+     "rho": 0.041,
+     "p": 0.7944,
+     "n": 43
+    },
+    "prior_rebound_net_beta→fwd": {
+     "rho": -0.017,
+     "p": 0.9158,
+     "n": 43
+    },
+    "top_beta": [
+     "AEHR",
+     "NVTS",
+     "AOSL",
+     "MRVL",
+     "RMBS",
+     "MU",
+     "INTC",
+     "ALAB",
+     "FORM",
+     "TER"
+    ],
+    "top_beta_fwd": 0.0649,
+    "all_fwd": 0.0475,
+    "soxx_fwd": 0.0414,
+    "top_beta_worst_path": 0.0,
+    "soxx_worst_path": 0.0
+   }
+  },
+  "2026-09-14": {
+   "window": "2026-08-17→2026-09-14→2026-10-05",
+   "soxx_drop": -0.1104,
+   "soxx_rebound": 0.186,
+   "prior_rebound→rebound": {
+    "rho": 0.469,
+    "p": 0.0015,
+    "n": 43
+   },
+   "prior_rebound→rebound10": {
+    "rho": 0.579,
+    "p": 0.0,
+    "n": 43
+   },
+   "drop→rebound": {
+    "rho": -0.486,
+    "p": 0.001,
+    "n": 43
+   },
+   "drop→rebound10": {
+    "rho": -0.415,
+    "p": 0.0057,
+    "n": 43
+   },
+   "beta→rebound": {
+    "rho": 0.471,
+    "p": 0.0014,
+    "n": 43
+   },
+   "beta→rebound10": {
+    "rho": 0.533,
+    "p": 0.0002,
+    "n": 43
+   },
+   "beta→drop": {
+    "rho": -0.528,
+    "p": 0.0003,
+    "n": 43
+   },
+   "entry_plus7": {
+    "entry": "2026-09-18",
+    "exit": "2026-10-16",
+    "beta→fwd": {
+     "rho": -0.514,
+     "p": 0.0004,
+     "n": 43
+    },
+    "prior_rebound→fwd": {
+     "rho": -0.555,
+     "p": 0.0001,
+     "n": 43
+    },
+    "prior_rebound_net_beta→fwd": {
+     "rho": -0.297,
+     "p": 0.0533,
+     "n": 43
+    },
+    "top_beta": [
+     "SNDK",
+     "AEHR",
+     "MRVL",
+     "FORM",
+     "AOSL",
+     "MU",
+     "ALAB",
+     "AXTI",
+     "NVTS",
+     "TER"
+    ],
+    "top_beta_fwd": -0.1803,
+    "all_fwd": -0.1044,
+    "soxx_fwd": -0.0744,
+    "top_beta_worst_path": -0.1803,
+    "soxx_worst_path": -0.0744
+   }
+  }
+ },
+ "verdict": {
+  "prior_rebound": {
+   "rhos": [
+    -0.117,
+    0.146,
+    0.404,
+    0.469
+   ],
+   "adopted": false,
+   "sign": 1
+  },
+  "drop": {
+   "rhos": [
+    -0.053,
+    0.002,
+    -0.588,
+    -0.486
+   ],
+   "adopted": false,
+   "sign": -1
+  },
+  "beta": {
+   "rhos": [
+    0.337,
+    0.341,
+    0.471,
+    0.471
+   ],
+   "adopted": true,
+   "sign": 1
+  }
+ },
+ "adopted": [
+  "beta"
+ ],
+ "live_trough": "2026-10-22",
+ "soxx_since_low": 0.0744,
+ "n_tickers": 43
+}
