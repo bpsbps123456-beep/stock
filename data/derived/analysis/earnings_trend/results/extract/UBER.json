@@ -1,0 +1,509 @@
+{
+ "ticker": "UBER",
+ "events": [
+  {
+   "accession": "0001543151-24-000024",
+   "filing_date": "2024-08-06",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 2024",
+   "period_end": "2024-06-30",
+   "revenue_musd": 10700,
+   "revenue_py_musd": 9230,
+   "revenue_yoy_pct_stated": 16,
+   "key_segment": {
+    "name": "Mobility revenue",
+    "revenue_musd": 6134,
+    "yoy_pct": 25
+   },
+   "prior_guided_actual": null,
+   "next_q_guidance": {
+    "metric": "Gross Bookings",
+    "is_total_revenue": false,
+    "low_musd": 40250,
+    "high_musd": 41750,
+    "point_musd": 41000,
+    "guided_yoy_pct_stated": 20.5,
+    "quote": "Gross Bookings of $40.25 billion to $41.75 billion, which represents 18% to 23% YoY growth on a constant currency basis."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Adjusted EBITDA Q3 2024 $1.58B-$1.68B",
+    "change_vs_prior": "unclear",
+    "quote": "Adjusted EBITDA of $1.58 billion to $1.68 billion, which represents 45% to 54% YoY growth."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "지분투자 재평가 미실현이익 $333M(세전)이 순이익 $1.0B에 포함, 법률·세금·규제 충당금 $134M, 사업모델 변경(contra revenue $799M)으로 매출 성장률 7%p 감소",
+   "tone": "strong",
+   "tone_quote": "Strong topline trends and operating leverage across the P&L demonstrate the durability of our growth and significant cash flow generation underlying our platform",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "달러 강세로 3분기 Gross Bookings에 4억달러 이상 환율 역풍(일시적)",
+    "quote": "For perspective, recent strengthening of the US dollar versus other currencies represents an over $400 million expected headwind to Q3 Gross Bookings and is included in our outlook."
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "비교할 이전 발표 없음. 6분기 연속 트립 20%대 성장에 조정 EBITDA +71%, 마진 2.7%→3.9%로 수익성 개선이 뚜렷",
+   "narrative_quote": "Adjusted EBITDA of $1.6 billion, up 71% YoY. Adjusted EBITDA margin as a percentage of Gross Bookings was 3.9%, up from 2.7% in Q2 2023.",
+   "notes": "가이던스는 Gross Bookings(매출 아님)와 조정 EBITDA 분기 범위만 제시. guided_yoy는 고정환율 18~23% 범위의 중간값. 사업모델 변경으로 일부 판촉비가 매출 차감(contra revenue) 처리되어 매출 성장률이 GB 대비 낮게 보임."
+  },
+  {
+   "accession": "0001543151-24-000033",
+   "filing_date": "2024-10-31",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q3 2024",
+   "period_end": "2024-09-30",
+   "revenue_musd": 11188,
+   "revenue_py_musd": 9292,
+   "revenue_yoy_pct_stated": 20,
+   "key_segment": {
+    "name": "Mobility revenue",
+    "revenue_musd": 6409,
+    "yoy_pct": 26
+   },
+   "prior_guided_actual": {
+    "metric": "Gross Bookings (guided $40.25B-$41.75B)",
+    "actual_musd": 40973,
+    "quote": "Gross Bookings | 35,281 | 40,973 | 16 | 20"
+   },
+   "next_q_guidance": {
+    "metric": "Gross Bookings",
+    "is_total_revenue": false,
+    "low_musd": 42750,
+    "high_musd": 44250,
+    "point_musd": 43500,
+    "guided_yoy_pct_stated": 18,
+    "quote": "Gross Bookings of $42.75 billion to $44.25 billion, which represents 16% to 20% YoY growth on a constant currency basis."
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2024",
+    "metric": "Gross Bookings growth ~20% constant currency",
+    "is_total_revenue": false,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": null,
+    "change_vs_prior": "initiated",
+    "quote": "are on track to deliver 20% Gross Bookings growth on a constant currency basis for the full year"
+   },
+   "profit_guidance": {
+    "metric": "Adjusted EBITDA Q4 2024 $1.78B-$1.88B",
+    "change_vs_prior": "unclear",
+    "quote": "Adjusted EBITDA of $1.78 billion to $1.88 billion, which represents 39% to 47% YoY growth."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "지분투자 재평가 미실현이익 $1.7B(세전, Aurora $1.0B 등)로 순이익 $2.6B로 부풀려짐",
+   "tone": "strong",
+   "tone_quote": "We delivered yet another record quarter of profitable growth at a global scale, reflecting the strength of our platform, which now has over 25 million Uber One members",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "환율 역풍(전체 약 2%p, 모빌리티 약 5%p)이 보고 성장률을 낮춤, 일시적 요인",
+    "quote": "Our outlook assumes a roughly 2 percentage point currency headwind to total reported YoY growth"
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "GAAP 영업이익 첫 10억달러 돌파·매출 성장 16→20% 가속, 그러나 트립 성장 21→17%, GB 고정환율 21→20%로 둔화해 혼재",
+   "narrative_quote": "Trips during the quarter grew 17% YoY to 2.9 billion",
+   "notes": "직전 가이던스 GB $40.25~41.75B 대비 실제 $40.97B(범위 내, 중간값 소폭 하회), 고정환율 20%. guided_yoy는 16~20% 범위 중간값. 4분기에 부채 $2.0B 상환 예정, 투자등급 회사채 $4.0B 발행."
+  },
+  {
+   "accession": "0001543151-25-000004",
+   "filing_date": "2025-02-05",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q4 2024",
+   "period_end": "2024-12-31",
+   "revenue_musd": 11959,
+   "revenue_py_musd": 9936,
+   "revenue_yoy_pct_stated": 20,
+   "key_segment": {
+    "name": "Mobility revenue",
+    "revenue_musd": 6911,
+    "yoy_pct": 25
+   },
+   "prior_guided_actual": {
+    "metric": "Gross Bookings (guided $42.75B-$44.25B)",
+    "actual_musd": 44197,
+    "quote": "Record demand in both Mobility and Delivery helped us grow Gross Bookings faster than the high end of our guidance"
+   },
+   "next_q_guidance": {
+    "metric": "Gross Bookings",
+    "is_total_revenue": false,
+    "low_musd": 42000,
+    "high_musd": 43500,
+    "point_musd": 42750,
+    "guided_yoy_pct_stated": 19,
+    "quote": "This translates to reported Gross Bookings of $42.0 billion to $43.5 billion as our outlook assumes a roughly 5.5 percentage point currency headwind to total reported YoY growth"
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Adjusted EBITDA Q1 2025 $1.79B-$1.89B",
+    "change_vs_prior": "unclear",
+    "quote": "Adjusted EBITDA of $1.79 billion to $1.89 billion, which represents 30% to 37% YoY growth."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "세금 평가성충당금 환입 $6.4B·지분 재평가 이익 $556M로 순이익 $6.9B, 법률·규제 충당금 $462M, 인수 종료 수수료 $236M 비용",
+   "tone": "strong",
+   "tone_quote": "Uber ended 2024 with our strongest quarter ever, as growth accelerated across MAPCs, trips, and Gross Bookings",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "1분기 가이던스에 약 5.5%p 환율 역풍 반영(일시적), 판촉비 증가로 판매비율 상승",
+    "quote": "our outlook assumes a roughly 5.5 percentage point currency headwind to total reported YoY growth"
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "MAPC·트립·GB 성장 동반 가속, GB가 가이던스 상단 초과, 3개년 GB·EBITDA·FCF 목표 초과 달성",
+   "narrative_quote": "we closed out 2024 exceeding our three-year outlook for Gross Bookings, Adjusted EBITDA, and free cash flow",
+   "notes": "연간(FY2024) GB 고정환율 21% 성장으로 Q3 발표의 '연간 20%' 전망 상회. GB 실제 $44.2B는 직전 가이던스 상단($44.25B) 근접, 고정환율 21%로 상단(20%) 초과. 2025-01 기존 $7.0B 승인 범위 내 $1.5B ASR 체결(신규 승인 아님). guided_yoy는 17~21% 범위 중간값."
+  },
+  {
+   "accession": "0001543151-25-000012",
+   "filing_date": "2025-05-07",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q1 2025",
+   "period_end": "2025-03-31",
+   "revenue_musd": 11533,
+   "revenue_py_musd": 10131,
+   "revenue_yoy_pct_stated": 14,
+   "key_segment": {
+    "name": "Mobility revenue",
+    "revenue_musd": 6496,
+    "yoy_pct": 15
+   },
+   "prior_guided_actual": {
+    "metric": "Gross Bookings (guided $42.0B-$43.5B)",
+    "actual_musd": 42818,
+    "quote": "Gross Bookings grew 14% YoY to $42.8 billion, or 18% on a constant currency basis."
+   },
+   "next_q_guidance": {
+    "metric": "Gross Bookings",
+    "is_total_revenue": false,
+    "low_musd": 45750,
+    "high_musd": 47250,
+    "point_musd": 46500,
+    "guided_yoy_pct_stated": 18,
+    "quote": "Gross Bookings of $45.75 billion to $47.25 billion, representing growth of 16% to 20% YoY on a constant currency basis."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Adjusted EBITDA Q2 2025 $2.02B-$2.12B",
+    "change_vs_prior": "unclear",
+    "quote": "Adjusted EBITDA of $2.02 billion to $2.12 billion, which represents 29% to 35% YoY growth."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "법인세 혜택 $402M(이연법인세)으로 순이익 $1.8B 부풀려짐, 지분 재평가 이익 $51M(세전)",
+   "tone": "strong",
+   "tone_quote": "We kicked off the year with yet another quarter of profitable growth at scale, with trips up 18% and even stronger user retention",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "환율 역풍으로 보고 매출 성장 14%(고정환율 17%), 2분기 역풍은 약 1.5%p로 축소",
+    "quote": "Our outlook assumes a roughly 1.5 percentage point currency headwind to total reported YoY growth"
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "GB 고정환율 성장 21→18%로 둔화(가이던스 범위 내)·매출 성장 14%로 감속, 반면 FCF 20억달러 돌파와 EBITDA +35%로 혼재",
+   "narrative_quote": "We delivered over $2 billion of quarterly free cash flow, with multiple levers in our control to generate industry-leading cash flow growth",
+   "notes": "보도자료 축약 형식으로 전환(세그먼트 매출이익률·운영 하이라이트 생략). GB 실제 $42.8B는 직전 가이던스($42.0~43.5B) 중간값 소폭 상회, 고정환율 18%(17~21% 범위 내). guided_yoy는 16~20% 범위 중간값."
+  },
+  {
+   "accession": "0001543151-25-000020",
+   "filing_date": "2025-08-06",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 2025",
+   "period_end": "2025-06-30",
+   "revenue_musd": 12651,
+   "revenue_py_musd": 10700,
+   "revenue_yoy_pct_stated": 18,
+   "key_segment": {
+    "name": "Mobility revenue",
+    "revenue_musd": 7288,
+    "yoy_pct": 19
+   },
+   "prior_guided_actual": {
+    "metric": "Gross Bookings (guided $45.75B-$47.25B)",
+    "actual_musd": 46756,
+    "quote": "Gross Bookings grew 17% YoY to $46.8 billion, or 18% on a constant currency basis."
+   },
+   "next_q_guidance": {
+    "metric": "Gross Bookings",
+    "is_total_revenue": false,
+    "low_musd": 48250,
+    "high_musd": 49750,
+    "point_musd": 49000,
+    "guided_yoy_pct_stated": 19,
+    "quote": "Gross Bookings of $48.25 billion to $49.75 billion, representing growth of 17% to 21% YoY on a constant currency basis."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Adjusted EBITDA Q3 2025 $2.19B-$2.29B",
+    "change_vs_prior": "unclear",
+    "quote": "Adjusted EBITDA of $2.19 billion to $2.29 billion, which represents 30% to 36% YoY growth."
+   },
+   "backlog": null,
+   "buyback_new_musd": 20000,
+   "one_offs": "Trendyol Go 인수(사업 인수 현금 $804M) 완료, 지분 재평가 손실 $17M으로 일회성 왜곡은 작음",
+   "tone": "strong",
+   "tone_quote": "Our platform strategy is working, with record audience, frequency, and profitability across Mobility and Delivery",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "none",
+    "desc": "",
+    "quote": ""
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "매출 성장 14→18% 재가속, 배달 GB +20%로 가속, 영업이익 +82%, 200억달러 자사주 신규 승인으로 자신감 표명",
+   "narrative_quote": "New share repurchase program authorized up to an additional $20 billion of common stock.",
+   "notes": "3분기 GB 가이던스에 Trendyol Go 인수 기여분 포함(제외 시 고정환율 16~20%, 직전 분기와 동일). GB 실제 $46.8B는 직전 가이던스 중간값($46.5B) 상회, 고정환율 18%. guided_yoy는 17~21% 범위 중간값."
+  },
+  {
+   "accession": "0001543151-25-000030",
+   "filing_date": "2025-11-04",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q3 2025",
+   "period_end": "2025-09-30",
+   "revenue_musd": 13467,
+   "revenue_py_musd": 11188,
+   "revenue_yoy_pct_stated": 20,
+   "key_segment": {
+    "name": "Mobility revenue",
+    "revenue_musd": 7682,
+    "yoy_pct": 20
+   },
+   "prior_guided_actual": {
+    "metric": "Gross Bookings (guided $48.25B-$49.75B)",
+    "actual_musd": 49740,
+    "quote": "Gross Bookings grew 21% YoY to $49.7 billion, or 21% on a constant currency basis."
+   },
+   "next_q_guidance": {
+    "metric": "Gross Bookings",
+    "is_total_revenue": false,
+    "low_musd": 52250,
+    "high_musd": 53750,
+    "point_musd": 53000,
+    "guided_yoy_pct_stated": 19,
+    "quote": "Gross Bookings of $52.25 billion to $53.75 billion, representing growth of 17% to 21% YoY on a constant currency basis."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Adjusted EBITDA Q4 2025 $2.41B-$2.51B",
+    "change_vs_prior": "unclear",
+    "quote": "Adjusted EBITDA of $2.41 billion to $2.51 billion, which represents 31% to 36% YoY growth."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "세금 평가성충당금 환입 $4.9B·지분 재평가 이익 $1.5B(세전)로 순이익 $6.6B, 법률·세금·규제 충당금 $479M로 GAAP 영업이익 성장 5%에 그침",
+   "tone": "strong",
+   "tone_quote": "We delivered another impressive quarter on both the top and bottom lines, with accelerating growth and record profitability",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "법률·세금·규제 충당금 $479M로 GAAP 영업이익 성장률 5%로 제한(조정 지표에서는 제외되는 항목)",
+    "quote": "Income from operations grew 5% YoY to $1.1 billion."
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "트립 성장 18→22%, GB 18→21%로 뚜렷한 가속, GB가 직전 가이던스 상단에 도달, 수익성 신기록",
+   "narrative_quote": "Trips grew 22% year-over-year and Gross Bookings grew 21% year-over-year",
+   "notes": "GB 실제 $49.74B는 직전 가이던스 상단($49.75B)과 같은 수준, 고정환율 21%(17~21% 상단). Trendyol Go 인수 기여 포함. 12월 만기 전환사채 $1.2B 4분기 상환 예정. guided_yoy는 17~21% 범위 중간값."
+  },
+  {
+   "accession": "0001543151-26-000011",
+   "filing_date": "2026-02-04",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q4 2025",
+   "period_end": "2025-12-31",
+   "revenue_musd": 14366,
+   "revenue_py_musd": 11959,
+   "revenue_yoy_pct_stated": 20,
+   "key_segment": {
+    "name": "Mobility revenue",
+    "revenue_musd": 8204,
+    "yoy_pct": 19
+   },
+   "prior_guided_actual": {
+    "metric": "Gross Bookings (guided $52.25B-$53.75B)",
+    "actual_musd": 54140,
+    "quote": "Gross Bookings grew 22% YoY to $54.1 billion, and 22% on a constant currency basis."
+   },
+   "next_q_guidance": {
+    "metric": "Gross Bookings",
+    "is_total_revenue": false,
+    "low_musd": 52000,
+    "high_musd": 53500,
+    "point_musd": 52750,
+    "guided_yoy_pct_stated": 19,
+    "quote": "Gross Bookings of $52.0 billion to $53.5 billion, representing growth of 17% to 21% YoY on a constant currency basis."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Non-GAAP EPS Q1 2026 $0.65-$0.72 (Adj. EBITDA $2.37B-$2.47B)",
+    "change_vs_prior": "initiated",
+    "quote": "Non-GAAP EPS of $0.65 to $0.72, representing growth of 37% YoY at the midpoint."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "지분 재평가 손실 $1.6B(세전)로 GAAP 순이익 $296M(EPS $0.14)로 급감, 법률·규제 충당금 $57M",
+   "tone": "strong",
+   "tone_quote": "We enter 2026 with a rapidly growing topline, significant cash flow, and a clear path to becoming the largest facilitator of AV trips in the world",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_potential",
+    "desc": "자율주행(AV) 전환에 대비한 투자 확대 예고, AV 시대 경쟁 구도 변화 위험(수치 영향은 아직 없음)",
+    "quote": "over the coming years we will invest with discipline across a multitude of opportunities, including positioning Uber to win in an AV future"
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "GB 22%로 소폭 가속·가이던스 상단 초과, GAAP 영업이익 +130%. 그러나 직전 분기 큰 가속 대비 변화는 작고 CFO 교체·AV 투자 확대 예고가 겹쳐 혼재",
+   "narrative_quote": "After five years of 20%+ growth, we are entering 2026 with strong momentum, while remaining solidly on track to deliver on our three-year growth and profit outlook",
+   "notes": "Non-GAAP 영업이익·순이익·EPS 신규 도입, 분기 이익 가이던스 지표를 조정 EBITDA에서 Non-GAAP EPS로 전환. 손익계산서에서 이자수익을 기타손익과 분리 표기. CFO 교체(Balaji Krishnamurthy 차기 CFO, 8-K item 5.02 동반). FY2025 GB $193.5B, 매출 $52.0B, FCF $9.8B. guided_yoy는 17~21% 범위 중간값."
+  },
+  {
+   "accession": "0001543151-26-000019",
+   "filing_date": "2026-05-06",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q1 2026",
+   "period_end": "2026-03-31",
+   "revenue_musd": 13203,
+   "revenue_py_musd": 11533,
+   "revenue_yoy_pct_stated": 14,
+   "key_segment": {
+    "name": "Mobility revenue",
+    "revenue_musd": 6798,
+    "yoy_pct": 5
+   },
+   "prior_guided_actual": {
+    "metric": "Gross Bookings (guided $52.0B-$53.5B)",
+    "actual_musd": 53720,
+    "quote": "Gross Bookings grew 25% YoY to $53.7 billion, and 21% on a constant currency basis."
+   },
+   "next_q_guidance": {
+    "metric": "Gross Bookings",
+    "is_total_revenue": false,
+    "low_musd": 56250,
+    "high_musd": 57750,
+    "point_musd": 57000,
+    "guided_yoy_pct_stated": 20,
+    "quote": "Gross Bookings of $56.25 billion to $57.75 billion, representing growth of 18% to 22% YoY on a constant-currency basis."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Non-GAAP EPS Q2 2026 $0.78-$0.82 (Adj. EBITDA $2.70B-$2.80B)",
+    "change_vs_prior": "unclear",
+    "quote": "Non-GAAP EPS of $0.78 to $0.82, representing growth of 31% to 38% YoY."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "지분 재평가 손실 $1.5B(세전)로 GAAP 순이익 $263M(EPS $0.13), 법률·규제 충당금 환입 $129M(이익)",
+   "tone": "strong",
+   "tone_quote": "We are off to an exceptional start to 2026, with Gross Bookings growth exceeding 21% for the third consecutive quarter and earnings scaling at more than twice our topline",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "사업모델 변경(매출 차감 처리)으로 매출 성장률 9%p 하락, 모빌리티 매출 +5%에 그침(GB 성장과 무관한 회계 영향)",
+    "quote": "Business model changes negatively impacted total revenue YoY growth by 9 percentage points, or 8 percentage points on a constant currency basis."
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "GB 고정환율 21%로 가이던스 상단, EPS +44%와 다음 분기 성장 가이던스 범위 1%p 상향. 반면 트립 성장 22→20% 둔화, 보고 매출 성장 14%로 혼재",
+   "narrative_quote": "Trips grew 20% year-over-year and Gross Bookings grew 21% year-over-year on a constant currency basis",
+   "notes": "조정 EBITDA가 경영진 핵심 지표에서 제외(전환기 참고용 공시만 유지). 사업모델 변경으로 매출 성장 9%p 감소(고정환율 8%p). Q1 Non-GAAP EPS $0.72로 직전 가이던스($0.65~0.72) 상단. GB 가이던스 범위 17~21%→18~22%로 상향. guided_yoy는 18~22% 범위 중간값."
+  },
+  {
+   "accession": "0001543151-26-000027",
+   "filing_date": "2026-08-05",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 2026",
+   "period_end": "2026-06-30",
+   "revenue_musd": 14191,
+   "revenue_py_musd": 12651,
+   "revenue_yoy_pct_stated": 12,
+   "key_segment": {
+    "name": "Mobility revenue",
+    "revenue_musd": 7363,
+    "yoy_pct": 1
+   },
+   "prior_guided_actual": {
+    "metric": "Gross Bookings (guided $56.25B-$57.75B)",
+    "actual_musd": 58022,
+    "quote": "Gross Bookings grew 24% YoY to $58.0 billion, and 22% on a constant currency basis."
+   },
+   "next_q_guidance": {
+    "metric": "Gross Bookings",
+    "is_total_revenue": false,
+    "low_musd": 58250,
+    "high_musd": 60250,
+    "point_musd": 59250,
+    "guided_yoy_pct_stated": 20,
+    "quote": "Gross Bookings of $58.25 billion to $60.25 billion, representing growth of 18% to 22% YoY on a constant-currency basis."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Non-GAAP EPS Q3 2026 $0.84-$0.88 (Adj. EBITDA $2.86B-$2.96B)",
+    "change_vs_prior": "unclear",
+    "quote": "Non-GAAP EPS of $0.84 to $0.88, representing growth of 28% to 35% YoY."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "지분 재평가 이익 $1.6B(세전)로 GAAP EPS $1.17, 법률·규제 충당금 $141M·구조조정 $16M, 사업 인수 현금 $647M",
+   "tone": "strong",
+   "tone_quote": "We continue to convert strong top-line growth into faster earnings and significant cash generation",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "사업모델 변경으로 매출 성장률 8%p 하락, 모빌리티 매출 +1%에 그침(GB 22% 성장과 괴리)",
+    "quote": "Business model changes negatively impacted total revenue YoY growth by 8 percentage points on a reported and constant currency basis."
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "GB 고정환율 22%로 가이던스 상단·EPS +35%, 그러나 트립 성장 20→18%, MAPC 17→16%로 둔화하고 다음 분기 가이던스 범위는 유지",
+   "narrative_quote": "Gross Bookings grew 22% year-over-year on a constant currency basis; Trips grew 18% year-over-year",
+   "notes": "지분법투자 $287M→$3,773M 급증, 총수익스와프 매입 $1,640M, 단기차입 $1,997M 신규 계상(보도자료 내 설명 없음). Freight GB +25%와 사업 인수 현금 $647M 동반. 사업모델 변경 매출 영향 8%p. guided_yoy는 18~22% 범위 중간값."
+  }
+ ],
+ "fixes": [
+  {
+   "accession": "0001543151-24-000033",
+   "field": "fy_guidance",
+   "value_json": "{\"fiscal_year\": \"FY2024\", \"metric\": \"Gross Bookings growth ~20% constant currency\", \"is_total_revenue\": false, \"low_musd\": null, \"high_musd\": null, \"point_musd\": null, \"change_vs_prior\": \"initiated\", \"quote\": \"are on track to deliver 20% Gross Bookings growth on a constant currency basis for the full year\"}",
+   "winner": "A",
+   "quote": "are on track to deliver 20% Gross Bookings growth on a constant currency basis for the full year"
+  }
+ ],
+ "qc": {
+  "bad_quotes": [],
+  "revenue_mismatch": []
+ }
+}

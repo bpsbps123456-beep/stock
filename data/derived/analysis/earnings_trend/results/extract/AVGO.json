@@ -1,0 +1,501 @@
+{
+ "ticker": "AVGO",
+ "events": [
+  {
+   "accession": "0001730168-24-000095",
+   "filing_date": "2024-09-05",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q3 FY2024",
+   "period_end": "2024-08-04",
+   "revenue_musd": 13072,
+   "revenue_py_musd": 8876,
+   "revenue_yoy_pct_stated": 47,
+   "key_segment": {
+    "name": "Semiconductor solutions",
+    "revenue_musd": 7274,
+    "yoy_pct": 5
+   },
+   "prior_guided_actual": null,
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 14000,
+    "guided_yoy_pct_stated": 51,
+    "quote": "Fourth quarter fiscal year 2024 revenue guidance of approximately $14.0 billion including contribution from VMware, an increase of 51 percent from the prior year period"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2024",
+    "metric": "AI revenue",
+    "is_total_revenue": false,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 12000,
+    "change_vs_prior": "unclear",
+    "quote": "We expect revenue from AI to be $12 billion for fiscal year 2024 driven by Ethernet networking and custom accelerators for AI data centers"
+   },
+   "profit_guidance": {
+    "metric": "Adjusted EBITDA margin (Q4 FY2024, ~64%)",
+    "change_vs_prior": "unclear",
+    "quote": "Fourth quarter Adjusted EBITDA guidance of approximately 64 percent of projected revenue."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "IP 미국 이전 관련 일회성 비현금 법인세 45억 달러로 GAAP 순손실, 중단영업손실 4.43억 달러, VMware 구조조정 3.61억 달러",
+   "tone": "strong",
+   "tone_quote": "The transformation of VMware continues to progress very well.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "VMware 제외 매출 성장 4%에 그쳐 비AI 사업 부진(경기순환성 둔화)",
+    "quote": "and was up 4% year-over-year, excluding VMware"
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "비교할 이전 보도자료 없음. AI 연 120억 달러 전망·VMware 통합 진행으로 마진 개선, 다만 VMware 제외 성장 4%",
+   "narrative_quote": "The integration of VMware is driving adjusted EBITDA margin to 64% of revenue as we exit fiscal year 2024.",
+   "notes": "VMware 인수(FY24 1분기 완료)로 매출 기반 변화(인프라SW +200%), VMware 제외 성장 4%. 2024-07-12 10:1 액면분할. FY2024는 53주(1분기 14주). 분기 AI 매출 금액 미공시(연간 120억 달러 전망만)."
+  },
+  {
+   "accession": "0001730168-24-000125",
+   "filing_date": "2024-12-12",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q4 FY2024",
+   "period_end": "2024-11-03",
+   "revenue_musd": 14054,
+   "revenue_py_musd": 9295,
+   "revenue_yoy_pct_stated": 51,
+   "key_segment": {
+    "name": "Semiconductor solutions",
+    "revenue_musd": 8230,
+    "yoy_pct": 12
+   },
+   "prior_guided_actual": {
+    "metric": "revenue",
+    "actual_musd": 14054,
+    "quote": "Revenue of $14,054 million for the fourth quarter, up 51 percent from the prior year period"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 14600,
+    "guided_yoy_pct_stated": 22,
+    "quote": "First quarter fiscal year 2025 revenue guidance of approximately $14.6 billion, an increase of 22 percent from the prior year period"
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Adjusted EBITDA margin (Q1 FY2025, ~66%)",
+    "change_vs_prior": "raised",
+    "quote": "First quarter Adjusted EBITDA guidance of approximately 66 percent of projected revenue."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "GAAP 법인세 4.42억 달러 환입(benefit), 중단영업이익 1.19억 달러, 구조조정 3.69억 달러",
+   "tone": "strong",
+   "tone_quote": "AI revenue which grew 220 percent year-on-year was driven by our leading AI XPUs and Ethernet networking portfolio.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "none",
+    "desc": "",
+    "quote": ""
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "매출 가이던스 부합·FY AI 매출 122억 달러(전망 120억)·EBITDA 마진 가이던스 64→66% 상향, 다만 1분기 성장률 가이던스 22%로 둔화",
+   "narrative_quote": "First quarter fiscal year 2025 revenue guidance of approximately $14.6 billion, an increase of 22 percent from the prior year period",
+   "notes": "FY2024 53주(1분기 14주) → FY25 1분기 YoY는 14주 기저와 비교. VMware 인수 1년 경과로 성장률 둔화. 분기 AI 매출 금액 미공시(FY AI 122억 달러, +220%). 배당 11% 인상."
+  },
+  {
+   "accession": "0001730168-25-000009",
+   "filing_date": "2025-03-06",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q1 FY2025",
+   "period_end": "2025-02-02",
+   "revenue_musd": 14916,
+   "revenue_py_musd": 11961,
+   "revenue_yoy_pct_stated": 25,
+   "key_segment": {
+    "name": "AI revenue",
+    "revenue_musd": 4100,
+    "yoy_pct": 77
+   },
+   "prior_guided_actual": {
+    "metric": "revenue",
+    "actual_musd": 14916,
+    "quote": "Revenue of $14,916 million for the first quarter, up 25 percent from the prior year period"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 14900,
+    "guided_yoy_pct_stated": 19,
+    "quote": "Second quarter fiscal year 2025 revenue guidance of approximately $14.9 billion, an increase of 19 percent from the prior year period"
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Adjusted EBITDA margin (Q2 FY2025, ~66%)",
+    "change_vs_prior": "maintained",
+    "quote": "Second quarter Adjusted EBITDA guidance of approximately 66 percent of projected revenue."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "구조조정 1.86억·인수비용 1.07억·부채상환손실 0.65억 달러 등 소규모",
+   "tone": "strong",
+   "tone_quote": "We expect continued strength in AI semiconductor revenue of $4.4 billion in Q2, as hyperscale partners continue to invest in AI XPUs and connectivity solutions for AI data centers.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "none",
+    "desc": "",
+    "quote": ""
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "매출 가이던스(146억) 상회·EBITDA 68%·AI +77%이나 2분기 가이던스 전분기 수준(+19%)으로 성장 둔화, 혼재",
+   "narrative_quote": "Q1 AI revenue grew 77% year-over-year to $4.1 billion and infrastructure software revenue grew 47% year-over-year to $6.7 billion",
+   "notes": "전년 동기(Q1 FY24)는 14주·VMware 부분 반영(인수대금 254억 달러 유출 분기) → YoY 25%는 기저 효과로 왜곡. 분기 AI 매출 최초 공시. 2분기 AI 가이던스 44억 달러."
+  },
+  {
+   "accession": "0001730168-25-000061",
+   "filing_date": "2025-06-05",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 FY2025",
+   "period_end": "2025-05-04",
+   "revenue_musd": 15004,
+   "revenue_py_musd": 12487,
+   "revenue_yoy_pct_stated": 20,
+   "key_segment": {
+    "name": "AI revenue",
+    "revenue_musd": 4400,
+    "yoy_pct": 46
+   },
+   "prior_guided_actual": {
+    "metric": "revenue",
+    "actual_musd": 15004,
+    "quote": "Revenue of $15,004 million for the second quarter, up 20 percent from the prior year period"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 15800,
+    "guided_yoy_pct_stated": 21,
+    "quote": "Third quarter fiscal year 2025 revenue guidance of approximately $15.8 billion, an increase of 21 percent from the prior year period"
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Adjusted EBITDA margin (Q3 FY2025, at least 66%)",
+    "change_vs_prior": "maintained",
+    "quote": "Third quarter Adjusted EBITDA guidance of at least 66 percent of projected revenue."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "구조조정 1.14억·인수비용 0.9억 달러 등 소규모",
+   "tone": "strong",
+   "tone_quote": "We expect growth in AI semiconductor revenue to accelerate to $5.1 billion in Q3, delivering ten consecutive quarters of growth, as our hyperscale partners continue to invest.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "AI 매출 성장률 77%→46% 둔화, 3분기 51억 달러 가속 가이던스로 개선 제시",
+    "quote": "Q2 AI revenue grew 46% year-over-year to over $4.4 billion driven by robust demand for AI networking"
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "AI 매출 가이던스(44억) 충족, 3분기 AI 51억 달러로 가속·총매출 성장률 20→21% 반등 가이던스",
+   "narrative_quote": "We expect growth in AI semiconductor revenue to accelerate to $5.1 billion in Q3, delivering ten consecutive quarters of growth, as our hyperscale partners continue to invest.",
+   "notes": "AI 매출은 'over $4.4 billion'으로 표기. 자사주 24.5억 달러 매입(신규 승인 발표 없음). SBC 17.7억 달러로 증가."
+  },
+  {
+   "accession": "0001730168-25-000094",
+   "filing_date": "2025-09-04",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q3 FY2025",
+   "period_end": "2025-08-03",
+   "revenue_musd": 15952,
+   "revenue_py_musd": 13072,
+   "revenue_yoy_pct_stated": 22,
+   "key_segment": {
+    "name": "AI revenue",
+    "revenue_musd": 5200,
+    "yoy_pct": 63
+   },
+   "prior_guided_actual": {
+    "metric": "revenue",
+    "actual_musd": 15952,
+    "quote": "Revenue of $15,952 million for the third quarter, up 22 percent from the prior year period"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 17400,
+    "guided_yoy_pct_stated": 24,
+    "quote": "Fourth quarter fiscal year 2025 revenue guidance of approximately $17.4 billion, an increase of 24 percent from the prior year period"
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Adjusted EBITDA margin (Q4 FY2025, 67%)",
+    "change_vs_prior": "raised",
+    "quote": "Fourth quarter Adjusted EBITDA guidance of 67 percent of projected revenue."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "사업 매각이익 1.63억 달러(기타수익), 구조조정 2.13억 달러, 부채상환손실 0.53억 달러",
+   "tone": "strong",
+   "tone_quote": "We expect growth in AI semiconductor revenue to accelerate to $6.2 billion in Q4, delivering eleven consecutive quarters of growth, as our customers continue to strongly invest.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "none",
+    "desc": "",
+    "quote": ""
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "AI 성장률 46→63% 가속·가이던스(51억) 상회, 4분기 매출 +24%·AI 62억 달러 가이던스, EBITDA 가이던스 67%로 상향",
+   "narrative_quote": "Q3 AI revenue growth accelerated to 63% year-over-year to $5.2 billion",
+   "notes": "SBC 23.2억 달러로 전년 대비 급증(GAAP 이익 압박). 전년 동기 GAAP은 45억 달러 일회성 세금으로 적자."
+  },
+  {
+   "accession": "0001730168-25-000116",
+   "filing_date": "2025-12-11",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q4 FY2025",
+   "period_end": "2025-11-02",
+   "revenue_musd": 18015,
+   "revenue_py_musd": 14054,
+   "revenue_yoy_pct_stated": 28,
+   "key_segment": {
+    "name": "AI semiconductor revenue",
+    "revenue_musd": null,
+    "yoy_pct": 74
+   },
+   "prior_guided_actual": {
+    "metric": "revenue",
+    "actual_musd": 18015,
+    "quote": "Revenue of $18,015 million for the fourth quarter, up 28 percent from the prior year period"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 19100,
+    "guided_yoy_pct_stated": 28,
+    "quote": "First quarter fiscal year 2026 revenue guidance of approximately $19.1 billion, an increase of 28 percent from the prior year period"
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Adjusted EBITDA margin (Q1 FY2026, 67%)",
+    "change_vs_prior": "maintained",
+    "quote": "First quarter Adjusted EBITDA guidance of 67 percent of projected revenue."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "공소시효 만료로 일회성 비현금 세금 혜택 21억 달러 → GAAP 순이익 85억 달러로 부풀림",
+   "tone": "strong",
+   "tone_quote": "We see the momentum continuing in Q1 and expect AI semiconductor revenue to double year-over-year to $8.2 billion, driven by custom AI accelerators and Ethernet AI switches.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "none",
+    "desc": "",
+    "quote": ""
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "매출 180억 달러로 가이던스(174억) 상회, AI +74%, 1분기 AI 82억 달러로 전년 대비 2배 가이던스",
+   "narrative_quote": "In Q4, record revenue of $18.0 billion grew 28% year-over-year, driven primarily by AI semiconductor revenue increasing 74% year-over-year",
+   "notes": "분기 AI 매출 금액 미기재(+74%만). FY2025 52주 vs FY2024 53주. 배당 10% 인상. FY25 매출 638.87억 달러(+24%)."
+  },
+  {
+   "accession": "0001730168-26-000011",
+   "filing_date": "2026-03-04",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q1 FY2026",
+   "period_end": "2026-02-01",
+   "revenue_musd": 19311,
+   "revenue_py_musd": 14916,
+   "revenue_yoy_pct_stated": 29,
+   "key_segment": {
+    "name": "AI revenue",
+    "revenue_musd": 8400,
+    "yoy_pct": 106
+   },
+   "prior_guided_actual": {
+    "metric": "revenue",
+    "actual_musd": 19311,
+    "quote": "Revenue of $19,311 million for the first quarter, up 29 percent from the prior year period"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 22000,
+    "guided_yoy_pct_stated": 47,
+    "quote": "Second quarter fiscal year 2026 revenue guidance of approximately $22.0 billion, an increase of 47 percent from the prior year period"
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Adjusted EBITDA margin (Q2 FY2026, ~68%)",
+    "change_vs_prior": "raised",
+    "quote": "Second quarter Adjusted EBITDA guidance of approximately 68 percent of projected revenue."
+   },
+   "backlog": null,
+   "buyback_new_musd": 10000,
+   "one_offs": "소비세(excise tax) 혜택 3.15억 달러가 GAAP 기타수익에 반영",
+   "tone": "strong",
+   "tone_quote": "Our AI revenue growth is accelerating, and we expect AI semiconductor revenue to be $10.7 billion in Q2.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "인프라 소프트웨어(VMware) 매출 성장률 +1%로 정체",
+    "quote": "Infrastructure software | 6,796 | 35 | 6,704 | 45 | +1"
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "AI 84억 달러(+106%)로 자체 전망 상회, 2분기 매출 성장률 가이던스 28%→47%로 가속, 신규 100억 달러 자사주",
+   "narrative_quote": "In Q2 we expect revenue growth to increase 47% year-over-year to $22.0 billion, with adjusted EBITDA of 68%",
+   "notes": "신규 100억 달러 자사주 매입 승인(2026-12-31까지), 1분기 78.5억 달러 매입. 2분기 AI 가이던스 107억 달러."
+  },
+  {
+   "accession": "0001730168-26-000051",
+   "filing_date": "2026-06-03",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 FY2026",
+   "period_end": "2026-05-03",
+   "revenue_musd": 22187,
+   "revenue_py_musd": 15004,
+   "revenue_yoy_pct_stated": 48,
+   "key_segment": {
+    "name": "AI semiconductor revenue",
+    "revenue_musd": 10800,
+    "yoy_pct": 143
+   },
+   "prior_guided_actual": {
+    "metric": "revenue",
+    "actual_musd": 22187,
+    "quote": "Revenue of $22,187 million for the second quarter, up 48 percent from the prior year period"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 29400,
+    "guided_yoy_pct_stated": 84,
+    "quote": "Third quarter fiscal year 2026 revenue guidance of approximately $29.4 billion, an increase of 84 percent from the prior year period"
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Adjusted EBITDA margin (Q3 FY2026, ~68%); non-GAAP operating margin ~67% 신규",
+    "change_vs_prior": "maintained",
+    "quote": "Third quarter Adjusted EBITDA guidance of approximately 68 percent of projected revenue."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "",
+   "tone": "strong",
+   "tone_quote": "Broadcom achieved record revenue, operating profit and free cash flow in Q2 driven by accelerating growth in AI semiconductor revenue and strong operating leverage.",
+   "catalyst": {
+    "present": true,
+    "desc": "3분기 매출 가이던스 294억 달러(+84%, 전분기比 +32%), AI 반도체 160억 달러(+200% 이상)로 매출 단계 급증",
+    "quote": "The momentum continues and in Q3 we expect semiconductor revenue from AI to grow over 200 percent year-over-year to $16.0 billion."
+   },
+   "showstopper": {
+    "type": "none",
+    "desc": "",
+    "quote": ""
+   },
+   "narrative_shift": 2,
+   "narrative_reason": "AI 108억 달러(+143%) 전망 상회, 3분기 매출 성장률 가이던스 48%→84%·분기 72억 달러 순증으로 성장 단계 급변",
+   "narrative_quote": "In Q3 we expect consolidated revenue growth to increase 84% year-over-year to $29.4 billion, with non-GAAP operating margin stable at 67% reflecting our strong operating leverage.",
+   "notes": "3분기 가이던스에 비GAAP 영업이익률(약 67%) 신규 추가. 재고 22.7→43.3억 달러, 매출채권 71→108억 달러로 증가(성장 대비)."
+  },
+  {
+   "accession": "0001730168-26-000076",
+   "filing_date": "2026-09-02",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q3 FY2026",
+   "period_end": "2026-08-02",
+   "revenue_musd": 29591,
+   "revenue_py_musd": 15952,
+   "revenue_yoy_pct_stated": 86,
+   "key_segment": {
+    "name": "AI semiconductor revenue",
+    "revenue_musd": 16700,
+    "yoy_pct": 221
+   },
+   "prior_guided_actual": {
+    "metric": "revenue",
+    "actual_musd": 29591,
+    "quote": "Net revenue | 29,591 | 15,952 | +86 | 29,591 | 15,952 | +86"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 34800,
+    "guided_yoy_pct_stated": 93,
+    "quote": "Fourth quarter fiscal year 2026 revenue guidance of approximately $34.8 billion, an increase of 93 percent from the prior year period"
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Non-GAAP operating margin (Q4 FY2026, ~66%)",
+    "change_vs_prior": "lowered",
+    "quote": "Fourth quarter non-GAAP operating income guidance of approximately 66 percent of projected revenue."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "",
+   "tone": "strong",
+   "tone_quote": "Demand for our custom AI accelerators and networking continues to be very strong.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_quantified",
+    "desc": "AI 비중 확대로 비GAAP 매출총이익률 77.1→75.0% 하락, 영업이익률 가이던스 67→66%로 소폭 하향",
+    "quote": "we expect to maintain our non-GAAP operating margin at 66%, flat from a year ago"
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "AI 167억 달러로 가이던스(160억) 상회·전분기比 +54%, 4분기 매출 +93%·AI 217억 달러(+236%) 가속 가이던스. 마진 가이던스는 소폭 하락",
+   "narrative_quote": "In Q4 the momentum continues, and we expect AI semiconductor revenue to accelerate to $21.7 billion, up 236% year-over-year.",
+   "notes": "CFO 교체(Amie Thuener). 조정 EBITDA 실적·가이던스 미제시, 비GAAP 영업이익률 가이던스로 전환. 헤드라인은 billion 단위(표는 백만 단위). 매출채권 71→137억 달러로 급증."
+  }
+ ],
+ "fixes": [],
+ "qc": {
+  "bad_quotes": [],
+  "revenue_mismatch": []
+ }
+}

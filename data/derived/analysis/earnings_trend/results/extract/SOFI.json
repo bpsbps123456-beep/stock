@@ -1,0 +1,584 @@
+{
+ "ticker": "SOFI",
+ "events": [
+  {
+   "accession": "0001818874-24-000169",
+   "filing_date": "2024-07-30",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 2024",
+   "period_end": "2024-06-30",
+   "revenue_musd": 598.618,
+   "revenue_py_musd": 498.018,
+   "revenue_yoy_pct_stated": 20,
+   "key_segment": {
+    "name": "Financial Services",
+    "revenue_musd": 176.132,
+    "yoy_pct": 80
+   },
+   "prior_guided_actual": null,
+   "next_q_guidance": {
+    "metric": "adjusted net revenue",
+    "is_total_revenue": false,
+    "low_musd": 625,
+    "high_musd": 645,
+    "point_musd": 635,
+    "guided_yoy_pct_stated": null,
+    "quote": "For the third quarter of 2024, management expects to deliver adjusted net revenue of $625 to $645 million, adjusted EBITDA of $160 to $165 million, net income of $40 to $45 million and $0.04 of EPS."
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2024",
+    "metric": "adjusted net revenue",
+    "is_total_revenue": false,
+    "low_musd": 2425,
+    "high_musd": 2465,
+    "point_musd": 2445,
+    "change_vs_prior": "raised",
+    "quote": "For the full year 2024, management now expects to deliver adjusted net revenue of $2.425 to $2.465 billion, which is $35 million higher than the prior guidance range of $2.39 to $2.43 billion."
+   },
+   "profit_guidance": {
+    "metric": "FY2024 adjusted EBITDA $605-615M (GAAP net income $175-185M, EPS $0.09-0.10)",
+    "change_vs_prior": "raised",
+    "quote": "Management now expects to deliver adjusted EBITDA of $605 to $615 million, above prior guidance of $590 to $600 million."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "",
+   "tone": "strong",
+   "tone_quote": "We had an exceptional second quarter.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "Tech Platform 매출 +9%에 그쳐 연간 성장 가이던스 20%→중후반 10%대로 하향; 대형 파트너 확보는 수 분기 소요",
+    "quote": "and for Tech Platform revenue to grow mid-to-high teens percentage year-over-year, versus prior guidance of 20% growth."
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "금융서비스 매출 +80%·흑자전환(공헌이익 $55M), 3분기 연속 GAAP 흑자, FY 가이던스 상향(17~19% 성장). 대출·테크플랫폼 둔화는 부분 상쇄",
+   "narrative_quote": "This implies 17 to 19% annual growth versus 15 to 17% previously.",
+   "notes": "가이던스·핵심 KPI는 비GAAP 조정순매출(adjusted net revenue, Q2 $596.97M, +22%) 기준. 직전 분기 자료가 목록에 없어 Q2 가이던스 대비 실적은 비교 불가. 1분기 부채소멸이익 $59.2M은 상반기 누계에만 반영."
+  },
+  {
+   "accession": "0001818874-24-000229",
+   "filing_date": "2024-10-29",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q3 2024",
+   "period_end": "2024-09-30",
+   "revenue_musd": 697.121,
+   "revenue_py_musd": 537.209,
+   "revenue_yoy_pct_stated": 30,
+   "key_segment": {
+    "name": "Financial Services",
+    "revenue_musd": 238.308,
+    "yoy_pct": 102
+   },
+   "prior_guided_actual": {
+    "metric": "adjusted net revenue",
+    "actual_musd": 689.445,
+    "quote": "Third quarter record adjusted net revenue of $689.4 million grew 30% from the corresponding prior-year period of $530.7 million."
+   },
+   "next_q_guidance": null,
+   "fy_guidance": {
+    "fiscal_year": "FY2024",
+    "metric": "adjusted net revenue",
+    "is_total_revenue": false,
+    "low_musd": 2535,
+    "high_musd": 2550,
+    "point_musd": 2542.5,
+    "change_vs_prior": "raised",
+    "quote": "For the full year 2024, management now expects to deliver adjusted net revenue of $2.535 to $2.550 billion, which is $85 million higher than the prior guidance range of $2.43 to $2.47 billion."
+   },
+   "profit_guidance": {
+    "metric": "FY2024 adjusted EBITDA $640-645M (GAAP net income $204-206M, EPS $0.11-0.12)",
+    "change_vs_prior": "raised",
+    "quote": "Management now expects to deliver adjusted EBITDA of $640 to $645 million, above prior guidance of $605 to $615 million."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "전년 동기 영업권 손상 $247.2M로 GAAP 순이익 YoY 비교 왜곡; 당기 부채소멸이익 $3.3M·구조조정 $1.3M(소액)",
+   "tone": "strong",
+   "tone_quote": "This quarter was the strongest quarter in our history.",
+   "catalyst": {
+    "present": true,
+    "desc": "대출 플랫폼 사업(LPB) 5배 성장, 수수료 $55.6M·제3자 대출 $1.0B — 자본경량 수수료 수익원 본격화",
+    "quote": "Platform Business grew 5x, and generated $55.6 million in loan platform fees, driven by $1.0 billion of personal loans originated on behalf of third parties, as well as referrals."
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "Tech Platform 성장 가이던스 저~고 10%대로 하단 추가 하향, 공헌이익률 36%→32%; NIM도 5.99%→5.57% 하락",
+    "quote": "and for Tech Platform revenue to grow low-to-high teens percentage year-over-year."
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "조정순매출 성장 22%→30% 가속, 가이던스($625~645M) 크게 상회, FS 매출 +102%·공헌이익률 42%, LPB 신규 수수료원 부상, FY 가이던스 $85M 상향",
+   "narrative_quote": "Record Adjusted Net Revenue with Growth Accelerating to 30% Driven by 64% Combined Growth in Financial Services and Tech Platform Segments, representing 49% of Total Adjusted Net Revenue",
+   "notes": "Q4 분기 가이던스 미제시(연간만). 이번 자료가 인용한 직전 FY 범위($2.43~2.47B)는 2분기 자료 수치($2.425~2.465B)와 다름. 손익계산서에 'Loan platform fees' 항목 신설. 조정순매출 $689.4M은 직전 Q3 가이던스 $625~645M 상회."
+  },
+  {
+   "accession": "0001818874-25-000006",
+   "filing_date": "2025-01-27",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q4 2024",
+   "period_end": "2024-12-31",
+   "revenue_musd": 734.125,
+   "revenue_py_musd": 615.404,
+   "revenue_yoy_pct_stated": 19,
+   "key_segment": {
+    "name": "Financial Services",
+    "revenue_musd": 256.52,
+    "yoy_pct": 84
+   },
+   "prior_guided_actual": null,
+   "next_q_guidance": {
+    "metric": "adjusted net revenue",
+    "is_total_revenue": false,
+    "low_musd": 725,
+    "high_musd": 745,
+    "point_musd": 735,
+    "guided_yoy_pct_stated": null,
+    "quote": "In the first quarter of 2025, management expects to generate $725 to $745 million of adjusted net revenue, $175 to $185 million of adjusted EBITDA, $30 to $40 million of GAAP net income and $0.03 of GAAP EPS."
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2025",
+    "metric": "adjusted net revenue",
+    "is_total_revenue": false,
+    "low_musd": 3200,
+    "high_musd": 3275,
+    "point_musd": 3237.5,
+    "change_vs_prior": "initiated",
+    "quote": "For the full year 2025, management expects to deliver adjusted net revenue of $3.200 to $3.275 billion, which equates to approximately 23 to 26% year-over-year growth."
+   },
+   "profit_guidance": {
+    "metric": "FY2025 adjusted EBITDA $845-865M (GAAP net income $285-305M, EPS $0.25-0.27)",
+    "change_vs_prior": "initiated",
+    "quote": "Management expects adjusted EBITDA of $845 to $865 million, which equates to an incremental EBITDA margin of 30%, in line with our long term investment philosophy."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "세금 평가충당금 환입 $258.4M·구조조정 세금혜택 $13.0M으로 GAAP 순이익 $332.5M(조정 순이익 $61.0M)",
+   "tone": "strong",
+   "tone_quote": "SoFi set new records in revenue, profit, members, and products in 2024, and we look forward to continuing to build momentum on this in 2025.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "Tech Platform 매출 +6%로 둔화, 신규 대형 계약(Direct Express 등) 매출 효과는 2026년으로 지연; 대출 조정공헌이익률 65%→58%",
+    "quote": "The implementation and the integration cycles will be gradual and the revenue impacts will most likely be in 2026."
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "조정순매출 +24%로 3분기 30%에서 둔화, 2025 가이던스 23~26%에 투자 확대로 이익 레버리지 둔화 예고. 반면 첫 연간 GAAP 흑자·회원/상품 기록·FS +84%로 혼재",
+   "narrative_quote": "management wants to better tilt the incremental revenue growth toward investment.",
+   "notes": "직전 자료에 Q4 분기 가이던스 없음. FY2024 조정순매출 $2,606.2M은 직전 FY 가이던스 $2,535~2,550M 상회(암시 Q4 약 $668~683M 대비 실적 $739.1M). 대손충당금 표시 위치 변경(과거 재작성), TBV 정의 변경(관련 이연법인세 차감·기말 주식수 기준). 연간 결산 포함 자료."
+  },
+  {
+   "accession": "0001818874-25-000068",
+   "filing_date": "2025-04-29",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q1 2025",
+   "period_end": "2025-03-31",
+   "revenue_musd": 771.759,
+   "revenue_py_musd": 644.995,
+   "revenue_yoy_pct_stated": 20,
+   "key_segment": {
+    "name": "Financial Services",
+    "revenue_musd": 303.119,
+    "yoy_pct": 101
+   },
+   "prior_guided_actual": {
+    "metric": "adjusted net revenue",
+    "actual_musd": 770.72,
+    "quote": "Record adjusted net revenue of $770.7 million grew 33% from the corresponding prior-year period of $580.6 million."
+   },
+   "next_q_guidance": {
+    "metric": "adjusted net revenue",
+    "is_total_revenue": false,
+    "low_musd": 785,
+    "high_musd": 805,
+    "point_musd": 795,
+    "guided_yoy_pct_stated": null,
+    "quote": "In the second quarter of 2025, management expects to generate $785 to $805 million of adjusted net revenue, $200 to $210 million of adjusted EBITDA, $60 to $70 million of GAAP net income and $0.05 to $0.06 of GAAP EPS."
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2025",
+    "metric": "adjusted net revenue",
+    "is_total_revenue": false,
+    "low_musd": 3235,
+    "high_musd": 3310,
+    "point_musd": 3272.5,
+    "change_vs_prior": "raised",
+    "quote": "For the full year 2025, management now expects to deliver adjusted net revenue of $3.235 to $3.310 billion, which is $35 million higher than the prior guidance range of $3.200 to $3.275 billion."
+   },
+   "profit_guidance": {
+    "metric": "FY2025 adjusted EBITDA $875-895M (GAAP net income $320-330M, EPS $0.27-0.28)",
+    "change_vs_prior": "raised",
+    "quote": "Management expects adjusted EBITDA of $875 to $895 million, above prior guidance of $845 to $865 million."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "전년 동기 부채소멸이익 $59.2M로 GAAP 매출(+20%)·순이익(-19%) YoY 비교 왜곡(조정순매출은 +33%)",
+   "tone": "strong",
+   "tone_quote": "We are off to a tremendous start in 2025.",
+   "catalyst": {
+    "present": true,
+    "desc": "LPB에 Blue Owl·Fortress·Edge Focus 등 $8B+ 신규 약정, 분기 제3자 대출 $1.6B",
+    "quote": "Expanded the Loan Platform Business with over $8 billion in new commitments."
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "Tech Platform 계정 +5%에 그치고 직전 분기 167.7M→158.4M 감소, 공헌이익률 30%로 하락",
+    "quote": "Technology Platform enabled accounts increased by 5% year-over-year to 158 million."
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "조정순매출 +33%로 재가속·Q1 가이던스($725~745M) 상회, FS 매출 2배·공헌이익률 49%, LPB $8B 약정, FY 가이던스 상향",
+   "narrative_quote": "We delivered our highest revenue growth rate in five quarters, driven by new records in members, products, and fee-based revenue.",
+   "notes": "조정 EPS는 2029 전환사채 희석분 제외(주가 $14.54 이하 capped call). 위험요인에 관세 언급 추가. 조정순매출 $770.7M은 직전 Q1 가이던스 상단 $745M 초과."
+  },
+  {
+   "accession": "0001818874-25-000148",
+   "filing_date": "2025-07-29",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 2025",
+   "period_end": "2025-06-30",
+   "revenue_musd": 854.944,
+   "revenue_py_musd": 598.618,
+   "revenue_yoy_pct_stated": 43,
+   "key_segment": {
+    "name": "Financial Services",
+    "revenue_musd": 362.533,
+    "yoy_pct": 106
+   },
+   "prior_guided_actual": {
+    "metric": "adjusted net revenue",
+    "actual_musd": 858.23,
+    "quote": "Record adjusted net revenue of $858.2 million grew 44% from the corresponding prior-year period of $597.0 million."
+   },
+   "next_q_guidance": null,
+   "fy_guidance": {
+    "fiscal_year": "FY2025",
+    "metric": "adjusted net revenue",
+    "is_total_revenue": false,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 3375,
+    "change_vs_prior": "raised",
+    "quote": "For the full year 2025, management now expects to deliver adjusted net revenue of approximately $3.375 billion, which is $65 million higher than the top end of the prior guidance range of $3.235 to $3.310 billion."
+   },
+   "profit_guidance": {
+    "metric": "FY2025 adjusted EBITDA ~$960M (GAAP net income ~$370M, EPS ~$0.31)",
+    "change_vs_prior": "raised",
+    "quote": "Management expects adjusted EBITDA of approximately $960 million, above prior guidance of $875 to $895 million."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "",
+   "tone": "strong",
+   "tone_quote": "We had an exceptional second quarter, driving durable growth and strong returns through our relentless focus on product innovation and brand building",
+   "catalyst": {
+    "present": true,
+    "desc": "LPB 연환산 대출 $9.5B·수수료 약 $5억 규모로 확대(QoQ +57%), 10억달러 매출 사업 목표",
+    "quote": "is now running at an annualized pace of over $9.5 billion in originations and half a billion dollars in high-margin, high-return fee-based revenue"
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "Tech Platform 계정 +1%로 정체(매출은 +15%), 대출 조정공헌이익률 58%→55% 하락",
+    "quote": "Technology Platform enabled accounts increased 1% year-over-year to 160 million."
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "조정순매출 +44%로 2년여 최고 가속, Q2 가이던스($785~805M) 크게 상회, FY 가이던스 약 30% 성장으로 상향, LPB 규모 확대·크립토 재진입 계획",
+   "narrative_quote": "We accelerated adjusted net revenue growth to 44% year-over-year, the highest level in over two years, driven by record high new members, as well as new products, and an increase in fee-based revenue.",
+   "notes": "Q3 분기 가이던스 수치 미제시(연간만, 범위→점추정 ~$3.375B 전환). 손익계산서 항목 재분류(대출 조성·매각·증권화·서비스 통합), 'Fee-Based Revenue' 표 신설. 조정순매출 $858.2M은 직전 Q2 가이던스 상단 $805M 초과."
+  },
+  {
+   "accession": "0001818874-25-000204",
+   "filing_date": "2025-10-28",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q3 2025",
+   "period_end": "2025-09-30",
+   "revenue_musd": 961.6,
+   "revenue_py_musd": 697.1,
+   "revenue_yoy_pct_stated": 38,
+   "key_segment": {
+    "name": "Financial Services segment net revenue",
+    "revenue_musd": 419.6,
+    "yoy_pct": 76
+   },
+   "prior_guided_actual": null,
+   "next_q_guidance": null,
+   "fy_guidance": {
+    "fiscal_year": "FY2025",
+    "metric": "adjusted net revenue (non-GAAP)",
+    "is_total_revenue": false,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 3540,
+    "change_vs_prior": "raised",
+    "quote": "Management expects to deliver adjusted net revenue of approximately $3.54 billion, which is $165 million higher than the prior guidance of $3.375 billion."
+   },
+   "profit_guidance": {
+    "metric": "FY2025 adjusted EBITDA ~$1.035B (adj. net income ~$455M, adj. EPS ~$0.37)",
+    "change_vs_prior": "raised",
+    "quote": "Management expects adjusted EBITDA of approximately $1.035 billion, above prior guidance of $960 million."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "",
+   "tone": "strong",
+   "tone_quote": "The opportunity before us is massive and SoFi is executing from a position of unparalleled strength.",
+   "catalyst": {
+    "present": false,
+    "desc": "LPB 연환산 매출 $660M로 확대 중이나 전분기 대비 연속적 성장, 판도 전환 아님",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "개인대출 상각률 2.83%→2.60%로 개선 중인 신용 리스크",
+    "quote": "The personal loan annualized charge-off rate decreased to 2.60% from 2.83% in the prior quarter"
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "연간 조정 순매출 가이던스 $165M 상향(성장률 30%→36%), 회원·상품 사상 최대; 분기 성장률은 44%→38%로 둔화",
+   "narrative_quote": "This implies approximately 36% annual growth versus 30% in our prior guidance.",
+   "notes": "핵심 가이던스 지표는 비GAAP 조정 순매출(서비싱권 공정가치 변동 제외). 분기 가이던스 없음(연간만). 연간 이익 가이던스가 직전 GAAP 순이익·EPS에서 조정 순이익·EPS로 바뀜. 분기 중 자본 $1.9B 증가, 발행주식 1,113M→1,205M(희석)."
+  },
+  {
+   "accession": "0001818874-26-000008",
+   "filing_date": "2026-01-30",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q4 2025",
+   "period_end": "2025-12-31",
+   "revenue_musd": 1025.1,
+   "revenue_py_musd": 734.1,
+   "revenue_yoy_pct_stated": 40,
+   "key_segment": {
+    "name": "Financial Services segment net revenue",
+    "revenue_musd": 456.7,
+    "yoy_pct": 78
+   },
+   "prior_guided_actual": {
+    "metric": "FY2025 adjusted net revenue (prior guide ~$3.54B)",
+    "actual_musd": 3591.4,
+    "quote": "Adjusted net revenue | 1,012,835 | 739,112 | 37 | 3,591,411 | 2,606,170 | 38"
+   },
+   "next_q_guidance": {
+    "metric": "adjusted net revenue (Q1 2026)",
+    "is_total_revenue": false,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 1040,
+    "guided_yoy_pct_stated": null,
+    "quote": "In the first quarter of 2026, management expects to deliver adjusted net revenue of approximately $1.04 billion, adjusted EBITDA of approximately $300 million"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2026",
+    "metric": "adjusted net revenue (non-GAAP)",
+    "is_total_revenue": false,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 4655,
+    "change_vs_prior": "initiated",
+    "quote": "Management expects to deliver adjusted net revenue of approximately $4.655 billion which implies approximately 30% annual revenue growth."
+   },
+   "profit_guidance": {
+    "metric": "FY2026 adjusted EBITDA ~$1.6B (adj. net income ~$825M, adj. EPS ~$0.60); Q1'26 adj. EBITDA ~$300M",
+    "change_vs_prior": "initiated",
+    "quote": "Management expects adjusted EBITDA of approximately $1.6 billion, which equates to an annual EBITDA margin of approximately 34%."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "전년 4Q24 GAAP 순이익에 세금 평가충당금 환입 $258.4M 등 세금혜택 $271M 포함 → GAAP 순이익 YoY -48%는 비교 왜곡; 당분기 특이항목 경미",
+   "tone": "strong",
+   "tone_quote": "2025 was a tremendous year and the fourth quarter was nothing short of exceptional, delivering more than $1 billion in quarterly revenue for the first time in our history",
+   "catalyst": {
+    "present": false,
+    "desc": "크립토·스테이블코인 출시는 초기(9일간 6.3만 계정), 중기 전망은 가이던스일 뿐 판도 전환 근거 부족",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_potential",
+    "desc": "대형 고객 이탈로 Tech Platform 계정 -23%, 부문 매출 영향은 아직 미반영(+19%)",
+    "quote": "Technology Platform enabled accounts decreased 23% year-over-year to 128 million. This includes the impact from a large client which fully transitioned off the platform prior to year-end."
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "첫 $1B 분기·FY25 가이던스 상회(3,591 vs 3,540), FY26 30% 성장 및 2028년까지 30%+ CAGR 중기 전망 제시",
+   "narrative_quote": "Over the medium term, management expects to deliver compounded annual growth in adjusted net revenue of at least 30% from 2025 to 2028.",
+   "notes": "4Q24 GAAP 순이익 $332.5M에 세금혜택 $271.4M 포함(조정 순이익 기준 +184%). 분기 중 신규 자본 $1.5B(공모)로 웨어하우스 전액 상환. 중기 전망(ANR CAGR ≥30%, 조정 EPS CAGR 38~42%, 2025~2028) 최초 제시. 1Q26 ANR 가이드 1,040은 1Q25 770.7 대비 약 +35%(계산치). 크립토 2025-12-22 출시. 가이던스는 비GAAP 조정 순매출."
+  },
+  {
+   "accession": "0001818874-26-000020",
+   "filing_date": "2026-04-29",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q1 2026",
+   "period_end": "2026-03-31",
+   "revenue_musd": 1100.4,
+   "revenue_py_musd": 771.8,
+   "revenue_yoy_pct_stated": 43,
+   "key_segment": {
+    "name": "Financial Services segment net revenue",
+    "revenue_musd": 428.5,
+    "yoy_pct": 41
+   },
+   "prior_guided_actual": {
+    "metric": "Q1 2026 adjusted net revenue (prior guide ~$1.04B)",
+    "actual_musd": 1087.2,
+    "quote": "Adjusted net revenue | 1,087,232 | 770,720 | 41"
+   },
+   "next_q_guidance": {
+    "metric": "adjusted net revenue YoY growth (Q2 2026)",
+    "is_total_revenue": false,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": null,
+    "guided_yoy_pct_stated": 30,
+    "quote": "In the second quarter of 2026, management expects to deliver adjusted net revenue growth of approximately 30%, an adjusted EBITDA margin of approximately 30%, and an adjusted net income margin of approximately 12% -13%."
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2026",
+    "metric": "adjusted net revenue (non-GAAP)",
+    "is_total_revenue": false,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 4655,
+    "change_vs_prior": "maintained",
+    "quote": "Management also expects to deliver adjusted net revenue of approximately $4.655 billion which implies approximately 30% annual revenue growth."
+   },
+   "profit_guidance": {
+    "metric": "FY2026 adjusted EBITDA ~$1.6B (adj. EPS ~$0.60); Q2'26 adj. EBITDA margin ~30%",
+    "change_vs_prior": "maintained",
+    "quote": "Management expects adjusted EBITDA of approximately $1.6 billion, which equates to an annual EBITDA margin of approximately 34%."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "",
+   "tone": "strong",
+   "tone_quote": "We had an excellent Q1 delivering another quarter of durable growth and strong returns, fueled by our relentless focus on innovation and brand building.",
+   "catalyst": {
+    "present": false,
+    "desc": "LPB 신규 파트너 $3.6B 약정·스테이블코인 발행은 정량 매출 견인 전",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_quantified",
+    "desc": "대형 고객 이탈로 Tech Platform 매출 -27%, 공헌이익 -61%",
+    "quote": "Technology Platform segment net revenue of $75.1 million for the first quarter of 2026 decreased 27% year-over-year."
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "1Q 가이던스 상회·성장 41%로 가속했으나 연간은 유지(초과분 미반영), 2Q 성장 ~30% 가이드, 수수료 매출 성장 23%로 둔화·Tech -27%",
+   "narrative_quote": "For the full year, management maintains its strong outlook.",
+   "notes": "2Q26 가이던스는 성장률만 제시(약 30%; 2Q25 ANR 858.2 기준 약 1,116 계산치). 연간 유지로 1Q 초과분(+$47M) 미반영 → 잔여 분기 암묵 하향. 크립토 거래 매출 $121.6M 총액 계상 후 동액 원가 차감(순 $0.9M). Invest 상품 집계 4개 상품으로 변경(미재작성). LPB 매출 $140.8M로 전분기 $193.7M 대비 감소, 신규 파트너 3곳 $3.6B 약정 추가."
+  },
+  {
+   "accession": "0001818874-26-000050",
+   "filing_date": "2026-07-29",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 2026",
+   "period_end": "2026-06-30",
+   "revenue_musd": 1218.7,
+   "revenue_py_musd": 854.9,
+   "revenue_yoy_pct_stated": 43,
+   "key_segment": {
+    "name": "Financial Services segment net revenue",
+    "revenue_musd": 466.3,
+    "yoy_pct": 29
+   },
+   "prior_guided_actual": {
+    "metric": "Q2 2026 adjusted net revenue (prior guide ~30% YoY growth)",
+    "actual_musd": 1205.6,
+    "quote": "Adjusted net revenue | 1,205,550 | 858,230 | 40 | 2,292,782 | 1,628,950 | 41"
+   },
+   "next_q_guidance": null,
+   "fy_guidance": {
+    "fiscal_year": "FY2026",
+    "metric": "adjusted net revenue (non-GAAP)",
+    "is_total_revenue": false,
+    "low_musd": 4750,
+    "high_musd": 4850,
+    "point_musd": 4800,
+    "change_vs_prior": "raised",
+    "quote": "Management now expects to deliver adjusted net revenue of approximately $4.75 billion to $4.85 billion which implies approximately 32% to 35% annual adjusted net revenue growth year-over-year."
+   },
+   "profit_guidance": {
+    "metric": "FY2026 adjusted EBITDA ~$1.6B, adj. net income ~$825M, adj. EPS ~$0.60",
+    "change_vs_prior": "maintained",
+    "quote": "Management continues to expect adjusted EBITDA of approximately $1.6 billion, which equates to an annual adjusted EBITDA margin of approximately 33% to 34%."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "Composer·Peach 인수 거래비용 $4.4M·구조조정 $0.7M(조정 순이익에서 제외, 경미)",
+   "tone": "strong",
+   "tone_quote": "2026 is shaping up to be a defining year, and our second quarter results mark a clear inflection point for SoFi",
+   "catalyst": {
+    "present": false,
+    "desc": "교차구매 51%·SoFi Plus 유료 20만 명은 의미 있으나 매출 대비 규모 작아 판도 전환 아님",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_quantified",
+    "desc": "금융서비스 부문 매출 성장 29%로 둔화, 비용 +46%로 공헌이익률 6%p 하락",
+    "quote": "contribution margin declined 6 percentage points year-over-year to 46%"
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "2Q 성장 40%로 가이드(~30%) 크게 상회, 연간 조정 순매출 4.75~4.85B로 상향, 교차구매 51%로 가속",
+   "narrative_quote": "Increases 2026 Adjusted Net Revenue Guidance to $4.75 billion to $4.85 billion",
+   "notes": "조정 순이익 정의 변경(2Q26부터 거래비용·구조조정 제외, 과거 미재작성). SoFi Plus(유료 구독)·Smart Card를 상품 수에 편입(미재작성). Peach·Composer 인수(영업권 1,393.5→1,425.0M). 다음 분기 가이던스 없음. 연간 조정 EBITDA 금액 유지지만 마진 가이드 34%→33~34%, 조정 순이익률 18%→17%. 부채 1,815→3,301M."
+  },
+  {
+   "accession": "0001818874-26-000065",
+   "filing_date": "2026-10-27",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q3 2026",
+   "period_end": "2026-09-30",
+   "revenue_musd": 1385.1,
+   "revenue_py_musd": 961.6,
+   "revenue_yoy_pct_stated": 44,
+   "key_segment": {
+    "name": "Financial Services segment net revenue",
+    "revenue_musd": 525.1,
+    "yoy_pct": 25
+   },
+   "prior_guided_actual": null,
+   "next_q_guidance": null,
+   "fy_guidance": {
+    "fiscal_year": "FY2026",
+    "metric": "adjusted net revenue (non-GAAP)",
+    "is_total_revenue": false,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 5040,
+    "change_vs_prior": "raised",
+    "quote": "Management now expects to deliver adjusted net revenue of approximately $5.04 billion which implies approximately 40% annual adjusted net revenue growth year-over-year."
+   },
+   "profit_guidance": {
+    "metric": "FY2026 adjusted EBITDA ~$1.66B, adj. net income ~$840M, adj. EPS ~$0.61; 2027 adj. EBITDA ~$2.24B, EPS ~$0.90",
+    "change_vs_prior": "raised",
+    "quote": "Management now expects adjusted EBITDA of approximately $1.66 billion, which equates to an annual adjusted EBITDA margin of approximately 33%."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "구조조정 $2.7M 등 경미; 금리 상승에 따른 매도가능증권 평가손(AOCI -$124.8M)은 손익 미반영",
+   "tone": "strong",
+   "tone_quote": "Our conviction in the opportunity ahead has never been greater.",
+   "catalyst": {
+    "present": false,
+    "desc": "2027 가이던스 컨센 상회·EBITDA 마진 34%는 강한 실적이나 사업 판도 전환 근거는 아님",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_quantified",
+    "desc": "금융서비스 상품당 매출 $90로 전년비 -13%(상품 +44% vs 매출 +25%), 수익화 희석",
+    "quote": "Financial Services revenue per product | 90 | 104 | (13)"
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "성장 44%로 재가속·EBITDA 마진 34%, FY26 $5.04B로 상향, 2027 ANR $6.4B·EPS $0.90을 컨센 상회로 제시",
+   "narrative_quote": "Introduced 2027 outlook of $6.4 billion adjusted net revenue, $2.24 billion adjusted EBITDA, $0.90 of EPS",
+   "notes": "2027 가이던스 최초 제시: 조정 순매출 약 $6.4B(+27%), 조정 EBITDA $2.24B, 조정 순이익 $1.28B, EPS $0.90. FY26 조정 순이익 $840M·EPS $0.61은 문서상 'continues to expect'로 표기됐으나 직전 $825M·$0.60 대비 상향. 금리 상승(벤치마크 +76~90bp)으로 대출 누적 공정가치 조정 2,027→1,399M 감소, 개인대출 연 부도율 가정 4.77→5.10%. LPB 수수료 $151.2M로 전년 $164.9M 대비 감소. Composer 인수로 Invest 상품 2종 추가. CET1 18.7→16.9%. 다음 분기 별도 가이던스 없음."
+  }
+ ],
+ "fixes": [],
+ "qc": {
+  "bad_quotes": [],
+  "revenue_mismatch": []
+ }
+}

@@ -1,0 +1,636 @@
+{
+ "ticker": "CRWD",
+ "events": [
+  {
+   "accession": "0001535527-24-000017",
+   "filing_date": "2024-08-28",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 FY2025",
+   "period_end": "2024-07-31",
+   "revenue_musd": 963.872,
+   "revenue_py_musd": 731.626,
+   "revenue_yoy_pct_stated": 32,
+   "key_segment": {
+    "name": "Subscription revenue",
+    "revenue_musd": 918.257,
+    "yoy_pct": 33
+   },
+   "prior_guided_actual": null,
+   "next_q_guidance": {
+    "metric": "total revenue",
+    "is_total_revenue": true,
+    "low_musd": 979.2,
+    "high_musd": 984.7,
+    "point_musd": 981.95,
+    "guided_yoy_pct_stated": null,
+    "quote": "Total revenue | $979.2 - $984.7 million | $3,890.0 - $3,902.2 million"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2025",
+    "metric": "total revenue",
+    "is_total_revenue": true,
+    "low_musd": 3890,
+    "high_musd": 3902.2,
+    "point_musd": 3896.1,
+    "change_vs_prior": "unclear",
+    "quote": "Total revenue | $979.2 - $984.7 million | $3,890.0 - $3,902.2 million"
+   },
+   "profit_guidance": {
+    "metric": "FY25 non-GAAP diluted EPS $3.61-$3.65 (non-GAAP op income $774.7-$783.9M)",
+    "change_vs_prior": "unclear",
+    "quote": "Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted | $0.80 - $0.81 | $3.61 - $3.65"
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "7/19 채널파일 291 사고 관련 비용 510만달러(비GAAP 제외), 고객 보상 패키지 인센티브로 잔여 분기 구독매출 분기당 약 3천만달러 감소가 가이던스에 반영",
+   "tone": "cautious",
+   "tone_quote": "Working with customers to recover from the July 19th incident, we emerge as an even more resilient and even more customer-obsessed CrowdStrike, continuing to aggressively invest in innovation.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "7/19 사고 후 고객 보상 패키지로 남은 분기 구독매출 분기당 약 3천만달러 감소(일시적 인센티브)",
+    "quote": "CrowdStrike’s revenue guidance for the fiscal year 2025 includes an estimated $30 million subscription revenue impact in each of the remaining fiscal quarters, as a result of incentives related to our customer commitment package."
+   },
+   "narrative_shift": -1,
+   "narrative_reason": "매출 32% 성장은 견조하나 7/19 사고 수습 중이며 고객 보상 인센티브가 연간 매출 가이던스를 직접 깎는다고 명시",
+   "narrative_quote": "CrowdStrike’s revenue guidance for the fiscal year 2025 includes an estimated $30 million subscription revenue impact in each of the remaining fiscal quarters",
+   "notes": "회계연도는 1월 31일 종료(FY2025=2024.2~2025.1). 사고(2024-07-19) 직후 첫 발표. 이전 발표가 목록에 없어 가이던스 변화는 판단 불가. 전문서비스 매출도 하반기 한 자릿수 후반 백만달러 영향. ARR $3.86B(+32%), 순신규 ARR $217.6M. RPO 미기재."
+  },
+  {
+   "accession": "0001535527-24-000024",
+   "filing_date": "2024-11-26",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q3 FY2025",
+   "period_end": "2024-10-31",
+   "revenue_musd": 1010.178,
+   "revenue_py_musd": 786.014,
+   "revenue_yoy_pct_stated": 29,
+   "key_segment": {
+    "name": "Subscription revenue",
+    "revenue_musd": 962.735,
+    "yoy_pct": 31
+   },
+   "prior_guided_actual": {
+    "metric": "total revenue (guided $979.2-$984.7M)",
+    "actual_musd": 1010.178,
+    "quote": "Total revenue was $1,010.2 million, a 29% increase, compared to $786.0 million in the third quarter of fiscal 2024."
+   },
+   "next_q_guidance": {
+    "metric": "total revenue",
+    "is_total_revenue": true,
+    "low_musd": 1028.7,
+    "high_musd": 1035.4,
+    "point_musd": 1032.05,
+    "guided_yoy_pct_stated": null,
+    "quote": "Total revenue | $1,028.7 - $1,035.4 million | $3,923.8 - $3,930.5 million"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2025",
+    "metric": "total revenue",
+    "is_total_revenue": true,
+    "low_musd": 3923.8,
+    "high_musd": 3930.5,
+    "point_musd": 3927.15,
+    "change_vs_prior": "raised",
+    "quote": "Total revenue | $1,028.7 - $1,035.4 million | $3,923.8 - $3,930.5 million"
+   },
+   "profit_guidance": {
+    "metric": "FY25 non-GAAP diluted EPS $3.74-$3.76 (prior $3.61-$3.65); non-GAAP op income $804.4-$809.4M (prior $774.7-$783.9M)",
+    "change_vs_prior": "raised",
+    "quote": "Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted | $0.84 - $0.86 | $3.74 - $3.76"
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "7/19 사고 관련 비용(순) 3,390만달러로 GAAP 영업손실 5,570만달러 전환",
+   "tone": "strong",
+   "tone_quote": "Accelerating module adoption and customers embracing our transformational Falcon Flex subscription model give us confidence in CrowdStrike’s bright future as cybersecurity’s AI platform of record.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "7/19 사고 역풍으로 순신규 ARR 1.53억달러(전분기 2.18억)로 감소, 단 파이프라인 증가·총유지율 97%",
+    "quote": "Our third quarter results reflect our focused execution and financial discipline, which drove a strong finish and quarter-over-quarter increase in pipeline, despite expected headwinds from the July 19th incident."
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "매출이 가이던스 상단을 약 2,500만달러 상회, 연간 매출·EPS 가이던스 상향, 총유지율 97%로 사고 후 이탈 우려 완화(ARR 성장 27%로 둔화는 부담)",
+   "narrative_quote": "With over 97% gross retention, customers remain committed to the technological superiority of the Falcon platform and the benefits of cybersecurity consolidation.",
+   "notes": "ARR $4.02B(+27%, 전분기 +32%), 순신규 ARR $153.0M. FCF $230.6M(전년 $239.0M)로 감소, FCF 마진 23%. 비GAAP 조정항목 명칭이 'July 19 Incident related costs, net'으로 변경."
+  },
+  {
+   "accession": "0001535527-25-000005",
+   "filing_date": "2025-03-04",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q4 FY2025",
+   "period_end": "2025-01-31",
+   "revenue_musd": 1058.538,
+   "revenue_py_musd": 845.335,
+   "revenue_yoy_pct_stated": 25,
+   "key_segment": {
+    "name": "Subscription revenue",
+    "revenue_musd": 1008.316,
+    "yoy_pct": 27
+   },
+   "prior_guided_actual": {
+    "metric": "total revenue (guided $1,028.7-$1,035.4M)",
+    "actual_musd": 1058.538,
+    "quote": "Total revenue | 1,058,538 | 845,335 | 3,953,624 | 3,055,555"
+   },
+   "next_q_guidance": {
+    "metric": "total revenue",
+    "is_total_revenue": true,
+    "low_musd": 1100.6,
+    "high_musd": 1106.4,
+    "point_musd": 1103.5,
+    "guided_yoy_pct_stated": null,
+    "quote": "Total revenue | $1,100.6 - $1,106.4 million | $4,743.5 - $4,805.5 million"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2026",
+    "metric": "total revenue",
+    "is_total_revenue": true,
+    "low_musd": 4743.5,
+    "high_musd": 4805.5,
+    "point_musd": 4774.5,
+    "change_vs_prior": "initiated",
+    "quote": "Total revenue | $1,100.6 - $1,106.4 million | $4,743.5 - $4,805.5 million"
+   },
+   "profit_guidance": {
+    "metric": "FY26 non-GAAP diluted EPS $3.33-$3.45 (22.5% tax rate basis); non-GAAP op income $944.2-$985.1M",
+    "change_vs_prior": "initiated",
+    "quote": "Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted | $0.64 - $0.66 | $3.33 - $3.45"
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "인수 관련 IP 통합 법인세 4,990만달러, 7/19 사고 관련 비용 2,100만달러로 GAAP 순손실 9,230만달러",
+   "tone": "strong",
+   "tone_quote": "We achieved fourth quarter results above all guided metrics.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "ARR 성장 32→27→23%로 둔화, 분기 비GAAP 영업이익률 25→21%·FCF 마진 33→23% 하락(사고 후 회복 과정)",
+    "quote": "Non-GAAP operating margin | 21 | 25 | 21 | 22"
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "순신규 ARR 2.24억달러로 반등·전 가이던스 상회 vs FY26 매출 가이던스 약 21% 성장으로 둔화, 1Q 비GAAP 영업이익 가이던스 하락",
+   "narrative_quote": "places us firmly on the flight path to our $10 billion ending ARR goal",
+   "notes": "FY26부터 비GAAP 정의 변경: 주식보상 관련 고용주 급여세 제외(FY25 4,220만달러), 장기 비GAAP 세율 22.5% 적용(EPS 가이던스 영향 1Q -0.19달러, 연간 -0.98달러). FY25 매출 $3,953.6M(+29%)로 직전 연간 가이던스 상단($3,930.5M) 상회. ARR $4.24B(+23%), 순신규 ARR $224.3M. Falcon Flex 채택 계정 분기 내 거래가치 10억달러 초과."
+  },
+  {
+   "accession": "0001104659-25-045244",
+   "filing_date": "2025-05-07",
+   "is_quarterly_results": false,
+   "fiscal_period": "Q1 FY2026",
+   "period_end": "",
+   "revenue_musd": null,
+   "revenue_py_musd": null,
+   "revenue_yoy_pct_stated": null,
+   "key_segment": null,
+   "prior_guided_actual": null,
+   "next_q_guidance": null,
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "",
+    "change_vs_prior": "none",
+    "quote": ""
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "약 500명(인력 약 5%) 감원 전략계획 발표, 퇴직금 등 구조조정 비용 발생 예정(금액 미기재)",
+   "tone": "strong",
+   "tone_quote": "With multi-billion-dollar market opportunities in areas including NG-SIEM, Identity, Cloud, and Exposure Management, coupled with our Falcon Flex subscription model, we’re poised for continued growth.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "none",
+    "desc": "",
+    "quote": ""
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "실적 발표 아님. 5% 감원을 AI 효율화·고성장 영역 재배치로 설명, 100억달러 ARR 목표 유지로 성장 스토리 변화 없음",
+   "narrative_quote": "and a clear path to $10 billion in ARR, we are evolving how we operate.",
+   "notes": "EX-99.1은 직원 대상 CEO 메모(구조조정). 8-K 항목 2.02·2.05·7.01이나 EX-99.1에 실적·가이던스 수치 없음. Q1 FY2026(2025-04-30 종료) 직후·실적 발표 전 공시. 구조조정 비용 금액 미기재."
+  },
+  {
+   "accession": "0001535527-25-000017",
+   "filing_date": "2025-06-03",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q1 FY2026",
+   "period_end": "2025-04-30",
+   "revenue_musd": 1103.434,
+   "revenue_py_musd": 921.036,
+   "revenue_yoy_pct_stated": 20,
+   "key_segment": {
+    "name": "Subscription revenue",
+    "revenue_musd": 1050.768,
+    "yoy_pct": 20
+   },
+   "prior_guided_actual": {
+    "metric": "total revenue (guided $1,100.6-$1,106.4M)",
+    "actual_musd": 1103.434,
+    "quote": "Total revenue | 1,103,434 | 921,036"
+   },
+   "next_q_guidance": {
+    "metric": "total revenue",
+    "is_total_revenue": true,
+    "low_musd": 1144.7,
+    "high_musd": 1151.6,
+    "point_musd": 1148.15,
+    "guided_yoy_pct_stated": null,
+    "quote": "Total revenue | $1,144.7 - $1,151.6 million | $4,743.5- $4,805.5 million"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2026",
+    "metric": "total revenue",
+    "is_total_revenue": true,
+    "low_musd": 4743.5,
+    "high_musd": 4805.5,
+    "point_musd": 4774.5,
+    "change_vs_prior": "maintained",
+    "quote": "Total revenue | $1,144.7 - $1,151.6 million | $4,743.5- $4,805.5 million"
+   },
+   "profit_guidance": {
+    "metric": "FY26 non-GAAP diluted EPS $3.44-$3.56 (prior $3.33-$3.45); non-GAAP op income $970.8-$1,010.8M (prior $944.2-$985.1M)",
+    "change_vs_prior": "raised",
+    "quote": "Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted | $0.82 - $0.84 | $3.44 - $3.56"
+   },
+   "backlog": null,
+   "buyback_new_musd": 1000,
+   "one_offs": "7/19 사고 및 관련 사안 비용(순) 3,970만달러(주로 G&A), 전략계획(감원) 비용 660만달러로 GAAP 영업손실 1.25억달러",
+   "tone": "strong",
+   "tone_quote": "Our conviction in net new ARR re-acceleration and margin expansion in the second half of fiscal year 2026 is reinforced by Falcon Flex deal momentum and early Falcon Flex expansions",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "매출 성장 20%로 둔화, 비GAAP 영업이익 전년 대비 감소(마진 23→18%)·EPS 0.79→0.73달러, 하반기 재가속 기대",
+    "quote": "Non-GAAP income from operations was $201.1 million, compared to $213.3 million in the first quarter of fiscal 2025."
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "매출은 가이던스 중간값 수준(상회 없음)·연간 매출 유지 vs 이익 가이던스 상향·10억달러 자사주·Flex 거래가치 6배 증가로 혼재",
+   "narrative_quote": "Delivers strong Falcon Flex deal momentum with accounts exceeding $3.2 billion in total deal value, growing more than 6x year-over-year",
+   "notes": "FY26부터 비GAAP에 주식보상 관련 고용주 급여세 제외·22.5% 장기 세율 적용, 전년 동기 수치 재작성(비GAAP 영업이익 $213.3M 등). ARR $4.44B(+22%), 순신규 ARR $193.8M. 모듈 채택률 5개 이상 항목 삭제. 직전 목록 공시(5/7 메모)엔 가이던스 없어 Q4 FY25 발표와 비교."
+  },
+  {
+   "accession": "0001535527-25-000023",
+   "filing_date": "2025-08-27",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 FY2026",
+   "period_end": "2025-07-31",
+   "revenue_musd": 1168.952,
+   "revenue_py_musd": 963.872,
+   "revenue_yoy_pct_stated": 21,
+   "key_segment": {
+    "name": "Subscription revenue",
+    "revenue_musd": 1102.945,
+    "yoy_pct": 20
+   },
+   "prior_guided_actual": {
+    "metric": "Total revenue",
+    "actual_musd": 1168.952,
+    "quote": "Total revenue was $1.17 billion, a 21% increase, compared to $963.9 million in the second quarter of fiscal 2025."
+   },
+   "next_q_guidance": {
+    "metric": "Total revenue",
+    "is_total_revenue": true,
+    "low_musd": 1208,
+    "high_musd": 1218,
+    "point_musd": 1213,
+    "guided_yoy_pct_stated": null,
+    "quote": "Total revenue | $1,208.0 - $1,218.0 million | $4,749.5 - $4,805.5 million"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2026",
+    "metric": "Total revenue",
+    "is_total_revenue": true,
+    "low_musd": 4749.5,
+    "high_musd": 4805.5,
+    "point_musd": 4777.5,
+    "change_vs_prior": "raised",
+    "quote": "Total revenue | $1,208.0 - $1,218.0 million | $4,749.5 - $4,805.5 million"
+   },
+   "profit_guidance": {
+    "metric": "FY26 Non-GAAP income from operations $1,000.1-$1,040.1M (prior $970.8-$1,010.8M); non-GAAP EPS $3.60-$3.72 (prior $3.44-$3.56)",
+    "change_vs_prior": "raised",
+    "quote": "Non-GAAP income from operations | $256.0 - $262.0 million | $1,000.1 - $1,040.1 million"
+   },
+   "backlog": {
+    "metric": "Ending ARR (annual recurring revenue)",
+    "value_musd": 4660,
+    "yoy_pct": 20,
+    "quote": "Annual Recurring Revenue (ARR) grew 20% year-over-year to $4.66 billion as of July 31, 2025"
+   },
+   "buyback_new_musd": null,
+   "one_offs": "7월19일 사고 관련 비용 3,570만달러·전략 계획(구조조정) 비용 3,840만달러로 GAAP 영업손실; Onum 인수 합의",
+   "tone": "strong",
+   "tone_quote": "With reacceleration a quarter ahead of our expectations, CrowdStrike delivered an exceptional Q2.",
+   "catalyst": {
+    "present": false,
+    "desc": "해당 없음(가이던스 상회한 정상적 호실적)",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "사고·구조조정 비용으로 GAAP 영업손실, 비GAAP 영업이익률 25%→22% 하락(일시적 비용 성격)",
+    "quote": "Non-GAAP operating margin | 22 | 25 | 20 | 24"
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "순신규 ARR 재가속이 예상보다 한 분기 빨리 나타났고 모든 가이던스 지표 상회, 연간 이익 가이던스 상향",
+   "narrative_quote": "Achieves record Q2 net new ARR of $221 million and reacceleration ahead of expectations",
+   "notes": "비GAAP 세율 22.5%→21.0% 변경(OBBBA)으로 비GAAP 순이익·EPS 가이던스 상향 일부는 기계적. 연간 매출 가이던스는 하단만 600만달러 상향(중간값 +300만달러)으로 2분기 초과분(약 2,000만달러) 대비 하반기 암묵적 하향. ARR을 backlog 칸에 기재(RPO 미공시)."
+  },
+  {
+   "accession": "0001535527-25-000030",
+   "filing_date": "2025-12-02",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q3 FY2026",
+   "period_end": "2025-10-31",
+   "revenue_musd": 1234.244,
+   "revenue_py_musd": 1010.178,
+   "revenue_yoy_pct_stated": 22,
+   "key_segment": {
+    "name": "Subscription revenue",
+    "revenue_musd": 1168.705,
+    "yoy_pct": 21
+   },
+   "prior_guided_actual": {
+    "metric": "Total revenue",
+    "actual_musd": 1234.244,
+    "quote": "Total revenue was $1.23 billion, a 22% increase, compared to $1.01 billion in the third quarter of fiscal 2025."
+   },
+   "next_q_guidance": {
+    "metric": "Total revenue",
+    "is_total_revenue": true,
+    "low_musd": 1290,
+    "high_musd": 1300,
+    "point_musd": 1295,
+    "guided_yoy_pct_stated": null,
+    "quote": "Total revenue | $1,290.0 - $1,300.0 million | $4,796.6 - $4,806.6 million"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2026",
+    "metric": "Total revenue",
+    "is_total_revenue": true,
+    "low_musd": 4796.6,
+    "high_musd": 4806.6,
+    "point_musd": 4801.6,
+    "change_vs_prior": "raised",
+    "quote": "Total revenue | $1,290.0 - $1,300.0 million | $4,796.6 - $4,806.6 million"
+   },
+   "profit_guidance": {
+    "metric": "FY26 Non-GAAP income from operations $1,036.1-$1,040.1M (prior $1,000.1-$1,040.1M); non-GAAP EPS $3.70-$3.72",
+    "change_vs_prior": "raised",
+    "quote": "Non-GAAP income from operations | $315.4 - $319.4 million | $1,036.1 - $1,040.1 million"
+   },
+   "backlog": {
+    "metric": "Ending ARR (annual recurring revenue)",
+    "value_musd": 4920,
+    "yoy_pct": 23,
+    "quote": "Annual Recurring Revenue (ARR) grew 23% year-over-year to $4.92 billion as of October 31, 2025"
+   },
+   "buyback_new_musd": null,
+   "one_offs": "7월19일 사고 관련 비용 2,620만달러, 인수 관련 비용 560만달러(Pangea 인수 등, 사업 인수 현금 3.8억달러)",
+   "tone": "strong",
+   "tone_quote": "We are capitalizing on the AI-driven demand environment as customers consolidate on the Falcon platform, driving our pipeline to an all-time high.",
+   "catalyst": {
+    "present": false,
+    "desc": "해당 없음(Falcon Flex ARR 13.5억달러 성장은 가격모델 확산으로 정상 호실적 범주)",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "SBC·사고 비용으로 GAAP 영업손실 전년 대비 확대, 다만 비GAAP 이익률은 개선",
+    "quote": "GAAP loss from operations was $69.4 million, compared to $55.7 million in the third quarter of fiscal 2025."
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "순신규 ARR 73% 성장·ARR 성장 23%로 가속, 매출 성장 22%로 가속, 연간 가이던스 상향 및 하반기 순신규 ARR 50%+ 기대",
+   "narrative_quote": "Achieves record Q3 net new ARR of $265 million, growth accelerates to 73% year-over-year",
+   "notes": "Pangea 인수(영업권 9.13억→13.53억달러, 사업 인수 현금 3.81억달러)로 매출 기반 소폭 변화 가능. EPS 가이던스 표에 'million' 표기 오류. FY27 순신규 ARR 20% 성장 자신감 언급."
+  },
+  {
+   "accession": "0001535527-26-000007",
+   "filing_date": "2026-03-03",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q4 FY2026",
+   "period_end": "2026-01-31",
+   "revenue_musd": 1305.375,
+   "revenue_py_musd": 1058.538,
+   "revenue_yoy_pct_stated": 23,
+   "key_segment": {
+    "name": "Subscription revenue",
+    "revenue_musd": 1242.265,
+    "yoy_pct": 23
+   },
+   "prior_guided_actual": {
+    "metric": "Total revenue",
+    "actual_musd": 1305.375,
+    "quote": "Total revenue was $1.31 billion, a 23% increase, compared to $1.06 billion in the fourth quarter of fiscal 2025."
+   },
+   "next_q_guidance": {
+    "metric": "Total revenue",
+    "is_total_revenue": true,
+    "low_musd": 1360,
+    "high_musd": 1364,
+    "point_musd": 1362,
+    "guided_yoy_pct_stated": null,
+    "quote": "Total revenue | $1,360.0 - $1,364.0 million | $5,867.6 - $5,927.6 million"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2027",
+    "metric": "Total revenue",
+    "is_total_revenue": true,
+    "low_musd": 5867.6,
+    "high_musd": 5927.6,
+    "point_musd": 5897.6,
+    "change_vs_prior": "initiated",
+    "quote": "Total revenue | $1,360.0 - $1,364.0 million | $5,867.6 - $5,927.6 million"
+   },
+   "profit_guidance": {
+    "metric": "FY27 Non-GAAP income from operations $1,422.2-$1,462.2M; non-GAAP EPS $4.78-$4.90",
+    "change_vs_prior": "initiated",
+    "quote": "Non-GAAP income from operations | $308.0 - $310.4 million | $1,422.2 - $1,462.2 million"
+   },
+   "backlog": {
+    "metric": "Ending ARR (annual recurring revenue)",
+    "value_musd": 5250,
+    "yoy_pct": 24,
+    "quote": "Annual Recurring Revenue (ARR) grew 24% year-over-year to $5.25 billion as of January 31, 2026"
+   },
+   "buyback_new_musd": null,
+   "one_offs": "7월19일 사고 관련 비용 1,620만달러; 법인세 환급(-360만달러)으로 GAAP 순이익 흑자 전환; SGNL·Seraphic 인수",
+   "tone": "strong",
+   "tone_quote": "With exceptional momentum across the business and a record Q1 pipeline entering FY27, we have strong conviction to once again raise our FY27 ARR outlook.",
+   "catalyst": {
+    "present": false,
+    "desc": "해당 없음(ARR 50억달러 돌파·FY36 200억달러 목표는 정량 견인 아닌 목표치)",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "7월19일 사고 관련 비용 지속(분기 1,620만달러, 연 1.18억달러)되나 감소 추세",
+    "quote": "Total costs associated with the July 19 Incident and related matters, net | 16,174 | 21,008 | 117,730 | 60,062"
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "ARR 24%로 추가 가속, 순신규 ARR 47% 성장, GAAP 순이익 흑자, FY27 매출 약 23% 성장·이익률 확대 가이던스 제시",
+   "narrative_quote": "Surpasses $5 billion ending ARR milestone, accelerates to 24% year-over-year growth to reach $5.25 billion",
+   "notes": "Q4·연간 결산 발표. 이번부터 분기·연간 ARR 가이던스(Q1 55.0억, FY27 64.7~65.2억달러) 병기. FY36 ARR 200억달러 목표. 자사주 매입 5,060만달러는 기존 10억달러 프로그램 내(신규 승인 아님)."
+  },
+  {
+   "accession": "0001535527-26-000022",
+   "filing_date": "2026-06-03",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q1 FY2027",
+   "period_end": "2026-04-30",
+   "revenue_musd": 1385.629,
+   "revenue_py_musd": 1103.434,
+   "revenue_yoy_pct_stated": 26,
+   "key_segment": {
+    "name": "Subscription revenue",
+    "revenue_musd": 1320.853,
+    "yoy_pct": 26
+   },
+   "prior_guided_actual": {
+    "metric": "Total revenue",
+    "actual_musd": 1385.629,
+    "quote": "Total revenue was $1.39 billion, a 26% increase, compared to $1.10 billion in the first quarter of fiscal 2026."
+   },
+   "next_q_guidance": {
+    "metric": "Total revenue",
+    "is_total_revenue": true,
+    "low_musd": 1436,
+    "high_musd": 1442,
+    "point_musd": 1439,
+    "guided_yoy_pct_stated": null,
+    "quote": "Total revenue | $1,436.0 - $1,442.0 million | $5,914.7 - $5,958.7 million"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2027",
+    "metric": "Total revenue",
+    "is_total_revenue": true,
+    "low_musd": 5914.7,
+    "high_musd": 5958.7,
+    "point_musd": 5936.7,
+    "change_vs_prior": "raised",
+    "quote": "Total revenue | $1,436.0 - $1,442.0 million | $5,914.7 - $5,958.7 million"
+   },
+   "profit_guidance": {
+    "metric": "FY27 Non-GAAP income from operations $1,452.3-$1,480.3M (prior $1,422.2-$1,462.2M); non-GAAP EPS $4.88-$4.96 (prior $4.78-$4.90)",
+    "change_vs_prior": "raised",
+    "quote": "Non-GAAP income from operations | $345.6 - $349.1 million | $1,452.3 - $1,480.3 million"
+   },
+   "backlog": {
+    "metric": "Ending ARR (annual recurring revenue)",
+    "value_musd": 5510,
+    "yoy_pct": 24,
+    "quote": "Annual Recurring Revenue (ARR) grew 24% year-over-year to $5.51 billion as of April 30, 2026"
+   },
+   "buyback_new_musd": null,
+   "one_offs": "전략적 투자 실현이익 3,640만달러(비지배지분 1,820만달러 귀속)로 GAAP 순이익 흑자; 7월19일 사고 비용 1,810만달러; 사업 인수 현금 8.8억달러",
+   "tone": "strong",
+   "tone_quote": "We are raising our full-year net new ARR growth expectations to 27.7%, at the midpoint, now an acceleration over the prior fiscal year.",
+   "catalyst": {
+    "present": false,
+    "desc": "해당 없음(QuiltWorks·AI 보안 언급은 정량 견인 미제시)",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "7월19일 사고 관련 비용 1,810만달러 지속(전년 3,970만달러에서 감소)",
+    "quote": "Total costs associated with the July 19 Incident and related matters, net | 18,128 | 39,727"
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "매출 성장 26%로 가속, 분기 가이던스 크게 상회, FY27 순신규 ARR 성장 가이던스 520bp 상향·매출/이익 가이던스 상향",
+   "narrative_quote": "Raises FY27 net new ARR growth guidance by 520 basis points at the midpoint",
+   "notes": "4대1 주식분할 발표(2026-07-02부터 분할 기준 거래); 본 발표 주당 수치는 분할 전. Q1 사업 인수 8.81억달러(영업권 13.6억→22.7억달러, SGNL·Seraphic 추정)로 매출 성장에 인수 효과 포함 가능. 자사주 1.76억달러 매입(기존 프로그램)."
+  },
+  {
+   "accession": "0001535527-26-000029",
+   "filing_date": "2026-08-26",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 FY2027",
+   "period_end": "2026-07-31",
+   "revenue_musd": 1470.897,
+   "revenue_py_musd": 1168.952,
+   "revenue_yoy_pct_stated": 26,
+   "key_segment": {
+    "name": "Subscription revenue",
+    "revenue_musd": 1400.291,
+    "yoy_pct": 27
+   },
+   "prior_guided_actual": {
+    "metric": "Total revenue",
+    "actual_musd": 1470.897,
+    "quote": "Total revenue was $1.47 billion, a 26% increase, compared to $1.17 billion in the second quarter of fiscal 2026."
+   },
+   "next_q_guidance": {
+    "metric": "Total revenue",
+    "is_total_revenue": true,
+    "low_musd": 1523.2,
+    "high_musd": 1529.2,
+    "point_musd": 1526.2,
+    "guided_yoy_pct_stated": null,
+    "quote": "Total revenue | $1,523.2 - $1,529.2 million | $5,991.1 - $6,011.1 million"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2027",
+    "metric": "Total revenue",
+    "is_total_revenue": true,
+    "low_musd": 5991.1,
+    "high_musd": 6011.1,
+    "point_musd": 6001.1,
+    "change_vs_prior": "raised",
+    "quote": "Total revenue | $1,523.2 - $1,529.2 million | $5,991.1 - $6,011.1 million"
+   },
+   "profit_guidance": {
+    "metric": "FY27 Non-GAAP income from operations $1,497.2-$1,508.4M (prior $1,452.3-$1,480.3M); split-adjusted non-GAAP EPS $1.25-$1.26",
+    "change_vs_prior": "raised",
+    "quote": "Non-GAAP income from operations | $372.7 - $375.9 million | $1,497.2 - $1,508.4 million"
+   },
+   "backlog": {
+    "metric": "Ending ARR (annual recurring revenue)",
+    "value_musd": 5840,
+    "yoy_pct": 25,
+    "quote": "Annual Recurring Revenue (ARR) grew 25% year-over-year to $5.84 billion as of July 31, 2026"
+   },
+   "buyback_new_musd": null,
+   "one_offs": "7월19일 사고 관련 회수(환입) 1,450만달러로 GAAP 비용 감소; XM Cyber 기술 자산 인수 합의",
+   "tone": "strong",
+   "tone_quote": "Given our strong Q2 results and record Q3 pipeline, we are raising our full-year fiscal 2027 net new ARR growth outlook to 34% at the midpoint, positioning us for continued durable, profitable growth.",
+   "catalyst": {
+    "present": false,
+    "desc": "해당 없음(Falcon Flex ARR 22.9억달러·순신규 ARR 51% 성장은 강한 실적이나 사업모델 전환급 아님)",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "SBC 3.99억달러(+44% YoY)로 매출 증가율 상회, GAAP 영업손실 지속(손실폭은 축소)",
+    "quote": "Total stock-based compensation expense and related employer payroll taxes (1) | 399,001 | 276,665 | 716,628 | 542,293"
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "순신규 ARR 51% 성장으로 가속, ARR 25%, FY27 순신규 ARR 성장 가이던스 630bp 상향(34%)·매출/이익 가이던스 재상향",
+   "narrative_quote": "Increases FY27 net new ARR growth guidance by 630 basis points to 34% year-over-year growth at the midpoint",
+   "notes": "2026-07-01 4대1 주식분할 반영으로 주식 수·주당 수치 소급 조정(EPS 가이던스 $1.25~1.26는 분할 후, 직전 $4.88~4.96는 분할 전). Q1 인수(8.81억달러) 효과가 매출 기반에 포함."
+  }
+ ],
+ "fixes": [],
+ "qc": {
+  "bad_quotes": [],
+  "revenue_mismatch": []
+ }
+}

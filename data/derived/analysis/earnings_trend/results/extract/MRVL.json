@@ -1,0 +1,623 @@
+{
+ "ticker": "MRVL",
+ "events": [
+  {
+   "accession": "0001835632-24-000140",
+   "filing_date": "2024-08-29",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 FY2025",
+   "period_end": "2024-08-03",
+   "revenue_musd": 1272.9,
+   "revenue_py_musd": 1340.9,
+   "revenue_yoy_pct_stated": -5,
+   "key_segment": {
+    "name": "Data center",
+    "revenue_musd": 880.9,
+    "yoy_pct": 92
+   },
+   "prior_guided_actual": {
+    "metric": "Net revenue",
+    "actual_musd": 1272.9,
+    "quote": "Net revenue for the second quarter of fiscal 2025 was $1.273 billion, $23.0 million above the mid-point of the Company"
+   },
+   "next_q_guidance": {
+    "metric": "Net revenue (Q3 FY2025)",
+    "is_total_revenue": true,
+    "low_musd": 1377.5,
+    "high_musd": 1522.5,
+    "point_musd": 1450,
+    "guided_yoy_pct_stated": null,
+    "quote": "Net revenue is expected to be $1.450 billion +/- 5%."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Q3 FY2025 non-GAAP diluted EPS $0.40 +/- $0.05",
+    "change_vs_prior": "unclear",
+    "quote": "Non-GAAP diluted income per share is expected to be $0.40 +/- $0.05 per share."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "무형자산상각 2.76억달러 등 비현금 비용으로 GAAP 순손실 1.93억달러, 중대한 일회성 항목은 없음",
+   "tone": "strong",
+   "tone_quote": "revenue grew 10% sequentially, above the mid-point of guidance driven by strong demand from AI",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "기업 네트워크(-54%)·통신 인프라(-72%) 매출 급감, 다음 분기 회복 전망 제시",
+    "quote": "we expect our combined enterprise networking and carrier end markets to return to growth"
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "AI 수요로 가이던스 중간값 상회, 맞춤형 AI 칩 출하 시작, 3분기 전 시장 순차 성장·매출 14% 순차 성장 전망",
+   "narrative_quote": "our custom AI programs began to ramp",
+   "notes": "회계연도는 2월 초 종료(FY2025=2024.2~2025.1). 직전 가이던스(5/30) 발표문은 목록 밖이며 본문에 중간값 대비 +2,300만달러로 기재. 데이터센터 비중 69%."
+  },
+  {
+   "accession": "0001835632-24-000197",
+   "filing_date": "2024-12-03",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q3 FY2025",
+   "period_end": "2024-11-02",
+   "revenue_musd": 1516.1,
+   "revenue_py_musd": 1418.6,
+   "revenue_yoy_pct_stated": 7,
+   "key_segment": {
+    "name": "Data center",
+    "revenue_musd": 1101.1,
+    "yoy_pct": 98
+   },
+   "prior_guided_actual": {
+    "metric": "Net revenue",
+    "actual_musd": 1516.1,
+    "quote": "Net revenue for the third quarter of fiscal 2025 was $1.516 billion, $66.0 million above the mid-point of the Company"
+   },
+   "next_q_guidance": {
+    "metric": "Net revenue (Q4 FY2025)",
+    "is_total_revenue": true,
+    "low_musd": 1710,
+    "high_musd": 1890,
+    "point_musd": 1800,
+    "guided_yoy_pct_stated": 26,
+    "quote": "Net revenue is expected to be $1.800 billion +/- 5%."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Q4 FY2025 non-GAAP diluted EPS $0.59 +/- $0.05 (직전 3분기 가이던스 $0.40 대비 순차 상향)",
+    "change_vs_prior": "raised",
+    "quote": "Non-GAAP diluted net income per share is expected to be $0.59 +/- $0.05 per share."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "구조조정 관련 비용 7.15억달러(매출원가 3.57억달러 포함, 손상 5.22억달러)로 GAAP 총마진 23%·순손실 6.76억달러",
+   "tone": "strong",
+   "tone_quote": "marking the beginning of a new era of growth for Marvell",
+   "catalyst": {
+    "present": true,
+    "desc": "맞춤형 AI 실리콘 양산 진입, 2분기 연속 19% 순차 성장·4분기 YoY 26% 가속 전망",
+    "quote": "primarily driven by our custom AI silicon programs, which are now in volume production"
+   },
+   "showstopper": {
+    "type": "structural_potential",
+    "desc": "소수 대형 고객 의존 심화(데이터센터 비중 73%) 위험을 새로 명시",
+    "quote": "particularly as our major customers comprise an increasing percentage of our revenue"
+   },
+   "narrative_shift": 2,
+   "narrative_reason": "맞춤형 AI 양산으로 데이터센터 +98%, 4분기 가이던스 18억달러(YoY +26%)로 성장률 급가속을 수치로 제시",
+   "narrative_quote": "we expect revenue growth to accelerate significantly to 26%",
+   "notes": "3분기 구조조정 비용 대부분 비현금(손상), 비GAAP 기준에서는 제외. 비데이터센터 시장은 여전히 YoY -22~-73%."
+  },
+  {
+   "accession": "0001835632-25-000051",
+   "filing_date": "2025-03-05",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q4 FY2025",
+   "period_end": "2025-02-01",
+   "revenue_musd": 1817.4,
+   "revenue_py_musd": 1426.5,
+   "revenue_yoy_pct_stated": 27,
+   "key_segment": {
+    "name": "Data center",
+    "revenue_musd": 1365.8,
+    "yoy_pct": 78
+   },
+   "prior_guided_actual": {
+    "metric": "Net revenue",
+    "actual_musd": 1817.4,
+    "quote": "Net revenue for the fourth quarter of fiscal 2025 was $1.817 billion, $17.0 million above the mid-point of the Company"
+   },
+   "next_q_guidance": {
+    "metric": "Net revenue (Q1 FY2026)",
+    "is_total_revenue": true,
+    "low_musd": 1781.25,
+    "high_musd": 1968.75,
+    "point_musd": 1875,
+    "guided_yoy_pct_stated": 60,
+    "quote": "Net revenue is expected to be $1.875 billion +/- 5%."
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2026",
+    "metric": "Net revenue (정성적: strong revenue growth, 금액 없음)",
+    "is_total_revenue": true,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": null,
+    "change_vs_prior": "initiated",
+    "quote": "we anticipate strong revenue growth for the full fiscal year"
+   },
+   "profit_guidance": {
+    "metric": "Q1 FY2026 non-GAAP diluted EPS $0.61 +/- $0.05 (직전 가이던스 $0.59 대비 순차 상향)",
+    "change_vs_prior": "raised",
+    "quote": "Non-GAAP diluted net income per share is expected to be $0.61 +/- $0.05 per share."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "구조조정 환입(-1,250만달러) 등 소규모 항목뿐, 중대한 일회성 없음",
+   "tone": "strong",
+   "tone_quote": "We are well positioned for a strong start to fiscal 2026.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_potential",
+    "desc": "고객사 자체 개발·수직계열화로 제품 수요가 줄 위험을 위험요인에 새로 추가",
+    "quote": "risks that our customers develop their own solutions, vertically integrate which may reduce the need for our products"
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "YoY 성장 27%→1분기 60%+ 전망과 신규 맞춤형 설계 수주는 긍정, 다만 1분기 가이던스 순차 +3%로 순차 성장 둔화(혼조)",
+   "narrative_quote": "Marvell has secured multiple new design wins, including several custom silicon programs that will fuel future growth.",
+   "notes": "FY2025 연간 매출 57.67억달러. 1분기 YoY 가이던스는 'over 60 percent'(하한 표기)."
+  },
+  {
+   "accession": "0001193125-25-113881",
+   "filing_date": "2025-05-06",
+   "is_quarterly_results": false,
+   "fiscal_period": "Q1 FY2026 (분기 중 가이던스 갱신)",
+   "period_end": "",
+   "revenue_musd": null,
+   "revenue_py_musd": null,
+   "revenue_yoy_pct_stated": null,
+   "key_segment": null,
+   "prior_guided_actual": null,
+   "next_q_guidance": {
+    "metric": "Net revenue (Q1 FY2026, 중간값 재확인·범위 축소)",
+    "is_total_revenue": true,
+    "low_musd": 1837.5,
+    "high_musd": 1912.5,
+    "point_musd": 1875,
+    "guided_yoy_pct_stated": null,
+    "quote": "Net revenue is now expected to be approximately $1.875 billion, within a range of +/- 2%, compared to the prior range of +/- 5%."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "",
+    "change_vs_prior": "none",
+    "quote": ""
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "",
+   "tone": "cautious",
+   "tone_quote": "We have decided to postpone our investor day given the current uncertain macroeconomic environment.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "거시경제 불확실성으로 6월 투자자의 날을 2026년으로 연기",
+    "quote": "In light of the dynamic macroeconomic environment, the company has decided to postpone its previously scheduled Investor Day"
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "1분기 매출 중간값 재확인·범위 ±2%로 축소(가시성 개선)했으나 거시 불확실성으로 투자자의 날 연기(혼조)",
+   "narrative_quote": "The Company also reaffirmed the midpoint of its revenue outlook for the first quarter of fiscal 2026",
+   "notes": "정기 실적 발표 아님. 1분기(5/3 종료) 직후 매출 가이던스 재확인 공지로 사실상 예비 실적 성격. 원문에 일부 제어문자(대시·따옴표) 포함."
+  },
+  {
+   "accession": "0001835632-25-000115",
+   "filing_date": "2025-05-29",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q1 FY2026",
+   "period_end": "2025-05-03",
+   "revenue_musd": 1895.3,
+   "revenue_py_musd": 1160.9,
+   "revenue_yoy_pct_stated": 63,
+   "key_segment": {
+    "name": "Data center",
+    "revenue_musd": 1440.6,
+    "yoy_pct": 76
+   },
+   "prior_guided_actual": {
+    "metric": "Net revenue",
+    "actual_musd": 1895.3,
+    "quote": "Net revenue for the first quarter of fiscal 2026 was $1.895 billion, $20.0 million above the mid-point of the Company"
+   },
+   "next_q_guidance": {
+    "metric": "Net revenue (Q2 FY2026)",
+    "is_total_revenue": true,
+    "low_musd": 1900,
+    "high_musd": 2100,
+    "point_musd": 2000,
+    "guided_yoy_pct_stated": null,
+    "quote": "Net revenue is expected to be $2.000 billion +/- 5%."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Q2 FY2026 non-GAAP diluted EPS $0.67 +/- $0.05 (직전 가이던스 $0.61 대비 순차 상향)",
+    "change_vs_prior": "raised",
+    "quote": "Non-GAAP diluted net income per share is expected to be $0.67 +/- $0.05 per share."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "구조조정 이익(-1,230만달러, 부동산 매각이익) 소규모; 매각예정자산 5.88억달러 계상",
+   "tone": "strong",
+   "tone_quote": "Marvell is uniquely positioned at the center of this transformation.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_potential",
+    "desc": "고객 수직계열화 위험 상존, 비GAAP 총마진 62.4%→59.8%로 하락",
+    "quote": "risks that our customers develop their own solutions, vertically integrate which may reduce the need for our products"
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "가이던스대로 YoY 63% 성장·2분기 20억달러 가이던스로 성장 서사 유지, 데이터센터 순차 +5%로 완만",
+   "narrative_quote": "We see our custom silicon business driving strong growth in the second quarter and beyond.",
+   "notes": "대차대조표에 매각예정자산 5.88억달러·영업권 감소(사업 매각 예정, 본문엔 사업명 없음). 비GAAP 세율 7%→10%. 직전 기준 가이던스는 5/6 갱신치(18.75억달러 ±2%)."
+  },
+  {
+   "accession": "0001835632-25-000187",
+   "filing_date": "2025-08-28",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 FY2026",
+   "period_end": "2025-08-02",
+   "revenue_musd": 2006.1,
+   "revenue_py_musd": 1272.9,
+   "revenue_yoy_pct_stated": 58,
+   "key_segment": {
+    "name": "Data center",
+    "revenue_musd": 1490.5,
+    "yoy_pct": 69
+   },
+   "prior_guided_actual": {
+    "metric": "Net revenue",
+    "actual_musd": 2006.1,
+    "quote": "Net revenue for the second quarter of fiscal 2026 was $2.006 billion, $6.0 million above the mid-point of the Company"
+   },
+   "next_q_guidance": {
+    "metric": "Net revenue (Q3 FY2026, 자동차 이더넷 매각 반영)",
+    "is_total_revenue": true,
+    "low_musd": 1957,
+    "high_musd": 2163,
+    "point_musd": 2060,
+    "guided_yoy_pct_stated": null,
+    "quote": "Net revenue is expected to be $2.060 billion +/- 5%."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Q3 FY2026 non-GAAP diluted EPS $0.74 +/- $0.05 (직전 가이던스 $0.67 대비 순차 상향)",
+    "change_vs_prior": "raised",
+    "quote": "Non-GAAP diluted net income per share is expected to be $0.74 +/- $0.05 per share."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "구조조정 비용 870만달러 등 소규모; 8/14 자동차 이더넷 사업 매각 완료로 3분기 GAAP EPS 가이던스에 매각이익 주당 2.10달러 포함",
+   "tone": "strong",
+   "tone_quote": "Our custom AI design activity is at an all-time high, with the Marvell team now engaged in over 50 new opportunities across more than 10 customers.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_potential",
+    "desc": "데이터센터 순차 성장 3%로 둔화, 고객 자체개발·수직계열화 위험 상존",
+    "quote": "risks that our customers develop their own solutions, vertically integrate which may reduce the need for our products"
+   },
+   "narrative_shift": -1,
+   "narrative_reason": "가이던스 상회폭 600만달러로 최소, 데이터센터 YoY 76%→69%·순차 3% 둔화, 3분기 가이던스 순차 +3%(YoY 약 36%)로 성장 둔화",
+   "narrative_quote": "Data center | 1,490.5 | 1,440.6 | 880.9 | 69 | 3",
+   "notes": "자동차 이더넷 사업 8/14 매각, 3분기부터 매출 기반 축소(직전 분기 자동차/산업 7,600만달러 중 일부). 3분기 GAAP EPS 가이던스 $2.03은 매각이익 포함."
+  },
+  {
+   "accession": "0001835632-25-000193",
+   "filing_date": "2025-12-02",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q3 FY2026",
+   "period_end": "2025-11-01",
+   "revenue_musd": 2074.5,
+   "revenue_py_musd": 1516.1,
+   "revenue_yoy_pct_stated": 37,
+   "key_segment": {
+    "name": "Data center",
+    "revenue_musd": 1517.9,
+    "yoy_pct": 38
+   },
+   "prior_guided_actual": {
+    "metric": "Net revenue",
+    "actual_musd": 2074.5,
+    "quote": "Net revenue for the third quarter of fiscal 2026 was $2.075 billion, $15.0 million above the mid-point of the Company"
+   },
+   "next_q_guidance": {
+    "metric": "Net revenue (Q4 FY2026)",
+    "is_total_revenue": true,
+    "low_musd": 2090,
+    "high_musd": 2310,
+    "point_musd": 2200,
+    "guided_yoy_pct_stated": null,
+    "quote": "Net revenue is expected to be $2.200 billion +/- 5%."
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2026",
+    "metric": "Net revenue growth >40% YoY (금액 미기재)",
+    "is_total_revenue": true,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": null,
+    "change_vs_prior": "initiated",
+    "quote": "full-year revenue growth forecasted to exceed 40%"
+   },
+   "profit_guidance": {
+    "metric": "Q4 FY2026 non-GAAP diluted EPS $0.79 +/- $0.05 (직전 가이던스 $0.74 대비 순차 상향)",
+    "change_vs_prior": "raised",
+    "quote": "Non-GAAP diluted net income per share is expected to be $0.79 +/- $0.05 per share."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "자동차 이더넷 사업 매각(25억달러) 세전 처분이익 18.3억달러로 GAAP 순이익 19.0억달러·EPS 2.20달러",
+   "tone": "strong",
+   "tone_quote": "we see demand for our products continuing to accelerate",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "데이터센터 YoY 38%·순차 2%로 둔화, 경영진은 내년 데이터센터 성장 전망 상향",
+    "quote": "Data center | 1,517.9 | 1,490.5 | 1,101.1 | 38 | 2"
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "연간 매출 성장 40% 초과 제시, 내년 데이터센터 성장 전망 상향, 4분기 가이던스 순차 +6%로 재가속, Celestial AI 인수",
+   "narrative_quote": "our data center revenue growth forecast for next year is now higher than prior expectations",
+   "notes": "자동차 이더넷 8/14 매각(3분기는 매각일까지 포함, 전기 비교치는 전 기간 포함). 4분기부터 부문을 데이터센터/통신·기타 2개로 재편. Celestial AI 인수 발표(금액 미기재). 분기 자사주 매입 13억달러(신규 승인 발표 없음). FY2027 데이터센터 전망 상향은 정성적."
+  },
+  {
+   "accession": "0001835632-26-000006",
+   "filing_date": "2026-03-05",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q4 FY2026",
+   "period_end": "2026-01-31",
+   "revenue_musd": 2218.7,
+   "revenue_py_musd": 1817.4,
+   "revenue_yoy_pct_stated": 22,
+   "key_segment": {
+    "name": "Data center",
+    "revenue_musd": 1651.3,
+    "yoy_pct": 21
+   },
+   "prior_guided_actual": {
+    "metric": "Net revenue",
+    "actual_musd": 2218.7,
+    "quote": "Net revenue for the fourth quarter of fiscal 2026 was $2.219 billion, $19.0 million above the mid-point of the Company"
+   },
+   "next_q_guidance": {
+    "metric": "Net revenue (Q1 FY2027, 인수 실적 포함)",
+    "is_total_revenue": true,
+    "low_musd": 2280,
+    "high_musd": 2520,
+    "point_musd": 2400,
+    "guided_yoy_pct_stated": null,
+    "quote": "Net revenue is expected to be $2.400 billion +/- 5%."
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2027",
+    "metric": "Net revenue YoY growth accelerating each quarter (금액 미기재)",
+    "is_total_revenue": true,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": null,
+    "change_vs_prior": "initiated",
+    "quote": "We expect year-over-year revenue growth to accelerate each quarter in fiscal 2027"
+   },
+   "profit_guidance": {
+    "metric": "Q1 FY2027 non-GAAP diluted EPS $0.79 +/- $0.05 (직전 가이던스 $0.79와 동일, 인수 비용 반영)",
+    "change_vs_prior": "maintained",
+    "quote": "Non-GAAP diluted net income per share is expected to be $0.79 +/- $0.05 per share."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "분기 법인세 이익(-1,450만달러) 외 큰 일회성 없음; FY2026 연간 GAAP에는 매각이익 18.3억달러 포함",
+   "tone": "strong",
+   "tone_quote": "with bookings continuing to grow at a record pace",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "데이터센터 YoY 21%로 추가 둔화, 경영진은 FY27 분기마다 성장 가속 전망",
+    "quote": "Data center | 1,651.3 | 1,517.9 | 1,365.8 | 21 | 9"
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "FY26 매출 +42% 달성, 데이터센터 순차 +9% 재가속, FY27 분기별 성장 가속·사상 최대 수주·설계 수주 제시",
+   "narrative_quote": "our design wins in fiscal 2026 hit an all-time record",
+   "notes": "1분기 FY27 가이던스에 Celestial AI·XConn 인수(결산 후 종료) 실적 포함 → 비유기적 매출 증가. 부문 데이터센터/통신·기타 2개로 재편. FY2026 매출 81.95억달러(+42%)."
+  },
+  {
+   "accession": "0001835632-26-000014",
+   "filing_date": "2026-05-27",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q1 FY2027",
+   "period_end": "2026-05-02",
+   "revenue_musd": 2417.8,
+   "revenue_py_musd": 1895.3,
+   "revenue_yoy_pct_stated": 28,
+   "key_segment": {
+    "name": "Data center",
+    "revenue_musd": 1832.7,
+    "yoy_pct": 27
+   },
+   "prior_guided_actual": {
+    "metric": "Net revenue",
+    "actual_musd": 2417.8,
+    "quote": "Net revenue for the first quarter of fiscal 2027 was $2.418 billion, $18.0 million above the mid-point of the Company"
+   },
+   "next_q_guidance": {
+    "metric": "Net revenue (Q2 FY2027)",
+    "is_total_revenue": true,
+    "low_musd": 2565,
+    "high_musd": 2835,
+    "point_musd": 2700,
+    "guided_yoy_pct_stated": 35,
+    "quote": "Net revenue is expected to be $2.700 billion +/- 5%."
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2027",
+    "metric": "Net revenue outlook (금액 미기재, FY2028도 함께 상향)",
+    "is_total_revenue": true,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": null,
+    "change_vs_prior": "raised",
+    "quote": "we are significantly raising Marvell’s revenue outlook for both fiscal 2027 and fiscal 2028 compared with the guidance we provided last quarter"
+   },
+   "profit_guidance": {
+    "metric": "Q2 FY2027 non-GAAP diluted EPS $0.93 +/- $0.05 (직전 가이던스 $0.79 대비 상향)",
+    "change_vs_prior": "raised",
+    "quote": "Non-GAAP diluted net income per share is expected to be $0.93 +/- $0.05 per share."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "인수 조건부대가 공정가치 변동 손실 3.32억달러(선도주식매입계약 이익 0.81억달러 상쇄)·인수 관련 비용으로 GAAP 순이익 3,450만달러",
+   "tone": "strong",
+   "tone_quote": "We are seeing exceptional AI-related bookings",
+   "catalyst": {
+    "present": true,
+    "desc": "AI 수주 급증으로 FY27·FY28 매출 전망 대폭 상향, 2분기 가이던스 YoY 35%",
+    "quote": "guided second-quarter revenue to $2.7 billion at the mid-point, representing 35% year-over-year growth"
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "인수 비용·우선주 발행 희석으로 비GAAP EPS 전분기와 같은 0.80달러, 2분기 0.93달러로 개선 전망",
+    "quote": "Non-GAAP diluted net income per share | 0.80 | 0.80 | 0.62"
+   },
+   "narrative_shift": 2,
+   "narrative_reason": "AI 수주 급증으로 2개 회계연도 매출 전망 대폭 상향, 2분기 가이던스 순차 +12%·YoY 35%로 성장 재가속",
+   "narrative_quote": "we are significantly raising Marvell’s revenue outlook for both fiscal 2027 and fiscal 2028 compared with the guidance we provided last quarter",
+   "notes": "Celestial AI(2/2)·XConn(2/10) 인수 실적 포함(비유기적 매출). 3/31 시리즈A 전환우선주 발행(20억달러), 2-class EPS 적용·주식수 증가. 비GAAP 세율 11%. FY 전망 금액은 본문에 없음."
+  },
+  {
+   "accession": "0001835632-26-000022",
+   "filing_date": "2026-08-27",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 FY2027",
+   "period_end": "2026-08-01",
+   "revenue_musd": 2739.3,
+   "revenue_py_musd": 2006.1,
+   "revenue_yoy_pct_stated": 37,
+   "key_segment": {
+    "name": "Data center",
+    "revenue_musd": 2171.5,
+    "yoy_pct": 46
+   },
+   "prior_guided_actual": {
+    "metric": "Net revenue",
+    "actual_musd": 2739.3,
+    "quote": "Net revenue for the second quarter of fiscal 2027 was $2.739 billion, $39.0 million above the mid-point of the Company"
+   },
+   "next_q_guidance": {
+    "metric": "Net revenue (Q3 FY2027)",
+    "is_total_revenue": true,
+    "low_musd": 2992.5,
+    "high_musd": 3307.5,
+    "point_musd": 3150,
+    "guided_yoy_pct_stated": null,
+    "quote": "Net revenue is expected to be $3.150 billion +/- 5%."
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2027",
+    "metric": "Net revenue outlook (금액 미기재, FY2028도 재상향)",
+    "is_total_revenue": true,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": null,
+    "change_vs_prior": "raised",
+    "quote": "we are again raising our revenue outlook for both fiscal 2027 and fiscal 2028 compared with the guidance we provided last quarter"
+   },
+   "profit_guidance": {
+    "metric": "Q3 FY2027 non-GAAP diluted EPS $1.10 +/- $0.05 (직전 가이던스 $0.93 대비 상향)",
+    "change_vs_prior": "raised",
+    "quote": "Non-GAAP diluted net income per share is expected to be $1.10 +/- $0.05 per share."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "조건부대가·선도매입계약 공정가치 변동 순손실 5,200만달러; 주식보상비용 3.26억달러로 전년(1.54억달러) 대비 급증",
+   "tone": "strong",
+   "tone_quote": "AI-related bookings remain exceptionally robust, and we expect our revenue growth to accelerate further through the remainder of fiscal 2027.",
+   "catalyst": {
+    "present": true,
+    "desc": "데이터센터 YoY 46%로 가속, 3분기 가이던스 31.5억달러(순차 +15%), 하반기 맞춤형 사업 대폭 가속",
+    "quote": "a significant acceleration in our Custom business beginning in the second half of fiscal 2027"
+   },
+   "showstopper": {
+    "type": "structural_potential",
+    "desc": "첨단 웨이퍼·기판·테스트 공급 제약 위험을 새로 명시, 3분기 비GAAP 총마진 가이던스 57.5~58.5%로 하락",
+    "quote": "constrained supply or limited availability of advanced semiconductor wafers, substrates, outsourced test services, and other electronic components"
+   },
+   "narrative_shift": 2,
+   "narrative_reason": "데이터센터 YoY 27%→46% 가속·순차 +18%, 3분기 가이던스 순차 +15%(YoY 약 52%), FY27·FY28 전망 재상향",
+   "narrative_quote": "where revenue growth accelerated to 46% year over year",
+   "notes": "10/6 투자자의 날 예정. FY 전망 금액 본문에 없음. 3분기 이후 비GAAP 전망의 GAAP 조정표 미제공 문구 추가. IR 담당자 교체."
+  }
+ ],
+ "fixes": [
+  {
+   "accession": "0001835632-25-000051",
+   "field": "fy_guidance",
+   "value_json": "{\"fiscal_year\": \"FY2026\", \"metric\": \"Net revenue (정성적: strong revenue growth, 금액 없음)\", \"is_total_revenue\": true, \"low_musd\": null, \"high_musd\": null, \"point_musd\": null, \"change_vs_prior\": \"initiated\", \"quote\": \"we anticipate strong revenue growth for the full fiscal year\"}",
+   "winner": "A",
+   "quote": "We are well positioned for a strong start to fiscal 2026. We expect first-quarter revenue growth of over 60 percent year-over-year at the mid-point of guidance, and we anticipate strong revenue growth for the full fiscal year."
+  },
+  {
+   "accession": "0001835632-25-000193",
+   "field": "fy_guidance",
+   "value_json": "{\"fiscal_year\": \"FY2026\", \"metric\": \"Net revenue growth >40% YoY (금액 미기재)\", \"is_total_revenue\": true, \"low_musd\": null, \"high_musd\": null, \"point_musd\": null, \"change_vs_prior\": \"initiated\", \"quote\": \"full-year revenue growth forecasted to exceed 40%\"}",
+   "winner": "A",
+   "quote": "We are guiding for robust growth in the fourth quarter and are on track for a strong finish to the fiscal year, with full-year revenue growth forecasted to exceed 40%."
+  },
+  {
+   "accession": "0001835632-26-000006",
+   "field": "fy_guidance",
+   "value_json": "{\"fiscal_year\": \"FY2027\", \"metric\": \"Net revenue YoY growth accelerating each quarter (금액 미기재)\", \"is_total_revenue\": true, \"low_musd\": null, \"high_musd\": null, \"point_musd\": null, \"change_vs_prior\": \"initiated\", \"quote\": \"We expect year-over-year revenue growth to accelerate each quarter in fiscal 2027\"}",
+   "winner": "A",
+   "quote": "We expect year-over-year revenue growth to accelerate each quarter in fiscal 2027, driven by continued strength in our data center business, with bookings continuing to grow at a record pace."
+  },
+  {
+   "accession": "0001835632-26-000014",
+   "field": "fy_guidance",
+   "value_json": "{\"fiscal_year\": \"FY2027\", \"metric\": \"Net revenue outlook (금액 미기재, FY2028도 함께 상향)\", \"is_total_revenue\": true, \"low_musd\": null, \"high_musd\": null, \"point_musd\": null, \"change_vs_prior\": \"raised\", \"quote\": \"we are significantly raising Marvell’s revenue outlook for both fiscal 2027 and fiscal 2028 compared with the guidance we provided last quarter\"}",
+   "winner": "A",
+   "quote": "we are significantly raising Marvell’s revenue outlook for both fiscal 2027 and fiscal 2028 compared with the guidance we provided last quarter"
+  },
+  {
+   "accession": "0001835632-26-000022",
+   "field": "fy_guidance",
+   "value_json": "{\"fiscal_year\": \"FY2027\", \"metric\": \"Net revenue outlook (금액 미기재, FY2028도 재상향)\", \"is_total_revenue\": true, \"low_musd\": null, \"high_musd\": null, \"point_musd\": null, \"change_vs_prior\": \"raised\", \"quote\": \"we are again raising our revenue outlook for both fiscal 2027 and fiscal 2028 compared with the guidance we provided last quarter\"}",
+   "winner": "A",
+   "quote": "Given this strength, we are again raising our revenue outlook for both fiscal 2027 and fiscal 2028 compared with the guidance we provided last quarter."
+  }
+ ],
+ "qc": {
+  "bad_quotes": [],
+  "revenue_mismatch": []
+ }
+}

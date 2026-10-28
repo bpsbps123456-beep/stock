@@ -1,0 +1,514 @@
+{
+ "ticker": "AMD",
+ "events": [
+  {
+   "accession": "0000002488-24-000121",
+   "filing_date": "2024-07-30",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 2024",
+   "period_end": "2024-06-29",
+   "revenue_musd": 5835,
+   "revenue_py_musd": 5359,
+   "revenue_yoy_pct_stated": 9,
+   "key_segment": {
+    "name": "Data Center",
+    "revenue_musd": 2834,
+    "yoy_pct": 115
+   },
+   "prior_guided_actual": null,
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 6400,
+    "high_musd": 7000,
+    "point_musd": 6700,
+    "guided_yoy_pct_stated": 16,
+    "quote": "For the third quarter of 2024, AMD expects revenue to be approximately $6.7 billion, plus or minus $300 million."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "next-quarter non-GAAP gross margin ~53.5%",
+    "change_vs_prior": "unclear",
+    "quote": "Non-GAAP gross margin is expected to be approximately 53.5%."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "",
+   "tone": "strong",
+   "tone_quote": "Our AI business continued accelerating and we are well positioned to deliver strong revenue growth in the second half of the year led by demand for Instinct, EPYC and Ryzen processors.",
+   "catalyst": {
+    "present": true,
+    "desc": "Instinct GPU 급증으로 데이터센터 매출 전년비 115% 증가(28억달러), AI 신사업 본격화",
+    "quote": "Record Data Center segment revenue of $2.8 billion was up 115% year-over-year primarily driven by the steep ramp of AMD Instinct"
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "임베디드 -41%·게이밍 -59% 감소, 임베디드는 고객 재고조정으로 일시적이며 전분기 대비 소폭 회복",
+    "quote": "Embedded segment revenue was $861 million, down 41% year-over-year as customers continued to normalize their inventory levels. Revenue increased 2% sequentially."
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "매출이 가이던스 중간값 상회, DC 115% 성장, 3분기 매출 67억달러(전년비 16%·전분기비 15%) 가이드로 하반기 성장 가시성 강화",
+   "narrative_quote": "AMD executed well in the second quarter, with revenue above the midpoint of our guidance driven by strong growth in the Data Center and Client segments",
+   "notes": "분기말 2024-06-29(52/53주 회계연도). 비교할 이전 릴리스 없음. GAAP 이익은 Xilinx 인수 무형자산 상각(603M)으로 Non-GAAP 대비 크게 낮음."
+  },
+  {
+   "accession": "0000002488-24-000161",
+   "filing_date": "2024-10-29",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q3 2024",
+   "period_end": "2024-09-28",
+   "revenue_musd": 6819,
+   "revenue_py_musd": 5800,
+   "revenue_yoy_pct_stated": 18,
+   "key_segment": {
+    "name": "Data Center",
+    "revenue_musd": 3549,
+    "yoy_pct": 122
+   },
+   "prior_guided_actual": {
+    "metric": "revenue (guided ~$6.7B +/- $300M)",
+    "actual_musd": 6819,
+    "quote": "Revenue ($M) | $6,819 | $5,800 | Up 18% | $5,835 | Up 17%"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 7200,
+    "high_musd": 7800,
+    "point_musd": 7500,
+    "guided_yoy_pct_stated": 22,
+    "quote": "For the fourth quarter of 2024, AMD expects revenue to be approximately $7.5 billion, plus or minus $300 million."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "next-quarter non-GAAP gross margin ~54% (prior guide ~53.5%)",
+    "change_vs_prior": "raised",
+    "quote": "Non-GAAP gross margin is expected to be approximately 54%."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "법인세 혜택(-27M)으로 GAAP 순이익이 영업이익 상회; Silo AI 인수 완료(인수 현금 548M), ZT Systems 인수 합의",
+   "tone": "strong",
+   "tone_quote": "Looking forward, we see significant growth opportunities across our data center, client and embedded businesses driven by the insatiable demand for more compute.",
+   "catalyst": {
+    "present": true,
+    "desc": "Instinct GPU 램프로 데이터센터 매출 35억달러, 전년비 122%·전분기비 25% 성장 가속",
+    "quote": "Record Data Center segment revenue of $3.5 billion was up 122% year-over-year and 25% sequentially"
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "게이밍 -69%·임베디드 -25% 감소, 임베디드는 전분기비 8% 회복으로 개선 중",
+    "quote": "On a sequential basis, revenue increased 8% as demand improved in several end markets."
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "매출 68.2억달러로 가이던스 중간값(67억) 상회, DC 성장률 115%→122% 가속, 4분기 75억(전년비 22%) 가이드와 GM 가이드 상향",
+   "narrative_quote": "We delivered strong third quarter financial results with record revenue led by higher sales of EPYC and Instinct data center products and robust demand for our Ryzen PC processors",
+   "notes": "분기말 2024-09-28. ZT Systems 인수는 2025년 상반기 종결 예정으로 아직 매출 기반 변화 없음. FY 가이던스는 수치 없는 정성적 '연간 최대 매출' 전망."
+  },
+  {
+   "accession": "0000002488-25-000009",
+   "filing_date": "2025-02-04",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q4 2024",
+   "period_end": "2024-12-28",
+   "revenue_musd": 7658,
+   "revenue_py_musd": 6168,
+   "revenue_yoy_pct_stated": 24,
+   "key_segment": {
+    "name": "Data Center",
+    "revenue_musd": 3859,
+    "yoy_pct": 69
+   },
+   "prior_guided_actual": {
+    "metric": "revenue (guided ~$7.5B +/- $300M)",
+    "actual_musd": 7658,
+    "quote": "Revenue ($M) | $7,658 | $6,168 | Up 24% | $6,819 | Up 12%"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 6800,
+    "high_musd": 7400,
+    "point_musd": 7100,
+    "guided_yoy_pct_stated": 30,
+    "quote": "For the first quarter of 2025, AMD expects revenue to be approximately $7.1 billion, plus or minus $300 million."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "next-quarter non-GAAP gross margin ~54%",
+    "change_vs_prior": "maintained",
+    "quote": "Non-GAAP gross margin is expected to be approximately 54%."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "구조조정 비용 186M(2024 구조조정 계획) 및 일회성 법인세 비용(세금 419M)으로 GAAP 순이익 전년비 28% 감소",
+   "tone": "strong",
+   "tone_quote": "2024 was a transformative year for AMD as we delivered record annual revenue and strong earnings growth",
+   "catalyst": {
+    "present": true,
+    "desc": "2024년 Instinct 가속기 매출 50억달러 초과(연매출의 약 20%), DC 연매출 거의 2배",
+    "quote": "Data Center segment annual revenue nearly doubled as EPYC processor adoption accelerated and we delivered more than $5 billion of AMD Instinct accelerator revenue."
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "1분기 매출 전분기비 약 7% 감소 가이드(전년비는 30% 성장), 계절적 둔화 성격",
+    "quote": "At the mid-point of the revenue range, this represents year-over-year growth of approximately 30% and a sequential decline of approximately 7%."
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "매출 가이던스 상회·Instinct 50억달러 돌파는 긍정이나 DC 성장률 122%→69%, 전분기비 25%→9%로 둔화, 1분기 QoQ 감소 가이드로 혼조",
+   "narrative_quote": "Data Center segment revenue in the quarter was a record $3.9 billion, up 69% year-over-year",
+   "notes": "분기말 2024-12-28. FY2024 매출 25,785M(+14%)으로 3분기의 '연간 최대 매출' 전망 달성. 3분기 미청구채권 953M을 매출채권에서 기타유동자산으로 재분류."
+  },
+  {
+   "accession": "0000002488-25-000045",
+   "filing_date": "2025-05-06",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q1 2025",
+   "period_end": "2025-03-29",
+   "revenue_musd": 7438,
+   "revenue_py_musd": 5473,
+   "revenue_yoy_pct_stated": 36,
+   "key_segment": {
+    "name": "Data Center",
+    "revenue_musd": 3674,
+    "yoy_pct": 57
+   },
+   "prior_guided_actual": {
+    "metric": "revenue (guided ~$7.1B +/- $300M)",
+    "actual_musd": 7438,
+    "quote": "Revenue ($M) | $7,438 | $5,473 | Up 36% | $7,658 | Down 3%"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 7100,
+    "high_musd": 7700,
+    "point_musd": 7400,
+    "guided_yoy_pct_stated": null,
+    "quote": "For the second quarter of 2025, AMD expects revenue to be approximately $7.4 billion, plus or minus $300 million."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "next-quarter non-GAAP gross margin ~43% incl. ~$800M export-control inventory charge (~54% ex-charge)",
+    "change_vs_prior": "lowered",
+    "quote": "Non-GAAP gross margin is estimated to be 43% inclusive of approximately $800 million in charges for inventory and related reserves due to the new export controls"
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "ZT Systems 인수 3/31 완료(장기채 15억·CP 9.5억달러 조달); 2분기 수출통제 재고 충당 약 8억달러 예고",
+   "tone": "strong",
+   "tone_quote": "We delivered an outstanding start to 2025 as year-over-year growth accelerated for the fourth consecutive quarter driven by strength in our core businesses and expanding data center and AI momentum",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_quantified",
+    "desc": "미국 신규 수출통제로 2분기 재고·충당 약 8억달러, Non-GAAP GM 43%로 하락 예상",
+    "quote": "approximately $800 million in charges for inventory and related reserves due to the new export controls as previously disclosed"
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "매출 가이던스 크게 상회·4분기 연속 성장 가속은 긍정이나 DC 전분기비 -5%·성장률 57%로 둔화, 수출통제 8억달러 충당으로 혼조",
+   "narrative_quote": "Despite the dynamic macro and regulatory environment, our first quarter results and second quarter outlook highlight the strength of our differentiated product portfolio",
+   "notes": "분기말 2025-03-29. 2025년 1분기부터 Client와 Gaming을 'Client and Gaming' 단일 세그먼트로 통합(3개 세그먼트). 라이선스 이익을 MG&A로 재분류(Q4'24 영업비용 3,022→3,011 재표시). ZT Systems 3/31 인수 완료로 2분기부터 매출 기반 변화 가능, 제조사업 매각 추진."
+  },
+  {
+   "accession": "0000002488-25-000106",
+   "filing_date": "2025-08-05",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 2025",
+   "period_end": "2025-06-28",
+   "revenue_musd": 7685,
+   "revenue_py_musd": 5835,
+   "revenue_yoy_pct_stated": 32,
+   "key_segment": {
+    "name": "Data Center",
+    "revenue_musd": 3240,
+    "yoy_pct": 14
+   },
+   "prior_guided_actual": {
+    "metric": "revenue",
+    "actual_musd": 7685,
+    "quote": "Second quarter revenue was a record $7.7 billion"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 8400,
+    "high_musd": 9000,
+    "point_musd": 8700,
+    "guided_yoy_pct_stated": 28,
+    "quote": "For the third quarter of 2025, AMD expects revenue to be approximately $8.7 billion, plus or minus $300 million."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Non-GAAP gross margin (Q3'25) ~54%",
+    "change_vs_prior": "maintained",
+    "quote": "Non-GAAP gross margin is expected to be approximately 54%."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "MI308 수출규제 재고·관련 비용 약 8억달러, 불확실 세무포지션 충당금 환입 8.53억달러(GAAP 순이익 부풀림), ZT 제조부문 중단영업이익 1.04억달러, 지분투자 이익 6,100만달러",
+   "tone": "strong",
+   "tone_quote": "We are seeing robust demand across our computing and AI product portfolio and are well positioned to deliver significant growth in the second half of the year",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "MI308 대중국 수출규제로 약 8억달러 재고비용·데이터센터 영업손실, 3분기 마진 54% 회복 가이던스로 일회성 성격",
+    "quote": "For the quarter, these restrictions led to approximately $800 million in inventory and related charges. Excluding these charges, non-GAAP gross margin would have been approximately 54%."
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "매출은 가이던스(74억) 상회·3분기 87억(+13% QoQ) 가이던스로 강하나, 데이터센터 +14%로 급감속·영업손실, non-GAAP EPS -30%로 혼재",
+   "narrative_quote": "primarily driven by strong demand for AMD EPYC™ processors more than offsetting headwinds impacting AMD Instinct MI308 shipments to China",
+   "notes": "직전 가이던스: 2분기 매출 74억±3억달러, non-GAAP GM 43%(비용 제외 54%). ZT Systems 제조부문이 매각예정(중단영업)으로 분류, Sanmina에 30억달러 매각 합의. 3분기 가이던스는 MI308 중국 매출 미포함. GAAP 순이익(8.72억)은 세금 환입 영향으로 non-GAAP(7.81억)보다 큼."
+  },
+  {
+   "accession": "0000002488-25-000163",
+   "filing_date": "2025-11-04",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q3 2025",
+   "period_end": "2025-09-27",
+   "revenue_musd": 9246,
+   "revenue_py_musd": 6819,
+   "revenue_yoy_pct_stated": 36,
+   "key_segment": {
+    "name": "Data Center",
+    "revenue_musd": 4341,
+    "yoy_pct": 22
+   },
+   "prior_guided_actual": {
+    "metric": "revenue",
+    "actual_musd": 9246,
+    "quote": "Third quarter revenue was a record $9.2 billion"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 9300,
+    "high_musd": 9900,
+    "point_musd": 9600,
+    "guided_yoy_pct_stated": 25,
+    "quote": "For the fourth quarter of 2025, AMD expects revenue to be approximately $9.6 billion, plus or minus $300 million."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Non-GAAP gross margin (Q4'25) ~54.5%",
+    "change_vs_prior": "raised",
+    "quote": "Non-GAAP gross margin is expected to be approximately 54.5%."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "계약제조사 재고손실 회수 6,700만달러, 법적 손실충당 1,200만달러, ZT 중단영업이익 7,100만달러, 투자이익 2,600만달러(모두 소규모)",
+   "tone": "strong",
+   "tone_quote": "Our record third quarter performance and strong fourth quarter guidance marks a clear step up in our growth trajectory",
+   "catalyst": {
+    "present": true,
+    "desc": "OpenAI와 6GW GPU 배치 전략적 파트너십(2026 하반기 MI450 1GW 시작), 오라클 MI450 5만개 2026년 3분기 배치",
+    "quote": "AMD announced a strategic partnership with OpenAI to deploy 6-GW of AMD GPUs, with initial 1-GW rollout of AMD Instinct MI450 GPUs in 2H 2026."
+   },
+   "showstopper": {
+    "type": "structural_potential",
+    "desc": "MI308 대중국 출하 매출 0이 지속, 4분기 가이던스에도 미포함 — 중국 AI GPU 시장 접근 제한",
+    "quote": "Our current outlook does not include any revenue from AMD Instinct MI308 shipments to China."
+   },
+   "narrative_shift": 2,
+   "narrative_reason": "가이던스 87억 대비 92.5억으로 크게 상회, OpenAI 6GW·오라클 5만 GPU로 AI GPU 수요 가시성 급증, 경영진이 성장 궤적의 '뚜렷한 상향' 명시",
+   "narrative_quote": "marks a clear step up in our growth trajectory as our expanding compute franchise and rapidly scaling data center AI business drive significant revenue and earnings growth",
+   "notes": "ZT Systems 제조부문 Sanmina 매각 완료 발표(중단영업 처리, 매출 기반 제외). 3분기 실적·4분기 가이던스 모두 MI308 중국 매출 미포함."
+  },
+  {
+   "accession": "0000002488-26-000014",
+   "filing_date": "2026-02-03",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q4 2025",
+   "period_end": "2025-12-27",
+   "revenue_musd": 10270,
+   "revenue_py_musd": 7658,
+   "revenue_yoy_pct_stated": 34,
+   "key_segment": {
+    "name": "Data Center",
+    "revenue_musd": 5380,
+    "yoy_pct": 39
+   },
+   "prior_guided_actual": {
+    "metric": "revenue",
+    "actual_musd": 10270,
+    "quote": "Fourth quarter revenue was a record $10.3 billion"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 9500,
+    "high_musd": 10100,
+    "point_musd": 9800,
+    "guided_yoy_pct_stated": 32,
+    "quote": "For the first quarter of 2026, AMD expects revenue to be approximately $9.8 billion, plus or minus $300 million, including approximately $100 million of AMD Instinct MI308 sales to China."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Non-GAAP gross margin (Q1'26) ~55%",
+    "change_vs_prior": "raised",
+    "quote": "Non-GAAP gross margin is expected to be approximately 55%."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "MI308 재고충당금 환입 약 3.6억달러, MI308 중국 매출 약 3.9억달러(가이던스 미포함), 장기투자 이익 2.8억달러, ZT 중단영업손실 1.09억달러",
+   "tone": "strong",
+   "tone_quote": "We are entering 2026 with strong momentum across our business, led by accelerating adoption of our high-performance EPYC and Ryzen CPUs and the rapid scaling of our data center AI franchise.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "4분기 실적에 MI308 중국 매출·충당금 환입 일회성 포함(제외 시 GM 55%), 1분기 가이던스 전분기 대비 -5%",
+    "quote": "Excluding the inventory reserve reversal and AMD Instinct MI308 sales to China, fourth quarter non-GAAP gross margin would have been approximately 55%."
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "데이터센터 +39%로 가속하고 가이던스 96억을 크게 상회했으나 일부는 MI308 중국 일회성, 1분기 가이던스 전분기 -5%이고 새 대형 계약 없음",
+   "narrative_quote": "The mid-point of the revenue range represents year-over-year growth of approximately 32% and a sequential decline of approximately 5%.",
+   "notes": "4분기·연간 동시 발표, FY2025 매출 34,639백만달러(+34%), 데이터센터 연간 16,635(+32%). 4분기 MI308 중국 매출 약 3.9억달러, 재고충당금 환입 약 3.6억달러 포함. ZT 제조부문 4분기 매각 완료. 연간 가이던스 없음."
+  },
+  {
+   "accession": "0000002488-26-000072",
+   "filing_date": "2026-05-05",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q1 2026",
+   "period_end": "2026-03-28",
+   "revenue_musd": 10253,
+   "revenue_py_musd": 7438,
+   "revenue_yoy_pct_stated": 38,
+   "key_segment": {
+    "name": "Data Center",
+    "revenue_musd": 5775,
+    "yoy_pct": 57
+   },
+   "prior_guided_actual": {
+    "metric": "revenue",
+    "actual_musd": 10253,
+    "quote": "First quarter revenue was $10.3 billion"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 10900,
+    "high_musd": 11500,
+    "point_musd": 11200,
+    "guided_yoy_pct_stated": 46,
+    "quote": "For the second quarter of 2026, AMD expects revenue to be approximately $11.2 billion, plus or minus $300 million."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Non-GAAP gross margin (Q2'26) ~56%",
+    "change_vs_prior": "raised",
+    "quote": "Non-GAAP gross margin is expected to be approximately 56%."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "장기투자 이익 6,600만달러, ZT 중단영업이익 1,100만달러(소규모)",
+   "tone": "strong",
+   "tone_quote": "We are seeing strong momentum as inferencing and agentic AI drive increasing demand for high-performance CPUs and accelerators.",
+   "catalyst": {
+    "present": true,
+    "desc": "메타와 최대 6GW Instinct GPU 배치 계획(첫 1GW 맞춤형 MI450), 메타가 6세대 EPYC 주요 고객",
+    "quote": "Meta and AMD announced plans to deploy up to 6 gigawatts of AMD Instinct GPUs, with the first 1-GW to be powered by a custom AMD Instinct MI450-based GPU."
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "서버 수요 대비 공급 부족 — 공급 확대 중이며 성장 가속 예상(일시적 제약)",
+    "quote": "Looking ahead, we expect server growth to accelerate meaningfully as we scale supply to meet demand."
+   },
+   "narrative_shift": 2,
+   "narrative_reason": "메타 최대 6GW 계약 추가, 데이터센터 +57%로 가속, 가이던스 98억 대비 102.5억 상회, 2분기 가이던스 +46%로 성장 가속, 고객 예측이 초기 기대 초과",
+   "narrative_quote": "Customer engagement around MI450 Series and Helios is strengthening, with leading customer forecasts exceeding our initial expectations",
+   "notes": "MI308 중국 매출 별도 공시 없음(직전 가이던스에 약 1억달러 포함). 연간 가이던스 없음."
+  },
+  {
+   "accession": "0000002488-26-000121",
+   "filing_date": "2026-08-04",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 2026",
+   "period_end": "2026-06-27",
+   "revenue_musd": 11536,
+   "revenue_py_musd": 7685,
+   "revenue_yoy_pct_stated": 50,
+   "key_segment": {
+    "name": "Data Center",
+    "revenue_musd": 6718,
+    "yoy_pct": 107
+   },
+   "prior_guided_actual": {
+    "metric": "revenue",
+    "actual_musd": 11536,
+    "quote": "Second quarter revenue was $11.5 billion"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 12700,
+    "high_musd": 13300,
+    "point_musd": 13000,
+    "guided_yoy_pct_stated": 41,
+    "quote": "For the third quarter of 2026, AMD expects revenue to be approximately $13 billion, plus or minus $300 million."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Non-GAAP gross margin (Q3'26) ~56%",
+    "change_vs_prior": "maintained",
+    "quote": "Non-GAAP gross margin is expected to be approximately 56%."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "장기투자 이익 4.83억달러(GAAP 순이익 증가), 법적 손실충당 1,700만달러",
+   "tone": "strong",
+   "tone_quote": "We enter the second half with strong momentum as EPYC demand accelerates, Instinct deployments scale and Helios begins to ramp.",
+   "catalyst": {
+    "present": true,
+    "desc": "Helios 랙 출시·Anthropic 최대 2GW MI450 계약·Azure 대규모 배치, 데이터센터 매출 전년비 107% 증가",
+    "quote": "Announced a strategic partnership with Anthropic to deploy up to 2 gigawatts of MI450 Series GPUs in AMD Helios racks"
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "게임 매출 -31%(세미커스텀 감소), 클라이언트·게임 영업이익 -24% — 콘솔 주기성 약세",
+    "quote": "Gaming business revenue was $779 million, down 31% year-over-year, due to lower semi-custom revenue."
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "데이터센터 매출 2배(+107%), 가이던스 112억 상회, Helios 출시·Anthropic 2GW 추가, 하반기 DC 가속 전망; 3분기 가이던스 YoY 41%로 증가율은 다소 둔화",
+   "narrative_quote": "with record revenue and profitability as Data Center revenue more than doubled year-over-year",
+   "notes": "비교 기준 Q2'25에 MI308 재고비용 8억달러 포함(YoY 마진·이익 비교 왜곡). 자본 항목에서 자기주식이 0으로 감소(소각 처리로 보임, 별도 문구 없음). MEXT 인수(소규모). 설비투자 8.08억달러로 FCF 15.58억달러로 감소."
+  }
+ ],
+ "fixes": [
+  {
+   "accession": "0000002488-24-000161",
+   "field": "fy_guidance",
+   "value_json": "null",
+   "winner": "B",
+   "quote": "For the fourth quarter of 2024, AMD expects revenue to be approximately $7.5 billion, plus or minus $300 million."
+  },
+  {
+   "accession": "0000002488-25-000009",
+   "field": "fy_guidance",
+   "value_json": "null",
+   "winner": "B",
+   "quote": "For the first quarter of 2025, AMD expects revenue to be approximately $7.1 billion, plus or minus $300 million."
+  },
+  {
+   "accession": "0000002488-25-000045",
+   "field": "fy_guidance",
+   "value_json": "null",
+   "winner": "B",
+   "quote": "For the second quarter of 2025, AMD expects revenue to be approximately $7.4 billion, plus or minus $300 million."
+  }
+ ],
+ "qc": {
+  "bad_quotes": [],
+  "revenue_mismatch": []
+ }
+}

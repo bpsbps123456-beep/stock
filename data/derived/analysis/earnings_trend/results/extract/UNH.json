@@ -1,0 +1,592 @@
+{
+ "ticker": "UNH",
+ "events": [
+  {
+   "accession": "0000731766-24-000242",
+   "filing_date": "2024-07-16",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 FY2024",
+   "period_end": "2024-06-30",
+   "revenue_musd": 98855,
+   "revenue_py_musd": 92903,
+   "revenue_yoy_pct_stated": null,
+   "key_segment": {
+    "name": "Optum (total)",
+    "revenue_musd": 62879,
+    "yoy_pct": 11.6
+   },
+   "prior_guided_actual": null,
+   "next_q_guidance": null,
+   "fy_guidance": {
+    "fiscal_year": "FY2024",
+    "metric": "adjusted diluted EPS (USD per share, not $M)",
+    "is_total_revenue": false,
+    "low_musd": 27.5,
+    "high_musd": 28,
+    "point_musd": 27.75,
+    "change_vs_prior": "maintained",
+    "quote": "The company affirmed the adjusted net earnings outlook of $27.50 to $28.00 per share established at its November 2023 Investor Conference."
+   },
+   "profit_guidance": {
+    "metric": "FY2024 adjusted EPS $27.50-$28.00 (GAAP EPS cut to $15.95-$16.40 for South America held-for-sale and cyberattack)",
+    "change_vs_prior": "maintained",
+    "quote": "The company affirmed the adjusted net earnings outlook of $27.50 to $28.00 per share established at its November 2023 Investor Conference."
+   },
+   "backlog": {
+    "metric": "Optum Insight contract revenue backlog",
+    "value_musd": 32600,
+    "yoy_pct": null,
+    "quote": "The revenue backlog grew by over $1 billion over last year, reflecting new health system partnerships."
+   },
+   "buyback_new_musd": null,
+   "one_offs": "남미 잔여사업 매각예정 분류 손실 $1,225M(남미 영향 주당 $1.28), 체인지헬스케어 사이버공격 직접대응비용 $776M, 사업중단 매출감소 $334M",
+   "tone": "neutral",
+   "tone_quote": "The diversified, durable growth across UnitedHealth Group stems from our colleagues’ commitment to ensuring high-quality, affordable care is available to the people we serve, and positions us well for the near and long-term",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_quantified",
+    "desc": "CMS 메디케어 지급 삭감·회원 구성 변화로 의료비율 85.1%(전년 83.2%) 상승, UHC 영업이익 감소",
+    "quote": "The increase from the prior year’s 83.2% was also due to the previously noted revenue effects of CMS’s Medicare funding reductions, medical reserve development effects, and business and member mix."
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "매출 +6.4%·Optum 성장 지속, 조정 EPS 가이던스 유지. 다만 사이버 영향 추정 증가와 의료비율 상승으로 혼조",
+   "narrative_quote": "The consistent outlook absorbs an estimated $0.60 to $0.70 per share of business disruption impacts for the affected Change Healthcare services, which has increased $0.30 per share since the initial estimate was provided last quarter.",
+   "notes": "목록 첫 보고서라 직전 보도자료 없음(조정 EPS는 2023년 11월 투자자 행사 가이던스 재확인). GAAP EPS 가이던스는 $15.95-16.40로 갱신. 매출 가이던스 없음. FY 의료비율 가이던스 84.3%±50bp. 남미 사업 매각예정으로 글로벌 회원 급감(매출 기반 축소). EPS 값은 $M이 아닌 주당 달러."
+  },
+  {
+   "accession": "0000731766-24-000320",
+   "filing_date": "2024-10-15",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q3 FY2024",
+   "period_end": "2024-09-30",
+   "revenue_musd": 100820,
+   "revenue_py_musd": 92361,
+   "revenue_yoy_pct_stated": null,
+   "key_segment": {
+    "name": "Optum (total)",
+    "revenue_musd": 63925,
+    "yoy_pct": 12.7
+   },
+   "prior_guided_actual": null,
+   "next_q_guidance": null,
+   "fy_guidance": {
+    "fiscal_year": "FY2024",
+    "metric": "adjusted diluted EPS (USD per share, not $M)",
+    "is_total_revenue": false,
+    "low_musd": 27.5,
+    "high_musd": 27.75,
+    "point_musd": 27.625,
+    "change_vs_prior": "lowered",
+    "quote": "The company’s adjusted net earnings outlook of $27.50 to $27.75 continues within the $27.50 to $28.00 range established nearly a year ago"
+   },
+   "profit_guidance": {
+    "metric": "FY2024 adjusted EPS $27.50-$27.75 (prior $27.50-$28.00); GAAP EPS $15.50-$15.75 (prior $15.95-$16.40)",
+    "change_vs_prior": "lowered",
+    "quote": "The company’s adjusted net earnings outlook of $27.50 to $27.75 continues within the $27.50 to $28.00 range established nearly a year ago"
+   },
+   "backlog": {
+    "metric": "Optum Insight contract revenue backlog",
+    "value_musd": 32800,
+    "yoy_pct": null,
+    "quote": "The revenue backlog grew by more than $1 billion over last year, largely due to new health system partnerships."
+   },
+   "buyback_new_musd": null,
+   "one_offs": "사이버공격 직접대응비용 $341M(조정치서 제외)·사업중단 매출감소 $134M, 투자·기타수익 $1,643M로 전년 $997M 대비 급증",
+   "tone": "neutral",
+   "tone_quote": "Our continued growth, which positions us well for the coming years, is rooted in the innovative products and responsive service of our people",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_quantified",
+    "desc": "메디케어 지급 삭감 등으로 의료비율 85.2%(전년 82.3%), UHC 영업이익 $4.2B로 전년 $4.6B 대비 감소",
+    "quote": "The third quarter 2024 medical care ratio was 85.2% compared to 82.3% last year. Among factors contributing to the increase were the previously noted CMS Medicare funding reductions"
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "매출 +9.2%로 가속·Optum 강세지만 조정 EPS 범위 상단을 $28.00→$27.75로 낮추고 의료비율 290bp 상승해 혼조",
+   "narrative_quote": "The company’s adjusted net earnings outlook of $27.50 to $27.75 continues within the $27.50 to $28.00 range established nearly a year ago, even as it absorbs an estimated $0.75 per share of business disruption impacts",
+   "notes": "조정 EPS 가이던스 범위를 하단 쪽으로 좁힘(중간값 27.75→27.625). 사업중단 영향 추정 주당 ~$0.75로 직전 $0.60-0.70 대비 증가. 매출 가이던스 없음. EPS 값은 주당 달러."
+  },
+  {
+   "accession": "0000731766-25-000022",
+   "filing_date": "2025-01-16",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q4 FY2024",
+   "period_end": "2024-12-31",
+   "revenue_musd": 100807,
+   "revenue_py_musd": 94427,
+   "revenue_yoy_pct_stated": null,
+   "key_segment": {
+    "name": "Optum (total)",
+    "revenue_musd": 65101,
+    "yoy_pct": 9.4
+   },
+   "prior_guided_actual": {
+    "metric": "FY2024 adjusted EPS (USD per share; prior guide $27.50-$27.75)",
+    "actual_musd": 27.66,
+    "quote": "Full Year, Fourth Quarter Adjusted Net Earnings were $27.66, $6.81 Per Share"
+   },
+   "next_q_guidance": null,
+   "fy_guidance": {
+    "fiscal_year": "FY2025",
+    "metric": "total revenues",
+    "is_total_revenue": true,
+    "low_musd": 450000,
+    "high_musd": 455000,
+    "point_musd": 452500,
+    "change_vs_prior": "maintained",
+    "quote": "UnitedHealth Group affirmed the 2025 performance outlook established in December 2024, including revenues of $450 billion to $455 billion"
+   },
+   "profit_guidance": {
+    "metric": "FY2025 adjusted EPS $29.50-$30.00 (GAAP EPS $28.15-$28.65, CFO $32-33B)",
+    "change_vs_prior": "maintained",
+    "quote": "adjusted net earnings of $29.50 to $30.00 per share and cash flow from operations of $32 billion to $33 billion"
+   },
+   "backlog": {
+    "metric": "Optum Insight contract revenue backlog",
+    "value_musd": 32800,
+    "yoy_pct": null,
+    "quote": "The revenue backlog grew by $700 million over last year, largely due to new health system partnerships."
+   },
+   "buyback_new_musd": null,
+   "one_offs": "사이버공격 직접대응비용 $513M·사업중단 매출감소 $120M, 남미 관련 $24M; 연간 기준 남미 매각손실 $8.3B로 GAAP 연간 EPS 왜곡",
+   "tone": "neutral",
+   "tone_quote": "making the health system easier to navigate for patients and providers, positioning us well for growth in 2025",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_quantified",
+    "desc": "메디케어 지급 삭감·회원 구성으로 연간 의료비율 85.5%(전년 83.2%), 병원 코딩 강도·특수의약품 증가 지속",
+    "quote": "The full year medical care ratio was 85.5% compared to 83.2% in 2023. The increase was primarily due to previously discussed items, including the revenue effects of CMS’s Medicare funding reductions"
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "FY2024 조정 EPS $27.66으로 가이던스 범위 안 달성, 2025 매출 $450-455B·조정 EPS $29.50-30.00 재확인으로 이야기 유지",
+   "narrative_quote": "Company Affirms 2025 Performance Outlook",
+   "notes": "연간 매출 $400.3B(+8%, 연간 기준으로만 % 표기). FY2025 가이던스는 2024년 12월 설정분 재확인으로 보도자료 목록상 첫 등장. Q4 UHC 영업이익률 4.0%. Optum Health 소비자 100M(전분기 104M). 직전 FY2024 의료비율 가이던스 84.3%±50bp 대비 실제 85.5%. EPS 값은 주당 달러."
+  },
+  {
+   "accession": "0000731766-25-000123",
+   "filing_date": "2025-04-17",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q1 FY2025",
+   "period_end": "2025-03-31",
+   "revenue_musd": 109575,
+   "revenue_py_musd": 99796,
+   "revenue_yoy_pct_stated": null,
+   "key_segment": {
+    "name": "Optum (total)",
+    "revenue_musd": 63885,
+    "yoy_pct": 4.6
+   },
+   "prior_guided_actual": null,
+   "next_q_guidance": null,
+   "fy_guidance": {
+    "fiscal_year": "FY2025",
+    "metric": "adjusted diluted EPS (USD per share, not $M); no revenue figure restated",
+    "is_total_revenue": false,
+    "low_musd": 26,
+    "high_musd": 26.5,
+    "point_musd": 26.25,
+    "change_vs_prior": "lowered",
+    "quote": "Revised 2025 Earnings Outlook to $24.65 to $25.15 Per Share, Adjusted Earnings $26 to $26.50 Per Share"
+   },
+   "profit_guidance": {
+    "metric": "FY2025 adjusted EPS $26.00-$26.50 (prior $29.50-$30.00); GAAP EPS $24.65-$25.15 (prior $28.15-$28.65)",
+    "change_vs_prior": "lowered",
+    "quote": "UnitedHealth Group revised its 2025 performance outlook established in December 2024 to net earnings of $24.65 to $25.15 per share and adjusted earnings of $26 to $26.50 per share."
+   },
+   "backlog": {
+    "metric": "Optum Insight contract revenue backlog",
+    "value_musd": 32900,
+    "yoy_pct": null,
+    "quote": "Optum Insight revenues were $4.6 billion and the revenue backlog was $32.9 billion."
+   },
+   "buyback_new_musd": null,
+   "one_offs": "당기 일회성 미미(남미 매각손실 $15M); 전년 동기 브라질 매각손실 $7,086M로 전년 순손실이라 GAAP 비교 왜곡",
+   "tone": "cautious",
+   "tone_quote": "UnitedHealth Group grew to serve more people more comprehensively but did not perform up to our expectations, and we are aggressively addressing those challenges",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_quantified",
+    "desc": "메디케어 어드밴티지 진료 이용 급증과 Optum Health 회원 구성 변화로 연간 조정 EPS 가이던스 약 12% 하향",
+    "quote": "Heightened care activity indications within UnitedHealthcare’s Medicare Advantage businesses, which became visible as the quarter closed, far above the planned 2025 increase which was consistent with the elevated levels in 2024."
+   },
+   "narrative_shift": -2,
+   "narrative_reason": "2025 조정 EPS를 $29.50-30.00→$26.00-26.50로 하향, 핵심 성장축 Optum Health 매출 감소·MA 의료비 급증으로 이야기 훼손",
+   "narrative_quote": "Unanticipated changes in the profile of Optum Health members impacting planned 2025 reimbursement due to unexpectedly minimal 2024 beneficiary engagement by plans exiting markets.",
+   "notes": "매출 가이던스 수치는 이번 자료에 재기재 없음(EPS만 수정). Medicare Part D(IRA) 프로그램 변경으로 분기 계절성·DCP·비용률 변화. Optum Health 매출 $25.3B로 전년 $26.7B 대비 감소. 전년 동기 GAAP 순손실(-$1.53). EPS 값은 주당 달러."
+  },
+  {
+   "accession": "0000731766-25-000228",
+   "filing_date": "2025-07-29",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 FY2025",
+   "period_end": "2025-06-30",
+   "revenue_musd": 111616,
+   "revenue_py_musd": 98855,
+   "revenue_yoy_pct_stated": null,
+   "key_segment": {
+    "name": "Optum (total)",
+    "revenue_musd": 67225,
+    "yoy_pct": 6.9
+   },
+   "prior_guided_actual": null,
+   "next_q_guidance": null,
+   "fy_guidance": {
+    "fiscal_year": "FY2025",
+    "metric": "total revenues",
+    "is_total_revenue": true,
+    "low_musd": 445500,
+    "high_musd": 448000,
+    "point_musd": 446750,
+    "change_vs_prior": "lowered",
+    "quote": "Full Year 2025 Revenue Outlook of $445.5 Billion to $448.0 Billion"
+   },
+   "profit_guidance": {
+    "metric": "FY2025 adjusted EPS at least $16.00 (prior $26.00-$26.50, suspended May 13); GAAP EPS at least $14.65",
+    "change_vs_prior": "lowered",
+    "quote": "Full Year 2025 Earnings Outlook of at least $14.65 Per Share, Adjusted Earnings of at least $16.00 Per Share"
+   },
+   "backlog": {
+    "metric": "Optum Insight contract revenue backlog",
+    "value_musd": 32100,
+    "yoy_pct": null,
+    "quote": "The contract revenue backlog was $32.1 billion."
+   },
+   "buyback_new_musd": null,
+   "one_offs": "불리한 일회성 $1.2B(개인 익스체인지 하반기 손실 선반영 등 $620M, 합의·기타 충당금), 연간 세율 하향으로 분기 법인세 감소, 남미 매각손실 $41M",
+   "tone": "cautious",
+   "tone_quote": "While we face challenges across our lines of business, we believe we can resolve these issues and recapture our earnings growth potential",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_quantified",
+    "desc": "의료비 추세가 가격 책정을 크게 초과(MA 7.5% vs 가격 5%), 의료비율 89.4%·UHC 영업이익률 2.4%로 급락",
+    "quote": "For example, medical cost trend in Medicare Advantage offerings is expected to run at ~7.5% in 2025 compared to the 2025 pricing expectation of just over 5%."
+   },
+   "narrative_shift": -2,
+   "narrative_reason": "5월 가이던스 중단 뒤 조정 EPS 최소 $16.00로 재설정(직전 $26.00-26.50), 매출 가이던스도 $450-455B→$445.5-448B, Optum Health 매출 -7%",
+   "narrative_quote": "On May 13, 2025, UnitedHealth Group suspended its 2025 outlook.",
+   "notes": "직전 보도자료(Q1) 이후 5/13 가이던스 중단·CEO 교체(Stephen Hemsley). 매출 가이던스 비교 기준은 Q4 FY2024 자료의 $450-455B. FY 의료비율 89.25%±25bp, 영업이익 $21.55-22.15B, CFO ~$16B. Optum Health 가치기반 신규 환자 목표 650k→300k 축소. 2026년 이익 성장 복귀 기대. EPS 값은 주당 달러."
+  },
+  {
+   "accession": "0000731766-25-000301",
+   "filing_date": "2025-10-28",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q3 FY2025",
+   "period_end": "2025-09-30",
+   "revenue_musd": 113161,
+   "revenue_py_musd": 100820,
+   "revenue_yoy_pct_stated": 12,
+   "key_segment": {
+    "name": "Optum (total)",
+    "revenue_musd": 69177,
+    "yoy_pct": 8.2
+   },
+   "prior_guided_actual": null,
+   "next_q_guidance": null,
+   "fy_guidance": {
+    "fiscal_year": "FY2025",
+    "metric": "Net earnings attributable to UNH common shareholders (at least; GAAP EPS at least $14.90, adj EPS at least $16.25; no revenue outlook reprinted)",
+    "is_total_revenue": false,
+    "low_musd": 13600,
+    "high_musd": null,
+    "point_musd": null,
+    "change_vs_prior": "raised",
+    "quote": "Net earnings attributable to UnitedHealth Group common shareholders | $2,348 | $6,055 | $12,046 | $8,862 | At least $13,600"
+   },
+   "profit_guidance": {
+    "metric": "FY2025 adjusted EPS at least $16.25 (prior at least $16.00); GAAP EPS at least $14.90 (prior at least $14.65)",
+    "change_vs_prior": "raised",
+    "quote": "UnitedHealth Group raised its 2025 earnings outlook to reflect net earnings of at least $14.90 per share and adjusted net earnings of at least $16.25 per share."
+   },
+   "backlog": {
+    "metric": "Optum Insight contract revenue backlog",
+    "value_musd": 32100,
+    "yoy_pct": null,
+    "quote": "The contract revenue backlog was $32.1 billion."
+   },
+   "buyback_new_musd": null,
+   "one_offs": "Amedisys 인수 완료(8/14); 자회사 매각손실 $83M, 전기 의료비 준비금 유리한 환입 $80M(소규모)",
+   "tone": "strong",
+   "tone_quote": "We remain focused on strengthening performance and positioning for durable and accelerating growth in 2026 and beyond, and our results this quarter reflect solid execution toward that goal",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_quantified",
+    "desc": "의료비 추세 급등·메디케어 수가 삭감으로 MCR +470bp, 영업이익 -50%, Optum Health 마진 1%",
+    "quote": "The year-over-year increase of 470 basis points was primarily driven by the previously described significantly elevated cost trends, as well as the ongoing effects of the Biden-era Medicare funding reductions"
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "MCR 89.9%가 2분기 제시 기대에 부합, 연간 조정 EPS 가이던스 ≥$16.00→≥$16.25 소폭 상향으로 안정화 신호. Optum Health 악화는 지속",
+   "narrative_quote": "Medical care ratio (MCR) of 89.9% was in line with expectations outlined in the second quarter 2025.",
+   "notes": "이번 발표는 EPS 가이던스만 갱신했고 매출 가이던스는 다시 내지 않음(7월 제시치 $445.5~448.0B). fy_guidance 값의 단위는 주당 달러(백만 달러 아님). 8/14 Amedisys 인수 완료로 Optum Health 매출 기반 변화."
+  },
+  {
+   "accession": "0000731766-26-000025",
+   "filing_date": "2026-01-27",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q4 FY2025",
+   "period_end": "2025-12-31",
+   "revenue_musd": 113215,
+   "revenue_py_musd": 100807,
+   "revenue_yoy_pct_stated": 12,
+   "key_segment": {
+    "name": "Optum (total)",
+    "revenue_musd": 70333,
+    "yoy_pct": 8
+   },
+   "prior_guided_actual": {
+    "metric": "FY2025 total revenue (guided $445,500-448,000M in Q2 2025 release, not updated in Q3)",
+    "actual_musd": 447567,
+    "quote": "Consolidated revenues for 2025 were $447.6 billion, representing 12% growth year-over-year."
+   },
+   "next_q_guidance": null,
+   "fy_guidance": {
+    "fiscal_year": "FY2026",
+    "metric": "total revenue (floor, 'greater than')",
+    "is_total_revenue": true,
+    "low_musd": 439000,
+    "high_musd": null,
+    "point_musd": null,
+    "change_vs_prior": "initiated",
+    "quote": "2026 revenues are projected to exceed $439.0 billion, a 2% year-over-year decline reflecting planned right-sizing across the enterprise."
+   },
+   "profit_guidance": {
+    "metric": "FY2026 adjusted EPS > $17.75; GAAP EPS > $17.10; earnings from operations > $24,000M",
+    "change_vs_prior": "initiated",
+    "quote": "The 2026 outlook was set for more than $439.0 billion in revenues, with earnings from operations greater than $24.0 billion and an adjusted earnings outlook greater than $17.75 per share."
+   },
+   "backlog": {
+    "metric": "Optum Insight contract backlog",
+    "value_musd": 31100,
+    "yoy_pct": null,
+    "quote": "Optum Insight Contract Backlog (in billions) ..................................................................... $31.1"
+   },
+   "buyback_new_musd": null,
+   "one_offs": "4분기 일회성 비용 세전 $2,878M(세후 $1,622M, EPS $1.78): 사이버공격 최종비용 $799M, 구조조정 등 $2,521M(손실계약 충당 $623M 포함), 매각이익 +$442M",
+   "tone": "strong",
+   "tone_quote": "We confronted challenges directly and finished 2025 as a much stronger company, giving us the momentum to better serve those who count on us and continue to improve our core performance",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_quantified",
+    "desc": "Optum Health 조정 영업이익 $7.9B→$2.3B 급감(수가 삭감·의료비 상승), 2026 매출 -2%·회원 감소 예고",
+    "quote": "Adjusted earnings from operations were $2.3 billion in 2025 compared to $7.9 billion in 2024. The year-over-year decline was driven by continued reimbursement pressure due to Medicare funding reductions and elevated medical cost trends."
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "2026 조정 EPS >$17.75(+8.6%)·영업이익 >$24B로 이익 회복을 제시했으나, 매출 -2%·UHC 회원 230~280만 감소로 외형 축소. 혼재",
+   "narrative_quote": "2026 revenues are projected to exceed $439.0 billion, a 2% year-over-year decline reflecting planned right-sizing across the enterprise.",
+   "notes": "4분기·연간 동시 발표. FY2025 조정 EPS $16.35(직전 가이던스 ≥$16.25). 2026부터 Optum Financial을 Optum Health에서 Optum Insight로 재분류. 2026 가이던스는 하한(>)만 제시. 2026 자사주 매입 계획 ~$2,500M은 전망치이며 신규 승인 아님. 4분기 GAAP EPS $0.01, 법인세 환입 포함."
+  },
+  {
+   "accession": "0000731766-26-000121",
+   "filing_date": "2026-04-21",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q1 FY2026",
+   "period_end": "2026-03-31",
+   "revenue_musd": 111721,
+   "revenue_py_musd": 109575,
+   "revenue_yoy_pct_stated": 2,
+   "key_segment": {
+    "name": "Optum (total)",
+    "revenue_musd": 63749,
+    "yoy_pct": -0.2
+   },
+   "prior_guided_actual": null,
+   "next_q_guidance": null,
+   "fy_guidance": {
+    "fiscal_year": "FY2026",
+    "metric": "Net earnings attributable to UNH common shareholders (> $15,800M; GAAP EPS > $17.35, adj EPS > $18.25; revenue outlook not reprinted)",
+    "is_total_revenue": false,
+    "low_musd": 15800,
+    "high_musd": null,
+    "point_musd": null,
+    "change_vs_prior": "raised",
+    "quote": "Net earnings attributable to UnitedHealth Group common shareholders .......................................................................... $6,280 $6,292 > $15,800"
+   },
+   "profit_guidance": {
+    "metric": "FY2026 adjusted EPS > $18.25 (prior > $17.75); GAAP EPS > $17.35 (prior > $17.10)",
+    "change_vs_prior": "raised",
+    "quote": "The company expects full year 2026 adjusted net earnings of greater than $18.25 per share."
+   },
+   "backlog": null,
+   "buyback_new_musd": 2000,
+   "one_offs": "Optum UK 매각이익으로 UHF에 $400M 기부, 손실계약 충당금 환입 $137M, 매각 순이익, 유리한 준비금 환입(금액 미기재)",
+   "tone": "neutral",
+   "tone_quote": "Operating margin of 6.6% compared to 6.2% in the first quarter 2025, primarily due to repricing across all lines of business in response to cost trends that remain elevated but in line with expectations.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "의료비 추세가 계속 높지만 재가격 효과로 MCR 83.9%(-90bp) 개선. MA 회원 96.5만 감소",
+    "quote": "The year-over-year decrease was driven by strong medical cost management and favorable reserve development, partially offset by consistently elevated utilization and unit cost trends."
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "MCR -90bp, UHC 마진 6.6%로 확대, 연간 조정 EPS 가이던스 >$17.75→>$18.25 상향. 매출 +2%로 외형은 정체",
+   "narrative_quote": "UnitedHealthcare served 49.1 million consumers and expanded operating margins by 40 basis points to 6.6% compared to 6.2% in the first quarter 2025.",
+   "notes": "2026년 매출 가이던스는 다시 내지 않음(1월 >$439B). fy_guidance 값의 단위는 주당 달러. Optum Financial 재분류로 전기 세그먼트 수치 재작성. Optum Insight 백로그 공시 중단. buyback_new_musd=$2B 매입 약정(이사회 승인이 아닌 2분기말까지 완료할 계약). Alegeus 인수 합의(하반기 완료 예정, 2026 이익 중립)."
+  },
+  {
+   "accession": "0000731766-26-000191",
+   "filing_date": "2026-07-16",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 FY2026",
+   "period_end": "2026-06-30",
+   "revenue_musd": 112032,
+   "revenue_py_musd": 111616,
+   "revenue_yoy_pct_stated": null,
+   "key_segment": {
+    "name": "Optum (total)",
+    "revenue_musd": 65663,
+    "yoy_pct": -2.3
+   },
+   "prior_guided_actual": null,
+   "next_q_guidance": null,
+   "fy_guidance": {
+    "fiscal_year": "FY2026",
+    "metric": "Net earnings to UNH shareholders (> $16,750M vs > $15,600M as of Jan 27; GAAP EPS $18.45-$18.95, adj EPS $19.50-$20.00)",
+    "is_total_revenue": false,
+    "low_musd": 16750,
+    "high_musd": null,
+    "point_musd": null,
+    "change_vs_prior": "raised",
+    "quote": "Net Earnings to UNH Shareholders > $15,600 > $16,750"
+   },
+   "profit_guidance": {
+    "metric": "FY2026 adjusted EPS $19.50-$20.00 (prior > $18.25); earnings from operations > $25,450M (prior > $24,000M); MCR 88.1% +/-25bps",
+    "change_vs_prior": "raised",
+    "quote": "The company now expects full year 2026 adjusted net earnings between $19.50 to $20.00 per share resulting from performance year-to-date and an improved outlook for the remainder of the year."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "전기 의료비 준비금 유리한 환입 $860M(MCR 개선 기여), 대규모 정부 지급 시점 효과로 영업현금흐름 확대, 손실계약 충당금 환입 $50M",
+   "tone": "strong",
+   "tone_quote": "Second quarter 2026 earnings from operations of $8.0 billion compared to $5.2 billion in the year ago quarter, driven by strong performance across both UnitedHealthcare and Optum.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_potential",
+    "desc": "PBM 리베이트 100% 전가(2028)와 수수료 기반 약제 모델 전환. Optum Rx 수익구조가 바뀔 수 있으나 아직 수치에 없음",
+    "quote": "Committed to 100% pass-through of manufacturer drug rebate discounts to clients by January 1, 2028."
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "MCR 86.7%(-270bp)·영업이익 +55%, 조정 EPS 가이던스 >$18.25→$19.50~20.00 대폭 상향, 연간 매입 계획 2배. 매출은 정체",
+   "narrative_quote": "Optum supported more than 120 million consumers and generated revenues of $65.7 billion and earnings of $4.0 billion, representing 160 basis points of margin expansion year-over-year.",
+   "notes": "직전 분기 '2분기말까지 최소 $2.0B 매입' 약정 대비 7월 중순까지 $4.0B 매입. 연간 매입 계획은 ~$2.5B에서 최소 $5.0B로 상향(신규 승인 아님). 매출 가이던스 미제시, EPS를 범위로 처음 제시. Alegeus 인수 7/2 완료(Optum Insight). 매출 YoY 계산값 +0.4%."
+  },
+  {
+   "accession": "0000731766-26-000255",
+   "filing_date": "2026-10-13",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q3 FY2026",
+   "period_end": "2026-09-30",
+   "revenue_musd": 112694,
+   "revenue_py_musd": 113161,
+   "revenue_yoy_pct_stated": null,
+   "key_segment": {
+    "name": "Optum (total)",
+    "revenue_musd": 66883,
+    "yoy_pct": -3.3
+   },
+   "prior_guided_actual": null,
+   "next_q_guidance": null,
+   "fy_guidance": {
+    "fiscal_year": "FY2026",
+    "metric": "Net earnings attributable to UNH common shareholders (> $17,650M; GAAP EPS at least $19.50, adj EPS at least $20.50)",
+    "is_total_revenue": false,
+    "low_musd": 17650,
+    "high_musd": null,
+    "point_musd": null,
+    "change_vs_prior": "raised",
+    "quote": "Net earnings attributable to UnitedHealth Group common shareholders ............................... $4,110 $2,348 $15,874 $12,046 > $17,650"
+   },
+   "profit_guidance": {
+    "metric": "FY2026 adjusted EPS at least $20.50 (prior $19.50-$20.00); GAAP EPS at least $19.50 (prior $18.45-$18.95)",
+    "change_vs_prior": "raised",
+    "quote": "The company now expects full year 2026 adjusted net earnings of at least $20.50 per share, incorporating experience through the third quarter 2026."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "전기 준비금 유리한 환입 $610M(MCR 개선 기여), 사업·자산 매각이익(조정 -$224M), 손실계약 충당금 환입 $95M",
+   "tone": "neutral",
+   "tone_quote": "Our third quarter results reflect the discipline and execution our teams are bringing to every part of our business",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_potential",
+    "desc": "PBM 리베이트 100% 전가(2028)·투명가격 모델로 Optum Rx 수익구조가 바뀔 수 있음. 2027년 추가 공약도 예고",
+    "quote": "Committed to 100% pass-through of manufacturer drug rebate discounts to clients by January 1, 2028."
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "영업이익 +52%, MCR -150bp, 조정 EPS 가이던스를 이전 범위 상단 위 ≥$20.50로 세 번째 상향. 매출 -0.4%·Optum Health -10%로 외형 축소 지속",
+   "narrative_quote": "Third quarter 2026 earnings from operations of $6.6 billion compared to $4.3 billion in the year ago quarter, driven by disciplined execution across both UnitedHealthcare and Optum.",
+   "notes": "매출 가이던스 미제시. 9개월 조정 EPS $18.30이므로 연간 ≥$20.50이면 4분기는 ≥$2.20. 준비금 환입 $610M이 MCR에 기여. 2027 MA Stars에서 4+ 등급 가입자 비중 최소 69%. 연초 대비 누적 매입 $5.0B. 매출 YoY 계산값 -0.4%."
+  }
+ ],
+ "fixes": [
+  {
+   "accession": "0000731766-25-000301",
+   "field": "fy_guidance",
+   "value_json": "{\"fiscal_year\": \"FY2025\", \"metric\": \"Net earnings attributable to UNH common shareholders (at least; GAAP EPS at least $14.90, adj EPS at least $16.25; no revenue outlook reprinted)\", \"is_total_revenue\": false, \"low_musd\": 13600, \"high_musd\": null, \"point_musd\": null, \"change_vs_prior\": \"raised\", \"quote\": \"Net earnings attributable to UnitedHealth Group common shareholders | $2,348 | $6,055 | $12,046 | $8,862 | At least $13,600\"}",
+   "winner": "B",
+   "quote": "Net earnings attributable to UnitedHealth Group common shareholders | $2,348 | $6,055 | $12,046 | $8,862 | At least $13,600"
+  },
+  {
+   "accession": "0000731766-26-000121",
+   "field": "fy_guidance",
+   "value_json": "{\"fiscal_year\": \"FY2026\", \"metric\": \"Net earnings attributable to UNH common shareholders (> $15,800M; GAAP EPS > $17.35, adj EPS > $18.25; revenue outlook not reprinted)\", \"is_total_revenue\": false, \"low_musd\": 15800, \"high_musd\": null, \"point_musd\": null, \"change_vs_prior\": \"raised\", \"quote\": \"Net earnings attributable to UnitedHealth Group common shareholders .......................................................................... $6,280 $6,292 > $15,800\"}",
+   "winner": "B",
+   "quote": "Net earnings attributable to UnitedHealth Group common shareholders .......................................................................... $6,280 $6,292 > $15,800"
+  },
+  {
+   "accession": "0000731766-26-000191",
+   "field": "fy_guidance",
+   "value_json": "{\"fiscal_year\": \"FY2026\", \"metric\": \"Net earnings to UNH shareholders (> $16,750M vs > $15,600M as of Jan 27; GAAP EPS $18.45-$18.95, adj EPS $19.50-$20.00)\", \"is_total_revenue\": false, \"low_musd\": 16750, \"high_musd\": null, \"point_musd\": null, \"change_vs_prior\": \"raised\", \"quote\": \"Net Earnings to UNH Shareholders > $15,600 > $16,750\"}",
+   "winner": "B",
+   "quote": "Net Earnings to UNH Shareholders > $15,600 > $16,750"
+  },
+  {
+   "accession": "0000731766-26-000255",
+   "field": "fy_guidance",
+   "value_json": "{\"fiscal_year\": \"FY2026\", \"metric\": \"Net earnings attributable to UNH common shareholders (> $17,650M; GAAP EPS at least $19.50, adj EPS at least $20.50)\", \"is_total_revenue\": false, \"low_musd\": 17650, \"high_musd\": null, \"point_musd\": null, \"change_vs_prior\": \"raised\", \"quote\": \"Net earnings attributable to UnitedHealth Group common shareholders ............................... $4,110 $2,348 $15,874 $12,046 > $17,650\"}",
+   "winner": "B",
+   "quote": "Net earnings attributable to UnitedHealth Group common shareholders ............................... $4,110 $2,348 $15,874 $12,046 > $17,650"
+  }
+ ],
+ "qc": {
+  "bad_quotes": [],
+  "revenue_mismatch": []
+ }
+}

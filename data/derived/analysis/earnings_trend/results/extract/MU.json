@@ -1,0 +1,581 @@
+{
+ "ticker": "MU",
+ "events": [
+  {
+   "accession": "0000723125-24-000023",
+   "filing_date": "2024-09-25",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q4 FY2024",
+   "period_end": "2024-08-29",
+   "revenue_musd": 7750,
+   "revenue_py_musd": 4010,
+   "revenue_yoy_pct_stated": 93,
+   "key_segment": null,
+   "prior_guided_actual": null,
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 8500,
+    "high_musd": 8900,
+    "point_musd": 8700,
+    "guided_yoy_pct_stated": null,
+    "quote": "Revenue | $8.70 billion ± $200 million"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2025",
+    "metric": "revenue (qualitative: substantial revenue record)",
+    "is_total_revenue": true,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": null,
+    "change_vs_prior": "unclear",
+    "quote": "We forecast record revenue in fiscal Q1 and a substantial revenue record with significantly improved profitability in fiscal 2025."
+   },
+   "profit_guidance": {
+    "metric": "next-quarter (FQ1-25) non-GAAP diluted EPS $1.74 ± $0.08, non-GAAP GM 39.5%",
+    "change_vs_prior": "unclear",
+    "quote": "Diluted earnings per share | $1.54 ± $0.08 | $1.74 ± $0.08"
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "분기 GAAP 법인세 6.23억달러(세전이익의 약 41%)로 GAAP 순이익 축소; 연간 실적엔 특허 교차라이선스 이익 2억달러 포함",
+   "tone": "strong",
+   "tone_quote": "We are entering fiscal 2025 with the best competitive positioning in Micron's history.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "none",
+    "desc": "",
+    "quote": ""
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "매출 YoY 93% 증가, 데이터센터·NAND 사상 최대, AI용 HBM 램프, FQ1 사상 최대 매출(87억달러) 가이던스와 FY25 대폭 성장 전망",
+   "narrative_quote": "Micron delivered 93% year-over-year revenue growth in fiscal Q4, as robust AI demand drove a strong ramp of our data center DRAM products and our industry-leading high bandwidth memory.",
+   "notes": "목록의 첫 자료라 이전 가이던스 비교 불가. 데이터센터 매출 금액은 미공시(데이터센터 SSD 분기 10억달러 초과만 언급)."
+  },
+  {
+   "accession": "0000723125-24-000046",
+   "filing_date": "2024-12-18",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q1 FY2025",
+   "period_end": "2024-11-28",
+   "revenue_musd": 8709,
+   "revenue_py_musd": 4726,
+   "revenue_yoy_pct_stated": null,
+   "key_segment": {
+    "name": "Data center (over 50% of total revenue)",
+    "revenue_musd": null,
+    "yoy_pct": 400
+   },
+   "prior_guided_actual": {
+    "metric": "revenue (guided $8.70B ± $200M)",
+    "actual_musd": 8709,
+    "quote": "Revenue of $8.71 billion versus $7.75 billion for the prior quarter and $4.73 billion for the same period last year"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 7700,
+    "high_musd": 8100,
+    "point_musd": 7900,
+    "guided_yoy_pct_stated": null,
+    "quote": "Revenue | $7.90 billion ± $200 million"
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "next-quarter (FQ2-25) non-GAAP diluted EPS $1.43 ± $0.10 (prior release guided FQ1 $1.74), non-GAAP GM 38.5%",
+    "change_vs_prior": "lowered",
+    "quote": "Diluted earnings per share | $1.26 ± $0.10 | $1.43 ± $0.10"
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "",
+   "tone": "cautious",
+   "tone_quote": "While consumer-oriented markets are weaker in the near term, we anticipate a return to growth in the second half of our fiscal year.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "소비자용 시장 단기 약세로 FQ2 매출 가이던스 79억달러로 전분기(87.1억) 대비 감소, 하반기 회복 전망",
+    "quote": "While consumer-oriented markets are weaker in the near term"
+   },
+   "narrative_shift": -1,
+   "narrative_reason": "데이터센터가 매출 50% 돌파·YoY 400%+였으나 소비자 약세로 FQ2 매출·EPS 가이던스가 전분기 대비 하락, FY25 '대폭 사상 최대' 문구 미반복",
+   "narrative_quote": "Revenue | $7.90 billion ± $200 million",
+   "notes": "매출 FQ1 가이던스 87억±2억 대비 실적 87.09억(중앙값 부합). 데이터센터 YoY는 'over 400%' 하한값 기재, 금액 미공시."
+  },
+  {
+   "accession": "0000723125-25-000006",
+   "filing_date": "2025-03-20",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 FY2025",
+   "period_end": "2025-02-27",
+   "revenue_musd": 8053,
+   "revenue_py_musd": 5824,
+   "revenue_yoy_pct_stated": null,
+   "key_segment": {
+    "name": "Data center (HBM crossed $1B in quarter)",
+    "revenue_musd": null,
+    "yoy_pct": 200
+   },
+   "prior_guided_actual": {
+    "metric": "revenue (guided $7.90B ± $200M)",
+    "actual_musd": 8053,
+    "quote": "Revenue of $8.05 billion versus $8.71 billion for the prior quarter and $5.82 billion for the same period last year"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 8600,
+    "high_musd": 9000,
+    "point_musd": 8800,
+    "guided_yoy_pct_stated": null,
+    "quote": "Revenue | $8.80 billion ± $200 million"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2025",
+    "metric": "revenue (qualitative: record revenue)",
+    "is_total_revenue": true,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": null,
+    "change_vs_prior": "maintained",
+    "quote": "we are on track for record revenue and significantly improved profitability in fiscal 2025"
+   },
+   "profit_guidance": {
+    "metric": "next-quarter (FQ3-25) non-GAAP diluted EPS $1.57 ± $0.10 (prior release guided FQ2 $1.43), non-GAAP GM 36.5%",
+    "change_vs_prior": "raised",
+    "quote": "Diluted earnings per share | $1.37 ± $0.10 | $1.57 ± $0.10"
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "",
+   "tone": "strong",
+   "tone_quote": "We expect record quarterly revenue in fiscal Q3, with DRAM and NAND demand growth in both data center and consumer-oriented markets, and we are on track for record revenue and significantly improved profitability in fiscal 2025.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "매출 전분기 대비 감소(87.1→80.5억달러), FQ3 총마진 가이던스 36.5%로 FQ2 37.9%보다 하락",
+    "quote": "Gross margin | 35.5% ± 1.0% | 36.5% ± 1.0%"
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "가이던스 상회(80.5억 vs 79억), HBM 분기 10억달러 돌파·데이터센터 3배, FQ3 사상 최대 매출 가이던스와 소비자 수요 회복으로 직전의 둔화 우려 완화",
+   "narrative_quote": "Micron HBM revenue crosses $1 billion milestone in fiscal Q2",
+   "notes": "데이터센터 YoY는 'tripled'를 +200%로 환산, 금액 미공시. 1-gamma DRAM 노드 출시 언급."
+  },
+  {
+   "accession": "0000723125-25-000019",
+   "filing_date": "2025-06-25",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q3 FY2025",
+   "period_end": "2025-05-29",
+   "revenue_musd": 9301,
+   "revenue_py_musd": 6811,
+   "revenue_yoy_pct_stated": null,
+   "key_segment": {
+    "name": "Data center (HBM nearly +50% QoQ)",
+    "revenue_musd": null,
+    "yoy_pct": 100
+   },
+   "prior_guided_actual": {
+    "metric": "revenue (guided $8.80B ± $200M)",
+    "actual_musd": 9301,
+    "quote": "Revenue of $9.30 billion versus $8.05 billion for the prior quarter and $6.81 billion for the same period last year"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 10400,
+    "high_musd": 11000,
+    "point_musd": 10700,
+    "guided_yoy_pct_stated": null,
+    "quote": "Revenue | $10.7 billion ± $300 million"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2025",
+    "metric": "revenue (qualitative: record revenue)",
+    "is_total_revenue": true,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": null,
+    "change_vs_prior": "maintained",
+    "quote": "We are on track to deliver record revenue with solid profitability and free cash flow in fiscal 2025"
+   },
+   "profit_guidance": {
+    "metric": "next-quarter (FQ4-25) non-GAAP diluted EPS $2.50 ± $0.15 (prior release guided FQ3 $1.57), non-GAAP GM 42.0%",
+    "change_vs_prior": "raised",
+    "quote": "Diluted earnings per share | $2.29 ± $0.15 | $2.50 ± $0.15"
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "특허 라이선스 비용 5,700만달러·부채 조기상환 손실 4,600만달러(비GAAP에서 제외)",
+   "tone": "strong",
+   "tone_quote": "Micron delivered record revenue in fiscal Q3, driven by all-time-high DRAM revenue including nearly 50% sequential growth in HBM revenue.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "none",
+    "desc": "",
+    "quote": ""
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "매출 93억달러로 가이던스 상단(90억) 상회, HBM QoQ 약 50%·데이터센터 2배 이상, FQ4 매출 +15% QoQ·총마진 42% 가이던스",
+   "narrative_quote": "Fiscal Q4 revenue projected to grow another 15% sequentially",
+   "notes": "데이터센터 YoY는 'more than doubled'를 +100% 하한으로 기재, 금액 미공시. FQ4 가이던스 적용 시 FY25 암시 매출 약 367.6억달러(문서 미기재, 계산값)."
+  },
+  {
+   "accession": "0000723125-25-000024",
+   "filing_date": "2025-09-23",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q4 FY2025",
+   "period_end": "2025-08-28",
+   "revenue_musd": 11315,
+   "revenue_py_musd": 7750,
+   "revenue_yoy_pct_stated": null,
+   "key_segment": {
+    "name": "Cloud Memory Business Unit",
+    "revenue_musd": 4543,
+    "yoy_pct": 213.5
+   },
+   "prior_guided_actual": {
+    "metric": "revenue (guided $10.7B ± $300M)",
+    "actual_musd": 11315,
+    "quote": "Revenue of $11.32 billion versus $9.30 billion for the prior quarter and $7.75 billion for the same period last year"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 12200,
+    "high_musd": 12800,
+    "point_musd": 12500,
+    "guided_yoy_pct_stated": null,
+    "quote": "Revenue | $12.50 billion ± $300 million"
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "next-quarter (FQ1-26) non-GAAP diluted EPS $3.75 ± $0.15 (prior release guided FQ4 $2.50), non-GAAP GM 51.5%",
+    "change_vs_prior": "raised",
+    "quote": "Diluted earnings per share | $3.56 ± $0.15 | $3.75 ± $0.15"
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "구조조정·자산손상 3,800만달러, 부채 조기상환 손실 900만달러(소규모, 비GAAP 제외)",
+   "tone": "strong",
+   "tone_quote": "As the only U.S.-based memory manufacturer, Micron is uniquely positioned to capitalize on the AI opportunity ahead.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "코어 데이터센터 BU 매출 YoY 23% 감소(20.48→15.77억달러), 다만 전분기 대비 소폭 증가",
+    "quote": "Revenue | 1,577 | 1,530 | 2,048"
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "매출 113억달러로 가이던스 상단(110억) 상회, 클라우드 메모리 BU YoY 3배·총마진 59%, FQ1 매출 125억·총마진 50%대 첫 가이던스",
+   "narrative_quote": "Forecasting $1.2 billion in sequential revenue growth with gross margins exceeding 50%",
+   "notes": "이 자료부터 4개 사업부(Cloud Memory, Core Data Center, Mobile and Client, Automotive and Embedded) 매출·마진 공시. key_segment yoy는 4,543/1,449로 계산. FY26 수치 전망 없음."
+  },
+  {
+   "accession": "0000723125-25-000044",
+   "filing_date": "2025-12-17",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q1 FY2026",
+   "period_end": "2025-11-27",
+   "revenue_musd": 13643,
+   "revenue_py_musd": 8709,
+   "revenue_yoy_pct_stated": null,
+   "key_segment": {
+    "name": "Cloud Memory Business Unit",
+    "revenue_musd": 5284,
+    "yoy_pct": 99.5
+   },
+   "prior_guided_actual": {
+    "metric": "revenue (guided $12.50B ± $300M)",
+    "actual_musd": 13643,
+    "quote": "Revenue of $13.64 billion versus $11.32 billion for the prior quarter and $8.71 billion for the same period last year"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 18300,
+    "high_musd": 19100,
+    "point_musd": 18700,
+    "guided_yoy_pct_stated": null,
+    "quote": "Revenue | $18.70 billion ± $400 million"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2026",
+    "metric": "business performance (qualitative: continue strengthening)",
+    "is_total_revenue": false,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": null,
+    "change_vs_prior": "initiated",
+    "quote": "we anticipate our business performance to continue strengthening through fiscal 2026"
+   },
+   "profit_guidance": {
+    "metric": "next-quarter (FQ2-26) non-GAAP diluted EPS $8.42 ± $0.20 (prior release guided FQ1 $3.75), non-GAAP GM 68.0%",
+    "change_vs_prior": "raised",
+    "quote": "Diluted earnings per share | $8.19 ± $0.20 | $8.42 ± $0.20"
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "부채 조기상환 손실 1.3억달러(비GAAP 제외)",
+   "tone": "strong",
+   "tone_quote": "Our Q2 outlook reflects substantial records across revenue, gross margin, EPS and free cash flow, and we anticipate our business performance to continue strengthening through fiscal 2026.",
+   "catalyst": {
+    "present": true,
+    "desc": "FQ2 매출 187억달러(실적 대비 +37% QoQ)·총마진 68% 가이던스로 마진 구조 급상승",
+    "quote": "Gross margin | 67.0% ± 1.0% | 68.0% ± 1.0%"
+   },
+   "showstopper": {
+    "type": "none",
+    "desc": "",
+    "quote": ""
+   },
+   "narrative_shift": 2,
+   "narrative_reason": "매출 136억달러로 가이던스 상단(128억) 크게 상회, 총마진 56%로 전 사업부 마진 확대, FQ2 매출 187억·총마진 68% 가이던스로 단계적 도약",
+   "narrative_quote": "In fiscal Q1, Micron delivered record revenue and significant margin expansion at the company level and also in each of our business units",
+   "notes": "자사주 매입 3억달러 실행(현금흐름표), 신규 승인 발표 없음."
+  },
+  {
+   "accession": "0000723125-26-000004",
+   "filing_date": "2026-03-18",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 FY2026",
+   "period_end": "2026-02-26",
+   "revenue_musd": 23860,
+   "revenue_py_musd": 8053,
+   "revenue_yoy_pct_stated": null,
+   "key_segment": {
+    "name": "Cloud Memory Business Unit",
+    "revenue_musd": 7749,
+    "yoy_pct": 162.9
+   },
+   "prior_guided_actual": {
+    "metric": "revenue (guided $18.70B ± $400M)",
+    "actual_musd": 23860,
+    "quote": "Revenue of $23.86 billion versus $13.64 billion for the prior quarter and $8.05 billion for the same period last year"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 32750,
+    "high_musd": 34250,
+    "point_musd": 33500,
+    "guided_yoy_pct_stated": null,
+    "quote": "Revenue | $33.5 billion ± $750 million"
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "next-quarter (FQ3-26) non-GAAP diluted EPS $19.15 ± $0.40 (prior release guided FQ2 $8.42), non-GAAP GM approximately 81%",
+    "change_vs_prior": "raised",
+    "quote": "Diluted earnings per share | $18.90 ± $0.40 | $19.15 ± $0.40"
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "부채 조기상환 손실 4,700만달러(경미, 비GAAP 제외)",
+   "tone": "strong",
+   "tone_quote": "driven by a strong demand environment, tight industry supply, and our strong execution, and we expect significant records again in fiscal Q3",
+   "catalyst": {
+    "present": true,
+    "desc": "총마진 74.4%로 급등, FQ3 매출 335억달러(+40% QoQ)·총마진 약 81% 가이던스",
+    "quote": "Gross margin | Approximately 81% | Approximately 81%"
+   },
+   "showstopper": {
+    "type": "none",
+    "desc": "",
+    "quote": ""
+   },
+   "narrative_shift": 2,
+   "narrative_reason": "매출 238.6억달러로 가이던스 상단(191억) 25% 상회, 총마진 56→74%, 메모리가 AI 시대 전략 자산이라는 서사와 FQ3 335억·81% 가이던스",
+   "narrative_quote": "In the AI era, memory has become a strategic asset for our customers, and we are investing in our global manufacturing footprint to support their growing demand.",
+   "notes": "분기 배당 0.115→0.15달러(30% 인상). FQ3 총마진·영업비용 가이던스가 범위 대신 'Approximately'로 바뀜."
+  },
+  {
+   "accession": "0000723125-26-000013",
+   "filing_date": "2026-06-24",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q3 FY2026",
+   "period_end": "2026-05-28",
+   "revenue_musd": 41456,
+   "revenue_py_musd": 9301,
+   "revenue_yoy_pct_stated": null,
+   "key_segment": {
+    "name": "Cloud Memory Business Unit",
+    "revenue_musd": 13769,
+    "yoy_pct": 306.6
+   },
+   "prior_guided_actual": {
+    "metric": "revenue (guided $33.5B ± $750M)",
+    "actual_musd": 41456,
+    "quote": "Revenue of $41.46 billion versus $23.86 billion for the prior quarter and $9.30 billion for the same period last year"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 49000,
+    "high_musd": 51000,
+    "point_musd": 50000,
+    "guided_yoy_pct_stated": null,
+    "quote": "Revenue | $50.0 billion ± $1.0 billion"
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "next-quarter (FQ4-26) non-GAAP diluted EPS $31.00 ± $1.00 (prior release guided FQ3 $19.15), non-GAAP GM approximately 86%",
+    "change_vs_prior": "raised",
+    "quote": "Diluted earnings per share | $30.73 ± $1.00 | $31.00 ± $1.00"
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "부채 조기상환 손실 3.25억달러(비GAAP 제외)",
+   "tone": "strong",
+   "tone_quote": "record fiscal Q3 financial results and even stronger outlook for Q4 reflect the strategic value of memory in the AI era",
+   "catalyst": {
+    "present": true,
+    "desc": "다년 전략적 고객 계약(SCA) 체결로 실적 지속성·예측 가능성 구조적 개선(계약 금액 미공시)",
+    "quote": "Micron executes transformational Strategic Customer Agreements"
+   },
+   "showstopper": {
+    "type": "none",
+    "desc": "",
+    "quote": ""
+   },
+   "narrative_shift": 2,
+   "narrative_reason": "매출 414.6억달러로 가이던스(335억) 24% 상회, 총마진 84.6%, 다년 SCA로 수요 가시성 확보, FQ4 매출 500억·총마진 86% 가이던스",
+   "narrative_quote": "We believe our multi-year Strategic Customer Agreements will significantly enhance the durability and predictability",
+   "notes": "SCA 금액·기간은 보도자료에 없음. HBM4 대량 출하, HBM4E 2027년 양산 예정. 비유동 기타부채 35.4→70.9억달러 증가."
+  },
+  {
+   "accession": "0000723125-26-000018",
+   "filing_date": "2026-09-30",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q4 FY2026",
+   "period_end": "2026-09-03",
+   "revenue_musd": 54229,
+   "revenue_py_musd": 11315,
+   "revenue_yoy_pct_stated": null,
+   "key_segment": {
+    "name": "Cloud Memory Business Unit",
+    "revenue_musd": 16283,
+    "yoy_pct": 258.4
+   },
+   "prior_guided_actual": {
+    "metric": "revenue (guided $50.0B ± $1.0B)",
+    "actual_musd": 54229,
+    "quote": "Revenue of $54.23 billion versus $41.46 billion for the prior quarter and $11.32 billion for the same period last year"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 60000,
+    "high_musd": 63000,
+    "point_musd": 61500,
+    "guided_yoy_pct_stated": null,
+    "quote": "Revenue | $61.5 billion ± $1.5 billion"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2027",
+    "metric": "results (qualitative: even stronger than record FY2026)",
+    "is_total_revenue": false,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": null,
+    "change_vs_prior": "initiated",
+    "quote": "Micron delivered record fiscal 2026 results, and we expect an even stronger fiscal 2027"
+   },
+   "profit_guidance": {
+    "metric": "next-quarter (FQ1-27) non-GAAP diluted EPS $38.15 ± $1.00 (prior release guided FQ4 $31.00), non-GAAP GM approximately 86.25%",
+    "change_vs_prior": "raised",
+    "quote": "Diluted earnings per share | $37.84 ± $1.00 | $38.15 ± $1.00"
+   },
+   "backlog": {
+    "metric": "Noncurrent customer contract liabilities (SCA customer deposits)",
+    "value_musd": 12895,
+    "yoy_pct": null,
+    "quote": "Noncurrent customer contract liabilities | 12,895 | 568 | 142"
+   },
+   "buyback_new_musd": null,
+   "one_offs": "특허 라이선스 비용 5억달러(영업비용, 비GAAP 제외); 4분기가 14주여서 매출·이익이 1주 더 반영",
+   "tone": "strong",
+   "tone_quote": "AI-driven demand and strong operational execution position Micron for a record fiscal 2027",
+   "catalyst": {
+    "present": true,
+    "desc": "SCA 고객 선수금 127.5억달러 유입, 비유동 고객계약부채 5.7억→129억달러로 다년 수요 약정이 수치로 확인",
+    "quote": "Proceeds from customer contract liability deposits | 12,747"
+   },
+   "showstopper": {
+    "type": "none",
+    "desc": "",
+    "quote": ""
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "매출 542억달러로 가이던스 상단(510억) 상회, SCA 선수금 127억달러로 지속성 근거 수치화, FY27 더 강할 전망; 다만 FQ1 가이던스 +13% QoQ로 증가율 둔화",
+   "narrative_quote": "our Strategic Customer Agreements provide added confidence in the durability",
+   "notes": "FY2026은 53주(2026-09-03 종료), 4분기는 14주라 FQ1-27(13주) 가이던스와 직접 비교 시 주의. 코어 데이터센터 BU(180억달러)가 클라우드 메모리 BU(162.8억)를 넘어섬. 장기 투자증권 41→300억달러로 급증. backlog 칸은 RPO가 아니라 고객 선수금(계약부채)."
+  }
+ ],
+ "fixes": [
+  {
+   "accession": "0000723125-24-000023",
+   "field": "fy_guidance",
+   "value_json": "{\"fiscal_year\": \"FY2025\", \"metric\": \"revenue (qualitative: substantial revenue record)\", \"is_total_revenue\": true, \"low_musd\": null, \"high_musd\": null, \"point_musd\": null, \"change_vs_prior\": \"unclear\", \"quote\": \"We forecast record revenue in fiscal Q1 and a substantial revenue record with significantly improved profitability in fiscal 2025.\"}",
+   "winner": "A",
+   "quote": "We forecast record revenue in fiscal Q1 and a substantial revenue record with significantly improved profitability in fiscal 2025."
+  },
+  {
+   "accession": "0000723125-24-000046",
+   "field": "fy_guidance",
+   "value_json": "null",
+   "winner": "B",
+   "quote": "While consumer-oriented markets are weaker in the near term, we anticipate a return to growth in the second half of our fiscal year."
+  },
+  {
+   "accession": "0000723125-25-000006",
+   "field": "fy_guidance",
+   "value_json": "{\"fiscal_year\": \"FY2025\", \"metric\": \"revenue (qualitative: record revenue)\", \"is_total_revenue\": true, \"low_musd\": null, \"high_musd\": null, \"point_musd\": null, \"change_vs_prior\": \"maintained\", \"quote\": \"we are on track for record revenue and significantly improved profitability in fiscal 2025\"}",
+   "winner": "A",
+   "quote": "we are on track for record revenue and significantly improved profitability in fiscal 2025"
+  },
+  {
+   "accession": "0000723125-25-000019",
+   "field": "fy_guidance",
+   "value_json": "{\"fiscal_year\": \"FY2025\", \"metric\": \"revenue (qualitative: record revenue)\", \"is_total_revenue\": true, \"low_musd\": null, \"high_musd\": null, \"point_musd\": null, \"change_vs_prior\": \"maintained\", \"quote\": \"We are on track to deliver record revenue with solid profitability and free cash flow in fiscal 2025\"}",
+   "winner": "A",
+   "quote": "We are on track to deliver record revenue with solid profitability and free cash flow in fiscal 2025"
+  },
+  {
+   "accession": "0000723125-25-000044",
+   "field": "fy_guidance",
+   "value_json": "{\"fiscal_year\": \"FY2026\", \"metric\": \"business performance (qualitative: continue strengthening)\", \"is_total_revenue\": false, \"low_musd\": null, \"high_musd\": null, \"point_musd\": null, \"change_vs_prior\": \"initiated\", \"quote\": \"we anticipate our business performance to continue strengthening through fiscal 2026\"}",
+   "winner": "A",
+   "quote": "Our Q2 outlook reflects substantial records across revenue, gross margin, EPS and free cash flow, and we anticipate our business performance to continue strengthening through fiscal 2026."
+  },
+  {
+   "accession": "0000723125-26-000018",
+   "field": "fy_guidance",
+   "value_json": "{\"fiscal_year\": \"FY2027\", \"metric\": \"results (qualitative: even stronger than record FY2026)\", \"is_total_revenue\": false, \"low_musd\": null, \"high_musd\": null, \"point_musd\": null, \"change_vs_prior\": \"initiated\", \"quote\": \"Micron delivered record fiscal 2026 results, and we expect an even stronger fiscal 2027\"}",
+   "winner": "A",
+   "quote": "Micron delivered record fiscal 2026 results, and we expect an even stronger fiscal 2027"
+  }
+ ],
+ "qc": {
+  "bad_quotes": [],
+  "revenue_mismatch": []
+ }
+}

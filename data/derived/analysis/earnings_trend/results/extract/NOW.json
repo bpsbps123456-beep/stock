@@ -1,0 +1,618 @@
+{
+ "ticker": "NOW",
+ "events": [
+  {
+   "accession": "0001373715-24-000269",
+   "filing_date": "2024-07-24",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 2024",
+   "period_end": "2024-06-30",
+   "revenue_musd": 2627,
+   "revenue_py_musd": 2150,
+   "revenue_yoy_pct_stated": 22,
+   "key_segment": {
+    "name": "Subscription revenues",
+    "revenue_musd": 2542,
+    "yoy_pct": 23
+   },
+   "prior_guided_actual": null,
+   "next_q_guidance": {
+    "metric": "subscription revenues (Q3 2024, GAAP)",
+    "is_total_revenue": false,
+    "low_musd": 2660,
+    "high_musd": 2665,
+    "point_musd": 2662.5,
+    "guided_yoy_pct_stated": 20.25,
+    "quote": "Subscription revenues | $2,660 - $2,665 | 20% - 20.5% | 20.5"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2024",
+    "metric": "subscription revenues (GAAP)",
+    "is_total_revenue": false,
+    "low_musd": 10575,
+    "high_musd": 10585,
+    "point_musd": 10580,
+    "change_vs_prior": "raised",
+    "quote": "Subscription revenues | $10,575 - $10,585 | 22 | 22"
+   },
+   "profit_guidance": {
+    "metric": "FY2024 non-GAAP operating margin 29.5% / FCF margin 31%",
+    "change_vs_prior": "raised",
+    "quote": "ServiceNow exceeds guidance across all Q2 2024 topline growth and profitability metrics; raises 2024 subscription revenues and operating margin guidance"
+   },
+   "backlog": {
+    "metric": "cRPO",
+    "value_musd": 8780,
+    "yoy_pct": 22,
+    "quote": "Current remaining performance obligations of $8.78 billion as of Q2 2024, representing 22% year-over-year growth, 22.5% in constant currency"
+   },
+   "buyback_new_musd": null,
+   "one_offs": "전년 동기 9.1억달러 이연법인세 평가충당금 환입으로 GAAP 순이익 YoY 비교 왜곡(당기 특이 항목 없음)",
+   "tone": "strong",
+   "tone_quote": "Q2 was another fantastic quarter with NNACV and GenAI contributions exceeding expectations",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "규정 위반(전 미 육군 CIO 채용)으로 사장 겸 COO 사임, 정부기관 조사 협조; 회사는 단발성 사건이라 밝힘",
+    "quote": "As a result of the investigation, the Company’s Board of Directors determined Company policy was violated regarding the hiring of the former Chief Information Officer of the U.S. Army."
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "전 지표 가이던스 상회·FY 구독매출 가이던스 상향, Now Assist NNACV 전분기 대비 2배·파이프라인 10억달러+; 다만 COO 사임 이슈",
+   "narrative_quote": "This robust pipeline, combined with our outperformance in the first half, gives us the visibility to raise our 2024 subscription revenue guidance and reinforces our confidence in achieving $15+ billion in 2026.",
+   "notes": "가이던스·핵심지표는 총매출이 아닌 구독매출. 목록상 직전 발표가 없어 FY 상향 판정은 본문 'raises' 문구 근거. 2024년 구독매출 FX 역풍 2,000만달러 추가."
+  },
+  {
+   "accession": "0001373715-24-000342",
+   "filing_date": "2024-10-23",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q3 2024",
+   "period_end": "2024-09-30",
+   "revenue_musd": 2797,
+   "revenue_py_musd": 2288,
+   "revenue_yoy_pct_stated": 22,
+   "key_segment": {
+    "name": "Subscription revenues",
+    "revenue_musd": 2715,
+    "yoy_pct": 23
+   },
+   "prior_guided_actual": {
+    "metric": "subscription revenues (guided $2,660-2,665M)",
+    "actual_musd": 2715,
+    "quote": "Subscription revenues of $2,715 million in Q3 2024, representing 23% year-over-year growth, 22.5% in constant currency"
+   },
+   "next_q_guidance": {
+    "metric": "subscription revenues (Q4 2024, GAAP)",
+    "is_total_revenue": false,
+    "low_musd": 2875,
+    "high_musd": 2880,
+    "point_musd": 2877.5,
+    "guided_yoy_pct_stated": 21.75,
+    "quote": "Subscription revenues | $2,875 - $2,880 | 21.5% - 22% | 20.5"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2024",
+    "metric": "subscription revenues (GAAP)",
+    "is_total_revenue": false,
+    "low_musd": 10655,
+    "high_musd": 10660,
+    "point_musd": 10657.5,
+    "change_vs_prior": "raised",
+    "quote": "Subscription revenues | $10,655 - $10,660 | 23 | 22.5"
+   },
+   "profit_guidance": {
+    "metric": "FY2024 non-GAAP operating margin 29.5% / FCF margin 31%",
+    "change_vs_prior": "maintained",
+    "quote": "Income from operations | 29.5"
+   },
+   "backlog": {
+    "metric": "cRPO",
+    "value_musd": 9360,
+    "yoy_pct": 26,
+    "quote": "Current remaining performance obligations of $9.36 billion as of Q3 2024, representing 26% year-over-year growth, 23.5% in constant currency"
+   },
+   "buyback_new_musd": null,
+   "one_offs": "",
+   "tone": "strong",
+   "tone_quote": "We have never been more confident in ServiceNow’s team, our platform, and our position as the ultimate growth company in enterprise software.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "none",
+    "desc": "",
+    "quote": ""
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "구독매출 가이던스 상회·FY 재상향, cRPO 성장 26%(cc 23.5%)로 가속, RPO 36%, 500만달러 초과 거래 50% 증가",
+   "narrative_quote": "ServiceNow raised our full year topline guidance on the strength of our Q3 results, once again going beyond expectations",
+   "notes": "EX-99.2는 신임 사장 겸 CPO·COO(Amit Zavery) 선임 보도자료. 분기 중 2.25억달러 자사주 매입(신규 승인 없음)."
+  },
+  {
+   "accession": "0001373715-25-000007",
+   "filing_date": "2025-01-29",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q4 2024",
+   "period_end": "2024-12-31",
+   "revenue_musd": 2957,
+   "revenue_py_musd": 2437,
+   "revenue_yoy_pct_stated": 21,
+   "key_segment": {
+    "name": "Subscription revenues",
+    "revenue_musd": 2866,
+    "yoy_pct": 21
+   },
+   "prior_guided_actual": {
+    "metric": "subscription revenues (guided $2,875-2,880M)",
+    "actual_musd": 2866,
+    "quote": "Subscription revenues of $2,866 million in Q4 2024, representing 21% year-over-year growth, 21% in constant currency"
+   },
+   "next_q_guidance": {
+    "metric": "subscription revenues (Q1 2025, GAAP)",
+    "is_total_revenue": false,
+    "low_musd": 2995,
+    "high_musd": 3000,
+    "point_musd": 2997.5,
+    "guided_yoy_pct_stated": 18.75,
+    "quote": "Subscription revenues | $2,995 - $3,000 | 18.5% - 19% | 19.5% - 20%"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2025",
+    "metric": "subscription revenues (GAAP)",
+    "is_total_revenue": false,
+    "low_musd": 12635,
+    "high_musd": 12675,
+    "point_musd": 12655,
+    "change_vs_prior": "initiated",
+    "quote": "Subscription revenues | $12,635 - $12,675 | 18.5% - 19% | 19.5% - 20%"
+   },
+   "profit_guidance": {
+    "metric": "FY2025 non-GAAP operating margin 30.5% / FCF margin 32%",
+    "change_vs_prior": "initiated",
+    "quote": "Our free cash flow margin guidance reflects incremental expansion, building on the accelerated trajectory driven by our 2024 outperformance."
+   },
+   "backlog": {
+    "metric": "cRPO",
+    "value_musd": 10270,
+    "yoy_pct": 19,
+    "quote": "Current remaining performance obligations of $10.27 billion as of Q4 2024, representing 19% year-over-year growth, 22% in constant currency"
+   },
+   "buyback_new_musd": 3000,
+   "one_offs": "법적 합의 비용 1,700만달러(소규모)가 GAAP 영업이익에 반영",
+   "tone": "neutral",
+   "tone_quote": "Our guidance prudently reflects the flexibility to make these moves while delivering further free cash flow generation.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_potential",
+    "desc": "AI 에이전트를 기존 상위 SKU에 포함해 선행 신규 구독을 포기하고 소비형 과금으로 전환, 단기 성장 둔화 위험",
+    "quote": "we will include our new AI Agents in our Pro Plus and Enterprise Plus SKUs, forgoing upfront incremental new subscriptions to instead drive accelerated adoption and monetize increasing usage over time"
+   },
+   "narrative_shift": -1,
+   "narrative_reason": "2025 구독 성장 가이던스 18.5~19%로 둔화, 환율·연방 일정·소비형 과금 전환 역풍 명시, Q4 GAAP 구독매출은 가이던스 하단 미달",
+   "narrative_quote": "Subscription revenues | $12,635 - $12,675 | 18.5% - 19% | 19.5% - 20%",
+   "notes": "Q4 GAAP 구독매출 2,866은 직전 가이던스 2,875~2,880 하회(환율), cc 성장 21%는 가이던스 20.5% 상회. FY2024 구독매출 10,646도 직전 가이던스 10,655~10,660 하회. 2025년 FX 역풍 약 1.75억달러(Q1 4,000만). 연간 실적 포함 발표."
+  },
+  {
+   "accession": "0001373715-25-000124",
+   "filing_date": "2025-04-23",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q1 2025",
+   "period_end": "2025-03-31",
+   "revenue_musd": 3088,
+   "revenue_py_musd": 2603,
+   "revenue_yoy_pct_stated": 18.5,
+   "key_segment": {
+    "name": "Subscription revenues",
+    "revenue_musd": 3005,
+    "yoy_pct": 19
+   },
+   "prior_guided_actual": {
+    "metric": "subscription revenues (guided $2,995-3,000M)",
+    "actual_musd": 3005,
+    "quote": "Subscription revenues of $3,005 million in Q1 2025, representing 19% year-over-year growth, 20% in constant currency"
+   },
+   "next_q_guidance": {
+    "metric": "subscription revenues (Q2 2025, GAAP)",
+    "is_total_revenue": false,
+    "low_musd": 3030,
+    "high_musd": 3035,
+    "point_musd": 3032.5,
+    "guided_yoy_pct_stated": 19.25,
+    "quote": "Subscription revenues | $3,030 - $3,035 | 19% - 19.5% | 19.5"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2025",
+    "metric": "subscription revenues (GAAP)",
+    "is_total_revenue": false,
+    "low_musd": 12640,
+    "high_musd": 12680,
+    "point_musd": 12660,
+    "change_vs_prior": "raised",
+    "quote": "Subscription revenues | $12,640 - $12,680 | 18.5% - 19% | 19.5"
+   },
+   "profit_guidance": {
+    "metric": "FY2025 non-GAAP operating margin 30.5% / FCF margin 32%",
+    "change_vs_prior": "maintained",
+    "quote": "Income from operations | 30.5"
+   },
+   "backlog": {
+    "metric": "cRPO",
+    "value_musd": 10310,
+    "yoy_pct": 22,
+    "quote": "Current remaining performance obligations of $10.31 billion as of Q1 2025, representing 22% year-over-year growth, 22% in constant currency"
+   },
+   "buyback_new_musd": null,
+   "one_offs": "",
+   "tone": "neutral",
+   "tone_quote": "While our business remains strong, we are only flowing through part of those benefits into our full-year outlook.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "지정학 환경 위험을 고려해 1분기 초과분·환율 순풍의 일부만 연간 가이던스에 반영; 영업총괄 사장 사임",
+    "quote": "This allows us to factor in potential risks as they pertain to the current geopolitical environment."
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "cRPO 성장 22%로 가이던스 250bp 초과, 구독매출 가이던스 상단 상회·Now Assist 목표 초과; FY는 소폭 상향(보수적)",
+   "narrative_quote": "exceeding guidance by 250 bps and 150 bps, respectively",
+   "notes": "FY2025 구독매출 가이던스 상향폭 500만달러(미미). Q2 비GAAP 영업이익률 가이던스 27%. Moveworks·Logik.ai 인수 계획 발표. 5/5 애널리스트 데이 예정."
+  },
+  {
+   "accession": "0001373715-25-000274",
+   "filing_date": "2025-07-23",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 2025",
+   "period_end": "2025-06-30",
+   "revenue_musd": 3215,
+   "revenue_py_musd": 2627,
+   "revenue_yoy_pct_stated": 22.5,
+   "key_segment": {
+    "name": "Subscription revenues",
+    "revenue_musd": 3113,
+    "yoy_pct": 22.5
+   },
+   "prior_guided_actual": {
+    "metric": "subscription revenues (guided $3,030-3,035M)",
+    "actual_musd": 3113,
+    "quote": "Subscription revenues of $3,113 million in Q2 2025, representing 22.5% year-over-year growth, 21.5% in constant currency"
+   },
+   "next_q_guidance": {
+    "metric": "subscription revenues (Q3 2025, GAAP)",
+    "is_total_revenue": false,
+    "low_musd": 3260,
+    "high_musd": 3265,
+    "point_musd": 3262.5,
+    "guided_yoy_pct_stated": 20.25,
+    "quote": "Subscription revenues | $3,260 - $3,265 | 20% - 20.5% | 19.5"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2025",
+    "metric": "subscription revenues (GAAP)",
+    "is_total_revenue": false,
+    "low_musd": 12775,
+    "high_musd": 12795,
+    "point_musd": 12785,
+    "change_vs_prior": "raised",
+    "quote": "Subscription revenues | $12,775 - $12,795 | 20 | 19.5% - 20%"
+   },
+   "profit_guidance": {
+    "metric": "FY2025 non-GAAP operating margin 30.5% / FCF margin 32%",
+    "change_vs_prior": "maintained",
+    "quote": "Income from operations | 30.5"
+   },
+   "backlog": {
+    "metric": "cRPO",
+    "value_musd": 10920,
+    "yoy_pct": 24.5,
+    "quote": "Current remaining performance obligations of $10.92 billion as of Q2 2025, representing 24.5% year-over-year growth, 21.5% in constant currency"
+   },
+   "buyback_new_musd": null,
+   "one_offs": "자산손상 3,000만달러·퇴직비용 2,900만달러가 GAAP 영업이익에 반영",
+   "tone": "strong",
+   "tone_quote": "Q2 was a spectacular quarter across the board, as we significantly beat the high end of our guidance across all topline and profitability metrics",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "미 연방기관 예산 긴축이 Q3까지 지속, 대형 갱신 코호트로 Q3 cRPO 성장 약 2%p 일시 역풍",
+    "quote": "As noted last quarter, U.S. Federal agencies are navigating changes, from tightening budgets to evolving mission demands."
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "구독매출이 가이던스 상단을 7,800만달러 상회, FY 구독매출 가이던스 약 1.25억달러 상향, cRPO 24.5%, Now Assist 10억달러 ACV 목표 궤도",
+   "narrative_quote": "Now Assist continued to surpass net new ACV expectations, fueled by an increase in both deal volume and size quarter-over-quarter, putting us firmly on track to hit our $1 billion ACV target by 2026.",
+   "notes": "Q4 2025 대형 갱신 코호트로 Q3 cRPO 약 2%p 역풍 예고. data.world 인수 7월 종결. 비GAAP 조정 항목에 자산손상·퇴직비용 추가."
+  },
+  {
+   "accession": "0001373715-25-000305",
+   "filing_date": "2025-10-29",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q3 2025",
+   "period_end": "2025-09-30",
+   "revenue_musd": 3407,
+   "revenue_py_musd": 2797,
+   "revenue_yoy_pct_stated": 22,
+   "key_segment": {
+    "name": "Subscription revenues",
+    "revenue_musd": 3299,
+    "yoy_pct": 21.5
+   },
+   "prior_guided_actual": {
+    "metric": "subscription revenues (guided $3,260-3,265M)",
+    "actual_musd": 3299,
+    "quote": "Subscription revenues of $3,299 million in Q3 2025, representing 21.5% year-over-year growth, 20.5% in constant currency"
+   },
+   "next_q_guidance": {
+    "metric": "subscription revenues (Q4 2025, GAAP)",
+    "is_total_revenue": false,
+    "low_musd": 3420,
+    "high_musd": 3430,
+    "point_musd": 3425,
+    "guided_yoy_pct_stated": 19.5,
+    "quote": "Subscription revenues | $3,420 - $3,430 | 19.5 | 17.5% - 18%"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2025",
+    "metric": "subscription revenues (GAAP)",
+    "is_total_revenue": false,
+    "low_musd": 12835,
+    "high_musd": 12845,
+    "point_musd": 12840,
+    "change_vs_prior": "raised",
+    "quote": "Subscription revenues | $12,835 - $12,845 | 20.5 | 20"
+   },
+   "profit_guidance": {
+    "metric": "FY2025 non-GAAP operating margin 31% (from 30.5%) / FCF margin 34% (from 32%)",
+    "change_vs_prior": "raised",
+    "quote": "ServiceNow raises 2025 subscription revenue, operating margin, and free cash flow guidance; expects 250bps of free cash flow margin expansion year-over-year"
+   },
+   "backlog": {
+    "metric": "cRPO",
+    "value_musd": 11350,
+    "yoy_pct": 21,
+    "quote": "Current remaining performance obligations of $11.35 billion as of Q3 2025, representing 21% year-over-year growth, 20.5% in constant currency"
+   },
+   "buyback_new_musd": null,
+   "one_offs": "퇴직비용 2,400만달러; 법인세 비용 1.92억달러(전년 0.84억)로 GAAP 순이익 증가율 제한",
+   "tone": "strong",
+   "tone_quote": "Massive platform demand, combined with AI-driven efficiencies, not only fueled fantastic results but also reinforced our ability to scale with accelerating margin expansion.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "미 연방 예산 긴축·정부 셧다운으로 단기 거래 지연 가능성, Q4 가이던스에 반영",
+    "quote": "The recent government shutdown may also impact deal timing in the near-term."
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "매출·영업이익률·FCF 가이던스 동시 상향, cRPO 가이던스(18.5%) 상회, Now Assist·연방·신제품 계획 초과; Q4 cc 가이던스는 둔화",
+   "narrative_quote": "Now Assist, U.S. Federal, Workflow Data Fabric, and RaptorDB were all ahead of plan.",
+   "notes": "이사회 5:1 주식분할 승인(12/5 주주총회 승인 조건). Genesys 7.5억달러 전략투자 종결. Q4 cRPO 가이던스 23%(cc 19%)는 대형 갱신 코호트 영향. Q4 cc 구독 성장 가이던스 17.5~18%."
+  },
+  {
+   "accession": "0001373715-26-000005",
+   "filing_date": "2026-01-28",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q4 2025",
+   "period_end": "2025-12-31",
+   "revenue_musd": 3568,
+   "revenue_py_musd": 2957,
+   "revenue_yoy_pct_stated": 20.5,
+   "key_segment": {
+    "name": "Subscription revenues",
+    "revenue_musd": 3466,
+    "yoy_pct": 21
+   },
+   "prior_guided_actual": {
+    "metric": "subscription revenues (guided $3,420-3,430M)",
+    "actual_musd": 3466,
+    "quote": "Subscription revenues of $3,466 million in Q4 2025, representing 21% year-over-year growth, 19.5% in constant currency"
+   },
+   "next_q_guidance": {
+    "metric": "subscription revenues (Q1 2026, GAAP)",
+    "is_total_revenue": false,
+    "low_musd": 3650,
+    "high_musd": 3655,
+    "point_musd": 3652.5,
+    "guided_yoy_pct_stated": 21.5,
+    "quote": "Subscription revenues | $3,650 - $3,655 | 21.5 | 18.5% - 19%"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2026",
+    "metric": "subscription revenues (GAAP)",
+    "is_total_revenue": false,
+    "low_musd": 15530,
+    "high_musd": 15570,
+    "point_musd": 15550,
+    "change_vs_prior": "initiated",
+    "quote": "Subscription revenues | $15,530 - $15,570 | 20.5% - 21% | 19.5% - 20%"
+   },
+   "profit_guidance": {
+    "metric": "FY2026 non-GAAP operating margin 32% / FCF margin 36% / subscription GM 82%",
+    "change_vs_prior": "initiated",
+    "quote": "Free cash flow | 36"
+   },
+   "backlog": {
+    "metric": "cRPO",
+    "value_musd": 12850,
+    "yoy_pct": 25,
+    "quote": "Current remaining performance obligations of $12.85 billion as of Q4 2025, representing 25% year-over-year growth, 21% in constant currency"
+   },
+   "buyback_new_musd": 5000,
+   "one_offs": "Moveworks 인수(12/15 종결) 관련 비용 6,500만·계약해지 3,700만·퇴직 2,100만달러가 GAAP 영업이익에 반영",
+   "tone": "strong",
+   "tone_quote": "our confidence in sustained high organic growth has never been greater",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "자체 호스팅→호스팅 매출 믹스 전환(하이퍼스케일러 채택)으로 Q1 구독매출 성장에 약 150bp 역풍",
+    "quote": "Our Q1 2026 subscription revenue growth guidance includes an approximately 150bps headwind from a mix shift of self‑hosted revenue to hosted revenue, partially driven by strong adoption of our hyperscaler offerings."
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "Q4 가이던스 상회, 100만달러 초과 거래 약 40% 증가, cRPO 25%, 2026 구독 가이던스 20.5~21%로 성장 재가속(Moveworks 약 100bp 포함)",
+   "narrative_quote": "ServiceNow significantly beat Q4 expectations, accelerated net new business, and issued exceptional guidance for 2026",
+   "notes": "5:1 주식분할 2025-12-17 효력, 주당지표·주식수 소급 조정. Moveworks 12/15 종결로 cRPO 성장·Q1·FY2026 가이던스에 약 100bp 기여. Armis(2H26)·Veza(1H26) 인수 예정. 20억달러 ASR 계획. 연간 실적 포함."
+  },
+  {
+   "accession": "0001373715-26-000054",
+   "filing_date": "2026-04-22",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q1 2026",
+   "period_end": "2026-03-31",
+   "revenue_musd": 3770,
+   "revenue_py_musd": 3088,
+   "revenue_yoy_pct_stated": 22,
+   "key_segment": {
+    "name": "Subscription revenues",
+    "revenue_musd": 3671,
+    "yoy_pct": 22
+   },
+   "prior_guided_actual": {
+    "metric": "subscription revenues (guided $3,650-3,655M)",
+    "actual_musd": 3671,
+    "quote": "Subscription revenues of $3,671 million in Q1 2026, representing 22% year-over-year growth, 19% in constant currency"
+   },
+   "next_q_guidance": {
+    "metric": "subscription revenues (Q2 2026, GAAP)",
+    "is_total_revenue": false,
+    "low_musd": 3815,
+    "high_musd": 3820,
+    "point_musd": 3817.5,
+    "guided_yoy_pct_stated": 22.5,
+    "quote": "Subscription revenues | $3,815 - $3,820 | 22.5 | 21% - 21.5%"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2026",
+    "metric": "subscription revenues (GAAP)",
+    "is_total_revenue": false,
+    "low_musd": 15735,
+    "high_musd": 15775,
+    "point_musd": 15755,
+    "change_vs_prior": "raised",
+    "quote": "Subscription revenues | $15,735 - $15,775 | 22% - 22.5% | 20.5% - 21%"
+   },
+   "profit_guidance": {
+    "metric": "FY2026 non-GAAP operating margin 31.5% (from 32%) / FCF margin 35% (from 36%) / subscription GM 81.5% (from 82%)",
+    "change_vs_prior": "lowered",
+    "quote": "The acquisition is also expected to create headwinds of approximately 25 basis points to FY 2026 subscription gross margin, approximately 75 basis points to FY 2026 operating margin, approximately 200 basis points to FY 2026 free cash flow margin"
+   },
+   "backlog": {
+    "metric": "cRPO",
+    "value_musd": 12640,
+    "yoy_pct": 22.5,
+    "quote": "Current remaining performance obligations of $12.64 billion as of Q1 2026, representing 22.5% year-over-year growth, 21% in constant currency"
+   },
+   "buyback_new_musd": null,
+   "one_offs": "전략투자 평가이익 8,700만달러(기타수익, 비GAAP 제외); Veza 인수 종결(3/2) 관련 인수비용 4,300만달러",
+   "tone": "strong",
+   "tone_quote": "our AI growth is far exceeding even our own expectations, reinforcing our position as one of the fastest growing enterprise software companies ever",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "중동 분쟁으로 대형 온프렘 거래 지연(약 75bp 역풍)·연중 반영, Armis 통합으로 2026 마진 일시 하락",
+    "quote": "In Q1 2026, subscription revenues growth saw an approximately 75 basis point headwind from delayed closings of several large on-premise deals in the Middle East, due to the ongoing conflict in the region."
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "가이던스 상단 상회·대형 거래 증가는 긍정이나, FY 상향은 Armis 기여(약 125bp) 수준이고 마진 가이던스 하향·중동 거래 지연 역풍",
+   "narrative_quote": "Our Q2 2026 subscription revenues growth, Q2 2026 cRPO growth, and FY 2026 subscription revenues growth guidance each include approximately 125 basis points of contribution from Armis.",
+   "notes": "Armis 4/20 종결(분기 후)로 Q2·FY2026 가이던스에 약 125bp 기여(FY cc 가이던스 상향폭 약 100bp보다 큼), 일부 계약 해지권으로 cRPO 반영 제한. 비GAAP 순이익 정의 변경(전략투자 손익 제외, 과거 소급). 비GAAP 세율 21%. 8-K에 1.01·2.03(차입) 포함."
+  },
+  {
+   "accession": "0001373715-26-000072",
+   "filing_date": "2026-07-22",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 2026",
+   "period_end": "2026-06-30",
+   "revenue_musd": 3987,
+   "revenue_py_musd": 3215,
+   "revenue_yoy_pct_stated": 24,
+   "key_segment": {
+    "name": "Subscription revenues",
+    "revenue_musd": 3877,
+    "yoy_pct": 24.5
+   },
+   "prior_guided_actual": {
+    "metric": "subscription revenues (guided $3,815-3,820M)",
+    "actual_musd": 3877,
+    "quote": "Subscription revenues of $3,877 million in Q2 2026, representing 24.5% year-over-year growth, 23% in constant currency"
+   },
+   "next_q_guidance": {
+    "metric": "subscription revenues (Q3 2026, GAAP)",
+    "is_total_revenue": false,
+    "low_musd": 3975,
+    "high_musd": 3980,
+    "point_musd": 3977.5,
+    "guided_yoy_pct_stated": 20.5,
+    "quote": "Subscription revenues | $3,975 - $3,980 | 20.5 | 20"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2026",
+    "metric": "subscription revenues (GAAP)",
+    "is_total_revenue": false,
+    "low_musd": 15760,
+    "high_musd": 15780,
+    "point_musd": 15770,
+    "change_vs_prior": "raised",
+    "quote": "Subscription revenues | $15,760 - $15,780 | 22.5 | 21"
+   },
+   "profit_guidance": {
+    "metric": "FY2026 non-GAAP operating margin 31.5% / FCF margin 35% (subscription GM 81.5%->81% lowered)",
+    "change_vs_prior": "maintained",
+    "quote": "Income from operations | 31.5"
+   },
+   "backlog": {
+    "metric": "cRPO",
+    "value_musd": 13200,
+    "yoy_pct": 21,
+    "quote": "Current remaining performance obligations of $13.20 billion as of Q2 2026, representing 21% year-over-year growth, 21.5% in constant currency"
+   },
+   "buyback_new_musd": null,
+   "one_offs": "Armis 인수 무형자산상각 2.19억·인수비용 7,500만·퇴직 6,200만달러로 GAAP 영업이익률 4%; 전략투자 평가이익 2.73억·평가충당금 환입 세금혜택 5,100만달러",
+   "tone": "strong",
+   "tone_quote": "We are who we said we were: a defining company that is only just getting started.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_quantified",
+    "desc": "하이퍼스케일러 활용·AI 채택 증가로 구독 총이익률 하락(비GAAP 83%→80.5%), FY 총이익률 가이던스 81%로 하향",
+    "quote": "Our FY 2026 gross margin guidance reflects more customers utilizing our hyperscaler partnerships and an acceleration of customer AI adoption."
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "구독매출이 가이던스 상단을 150bp 상회, AI ACV 10억달러 돌파·cRPO cc 21.5%로 가이던스 상회; 단 일부 온프렘 매출 당겨짐·총이익률 하향",
+   "narrative_quote": "ServiceNow AI crossed $1 billion in annual contract value in Q2 2026",
+   "notes": "Armis 연결 첫 분기(매출 기반 확대, 가이던스상 약 125bp 기여). Q2 초과분 일부는 연방 온프렘 구독매출의 Q3→Q2 당겨짐이라 Q3 가이던스 20.5%로 둔화. Q3 cRPO FX 역풍 약 3,500만달러. 차입 확대(단기 20.8억·장기 54.4억달러). 5/4 애널리스트 데이 2030 구독매출 300억달러+ 목표."
+  }
+ ],
+ "fixes": [],
+ "qc": {
+  "bad_quotes": [],
+  "revenue_mismatch": []
+ }
+}

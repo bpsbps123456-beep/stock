@@ -1,0 +1,600 @@
+{
+ "ticker": "NFLX",
+ "events": [
+  {
+   "accession": "0001065280-24-000199",
+   "filing_date": "2024-07-18",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 FY2024",
+   "period_end": "2024-06-30",
+   "revenue_musd": 9559.31,
+   "revenue_py_musd": 8187.301,
+   "revenue_yoy_pct_stated": 16.8,
+   "key_segment": null,
+   "prior_guided_actual": {
+    "metric": "revenue",
+    "actual_musd": 9559.31,
+    "quote": "Global revenue was 1% higher than our beginning of quarter guidance"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 9727,
+    "guided_yoy_pct_stated": 13.9,
+    "quote": "Revenue | 8,187 | 8,542 | 8,833 | 9,370 | 9,559 | 9,727"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2024",
+    "metric": "revenue growth 14%-15% (prior 13%-15%)",
+    "is_total_revenue": true,
+    "low_musd": 38445,
+    "high_musd": 38782,
+    "point_musd": 38614,
+    "change_vs_prior": "raised",
+    "quote": "we now expect revenue growth of 14% to 15%, up from 13% to 15% previously"
+   },
+   "profit_guidance": {
+    "metric": "FY2024 operating margin 26% (prior 25%); FY2024 FCF ~$6B",
+    "change_vs_prior": "raised",
+    "quote": "We also now expect 2024 operating margin of 26% based on F/X rates as of January 1, 2024, up from our prior estimate of 25%"
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "유로화 부채 환산 비현금 미실현 이익 4,300만달러(영업외 수익)",
+   "tone": "strong",
+   "tone_quote": "We had a strong Q2 with 17% revenue growth and an operating margin of 27% vs. 22% last year.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "달러 강세로 보고 기준 ARM 정체(3분기 전년비 보합 예상), 광고 재고 수익화가 규모 확대를 못 따라감",
+    "quote": "we forecast global ARM on a reported basis to be roughly flat year over year in Q3 due to ongoing F/X headwinds and plan and country mix"
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "연간 매출 성장률 가이던스 하단 상향(13~15%→14~15%), 영업이익률 목표 25→26% 상향, 순증 8.05M로 가이던스 상회",
+   "narrative_quote": "Our updated revenue forecast reflects solid membership growth trends and business momentum, partially offset by the strengthening of the US dollar vs. most other currencies.",
+   "notes": "연간 가이던스는 성장률(%)로만 제시됨. low/high/point는 문서 수치로 계산한 FY2023 매출(상반기 16,349+3Q 8,542+4Q 8,833=33,724)에 1.14/1.15를 곱한 환산값. 직전 분기 서한은 목록 밖이라 분기 가이던스 수치 대신 본문의 '가이던스 대비 1% 상회' 문구 사용. 분기 가이던스 영업이익률 28.1%, EPS 5.10."
+  },
+  {
+   "accession": "0001065280-24-000286",
+   "filing_date": "2024-10-17",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q3 FY2024",
+   "period_end": "2024-09-30",
+   "revenue_musd": 9824.703,
+   "revenue_py_musd": 8541.668,
+   "revenue_yoy_pct_stated": 15,
+   "key_segment": null,
+   "prior_guided_actual": {
+    "metric": "revenue",
+    "actual_musd": 9824.703,
+    "quote": "Revenue in Q3 grew 15% (21% on a foreign exchange (F/X) neutral basis1), 1% higher than our beginning of quarter forecast."
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 10128,
+    "guided_yoy_pct_stated": 14.7,
+    "quote": "Revenue | 8,542 | 8,833 | 9,370 | 9,559 | 9,825 | 10,128"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2024",
+    "metric": "revenue ~$38.9B (15% growth, high end of prior 14%-15%)",
+    "is_total_revenue": true,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 38900,
+    "change_vs_prior": "raised",
+    "quote": "Our fourth quarter guidance implies that revenue will grow 15% year over year for the full year 2024, at the high end of our prior 14%-15% revenue growth expectation."
+   },
+   "profit_guidance": {
+    "metric": "FY2024 operating margin 27% (prior 26%); FY2024 FCF $6.0-6.5B (prior ~$6B); FY2025 operating margin target 28%",
+    "change_vs_prior": "raised",
+    "quote": "For 2024, we expect revenue growth of 15% (the high end of our 14% to 15% range), and operating margin of 27% (vs 26% previously)."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "유로화 부채 환산 등 환손실 9,100만달러(영업외)",
+   "tone": "strong",
+   "tone_quote": "We’ve delivered on our plan to reaccelerate our business",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "광고 요금제 가입이 수익화보다 빨라 단기 ARM 압박, LATAM 순증 -0.07M(가격 인상·약한 라인업)",
+    "quote": "While this creates a short term drag on ARM, we are balancing building ads scale"
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "2024 매출 가이던스 상단(15%) 확정, 영업이익률 26→27%, FCF 상향; 2025 매출 430~440억달러(11~13%)·마진 28% 첫 제시(성장 둔화 시사)",
+   "narrative_quote": "revenue of $43B-$44B, which would represent growth of 11%-13% off of our 2024 revenue guidance of $38.9B",
+   "notes": "FY2025 가이던스 최초 제시: 매출 430~440억달러(11~13% 성장), 영업이익률 28%. fy_guidance는 진행 중인 FY2024 기준. 4분기 가이던스 영업이익률 21.6%, EPS 4.23. 첫 투자등급 회사채 18억달러 발행."
+  },
+  {
+   "accession": "0001065280-25-000033",
+   "filing_date": "2025-01-21",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q4 FY2024",
+   "period_end": "2024-12-31",
+   "revenue_musd": 10246.513,
+   "revenue_py_musd": 8832.825,
+   "revenue_yoy_pct_stated": 16,
+   "key_segment": null,
+   "prior_guided_actual": {
+    "metric": "revenue",
+    "actual_musd": 10246.513,
+    "quote": "This was slightly above our beginning-of-quarter forecast despite the strengthening of the US dollar vs. most currencies as membership growth and ad sales outpaced our forecast."
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 10416,
+    "guided_yoy_pct_stated": 11.2,
+    "quote": "Revenue | 8,833 | 9,370 | 9,559 | 9,825 | 10,247 | 10,416"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2025",
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 43500,
+    "high_musd": 44500,
+    "point_musd": 44000,
+    "change_vs_prior": "raised",
+    "quote": "we now project 2025 revenue of $43.5-$44.5B, $0.5B higher than our prior forecast range"
+   },
+   "profit_guidance": {
+    "metric": "FY2025 operating margin 29% (prior 28%); FY2025 FCF ~$8B",
+    "change_vs_prior": "raised",
+    "quote": "an operating margin of 29%, up one point from our prior forecast"
+   },
+   "backlog": null,
+   "buyback_new_musd": 15000,
+   "one_offs": "",
+   "tone": "strong",
+   "tone_quote": "We enter 2025 with strong momentum, coming off a year with record net additions (41M) and having re-accelerated growth (16% increase in revenue).",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "달러 강세가 2025 매출 전망을 약 10억달러 깎음(가이던스에 이미 반영)",
+    "quote": "the appreciation of the US dollar vs. most currencies has negatively impacted our 2025 revenue forecast by ~$1B, net of hedging"
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "사상 최대 분기 순증 19M, 환율 역풍에도 2025 매출 가이던스 +5억달러·영업이익률 28→29% 상향, 자사주 150억달러 추가 승인",
+   "narrative_quote": "We generated 19M paid net additions - the biggest quarter of net adds in our history",
+   "notes": "2025년 1분기부터 유료 회원수·ARM 분기 공시 중단(이정표 때만 발표). 손익계산서 'Marketing' 항목명이 'Sales and marketing'으로 변경. 자사주 150억달러 추가 승인으로 총 한도 171억달러. 2025 FCF 약 80억달러 전망."
+  },
+  {
+   "accession": "0001065280-25-000175",
+   "filing_date": "2025-04-17",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q1 FY2025",
+   "period_end": "2025-03-31",
+   "revenue_musd": 10542.801,
+   "revenue_py_musd": 9370.44,
+   "revenue_yoy_pct_stated": 12.5,
+   "key_segment": null,
+   "prior_guided_actual": {
+    "metric": "revenue",
+    "actual_musd": 10542.801,
+    "quote": "Revenue was modestly above our guidance due to slightly higher-than-forecasted subscription and ad revenue"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 11035,
+    "guided_yoy_pct_stated": 15.4,
+    "quote": "Revenue | 9,370 | 9,559 | 9,825 | 10,247 | 10,543 | 11,035"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2025",
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 43500,
+    "high_musd": 44500,
+    "point_musd": 44000,
+    "change_vs_prior": "maintained",
+    "quote": "We continue to forecast 2025 revenue of $43.5B-$44.5B"
+   },
+   "profit_guidance": {
+    "metric": "FY2025 operating margin 29%; FY2025 FCF ~$8B",
+    "change_vs_prior": "maintained",
+    "quote": "no change to our 2025 guidance forecast for revenue of $43.5-$44.5B and operating margin of 29%"
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "",
+   "tone": "strong",
+   "tone_quote": "We are off to a good start in 2025. In Q1, revenue and operating income grew 13% and 27% year over year, respectively.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "UCAN 매출 성장 15%→9% 둔화(가격 인상 부분 반영·NFL 광고 부재), 2분기 재가속 예상",
+    "quote": "due to only a partial quarter impact from our price change, plan mix and the absence of advertising revenue from the Christmas Day NFL games"
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "가이던스 소폭 상회, 연간 매출·마진 가이던스 유지(현 환율로 중간값 상회 추적), UCAN 일시 둔화",
+   "narrative_quote": "we’re currently tracking above the mid-point of our 2025 revenue guidance range",
+   "notes": "이번 분기부터 회원수·ARM 미공시, 지역별 매출만 공시. Item 5.02: Reed Hastings 집행 의장에서 비집행 의장으로 전환. 2분기 가이던스 영업이익률 33.3%, EPS 7.03."
+  },
+  {
+   "accession": "0001065280-25-000322",
+   "filing_date": "2025-07-17",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 FY2025",
+   "period_end": "2025-06-30",
+   "revenue_musd": 11079.166,
+   "revenue_py_musd": 9559.31,
+   "revenue_yoy_pct_stated": 15.9,
+   "key_segment": null,
+   "prior_guided_actual": {
+    "metric": "revenue",
+    "actual_musd": 11079.166,
+    "quote": "Revenue was slightly above our guidance due primarily to favorable F/X impact, net of hedging."
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 11526,
+    "guided_yoy_pct_stated": 17.3,
+    "quote": "Revenue | 9,559 | 9,825 | 10,247 | 10,543 | 11,079 | 11,526"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2025",
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 44800,
+    "high_musd": 45200,
+    "point_musd": 45000,
+    "change_vs_prior": "raised",
+    "quote": "For 2025, we are increasing our revenue forecast to $44.8B-$45.2B from $43.5B-$44.5B, previously."
+   },
+   "profit_guidance": {
+    "metric": "FY2025 operating margin 29.5% F/X-neutral (prior 29%), ~30% reported; FCF $8-8.5B (prior ~$8B)",
+    "change_vs_prior": "raised",
+    "quote": "we are now targeting a 29.5% operating margin for 2025, based on F/X rates at the beginning of the year, up from our prior 29% forecast"
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "",
+   "tone": "strong",
+   "tone_quote": "Our business continues to perform well. In Q2, we grew revenue 16% and our operating margin of 34% expanded seven points year over year.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "상반기 시청시간 +1%로 정체(하반기 편중 라인업 탓 설명), 매출 가이던스 상향분 대부분이 환율 효과",
+    "quote": "our members watched over 95 billion hours on Netflix in the first half of the year, a 1% increase year over year"
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "연간 매출 가이던스 435~445→448~452억달러(대부분 환율)·마진 29→29.5%·FCF 상향, UCAN 성장 9→15% 재가속",
+   "narrative_quote": "with the balance attributable to continued business momentum driven by solid member growth and ad sales",
+   "notes": "매출 가이던스 상향분의 대부분이 달러 약세 효과라고 명시. 상반기 시청 보고서를 실적과 함께 첫 공개. 3분기 가이던스 영업이익률 31.5%, EPS 6.87. 30억달러 CP 프로그램 개설."
+  },
+  {
+   "accession": "0001065280-25-000404",
+   "filing_date": "2025-10-21",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q3 FY2025",
+   "period_end": "2025-09-30",
+   "revenue_musd": 11510.307,
+   "revenue_py_musd": 9824.703,
+   "revenue_yoy_pct_stated": 17.2,
+   "key_segment": null,
+   "prior_guided_actual": {
+    "metric": "revenue",
+    "actual_musd": 11510.307,
+    "quote": "Revenue was in-line with our guidance with the slight variance due to unfavorable movements in foreign currencies since we set our forecast."
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 11960,
+    "guided_yoy_pct_stated": 16.7,
+    "quote": "Revenue | 9,825 | 10,247 | 10,543 | 11,079 | 11,510 | 11,960"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2025",
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 45100,
+    "change_vs_prior": "maintained",
+    "quote": "for the full year 2025, we expect $45.1B in revenue (16% growth, 17% on an F/X neutral basis), in-line with our prior expectations for 15%-16% revenue growth"
+   },
+   "profit_guidance": {
+    "metric": "FY2025 operating margin 29% (prior ~30% reported / 29.5% F/X-neutral); FCF ~$9B (prior $8-8.5B)",
+    "change_vs_prior": "lowered",
+    "quote": "vs. our prior expectations for a 30% reported operating margin (29.5% based on F/X rates as of 1/1/25) due to the impact of the Brazilian tax matter"
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "브라질 비소득세 분쟁 비용 약 6.19억달러(2022~3Q25 누적, 매출원가) → 3Q 영업이익률 5%p+ 하락, EPS 가이던스 대비 1달러 미달",
+   "tone": "strong",
+   "tone_quote": "We have a solid foundation and are increasingly confident in the outlook for our ads business.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "브라질 세무 분쟁 일회성 비용으로 3Q 마진 가이던스(31.5%) 미달·연간 마진 하향, 향후 영향 없다고 설명",
+    "quote": "we don’t expect this matter to have a material impact on our results in the future"
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "매출 가이던스 부합(소폭 미달)·연간 매출 유지, 일회성 세금으로 마진 가이던스 하향; 광고매출 2배 초과·FCF 상향",
+   "narrative_quote": "We are now on track to more than double our ads revenue in 2025 (still off a relatively small base)",
+   "notes": "3Q 매출은 직전 가이던스 11,526 대비 소폭 미달(in-line 표현). 브라질 비용 중 약 20%만 2025년분, 나머지 2022~2024년분. FCF 정의에서 'change in other assets' 문구 삭제. 4분기 가이던스 영업이익률 23.9%, EPS 5.45(분할 전 기준)."
+  },
+  {
+   "accession": "0001065280-26-000033",
+   "filing_date": "2026-01-20",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q4 FY2025",
+   "period_end": "2025-12-31",
+   "revenue_musd": 12050.762,
+   "revenue_py_musd": 10246.513,
+   "revenue_yoy_pct_stated": 17.6,
+   "key_segment": null,
+   "prior_guided_actual": {
+    "metric": "revenue",
+    "actual_musd": 12050.762,
+    "quote": "revenue was 1% above our guidance due to stronger-than-forecasted membership growth and ad sales"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 12157,
+    "guided_yoy_pct_stated": 15.3,
+    "quote": "Revenue | 10,247 | 10,543 | 11,079 | 11,510 | 12,051 | 12,157"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2026",
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 50700,
+    "high_musd": 51700,
+    "point_musd": 51200,
+    "change_vs_prior": "initiated",
+    "quote": "For 2026, based on F/X rates as of 1/1/2026, we forecast revenue of $50.7B-$51.7B."
+   },
+   "profit_guidance": {
+    "metric": "FY2026 operating margin 31.5% (incl. ~$275M acquisition costs); FY2026 FCF ~$11B",
+    "change_vs_prior": "initiated",
+    "quote": "we forecast 2026 revenue of $50.7B-$51.7B (+12%-14% year over year) with ad revenue expected to roughly double, and an operating margin of 31.5%."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "워너브라더스 인수용 브리지론 관련 비용 약 6천만달러(이자비용, 가이던스 미포함)",
+   "tone": "strong",
+   "tone_quote": "In 2025, we met or exceeded all of our financial objectives.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_potential",
+    "desc": "WBD 전액 현금 인수 추진: 브리지 대출 약정 422억달러, 자사주 매입 중단, 인수비용 반영",
+    "quote": "we’ll pause our share buybacks to accumulate cash to help fund the pending acquisition of Warner Bros."
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "4Q 가이던스 상회·광고매출 2.5배(15억달러+), 2026 성장 12~14%·마진 31.5%로 기존 흐름 유지; 대형 인수로 자본배분 불확실성 증가",
+   "narrative_quote": "This represents 12%-14% year over year growth (or 11%-13% F/X neutral growth), driven by increases in membership and pricing plus a projected rough doubling of ad revenue in 2026 vs. 2025.",
+   "notes": "2025-11-14 10:1 액면분할 반영(EPS·주식수 소급 조정, 표 Shares 단위 변경). Warner Bros.(스튜디오·HBO Max) 인수 합의를 주당 27.75달러 전액 현금으로 변경, 종결 시 매출 기반 변화. 자사주 매입 일시 중단(잔여 한도 80억달러). 하반기 시청시간 +2%. 2025 FCF 95억달러(브라질 예치금 약 7억달러 2026년으로 이연)."
+  },
+  {
+   "accession": "0001065280-26-000137",
+   "filing_date": "2026-04-16",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q1 FY2026",
+   "period_end": "2026-03-31",
+   "revenue_musd": 12249.757,
+   "revenue_py_musd": 10542.801,
+   "revenue_yoy_pct_stated": 16.2,
+   "key_segment": null,
+   "prior_guided_actual": {
+    "metric": "revenue",
+    "actual_musd": 12249.757,
+    "quote": "Revenue was slightly above our forecast due to higher than forecasted membership growth and favorable F/X movements net of hedging."
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 12574,
+    "guided_yoy_pct_stated": 13.5,
+    "quote": "Revenue | 10,543 | 11,079 | 11,510 | 12,051 | 12,250 | 12,574"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2026",
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 50700,
+    "high_musd": 51700,
+    "point_musd": 51200,
+    "change_vs_prior": "maintained",
+    "quote": "Our full year 2026 guidance is unchanged: we forecast 2026 revenue of $50.7B-$51.7B"
+   },
+   "profit_guidance": {
+    "metric": "FY2026 operating margin 31.5%; FCF ~$12.5B (prior ~$11B, termination fee)",
+    "change_vs_prior": "maintained",
+    "quote": "We continue to project 2026 revenue of $50.7-$51.7B and an operating margin of 31.5%."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "WBD 인수 무산 위약금 28억달러를 영업외수익으로 인식 → 1Q EPS 1.23달러(가이던스 0.76달러), 영업현금흐름에도 유입",
+   "tone": "strong",
+   "tone_quote": "We have a clear strategy and strong conviction in our long runway of growth",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "콘텐츠 상각 상반기 집중으로 2Q 마진 전년비 하락(32.6% vs 34.1%), 2Q 매출 성장 13%로 둔화 예고",
+    "quote": "we forecast Q2 operating margin of 32.6% compared with 34.1% in the year ago quarter"
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "연간 매출·마진 가이던스 유지, WBD 인수 철회로 재무 부담 해소·자사주 매입 재개; 2Q 성장 둔화 예고",
+   "narrative_quote": "Warner Bros. would have been a nice accelerant for our strategy, but only at the right price",
+   "notes": "WBD 인수 철회(인상 제안 거절), 위약금 28억달러 수취로 1Q 순이익·EPS·FCF 일회성 증가. 자사주 매입 재개(1Q 13억달러). InterPositive 인수. Item 5.02: Reed Hastings 이사회 재선 불출마. 광고매출 2026년 약 30억달러 목표."
+  },
+  {
+   "accession": "0001065280-26-000211",
+   "filing_date": "2026-07-16",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 FY2026",
+   "period_end": "2026-06-30",
+   "revenue_musd": 12559.938,
+   "revenue_py_musd": 11079.166,
+   "revenue_yoy_pct_stated": 13.4,
+   "key_segment": null,
+   "prior_guided_actual": {
+    "metric": "revenue",
+    "actual_musd": 12559.938,
+    "quote": "Q2 revenue of $12.6B was in-line with forecast and grew 13% year over year"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 12860,
+    "guided_yoy_pct_stated": 11.7,
+    "quote": "Revenue | 11,079 | 11,510 | 12,051 | 12,250 | 12,560 | 12,860"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2026",
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 51000,
+    "high_musd": 51400,
+    "point_musd": 51200,
+    "change_vs_prior": "maintained",
+    "quote": "we are narrowing our revenue forecast to $51.0-$51.4B, which represents 13%-14% growth"
+   },
+   "profit_guidance": {
+    "metric": "FY2026 operating margin 31.5%; FCF ~$12.5B",
+    "change_vs_prior": "maintained",
+    "quote": "We continue to anticipate an operating margin of 31.5% for 2026"
+   },
+   "backlog": null,
+   "buyback_new_musd": 25000,
+   "one_offs": "WBD 위약금 관련 현금 세금 납부로 2Q FCF 15억달러로 감소",
+   "tone": "neutral",
+   "tone_quote": "Our financial performance remains solid and we’re on track to meet our objectives for the year",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "UCAN 성장 10%로 둔화(가격 인상 부분 반영 탓), 3Q 매출 성장 가이던스 11.7%로 추가 둔화",
+    "quote": "In UCAN, Q2 revenue growth of 10% reflects only a partial quarter impact from our recent price change, which has gone well and as expected."
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "가이던스 부합·연간 범위 축소(중간값 512억달러 유지), 상반기 시청 +2%; 3Q 성장 둔화 예고, 시청시간 보고서 연 1회로 축소",
+   "narrative_quote": "we will shift to publishing this report annually in the first quarter, beginning in 2027",
+   "notes": "자사주 250억달러 추가 승인은 4월 이사회 결정으로 이번 서한에서 처음 확인(직전 서한 이후 발표). What We Watched 보고서를 2027년부터 연 1회(1분기)로 변경. 2026 영업이익 20%+ 성장 함의. 3Q 가이던스 영업이익률 33.2%, EPS 0.82."
+  },
+  {
+   "accession": "0001065280-26-000290",
+   "filing_date": "2026-10-20",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q3 FY2026",
+   "period_end": "2026-09-30",
+   "revenue_musd": 12874.176,
+   "revenue_py_musd": 11510.307,
+   "revenue_yoy_pct_stated": 11.8,
+   "key_segment": null,
+   "prior_guided_actual": {
+    "metric": "revenue",
+    "actual_musd": 12874.176,
+    "quote": "Q3 revenue grew 12% year over year (11% on a F/X neutral basis1) to $12.9B, consistent with our forecast."
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 13442,
+    "guided_yoy_pct_stated": 11.5,
+    "quote": "Revenue | 11,510 | 12,051 | 12,250 | 12,560 | 12,874 | 13,442"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2026",
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 51100,
+    "change_vs_prior": "lowered",
+    "quote": "for the full year 2026 we expect revenue of $51.1B, or growth of 13% (+12% on a F/X neutral basis)"
+   },
+   "profit_guidance": {
+    "metric": "FY2026 operating margin 31.5% (incl. ~30bp headcount reduction); FCF ~$12.0B (prior ~$12.5B)",
+    "change_vs_prior": "maintained",
+    "quote": "We anticipate an operating margin of 31.5% for 2026 (31.4% based on F/X rates as of January 1, 2026) vs. 29.5% in 2025."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "4Q 인력 감축 비용(4Q 마진 약 120bp·연간 약 30bp 영향 예상), 4Q 부동산 거래로 FCF 전망 하향",
+   "tone": "cautious",
+   "tone_quote": "we currently expect 2026 ad revenue of ~$2.7B vs. approximately $3B previously (due to slightly slower than expected rollout of some ad product capabilities)",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_potential",
+    "desc": "시청시간 성장 둔화에 대한 투자자 우려를 회사가 직접 언급; 광고매출 전망도 30억→27억달러 하향",
+    "quote": "We know there’s some investor concern about our view hours growth."
+   },
+   "narrative_shift": -1,
+   "narrative_reason": "연간 매출 전망 중간값 하회(512→511억달러), 광고매출 목표 약 10% 하향, 4Q 성장 11.5%로 둔화, 인력 감축·FCF 하향",
+   "narrative_quote": "This is 0.2% below the mid-point of our prior 2026 revenue forecast range - while subscription revenue growth has outperformed our expectations",
+   "notes": "연간 매출은 직전 범위(510~514억달러) 안이지만 중간값 아래로 하향. 3Q 이탈률 전년·예상 대비 개선. 2027년 광고 요금제 15개국 추가(첫 묶음 2027년 3월). 4Q 가이던스 영업이익률 26.0%(인력 감축 약 120bp 포함), EPS 0.67."
+  }
+ ],
+ "fixes": [],
+ "qc": {
+  "bad_quotes": [],
+  "revenue_mismatch": []
+ }
+}

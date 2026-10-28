@@ -1,0 +1,622 @@
+{
+ "ticker": "SNOW",
+ "events": [
+  {
+   "accession": "0001640147-24-000203",
+   "filing_date": "2024-08-21",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 FY2025",
+   "period_end": "2024-07-31",
+   "revenue_musd": 868.823,
+   "revenue_py_musd": 674.018,
+   "revenue_yoy_pct_stated": 29,
+   "key_segment": {
+    "name": "Product revenue",
+    "revenue_musd": 829.25,
+    "yoy_pct": 30
+   },
+   "prior_guided_actual": {
+    "metric": "Product revenue (Q2 FY2025)",
+    "actual_musd": 829.25,
+    "quote": "surpassing the high end of our Q2 product revenue guidance"
+   },
+   "next_q_guidance": {
+    "metric": "Product revenue (Q3 FY2025)",
+    "is_total_revenue": false,
+    "low_musd": 850,
+    "high_musd": 855,
+    "point_musd": 852.5,
+    "guided_yoy_pct_stated": 22,
+    "quote": "Product revenue | $850 - $855 | 22"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2025",
+    "metric": "Product revenue",
+    "is_total_revenue": false,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 3356,
+    "change_vs_prior": "raised",
+    "quote": "Product revenue | $3,356 | 26"
+   },
+   "profit_guidance": {
+    "metric": "FY2025 non-GAAP operating margin 3% (product GM 75%, adj. FCF margin 26%)",
+    "change_vs_prior": "unclear",
+    "quote": "Operating income | 3"
+   },
+   "backlog": {
+    "metric": "RPO",
+    "value_musd": 5200,
+    "yoy_pct": 48,
+    "quote": "Remaining performance obligations of $5.2 billion, representing 48% year-over-year growth"
+   },
+   "buyback_new_musd": 2500,
+   "one_offs": "",
+   "tone": "strong",
+   "tone_quote": "Snowflake delivered another strong quarter, surpassing the high end of our Q2 product revenue guidance",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_quantified",
+    "desc": "AI 투자로 비GAAP 영업이익률 8%→5%, 제품 총마진 78%→76% 하락, 연간 영업이익률 가이던스 3%",
+    "quote": "Non-GAAP operating margin | 5% | 8% | 5% | 7%"
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "Q2 제품매출 가이던스 상단 상회, 연간 제품매출 가이던스 상향(3,356), RPO 48% 성장. 다만 이익률은 하락",
+   "narrative_quote": "raising our product revenue guidance for the year",
+   "notes": "회계연도 1월 말 종료(FY2025=2024.2~2025.1). 가이던스는 총매출이 아닌 제품매출(총매출의 95%) 기준. 이전 릴리스가 목록에 없어 FY 상향은 본문 서술 기준. 자사주 25억달러 추가 승인·만료 2027년 3월로 연장. Q3 가이던스 성장률 22%로 Q2 30% 대비 둔화 가이드."
+  },
+  {
+   "accession": "0001640147-24-000242",
+   "filing_date": "2024-11-20",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q3 FY2025",
+   "period_end": "2024-10-31",
+   "revenue_musd": 942.094,
+   "revenue_py_musd": 734.173,
+   "revenue_yoy_pct_stated": 28,
+   "key_segment": {
+    "name": "Product revenue",
+    "revenue_musd": 900.282,
+    "yoy_pct": 29
+   },
+   "prior_guided_actual": {
+    "metric": "Product revenue (Q3 FY2025, guided $850-855M)",
+    "actual_musd": 900.282,
+    "quote": "Product revenue for the quarter was $900.3 million, representing 29% year-over-year growth."
+   },
+   "next_q_guidance": {
+    "metric": "Product revenue (Q4 FY2025)",
+    "is_total_revenue": false,
+    "low_musd": 906,
+    "high_musd": 911,
+    "point_musd": 908.5,
+    "guided_yoy_pct_stated": 23,
+    "quote": "Product revenue | $906 - $911 | 23"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2025",
+    "metric": "Product revenue",
+    "is_total_revenue": false,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 3430,
+    "change_vs_prior": "raised",
+    "quote": "Product revenue (2) | $3,430 | 29"
+   },
+   "profit_guidance": {
+    "metric": "FY2025 non-GAAP operating margin 5% (from 3%), product GM 76% (from 75%), adj. FCF margin 26%",
+    "change_vs_prior": "raised",
+    "quote": "Operating income | 5"
+   },
+   "backlog": {
+    "metric": "RPO",
+    "value_musd": 5700,
+    "yoy_pct": 55,
+    "quote": "Remaining performance obligations of $5.7 billion, representing 55% year-over-year growth"
+   },
+   "buyback_new_musd": null,
+   "one_offs": "9월 23억달러 0% 전환사채 발행·캡드콜 1.96억달러·주식 4억달러 매입, 자회사 구조조정비 1,754만달러",
+   "tone": "strong",
+   "tone_quote": "Snowflake delivered a strong third quarter, with product revenue of $900 million, up 29% year-over-year",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "비GAAP 영업이익률 10%→6% 하락했으나 연간 영업이익률 가이던스 3%→5%로 상향돼 개선 중",
+    "quote": "Non-GAAP operating margin | 6% | 10% | 5% | 8%"
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "제품매출 900.3으로 가이던스 상단(855) 5% 상회, RPO 성장 48%→55% 가속, 연간 매출·이익률 가이던스 동시 상향",
+   "narrative_quote": "remaining performance obligations of $5.7 billion, with year-over-year growth accelerating to 55%",
+   "notes": "FY2025 제품매출 가이던스 3,356→3,430(26%→29%), Q4 가이던스 상단 기준. 9월 2027·2029 만기 0% 전환사채 23억달러 발행, 희석주식수 가이던스에 전환 효과(Q4 약 2천만주) 반영. 가이던스는 제품매출 기준."
+  },
+  {
+   "accession": "0001640147-25-000016",
+   "filing_date": "2025-02-26",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q4 FY2025",
+   "period_end": "2025-01-31",
+   "revenue_musd": 986.77,
+   "revenue_py_musd": 774.699,
+   "revenue_yoy_pct_stated": 27,
+   "key_segment": {
+    "name": "Product revenue",
+    "revenue_musd": 943.303,
+    "yoy_pct": 28
+   },
+   "prior_guided_actual": {
+    "metric": "Product revenue (Q4 FY2025, guided $906-911M)",
+    "actual_musd": 943.303,
+    "quote": "Product revenue for the quarter was $943.3 million, representing 28% year-over-year growth."
+   },
+   "next_q_guidance": {
+    "metric": "Product revenue (Q1 FY2026)",
+    "is_total_revenue": false,
+    "low_musd": 955,
+    "high_musd": 960,
+    "point_musd": 957.5,
+    "guided_yoy_pct_stated": 21.5,
+    "quote": "Product revenue | $955 - $960 | 21 - 22%"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2026",
+    "metric": "Product revenue",
+    "is_total_revenue": false,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 4280,
+    "change_vs_prior": "initiated",
+    "quote": "Product revenue | $4,280 | 24"
+   },
+   "profit_guidance": {
+    "metric": "FY2026 non-GAAP operating margin 8% (product GM 75%, adj. FCF margin 25%)",
+    "change_vs_prior": "initiated",
+    "quote": "Operating income | 8"
+   },
+   "backlog": {
+    "metric": "RPO",
+    "value_musd": 6900,
+    "yoy_pct": 33,
+    "quote": "Remaining performance obligations of $6.9 billion, representing 33% year-over-year growth"
+   },
+   "buyback_new_musd": null,
+   "one_offs": "전년 동기 전략투자 평가이익 4,570만달러(올해 440만달러)로 GAAP 순손실 전년비 확대 왜곡, 구조조정비 191만달러",
+   "tone": "strong",
+   "tone_quote": "We delivered another strong quarter, with product revenue of $943 million, up a strong 28% year-over-year",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_potential",
+    "desc": "Iceberg 테이블·스토리지 가격 등 소비 최적화 위험 명시, RPO 성장 55%→33%·FY26 가이던스 24%로 둔화",
+    "quote": "the impact of new or optimized product features and pricing strategies on consumption, including Iceberg tables and tiered storage pricing"
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "Q4 가이던스 상단 3.5% 상회·FY26 이익률 8% 가이드는 긍정, RPO 성장 33%로 급감·Q1 21~22%·FY26 24% 가이드로 둔화",
+   "narrative_quote": "Remaining performance obligations were $6.9 billion, representing 33% year-over-year growth.",
+   "notes": "FY2025 제품매출 실적 3,462.4(가이던스 3,430 상회). FY2026 신규 가이던스 4,280(24%). Q1 가이던스 성장률은 21~22% 범위 표기라 21.5는 중간값. FG2000 고객 754→745 감소. 비GAAP 정의에 사무실 철수 자산손상 항목 신설. 가이던스는 제품매출 기준."
+  },
+  {
+   "accession": "0001640147-25-000094",
+   "filing_date": "2025-05-21",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q1 FY2026",
+   "period_end": "2025-04-30",
+   "revenue_musd": 1042.074,
+   "revenue_py_musd": 828.709,
+   "revenue_yoy_pct_stated": 26,
+   "key_segment": {
+    "name": "Product revenue",
+    "revenue_musd": 996.813,
+    "yoy_pct": 26
+   },
+   "prior_guided_actual": {
+    "metric": "Product revenue (Q1 FY2026, guided $955-960M)",
+    "actual_musd": 996.813,
+    "quote": "Product revenue for the quarter was $996.8 million, representing 26% year-over-year growth."
+   },
+   "next_q_guidance": {
+    "metric": "Product revenue (Q2 FY2026)",
+    "is_total_revenue": false,
+    "low_musd": 1035,
+    "high_musd": 1040,
+    "point_musd": 1037.5,
+    "guided_yoy_pct_stated": 25,
+    "quote": "Product revenue | $1,035 - $1,040 | 25"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2026",
+    "metric": "Product revenue",
+    "is_total_revenue": false,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 4325,
+    "change_vs_prior": "raised",
+    "quote": "Product revenue | $4,325 | 25"
+   },
+   "profit_guidance": {
+    "metric": "FY2026 non-GAAP operating margin 8% (product GM 75%, adj. FCF margin 25%)",
+    "change_vs_prior": "maintained",
+    "quote": "Operating income | 8"
+   },
+   "backlog": {
+    "metric": "RPO",
+    "value_musd": 6700,
+    "yoy_pct": 34,
+    "quote": "Remaining performance obligations of $6.7 billion, representing 34% year-over-year growth"
+   },
+   "buyback_new_musd": null,
+   "one_offs": "산마테오 사무실 철수 자산손상 1억650만달러(GAAP 일반관리비 급증), 전략투자 손실 2,970만달러",
+   "tone": "strong",
+   "tone_quote": "Snowflake delivered another strong quarter, with product revenue of $997 million, up a strong 26% year-over-year",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_potential",
+    "desc": "Iceberg·스토리지 가격 등 소비 최적화 위험 명시, NRR 127→126→124% 점진 하락(수치 영향은 아직 작음)",
+    "quote": "the impact of new or optimized product features and pricing strategies on consumption, including Iceberg tables and tiered storage pricing"
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "제품매출 996.8로 가이던스 상단(960) 3.8% 상회, 26% 성장(가이드 21~22%), FY26 4,280→4,325 상향, 비GAAP 영업이익률 4%→9%",
+   "narrative_quote": "Product revenue for the quarter was $996.8 million, representing 26% year-over-year growth.",
+   "notes": "FY2026 제품매출 가이던스 4,280→4,325(24%→25%) 상향, 영업이익률 8%·조정 FCF 25%·제품 총마진 75% 유지. Q2 가이던스 성장률 25%. 리스크 요인에 관세·무역전쟁 추가. 조정 FCF 마진 44%→20%(설비투자 4,500만달러). 가이던스는 제품매출 기준."
+  },
+  {
+   "accession": "0001640147-25-000177",
+   "filing_date": "2025-08-27",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 FY2026",
+   "period_end": "2025-07-31",
+   "revenue_musd": 1144.969,
+   "revenue_py_musd": 868.823,
+   "revenue_yoy_pct_stated": 32,
+   "key_segment": {
+    "name": "Product revenue",
+    "revenue_musd": 1090.5,
+    "yoy_pct": 32
+   },
+   "prior_guided_actual": {
+    "metric": "Product revenue (guided $1,035-1,040M)",
+    "actual_musd": 1090.5,
+    "quote": "Product revenue | $1,090.5 | 32"
+   },
+   "next_q_guidance": {
+    "metric": "product revenue",
+    "is_total_revenue": false,
+    "low_musd": 1125,
+    "high_musd": 1130,
+    "point_musd": 1127.5,
+    "guided_yoy_pct_stated": 25.5,
+    "quote": "Product revenue | $1,125 - $1,130 | 25 - 26%"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2026",
+    "metric": "product revenue",
+    "is_total_revenue": false,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 4395,
+    "change_vs_prior": "raised",
+    "quote": "Product revenue | $4,395 | 27"
+   },
+   "profit_guidance": {
+    "metric": "FY2026 non-GAAP operating margin 9% (prior 8%); adj. FCF margin 25% unchanged",
+    "change_vs_prior": "raised",
+    "quote": "Operating income | 9"
+   },
+   "backlog": {
+    "metric": "RPO",
+    "value_musd": 6900,
+    "yoy_pct": 33,
+    "quote": "Remaining performance obligations of $6.9 billion, representing 33% year-over-year growth"
+   },
+   "buyback_new_musd": null,
+   "one_offs": "사업결합 현금지출 1.64억달러(영업권 증가), 사무실 철수 손상 210만달러 — GAAP 왜곡은 작음",
+   "tone": "strong",
+   "tone_quote": "Snowflake delivered yet another strong quarter, with product revenue of $1.09 billion, up a strong 32% year-over-year",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "SBC(매출의 39%) 탓 GAAP 영업손실 지속, 다만 GAAP 영업이익률 -41%→-30%로 개선",
+    "quote": "GAAP operating margin | (30%) | (41%)"
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "제품매출 성장 26%→32% 가속, 가이던스 상단을 약 5천만달러 초과, FY 제품매출 가이던스 43.25→43.95억달러(25→27%)·영업이익률 8→9% 상향",
+   "narrative_quote": "Product revenue for the quarter was $1.09 billion, representing 32% year-over-year growth.",
+   "notes": "가이던스 대상은 총매출이 아닌 제품매출. 분기 중 사업결합 현금 1.64억달러(영업권 10.57→11.75억달러)로 소규모 인수 매출 포함 가능. Q3 가이던스 YoY는 25~26% 범위라 중간값 25.5 기입. 분기 자사주 매입 없음."
+  },
+  {
+   "accession": "0001640147-25-000207",
+   "filing_date": "2025-12-03",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q3 FY2026",
+   "period_end": "2025-10-31",
+   "revenue_musd": 1212.909,
+   "revenue_py_musd": 942.094,
+   "revenue_yoy_pct_stated": 29,
+   "key_segment": {
+    "name": "Product revenue",
+    "revenue_musd": 1158.4,
+    "yoy_pct": 29
+   },
+   "prior_guided_actual": {
+    "metric": "Product revenue (guided $1,125-1,130M)",
+    "actual_musd": 1158.4,
+    "quote": "Product revenue | $1,158.4 | 29"
+   },
+   "next_q_guidance": {
+    "metric": "product revenue",
+    "is_total_revenue": false,
+    "low_musd": 1195,
+    "high_musd": 1200,
+    "point_musd": 1197.5,
+    "guided_yoy_pct_stated": 27,
+    "quote": "Product revenue | $1,195 - $1,200 | 27"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2026",
+    "metric": "product revenue",
+    "is_total_revenue": false,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 4446,
+    "change_vs_prior": "raised",
+    "quote": "Product revenue (2) | $4,446 | 28"
+   },
+   "profit_guidance": {
+    "metric": "FY2026 non-GAAP operating margin 9% (Q4 guide 7%); product GM 75%, adj. FCF margin 25%",
+    "change_vs_prior": "maintained",
+    "quote": "Operating income | 9"
+   },
+   "backlog": {
+    "metric": "RPO",
+    "value_musd": 7880,
+    "yoy_pct": 37,
+    "quote": "Remaining performance obligations of $7.88 billion, representing 37% year-over-year growth"
+   },
+   "buyback_new_musd": null,
+   "one_offs": "자회사 구조조정 환입 약 1,140만달러가 GAAP 비용을 낮춤(규모 작음)",
+   "tone": "strong",
+   "tone_quote": "Snowflake Intelligence, our enterprise AI agent, saw the fastest adoption ramp in Snowflake history and is transforming how businesses interact with their data",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "SBC 부담으로 GAAP 영업손실 지속, GAAP 영업이익률 -39%→-27%로 개선 중",
+    "quote": "GAAP operating margin | (27%) | (39%)"
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "제품매출 성장 32%→29% 둔화·Q4 가이던스 27%, Q4 영업이익률 가이던스 7%로 하락. 반면 가이던스 초과·RPO 33→37% 가속·FY 소폭 상향으로 혼재",
+   "narrative_quote": "Snowflake delivered another strong quarter, with product revenue of $1.16 billion, up 29% year-over-year, and remaining performance obligations totaling $7.88 billion, up 37% year-over-year",
+   "notes": "FY 제품매출 가이던스(44.46억달러)는 Q4 가이던스 상단 기준이라고 명시. Q4 비GAAP 영업이익률 가이던스 7%(Q3 실적 11%). 비지배지분 0으로 정리(자회사 지배 종료)."
+  },
+  {
+   "accession": "0001628280-26-011631",
+   "filing_date": "2026-02-25",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q4 FY2026",
+   "period_end": "2026-01-31",
+   "revenue_musd": 1283.994,
+   "revenue_py_musd": 986.77,
+   "revenue_yoy_pct_stated": 30,
+   "key_segment": {
+    "name": "Product revenue",
+    "revenue_musd": 1226.6,
+    "yoy_pct": 30
+   },
+   "prior_guided_actual": {
+    "metric": "Product revenue (guided $1,195-1,200M)",
+    "actual_musd": 1226.6,
+    "quote": "Product revenue | $1,226.6 | 30"
+   },
+   "next_q_guidance": {
+    "metric": "product revenue",
+    "is_total_revenue": false,
+    "low_musd": 1262,
+    "high_musd": 1267,
+    "point_musd": 1264.5,
+    "guided_yoy_pct_stated": 27,
+    "quote": "Product revenue | $1,262 - $1,267 | 27"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2027",
+    "metric": "product revenue",
+    "is_total_revenue": false,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 5660,
+    "change_vs_prior": "initiated",
+    "quote": "Product revenue | $1,262 - $1,267 | 27 | $5,660 | 27"
+   },
+   "profit_guidance": {
+    "metric": "FY2027 non-GAAP operating margin 12.5% (Q1 9.0%); adj. FCF margin 23%",
+    "change_vs_prior": "initiated",
+    "quote": "Non-GAAP operating income (1) | 9.0 | 12.5"
+   },
+   "backlog": {
+    "metric": "RPO",
+    "value_musd": 9770,
+    "yoy_pct": 42,
+    "quote": "Remaining performance obligations of $9.77 billion, representing 42% year-over-year growth"
+   },
+   "buyback_new_musd": null,
+   "one_offs": "전략투자 평가손실 약 2,440만달러(기타비용). Observe·TensorStax 인수 발표",
+   "tone": "strong",
+   "tone_quote": "Snowflake sits at the center of the enterprise AI revolution",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_potential",
+    "desc": "AI가 기업 핵심 기능을 대체하며 경쟁 지형을 흔드는 위험을 신규 명시, 숫자엔 아직 미반영",
+    "quote": "our ability to compete effectively in a continually evolving market in which enterprises are increasingly adopting AI to perform core functions and significant disruption is being driven by AI"
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "RPO 증가율 33→37→42%로 가속(97.7억달러), 순신규고객 740(+40%) 사상 최대, 성장 29→30% 반등, FY27 영업이익률 12.5% 가이던스로 수익성 개선",
+   "narrative_quote": "Remaining performance obligations of $9.77 billion, representing 42% year-over-year growth",
+   "notes": "FY26 제품매출 실적 44.723억달러(가이던스 44.46억 상회). FY27 가이던스 첫 제시: 제품매출 56.6억(27%), 조정 FCF 마진 23%(FY26 실적 25%보다 낮음). 본사 표기 Menlo Park로 변경. Q4부터 비GAAP 비지배지분 미배분. Observe 인수 발표, Q4 사업결합 현금은 1,460만달러뿐이라 인수 매출은 다음 분기부터 반영 가능."
+  },
+  {
+   "accession": "0001640147-26-000027",
+   "filing_date": "2026-05-27",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q1 FY2027",
+   "period_end": "2026-04-30",
+   "revenue_musd": 1390.951,
+   "revenue_py_musd": 1042.074,
+   "revenue_yoy_pct_stated": 33,
+   "key_segment": {
+    "name": "Product revenue",
+    "revenue_musd": 1334.3,
+    "yoy_pct": 34
+   },
+   "prior_guided_actual": {
+    "metric": "Product revenue (guided $1,262-1,267M)",
+    "actual_musd": 1334.3,
+    "quote": "Product revenue | $1,334.3 | 34"
+   },
+   "next_q_guidance": {
+    "metric": "product revenue",
+    "is_total_revenue": false,
+    "low_musd": 1415,
+    "high_musd": 1420,
+    "point_musd": 1417.5,
+    "guided_yoy_pct_stated": 30,
+    "quote": "Product revenue of $1,415 million to $1,420 million, representing 30% year-over-year growth"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2027",
+    "metric": "product revenue",
+    "is_total_revenue": false,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 5840,
+    "change_vs_prior": "raised",
+    "quote": "Product revenue of $5,840 million, representing 31% year-over-year growth, up from previous guidance of $5,660 million, or 27% year-over-year growth"
+   },
+   "profit_guidance": {
+    "metric": "FY2027 non-GAAP operating margin 13.5% (prior 12.5%); Q2 12.5%",
+    "change_vs_prior": "raised",
+    "quote": "Non-GAAP operating margin2 of 13.5%, up from previous guidance of 12.5%"
+   },
+   "backlog": {
+    "metric": "RPO",
+    "value_musd": 9210,
+    "yoy_pct": 38,
+    "quote": "Remaining performance obligations of $9.21 billion, representing 38% year-over-year growth"
+   },
+   "buyback_new_musd": null,
+   "one_offs": "사무실 철수 자산손상 약 1,770만달러, 사업결합 현금 2.52억달러(영업권 +3.4억달러)",
+   "tone": "strong",
+   "tone_quote": "Snowflake delivered a milestone quarter, with product revenue of $1.33 billion, up 34% year-over-year, marking the strongest sequential dollar growth in our history",
+   "catalyst": {
+    "present": true,
+    "desc": "AI(Cortex Code 7,100계정·Intelligence 2배)가 성장 34% 변곡을 이끌고 FY 가이던스 27→31% 상향",
+    "quote": "These innovations contributed to the strongest sequential product revenue dollar growth in company history."
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "SBC 탓 GAAP 영업손실은 지속, GAAP 영업이익률 -43%→-23%로 빠르게 개선",
+    "quote": "GAAP operating margin | (23%) | (43%)"
+   },
+   "narrative_shift": 2,
+   "narrative_reason": "제품매출 성장 30→34% 가속·가이던스 상단을 6,700만달러 초과, 사상 최대 전분기 대비 증가, FY 가이던스 27→31%·영업이익률 12.5→13.5% 상향, AI 변곡 명시",
+   "narrative_quote": "AI continues to be a powerful tailwind for Snowflake, and Q1 marks a clear inflection point in that journey.",
+   "notes": "분기 중 사업결합 현금 2.52억달러, 영업권 11.94→15.37억·무형자산 2.47→4.51억달러 — 인수 매출이 제품매출 성장에 일부 포함 가능(분리 공시 없음). Natoma 인수 계약(5월). AWS 60억달러 다년 계약은 성격 불명확(RPO와 별개). 가이던스 형식이 표에서 문장으로 바뀜."
+  },
+  {
+   "accession": "0001640147-26-000033",
+   "filing_date": "2026-09-02",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 FY2027",
+   "period_end": "2026-07-31",
+   "revenue_musd": 1546.793,
+   "revenue_py_musd": 1144.969,
+   "revenue_yoy_pct_stated": 35,
+   "key_segment": {
+    "name": "Product revenue",
+    "revenue_musd": 1491.9,
+    "yoy_pct": 37
+   },
+   "prior_guided_actual": {
+    "metric": "Product revenue (guided $1,415-1,420M)",
+    "actual_musd": 1491.9,
+    "quote": "Product revenue | $1,491.9 | 37"
+   },
+   "next_q_guidance": {
+    "metric": "product revenue",
+    "is_total_revenue": false,
+    "low_musd": 1588,
+    "high_musd": 1593,
+    "point_musd": 1590.5,
+    "guided_yoy_pct_stated": 37.5,
+    "quote": "Product revenue of $1,588 million to $1,593 million, representing 37% to 38% year-over-year growth"
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2027",
+    "metric": "product revenue",
+    "is_total_revenue": false,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": 6070,
+    "change_vs_prior": "raised",
+    "quote": "Product revenue of $6,070 million, representing 36% year-over-year growth, up from previous guidance of $5,840 million, or 31% year-over-year growth"
+   },
+   "profit_guidance": {
+    "metric": "FY2027 non-GAAP operating margin 14.5% (prior 13.5%); Q3 15.5%",
+    "change_vs_prior": "raised",
+    "quote": "Non-GAAP operating margin2 of 14.5%, up from previous guidance of 13.5%"
+   },
+   "backlog": {
+    "metric": "RPO",
+    "value_musd": 9000,
+    "yoy_pct": 30,
+    "quote": "Remaining performance obligations of $9.00 billion, representing 30% year-over-year growth"
+   },
+   "buyback_new_musd": null,
+   "one_offs": "전략투자 평가이익 약 3,480만달러가 기타수익에 반영돼 GAAP 순손실 축소",
+   "tone": "strong",
+   "tone_quote": "AI continues to compound our advantages, creating a flywheel effect across the business.",
+   "catalyst": {
+    "present": true,
+    "desc": "AI 매출의 의미 있는 증가로 3분기 연속 가속(37%), FY 제품매출 가이던스 31→36% 상향",
+    "quote": "Q2 marks our third consecutive quarter of product revenue growth acceleration, driven by strength in both our core data platform and a meaningful step-up in AI revenue"
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "RPO 증가율 38%→30% 둔화, 전분기 92.1억→90.0억달러 감소(갱신 시점 영향 가능, 소비 매출은 가속)",
+    "quote": "Remaining performance obligations of $9.00 billion, representing 30% year-over-year growth"
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "제품매출 34→37% 3분기 연속 가속·가이던스 상단 7,200만달러 초과, FY 가이던스 31→36%·영업이익률 13.5→14.5% 상향. 다만 RPO 둔화로 +2는 아님",
+   "narrative_quote": "Q2 marks our third consecutive quarter of product revenue growth acceleration, driven by strength in both our core data platform and a meaningful step-up in AI revenue",
+   "notes": "FY 비GAAP 제품 총이익률 가이던스 75.0→74.0% 하향. RPO 전분기 대비 감소. Q3 가이던스 YoY 37~38% 범위라 중간값 37.5 기입. 분기 자사주 매입 없음. 위험 요인에 SBC 비중 축소·GAAP 흑자 달성 능력이 새로 추가됨. 상반기 사업결합(Observe 등) 영향이 성장률에 일부 포함 가능."
+  }
+ ],
+ "fixes": [],
+ "qc": {
+  "bad_quotes": [],
+  "revenue_mismatch": []
+ }
+}

@@ -1,0 +1,541 @@
+{
+ "ticker": "NVDA",
+ "events": [
+  {
+   "accession": "0001045810-24-000262",
+   "filing_date": "2024-08-28",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 FY2025",
+   "period_end": "2024-07-28",
+   "revenue_musd": 30040,
+   "revenue_py_musd": 13507,
+   "revenue_yoy_pct_stated": 122,
+   "key_segment": {
+    "name": "Data Center",
+    "revenue_musd": 26272,
+    "yoy_pct": 154
+   },
+   "prior_guided_actual": null,
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 31850,
+    "high_musd": 33150,
+    "point_musd": 32500,
+    "guided_yoy_pct_stated": null,
+    "quote": "Revenue is expected to be $32.5 billion, plus or minus 2%."
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2025",
+    "metric": "full-year gross margin mid-70% range (opex growth mid- to upper-40%)",
+    "is_total_revenue": false,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": null,
+    "change_vs_prior": "unclear",
+    "quote": "For the full year, gross margins are expected to be in the mid-70% range."
+   },
+   "profit_guidance": {
+    "metric": "Q3 FY2025 GAAP/non-GAAP gross margin 74.4%/75.0% +/-50bp",
+    "change_vs_prior": "unclear",
+    "quote": "GAAP and non-GAAP gross margins are expected to be 74.4% and 75.0%, respectively, plus or minus 50 basis points."
+   },
+   "backlog": null,
+   "buyback_new_musd": 50000,
+   "one_offs": "블랙웰 저수율 재고충당금으로 총이익률 QoQ -3.3%p, 지분투자 평가이익 1.93억달러",
+   "tone": "strong",
+   "tone_quote": "Hopper demand remains strong, and the anticipation for Blackwell is incredible,",
+   "catalyst": {
+    "present": false,
+    "desc": "해당 없음",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "블랙웰 마스크 변경·저수율 재고충당금으로 이익률 하락, 4분기 양산 개시 예정(일시적)",
+    "quote": "Sequentially, gross margins decreased primarily driven by inventory provisions for low-yielding Blackwell material and a higher mix of new products within Data Center."
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "비교할 이전 발표가 없는 기준점. 매출 +122%, 데이터센터 +154%, 블랙웰 4분기 수십억달러 출하 예정 제시",
+   "narrative_quote": "In the fourth quarter, we expect to ship several billion dollars in Blackwell revenue.",
+   "notes": "2024-06-07 10:1 액면분할 소급 반영. 회계연도 1월 말 종료(FY2025=2024.2~2025.1). 첫 발표라 가이던스 변화는 unclear. 이익 가이던스 변화는 이후 모두 직전 발표의 다음 분기 비GAAP 총이익률 가이던스와 순차 비교."
+  },
+  {
+   "accession": "0001045810-24-000315",
+   "filing_date": "2024-11-20",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q3 FY2025",
+   "period_end": "2024-10-27",
+   "revenue_musd": 35082,
+   "revenue_py_musd": 18120,
+   "revenue_yoy_pct_stated": 94,
+   "key_segment": {
+    "name": "Data Center",
+    "revenue_musd": 30771,
+    "yoy_pct": 112
+   },
+   "prior_guided_actual": {
+    "metric": "revenue",
+    "actual_musd": 35082,
+    "quote": "Revenue was a record $35.1 billion, up 94% from a year ago and up 17% sequentially."
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 36750,
+    "high_musd": 38250,
+    "point_musd": 37500,
+    "guided_yoy_pct_stated": null,
+    "quote": "Revenue is expected to be $37.5 billion, plus or minus 2%."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Q4 FY2025 GAAP/non-GAAP gross margin 73.0%/73.5% +/-50bp",
+    "change_vs_prior": "lowered",
+    "quote": "GAAP and non-GAAP gross margins are expected to be 73.0% and 73.5%, respectively, plus or minus 50 basis points."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "",
+   "tone": "strong",
+   "tone_quote": "The age of AI is in full steam, propelling a global shift to NVIDIA computing,",
+   "catalyst": {
+    "present": false,
+    "desc": "해당 없음",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "호퍼·블랙웰 모두 공급 제약, 블랙웰 수요가 FY2026 여러 분기 공급 초과 전망(마스크 변경은 완료)",
+    "quote": "Both Hopper and Blackwell systems have certain supply constraints, and the demand for Blackwell is expected to exceed supply for several quarters in fiscal 2026."
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "매출 351억달러로 가이던스 325억달러 상회, 블랙웰 마스크 변경 완료·양산 돌입, 수요가 공급 초과 전망",
+   "narrative_quote": "We completed a successful mask change for Blackwell, our next Data Center architecture, that improved production yields.",
+   "notes": "FY 연간 가이던스 없음(직전 발표의 연간 총이익률 mid-70% 언급 미반복). 네트워킹 매출 QoQ -15%. 이익 가이던스 lowered는 다음 분기 총이익률 가이던스(75.0%→73.5%) 순차 비교."
+  },
+  {
+   "accession": "0001045810-25-000021",
+   "filing_date": "2025-02-26",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q4 FY2025",
+   "period_end": "2025-01-26",
+   "revenue_musd": 39331,
+   "revenue_py_musd": 22103,
+   "revenue_yoy_pct_stated": 78,
+   "key_segment": {
+    "name": "Data Center",
+    "revenue_musd": 35580,
+    "yoy_pct": 93
+   },
+   "prior_guided_actual": {
+    "metric": "revenue",
+    "actual_musd": 39331,
+    "quote": "Revenue for the fourth quarter was a record $39.3 billion, up 78% from a year ago and up 12% sequentially."
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 42140,
+    "high_musd": 43860,
+    "point_musd": 43000,
+    "guided_yoy_pct_stated": null,
+    "quote": "Revenue is expected to be $43.0 billion, plus or minus 2%."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Q1 FY2026 GAAP/non-GAAP gross margin 70.6%/71.0% +/-50bp",
+    "change_vs_prior": "lowered",
+    "quote": "GAAP and non-GAAP gross margins are expected to be 70.6% and 71.0%, respectively, plus or minus 50 basis points."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "비상장·상장 지분증권 평가이익 7.27억달러가 GAAP 기타수익에 포함",
+   "tone": "strong",
+   "tone_quote": "Demand for Blackwell is amazing as reasoning AI adds another scaling law",
+   "catalyst": {
+    "present": false,
+    "desc": "해당 없음",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "고비용 복합 시스템 전환으로 총이익률 하락(4Q 73.0%, 1Q 가이던스 71.0%), 블랙웰 램프 초기 요인",
+    "quote": "GAAP and non-GAAP gross margins for the fourth quarter decreased from a year ago and sequentially, primarily due to a transition to more complex and higher cost systems within Data Center."
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "블랙웰 첫 분기 110억달러(사상 최고 속도 램프), 가이던스 375억 상회, 다음 분기 430억달러. 이익률 하락은 부담",
+   "narrative_quote": "We delivered $11.0 billion of Blackwell architecture revenue in the fourth quarter of fiscal 2025",
+   "notes": "FY2025 연간 매출 130,497백만달러(+114%). 게이밍 공급 제약으로 QoQ -22%, 네트워킹 YoY -9%(NVLink72 전환). FY2026 연간 가이던스 없음."
+  },
+  {
+   "accession": "0001045810-25-000115",
+   "filing_date": "2025-05-28",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q1 FY2026",
+   "period_end": "2025-04-27",
+   "revenue_musd": 44062,
+   "revenue_py_musd": 26044,
+   "revenue_yoy_pct_stated": 69,
+   "key_segment": {
+    "name": "Data Center",
+    "revenue_musd": 39112,
+    "yoy_pct": 73
+   },
+   "prior_guided_actual": {
+    "metric": "revenue",
+    "actual_musd": 44062,
+    "quote": "Revenue for the first quarter was $44.1 billion, up 69% from a year ago and up 12% sequentially."
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 44100,
+    "high_musd": 45900,
+    "point_musd": 45000,
+    "guided_yoy_pct_stated": null,
+    "quote": "Revenue is expected to be $45.0 billion, plus or minus 2%. This outlook reflects a loss in H20 revenue of approximately $8.0 billion due to the recent export control limitations."
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2026",
+    "metric": "gross margin mid-70% range late FY2026 (full-year opex growth mid-30%)",
+    "is_total_revenue": false,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": null,
+    "change_vs_prior": "initiated",
+    "quote": "The company is continuing to work toward achieving gross margins in the mid-70% range late this year."
+   },
+   "profit_guidance": {
+    "metric": "Q2 FY2026 GAAP/non-GAAP gross margin 71.8%/72.0% +/-50bp",
+    "change_vs_prior": "raised",
+    "quote": "GAAP and non-GAAP gross margins are expected to be 71.8% and 72.0%, respectively, plus or minus 50 basis points."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "H20 대중국 수출허가 요건으로 재고·구매약정 충당금 45억달러(GAAP 총이익률 60.5%, 제외 시 71.3%), 지분증권 손실 1.75억달러",
+   "tone": "strong",
+   "tone_quote": "AI inference token generation has surged tenfold in just one year, and as AI agents become mainstream, the demand for AI computing will accelerate.",
+   "catalyst": {
+    "present": false,
+    "desc": "해당 없음",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_quantified",
+    "desc": "미국 H20 대중국 수출허가제로 45억달러 충당금·25억달러 미출하, 2분기 매출 약 80억달러 손실",
+    "quote": "This outlook reflects a loss in H20 revenue of approximately $8.0 billion due to the recent export control limitations."
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "가이던스 430억 상회와 블랙웰 확산은 긍정이나 중국 H20 상실로 다음 분기 성장률 +2%로 둔화, 혼재",
+   "narrative_quote": "NVIDIA was unable to ship an additional $2.5 billion of H20 revenue in the first quarter.",
+   "notes": "Q1 FY2026 매출에 규제 전 H20 46억달러 포함. 비GAAP 총이익률·EPS(61.0%/$0.81)는 H20 충당금 포함, 제외 시 71.3%/$0.96. FY2026 연간은 이익률 목표와 영업비용 증가율만 제시(매출 연간 가이던스 없음)."
+  },
+  {
+   "accession": "0001045810-25-000207",
+   "filing_date": "2025-08-27",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 FY2026",
+   "period_end": "2025-07-27",
+   "revenue_musd": 46743,
+   "revenue_py_musd": 30040,
+   "revenue_yoy_pct_stated": 56,
+   "key_segment": {
+    "name": "Data Center",
+    "revenue_musd": 41096,
+    "yoy_pct": 56
+   },
+   "prior_guided_actual": {
+    "metric": "revenue",
+    "actual_musd": 46743,
+    "quote": "Revenue for the second quarter was $46.7 billion, up 56% from a year ago and up 6% sequentially."
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 52920,
+    "high_musd": 55080,
+    "point_musd": 54000,
+    "guided_yoy_pct_stated": null,
+    "quote": "Revenue is expected to be $54.0 billion, plus or minus 2%. The company has not assumed any H20 shipments to China in the outlook."
+   },
+   "fy_guidance": {
+    "fiscal_year": "FY2026",
+    "metric": "exit-FY2026 non-GAAP gross margin mid-70% range (full-year opex growth raised to high-30%)",
+    "is_total_revenue": false,
+    "low_musd": null,
+    "high_musd": null,
+    "point_musd": null,
+    "change_vs_prior": "maintained",
+    "quote": "The company continues to expect to exit the year with non-GAAP gross margins in the mid-70% range."
+   },
+   "profit_guidance": {
+    "metric": "Q3 FY2026 GAAP/non-GAAP gross margin 73.3%/73.5% +/-50bp",
+    "change_vs_prior": "raised",
+    "quote": "GAAP and non-GAAP gross margins are expected to be 73.3% and 73.5%, respectively, plus or minus 50 basis points."
+   },
+   "backlog": null,
+   "buyback_new_musd": 60000,
+   "one_offs": "상장 지분증권 중심 평가이익 22.47억달러(GAAP 기타수익), H20 재고충당금 환입 1.8억달러, OBBBA 세금 0.48억달러",
+   "tone": "strong",
+   "tone_quote": "production of Blackwell Ultra is ramping at full speed, and demand is extraordinary,",
+   "catalyst": {
+    "present": false,
+    "desc": "해당 없음",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_quantified",
+    "desc": "중국향 H20 매출 0, H20 40억달러 감소로 데이터센터 컴퓨트 QoQ -1%, 가이던스에서 중국 제외",
+    "quote": "Sequentially, compute revenue declined 1%, driven by a $4.0 billion reduction in H20 sales."
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "가이던스 450억 상회, 중국 제외에도 다음 분기 540억달러(QoQ +16%)로 성장 재가속, 블랙웰 QoQ +17%",
+   "narrative_quote": "Blackwell Data Center revenue grew 17% sequentially",
+   "notes": "중국향 H20 매출 없음, 중국 외 고객향 H20 약 6.5억달러 판매. 연간 영업비용 증가율 가이던스 mid-30%→high-30% 상향. 연말 비GAAP 총이익률 mid-70% 목표 유지."
+  },
+  {
+   "accession": "0001045810-25-000228",
+   "filing_date": "2025-11-19",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q3 FY2026",
+   "period_end": "2025-10-26",
+   "revenue_musd": 57006,
+   "revenue_py_musd": 35082,
+   "revenue_yoy_pct_stated": 62,
+   "key_segment": {
+    "name": "Data Center",
+    "revenue_musd": 51215,
+    "yoy_pct": 66
+   },
+   "prior_guided_actual": {
+    "metric": "revenue",
+    "actual_musd": 57006,
+    "quote": "Revenue for the third quarter was a record $57.0 billion, up 62% from a year ago and up 22% sequentially."
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 63700,
+    "high_musd": 66300,
+    "point_musd": 65000,
+    "guided_yoy_pct_stated": null,
+    "quote": "Revenue is expected to be $65.0 billion, plus or minus 2%."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Q4 FY2026 GAAP/non-GAAP gross margin 74.8%/75.0% +/-50bp",
+    "change_vs_prior": "raised",
+    "quote": "GAAP and non-GAAP gross margins are expected to be 74.8% and 75.0%, respectively, plus or minus 50 basis points."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "비상장·상장 지분증권 평가이익 13.54억달러(GAAP 기타수익)",
+   "tone": "strong",
+   "tone_quote": "Blackwell sales are off the charts, and cloud GPUs are sold out,",
+   "catalyst": {
+    "present": true,
+    "desc": "OpenAI 최소 10GW·Anthropic 1GW 엔비디아 시스템 배치 파트너십으로 수요 가시성 단계 변화",
+    "quote": "Announced a strategic partnership with OpenAI to deploy at least 10 gigawatts of NVIDIA systems for OpenAI"
+   },
+   "showstopper": {
+    "type": "structural_quantified",
+    "desc": "중국 H20 매출 사실상 0(1분기 46억달러 대비), 중국 데이터센터 시장 상실 지속",
+    "quote": "H20 sales were insignificant in the third quarter."
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "매출 QoQ +22%로 재가속(가이던스 540억 상회), 다음 분기 650억달러·총이익률 75% 가이던스, GW급 고객 약정",
+   "narrative_quote": "Compute demand keeps accelerating and compounding across training and inference",
+   "notes": "FY 연간 가이던스 문구 없음. 다년 클라우드 서비스 계약 126억→260억달러 급증, 재고 198억달러, 공급 관련 약정 503억달러."
+  },
+  {
+   "accession": "0001045810-26-000019",
+   "filing_date": "2026-02-25",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q4 FY2026",
+   "period_end": "2026-01-25",
+   "revenue_musd": 68127,
+   "revenue_py_musd": 39331,
+   "revenue_yoy_pct_stated": 73,
+   "key_segment": {
+    "name": "Data Center",
+    "revenue_musd": 62314,
+    "yoy_pct": 75
+   },
+   "prior_guided_actual": {
+    "metric": "revenue",
+    "actual_musd": 68127,
+    "quote": "Revenue for the fourth quarter was a record $68.1 billion, up 73% from a year ago and up 20% sequentially."
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 76440,
+    "high_musd": 79560,
+    "point_musd": 78000,
+    "guided_yoy_pct_stated": null,
+    "quote": "Revenue is expected to be $78.0 billion, plus or minus 2%. NVIDIA is not assuming any Data Center compute revenue from China in its outlook."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Q1 FY2027 GAAP/non-GAAP gross margin 74.9%/75.0% +/-50bp (non-GAAP now includes SBC)",
+    "change_vs_prior": "maintained",
+    "quote": "GAAP and non-GAAP gross margins are expected to be 74.9% and 75.0%, respectively, plus or minus 50 basis points, inclusive of a 0.1% impact from stock-based compensation expense."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "지분증권 평가이익 54.91억달러(인텔 지분 포함)로 GAAP EPS $1.76 > 비GAAP $1.62, Groq 라이선스 130억달러 지출",
+   "tone": "strong",
+   "tone_quote": "Enterprise adoption of agents is skyrocketing.",
+   "catalyst": {
+    "present": false,
+    "desc": "해당 없음",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_quantified",
+    "desc": "중국 데이터센터 컴퓨트 매출을 가이던스에서 전면 제외(중국 시장 상실 지속)",
+    "quote": "NVIDIA is not assuming any Data Center compute revenue from China in its outlook."
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "매출 681억으로 가이던스 650억 상회, 다음 분기 780억달러(QoQ +14.5%), 공급 약정 952억달러로 수요 가시성 확대",
+   "narrative_quote": "We have strategically secured inventory and capacity to meet demand beyond the next several quarters.",
+   "notes": "FY2027 1분기부터 비GAAP에 주식보상비용 포함(지표 정의 변경, 비GAAP 영업비용 가이던스에 SBC 19억달러 포함). FY2027 연간은 세율 17~19%만 제시. Groq 비독점 라이선스 130억달러(투자활동), 영업권 63억→208억달러. FY2026 매출 215,938백만달러(+65%)."
+  },
+  {
+   "accession": "0001045810-26-000051",
+   "filing_date": "2026-05-20",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q1 FY2027",
+   "period_end": "2026-04-26",
+   "revenue_musd": 81615,
+   "revenue_py_musd": 44062,
+   "revenue_yoy_pct_stated": 85,
+   "key_segment": {
+    "name": "Data Center",
+    "revenue_musd": 75246,
+    "yoy_pct": 92
+   },
+   "prior_guided_actual": {
+    "metric": "revenue",
+    "actual_musd": 81615,
+    "quote": "Revenue for the first quarter was a record $81.6 billion, up 85% from a year ago and up 20% sequentially."
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 89180,
+    "high_musd": 92820,
+    "point_musd": 91000,
+    "guided_yoy_pct_stated": null,
+    "quote": "Revenue is expected to be $91.0 billion, plus or minus 2%. NVIDIA is not assuming any Data Center compute revenue from China in its outlook."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Q2 FY2027 GAAP/non-GAAP gross margin 74.9%/75.0% +/-50bp",
+    "change_vs_prior": "maintained",
+    "quote": "GAAP and non-GAAP gross margins are expected to be 74.9% and 75.0%, respectively, plus or minus 50 basis points."
+   },
+   "backlog": null,
+   "buyback_new_musd": 80000,
+   "one_offs": "지분증권 평가이익 159.36억달러(GAAP 기타수익)로 GAAP EPS $2.39 vs 비GAAP $1.87",
+   "tone": "strong",
+   "tone_quote": "Agentic AI has arrived, doing productive work, generating real value and scaling rapidly across companies and industries.",
+   "catalyst": {
+    "present": false,
+    "desc": "해당 없음",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_quantified",
+    "desc": "중국 데이터센터 호퍼 출하 0(전년 동기 46억달러), 가이던스에서 중국 제외 지속",
+    "quote": "No shipments of Data Center Hopper products to China occurred during the quarter, compared with $4.6 billion in the first quarter of fiscal year 2026."
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "YoY 성장 73%→85% 재가속, 가이던스 780억 상회, 다음 분기 910억달러, 배당 25배 인상·자사주 800억달러",
+   "narrative_quote": "Record revenue of $81.6 billion, up 85% from a year ago",
+   "notes": "보고 체계 변경: Data Center(Hyperscale·ACIE)와 Edge Computing 2개 플랫폼, 게이밍 등 구분 폐지. 비GAAP에 SBC 포함·과거치 재작성. 분기 배당 $0.01→$0.25. 공급 관련 약정 1,190억달러. FY2027 세율 가이던스 16~18%로 변경(기존 17~19%), 연간 매출 가이던스 없음."
+  },
+  {
+   "accession": "0001045810-26-000073",
+   "filing_date": "2026-08-26",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 FY2027",
+   "period_end": "2026-07-26",
+   "revenue_musd": 96221,
+   "revenue_py_musd": 46743,
+   "revenue_yoy_pct_stated": 106,
+   "key_segment": {
+    "name": "Data Center",
+    "revenue_musd": 89023,
+    "yoy_pct": 117
+   },
+   "prior_guided_actual": {
+    "metric": "revenue",
+    "actual_musd": 96221,
+    "quote": "Revenue for the second quarter was a record $96.2 billion, up 106% from a year ago and up 18% sequentially."
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 105840,
+    "high_musd": 110160,
+    "point_musd": 108000,
+    "guided_yoy_pct_stated": null,
+    "quote": "Revenue is expected to be $108.0 billion, plus or minus 2%. NVIDIA is not assuming any Data Center compute revenue from China in its outlook."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Q3 FY2027 GAAP/non-GAAP gross margin 74.0% +/-50bp",
+    "change_vs_prior": "lowered",
+    "quote": "GAAP and non-GAAP gross margins are expected to be 74.0%, plus or minus 50 basis points."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "지분증권 평가이익 77.71억달러(GAAP 기타수익), 250억달러 선순위 무담보채 발행, Groq 29.44억달러 지급",
+   "tone": "strong",
+   "tone_quote": "The AI infrastructure buildout is at full steam.",
+   "catalyst": {
+    "present": true,
+    "desc": "OpenAI 전용 PORTS-Pike 4.25GW 부지, 세대당 GPU 약 150만개·매출 1,500억~2,000억달러 가능",
+    "quote": "Each generation of NVIDIA infrastructure deployed at PORTS-Pike could represent approximately 1.5 million NVIDIA GPUs, or approximately $150 billion to $200 billion in NVIDIA revenue."
+   },
+   "showstopper": {
+    "type": "structural_quantified",
+    "desc": "고객 재무여력 부족에 엔비디아가 보증 최대 1,085억달러·결제조건 연장 제공, DSO 45→60일·영업현금흐름 반감",
+    "quote": "AI clouds and model makers are seeing extraordinary demand for AI infrastructure, yet many are growing faster than their balance sheets and long-term credit profiles can support."
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "YoY 85%→106% 가속, 가이던스 910억 상회, 다음 분기 1,080억달러. 다만 벤더 파이낸싱·보증 확대와 총이익률 가이던스 하향",
+   "narrative_quote": "Revenue of $96.2 billion, up 106% from a year ago",
+   "notes": "공급 약정 1,190억→2,790억달러(주로 메모리), 총 약정 3,660억달러+AI 클라우드 등 560억달러, 보증 최대 1,085억달러(SB Energy 1,050억). 장기차입금 75억→324억달러. ACIE→Hyperscale 고객 재분류로 전기 재작성(Q1 Hyperscale 37,869→43,050). 영업현금흐름 503억→241억달러."
+  }
+ ],
+ "fixes": [
+  {
+   "accession": "0001045810-24-000262",
+   "field": "fy_guidance",
+   "value_json": "{\"fiscal_year\": \"FY2025\", \"metric\": \"full-year gross margin mid-70% range (opex growth mid- to upper-40%)\", \"is_total_revenue\": false, \"low_musd\": null, \"high_musd\": null, \"point_musd\": null, \"change_vs_prior\": \"unclear\", \"quote\": \"For the full year, gross margins are expected to be in the mid-70% range.\"}",
+   "winner": "A",
+   "quote": "For the full year, gross margins are expected to be in the mid-70% range."
+  },
+  {
+   "accession": "0001045810-25-000115",
+   "field": "fy_guidance",
+   "value_json": "{\"fiscal_year\": \"FY2026\", \"metric\": \"gross margin mid-70% range late FY2026 (full-year opex growth mid-30%)\", \"is_total_revenue\": false, \"low_musd\": null, \"high_musd\": null, \"point_musd\": null, \"change_vs_prior\": \"initiated\", \"quote\": \"The company is continuing to work toward achieving gross margins in the mid-70% range late this year.\"}",
+   "winner": "A",
+   "quote": "The company is continuing to work toward achieving gross margins in the mid-70% range late this year."
+  },
+  {
+   "accession": "0001045810-25-000207",
+   "field": "fy_guidance",
+   "value_json": "{\"fiscal_year\": \"FY2026\", \"metric\": \"exit-FY2026 non-GAAP gross margin mid-70% range (full-year opex growth raised to high-30%)\", \"is_total_revenue\": false, \"low_musd\": null, \"high_musd\": null, \"point_musd\": null, \"change_vs_prior\": \"maintained\", \"quote\": \"The company continues to expect to exit the year with non-GAAP gross margins in the mid-70% range.\"}",
+   "winner": "A",
+   "quote": "The company continues to expect to exit the year with non-GAAP gross margins in the mid-70% range."
+  }
+ ],
+ "qc": {
+  "bad_quotes": [],
+  "revenue_mismatch": []
+ }
+}

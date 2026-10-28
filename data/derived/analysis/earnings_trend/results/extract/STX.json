@@ -1,0 +1,560 @@
+{
+ "ticker": "STX",
+ "events": [
+  {
+   "accession": "0001137789-24-000061",
+   "filing_date": "2024-07-23",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q4 FY2024",
+   "period_end": "2024-06-28",
+   "revenue_musd": 1887,
+   "revenue_py_musd": 1602,
+   "revenue_yoy_pct_stated": 18,
+   "key_segment": null,
+   "prior_guided_actual": null,
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 1950,
+    "high_musd": 2250,
+    "point_musd": 2100,
+    "guided_yoy_pct_stated": null,
+    "quote": "Revenue of $2.10 billion, plus or minus $150 million"
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Non-GAAP diluted EPS (next quarter) $1.40 +/- $0.20",
+    "change_vs_prior": "unclear",
+    "quote": "Non-GAAP diluted EPS of $1.40, plus or minus $0.20"
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "SoC 사업 매각이익 3.13억달러로 GAAP 순이익(5.13억) 부풀림, 구매주문 취소비 환입 2,600만달러",
+   "tone": "strong",
+   "tone_quote": "Seagate delivered robust financial performance for the June quarter amid an improving cloud demand environment, capping off a fiscal year of strong execution against our financial goals.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "FY24 연간 매출 65.5억(전년 73.8억)으로 감소한 업황 침체가 클라우드 수요 개선으로 회복 중",
+    "quote": "amid an improving cloud demand environment"
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "매출 +18% YoY, 비GAAP 총마진 약 31%로 확대, EPS 가이던스 상단 초과, 다음 분기 매출 가이던스 21억달러로 증가 — 회복 국면 강화(직전 발표 없음, 문서 기준 판단)",
+   "narrative_quote": "Q4 revenue grew 18% year-over-year, non-GAAP gross margin expanded to nearly 31%, and non-GAAP EPS exceeded the high end of our guidance range",
+   "notes": "목록 첫 발표라 이전 가이던스 비교 불가. SoC 사업 매각(6억달러, 2024년 4월). 세그먼트 미공시. profit_guidance 변화는 직전 발표의 다음 분기 EPS 가이던스 중간값 대비로 판단(이후 이벤트 동일)."
+  },
+  {
+   "accession": "0001137789-24-000141",
+   "filing_date": "2024-10-22",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q1 FY2025",
+   "period_end": "2024-09-27",
+   "revenue_musd": 2168,
+   "revenue_py_musd": 1454,
+   "revenue_yoy_pct_stated": null,
+   "key_segment": null,
+   "prior_guided_actual": {
+    "metric": "revenue (guided $2.10B +/- $150M)",
+    "actual_musd": 2168,
+    "quote": "Revenue | 2,168 | 1,454"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 2150,
+    "high_musd": 2450,
+    "point_musd": 2300,
+    "guided_yoy_pct_stated": null,
+    "quote": "Revenue of $2.30 billion, plus or minus $150 million"
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Non-GAAP diluted EPS (next quarter) $1.85 +/- $0.20",
+    "change_vs_prior": "raised",
+    "quote": "Non-GAAP diluted EPS of $1.85, plus or minus $0.20"
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "",
+   "tone": "strong",
+   "tone_quote": "Seagate is off to an outstanding start to the fiscal year, highlighted by gross margin expanding to the highest level in more than a decade",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "순이익 3.05억 대비 FCF 2,700만달러로 매출채권·재고 증가에 따른 현금전환 저조(일시적 운전자본)",
+    "quote": "Cash flow from operations of $95 million and free cash flow of $27 million"
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "매출 21.7억으로 가이던스 중간값(21억) 상회, 비GAAP 총마진 33.3% 10년 내 최고, 28TB 램프·HAMR 인증 고객 확대, 다음 분기 매출·EPS 가이던스 상향, 배당 인상",
+   "narrative_quote": "We executed on our plans to aggressively ramp our 28-terabyte nearline drives and broaden the number of cloud customers entering qualification on HAMR-based Mozaic products.",
+   "notes": "보도자료에 매출 YoY% 미기재(계산치 +49.1%). 비GAAP EPS 1.58(가이던스 1.40±0.20 상단 근접)."
+  },
+  {
+   "accession": "0001137789-25-000006",
+   "filing_date": "2025-01-21",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 FY2025",
+   "period_end": "2024-12-27",
+   "revenue_musd": 2325,
+   "revenue_py_musd": 1555,
+   "revenue_yoy_pct_stated": null,
+   "key_segment": null,
+   "prior_guided_actual": {
+    "metric": "revenue (guided $2.30B +/- $150M)",
+    "actual_musd": 2325,
+    "quote": "Revenue | 2,325 | 1,555"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 1950,
+    "high_musd": 2250,
+    "point_musd": 2100,
+    "guided_yoy_pct_stated": null,
+    "quote": "Revenue of $2.10 billion, plus or minus $150 million"
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Non-GAAP diluted EPS (next quarter) $1.70 +/- $0.20",
+    "change_vs_prior": "lowered",
+    "quote": "Non-GAAP diluted EPS of $1.70, plus or minus $0.20"
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "전략투자 손실·손상 5,200만달러(Other, net)로 GAAP 순이익 감소",
+   "tone": "strong",
+   "tone_quote": "Seagate ended calendar 2024 on a strong note as we grew revenue, gross margin and non-GAAP EPS successively in each quarter of the year.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "다음 분기 매출 가이던스 21억달러로 이번 분기 23.25억 대비 감소, 사유 미기재",
+    "quote": "Revenue of $2.10 billion, plus or minus $150 million"
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "HAMR 첫 클라우드 고객 램프 시작·비GAAP 총마진 35.5%는 긍정이나 다음 분기 매출·EPS 가이던스가 전분기 대비 하락해 혼조",
+   "narrative_quote": "We began ramping HAMR-based Mozaic products to our lead cloud customer in the December quarter and are already sampling in capacities of up to 36 terabytes.",
+   "notes": "매출 YoY% 미기재(계산치 +49.5%). 비GAAP EPS 2.03(가이던스 1.85±0.20 상단 근접)."
+  },
+  {
+   "accession": "0001137789-25-000070",
+   "filing_date": "2025-04-29",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q3 FY2025",
+   "period_end": "2025-03-28",
+   "revenue_musd": 2160,
+   "revenue_py_musd": 1655,
+   "revenue_yoy_pct_stated": null,
+   "key_segment": null,
+   "prior_guided_actual": {
+    "metric": "revenue (guided $2.10B +/- $150M)",
+    "actual_musd": 2160,
+    "quote": "Revenue | 2,160 | 1,655"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 2250,
+    "high_musd": 2550,
+    "point_musd": 2400,
+    "guided_yoy_pct_stated": null,
+    "quote": "Revenue of $2.40 billion, plus or minus $150 million"
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Non-GAAP diluted EPS (next quarter) $2.40 +/- $0.20",
+    "change_vs_prior": "raised",
+    "quote": "Non-GAAP diluted EPS of $2.40, plus or minus $0.20"
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "구조조정 2,000만달러, 인수 관련 비용 500만달러, 사업매각이익 800만달러, 채무거래손실 400만달러(소규모)",
+   "tone": "strong",
+   "tone_quote": "we are confident that our technology leadership, resilient financial model and solid industry fundamentals will drive profitable growth through 2025 and beyond",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "관세·거시 불확실성 언급, 다음 분기 가이던스에는 관세 영향 최소로 반영",
+    "quote": "While we navigate the current dynamic macroeconomic environment"
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "비GAAP EPS 1.90으로 가이던스 상단, 총마진 36.2%로 확대, 다음 분기 매출 24억·EPS 2.40으로 큰 폭 상향, 부채 5.36억 감축",
+   "narrative_quote": "elevating our non-GAAP EPS to the top of our guidance range",
+   "notes": "매출 YoY% 미기재(계산치 +30.5%). 소규모 인수(현금흐름표상 인수 기재, 통합 리스크 문구) 진행."
+  },
+  {
+   "accession": "0001137789-25-000148",
+   "filing_date": "2025-07-29",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q4 FY2025",
+   "period_end": "2025-06-27",
+   "revenue_musd": 2444,
+   "revenue_py_musd": 1887,
+   "revenue_yoy_pct_stated": 30,
+   "key_segment": null,
+   "prior_guided_actual": {
+    "metric": "revenue (guided $2.40B +/- $150M)",
+    "actual_musd": 2444,
+    "quote": "Revenue | 2,444 | 1,887"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 2350,
+    "high_musd": 2650,
+    "point_musd": 2500,
+    "guided_yoy_pct_stated": null,
+    "quote": "Revenue of $2.50 billion, plus or minus $150 million"
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Non-GAAP diluted EPS (next quarter) $2.30 +/- $0.20",
+    "change_vs_prior": "lowered",
+    "quote": "Non-GAAP diluted EPS of $2.30, plus or minus $0.20"
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "구조조정 1,600만달러, 채무거래손실 300만달러; 법인세 400만달러로 낮은 세율이 GAAP 순이익 지지",
+   "tone": "strong",
+   "tone_quote": "ongoing demand strength from cloud customers for our high-capacity drives",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_potential",
+    "desc": "FY26부터 글로벌 최저한세(Pillar Two) 적용과 2028 교환사채 희석이 EPS 가이던스를 낮춤",
+    "quote": "The estimated impact from the Pillar Two framework for the global minimal tax that is effective starting fiscal year 2026 in major jurisdictions that the Company operates;"
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "매출 +30% YoY, 비GAAP 총마진 37.9% 사상 최고, EPS 가이던스 상단, 다음 분기 매출 가이던스 25억 상향; EPS 가이던스 하락은 세금·희석 요인",
+   "narrative_quote": "marked by a 30% year-over-year revenue increase, record gross margin, and non-GAAP EPS expanding to the top of our guidance range",
+   "notes": "다음 분기 FQ1 2026은 10월 3일 종료(14주 분기, FY2026 53주) — 가이던스·YoY 비교 시 1주 추가 효과. EPS 가이던스에 Pillar Two 세금·교환사채 희석 포함. FY2025 매출 90.97억(+39%)."
+  },
+  {
+   "accession": "0001137789-25-000150",
+   "filing_date": "2025-07-30",
+   "is_quarterly_results": false,
+   "fiscal_period": "Q4 FY2025",
+   "period_end": "",
+   "revenue_musd": 2440,
+   "revenue_py_musd": null,
+   "revenue_yoy_pct_stated": 30,
+   "key_segment": {
+    "name": "Mass Capacity",
+    "revenue_musd": null,
+    "yoy_pct": 40
+   },
+   "prior_guided_actual": {
+    "metric": "revenue (guided $2.40B +/- $150M in Q3 FY2025 release)",
+    "actual_musd": 2440,
+    "quote": "June quarter revenue came in at $2.44 billion, up 13% sequentially and up 30% year over year."
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 2350,
+    "high_musd": 2650,
+    "point_musd": 2500,
+    "guided_yoy_pct_stated": 15,
+    "quote": "We expect September quarter revenue to be in a range of $2.5 billion plus or minus $150 million. At the midpoint this reflects a 15% improvement year-over-year."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Non-GAAP diluted EPS (next quarter) $2.30 +/- $0.20",
+    "change_vs_prior": "maintained",
+    "quote": "Non-GAAP EPS is expected to be $2.30, plus or minus $0.20 based on a 16% tax rate and non-GAAP diluted share count of 221 million shares."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "",
+   "tone": "strong",
+   "tone_quote": "The visibility afforded by our build-to-order strategy indicates our nearline exabyte production capacity is largely spoken for through the middle of next calendar year with visibility building into the second half.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_potential",
+    "desc": "FY26부터 10%대 중반 글로벌 최저한세 적용, 교환사채 희석(주가 약 108달러 초과 시)",
+    "quote": "As previously communicated, starting in fiscal 2026 we will be subject to a global minimum tax rate in the mid-teens."
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "전날 보도자료 대비 BTO로 니어라인 생산능력이 내년 중반까지 소진됐다는 가시성, HAMR 3개 CSP 인증·2026 중반 주요 고객 인증 목표, 자사주 매입 재개 계획 추가",
+   "narrative_quote": "Across the board, qualifications are progressing exceedingly well, and we continue to expect the key global CSP customers to be qualified by mid-calendar 2026.",
+   "notes": "7/29 보도자료(같은 FQ4 2025) 다음 날 제출된 컨퍼런스콜 원고로 정규 실적 발표 아님. Mass Capacity 매출 20억달러 돌파(+40% YoY), 니어라인 137EB(+52%). 9월 분기부터 Datacenter/Edge-IoT로 시장 구분 변경 예정. 다음 분기 14주 명시. 자사주 매입 재개 예정(금액 미기재)."
+  },
+  {
+   "accession": "0001137789-25-000283",
+   "filing_date": "2025-10-28",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q1 FY2026",
+   "period_end": "2025-10-03",
+   "revenue_musd": 2629,
+   "revenue_py_musd": 2168,
+   "revenue_yoy_pct_stated": 21,
+   "key_segment": null,
+   "prior_guided_actual": {
+    "metric": "revenue (guided $2.50B +/- $150M)",
+    "actual_musd": 2629,
+    "quote": "Revenue | 2,629 | 2,168"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 2600,
+    "high_musd": 2800,
+    "point_musd": 2700,
+    "guided_yoy_pct_stated": null,
+    "quote": "Revenue of $2.70 billion, plus or minus $100 million"
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Non-GAAP diluted EPS (next quarter) $2.75 +/- $0.20",
+    "change_vs_prior": "raised",
+    "quote": "Non-GAAP diluted EPS of $2.75, plus or minus $0.20"
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "구조조정 1,300만달러, 채무거래손실 600만달러(소규모)",
+   "tone": "strong",
+   "tone_quote": "With clear visibility into sustained demand strength, we are ramping shipments of our areal density-leading Mozaic HAMR products",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "2028 교환사채 희석(전환 가능 약 1,000만주)과 최저한세로 법인세 6,500만달러(전년 1,100만)",
+    "quote": "The estimated net dilutive impact from the Exchangeable Senior Notes due 2028; and"
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "매출 26.3억으로 가이던스 중간값 5% 상회, EPS 상단 초과, 총마진 40.1% 사상 최고, HAMR 5대 클라우드 고객 인증, 다음 분기 매출·EPS 가이던스 상향, 배당 인상",
+   "narrative_quote": "Seagate delivered strong September quarter results, with revenue growth of 21% year-over-year and non-GAAP EPS exceeding the high end of our guided range.",
+   "notes": "14주 분기(10월 3일 종료) vs 전년 13주 — YoY 21%는 1주 추가로 과대. 다음 분기는 13주. 비GAAP 세율 15.5% 적용(Pillar Two). 보도자료 날짜는 싱가포르 기준 10월 29일."
+  },
+  {
+   "accession": "0001137789-26-000016",
+   "filing_date": "2026-01-27",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 FY2026",
+   "period_end": "2026-01-02",
+   "revenue_musd": 2825,
+   "revenue_py_musd": 2325,
+   "revenue_yoy_pct_stated": null,
+   "key_segment": null,
+   "prior_guided_actual": {
+    "metric": "revenue (guided $2.70B +/- $100M)",
+    "actual_musd": 2825,
+    "quote": "Revenue | 2,825 | 2,325"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 2800,
+    "high_musd": 3000,
+    "point_musd": 2900,
+    "guided_yoy_pct_stated": null,
+    "quote": "Revenue of $2.90 billion, plus or minus $100 million"
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Non-GAAP diluted EPS (next quarter) $3.40 +/- $0.20",
+    "change_vs_prior": "raised",
+    "quote": "Non-GAAP diluted EPS of $3.40, plus or minus $0.20"
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "교환사채 5억달러 상환 관련 채무거래손실 6,600만달러",
+   "tone": "strong",
+   "tone_quote": "results exceeded our expectations on both the top and bottom line, setting new records for gross margin, operating margin, and non-GAAP EPS",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "교환사채 5억달러 상환으로 희석 부담 축소 중(대신 채무거래손실 6,600만달러 발생)",
+    "quote": "the Company retired $500 million Exchangeable Senior Notes due 2028"
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "매출 28.25억으로 가이던스 상단(28억) 초과, 총마진 42.2%·영업이익률·EPS 사상 최고, 다음 분기 매출 29억·EPS 3.40으로 상향, 자본이 플러스로 전환",
+   "narrative_quote": "the durability of data center demand, and the ongoing ramp of our HAMR-based Mozaic products",
+   "notes": "13주 분기. 매출 YoY% 미기재(계산치 +21.5%). 비GAAP EPS 3.11(가이던스 2.75±0.20 상단 초과)."
+  },
+  {
+   "accession": "0001137789-26-000084",
+   "filing_date": "2026-04-28",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q3 FY2026",
+   "period_end": "2026-04-03",
+   "revenue_musd": 3112,
+   "revenue_py_musd": 2160,
+   "revenue_yoy_pct_stated": null,
+   "key_segment": null,
+   "prior_guided_actual": {
+    "metric": "revenue (guided $2.90B +/- $100M)",
+    "actual_musd": 3112,
+    "quote": "Revenue | 3,112 | 2,160"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 3350,
+    "high_musd": 3550,
+    "point_musd": 3450,
+    "guided_yoy_pct_stated": null,
+    "quote": "Revenue of $3.45 billion, plus or minus $100 million"
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Non-GAAP diluted EPS (next quarter) $5.00 +/- $0.20",
+    "change_vs_prior": "raised",
+    "quote": "Non-GAAP diluted EPS of $5.00, plus or minus $0.20"
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "소송 합의금 1.05억달러, 채무거래손실 6,900만달러로 GAAP 이익 감소",
+   "tone": "strong",
+   "tone_quote": "We believe Seagate is entering a new era of structural growth as AI applications amplify data creation and support sustained storage demand.",
+   "catalyst": {
+    "present": true,
+    "desc": "비GAAP 총마진 47.0%(전분기 42.2%, 전년 36.2%)로 구조적 마진 급등, 다음 분기 EPS 가이던스 5.00달러",
+    "quote": "GAAP gross margin of 46.5%; non-GAAP gross margin of 47.0%"
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "관세·중동 분쟁 리스크 언급, 가이던스 영향은 최소로 명시",
+    "quote": "Minimal expected impact from global tariff policies and/or the current conflict in the Middle East as of the date of this release."
+   },
+   "narrative_shift": 2,
+   "narrative_reason": "매출 31.1억으로 가이던스 상단(30억) 크게 초과, 총마진 +480bp, FCF 9.5억, 다음 분기 매출 34.5억(+19% 상향)·EPS 5.00(+47%) — '구조적 성장의 새 시대' 언급",
+   "narrative_quote": "exceeding the high end of our revenue and EPS guidance, achieving record margin performance, and generating close to $1 billion in free cash flow",
+   "notes": "13주 분기. 매출 YoY% 미기재(계산치 +44.1%). 비GAAP 영업이익률 37.5%(전년 23.5%)."
+  },
+  {
+   "accession": "0001137789-26-000153",
+   "filing_date": "2026-07-28",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q4 FY2026",
+   "period_end": "2026-07-03",
+   "revenue_musd": 3629,
+   "revenue_py_musd": 2444,
+   "revenue_yoy_pct_stated": null,
+   "key_segment": null,
+   "prior_guided_actual": {
+    "metric": "revenue (guided $3.45B +/- $100M)",
+    "actual_musd": 3629,
+    "quote": "Revenue | 3,629 | 2,444"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 4000,
+    "high_musd": 4200,
+    "point_musd": 4100,
+    "guided_yoy_pct_stated": null,
+    "quote": "Revenue of $4.1 billion, plus or minus $100 million"
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Non-GAAP diluted EPS (next quarter) $7.30 +/- $0.20",
+    "change_vs_prior": "raised",
+    "quote": "Non-GAAP diluted EPS of $7.30, plus or minus $0.20"
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "전략투자 이익 1,400만달러, 채무거래손실 1,000만달러(소규모)",
+   "tone": "strong",
+   "tone_quote": "Our performance is being driven by robust cloud data center demand and disciplined execution, and we see the momentum continuing in 2027",
+   "catalyst": {
+    "present": true,
+    "desc": "비GAAP 총마진 52.7%(전분기 47.0%), 영업이익률 44.6%로 구조적 마진 재상승, 다음 분기 EPS 가이던스 7.30달러",
+    "quote": "GAAP gross margin of 52.3%; non-GAAP gross margin of 52.7%"
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "관세·중동 분쟁 리스크 언급, 가이던스 영향은 최소로 명시",
+    "quote": "Minimal expected impact from global tariff policies and/or the current conflict in the Middle East as of the date of this release."
+   },
+   "narrative_shift": 2,
+   "narrative_reason": "매출 36.3억으로 가이던스 상단(35.5억) 초과, 총마진 +570bp로 50% 돌파, 다음 분기 매출 41억(+19% 상향)·EPS 7.30(+46%), FY26 FCF 31억 사상 최고",
+   "narrative_quote": "capping a fiscal 2026 in which we grew annual revenue 34%, delivered record profitability, and generated a record $3.1 billion in free cash flow",
+   "notes": "FY2026은 53주(1분기가 14주), 4분기는 13주. 분기 매출 YoY% 미기재(계산치 +48.5%), 연간 매출 121.95억 +34% 기재."
+  },
+  {
+   "accession": "0001137789-26-000300",
+   "filing_date": "2026-10-27",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q1 FY2027",
+   "period_end": "2026-10-02",
+   "revenue_musd": 4233,
+   "revenue_py_musd": 2629,
+   "revenue_yoy_pct_stated": null,
+   "key_segment": null,
+   "prior_guided_actual": {
+    "metric": "revenue (guided $4.1B +/- $100M)",
+    "actual_musd": 4233,
+    "quote": "Revenue | 4,233 | 2,629"
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 4700,
+    "high_musd": 4900,
+    "point_musd": 4800,
+    "guided_yoy_pct_stated": null,
+    "quote": "Revenue of $4.8 billion, plus or minus $100 million"
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Non-GAAP diluted EPS (next quarter) $9.20 +/- $0.20",
+    "change_vs_prior": "raised",
+    "quote": "Non-GAAP diluted EPS of $9.20, plus or minus $0.20"
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "채무거래손실 4,400만달러(부채 12억달러 조기상환)",
+   "tone": "strong",
+   "tone_quote": "Data creation, retention and reuse continue to compound storage demand with long term customer demand visibility reinforcing our view of a multi-year growth phase.",
+   "catalyst": {
+    "present": true,
+    "desc": "비GAAP 총마진 57.8%(전분기 52.7%), 영업이익률 50.7%로 마진 추가 급등, 다년 성장 국면·가치 기반 가격 전략 언급",
+    "quote": "GAAP gross margin of 57.3%; non-GAAP gross margin of 57.8%"
+   },
+   "showstopper": {
+    "type": "none",
+    "desc": "",
+    "quote": ""
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "매출 42.3억으로 가이던스 상단(42억) 초과, 총마진 +510bp, FCF 14.8억 사상 최고, 다음 분기 매출 48억(+17% 상향)·EPS 9.20, 장기 수요 가시성 강조 — 추세 지속 강화",
+   "narrative_quote": "Seagate delivered another quarter of record profitability and our highest ever free cash flow in the September quarter, demonstrating the earnings power of our business amid a strengthening demand environment",
+   "notes": "13주 분기 vs 전년 14주 분기 — YoY(계산치 +61%)는 전년 1주 추가로 과소. 비GAAP 조정 항목이 '주식보상 관련 비용'(고용주 급여세 포함)으로 정의 변경. 분기 후 부채 7.5억 추가 상환, 배당 0.76달러로 인상."
+  }
+ ],
+ "fixes": [],
+ "qc": {
+  "bad_quotes": [],
+  "revenue_mismatch": []
+ }
+}

@@ -1,0 +1,492 @@
+{
+ "ticker": "INTC",
+ "events": [
+  {
+   "accession": "0000050863-24-000122",
+   "filing_date": "2024-08-01",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 2024",
+   "period_end": "2024-06-29",
+   "revenue_musd": 12833,
+   "revenue_py_musd": 12949,
+   "revenue_yoy_pct_stated": -1,
+   "key_segment": {
+    "name": "Data Center and AI (DCAI)",
+    "revenue_musd": 3045,
+    "yoy_pct": -3
+   },
+   "prior_guided_actual": null,
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 12500,
+    "high_musd": 13500,
+    "point_musd": 13000,
+    "guided_yoy_pct_stated": null,
+    "quote": "Forecasting third-quarter 2024 revenue of $12.5 billion to $13.5 billion"
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Q3 2024 non-GAAP EPS $(0.03), non-GAAP gross margin 38.0%",
+    "change_vs_prior": "unclear",
+    "quote": "expecting third-quarter GAAP EPS attributable to Intel of $(0.24); non-GAAP EPS attributable to Intel of $(0.03)"
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "구조조정·기타 비용 9.43억달러(R2 소송 충당금 포함), 지분투자 손실 1.2억달러; 전년 동기는 대규모 세금혜택(세율 280%)",
+   "tone": "cautious",
+   "tone_quote": "Second-half trends are more challenging than we previously expected",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_quantified",
+    "desc": "파운드리 영업손실 28.3억달러로 전년(18.7억) 대비 확대, 유휴설비·AI PC 램프로 총마진 압박",
+    "quote": "Second-quarter results were impacted by gross margin headwinds from the accelerated ramp of our AI PC product, higher than typical charges related to non-core businesses and the impact from unused capacity"
+   },
+   "narrative_shift": -2,
+   "narrative_reason": "실적 부진과 하반기 전망 악화를 인정하고 배당 중단·인력 15% 이상 감축·100억달러 비용절감 발표—턴어라운드 스토리 훼손",
+   "narrative_quote": "Our Q2 financial performance was disappointing, even as we hit key product and process technology milestones.",
+   "notes": "이 목록의 첫 발표라 직전 가이던스 비교 불가. 연간 매출 가이던스 없음; FY2024 비GAAP R&D+MG&A 약 200억·총 capex 250~270억, FY2025 약 175억·총 capex 200~230억달러 목표(비용 지표라 fy_guidance 미기재). 2024년부터 내부 파운드리 모델로 세그먼트 재편(Altera는 all other). 4분기부터 배당 중단."
+  },
+  {
+   "accession": "0000050863-24-000147",
+   "filing_date": "2024-10-31",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q3 2024",
+   "period_end": "2024-09-28",
+   "revenue_musd": 13284,
+   "revenue_py_musd": 14158,
+   "revenue_yoy_pct_stated": -6,
+   "key_segment": {
+    "name": "Data Center and AI (DCAI)",
+    "revenue_musd": 3349,
+    "yoy_pct": 9
+   },
+   "prior_guided_actual": {
+    "metric": "revenue (guided $12.5-13.5B)",
+    "actual_musd": 13284,
+    "quote": "Third-quarter revenue of $13.3 billion."
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 13300,
+    "high_musd": 14300,
+    "point_musd": 13800,
+    "guided_yoy_pct_stated": null,
+    "quote": "Forecasting fourth-quarter 2024 revenue of $13.3 billion to $14.3 billion"
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Q4 2024 non-GAAP EPS $0.12, non-GAAP gross margin 39.5% (직전 Q3 가이던스 $(0.03)/38.0%)",
+    "change_vs_prior": "unclear",
+    "quote": "expecting fourth-quarter GAAP EPS attributable to Intel of $(0.24); non-GAAP EPS attributable to Intel of $0.12"
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "미국 이연법인세자산 평가충당금 99억, 영업권(모빌아이)·무형자산 손상 29억, Intel 7 설비 손상·가속상각 31억(비GAAP 포함), 구조조정 28억달러",
+   "tone": "neutral",
+   "tone_quote": "We are encouraged by improved underlying trends, reflected in our Q4 guidance.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_quantified",
+    "desc": "Intel 7 설비가 수요 대비 과잉으로 31억달러 손상, 파운드리 분기 영업손실 58억달러로 급확대",
+    "quote": "a substantial majority of which related to the Intel 7 process node, based upon an evaluation of current process technology node capacities relative to projected market demand for Intel products and services"
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "매출이 가이던스 중간값 상회·4분기 개선 가이던스·AWS 협력 진행, 그러나 Intel 7 과잉설비 손상 등 대규모 상각과 파운드리 적자 확대로 혼재",
+   "narrative_quote": "We delivered revenue above the midpoint of our guidance, and are acting with urgency to position the business for sustainable value creation moving forward",
+   "notes": "3분기 손상·구조조정은 직전 가이던스에 미반영. 비GAAP EPS $(0.46)에 손상 $(0.63) 포함. FY2025 비GAAP opex 175억·총 capex 200~230억 유지, FY2024 총 capex 약 250억(범위 하단). 파운드리 독립 자회사화 발표."
+  },
+  {
+   "accession": "0000050863-25-000004",
+   "filing_date": "2025-01-30",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q4 2024",
+   "period_end": "2024-12-28",
+   "revenue_musd": 14260,
+   "revenue_py_musd": 15406,
+   "revenue_yoy_pct_stated": -7,
+   "key_segment": {
+    "name": "Data Center and AI (DCAI)",
+    "revenue_musd": 3387,
+    "yoy_pct": -3
+   },
+   "prior_guided_actual": {
+    "metric": "revenue (guided $13.3-14.3B)",
+    "actual_musd": 14260,
+    "quote": "Fourth-quarter revenue was $14.3 billion, down 7% year-over-year (YoY)."
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 11700,
+    "high_musd": 12700,
+    "point_musd": 12200,
+    "guided_yoy_pct_stated": null,
+    "quote": "Forecasting first-quarter 2025 revenue of $11.7 billion to $12.7 billion"
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Q1 2025 non-GAAP EPS $0.00, non-GAAP gross margin 36.0% (직전 Q4 가이던스 $0.12/39.5%)",
+    "change_vs_prior": "unclear",
+    "quote": "expecting first-quarter EPS attributable to Intel of $(0.27) and non-GAAP EPS attributable to Intel of $0.00"
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "EC 벌금 환급 이자 5.6억달러, 지분투자 이익 3.16억달러, GAAP 세율 125.5%로 순손실",
+   "tone": "cautious",
+   "tone_quote": "Our Q1 outlook reflects seasonal weakness magnified by macro uncertainties, further inventory digestion and competitive dynamics.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_quantified",
+    "desc": "파운드리 4분기 영업손실 22.6억달러(전년 13.2억), 연간 134억달러 적자; 경쟁 심화로 1분기 약세",
+    "quote": "Intel Foundry | (2,260) | (1,319) | (13,408) | (6,955)"
+   },
+   "narrative_shift": -1,
+   "narrative_reason": "4분기는 매출·마진·EPS 가이던스 상회했으나 1분기 매출 가이던스 117~127억달러로 약세, 경쟁·재고조정 언급, 공동 임시 CEO 체제",
+   "narrative_quote": "Forecasting first-quarter 2025 revenue of $11.7 billion to $12.7 billion; expecting first-quarter EPS attributable to Intel of $(0.27) and non-GAAP EPS attributable to Intel of $0.00.",
+   "notes": "연간 실적 동시 발표(FY2024 매출 531.01억달러, -2%). 2025년 비GAAP 세율 13%→12%. FY2025 총 capex 약 200억·순 capex 80~110억·비GAAP opex 175억달러. CEO 사임 후 공동 임시 CEO."
+  },
+  {
+   "accession": "0000050863-25-000070",
+   "filing_date": "2025-04-24",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q1 2025",
+   "period_end": "2025-03-29",
+   "revenue_musd": 12667,
+   "revenue_py_musd": 12724,
+   "revenue_yoy_pct_stated": 0,
+   "key_segment": {
+    "name": "Data Center and AI (DCAI)",
+    "revenue_musd": 4126,
+    "yoy_pct": 8
+   },
+   "prior_guided_actual": {
+    "metric": "revenue (guided $11.7-12.7B)",
+    "actual_musd": 12667,
+    "quote": "First-quarter revenue was $12.7 billion, flat year-over-year (YoY)."
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 11200,
+    "high_musd": 12400,
+    "point_musd": 11800,
+    "guided_yoy_pct_stated": null,
+    "quote": "Forecasting second-quarter 2025 revenue of $11.2 billion to $12.4 billion"
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Q2 2025 non-GAAP EPS $0.00, non-GAAP gross margin 36.5% (직전 Q1 가이던스 $0.00/36.0%)",
+    "change_vs_prior": "unclear",
+    "quote": "expecting second-quarter EPS attributable to Intel of $(0.32) and non-GAAP EPS attributable to Intel of $0.00"
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "낸드 매각 2차 종결 손실 0.94억, 지분투자 손실 1.12억, 구조조정 1.56억달러; 신규 구조조정 비용은 가이던스 미반영",
+   "tone": "cautious",
+   "tone_quote": "The current macro environment is creating elevated uncertainty across the industry, which is reflected in our outlook.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_quantified",
+    "desc": "CCG 매출 -8%로 점유율 회복이 과제, 파운드리 분기 영업손실 23억달러 지속",
+    "quote": "there are no quick fixes as we work to get back on a path to gaining market share and driving sustainable growth"
+   },
+   "narrative_shift": -1,
+   "narrative_reason": "신임 CEO가 빠른 해결책이 없다고 언급, 2분기 매출 가이던스 112~124억달러로 추가 하락, 거시 불확실성; 비용 목표만 추가 인하",
+   "narrative_quote": "Forecasting second-quarter 2025 revenue of $11.2 billion to $12.4 billion; expecting second-quarter EPS attributable to Intel of $(0.32) and non-GAAP EPS attributable to Intel of $0.00.",
+   "notes": "NEX를 CCG·DCAI로 편입해 세그먼트 재작성(DCAI 수치가 이전 발표와 비교 불가). Altera 51% 매각 합의(향후 매출 기반 축소). FY2025 비GAAP opex 목표 175→170억, 2026년 160억, 총 capex 200→180억달러로 인하. 낸드 매각 최종 종결."
+  },
+  {
+   "accession": "0000050863-25-000107",
+   "filing_date": "2025-07-24",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 2025",
+   "period_end": "2025-06-28",
+   "revenue_musd": 12859,
+   "revenue_py_musd": 12833,
+   "revenue_yoy_pct_stated": 0,
+   "key_segment": {
+    "name": "Data Center and AI (DCAI)",
+    "revenue_musd": 3939,
+    "yoy_pct": 4
+   },
+   "prior_guided_actual": {
+    "metric": "revenue (guided $11.2-12.4B)",
+    "actual_musd": 12859,
+    "quote": "Second-quarter revenue was $12.9 billion, flat year-over-year (YoY)."
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 12600,
+    "high_musd": 13600,
+    "point_musd": 13100,
+    "guided_yoy_pct_stated": null,
+    "quote": "Forecasting third-quarter 2025 revenue of $12.6 billion to $13.6 billion"
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Q3 2025 non-GAAP EPS $0.00, non-GAAP gross margin 36.0% (직전 Q2 가이던스 $0.00/36.5%)",
+    "change_vs_prior": "unclear",
+    "quote": "expecting third-quarter EPS attributable to Intel of $(0.24) and non-GAAP EPS attributable to Intel of $0.00"
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "구조조정 18.9억달러, 잉여 장비 손상·가속상각 약 8억+일회성 기간비용 2억달러(비GAAP 총마진 약 8%p 훼손), 지분투자 이익 5.02억",
+   "tone": "neutral",
+   "tone_quote": "Our operating performance demonstrates the initial progress we are making to improve our execution and drive greater efficiency",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_quantified",
+    "desc": "재사용 불가 잉여 장비 손상 약 8억달러, 파운드리 손실 31.7억달러로 확대—과잉 투자 구조 문제",
+    "quote": "approximately $800 million of non-cash impairment and accelerated depreciation charges related to excess tools with no identified re-use"
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "매출은 가이던스 상단 상회했으나 손상·일회성으로 비GAAP 총마진 29.7%, 독일·폴란드 투자 철회·오하이오 지연 등 축소 국면이라 혼재",
+   "narrative_quote": "These charges reduced both GAAP and non-GAAP gross margin by approximately 800 basis points",
+   "notes": "손상·구조조정은 직전 2분기 가이던스에 미반영. FY2025 비GAAP opex 170억·2026년 160억, 총 capex 180억달러 유지. 7월 모빌아이 지분 일부 매각(약 9.22억달러). Altera 매각 진행 중."
+  },
+  {
+   "accession": "0000050863-25-000169",
+   "filing_date": "2025-10-23",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q3 2025",
+   "period_end": "2025-09-27",
+   "revenue_musd": 13653,
+   "revenue_py_musd": 13284,
+   "revenue_yoy_pct_stated": 3,
+   "key_segment": {
+    "name": "Data Center and AI (DCAI)",
+    "revenue_musd": 4117,
+    "yoy_pct": -1
+   },
+   "prior_guided_actual": {
+    "metric": "revenue (guided $12.6-13.6B)",
+    "actual_musd": 13653,
+    "quote": "Third-quarter revenue was $13.7 billion, up 3% year-over-year (YoY)."
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 12800,
+    "high_musd": 13800,
+    "point_musd": 13300,
+    "guided_yoy_pct_stated": null,
+    "quote": "Forecasting fourth-quarter 2025 revenue of $12.8 billion to $13.8 billion"
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Q4 2025 non-GAAP EPS $0.08, non-GAAP gross margin 36.5% (직전 Q3 가이던스 $0.00/36.0%)",
+    "change_vs_prior": "unclear",
+    "quote": "expecting fourth-quarter EPS attributable to Intel of $(0.14) and non-GAAP EPS attributable to Intel of $0.08"
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "Altera 매각 이익 54.5억달러로 GAAP EPS $0.90 부풀림, 에스크로 주식 평가손 16.9억달러, 지분투자 이익 2.21억; 미정부 거래 회계 SEC 협의로 수정 가능",
+   "tone": "strong",
+   "tone_quote": "AI is accelerating demand for compute and creating attractive opportunities across our portfolio",
+   "catalyst": {
+    "present": true,
+    "desc": "엔비디아와 데이터센터·PC 제품 다세대 공동개발+50억달러 지분투자, 미정부 89억·소프트뱅크 20억달러 투자",
+    "quote": "Intel and NVIDIA announced a collaboration to jointly develop multiple generations of custom data center and PC products across hyperscale, enterprise and consumer markets."
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "수요가 공급을 초과해 2026년까지 공급 제약 지속 예상, 파운드리 손실은 23억달러로 축소 중",
+    "quote": "Current demand is outpacing supply, a trend we expect will persist into 2026."
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "매출 +3% 성장 전환·가이던스 상단 상회, 4분기 연속 실행 개선, 수요가 공급 초과, 엔비디아·소프트뱅크·미정부 자본 유입으로 스토리 강화",
+   "narrative_quote": "Our stronger than expected Q3 results mark our fourth consecutive quarter of improved execution and reflect the underlying strength of our core markets.",
+   "notes": "2025-09-12 Altera 디컨솔(4분기 가이던스는 Altera 제외, 매출 기반 축소). 실적은 잠정·미감사이며 미정부 거래 회계처리로 수정 가능. 미정부·엔비디아·소프트뱅크 지분 발행으로 주식수 증가(희석 4,531백만주). FY2026 비GAAP opex 약 160억달러."
+  },
+  {
+   "accession": "0000050863-26-000009",
+   "filing_date": "2026-01-22",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q4 2025",
+   "period_end": "2025-12-27",
+   "revenue_musd": 13674,
+   "revenue_py_musd": 14260,
+   "revenue_yoy_pct_stated": -4,
+   "key_segment": {
+    "name": "Data Center and AI (DCAI)",
+    "revenue_musd": 4737,
+    "yoy_pct": 9
+   },
+   "prior_guided_actual": {
+    "metric": "revenue (guided $12.8-13.8B, ex-Altera)",
+    "actual_musd": 13674,
+    "quote": "Fourth-quarter revenue was $13.7 billion, down 4% year-over-year (YoY)."
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 11700,
+    "high_musd": 12700,
+    "point_musd": 12200,
+    "guided_yoy_pct_stated": null,
+    "quote": "Forecasting first-quarter 2026 revenue of $11.7 billion to $12.7 billion"
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Q1 2026 non-GAAP EPS $0.00, non-GAAP gross margin 34.5% (직전 Q4 가이던스 $0.08/36.5%)",
+    "change_vs_prior": "unclear",
+    "quote": "expecting first-quarter EPS attributable to Intel of $(0.21) and non-GAAP EPS attributable to Intel of $0.00"
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "GAAP 세율 198.5%로 순손실, 에스크로 주식 평가손 1.09억·지분투자 손실 0.97억달러; 연간으로는 Altera 매각익 53억·에스크로 평가손 18억달러",
+   "tone": "cautious",
+   "tone_quote": "We expect our available supply to be at its lowest level in Q1 before improving in Q2 and beyond.",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_quantified",
+    "desc": "파운드리 분기 손실 25억달러로 전년(22억) 대비 확대, 14A 외부 고객 미확보 시 중단 가능성 명시",
+    "quote": "a potential pause or discontinuation of our pursuit of Intel 14A and other next generation leading-edge process technologies if we are unable to secure a significant external customer for Intel 14A"
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "4분기 가이던스 상회·DCAI +9%·18A 양산 진입으로 AI CPU 스토리 강화, 그러나 1분기 공급 저점으로 매출·마진 가이던스 약세라 혼재",
+   "narrative_quote": "We exceeded Q4 expectations across revenue, gross margin, and EPS even as we navigated industry-wide supply shortages",
+   "notes": "연간 실적 동시 발표(FY2025 매출 528.53억달러, 보합). YoY 비교는 Altera 디컨솔 미조정. FY2026 비GAAP opex 약 160억달러 유지, 2026년 비GAAP 세율 11%. 엔비디아 50억달러 지분 매각 완료."
+  },
+  {
+   "accession": "0000050863-26-000077",
+   "filing_date": "2026-04-23",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q1 2026",
+   "period_end": "2026-03-28",
+   "revenue_musd": 13577,
+   "revenue_py_musd": 12667,
+   "revenue_yoy_pct_stated": 7,
+   "key_segment": {
+    "name": "Data Center and AI (DCAI)",
+    "revenue_musd": 5052,
+    "yoy_pct": 22
+   },
+   "prior_guided_actual": {
+    "metric": "revenue (guided $11.7-12.7B)",
+    "actual_musd": 13577,
+    "quote": "First-quarter revenue was $13.6 billion, up 7% year-over-year (YoY)."
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 13800,
+    "high_musd": 14800,
+    "point_musd": 14300,
+    "guided_yoy_pct_stated": null,
+    "quote": "Forecasting second-quarter 2026 revenue of $13.8 billion to $14.8 billion"
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Q2 2026 non-GAAP EPS $0.20, non-GAAP gross margin 39.0% (직전 Q1 가이던스 $0.00/34.5%)",
+    "change_vs_prior": "unclear",
+    "quote": "expecting second-quarter EPS attributable to Intel of $0.08 and non-GAAP EPS attributable to Intel of $0.20"
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "모빌아이 영업권 손상 중심 구조조정·기타 비용 40.7억달러, 에스크로 주식 평가손 10.9억달러로 GAAP EPS $(0.73)",
+   "tone": "strong",
+   "tone_quote": "We delivered robust Q1 results, reflecting the growing and essential role of the CPU in the AI era and unprecedented demand for silicon",
+   "catalyst": {
+    "present": true,
+    "desc": "에이전틱 AI로 CPU 수요 급증, DCAI 매출 +22%·매출이 가이던스 상단을 약 9억달러 상회",
+    "quote": "Data Center and AI (DCAI) | 5.1 billion | up | 22%"
+   },
+   "showstopper": {
+    "type": "structural_quantified",
+    "desc": "파운드리 손실 24억달러 지속(매출 +16%에도), 14A 수요 확보 실패 시 중단 위험",
+    "quote": "a potential pause or discontinuation of our pursuit of Intel 14A and other next-generation leading-edge process technologies if we are unable to secure sufficient committed demand for Intel 14A"
+   },
+   "narrative_shift": 2,
+   "narrative_reason": "매출 +7%로 가이던스 상단 대폭 상회, DCAI +22%, 2분기 가이던스 중간값 143억달러로 성장 가속—AI CPU 수요 정량 확인",
+   "narrative_quote": "This deliberate reset to how we operate drove a sixth consecutive quarter of revenue above our expectations, as well as new and deepened relationships with strategic partners.",
+   "notes": "Altera 디컨솔(2025-09)로 YoY 비교성 영향. FY2026 비GAAP opex 160→165억달러로 상향. Fab 34(아일랜드) JV 49% 지분 재매입. 2026년 비GAAP 세율 11%."
+  },
+  {
+   "accession": "0000050863-26-000155",
+   "filing_date": "2026-07-23",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 2026",
+   "period_end": "2026-06-27",
+   "revenue_musd": 16128,
+   "revenue_py_musd": 12859,
+   "revenue_yoy_pct_stated": 25,
+   "key_segment": {
+    "name": "Data Center and AI (DCAI)",
+    "revenue_musd": 6262,
+    "yoy_pct": 59
+   },
+   "prior_guided_actual": {
+    "metric": "revenue (guided $13.8-14.8B)",
+    "actual_musd": 16128,
+    "quote": "Second-quarter revenue was $16.1 billion, up 25% year-over-year (YoY)."
+   },
+   "next_q_guidance": {
+    "metric": "revenue",
+    "is_total_revenue": true,
+    "low_musd": 15800,
+    "high_musd": 16800,
+    "point_musd": 16300,
+    "guided_yoy_pct_stated": null,
+    "quote": "Forecasting third-quarter 2026 revenue of $15.8 billion to $16.8 billion"
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Q3 2026 non-GAAP EPS $0.38, non-GAAP gross margin 42.0% (직전 Q2 가이던스 $0.20/39.0%)",
+    "change_vs_prior": "unclear",
+    "quote": "expecting third-quarter EPS attributable to Intel of $0.31 and non-GAAP EPS attributable to Intel of $0.38"
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "에스크로 주식 평가손 125.3억달러(GAAP EPS -2.45 영향)로 GAAP 순손실 110억달러, 구조조정 1.7억달러",
+   "tone": "strong",
+   "tone_quote": "AI is driving unprecedented demand for compute, and as we continue to execute, Intel is well-positioned to capture sustainable growth across our CPU franchise, ASICs, advanced packaging and vast wafer foundry network",
+   "catalyst": {
+    "present": true,
+    "desc": "DCAI 매출 +59%(63억달러), 비GAAP 영업이익률 -3.9%→17.2%로 구조적 마진 개선",
+    "quote": "Data Center and AI (DCAI) | 6.3 billion | up | 59%"
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "업계 전반 기판·메모리 부족으로 공급 제약, 파운드리 손실은 21억달러로 축소 중",
+    "quote": "including current industry-wide substrate and memory shortages"
+   },
+   "narrative_shift": 2,
+   "narrative_reason": "매출 +25%(15년 만 최고 성장), DCAI +59%, 비GAAP 영업이익률 17.2%, 3분기 가이던스 158~168억달러로 구조적 성장 단계 진입",
+   "narrative_quote": "Our Q2 results represent our strongest revenue growth in more than fifteen years, enabled by greater speed, accountability, and customer focus.",
+   "notes": "CCG가 CCPG(Client Computing and Physical AI Group)로 명칭 변경. Altera 디컨솔로 YoY 비교성 영향. 재무활동 파트너 분배 143억달러·조정 FCF -84억달러, 정기 부채 130억 발행. FY2026 비GAAP opex 약 165억달러 유지. 장비·클린룸·기판 투자 확대 언급."
+  }
+ ],
+ "fixes": [],
+ "qc": {
+  "bad_quotes": [],
+  "revenue_mismatch": []
+ }
+}

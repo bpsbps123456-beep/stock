@@ -1,0 +1,492 @@
+{
+ "ticker": "AMZN",
+ "events": [
+  {
+   "accession": "0001018724-24-000128",
+   "filing_date": "2024-08-01",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 FY2024",
+   "period_end": "2024-06-30",
+   "revenue_musd": 147977,
+   "revenue_py_musd": 134383,
+   "revenue_yoy_pct_stated": 10,
+   "key_segment": {
+    "name": "AWS",
+    "revenue_musd": 26281,
+    "yoy_pct": 18.7
+   },
+   "prior_guided_actual": null,
+   "next_q_guidance": {
+    "metric": "net sales",
+    "is_total_revenue": true,
+    "low_musd": 154000,
+    "high_musd": 158500,
+    "point_musd": 156250,
+    "guided_yoy_pct_stated": 9.5,
+    "quote": "Net sales are expected to be between $154.0 billion and $158.5 billion, or to grow between 8% and 11% compared with third quarter 2023."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Q3 2024 operating income $11.5-15.0B (next-quarter only)",
+    "change_vs_prior": "unclear",
+    "quote": "Operating income is expected to be between $11.5 billion and $15.0 billion, compared with $11.2 billion in third quarter 2023."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "Rivian 지분 평가이익 세전 4억달러(영업외 수익) 포함",
+   "tone": "strong",
+   "tone_quote": "We’re continuing to make progress on a number of dimensions, but perhaps none more so than the continued reacceleration in AWS growth",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "환율 역풍 10억달러로 매출 성장률 1%p 하락, 3분기 가이던스도 환율 90bp 역풍(일시적)",
+    "quote": "Excluding the $1.0 billion unfavorable impact from year-over-year changes in foreign exchange rates throughout the quarter, net sales increased 11% compared with second quarter 2023."
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "AWS 성장 17%→19% 재가속·AWS 이익률 35.5%는 긍정, 북미 성장 12%→9% 둔화와 3분기 매출 가이던스 8~11%·영업이익 중간값 전분기 하회로 혼조",
+   "narrative_quote": "AWS segment sales increased 19% year-over-year to $26.3 billion.",
+   "notes": "아마존은 연간 가이던스 없이 다음 분기 매출·영업이익 범위만 제시. guided_yoy는 제시 범위(8~11%) 중간값. 목록상 첫 보도자료라 이전 가이던스 비교 불가. EX-99.2는 비GAAP 정의만 담음."
+  },
+  {
+   "accession": "0001018724-24-000158",
+   "filing_date": "2024-10-31",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q3 FY2024",
+   "period_end": "2024-09-30",
+   "revenue_musd": 158877,
+   "revenue_py_musd": 143083,
+   "revenue_yoy_pct_stated": 11,
+   "key_segment": {
+    "name": "AWS",
+    "revenue_musd": 27452,
+    "yoy_pct": 19.1
+   },
+   "prior_guided_actual": {
+    "metric": "net sales (guided $154.0-158.5B)",
+    "actual_musd": 158877,
+    "quote": "Net sales increased 11% to $158.9 billion in the third quarter, compared with $143.1 billion in third quarter 2023."
+   },
+   "next_q_guidance": {
+    "metric": "net sales",
+    "is_total_revenue": true,
+    "low_musd": 181500,
+    "high_musd": 188500,
+    "point_musd": 185000,
+    "guided_yoy_pct_stated": 9,
+    "quote": "Net sales are expected to be between $181.5 billion and $188.5 billion, or to grow between 7% and 11% compared with fourth quarter 2023."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Q4 2024 operating income $16.0-20.0B (next-quarter only)",
+    "change_vs_prior": "initiated",
+    "quote": "Operating income is expected to be between $16.0 billion and $20.0 billion, compared with $13.2 billion in fourth quarter 2023."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "",
+   "tone": "strong",
+   "tone_quote": "We kicked off the holiday season with our biggest-ever Prime Big Deal Days and the launch of an all-new Kindle lineup that is significantly outperforming our expectations",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "none",
+    "desc": "",
+    "quote": ""
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "매출 1,589억달러로 가이던스 상단(1,585억) 초과, 영업이익 174억달러로 상단(150억) 크게 초과, AWS 이익률 38.1%·국제 부문 흑자 확대; AWS 성장은 19% 유지",
+   "narrative_quote": "Operating income increased to $17.4 billion in the third quarter, compared with $11.2 billion in third quarter 2023.",
+   "notes": "guided_yoy는 제시 범위(7~11%) 중간값. 다음 분기 영업이익 가이던스는 매 분기 새 기간이라 상향/하향 비교 불가(initiated로 표기)."
+  },
+  {
+   "accession": "0001018724-25-000002",
+   "filing_date": "2025-02-06",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q4 FY2024",
+   "period_end": "2024-12-31",
+   "revenue_musd": 187792,
+   "revenue_py_musd": 169961,
+   "revenue_yoy_pct_stated": 10,
+   "key_segment": {
+    "name": "AWS",
+    "revenue_musd": 28786,
+    "yoy_pct": 18.9
+   },
+   "prior_guided_actual": {
+    "metric": "net sales (guided $181.5-188.5B)",
+    "actual_musd": 187792,
+    "quote": "Net sales increased 10% to $187.8 billion in the fourth quarter, compared with $170.0 billion in fourth quarter 2023."
+   },
+   "next_q_guidance": {
+    "metric": "net sales",
+    "is_total_revenue": true,
+    "low_musd": 151000,
+    "high_musd": 155500,
+    "point_musd": 153250,
+    "guided_yoy_pct_stated": 7,
+    "quote": "Net sales are expected to be between $151.0 billion and $155.5 billion, or to grow between 5% and 9% compared with first quarter 2024."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Q1 2025 operating income $14.0-18.0B (next-quarter only)",
+    "change_vs_prior": "initiated",
+    "quote": "Operating income is expected to be between $14.0 billion and $18.0 billion, compared with $15.3 billion in first quarter 2024."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "",
+   "tone": "strong",
+   "tone_quote": "The holiday shopping season was the most successful yet for Amazon and we appreciate the support of our customers, selling partners, and employees who helped make it so",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "hurdle",
+    "desc": "1분기 가이던스에 이례적 환율 역풍 21억달러(150bp)와 전년 윤년 효과 반영, 성장 5~9%로 낮아짐(일시적)",
+    "quote": "This guidance anticipates an unusually large, unfavorable impact of approximately $2.1 billion, or 150 basis points, from foreign exchange rates."
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "영업이익 212억달러로 가이던스 상단(200억) 초과했으나 AWS 19%로 3분기째 정체, 1분기 매출 가이던스 5~9%·영업이익 중간값 160억으로 성장 둔화 신호, FCF TTM 477억→382억",
+   "narrative_quote": "Operating income increased to $21.2 billion in the fourth quarter, compared with $13.2 billion in fourth quarter 2023.",
+   "notes": "4분기 보도자료라 연간 실적 동시 공시(2024 매출 6,380억달러). 1분기 가이던스에 환율 역풍 21억달러·전년 윤년 매출 약 15억달러 효과 언급. guided_yoy는 범위(5~9%) 중간값."
+  },
+  {
+   "accession": "0001018724-25-000034",
+   "filing_date": "2025-05-01",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q1 FY2025",
+   "period_end": "2025-03-31",
+   "revenue_musd": 155667,
+   "revenue_py_musd": 143313,
+   "revenue_yoy_pct_stated": 9,
+   "key_segment": {
+    "name": "AWS",
+    "revenue_musd": 29267,
+    "yoy_pct": 16.9
+   },
+   "prior_guided_actual": {
+    "metric": "net sales (guided $151.0-155.5B)",
+    "actual_musd": 155667,
+    "quote": "Net sales increased 9% to $155.7 billion in the first quarter, compared with $143.3 billion in first quarter 2024."
+   },
+   "next_q_guidance": {
+    "metric": "net sales",
+    "is_total_revenue": true,
+    "low_musd": 159000,
+    "high_musd": 164000,
+    "point_musd": 161500,
+    "guided_yoy_pct_stated": 9,
+    "quote": "Net sales are expected to be between $159.0 billion and $164.0 billion, or to grow between 7% and 11% compared with second quarter 2024."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Q2 2025 operating income $13.0-17.5B (next-quarter only)",
+    "change_vs_prior": "initiated",
+    "quote": "Operating income is expected to be between $13.0 billion and $17.5 billion, compared with $14.7 billion in second quarter 2024."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "영업외 기타수익 27.5억달러(전년 동기 -26.7억달러)가 순이익 171억달러를 부풀림, 보도자료에 원인 미기재",
+   "tone": "neutral",
+   "tone_quote": "We’re pleased with the start to 2025, especially our pace of innovation and progress in continuing to improve customer experiences",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_quantified",
+    "desc": "설비투자 TTM 80% 증가로 FCF TTM 501억→259억달러 반토막, 리스크 요인에 관세·무역정책 추가",
+    "quote": "Free cash flow decreased to $25.9 billion for the trailing twelve months, compared with $50.1 billion for the trailing twelve months ended March 31, 2024."
+   },
+   "narrative_shift": -1,
+   "narrative_reason": "매출·영업이익은 가이던스 상단 초과했지만 핵심 AWS 성장 19%→17% 둔화, FCF 반토막, 2분기 영업이익 가이던스 130~175억으로 폭 넓고 관세 불확실성 추가",
+   "narrative_quote": "AWS segment sales increased 17% year-over-year to $29.3 billion.",
+   "notes": "이번 분기부터 FCF 지표를 하나로 축소(리스 차감 FCF 2종 공시 중단). 가이던스 위험 요인에 'tariff and trade policies' 새로 추가. guided_yoy는 범위(7~11%) 중간값."
+  },
+  {
+   "accession": "0001018724-25-000084",
+   "filing_date": "2025-07-31",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 FY2025",
+   "period_end": "2025-06-30",
+   "revenue_musd": 167702,
+   "revenue_py_musd": 147977,
+   "revenue_yoy_pct_stated": 13,
+   "key_segment": {
+    "name": "AWS",
+    "revenue_musd": 30873,
+    "yoy_pct": 17.5
+   },
+   "prior_guided_actual": {
+    "metric": "net sales (guided $159.0-164.0B)",
+    "actual_musd": 167702,
+    "quote": "Net sales increased 13% to $167.7 billion in the second quarter, compared with $148.0 billion in second quarter 2024."
+   },
+   "next_q_guidance": {
+    "metric": "net sales",
+    "is_total_revenue": true,
+    "low_musd": 174000,
+    "high_musd": 179500,
+    "point_musd": 176750,
+    "guided_yoy_pct_stated": 11.5,
+    "quote": "Net sales are expected to be between $174.0 billion and $179.5 billion, or to grow between 10% and 13% compared with third quarter 2024."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Q3 2025 operating income $15.5-20.5B (next-quarter only)",
+    "change_vs_prior": "initiated",
+    "quote": "Operating income is expected to be between $15.5 billion and $20.5 billion, compared with $17.4 billion in third quarter 2024."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "",
+   "tone": "strong",
+   "tone_quote": "Our conviction that AI will change every customer experience is starting to play out",
+   "catalyst": {
+    "present": false,
+    "desc": "",
+    "quote": ""
+   },
+   "showstopper": {
+    "type": "structural_quantified",
+    "desc": "설비투자 급증으로 FCF TTM 530억→182억달러, AWS 영업이익률 39.5%→32.9%로 하락",
+    "quote": "Free cash flow decreased to $18.2 billion for the trailing twelve months, compared with $53.0 billion for the trailing twelve months ended June 30, 2024."
+   },
+   "narrative_shift": 0,
+   "narrative_reason": "매출 13% 가속·가이던스 상단(1,640억) 초과, 영업이익 192억으로 상단 초과, 3분기 가이던스 10~13%로 상향 흐름; 그러나 AWS 17.5%로 정체·이익률 급락해 혼조",
+   "narrative_quote": "AWS segment sales increased 17.5% year-over-year to $30.9 billion.",
+   "notes": "매출에 환율 순풍 15억달러(환율 제외 12%). 3분기 가이던스에 환율 순풍 130bp 포함. 프라임데이는 7월(3분기) 개최. guided_yoy는 범위(10~13%) 중간값."
+  },
+  {
+   "accession": "0001018724-25-000121",
+   "filing_date": "2025-10-30",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q3 FY2025",
+   "period_end": "2025-09-30",
+   "revenue_musd": 180169,
+   "revenue_py_musd": 158877,
+   "revenue_yoy_pct_stated": 13,
+   "key_segment": {
+    "name": "AWS",
+    "revenue_musd": 33006,
+    "yoy_pct": 20.2
+   },
+   "prior_guided_actual": {
+    "metric": "net sales (guided $174.0-179.5B)",
+    "actual_musd": 180169,
+    "quote": "Net sales increased 13% to $180.2 billion in the third quarter, compared with $158.9 billion in third quarter 2024."
+   },
+   "next_q_guidance": {
+    "metric": "net sales",
+    "is_total_revenue": true,
+    "low_musd": 206000,
+    "high_musd": 213000,
+    "point_musd": 209500,
+    "guided_yoy_pct_stated": 11.5,
+    "quote": "Net sales are expected to be between $206.0 billion and $213.0 billion, or to grow between 10% and 13% compared with fourth quarter 2024."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Q4 2025 operating income $21.0-26.0B (next-quarter only)",
+    "change_vs_prior": "initiated",
+    "quote": "Operating income is expected to be between $21.0 billion and $26.0 billion, compared with $21.2 billion in fourth quarter 2024."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "FTC 합의금 25억달러·감원 퇴직비용 18억달러(영업이익 반영, 제외 시 217억), Anthropic 투자 세전이익 95억달러(영업외)",
+   "tone": "strong",
+   "tone_quote": "We continue to see strong demand in AI and core infrastructure, and we’ve been focused on accelerating capacity – adding more than 3.8 gigawatts in the past 12 months.",
+   "catalyst": {
+    "present": true,
+    "desc": "AWS 20.2% 재가속과 자체 AI칩 Trainium2가 수십억달러 사업·전분기 대비 150% 성장",
+    "quote": "Saw continued strong adoption of Trainium2, its custom AI chip, which is fully subscribed and a multi-billion-dollar business that grew 150% quarter over quarter."
+   },
+   "showstopper": {
+    "type": "structural_quantified",
+    "desc": "설비투자 순증 509억달러로 FCF TTM 148억달러까지 축소",
+    "quote": "Free cash flow decreased to $14.8 billion for the trailing twelve months, driven primarily by a year-over-year increase of $50.9 billion in purchases of property and equipment, net of proceeds from sales and incentives."
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "AWS 17.5%→20.2% 재가속(2022년 이후 최고), 12개월간 3.8GW 증설, Trainium2 고속 성장, 매출 가이던스 상단 초과; 특별비용 43억은 일회성",
+   "narrative_quote": "AWS is growing at a pace we haven’t seen since 2022, re-accelerating to 20.2% YoY.",
+   "notes": "보고 영업이익 174억은 FTC 합의 25억·퇴직비용 18억 포함(제외 217억). 순이익 212억은 Anthropic 평가이익 95억 포함. 4분기 가이던스 환율 순풍 190bp. guided_yoy는 범위(10~13%) 중간값."
+  },
+  {
+   "accession": "0001018724-26-000002",
+   "filing_date": "2026-02-05",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q4 FY2025",
+   "period_end": "2025-12-31",
+   "revenue_musd": 213386,
+   "revenue_py_musd": 187792,
+   "revenue_yoy_pct_stated": 14,
+   "key_segment": {
+    "name": "AWS",
+    "revenue_musd": 35579,
+    "yoy_pct": 23.6
+   },
+   "prior_guided_actual": {
+    "metric": "net sales (guided $206.0-213.0B)",
+    "actual_musd": 213386,
+    "quote": "Net sales increased 14% to $213.4 billion in the fourth quarter, compared with $187.8 billion in fourth quarter 2024."
+   },
+   "next_q_guidance": {
+    "metric": "net sales",
+    "is_total_revenue": true,
+    "low_musd": 173500,
+    "high_musd": 178500,
+    "point_musd": 176000,
+    "guided_yoy_pct_stated": 13,
+    "quote": "Net sales are expected to be between $173.5 billion and $178.5 billion, or to grow between 11% and 15% compared with first quarter 2025."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Q1 2026 operating income $16.5-21.5B (next-quarter only, incl. ~$1B higher Amazon Leo costs)",
+    "change_vs_prior": "initiated",
+    "quote": "Operating income is expected to be between $16.5 billion and $21.5 billion, compared with $18.4 billion in first quarter 2025."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "이탈리아 세금분쟁·소송 합의 11억달러, 퇴직비용 7.3억달러, 실물매장 자산손상 6.1억달러(영업이익 반영, 제외 시 274억)",
+   "tone": "strong",
+   "tone_quote": "AWS growing 24% (our fastest growth in 13 quarters), Advertising growing 22%, Stores growing briskly across North America and International, our chips business growing triple digit percentages year-over-year",
+   "catalyst": {
+    "present": true,
+    "desc": "Trainium·Graviton 칩 연환산 매출 100억달러 돌파·세 자릿수 성장, Trainium3 공급 대부분 약정 예상",
+    "quote": "Trainium and Graviton now have a combined annual revenue run rate of over $10 billion and growing at a triple digit percentage year-over-year."
+   },
+   "showstopper": {
+    "type": "structural_quantified",
+    "desc": "AI 투자로 FCF TTM 112억달러까지 축소, 2026년 설비투자 약 2,000억달러 계획",
+    "quote": "Free cash flow decreased to $11.2 billion for the trailing twelve months, driven primarily by a year-over-year increase of $50.7 billion in purchases of property and equipment, net of proceeds from sales and incentives."
+   },
+   "narrative_shift": 1,
+   "narrative_reason": "AWS 20%→24% 가속(13분기 최고), 칩 사업 연환산 100억달러+, 매출 가이던스 상단 초과·1분기 가이던스 11~15%; 다만 2,000억달러 설비투자로 FCF 부담 확대",
+   "narrative_quote": "AWS segment sales increased 24% year-over-year to $35.6 billion.",
+   "notes": "4분기 보도자료라 연간 실적 동시 공시(2025 매출 7,169억달러). 2026년 설비투자 약 2,000억달러 계획은 CEO 발언으로만 제시(매출·이익 연간 가이던스 없음). 1분기 영업이익 가이던스에 Amazon Leo 비용 약 10억달러 증가 포함. 위험 요인에 메모리칩 공급 변동 추가. guided_yoy는 범위(11~15%) 중간값."
+  },
+  {
+   "accession": "0001018724-26-000012",
+   "filing_date": "2026-04-29",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q1 FY2026",
+   "period_end": "2026-03-31",
+   "revenue_musd": 181519,
+   "revenue_py_musd": 155667,
+   "revenue_yoy_pct_stated": 17,
+   "key_segment": {
+    "name": "AWS",
+    "revenue_musd": 37587,
+    "yoy_pct": 28.4
+   },
+   "prior_guided_actual": {
+    "metric": "net sales (guided $173.5-178.5B)",
+    "actual_musd": 181519,
+    "quote": "Net sales increased 17% to $181.5 billion in the first quarter, compared with $155.7 billion in first quarter 2025."
+   },
+   "next_q_guidance": {
+    "metric": "net sales",
+    "is_total_revenue": true,
+    "low_musd": 194000,
+    "high_musd": 199000,
+    "point_musd": 196500,
+    "guided_yoy_pct_stated": 17.5,
+    "quote": "Net sales are expected to be between $194.0 billion and $199.0 billion, or to grow between 16% and 19% compared with second quarter 2025."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Q2 2026 operating income $20.0-24.0B (next-quarter only)",
+    "change_vs_prior": "initiated",
+    "quote": "Operating income is expected to be between $20.0 billion and $24.0 billion, compared with $19.2 billion in second quarter 2025."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "Anthropic 투자 세전이익 168억달러(영업외)로 순이익 303억달러 부풀림",
+   "tone": "strong",
+   "tone_quote": "We’re in the middle of some of the biggest inflections of our lifetime, we’re well positioned to lead, and I’m very optimistic about what’s ahead for our customers and Amazon.",
+   "catalyst": {
+    "present": true,
+    "desc": "OpenAI 약 2GW·Anthropic 최대 5GW Trainium 용량 약정, 칩 사업 연환산 200억달러 돌파",
+    "quote": "Announced that Anthropic will secure up to five gigawatts (GW) of current and future generations of Amazon’s Trainium chips to train and power their advanced AI models."
+   },
+   "showstopper": {
+    "type": "structural_quantified",
+    "desc": "설비투자 순증 593억달러로 FCF TTM 12억달러로 소진, 분기 장기부채 534억달러 조달",
+    "quote": "Free cash flow decreased to $1.2 billion for the trailing twelve months, driven primarily by a year-over-year increase of $59.3 billion in purchases of property and equipment, net of proceeds from sales and incentives."
+   },
+   "narrative_shift": 2,
+   "narrative_reason": "AWS 28%(15분기 최고), 칩 연환산 200억달러+, OpenAI 2GW·Anthropic 5GW 대형 약정, 매출·영업이익 가이던스 상단 초과, 2분기 매출 가이던스 16~19%로 가속",
+   "narrative_quote": "Secured a commitment from OpenAI to consume approximately two gigawatts (GW) of Trainium capacity through AWS infrastructure to power its frontier models and advanced workloads, which begins ramping in 2027.",
+   "notes": "1분기 장기부채 534억달러 발행(장기부채 656억→1,191억달러). Globalstar 인수 계획 발표(미완료). 2분기 가이던스는 프라임데이 2분기 개최 가정(2025년은 7월·3분기 개최)이라 2분기 YoY가 부풀고 3분기는 낮아질 구조. guided_yoy는 범위(16~19%) 중간값."
+  },
+  {
+   "accession": "0001018724-26-000024",
+   "filing_date": "2026-07-30",
+   "is_quarterly_results": true,
+   "fiscal_period": "Q2 FY2026",
+   "period_end": "2026-06-30",
+   "revenue_musd": 200606,
+   "revenue_py_musd": 167702,
+   "revenue_yoy_pct_stated": 20,
+   "key_segment": {
+    "name": "AWS",
+    "revenue_musd": 42232,
+    "yoy_pct": 36.7
+   },
+   "prior_guided_actual": {
+    "metric": "net sales (guided $194.0-199.0B)",
+    "actual_musd": 200606,
+    "quote": "Net sales increased 20% to $200.6 billion in the second quarter, compared with $167.7 billion in second quarter 2025."
+   },
+   "next_q_guidance": {
+    "metric": "net sales",
+    "is_total_revenue": true,
+    "low_musd": 197000,
+    "high_musd": 202000,
+    "point_musd": 199500,
+    "guided_yoy_pct_stated": 10.5,
+    "quote": "Net sales are expected to be between $197.0 billion and $202.0 billion, or to grow between 9% and 12% compared with third quarter 2025."
+   },
+   "fy_guidance": null,
+   "profit_guidance": {
+    "metric": "Q3 2026 operating income $22.5-26.5B (next-quarter only)",
+    "change_vs_prior": "initiated",
+    "quote": "Operating income is expected to be between $22.5 billion and $26.5 billion, compared with $17.4 billion in third quarter 2025."
+   },
+   "backlog": null,
+   "buyback_new_musd": null,
+   "one_offs": "Anthropic 중심 영업외 세전 기타수익 534억달러로 순이익 626억달러(EPS 5.75달러) 부풀림",
+   "tone": "strong",
+   "tone_quote": "AWS is booming, growing 36.7% year-over-year in Q2—our fastest growth in 18 quarters—and our AI and Chips businesses each eclipsed run rates of more than $25 billion",
+   "catalyst": {
+    "present": true,
+    "desc": "AWS 37% 급가속(연환산 1,690억달러), AWS AI 사업 연환산 250억달러+·세 자릿수 성장",
+    "quote": "Exceeded a $25 billion annual revenue run rate for AWS’s AI business, growing triple-digit percentages year-over-year."
+   },
+   "showstopper": {
+    "type": "structural_quantified",
+    "desc": "설비투자 순증 661억달러로 FCF TTM -76억달러 유출 전환",
+    "quote": "Free cash flow decreased to an outflow of $7.6 billion for the trailing twelve months, driven primarily by a year-over-year increase of $66.1 billion in purchases of property and equipment, net of proceeds from sales and incentives."
+   },
+   "narrative_shift": 2,
+   "narrative_reason": "AWS 28%→37% 급가속(18분기 최고)·AWS 이익률 39.4%, 영업이익 +43%로 가이던스 상단(240억) 크게 초과, AI·칩 사업 각 연환산 250억달러+",
+   "narrative_quote": "AWS net sales increased 37%—its fastest growth in 18 quarters—to a $169 billion annualized revenue run rate",
+   "notes": "프라임데이가 2026년 2분기(전년 3분기)로 이동해 2분기 매출 성장 부풀고 3분기 가이던스 9~12%는 프라임데이 제외 시 약 400bp 높음. 3분기 가이던스는 에너지 파생상품 재측정 영향 제외 가정. 기타자산 1,226억→2,841억달러 급증. guided_yoy는 범위(9~12%) 중간값."
+  }
+ ],
+ "fixes": [],
+ "qc": {
+  "bad_quotes": [],
+  "revenue_mismatch": []
+ }
+}
