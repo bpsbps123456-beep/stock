@@ -1,5 +1,5 @@
 ﻿group_id,bank,family,alt_family,published_at,time_precision,verification,uncertain_dup,scope,broad_scope,a,kb,a_date,kb_date
-G0001,GS,R,D,2023-02-06,date_article,syndicated_article_read,,세계 주식(숏 포지션),True,5426.0,5426.0,2023-02-07,2023-02-07
+G0001,GS,D,R,2023-02-06,date_article,syndicated_article_read,,세계,True,5426.0,5426.0,2023-02-07,2023-02-07
 G0002,GS,R,R,2023-02-16,date_article,syndicated_article_read,,US 정보기술,True,5434.0,5434.0,2023-02-17,2023-02-17
 G0003,JPM,R,R,2023-02-16,date_article,headline_summary_only,,US 정보기술·통신,True,5434.0,5434.0,2023-02-17,2023-02-17
 G0004,GS,D,D,2023-03-05,date_article,headline_summary_only,,"세계(Prime book 전체, 2월 월간)",True,5444.0,5444.0,2023-03-06,2023-03-06
@@ -29,7 +29,7 @@ G0027,GS,N,N,2023-08-04,date_article,syndicated_article_read,,세계,True,5550.0
 G0028,JPM,N,N,2023-08-17,date_article,syndicated_article_read,,가치·소형주 / 성장주,True,5559.0,5559.0,2023-08-18,2023-08-18
 G0029,GS,T,T,2023-08-28,date_article,syndicated_article_read,,US 메가캡 기술,True,5566.0,5566.0,2023-08-29,2023-08-29
 G0030,GS,R,R,2023-09-04,date_article,syndicated_article_read,,US 금융·지역은행,False,5570.0,5570.0,2023-09-05,2023-09-05
-G0031,GS,N,N,2023-09-04T11:44-04:00,exact,headline_summary_only,possible_dup_of:G0030,US 주식(GS 자료 범위 미기재),True,5570.0,5570.0,2023-09-05,2023-09-05
+G0031,GS,N,N,2023-09-04T11:44-04:00,exact,syndicated_article_read,possible_dup_of:G0030,US 주식(GS 자료 범위 미기재),True,5570.0,5570.0,2023-09-05,2023-09-05
 G0032,GS,N,S,2023-09-18,date_article,syndicated_article_read,,북미·유럽 에너지,False,5580.0,5580.0,2023-09-19,2023-09-19
 G0033,GS,D,D,2023-09-25,date_article,syndicated_article_read,possible_dup_of:G0032,US 전체,True,5585.0,5585.0,2023-09-26,2023-09-26
 G0034,JPM,N,N,2023-09-26,date_url,headline_summary_only,,주식 전체,True,5586.0,5586.0,2023-09-27,2023-09-27
@@ -65,7 +65,7 @@ G0063,GS,R,R,2024-02-12T17:37:03-05:00,exact,syndicated_article_read,,세계·US
 G0064,GS,R,R,2024-02-20,date_article,syndicated_article_read,possible_dup_of:G0063,아시아 신흥국(중국·한국·대만·인도),False,5686.0,5686.0,2024-02-21,2024-02-21
 G0065,BofA,N,N,2024-02-21T10:12:24-05:00,exact,syndicated_article_read,,US 헤지펀드(BofA 고객),True,5687.0,5686.0,2024-02-22,2024-02-21
 G0066,GS,D,N,2024-02-26,date_article,syndicated_article_read,,세계 정보기술,True,5690.0,5690.0,2024-02-27,2024-02-27
-G0067,GS,R,R,2024-03-07,date_article,headline_summary_only,,세계,True,5698.0,5698.0,2024-03-08,2024-03-08
+G0067,GS,R,R,2024-03-07,date_article,syndicated_article_read,,세계,True,5698.0,5698.0,2024-03-08,2024-03-08
 G0068,GS,T,T,2024-03-12,date_article,prior_verified_fact,,세계 주식(헤지펀드 전반 총레버리지),True,5701.0,5701.0,2024-03-13,2024-03-13
 G0069,JPM,T,T,2024-03-12,date_article,prior_verified_fact,,세계 주식(헤지펀드 전반 총레버리지),True,5701.0,5701.0,2024-03-13,2024-03-13
 G0070,MS,T,T,2024-03-12,date_article,prior_verified_fact,,세계 주식(헤지펀드 전반 총레버리지),True,5701.0,5701.0,2024-03-13,2024-03-13
@@ -75,7 +75,7 @@ G0073,BofA,D,D,2024-04-09,date_article,original_article_read,,US 주식(BofA 고
 G0074,GS,N,N,2024-04-15T15:31:29-04:00,exact,syndicated_article_read,,US 전체,True,5724.0,5723.0,2024-04-16,2024-04-15
 G0075,GS,D,D,2024-04-19T12:02:04-04:00,exact,syndicated_article_read,possible_dup_of:G0074,세계,True,5728.0,5727.0,2024-04-22,2024-04-19
 G0076,GS,T,T,2024-04-22T05:33:41-04:00,exact,syndicated_article_read,possible_dup_of:G0074,세계,True,5728.0,5728.0,2024-04-22,2024-04-22
-G0077,GS,D,D,2024-05-13,date_article,headline_summary_only,,세계 단일종목,False,5744.0,5744.0,2024-05-14,2024-05-14
+G0077,GS,D,D,2024-05-13,date_article,syndicated_article_read,,세계 단일종목,False,5744.0,5744.0,2024-05-14,2024-05-14
 G0078,GS,R,R,2024-05-17,date_feed,syndicated_article_read,,US 최다 공매도 종목(GS 바스켓),False,5748.0,5748.0,2024-05-20,2024-05-20
 G0079,BofA,N,N,2024-05-21,date_article,original_article_read,,US 전체(BofA 고객 합계),True,5750.0,5750.0,2024-05-22,2024-05-22
 G0080,GS,D,D,2024-06-03T12:02-04:00,exact,headline_summary_only,,"정보기술(소프트웨어 중심), 지역 미기재",True,5758.0,5757.0,2024-06-04,2024-06-03
@@ -88,143 +88,143 @@ G0086,GS,D,N,2024-06-27,date_article,syndicated_article_read,,"TMT(정보기술�
 G0087,MS,D,D,,unknown,headline_summary_only,possible_dup_of:G0089,중국 주식(세계 월간 리캡 중),False,,,,
 G0088,GS,D,D,2024-07-01,date_article,syndicated_article_read,possible_dup_of:G0086,세계 주식(미국 TMT 세부 포함),True,5777.0,5777.0,2024-07-02,2024-07-02
 G0089,MS,N,N,2024-07-02,date_article,original_article_read,,세계 주식(북미·아시아 ex-Japan 중심; 미국 반도체·퀄리티 축소),False,5778.0,5778.0,2024-07-03,2024-07-03
-G0090,GS,R,R,2024-07-08,date_feed,headline_summary_only,,세계 원자재민감 업종,False,5781.0,5781.0,2024-07-09,2024-07-09
-G0091,GS,D,D,2024-07-17,date_article,headline_summary_only,,미국 주식(정보기술 주도),True,5788.0,5788.0,2024-07-18,2024-07-18
+G0090,GS,R,R,2024-07-08,date_feed,syndicated_article_read,,세계 원자재민감 업종,False,5781.0,5781.0,2024-07-09,2024-07-09
+G0091,GS,D,D,2024-07-17,date_article,syndicated_article_read,,미국 주식(정보기술 주도),True,5788.0,5788.0,2024-07-18,2024-07-18
 G0092,GS,D,D,2024-07-22T10:43-04:00,exact,headline_summary_only,,"주식 전체(지역 미기재, 대형 기술주 급락 배경)",True,5791.0,5790.0,2024-07-23,2024-07-22
 G0093,BofA,N,N,2024-07-25,date_feed,headline_summary_only,,"미국 주식(BofA 'biggest clients', 개별주 대 섹터 ETF; 제목 기준)",True,5794.0,5794.0,2024-07-26,2024-07-26
-G0094,GS,D,D,2024-07-29,date_article,headline_summary_only,,유럽,False,5796.0,5796.0,2024-07-30,2024-07-30
-G0095,GS,N,N,2024-08-02,date_article,headline_summary_only,,세계 주식,True,5800.0,5800.0,2024-08-05,2024-08-05
+G0094,GS,D,D,2024-07-29,date_article,syndicated_article_read,,유럽 주식,False,5796.0,5796.0,2024-07-30,2024-07-30
+G0095,GS,N,N,2024-08-02,date_article,syndicated_article_read,,세계 주식,True,5800.0,5800.0,2024-08-05,2024-08-05
 G0096,BofA,N,N,2024-08-06,date_article,original_article_read,,US 전체(BofA 고객 합계),True,5802.0,5802.0,2024-08-07,2024-08-07
-G0097,GS,R,R,2024-08-06,date_article,headline_summary_only,,주식(정보기술 주도),True,5802.0,5802.0,2024-08-07,2024-08-07
-G0098,GS,D,D,2024-08-09,date_article,headline_summary_only,,일본 주식,False,5805.0,5805.0,2024-08-12,2024-08-12
+G0097,GS,R,R,2024-08-06,date_article,syndicated_article_read,,주식(정보기술 주도),True,5802.0,5802.0,2024-08-07,2024-08-07
+G0098,GS,D,D,2024-08-09,date_article,syndicated_article_read,,일본 주식,False,5805.0,5805.0,2024-08-12,2024-08-12
 G0099,GS,R,R,2024-08-12,date_article,headline_summary_only,possible_dup_of:G0098,"미국 주식(개별주 순매수, 매크로 상품 순매도)",True,5806.0,5806.0,2024-08-13,2024-08-13
 G0100,BofA,R,R,2024-08-13,date_feed,syndicated_article_read,,US 전체(BofA 고객 합계),True,5807.0,5807.0,2024-08-14,2024-08-14
 G0101,GS,D,D,2024-08-19,date_feed,syndicated_article_read,possible_dup_of:G0099,미국 산업재(GS 미국 PB 장부),False,5811.0,5811.0,2024-08-20,2024-08-20
-G0102,GS,N,N,2024-09-02,date_feed,headline_summary_only,,세계 금융,False,5820.0,5820.0,2024-09-03,2024-09-03
+G0102,GS,N,N,2024-09-02,date_feed,syndicated_article_read,,세계 금융,False,5820.0,5820.0,2024-09-03,2024-09-03
 G0103,GS,D,D,2024-09-16,date_article,syndicated_article_read,,세계 주식,True,5830.0,5830.0,2024-09-17,2024-09-17
 G0104,GS,N,N,2024-09-16,date_article,original_article_read,possible_dup_of:G0103,미국 주식,True,5830.0,5830.0,2024-09-17,2024-09-17
 G0105,GS,R,R,2024-09-23,date_article,syndicated_article_read,,미국 TMT,True,5835.0,5835.0,2024-09-24,2024-09-24
 G0106,GS,R,R,2024-09-26,date_article,syndicated_article_read,possible_dup_of:G0105,중국 주식,False,5838.0,5838.0,2024-09-27,2024-09-27
-G0107,GS,R,R,2024-10-14,date_article,headline_summary_only,,북미 주식,True,5850.0,5850.0,2024-10-15,2024-10-15
+G0107,GS,R,R,2024-10-14,date_article,syndicated_article_read,,북미 주식,True,5850.0,5850.0,2024-10-15,2024-10-15
 G0108,GS,R,R,2024-10-18,date_article,syndicated_article_read,possible_dup_of:G0107,미국 정보기술,True,5854.0,5854.0,2024-10-21,2024-10-21
 G0109,JPM,N,N,2024-10-22,date_feed,headline_summary_only,,미 대선 수혜 거래('Trump trades'; 제목 기준),True,5856.0,5856.0,2024-10-23,2024-10-23
 G0110,GS,D,D,2024-10-24,date_article,syndicated_article_read,,신흥국·중국 주식,False,5858.0,5858.0,2024-10-25,2024-10-25
 G0111,GS,D,D,2024-11-04,date_article,syndicated_article_read,,유럽 주식,False,5865.0,5865.0,2024-11-05,2024-11-05
 G0112,GS,R,R,2024-11-11,date_article,syndicated_article_read,,세계 금융(미국 중심),False,5870.0,5870.0,2024-11-12,2024-11-12
-G0113,GS,N,N,2024-11-18,date_article,headline_summary_only,,US 전체,True,5875.0,5875.0,2024-11-19,2024-11-19
-G0114,GS,D,D,2024-11-25,date_article,headline_summary_only,,US 전체,True,5880.0,5880.0,2024-11-26,2024-11-26
+G0113,GS,N,N,2024-11-18,date_article,syndicated_article_read,,US 전체,True,5875.0,5875.0,2024-11-19,2024-11-19
+G0114,GS,D,D,2024-11-25,date_article,syndicated_article_read,,US 전체,True,5880.0,5880.0,2024-11-26,2024-11-26
 G0115,GS,D,D,2024-11-25,date_article,original_article_read,possible_dup_of:G0114,미국 유틸리티,False,5880.0,5880.0,2024-11-26,2024-11-26
 G0116,BofA,R,R,2024-12-03,date_article,headline_summary_only,,US 전체(BofA 고객 합계),True,5885.0,5885.0,2024-12-04,2024-12-04
 G0117,GS,R,R,2024-12-16,date_article,headline_summary_only,,US 전체,True,5894.0,5894.0,2024-12-17,2024-12-17
 G0118,GS,N,N,2025-01-03,date_article,syndicated_article_read,,세계 펀더멘털 주식 롱숏 헤지펀드,True,5906.0,5906.0,2025-01-06,2025-01-06
 G0119,BofA,R,R,2025-01-08,date_article,syndicated_article_read,,US 전체(BofA 고객 합계; 최근 주간·2024년 연간),True,5909.0,5909.0,2025-01-10,2025-01-10
-G0120,GS,N,N,2025-01-13,date_article,headline_summary_only,,세계,True,5911.0,5911.0,2025-01-14,2025-01-14
-G0121,GS,N,N,2025-01-27,date_feed,headline_summary_only,,US 기술·AI 인접주,True,5920.0,5920.0,2025-01-28,2025-01-28
+G0120,GS,N,N,2025-01-13,date_article,syndicated_article_read,,세계,True,5911.0,5911.0,2025-01-14,2025-01-14
+G0121,GS,N,N,2025-01-27,date_feed,syndicated_article_read,,US 기술·AI 인접주,True,5920.0,5920.0,2025-01-28,2025-01-28
 G0122,GS,N,N,2025-01-29,date_article,syndicated_article_read,possible_dup_of:G0121,세계 기술주,True,5922.0,5922.0,2025-01-30,2025-01-30
-G0123,GS,D,D,2025-02-03,date_article,headline_summary_only,,세계,True,5925.0,5925.0,2025-02-04,2025-02-04
+G0123,GS,D,D,2025-02-03,date_article,syndicated_article_read,,세계,True,5925.0,5925.0,2025-02-04,2025-02-04
 G0124,BofA,R,R,2025-02-04,date_article,original_article_read,,US 전체(고객 합계),True,5926.0,5926.0,2025-02-05,2025-02-05
-G0125,GS,R,R,2025-02-11,date_article,headline_summary_only,,중국(역내·역외),False,5931.0,5931.0,2025-02-12,2025-02-12
+G0125,GS,R,R,2025-02-11,date_article,syndicated_article_read,,중국(역내·역외),False,5931.0,5931.0,2025-02-12,2025-02-12
 G0126,GS,D,D,2025-02-24,date_article,syndicated_article_read,,US TMT(AI 장비·미디어·통신장비),True,5939.0,5939.0,2025-02-25,2025-02-25
-G0127,GS,D,D,2025-02-28,date_article,headline_summary_only,,세계,True,5943.0,5943.0,2025-03-03,2025-03-03
+G0127,GS,D,D,2025-02-28,date_article,syndicated_article_read,,세계,True,5943.0,5943.0,2025-03-03,2025-03-03
 G0128,GS,N,N,2025-03-07,date_article,syndicated_article_read,,세계 TMT,True,5948.0,5948.0,2025-03-10,2025-03-10
 G0129,GS,D,D,2025-03-10,date_article,syndicated_article_read,,세계 개별주,True,5949.0,5949.0,2025-03-11,2025-03-11
 G0130,GS,D,D,2025-03-11,date_article,syndicated_article_read,,세계(산업재 주도),False,5950.0,5950.0,2025-03-12,2025-03-12
-G0131,GS,D,R,2025-03-17,date_article,headline_summary_only,,세계(미국 재편입·유럽·아시아 신흥 매도),False,5954.0,5954.0,2025-03-18,2025-03-18
-G0132,GS,S,D,2025-03-21,date_article,headline_summary_only,,US 전체(3월 누적),True,5958.0,5958.0,2025-03-24,2025-03-24
-G0133,GS,D,D,2025-03-31,date_article,headline_summary_only,,세계 정보기술(미국 약 75%),True,5964.0,5964.0,2025-04-01,2025-04-01
+G0131,GS,D,R,2025-03-17,date_article,syndicated_article_read,,세계(미국 재편입·유럽·아시아 신흥 매도),False,5954.0,5954.0,2025-03-18,2025-03-18
+G0132,GS,S,D,2025-03-21,date_article,syndicated_article_read,,US 전체(3월 누적),True,5958.0,5958.0,2025-03-24,2025-03-24
+G0133,GS,D,D,2025-03-31,date_article,syndicated_article_read,,세계 정보기술(미국 약 75%),True,5964.0,5964.0,2025-04-01,2025-04-01
 G0134,GS,D,D,2025-04-03T05:30-04:00,exact,headline_summary_only,,세계,True,5966.0,5966.0,2025-04-03,2025-04-03
 G0135,MS,D,D,,unknown,headline_summary_only,,주식 전체(미국 L/S 펀드 주간 보고서),True,,,,
 G0136,GS,D,D,2025-04-07T08:24-04:00,exact,headline_summary_only,,세계,True,5968.0,5968.0,2025-04-07,2025-04-07
 G0137,GS,R,R,2025-04-10,date_article,syndicated_article_read,,US 전체,True,5972.0,5972.0,2025-04-11,2025-04-11
-G0138,GS,D,D,2025-04-14,date_article,headline_summary_only,,유럽,False,5974.0,5974.0,2025-04-15,2025-04-15
+G0138,GS,D,D,2025-04-14,date_article,syndicated_article_read,,유럽,False,5974.0,5974.0,2025-04-15,2025-04-15
 G0139,BofA,N,N,2025-04-22,date_article,headline_summary_only,,US 전체(고객 합계),True,5979.0,5979.0,2025-04-23,2025-04-23
-G0140,GS,N,N,2025-04-22,date_article,headline_summary_only,possible_dup_of:G0138,경기소비재(제목 기준; 같은 그룹 본문은 북미·유럽 중심),False,5979.0,5979.0,2025-04-23,2025-04-23
-G0141,GS,R,R,2025-04-29,date_feed,headline_summary_only,,세계 금융(미국 은행 포함),False,5984.0,5984.0,2025-04-30,2025-04-30
-G0142,GS,D,D,2025-04-30,date_article,headline_summary_only,,유럽,False,5985.0,5985.0,2025-05-01,2025-05-01
+G0140,GS,N,N,2025-04-22,date_article,syndicated_article_read,possible_dup_of:G0138,세계 경기소비재,False,5979.0,5979.0,2025-04-23,2025-04-23
+G0141,GS,R,R,2025-04-29,date_feed,syndicated_article_read,,세계 금융(미국 은행 포함),False,5984.0,5984.0,2025-04-30,2025-04-30
+G0142,GS,D,D,2025-04-30,date_article,syndicated_article_read,,유럽,False,5985.0,5985.0,2025-05-01,2025-05-01
 G0143,MS,S,S,2025-05-13,date_article,headline_summary_only,,세계 주식(미국 배분 포함),True,5994.0,5994.0,2025-05-14,2025-05-14
-G0144,GS,R,R,2025-06-02,date_article,headline_summary_only,,세계,True,6007.0,6007.0,2025-06-03,2025-06-03
-G0145,GS,R,R,2025-06-16,date_feed,headline_summary_only,,아시아(일본·홍콩·대만·인도 매수 / 중국 본토 숏),False,6017.0,6017.0,2025-06-17,2025-06-17
-G0146,GS,T,T,2025-06-23,date_article,headline_summary_only,,세계(총레버리지)·금융 섹터 매수,False,6021.0,6021.0,2025-06-24,2025-06-24
-G0147,GS,D,D,2025-06-30,date_article,headline_summary_only,possible_dup_of:G0146,세계 에너지(북미·유럽 중심),False,6026.0,6026.0,2025-07-01,2025-07-01
+G0144,GS,R,R,2025-06-02,date_article,syndicated_article_read,,US 정보기술(US 전체 4주 연속 매수),True,6007.0,6007.0,2025-06-03,2025-06-03
+G0145,GS,R,R,2025-06-16,date_feed,syndicated_article_read,,아시아(일본·홍콩·대만·인도 매수 / 중국 본토 숏),False,6017.0,6017.0,2025-06-17,2025-06-17
+G0146,GS,T,T,2025-06-23,date_article,syndicated_article_read,,세계(총레버리지)·금융 섹터 매수,False,6021.0,6021.0,2025-06-24,2025-06-24
+G0147,GS,D,D,2025-06-30,date_article,syndicated_article_read,possible_dup_of:G0146,세계 에너지(북미·유럽 중심),False,6026.0,6026.0,2025-07-01,2025-07-01
 G0148,BofA,N,N,2025-07-09,date_url,headline_summary_only,,US 전체(BofA 고객 합계),True,6032.0,6032.0,2025-07-10,2025-07-10
-G0149,GS,R,R,2025-07-14,date_article,headline_summary_only,,US 은행·세계 금융(매도) / 필수소비재(매수),False,6035.0,6035.0,2025-07-15,2025-07-15
+G0149,GS,R,R,2025-07-14,date_article,syndicated_article_read,,US 은행·세계 금융(매도) / 필수소비재(매수),False,6035.0,6035.0,2025-07-15,2025-07-15
 G0150,GS,R,T,2025-07-20,date_feed,headline_summary_only,,세계 산업재,False,6039.0,6039.0,2025-07-21,2025-07-21
-G0151,GS,D,D,2025-07-28,date_feed,headline_summary_only,,세계 정보기술(북미·유럽),False,6045.0,6045.0,2025-07-29,2025-07-29
+G0151,GS,D,D,2025-07-28,date_feed,syndicated_article_read,,세계 정보기술(북미·유럽),False,6045.0,6045.0,2025-07-29,2025-07-29
 G0152,MS,R,R,2025-08-13,date_feed,headline_summary_only,,일본(매수 복귀) / 한국(숏 추가),False,6057.0,6057.0,2025-08-14,2025-08-14
-G0153,GS,R,R,2025-08-18,date_article,headline_summary_only,,US 전체,True,6060.0,6060.0,2025-08-19,2025-08-19
+G0153,GS,R,R,2025-08-18,date_article,syndicated_article_read,,US 전체,True,6060.0,6060.0,2025-08-19,2025-08-19
 G0154,MS,R,R,2025-08-26,date_feed,headline_summary_only,,중국,False,6066.0,6066.0,2025-08-27,2025-08-27
-G0155,GS,N,N,2025-09-01,date_feed,headline_summary_only,,US 주식(8월),True,6069.0,6069.0,2025-09-02,2025-09-02
-G0156,GS,N,N,2025-09-03,date_article,headline_summary_only,,세계,True,6071.0,6071.0,2025-09-04,2025-09-04
-G0157,GS,R,R,2025-09-09,date_article,headline_summary_only,possible_dup_of:G0156,EM 아시아,False,6075.0,6075.0,2025-09-10,2025-09-10
-G0158,GS,R,R,2025-09-22,date_feed,headline_summary_only,,세계 금융(은행·보험·소비자금융; 북미·유럽),False,6084.0,6084.0,2025-09-23,2025-09-23
-G0159,GS,D,D,2025-09-29,date_feed,headline_summary_only,,"EM 아시아(중국 본토·역외, 인도, 대만)",False,6089.0,6089.0,2025-09-30,2025-09-30
-G0160,JPM,T,T,2025-10-03,date_article,headline_summary_only,,US 메가캡 기술(매그니피센트7)·US 주식,True,6093.0,6093.0,2025-10-06,2025-10-06
-G0161,GS,N,N,2025-10-13,date_feed,headline_summary_only,,US 전체,True,6099.0,6099.0,2025-10-14,2025-10-14
-G0162,GS,D,D,2025-10-20,date_article,headline_summary_only,,US 전체,True,6104.0,6104.0,2025-10-21,2025-10-21
-G0163,GS,D,D,2025-10-20,date_article,headline_summary_only,possible_dup_of:G0162,세계(유럽 제외 주요 지역),False,6104.0,6104.0,2025-10-21,2025-10-21
-G0164,GS,D,N,2025-10-23,date_article,headline_summary_only,possible_dup_of:G0162;G0163,유럽,False,6107.0,6107.0,2025-10-24,2025-10-24
-G0165,GS,T,T,2025-10-24,date_feed,headline_summary_only,possible_dup_of:G0162;G0163;G0164,AI 기술 하드웨어·반도체(아시아·미국),False,6108.0,6108.0,2025-10-27,2025-10-27
-G0166,GS,R,R,2025-11-03,date_article,headline_summary_only,,세계,True,6114.0,6114.0,2025-11-04,2025-11-04
+G0155,GS,N,N,2025-09-01,date_feed,syndicated_article_read,,US 주식(8월),True,6069.0,6069.0,2025-09-02,2025-09-02
+G0156,GS,N,N,2025-09-03,date_article,syndicated_article_read,,세계,True,6071.0,6071.0,2025-09-04,2025-09-04
+G0157,GS,R,R,2025-09-09,date_article,syndicated_article_read,possible_dup_of:G0156,EM 아시아,False,6075.0,6075.0,2025-09-10,2025-09-10
+G0158,GS,R,R,2025-09-22,date_feed,syndicated_article_read,,세계 금융(은행·보험·소비자금융; 북미·유럽),False,6084.0,6084.0,2025-09-23,2025-09-23
+G0159,GS,D,D,2025-09-29,date_feed,syndicated_article_read,,"EM 아시아(중국 본토·역외, 인도, 대만)",False,6089.0,6089.0,2025-09-30,2025-09-30
+G0160,JPM,T,T,2025-10-03,date_article,syndicated_article_read,,US 메가캡 기술(매그니피센트7)·US 주식,True,6093.0,6093.0,2025-10-06,2025-10-06
+G0161,GS,N,N,2025-10-13,date_feed,syndicated_article_read,,US 전체,True,6099.0,6099.0,2025-10-14,2025-10-14
+G0162,GS,D,D,2025-10-20,date_article,syndicated_article_read,,US 전체,True,6104.0,6104.0,2025-10-21,2025-10-21
+G0163,GS,D,D,2025-10-20,date_article,syndicated_article_read,possible_dup_of:G0162,세계(유럽 제외 주요 지역),False,6104.0,6104.0,2025-10-21,2025-10-21
+G0164,GS,D,N,2025-10-23,date_article,syndicated_article_read,possible_dup_of:G0162;G0163,유럽,False,6107.0,6107.0,2025-10-24,2025-10-24
+G0165,GS,T,T,2025-10-24,date_feed,syndicated_article_read,possible_dup_of:G0162;G0163;G0164,AI 기술 하드웨어·반도체(아시아·미국),False,6108.0,6108.0,2025-10-27,2025-10-27
+G0166,GS,R,R,2025-11-03,date_article,syndicated_article_read,,세계,True,6114.0,6114.0,2025-11-04,2025-11-04
 G0167,GS,N,S,2025-11-05,date_feed,headline_summary_only,,샤오미 단일 종목(홍콩 상장),False,6116.0,6116.0,2025-11-06,2025-11-06
-G0168,GS,R,R,2025-11-10,date_article,headline_summary_only,possible_dup_of:G0166;G0167,세계,True,6119.0,6119.0,2025-11-11,2025-11-11
+G0168,GS,R,R,2025-11-10,date_article,syndicated_article_read,possible_dup_of:G0166;G0167,세계,True,6119.0,6119.0,2025-11-11,2025-11-11
 G0169,GS,N,N,2025-11-10,date_feed,headline_summary_only,,소비재주(지역 범위 미확인),False,6119.0,6119.0,2025-11-11,2025-11-11
-G0170,GS,R,R,2025-11-24,date_article,headline_summary_only,,US 전체,True,6129.0,6129.0,2025-11-25,2025-11-25
-G0171,GS,R,R,2025-11-24,date_article,headline_summary_only,possible_dup_of:G0170,US 상장 ETF·개별주,True,6129.0,6129.0,2025-11-25,2025-11-25
+G0170,GS,R,R,2025-11-24,date_article,syndicated_article_read,,US 전체,True,6129.0,6129.0,2025-11-25,2025-11-25
+G0171,GS,R,R,2025-11-24,date_article,syndicated_article_read,possible_dup_of:G0170,US 상장 ETF·개별주,True,6129.0,6129.0,2025-11-25,2025-11-25
 G0172,BofA,R,R,2025-11-26,date_article,original_article_read,,"US 전체(BofA 고객; HF·기관 매수, 개인 매도)",True,6131.0,6131.0,2025-11-28,2025-11-28
-G0173,GS,S,S,2025-11-26,date_article,headline_summary_only,possible_dup_of:G0170,UK 국내 노출주,False,6131.0,6131.0,2025-11-28,2025-11-28
-G0174,GS,R,R,2025-11-26,date_article,headline_summary_only,possible_dup_of:G0170,US 전체,True,6131.0,6131.0,2025-11-28,2025-11-28
+G0173,GS,S,S,2025-11-26,date_article,syndicated_article_read,possible_dup_of:G0170,UK 국내 노출주,False,6131.0,6131.0,2025-11-28,2025-11-28
+G0174,GS,R,R,2025-11-26,date_article,syndicated_article_read,possible_dup_of:G0170,US 전체,True,6131.0,6131.0,2025-11-28,2025-11-28
 G0175,GS,T,T,2025-12-03,date_article,prior_verified_fact,,세계 주식(헤지펀드 전반 총레버리지),True,6135.0,6135.0,2025-12-04,2025-12-04
-G0176,GS,R,R,2025-12-03,date_article,headline_summary_only,possible_dup_of:G0175,세계,True,6135.0,6135.0,2025-12-04,2025-12-04
+G0176,GS,R,R,2025-12-03,date_article,syndicated_article_read,possible_dup_of:G0175,세계,True,6135.0,6135.0,2025-12-04,2025-12-04
 G0177,JPM,T,T,2025-12-03,date_article,prior_verified_fact,,세계 주식(헤지펀드 전반 총레버리지),True,6135.0,6135.0,2025-12-04,2025-12-04
 G0178,MS,T,T,2025-12-03,date_article,prior_verified_fact,,세계 주식(헤지펀드 전반 총레버리지),True,6135.0,6135.0,2025-12-04,2025-12-04
-G0179,GS,R,R,2025-12-15,date_article,headline_summary_only,,US 전체,True,6143.0,6143.0,2025-12-16,2025-12-16
-G0180,GS,N,N,2025-12-15,date_article,headline_summary_only,possible_dup_of:G0179,아시아(홍콩·일본),False,6143.0,6143.0,2025-12-16,2025-12-16
+G0179,GS,R,R,2025-12-15,date_article,syndicated_article_read,,US 전체,True,6143.0,6143.0,2025-12-16,2025-12-16
+G0180,GS,N,N,2025-12-15,date_article,syndicated_article_read,possible_dup_of:G0179,아시아(홍콩·일본),False,6143.0,6143.0,2025-12-16,2025-12-16
 G0181,BofA,N,N,2025-12-17,date_article,original_article_read,,US 전체(BofA 고객 합계),True,6145.0,6145.0,2025-12-18,2025-12-18
-G0182,GS,N,N,2025-12-22,date_feed,headline_summary_only,possible_dup_of:G0179,US 헬스케어,False,6148.0,6148.0,2025-12-23,2025-12-23
+G0182,GS,N,N,2025-12-22,date_feed,syndicated_article_read,possible_dup_of:G0179,US 헬스케어,False,6148.0,6148.0,2025-12-23,2025-12-23
 G0183,GS,R,N,2025-12-30,date_article,syndicated_article_read,,세계,True,6153.0,6153.0,2025-12-31,2025-12-31
 G0184,GS,T,T,2026-01-07,date_article,syndicated_article_read,,세계(GS PB 전체 장부),True,6158.0,6158.0,2026-01-08,2026-01-08
 G0185,GS,R,R,2026-01-19,date_article,syndicated_article_read,,세계,True,6165.0,6165.0,2026-01-20,2026-01-20
-G0186,GS,N,N,2026-01-26,date_article,headline_summary_only,,US 개별주,True,6170.0,6170.0,2026-01-27,2026-01-27
+G0186,GS,N,N,2026-01-26,date_article,syndicated_article_read,,US 개별주,True,6170.0,6170.0,2026-01-27,2026-01-27
 G0187,GS,S,D,2026-02-09,date_feed,headline_summary_only,,US 주식,True,6180.0,6180.0,2026-02-10,2026-02-10
-G0188,GS,R,R,2026-02-16,date_feed,headline_summary_only,possible_dup_of:G0187,아시아(신흥·선진),False,6184.0,6184.0,2026-02-17,2026-02-17
-G0189,GS,D,D,2026-02-23,date_feed,headline_summary_only,,세계,True,6189.0,6189.0,2026-02-24,2026-02-24
-G0190,JPM,R,R,2026-02-24,date_feed,headline_summary_only,,기술주(메가캡·AI 취약 소프트웨어),True,6190.0,6190.0,2026-02-25,2026-02-25
-G0191,GS,S,S,2026-03-08T16:23-04:00,exact,headline_summary_only,,US 상장 주식 ETF,True,6198.0,6198.0,2026-03-09,2026-03-09
+G0188,GS,R,R,2026-02-16,date_feed,syndicated_article_read,possible_dup_of:G0187,아시아(신흥·선진),False,6184.0,6184.0,2026-02-17,2026-02-17
+G0189,GS,D,D,2026-02-23,date_feed,syndicated_article_read,,세계,True,6189.0,6189.0,2026-02-24,2026-02-24
+G0190,JPM,R,R,2026-02-24,date_feed,syndicated_article_read,,기술주(메가캡·AI 취약 소프트웨어),True,6190.0,6190.0,2026-02-25,2026-02-25
+G0191,GS,S,S,2026-03-08T16:23-04:00,exact,syndicated_article_read,,US 상장 주식 ETF,True,6198.0,6198.0,2026-03-09,2026-03-09
 G0192,GS,S,S,2026-03-11,date_article,headline_summary_only,,US 주식(ETF·지수선물 숏),True,6201.0,6201.0,2026-03-12,2026-03-12
 G0193,GS,N,N,2026-03-16,date_article,syndicated_article_read,possible_dup_of:G0192,세계 금융,False,6204.0,6204.0,2026-03-17,2026-03-17
 G0194,GS,D,D,2026-03-22,date_feed,headline_summary_only,,신흥아시아,False,6208.0,6208.0,2026-03-23,2026-03-23
-G0195,GS,D,D,2026-03-23,date_article,headline_summary_only,possible_dup_of:G0194,세계,True,6209.0,6209.0,2026-03-24,2026-03-24
+G0195,GS,D,D,2026-03-23,date_article,syndicated_article_read,possible_dup_of:G0194,세계,True,6209.0,6209.0,2026-03-24,2026-03-24
 G0196,BofA,D,D,2026-03-25,date_article,headline_summary_only,,US 전체(BofA 고객),True,6211.0,6211.0,2026-03-26,2026-03-26
 G0197,GS,S,S,2026-03-30T05:33-04:00,exact,headline_summary_only,possible_dup_of:G0194,세계,True,6213.0,6213.0,2026-03-30,2026-03-30
 G0198,GS,D,D,2026-04-02,date_feed,original_article_read,,세계,True,6217.0,6217.0,2026-04-06,2026-04-06
 G0199,GS,S,S,2026-04-06,date_feed,headline_summary_only,,세계,True,6218.0,6218.0,2026-04-07,2026-04-07
-G0200,GS,R,R,2026-04-13,date_feed,headline_summary_only,possible_dup_of:G0199,세계,True,6223.0,6223.0,2026-04-14,2026-04-14
+G0200,GS,R,R,2026-04-13,date_feed,syndicated_article_read,possible_dup_of:G0199,세계,True,6223.0,6223.0,2026-04-14,2026-04-14
 G0201,GS,R,R,2026-04-15,date_url,headline_summary_only,,US 전체,True,6225.0,6225.0,2026-04-16,2026-04-16
 G0202,GS,D,D,2026-04-26T22:18-04:00,exact,syndicated_article_read,,US 전체(단일종목 주도),False,6232.0,6232.0,2026-04-27,2026-04-27
 G0203,BofA,N,N,2026-04-29,date_article,original_article_read,,US 전체(BofA 고객),True,6235.0,6235.0,2026-04-30,2026-04-30
-G0204,GS,D,D,2026-05-04,date_article,headline_summary_only,,"정보기술(GS Prime Book, 지역 미기재)",True,6238.0,6238.0,2026-05-05,2026-05-05
+G0204,GS,D,D,2026-05-04,date_article,syndicated_article_read,,"정보기술(GS Prime Book, 지역 미기재)",True,6238.0,6238.0,2026-05-05,2026-05-05
 G0205,MS,N,N,2026-05-06,date_article,syndicated_article_read,,주식 전체(지역 미기재),True,6240.0,6240.0,2026-05-07,2026-05-07
-G0206,GS,R,R,2026-05-11,date_article,headline_summary_only,,세계,True,6243.0,6243.0,2026-05-12,2026-05-12
+G0206,GS,R,R,2026-05-11,date_article,syndicated_article_read,,세계,True,6243.0,6243.0,2026-05-12,2026-05-12
 G0207,GS,N,N,2026-05-22,date_article,headline_summary_only,,US 반도체·반도체장비,True,6252.0,6252.0,2026-05-26,2026-05-26
-G0208,GS,T,T,2026-05-25,date_article,headline_summary_only,possible_dup_of:G0207,세계 정보기술(제목: 기술주),True,6252.0,6252.0,2026-05-26,2026-05-26
+G0208,GS,T,T,2026-05-25,date_article,syndicated_article_read,possible_dup_of:G0207,세계 정보기술,True,6252.0,6252.0,2026-05-26,2026-05-26
 G0209,GS,S,S,2026-05-25,date_feed,headline_summary_only,possible_dup_of:G0207;G0208,매크로 상품(지수·ETF) 숏,True,6252.0,6252.0,2026-05-26,2026-05-26
 G0210,GS,R,R,2026-06-01,date_feed,headline_summary_only,,"주식 전체(제목 기준, 지역 미기재)",True,6257.0,6257.0,2026-06-02,2026-06-02
 G0211,GS,T,R,2026-06-05,date_article,syndicated_article_read,possible_dup_of:G0210,주식 전체(지역 미기재),True,6261.0,6261.0,2026-06-08,2026-06-08
-G0212,GS,R,R,2026-06-08,date_article,headline_summary_only,possible_dup_of:G0210,세계,True,6262.0,6262.0,2026-06-09,2026-06-09
+G0212,GS,R,R,2026-06-08,date_article,syndicated_article_read,possible_dup_of:G0210,세계,True,6262.0,6262.0,2026-06-09,2026-06-09
 G0213,JPM,N,N,2026-06-12,date_feed,headline_summary_only,,"US 대형 기술주(애플 등, 제목 기준)",True,6266.0,6266.0,2026-06-15,2026-06-15
-G0214,GS,R,R,2026-06-15,date_article,headline_summary_only,,세계,True,6267.0,6267.0,2026-06-16,2026-06-16
-G0215,GS,N,N,2026-06-22,date_article,headline_summary_only,,세계,True,6271.0,6271.0,2026-06-23,2026-06-23
+G0214,GS,R,R,2026-06-15,date_article,syndicated_article_read,,세계,True,6267.0,6267.0,2026-06-16,2026-06-16
+G0215,GS,N,N,2026-06-22,date_article,syndicated_article_read,,세계,True,6271.0,6271.0,2026-06-23,2026-06-23
 G0216,BofA,N,N,2026-07-01,date_feed,headline_summary_only,,US 정보기술(BofA 고객 유형별),True,6278.0,6278.0,2026-07-02,2026-07-02
 G0217,GS,D,D,2026-07-03,date_feed,headline_summary_only,,"정보기술(지역 미기재, 제목 기준)",True,6279.0,6279.0,2026-07-06,2026-07-06
 G0218,GS,N,N,2026-07-05,date_feed,headline_summary_only,possible_dup_of:G0217,"정보기술(지역 미기재, 제목 기준)",True,6279.0,6279.0,2026-07-06,2026-07-06
-G0219,GS,N,N,2026-07-06,date_article,headline_summary_only,possible_dup_of:G0217;G0218,US 정보기술(반도체·하드웨어),True,6280.0,6280.0,2026-07-07,2026-07-07
-G0220,GS,N,N,2026-07-06,date_article,headline_summary_only,possible_dup_of:G0217;G0218;G0219,세계,True,6280.0,6280.0,2026-07-07,2026-07-07
-G0221,BofA,R,R,2026-07-08,date_article,headline_summary_only,possible_dup_of:G0216,US 전체(BofA 고객 합계),True,6282.0,6282.0,2026-07-09,2026-07-09
-G0222,GS,D,D,2026-07-09,date_feed,headline_summary_only,possible_dup_of:G0218,US 중심 펀더멘털 롱숏·AI 롱,True,6283.0,6283.0,2026-07-10,2026-07-10
+G0219,GS,N,N,2026-07-06,date_article,syndicated_article_read,possible_dup_of:G0217;G0218,US 정보기술(반도체·하드웨어),True,6280.0,6280.0,2026-07-07,2026-07-07
+G0220,GS,N,N,2026-07-06,date_article,syndicated_article_read,possible_dup_of:G0217;G0218;G0219,세계,True,6280.0,6280.0,2026-07-07,2026-07-07
+G0221,BofA,R,R,2026-07-08,date_article,syndicated_article_read,possible_dup_of:G0216,US 전체(BofA 고객 합계),True,6282.0,6282.0,2026-07-09,2026-07-09
+G0222,GS,D,D,2026-07-09,date_feed,syndicated_article_read,possible_dup_of:G0218,US 중심 펀더멘털 롱숏·AI 롱,True,6283.0,6283.0,2026-07-10,2026-07-10
 G0223,BofA,R,R,2026-07-15,date_feed,headline_summary_only,,"US 전체(BofA 고객 합계, 제목 기준)",True,6287.0,6287.0,2026-07-16,2026-07-16
 G0224,GS,D,D,2026-07-20,date_feed,headline_summary_only,,US 정보기술(제목 기준),True,6290.0,6290.0,2026-07-21,2026-07-21
 G0225,GS,N,N,2026-07-24,date_feed,headline_summary_only,possible_dup_of:G0224,세계 반도체(순투자 비중),True,6294.0,6294.0,2026-07-27,2026-07-27
-G0226,GS,T,T,2026-07-27,date_feed,headline_summary_only,possible_dup_of:G0224,US 헬스케어,False,6295.0,6295.0,2026-07-28,2026-07-28
+G0226,GS,T,T,2026-07-27,date_feed,syndicated_article_read,possible_dup_of:G0224,US 헬스케어,False,6295.0,6295.0,2026-07-28,2026-07-28
 G0227,BofA,R,R,2026-07-29,date_feed,headline_summary_only,,US 전체,True,6297.0,6297.0,2026-07-30,2026-07-30
 G0228,GS,N,T,2026-07-29,date_article,syndicated_article_read,,헤지펀드 총레버리지·GS PB 금융 장부(AI 메모리주),False,6297.0,6297.0,2026-07-30,2026-07-30
 G0229,GS,D,D,2026-07-30,date_article,syndicated_article_read,possible_dup_of:G0228,아시아,False,6298.0,6298.0,2026-07-31,2026-07-31
@@ -243,7 +243,7 @@ G0241,GS,R,R,2026-09-18,date_feed,headline_summary_only,,"US 아날로그 반도
 G0242,BofA,R,R,2026-09-23,date_feed,headline_summary_only,,"US 전체(BofA 고객 합계, 제목 기준)",True,6336.0,6336.0,2026-09-24,2026-09-24
 G0243,GS,N,N,2026-10-02,date_article,syndicated_article_read,,US 섹터 전반(정보기술 하위업종 갈림),True,6343.0,6343.0,2026-10-05,2026-10-05
 G0244,BofA,D,D,2026-10-07,date_feed,headline_summary_only,,"US 개별 종목(BofA 고객 합계, 제목 기준)",False,6346.0,6346.0,2026-10-08,2026-10-08
-G0245,GS,T,T,2026-10-08,date_feed,headline_summary_only,,US 매그니피센트7,True,6347.0,6347.0,2026-10-09,2026-10-09
+G0245,GS,T,T,2026-10-08,date_feed,syndicated_article_read,,US 매그니피센트7,True,6347.0,6347.0,2026-10-09,2026-10-09
 G0246,GS,D,S,2026-10-09,date_article,original_article_read,,US·세계 펀더멘털 롱숏 고객(순노출),True,6348.0,6348.0,2026-10-12,2026-10-12
 G0247,BofA,R,R,2026-10-14,date_feed,headline_summary_only,,"US 전체(BofA 고객 합계, 제목 기준)",True,6351.0,6351.0,2026-10-15,2026-10-15
 G0248,GS,N,N,2026-10-15,date_feed,headline_summary_only,,"AI 관련주(지역 미표기, 제목 기준)",True,6352.0,6352.0,2026-10-16,2026-10-16

@@ -8,29 +8,29 @@
   "groups": 252,
   "with_published_at": 245,
   "by_family": {
-   "R": 82,
-   "D": 64,
+   "R": 81,
+   "D": 65,
    "S": 11,
    "T": 20
   },
   "by_family_first": {
-   "R": 64,
-   "D": 45,
+   "R": 63,
+   "D": 46,
    "S": 10,
    "T": 16
   },
   "exact": 17,
-  "R_in_range": 82
+  "R_in_range": 81
  },
  "base_rate_pre": {
-  "R": 0.4246861924686193,
-  "D": 0.3158995815899582,
+  "R": 0.41841004184100417,
+  "D": 0.32217573221757323,
   "S": 0.0596234309623431,
   "T": 0.09937238493723849
  },
  "base_rate_any": {
-  "R": 0.6527196652719666,
-  "D": 0.47384937238493724,
+  "R": 0.6443514644351465,
+  "D": 0.48535564853556484,
   "S": 0.10669456066945607,
   "T": 0.1705020920502092
  },
@@ -119,8 +119,19 @@
   }
  },
  "soxx_registered_cells": 96,
- "soxx_registered_pass": 2,
+ "soxx_registered_pass": 3,
  "soxx_registered_pass_rows": [
+  {
+   "det": "ZZP8",
+   "type": 1,
+   "period": "P2",
+   "variant": "first",
+   "window": "pre",
+   "outcome": "y20",
+   "diff": 0.18376206764176573,
+   "boot_lo": 0.15011623829679516,
+   "null_q95": 0.18261716750246829
+  },
   {
    "det": "ZZP8",
    "type": -1,
@@ -130,7 +141,7 @@
    "outcome": "y1",
    "diff": 0.1284854158553289,
    "boot_lo": 0.06859885766476362,
-   "null_q95": 0.12355769065145236
+   "null_q95": 0.0988097597067567
   },
   {
    "det": "ZZP8",
@@ -141,7 +152,7 @@
    "outcome": "y1",
    "diff": 0.1284854158553289,
    "boot_lo": 0.06859885766476362,
-   "null_q95": 0.10135335729161711
+   "null_q95": 0.0988097597067567
   }
  ],
  "soxx_family_null": {
@@ -158,7 +169,7 @@
    "cells": 12,
    "passed_full": 0,
    "passed_shift_only": 0,
-   "null_mean": 0.22303664921465968,
+   "null_mean": 0.2198952879581152,
    "null_q95": 1.0,
    "p": 1.0,
    "reps": 955
@@ -167,7 +178,7 @@
    "cells": 12,
    "passed_full": 0,
    "passed_shift_only": 0,
-   "null_mean": 0.30157068062827225,
+   "null_mean": 0.30471204188481676,
    "null_q95": 2.0,
    "p": 1.0,
    "reps": 955
@@ -176,8 +187,8 @@
    "cells": 12,
    "passed_full": 0,
    "passed_shift_only": 0,
-   "null_mean": 0.21256544502617802,
-   "null_q95": 1.0,
+   "null_mean": 0.2534031413612565,
+   "null_q95": 2.0,
    "p": 1.0,
    "reps": 955
   },
@@ -185,16 +196,16 @@
    "cells": 12,
    "passed_full": 1,
    "passed_shift_only": 1,
-   "null_mean": 0.34764397905759165,
+   "null_mean": 0.3675392670157068,
    "null_q95": 2.0,
-   "p": 0.2523560209424084,
+   "p": 0.25654450261780104,
    "reps": 955
   },
   "ZZP8_all_pre": {
    "cells": 12,
    "passed_full": 0,
    "passed_shift_only": 0,
-   "null_mean": 0.4607329842931937,
+   "null_mean": 0.450261780104712,
    "null_q95": 3.0,
    "p": 1.0,
    "reps": 955
@@ -203,23 +214,23 @@
    "cells": 12,
    "passed_full": 1,
    "passed_shift_only": 1,
-   "null_mean": 0.3769633507853403,
+   "null_mean": 0.35916230366492147,
    "null_q95": 2.0,
-   "p": 0.26910994764397905,
+   "p": 0.2628272251308901,
    "reps": 955
   },
   "ZZP8_first_pre": {
    "cells": 12,
-   "passed_full": 0,
-   "passed_shift_only": 0,
-   "null_mean": 0.4261780104712042,
-   "null_q95": 2.0,
-   "p": 1.0,
+   "passed_full": 1,
+   "passed_shift_only": 1,
+   "null_mean": 0.4649214659685864,
+   "null_q95": 2.2999999999999545,
+   "p": 0.2732984293193717,
    "reps": 955
   }
  },
  "soxx_cells_total": 6480,
- "soxx_pass_total": 95,
+ "soxx_pass_total": 107,
  "stock_events": {
   "n": 3559,
   "dates": 767
@@ -228,7 +239,7 @@
  "stock_reg_pass": 0,
  "stock_reg_pass_rows": [],
  "stock_cells_total": 3360,
- "stock_pass_total": 123,
+ "stock_pass_total": 122,
  "boot": {
   "B_soxx": 5000,
   "B_stock": 3000,

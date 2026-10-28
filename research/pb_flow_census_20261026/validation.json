@@ -1,7 +1,7 @@
 {
-  "ok": true,
+  "ok": false,
   "n_checks": 66,
-  "n_failed": 0,
+  "n_failed": 1,
   "counts": {
     "census_groups": 252,
     "by_bank": {
@@ -277,7 +277,7 @@
     {
       "check": "census: blank counts reported (blank = not stated, never zero/mixed)",
       "ok": true,
-      "detail": "{\"note_date\": 0, \"published_at\": 7, \"scope\": 0, \"flow_direction\": 56, \"magnitude_text\": 85, \"lookback_months\": 144, \"gross_leverage\": 220, \"net_leverage\": 239, \"short_crowding\": 234, \"quote\": 0}"
+      "detail": "{\"note_date\": 0, \"published_at\": 7, \"scope\": 0, \"flow_direction\": 54, \"magnitude_text\": 84, \"lookback_months\": 143, \"gross_leverage\": 220, \"net_leverage\": 239, \"short_crowding\": 234, \"quote\": 0}"
     },
     {
       "check": "coverage: every Monday week x bank present once",
@@ -341,13 +341,13 @@
     },
     {
       "check": "git-visible changes only inside task directory",
-      "ok": true,
-      "detail": "other_paths=[]"
+      "ok": false,
+      "detail": "other_paths=['data/derived/analysis/bottom_confirm/report.md', 'data/derived/analysis/news_followup/report.md', 'data/derived/desk/dip.json', 'data/derived/desk/dip_universe.json', 'data/derived/desk/giant.json', 'data/derived/desk/prices_adj_close.csv', 'data/derived/desk/prices_close.csv', 'data/derived/desk/prices_meta.json', 'data/derived/desk/prices_open.csv', 'data/derived/desk/trend.json', 'data/derived/desk/trend_chart.json', 'data/derived/desk/trend_earnings.json', 'data/derived/desk/value.json', 'desk/__main__.py', 'desk/marketdata.py', 'desk/server.py', 'desk/static/index.html', 'desk/static/news.js', 'data/derived/analysis/ant_index/final/run2026_10_26/FINAL.md', 'data/derived/analysis/ant_index/final/run2026_10_26/code/final_chart.py']"
     },
     {
       "check": "repository unittest passes",
       "ok": true,
-      "detail": "Ran 302 tests in 5.816s /  / OK"
+      "detail": "Ran 329 tests in 9.198s /  / OK"
     }
   ]
 }

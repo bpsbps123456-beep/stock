@@ -37,16 +37,16 @@ GS를 연도별로 보면 2023년 24/52주, 2024년 35/53주, 2025년 36/52주, 
 
 | 은행 | D | S | R | T | N |
 |---|---:|---:|---:|---:|---:|
-| GS | 57 | 10 | 54 | 11 | 42 |
+| GS | 58 | 10 | 53 | 11 | 42 |
 | MS | 2 | 1 | 6 | 5 | 8 |
 | JPM | 1 | 0 | 5 | 4 | 8 |
 | BofA | 6 | 0 | 21 | 0 | 11 |
-| 합계 | 66 | 11 | 86 | 20 | 69 |
+| 합계 | 67 | 11 | 85 | 20 | 69 |
 
-- 흐름 방향: net_sell 106, net_buy 80, mixed 10, 빈칸 56. 빈칸은 보유·레버리지 수준만 있거나 방향을 모르는 경우다.
+- 흐름 방향: net_sell 106, net_buy 82, mixed 10, 빈칸 54. 빈칸은 보유·레버리지 수준만 있거나 방향을 모르는 경우다.
 - 노트 날짜: 명시 137, 공개일 대용 115.
-- 검증 수준: headline_summary_only 140(55.6%), syndicated_article_read 82, original_article_read 24, prior_verified_fact 6.
-- 부호자: claude 207, codex 27, codex(+claude) 15, claude(+codex) 3. 두 부호자의 family가 다른 그룹은 1개(G0001)이고, 양쪽 부호를 모두 `coding_notes`에 남겼다(검증 반박에서 G0007의 Codex N을 원문 근거로 D로 고쳐 2개에서 1개가 됨).
+- 검증 수준: headline_summary_only 68(27.0%), syndicated_article_read 154, original_article_read 24, prior_verified_fact 6. 2026-10-28 본문 재열람 전에는 140(55.6%)·82였다(아래 '본문 재열람' 절).
+- 부호자: claude 207, codex 27, codex(+claude) 17, claude(+codex) 1. 두 부호자의 family가 다른 그룹은 1개(G0001)이고, 양쪽 부호를 모두 `coding_notes`에 남겼다(검증 반박에서 G0007의 Codex N을 원문 근거로 D로 고쳐 2개에서 1개가 됨). G0001은 재열람 뒤 Codex 행(D)이 대표가 되어 R→D로 바뀌었다(아래 절).
 
 ## 파일
 
@@ -59,6 +59,7 @@ GS를 연도별로 보면 2023년 24/52주, 2024년 35/53주, 2025년 36/52주, 
 | `legacy_crosswalk.csv` | 10/25 연구 32건 → 그룹 id 또는 제외 사유. 원 분류와 현재 분류를 함께 적었다. |
 | `coverage.csv` | 주 × 은행: 노트 날짜 기준(명시/대용), 공개일 기준, 불확실 중복, 미확인 후보 수, 상태. |
 | `dedup_overrides.json` | 조립 단계의 수동 결정: 행 수정 4건(날짜 2·family 1·lookback 1), 병합 6건, 10/25 대조 20건, 다시 부호화한 10/25 행 6건. |
+| `reread_20261028.csv` | 열람 큐 본문 재열람 164건: 상태(read/failed/paywall)·전후 검증 수준·본문 대조 판단·핵심 인용(25단어 이내)·다른 은행 노트 누락. 조립 단계가 `status=read`로 검증 수준을 올린다. |
 | `assemble.py` / `validate.py` | 조립과 검증. 결과는 `validation.json`(66개 점검 전부 통과)에 남는다. |
 | `summary.json` | 조립 단계별 개수. |
 | `protocol.json` / `freeze.json` | 부호화 규칙과 SHA-256 지문(c6047664…). 고치지 않았다. |
@@ -87,7 +88,7 @@ GS를 연도별로 보면 2023년 24/52주, 2024년 35/53주, 2025년 36/52주, 
 ## 한계
 
 - **공개 언론 표본이다.** PB 고객 노트 원문 보관소가 아니다. 노트 원문은 거의 볼 수 없고, `article_read`는 기사를 읽었다는 뜻이지 노트를 읽었다는 뜻이 아니다. 언론이 고른 노트만 남으므로 극단적인 흐름이 과대 표집되었을 수 있다.
-- **유료 벽**: Bloomberg 기사 상당수는 제목·요약만 썼다. 제목만으로 부호화한 그룹(headline_summary_only)이 55.6%다. 이런 그룹은 은행 귀속, 범위, 기간 환산(`lookback_months`)이 거칠다.
+- **유료 벽**: Bloomberg 기사 상당수는 제목·요약만 썼다. 제목만으로 부호화한 그룹(headline_summary_only)이 27.0%다(재열람 전 55.6%). 남은 68그룹의 대부분은 Bloomberg 유료 기사와 WebFetch 403 사이트다. 이런 그룹은 은행 귀속, 범위, 기간 환산(`lookback_months`)이 거칠다.
 - **색인 누락**: Google News RSS는 한 질의에 최대 100건이고 색인 시각이 공개 시각이 아니다(`time_precision=date_feed` 58그룹). Claude 단계에서는 WebSearch를 쓰지 않았다. MS·JPM·BofA는 GS보다 검색 격자가 성기다. 결과 0건 질의도 75개다. 못 찾은 주가 노트 부재의 증거가 되지 않는다.
 - **미확인 후보 228건**: 은행명 없는 제목(Reuters HEDGE FLOW, Bloomberg 유료 등)이 많다. 그중 158건이 2026년 보도라 2026년 GS 포착률은 실제보다 낮게 나왔을 수 있다. 10/25 원 기사 중 N14·N25도 이 이유로 제외 상태다.
 - **날짜**: 노트 날짜의 46%(116그룹)가 공개일 대용이다. 공개일 미상 7그룹(Scribd 게재 자료 등)은 노트 날짜만 있다. 매매 시점 판단에는 `published_at`만 쓰고, 날짜만 있는 행은 다음 거래일로 보수적으로 다뤄야 한다(protocol timing).
@@ -109,6 +110,19 @@ GS를 연도별로 보면 2023년 24/52주, 2024년 35/53주, 2025년 36/52주, 
 - G0021: JPM note_date 7/14(공개일 대용) → 7/13(명시, "note dated July 13"). JPM 명시 주가 6에서 7로 늘었다
 - G0161: "first time in seven weeks"는 연속 기록이라 lookback 1.62를 비웠다(선례와 통일)
 - 인용 예산은 원어 단어만 센다. 잘렸던 quote 12개가 복원되었고, 잘린 quote가 예산을 다 쓰는지 점검을 더했다
+
+## 본문 재열람(2026-10-28, Claude)
+
+클라우드 인계 할 일 #4(인계 문서는 할 일을 마친 뒤 지웠다, git 이력 731305b). 열람 큐 231건 중 본문이 없던 164건을 다시 읽었다(제목·요약만 115행, 검색 요약문으로 부호화 37행, Codex 검토 12건).
+
+| 항목 | 결과 |
+|---|---|
+| 열람 경로 | ego-browser(`read_sources.js`와 같은 추출)로 시작했으나 첫 묶음에서 사이트 알림 권한 창이 떠 제어가 사용자에게 넘어갔다(저장 0건, 우회하지 않음). 나머지는 WebFetch로 읽었다. WebFetch는 요약 모델이 본문에서 문장을 뽑아 주므로 `article_reads/<id>.json`에 `reader=claude-webfetch-20261028`·`extraction`으로 구분했다 |
+| 결과 | 본문 확보 143, 실패 11(advisorperspectives·streetinsider·spglobal·goldmansachs.com 403, cincodias 차단), 유료벽 10(bloomberg.com 403). WebSearch 0회 |
+| 부호 대조 | 본문과 은행·흐름 방향·family가 어긋난 행 0. 범위가 갈린 1건(db46f84550e1, 미국 금융 vs 그룹 주 출처 Reuters의 global sectors)은 해석 차이라 바꾸지 않았다. 같은 기사 안의 다른 은행 노트 4건(JPM 1·MS 3)은 G0161 선례대로 행을 더하지 않고 `reread_20261028.csv` `missed_note`에 적었다 |
+| 검증 수준 | 조립 단계가 `reread_20261028.csv`의 `status=read` 출처만 올린다(도메인 규칙은 Codex 행과 같음). 행 99개 headline→syndicated, Codex 검토 7건 본문 확보. 그룹 기준 headline_summary_only 140 → 68 |
+| 부수 변화 | 그룹 번호·수(252)·은행별 수는 그대로다. 대표 행 규칙(검증 수준 → Codex 우선 → 이른 공개일) 때문에 9그룹의 대표가 바뀌었다. family가 바뀐 것은 G0001(GS 2023-02-02) R→D 1건이다. 같은 GS 노트를 Bloomberg는 2021-01 이후 최대 디그로싱(D), Reuters는 2015년 이후 최고 숏커버(R)로 보도했고 이제 두 행의 검증 수준이 같아 Codex D가 대표다. G0144(GS 2025-06-02 R)는 대표가 미국 정보기술 '10년 최대 롱 매수'로 바뀌어 lookback 7 → 120이 됐다. G0002·G0208은 흐름 방향이 빈칸에서 net_buy로 채워졌다 |
+| 점검 | `validate.py --unittest` 66개 중 65개 통과, 저장소 unittest 통과. 실패 1개는 'git 변경이 과제 폴더 안에만'인데, 같은 시각 다른 세션이 고치던 `data/derived/` 파일 때문이다 |
 
 ## 재현
 

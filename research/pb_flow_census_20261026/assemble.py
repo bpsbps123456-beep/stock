@@ -119,6 +119,19 @@ def build():
         r = load(p)
         if r.get("body_found"):
             reads[r["source_id"]] = r
+    # Body re-read (2026-10-28): the ego-browser permission prompt left the reading queue at
+    # headline_summary_only; bodies fetched later are logged in reread_20261028.csv. Only
+    # status=read upgrades verification; codes change only through dedup_overrides fixes.
+    reread = {}
+    if (ROOT / "reread_20261028.csv").exists():
+        with open(ROOT / "reread_20261028.csv", encoding="utf-8") as f:
+            reread = {r["source_id"]: r for r in csv.DictReader(f) if r["status"] == "read"}
+    for sid, r in reread.items():
+        reads.setdefault(sid, {"source_id": sid, "url": r["url"], "body_found": True})
+
+    def read_verification(url):
+        dom = url.split("/")[2]
+        return "original_article_read" if any(x in dom for x in ("reuters.com", "bloomberg.com")) else "syndicated_article_read"
 
     # RSS candidate id (inventory key) -> source_id (prepare key)
     cand_key = lambda t, d: hashlib.sha256((t.lower() + "|" + d).encode()).hexdigest()[:12]
@@ -137,6 +150,8 @@ def build():
             r["coder"] = "claude"
             r["row_key"] = f"claude:{path.stem}:{n}"
             r["coded_file"] = path.name
+            if r["verification"] == "headline_summary_only" and r["source_id"] in reread:
+                r["verification"] = read_verification(reread[r["source_id"]]["url"])
             rows.append(r)
     for n, r in enumerate(reviewed):
         ids = [r["source_id"]] + r.get("also_sources", [])
@@ -145,8 +160,7 @@ def build():
         s = sources[first]
         read_ids = [i for i in ids if i in reads]
         if read_ids:
-            dom = reads[read_ids[0]]["url"].split("/")[2]
-            ver = "original_article_read" if any(x in dom for x in ("reuters.com", "bloomberg.com")) else "syndicated_article_read"
+            ver = read_verification(reads[read_ids[0]]["url"])
         else:
             ver = "headline_summary_only"
         pub = r.get("published_at") or s["published_at"]

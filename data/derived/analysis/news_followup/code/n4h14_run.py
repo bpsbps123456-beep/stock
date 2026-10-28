@@ -60,7 +60,7 @@ MIN_N, MIN_CL = 5, 3
 # A = 명시적 대안: 다른 부호자의 family=, 'X 대안', '엄격 기준이면 X', '그 경우 지배 사실은 X', 'X로 재검토',
 #     reliability.csv 맹검 재부호화 불일치.
 ALT_A = {
-    "G0001": ("R", "D", "다른 부호자 행 family=D(claude 9f7827b16caf, codex d072556e3983)"),
+    "G0001": ("D", "R", "다른 부호자 행 family=R(claude d072556e3983); 2026-10-28 census 재열람 뒤 대표 행이 codex D로 바뀜"),
     "G0007": ("D", "N", "Codex 검토행 N(상충 보존)"),
     "G0012": ("R", "T", "'T 대안 보존'"),
     "G0032": ("N", "S", "reliability 재부호화 N→S(ad98d9050c54)"),
