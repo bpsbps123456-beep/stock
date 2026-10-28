@@ -81,6 +81,8 @@ def validate_forecast(fc: dict, locked: bool = True) -> None:
                 raise ForecastError(f"{c['id']}: 없는 바스켓 {c[ref]}")
         if "ticker" in c and c["ticker"] not in universe:
             raise ForecastError(f"{c['id']}: 유니버스 밖 종목")
+        if c["kind"] == "eps_change" and not (isinstance(c.get("base"), (int, float)) and c["base"] != 0):
+            raise ForecastError(f"{c['id']}: EPS 기록값(base)은 0이 아닌 숫자여야 합니다")
     if locked:
         stamp(fc.get("recorded_at", ""))
         if fc.get("sha256") != digest(fc):
@@ -359,7 +361,7 @@ def evaluate(fc: dict, prices: dict | None, estimates: dict | None = None, now: 
                     value = (s[last] / s[a] - 1) - (m[last] / m[a] - 1)
         elif k == "eps_change":
             v = est.get(c["ticker"])
-            value = None if v is None else v / c["base"] - 1
+            value = None if v is None else (v - c["base"]) / abs(c["base"])  # 적자 기업도 개선이면 +
         if k == "manual":
             state = "manual"
         elif value is None:

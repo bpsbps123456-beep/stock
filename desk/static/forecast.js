@@ -15,7 +15,7 @@ async function fcLoad(refresh = false) {
     const data = await api("/api/forecast" + (refresh ? "?refresh=1" : ""));
     if (seq !== FC.request) return;
     FC.data = data;
-    if (!FC.id || !data.forecasts.some(f => f.id === FC.id)) FC.id = data.forecasts.at(-1)?.id;
+    if (!FC.id || !data.forecasts.some(f => f.id === FC.id)) FC.id = data.forecasts[0]?.id;
     fcRender();
   } catch (error) {
     if (seq !== FC.request) return;
@@ -75,16 +75,17 @@ function fcRender() {
   const hits = resolved.filter(c => c.state === "hit").length;
   const progress = r.sessions ? Math.min(1, r.elapsed / r.sessions) : 0;
   const waiting = r.status === "기준 종가 대기";
+  const label = fc.baskets[fc.primary_basket].label;
 
   const head = h("section", {class: "page-heading"},
     h("div", {}, h("div", {class: "eyebrow"}, "잠긴 예측과 실제 가격 비교 · ", fc.author),
       h("h1", {}, fc.title),
       h("p", {}, `기록 ${fcTime(fc.recorded_at)} · 기준 ${md(r.baseline)} 종가 → 마감 ${md(r.target)} 종가 · `,
         h("b", {}, waiting ? "기준 종가 대기" : `${r.elapsed}/${r.sessions}거래일`), r.complete ? " · 완료" : "")),
-    h("div", {class: "fc-tools"},
-      data.forecasts.length > 1 && h("select", {onchange: e => { FC.id = e.target.value; fcRender(); }},
-        data.forecasts.map(f => h("option", {value: f.id, selected: f.id === fc.id}, f.title))),
-      h("button", {class: "btn", onclick: () => fcLoad(true)}, "가격·전망치 갱신")));
+    h("div", {class: "fc-tools"}, h("button", {class: "btn", onclick: () => fcLoad(true)}, "가격·전망치 갱신")));
+  const pickers = data.forecasts.length > 1 && h("nav", {class: "fc-pickers", "aria-label": "예측 기록 선택"},
+    data.forecasts.map(f => h("button", {class: "btn" + (f.id === fc.id ? " primary" : ""), "aria-pressed": String(f.id === fc.id),
+      onclick: () => { FC.id = f.id; fcRender(); }}, f.title)));
   const bar = h("div", {class: "fc-progress", role: "progressbar", "aria-valuemin": 0, "aria-valuemax": r.sessions,
     "aria-valuenow": r.elapsed}, h("i", {style: `width:${(progress * 100).toFixed(1)}%`}));
   const lock = h("p", {class: "fc-lock"}, "🔒 기록 뒤 수정 불가 — 내용 해시 ", h("code", {title: fc.sha256}, fc.sha256.slice(0, 12)),
@@ -94,8 +95,8 @@ function fcRender() {
     fcTile(`${fc.benchmark} 수익`, waiting ? "—" : pct(soxx), `기준 ${md(r.baseline)} 이후`, cls(soxx)),
     fcTile(fc.baskets[fc.primary_basket].label, waiting ? "—" : pct(P.return),
       `베타 ${fc.baskets[fc.primary_basket].beta.toFixed(2)}배 · 같은 금액`, cls(P.return)),
-    fcTile(`${fc.benchmark} 대비`, waiting ? "—" : pct(P.excess), "탑픽 − SOXX", cls(P.excess)),
-    fcTile("베타 조정 초과", waiting ? "—" : pct(P.alpha), "탑픽 − 베타 × SOXX · 종목 선택 효과", cls(P.alpha)),
+    fcTile(`${fc.benchmark} 대비`, waiting ? "—" : pct(P.excess), `${label} − ${fc.benchmark}`, cls(P.excess)),
+    fcTile("베타 조정 초과", waiting ? "—" : pct(P.alpha), `바스켓 − 베타 × ${fc.benchmark} · 종목 선택 효과`, cls(P.alpha)),
     fcTile("SOXX를 이긴 종목", waiting ? "—" : `${P.beat}/${fc.picks.length}`, "기준가 이후 수익 기준"),
     fcTile("판정된 예측", `${hits}/${resolved.length}`, r.brier == null ? "판정되면 확률 점수(Brier)가 나옵니다"
       : `Brier ${r.brier.toFixed(3)} · 0에 가까울수록 확률이 정확`));
@@ -124,20 +125,20 @@ function fcRender() {
       h("td", {class: cls(x.excess)}, pct(x.excess)), h("td", {}, x.rank ? `${x.rank}/${x.of}` : "—"),
       h("td", {class: cls(x.worst)}, pct(x.worst)), h("td", {}, verdict ? fcChip(verdict.state) : "—"));
   });
-  const picks = h("section", {class: "card"}, h("header", {}, h("h2", {}, "탑픽 10 성적"),
-    h("span", {class: "sub"}, "순위는 반도체 43종목 중 한 달 수익 순 · 최악은 기간 중 가장 낮았던 종가")),
+  const picks = h("section", {class: "card"}, h("header", {}, h("h2", {}, `${label} 성적`),
+    h("span", {class: "sub"}, `순위는 이 기록의 ${Object.keys(fc.universe).length}종목 중 기준가 이후 수익 순 · 최악은 기간 중 가장 낮았던 종가`)),
     h("div", {class: "fc-scroll"}, h("table", {class: "fc-table"},
       h("thead", {}, h("tr", {}, ["#", "종목", "기준 종가", "최근 종가", "수익", "SOXX 대비", "순위", "최악", "판정"].map(s => h("th", {}, s)))),
       h("tbody", {}, pRows))));
 
-  const cards = h("section", {class: "fc-reasons"}, h("h2", {}, "고른 이유와 확인할 것"),
+  const cards = h("section", {class: "fc-reasons"}, h("h2", {}, "판단 이유와 확인할 것"),
     fc.picks.map(p => h("details", {class: "card fc-pick", open: p.rank <= 3},
       h("summary", {}, h("span", {class: "fc-rank"}, p.rank), h("b", {}, p.ticker), h("span", {class: "fc-dim"}, p.theme),
         res[p.ticker]?.return != null && h("span", {class: "fc-ret " + cls(res[p.ticker].excess)}, `SOXX 대비 ${pct(res[p.ticker].excess)}`)),
       h("p", {}, p.thesis),
       h("div", {class: "fc-sides"},
-        h("div", {}, h("h3", {}, "근거"), h("ul", {}, p.reasons.map(s => h("li", {}, s)))),
-        h("div", {}, h("h3", {}, "위험"), h("ul", {}, p.risks.map(s => h("li", {}, s))))),
+        h("div", {}, h("h3", {}, "판단 근거"), h("ul", {}, p.reasons.map(s => h("li", {}, s)))),
+        h("div", {}, h("h3", {}, "틀릴 수 있는 이유"), h("ul", {}, p.risks.map(s => h("li", {}, s))))),
       h("div", {class: "fc-scroll"}, h("table", {class: "fc-table fc-mini"}, h("tbody", {}, fcClaimRows(byTicker[p.ticker] || [])))))));
 
   const groups = [...new Set(fc.claims.map(c => c.group || "기타"))].filter(g => g !== "종목");
@@ -152,7 +153,7 @@ function fcRender() {
     h("details", {}, h("summary", {}, "일부러 뺀 종목"), h("ul", {}, (fc.exclusions || []).map(e => h("li", {}, h("b", {}, e.ticker), " — ", e.reason)))),
     h("details", {open: true}, h("summary", {}, "이렇게 되면 내가 틀린 것"), h("ul", {}, (fc.wrong_if || []).map(s => h("li", {}, s)))));
 
-  mount(root, head, bar, lock,
+  mount(root, pickers, head, bar, lock,
     h("div", {id: "fc-status", class: "fc-dim", role: "status"}, "가격 ", data.prices_fetched_at ? fcTime(data.prices_fetched_at) : "미수집",
       " · 전망치 ", data.estimates_fetched_at ? fcTime(data.estimates_fetched_at) : "미수집", " · 최근 종가일 ", r.latest || "—"),
     data.warning && h("p", {class: "fc-error", role: "alert"}, data.warning),

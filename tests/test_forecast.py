@@ -101,6 +101,21 @@ class ScoringTests(unittest.TestCase):
                                                     ("m1", "m2", "b1", "b2", "b3", "b4", "f1", "e1", "eps")) / 9)
         self.assertEqual([p["rank"] for p in result["picks"]], [1, 2])
 
+    def test_eps_change_sign_is_right_for_losses(self):
+        fc = example()
+        fc["claims"].append({"id": "loss", "kind": "eps_change", "ticker": "BBB", "base": -6.0, "op": "<", "value": 0.0,
+                             "probability": 0.55, "text": "적자 확대"})
+        result = forecast.evaluate(locked(fc), PRICES, {"values": {"AAA": 2.2, "BBB": -6.6}}, now=AFTER)
+        loss = {c["id"]: c for c in result["claims"]}["loss"]
+        self.assertAlmostEqual(loss["observed"], -0.1, msg="bigger loss is a negative revision")
+        self.assertEqual(loss["state"], "hit")
+
+    def test_eps_base_must_be_nonzero(self):
+        fc = example()
+        fc["claims"][-2]["base"] = 0
+        with self.assertRaises(forecast.ForecastError):
+            forecast.validate_forecast(fc, locked=False)
+
     def test_interim_values_are_tracking_not_final(self):
         result = forecast.evaluate(self.fc, PRICES, now=news.stamp("2026-10-30T21:00:00Z"))
         c = self.claims(result)

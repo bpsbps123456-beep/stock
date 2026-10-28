@@ -1450,6 +1450,403 @@
       ],
       "recorded_at": "2026-10-28T13:32:51+00:00",
       "sha256": "1d111ac283b3677b3c587d23add07e52bc9a767d6cd0780e2f5ca555d5d7d890"
+    },
+    {
+      "id": "2026-10-28-asked-axti-be-vrt-nbis",
+      "title": "물어본 4종목 판단 (AXTI·BE·VRT·NBIS)",
+      "author": "claude",
+      "request": "axti는? / be는 왜없을까? vrt도 / nbis도 궁금해 / 응 지금당시의 판단을 적고 나중에비교해보자",
+      "benchmark": "SOXX",
+      "horizon_sessions": 21,
+      "summary": "첫 기록(탑픽 10)을 잠근 뒤 질문받은 4종목의 당시 판단이다. AXTI는 점수 2위였지만 공매도·시총 규칙으로 뺐고, SOXX를 이길 확률은 반반으로 본다. BE는 반도체 밖이라 후보에 없었지만 같은 점수로 45종목 중 7위라 넣었다면 탑픽 안이었다. SOXX보다 조금 나을 쪽(55%)으로 본다. VRT(43위)와 NBIS(30위, 적자 전망 확대)는 SOXX보다 덜 오를 쪽(각 40%)으로 본다. 탑픽 10과 기준가(10/28 종가)·마감(11/27)이 같아 나란히 비교한다.",
+      "context": [
+        "첫 기록 2026-10-28-soxx-rebound-top10(커밋 369d042)의 유니버스는 반도체 43종목이었다. BE·VRT·NBIS는 AI 전력·데이터센터 종목이라 후보가 아니었다",
+        "점수 규칙은 첫 기록과 같다(전망 상향 45·베타 30·반등 초반 15·두 펀드 최근 매수 10). 이 기록의 전망 수정률은 적자 기업도 부호가 맞는 (지금 − 과거) ÷ |과거|"
+      ],
+      "method_notes": [
+        "기준가·마감·수익률·베타 조정 계산은 첫 기록과 같다(docs/desk_system.md §14)",
+        "생성: data/derived/analysis/semi_rebound/code/make_forecast_asked.py",
+        "예측 기록이다. 목표 비중·주문 수량이 없고 데스크 7종목 규칙과 무관하다"
+      ],
+      "wrong_if": [
+        "BE가 SOXX에 지면, 반도체 밖 종목을 같은 점수로 매겨 '넣었으면 탑픽'이라 본 판단이 틀린 것",
+        "VRT·NBIS가 SOXX를 크게 이기면, 낮은 베타·전망 악화로 낮춰 본 판단이 틀린 것",
+        "AXTI가 SOXX를 크게 이기면, 공매도·시총 규칙으로 뺀 판단이 비싼 대가를 치른 것"
+      ],
+      "universe": {
+        "AXTI": {
+          "beta": 2.4846,
+          "rev30": 0.0,
+          "rev90": 1.892,
+          "early": 0.1294,
+          "october_drop": -0.405,
+          "july": 1.5959,
+          "si": 0.1907,
+          "mcap_busd": 4.0242,
+          "fpe": 27.2756
+        },
+        "BE": {
+          "beta": 1.6532,
+          "rev30": 0.0725,
+          "rev90": 0.117,
+          "early": 0.0034,
+          "october_drop": -0.2403,
+          "july": 0.4178,
+          "si": 0.0662,
+          "mcap_busd": 66.0526,
+          "fpe": 42.0898
+        },
+        "VRT": {
+          "beta": 0.9043,
+          "rev30": 0.0036,
+          "rev90": 0.0414,
+          "early": 0.0663,
+          "october_drop": -0.2288,
+          "july": 0.3111,
+          "si": 0.0363,
+          "mcap_busd": 91.0074,
+          "fpe": 25.71
+        },
+        "NBIS": {
+          "beta": 1.9198,
+          "rev30": -0.0901,
+          "rev90": -0.2651,
+          "early": 0.071,
+          "october_drop": -0.3156,
+          "july": 0.8139,
+          "si": 0.2018,
+          "mcap_busd": 47.1323,
+          "fpe": -48.1882
+        },
+        "MU": {
+          "beta": 1.4308,
+          "rev30": 0.1525,
+          "rev90": 0.2697,
+          "early": 0.0844,
+          "october_drop": -0.1949,
+          "july": 0.3691,
+          "si": 0.02,
+          "mcap_busd": 1050.8207,
+          "fpe": 4.4891
+        },
+        "WDC": {
+          "beta": 1.1197,
+          "rev30": 0.2726,
+          "rev90": 0.3772,
+          "early": 0.0754,
+          "october_drop": -0.198,
+          "july": 0.1601,
+          "si": 0.052,
+          "mcap_busd": 142.5722,
+          "fpe": 9.4266
+        },
+        "MRVL": {
+          "beta": 1.461,
+          "rev30": 0.0846,
+          "rev90": 0.1743,
+          "early": 0.0899,
+          "october_drop": -0.176,
+          "july": 0.4341,
+          "si": 0.0328,
+          "mcap_busd": 218.8975,
+          "fpe": 33.2335
+        },
+        "FORM": {
+          "beta": 1.8151,
+          "rev30": 0.0447,
+          "rev90": 0.3875,
+          "early": 0.1244,
+          "october_drop": -0.3579,
+          "july": 0.6556,
+          "si": 0.0476,
+          "mcap_busd": 8.3472,
+          "fpe": 27.7064
+        },
+        "ALAB": {
+          "beta": 1.8015,
+          "rev30": 0.0023,
+          "rev90": 0.4142,
+          "early": 0.112,
+          "october_drop": -0.2885,
+          "july": 0.282,
+          "si": 0.0606,
+          "mcap_busd": 49.7364,
+          "fpe": 44.7394
+        },
+        "LRCX": {
+          "beta": 1.3565,
+          "rev30": 0.0352,
+          "rev90": 0.1965,
+          "early": 0.0465,
+          "october_drop": -0.3344,
+          "july": 0.3626,
+          "si": 0.0227,
+          "mcap_busd": 301.4056,
+          "fpe": 19.818
+        },
+        "STX": {
+          "beta": 1.0498,
+          "rev30": 0.0373,
+          "rev90": 0.2519,
+          "early": 0.04,
+          "october_drop": -0.2761,
+          "july": 0.3013,
+          "si": 0.0307,
+          "mcap_busd": 151.8644,
+          "fpe": 11.6272
+        },
+        "AMD": {
+          "beta": 1.243,
+          "rev30": 0.0114,
+          "rev90": 0.1436,
+          "early": 0.103,
+          "october_drop": -0.196,
+          "july": 0.1779,
+          "si": 0.0234,
+          "mcap_busd": 914.6105,
+          "fpe": 35.559
+        },
+        "MTSI": {
+          "beta": 1.2983,
+          "rev30": 0.0054,
+          "rev90": 0.2312,
+          "early": 0.113,
+          "october_drop": -0.3002,
+          "july": 0.4321,
+          "si": 0.0401,
+          "mcap_busd": 19.5265,
+          "fpe": 29.9516
+        },
+        "ASX": {
+          "beta": 1.1589,
+          "rev30": 0.0987,
+          "rev90": 0.0774,
+          "early": 0.1145,
+          "october_drop": -0.206,
+          "july": 0.2825,
+          "si": 0.0072,
+          "mcap_busd": 92.8506,
+          "fpe": 19.5998
+        }
+      },
+      "baskets": {
+        "asked4": {
+          "label": "물어본 4종목",
+          "tickers": [
+            "AXTI",
+            "BE",
+            "VRT",
+            "NBIS"
+          ],
+          "beta": 1.7405
+        },
+        "picks_ref": {
+          "label": "탑픽 10(첫 기록)",
+          "tickers": [
+            "MU",
+            "WDC",
+            "MRVL",
+            "FORM",
+            "ALAB",
+            "LRCX",
+            "STX",
+            "AMD",
+            "MTSI",
+            "ASX"
+          ],
+          "beta": 1.3735,
+          "note": "첫 기록과 같은 종목·기준가"
+        }
+      },
+      "primary_basket": "asked4",
+      "picks": [
+        {
+          "rank": 1,
+          "ticker": "AXTI",
+          "theme": "인듐인(InP) 기판 · 광통신 소재",
+          "thesis": "첫 기록의 점수로는 2위였지만 공매도·시총 규칙으로 뺐다. 판단: SOXX를 이길 확률은 반반이고, 위아래 폭은 가장 크다.",
+          "reasons": [
+            "다음 회계연도 EPS 전망 90일 +189.2% — 7/30 실적 직후 한 번 뛴 값이고 30일 상향은 +0.0%, 애널리스트 5명",
+            "KoAct 10/23 신규 편입(1.46%), 2분기 InP 매출 사상 최대·InP 생산 능력 2배 계획",
+            "베타 2.48(최고), 7월 반등 +159.6%"
+          ],
+          "risks": [
+            "공장이 중국: InP 기판은 2025-02부터 중국 수출 통제, 허가 약 60영업일, 미국 고객 허가 미발급(2026 증권신고서)",
+            "10/29 장 마감 뒤 실적 — '좋은 실적에도 판다' 장",
+            "공매도 19.1%, 2026년 주식 발행 신고(424B5)"
+          ]
+        },
+        {
+          "rank": 2,
+          "ticker": "BE",
+          "theme": "연료전지 발전 · AI 데이터센터 전력",
+          "thesis": "반도체 밖이라 첫 기록의 후보(43종목)에 없었다. 같은 점수로는 45종목 중 7위라, 넣었다면 탑픽 안이었다. 판단: SOXX보다 조금 나을 쪽.",
+          "reasons": [
+            "두 펀드가 최근 5거래일 함께 매수(TIME 수량 +115%, KoAct +147%)",
+            "베타 1.65, EPS 전망 30일 +7.2%·90일 +11.7%",
+            "한 달 안 실적 발표 없음(다음 2/4)"
+          ],
+          "risks": [
+            "반등 초반(10/22→10/27) +0.3%로 거의 못 따라옴",
+            "선행 PER 42배",
+            "KoAct는 그 전 20거래일에 수량 −55%를 팔았다가 다시 산 것"
+          ]
+        },
+        {
+          "rank": 3,
+          "ticker": "VRT",
+          "theme": "전력·냉각 장비",
+          "thesis": "같은 점수로 45종목 중 43위. 반도체와 같이 움직이는 정도가 낮고 전망 상향이 약하다. 판단: SOXX보다 덜 오를 쪽.",
+          "reasons": [
+            "SOXX 대비 베타 0.90",
+            "EPS 전망 30일 +0.4%·90일 +4.1%",
+            "두 펀드 모두 미보유"
+          ],
+          "risks": [
+            "52주 고점 대비 −44.5%로 이미 많이 빠져 있다",
+            "반등 초반 +6.6%로 SOXX만큼은 탔다",
+            "AI 전력 수요는 반도체와 다른 축으로 움직일 수 있다"
+          ]
+        },
+        {
+          "rank": 4,
+          "ticker": "NBIS",
+          "theme": "네오클라우드(AI 데이터센터 임대)",
+          "thesis": "같은 점수로 44종목 중 30위, 공매도 20%·90일 전망 하락으로 규칙상 제외. 이익 전망이 나빠지는 쪽이라 '급락 중에도 전망이 오른 종목' 기준과 반대다. 판단: SOXX보다 덜 오를 쪽.",
+          "reasons": [
+            "다음 회계연도 EPS 전망 30일 −9.0%·90일 −26.5% — 적자 전망 확대(−6.2달러)",
+            "공매도 20.2%, KoAct 최근 20거래일 안 편출",
+            "10월 급락 이유 중 하나가 네오클라우드 차입 비용"
+          ],
+          "risks": [
+            "베타 1.92 — 반등이 커지면 가장 많이 오를 수 있다",
+            "매출 전년 대비 +454%",
+            "7월 반등 +81.4%"
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "id": "x_AXTI",
+          "group": "종목",
+          "kind": "ticker_excess",
+          "ticker": "AXTI",
+          "op": ">",
+          "value": 0.0,
+          "probability": 0.5,
+          "text": "AXTI가 한 달 동안 SOXX보다 더 오른다"
+        },
+        {
+          "id": "e_AXTI",
+          "group": "종목",
+          "kind": "event_excess",
+          "ticker": "AXTI",
+          "start": "2026-10-29",
+          "end": "2026-10-30",
+          "op": ">",
+          "value": 0.0,
+          "probability": 0.45,
+          "text": "AXTI: 10/29 실적 다음 날 SOXX보다 더 오른다"
+        },
+        {
+          "id": "eps_AXTI",
+          "group": "종목",
+          "kind": "eps_change",
+          "ticker": "AXTI",
+          "base": 2.25,
+          "op": ">",
+          "value": 0.0,
+          "probability": 0.6,
+          "text": "AXTI: 다음 회계연도 EPS 전망이 11/27까지 오른다(기록 2.25)"
+        },
+        {
+          "id": "x_BE",
+          "group": "종목",
+          "kind": "ticker_excess",
+          "ticker": "BE",
+          "op": ">",
+          "value": 0.0,
+          "probability": 0.55,
+          "text": "BE가 한 달 동안 SOXX보다 더 오른다"
+        },
+        {
+          "id": "eps_BE",
+          "group": "종목",
+          "kind": "eps_change",
+          "ticker": "BE",
+          "base": 5.31008,
+          "op": ">",
+          "value": 0.0,
+          "probability": 0.6,
+          "text": "BE: 다음 회계연도 EPS 전망이 11/27까지 오른다(기록 5.31)"
+        },
+        {
+          "id": "x_VRT",
+          "group": "종목",
+          "kind": "ticker_excess",
+          "ticker": "VRT",
+          "op": ">",
+          "value": 0.0,
+          "probability": 0.4,
+          "text": "VRT가 한 달 동안 SOXX보다 더 오른다"
+        },
+        {
+          "id": "x_NBIS",
+          "group": "종목",
+          "kind": "ticker_excess",
+          "ticker": "NBIS",
+          "op": ">",
+          "value": 0.0,
+          "probability": 0.4,
+          "text": "NBIS가 한 달 동안 SOXX보다 더 오른다"
+        },
+        {
+          "id": "eps_NBIS",
+          "group": "종목",
+          "kind": "eps_change",
+          "ticker": "NBIS",
+          "base": -6.15734,
+          "op": "<",
+          "value": 0.0,
+          "probability": 0.55,
+          "text": "NBIS: 적자 전망이 11/27까지 더 커진다(기록 −6.2)"
+        },
+        {
+          "id": "b1",
+          "group": "비교",
+          "kind": "basket_excess",
+          "basket": "asked4",
+          "op": ">",
+          "value": 0.0,
+          "probability": 0.5,
+          "text": "물어본 4종목(같은 금액)이 SOXX보다 더 오른다"
+        },
+        {
+          "id": "b2",
+          "group": "비교",
+          "kind": "basket_excess",
+          "basket": "picks_ref",
+          "versus": "asked4",
+          "op": ">",
+          "value": 0.0,
+          "probability": 0.5,
+          "text": "탑픽 10이 물어본 4종목보다 더 오른다"
+        },
+        {
+          "id": "b3",
+          "group": "비교",
+          "kind": "basket_excess",
+          "basket": "picks_ref",
+          "versus": "asked4",
+          "adjust": "beta",
+          "op": ">",
+          "value": 0.0,
+          "probability": 0.6,
+          "text": "베타를 감안하면 탑픽 10이 물어본 4종목보다 낫다"
+        }
+      ],
+      "recorded_at": "2026-10-28T14:06:52+00:00",
+      "sha256": "2ad93092a96e4177c4f550a01b55fba211a5b0c13174f4dcaa3963e33c64c92f"
     }
   ]
 }

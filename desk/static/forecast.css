@@ -10,6 +10,7 @@
 .fc-page ul { padding-left: 20px; margin: 6px 0; }
 .fc-dim { color: var(--muted); font-size: 12.5px; }
 .fc-tools { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.fc-pickers { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
 .fc-tools select { background: var(--surface); color: var(--ink); border: 1px solid var(--line-2); border-radius: 6px; padding: 8px 10px; font: inherit; }
 .fc-progress { height: 6px; border-radius: 3px; background: var(--surface-2); overflow: hidden; margin: 14px 0 8px; }
 .fc-progress i { display: block; height: 100%; background: var(--accent); }
