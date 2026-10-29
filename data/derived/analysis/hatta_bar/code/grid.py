@@ -1,4 +1,4 @@
-"""사전 등록 격자(① 89,856칸, ② 29,952칸)를 판정 모집단(주문 가능 시간)·E2에서 잰다.
+"""사전 등록 격자(v3: ① 179,712칸, ② 59,904칸 — 이탈 방식 2가지 포함)를 판정 모집단(주문 가능 시간)·E2에서 잰다.
 칸마다 앞(7/1~8/31)·뒤(9/1~10/28) 통계를 남기고, 앞 구간 자격 칸 중 (R1 − 변동성 맞춤 R1) 거래일 묶음 t값 1위를 고른다.
 사용: py grid.py cand_alp1m 20260831   → results/grid_A.parquet, grid_B.parquet, pick.json"""
 import os, sys, json, itertools, time
@@ -165,7 +165,7 @@ def run_stats(arr, mask):
                       arr["bvn"], arr["hit"], arr["bvhit"], arr["race"], arr["r1e0"], arr["hite0"], arr["nd"], arr["nsym"])
 
 
-def grid_table(path, pat, N, tol, split):
+def grid_table(path, pat, N, tol, split, mode):
     X, arr = prepare(pd.read_parquet(path), split)
     rows = []
     shapes = A_SHAPES if pat == "A" else B_SHAPES
@@ -181,9 +181,9 @@ def grid_table(path, pat, N, tol, split):
                     vm = dm & (X["volr"].to_numpy() >= v) if v > 0 else dm
                     for si, sh in enumerate(shapes):
                         st = run_stats(arr, vm & ctx[si] & shm[si])
-                        rows.append((N, tol, kopt[0], e, D, v) + tuple(sh) + tuple(st[0]) + tuple(st[1]))
+                        rows.append((mode, N, tol, kopt[0], e, D, v) + tuple(sh) + tuple(st[0]) + tuple(st[1]))
     shape_cols = ["rm", "r", "m", "above"] if pat == "A" else ["below", "eng"]
-    cols = ["N", "tol", "K", "ema", "D", "v"] + shape_cols + [f"f_{s}" for s in STAT_NAMES] + [f"b_{s}" for s in STAT_NAMES]
+    cols = ["mode", "N", "tol", "K", "ema", "D", "v"] + shape_cols + [f"f_{s}" for s in STAT_NAMES] + [f"b_{s}" for s in STAT_NAMES]
     return pd.DataFrame(rows, columns=cols)
 
 
@@ -199,11 +199,12 @@ def main(cand, split):
     picks = {}
     for pat in ("A", "B"):
         parts = []
-        for N in E.NS:
-            for tol in E.TOLS:
-                path = os.path.join(cdir, f"{pat}_{N}_{tol}.parquet")
-                parts.append(grid_table(path, pat, N, tol, split))
-                print(pat, N, tol, len(parts[-1]), f"{time.time() - t0:.0f}s", flush=True)
+        for mode in E.MODES:
+            for N in E.NS:
+                for tol in E.TOLS:
+                    path = os.path.join(cdir, f"{pat}_{N}_{tol}_{mode}.parquet")
+                    parts.append(grid_table(path, pat, N, tol, split, mode))
+                    print(pat, mode, N, tol, len(parts[-1]), f"{time.time() - t0:.0f}s", flush=True)
         g = pd.concat(parts, ignore_index=True)
         g["elig"] = eligible(g)
         g["rank"] = g.f_t.where(g.elig).rank(ascending=False, method="first")

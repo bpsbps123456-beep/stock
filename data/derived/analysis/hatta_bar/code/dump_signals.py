@@ -7,10 +7,12 @@ import pandas as pd
 import engine as E
 from build import SYMS
 
-# (이름, 패턴, N, tol, K방식, p, K, ema, D, v, 모양) — 원안과 몇 가지 다른 칸
+# (이름, 패턴, N, tol, K방식, p, K, ema, D, v, 모양) — orig = v3 원안(신저가), first_·alt_ = 처음 이탈 방식
 CELLS = [
-    ("orig_A", "A", 120, 0.0005, "level", 3, 2, "persist", 0.02, 0.0, ("wick", 0.5, 1.0, False)),
-    ("orig_B", "B", 120, 0.0005, None, 3, 1, "persist", 0.02, 0.0, (True, "basic")),
+    ("orig_A", "A", 120, 0.0005, "level", 2, 2, "persist", 0.02, 0.0, ("wick", 0.5, 0.0, False)),
+    ("orig_B", "B", 120, 0.0005, None, 2, 1, "persist", 0.02, 0.0, (True, "basic")),
+    ("first_A", "A", 120, 0.0005, "level", 3, 2, "persist", 0.02, 0.0, ("wick", 0.5, 1.0, False)),
+    ("first_B", "B", 120, 0.0005, None, 3, 1, "persist", 0.02, 0.0, (True, "basic")),
     ("alt_A1", "A", 60, 0.0, "touch", 2, 3, "now", 0.0, 2.0, ("cpos", 0.65, 0.0, True)),
     ("alt_A2", "A", 390, 0.001, "level", 5, 3, "none", 0.03, 0.0, ("wick", 0.65, 2.0, False)),
     ("alt_B1", "B", 240, 0.001, "level", 2, 2, "now", 0.01, 2.0, (False, "full")),
@@ -52,9 +54,10 @@ def main(src, out, tv=False):
         o = E.bar_outcomes(a)
         cache = {}
         for name, pat, N, tol, kmode, p, K, ema, D, v, shape in CELLS:
-            if (N, tol) not in cache:
-                cache[(N, tol)] = E.candidates(sym, a, o, N, tol)
-            A, B = cache[(N, tol)]
+            mode = "newlow" if name.startswith("orig") else "first"
+            if (N, tol, mode) not in cache:
+                cache[(N, tol, mode)] = E.candidates(sym, a, o, N, tol, mode=mode)
+            A, B = cache[(N, tol, mode)]
             X = A if pat == "A" else B
             if X is None:
                 continue

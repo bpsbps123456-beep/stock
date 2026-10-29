@@ -1,6 +1,7 @@
 """하따봉 탐지·결과 엔진 v2 — BRIEF.md v2 정의를 그대로 옮긴다(봉 마감 때 아는 값만 쓴다).
 
-지지선 S_t = min(저가[t−N … t−2]). 처음 이탈 봉 t: 저가[t−1] ≥ S(1−tol), 저가[t] < S(1−tol), 저가[t] < 저가[t−1].
+이탈 방식 두 가지(v3): 처음 이탈 — S_t = min(저가[t−N … t−2]), 저가[t−1] ≥ S(1−tol), 저가[t] < S(1−tol), 저가[t] < 저가[t−1].
+  신저가(원안) — S'_t = min(저가[t−N … t−1]), 저가[t] < S'(1−tol). 앞 봉이 살짝 깬 뒤 손절을 쓸고 올라오는 봉(NOW 10/29 09:38)을 잡는다.
 '여러 지지선' K: 확정 스윙 저점(왼쪽 p봉보다 작고 오른쪽 p봉보다 작거나 같음, j+p ≤ t−1, j ∈ [t−N, t−2]) + (S가 스윙이 아니면 S 한 점)
   touch = 가격 ≤ S×1.003 점 수, level = 가격 ≤ S×1.01 점을 오름차순으로 보며 묶음 첫 점보다 0.15% 넘게 높으면 새 묶음.
 hatta_bar.pine과 같은 순서·같은 비교 부호를 쓴다.
@@ -21,6 +22,7 @@ MIN_RANGE = 0.002
 MIN_DENS = 15
 TOUCH_BAND, LEVEL_BAND, LEVEL_MERGE = 0.003, 0.01, 0.0015
 NS, TOLS, PS = (60, 120, 240, 390), (0.0, 0.0005, 0.001), (2, 3, 5)
+MODES = ("first", "newlow")
 
 
 def load(sym, src="alp1m"):
@@ -316,13 +318,24 @@ def _attach(X, a, out, tt, stop):
     return X
 
 
-def candidates(sym, a, out, N, tol, plain=False):
-    """(N, tol) 하나의 ①·② 후보 행(봉 모양 조건 전). plain=True면 '단순 저점'(N봉 신저가, '처음'·tol 없음) 비교군."""
+def newlow_line(low, N):
+    """S'_t = min(저가[t−N … t−1]) — 앞 봉까지 창 안 모든 저점."""
+    return pd.Series(low).rolling(N, min_periods=N).min().shift(1).to_numpy()
+
+
+def candidates(sym, a, out, N, tol, plain=False, mode="first"):
+    """(N, tol, 이탈 방식) 하나의 ①·② 후보 행(봉 모양 조건 전).
+    mode 'first' = 처음 이탈(v2: 앞 봉은 S를 안 깸), 'newlow' = 신저가(v3: 저가 < min(저가[t−N … t−1]) × (1 − tol)).
+    plain=True면 '단순 저점'(N봉 신저가, tol 없음) 설명용 비교군."""
     low = a["l"]
     if plain:
-        S = pd.Series(low).rolling(N, min_periods=N).min().shift(1).to_numpy()   # min(저가[t−N … t−1])
+        S = newlow_line(low, N)
         with np.errstate(invalid="ignore"):
             brk = low < S
+    elif mode == "newlow":
+        S = newlow_line(low, N)
+        with np.errstate(invalid="ignore"):
+            brk = low < S * (1 - tol)
     else:
         S = support_line(low, N)
         brk = first_break(low, S, tol)

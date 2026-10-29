@@ -11,8 +11,8 @@ RES = G.RES
 SPLIT = 20260831
 B_BOOT = 2000
 ORIG = {
-    "A": dict(N=120, tol=0.0005, K="level3_2", ema="persist", D=0.02, v=0.0, rm="wick", r=0.5, m=1.0, above=False),
-    "B": dict(N=120, tol=0.0005, K="k1", ema="persist", D=0.02, v=0.0, below=True, eng="basic"),
+    "A": dict(mode="newlow", N=120, tol=0.0005, K="level2_2", ema="persist", D=0.02, v=0.0, rm="wick", r=0.5, m=0.0, above=False),
+    "B": dict(mode="newlow", N=120, tol=0.0005, K="k1", ema="persist", D=0.02, v=0.0, below=True, eng="basic"),
 }
 
 
@@ -25,7 +25,7 @@ def kopt(name):
 
 
 def table(cand, pat, spec, plain=False):
-    f = f"plain_{pat}_{int(spec['N'])}.parquet" if plain else f"{pat}_{int(spec['N'])}_{spec['tol']}.parquet"
+    f = f"plain_{pat}_{int(spec['N'])}.parquet" if plain else f"{pat}_{int(spec['N'])}_{spec['tol']}_{spec['mode']}.parquet"
     X = pd.read_parquet(os.path.join(E.CACHE, cand, f))
     return X
 
@@ -147,7 +147,7 @@ def halt_share(sig, src="alp1m"):
 
 
 def spec_of(row, pat):
-    keys = ["N", "tol", "K", "ema", "D", "v"] + (["rm", "r", "m", "above"] if pat == "A" else ["below", "eng"])
+    keys = ["mode", "N", "tol", "K", "ema", "D", "v"] + (["rm", "r", "m", "above"] if pat == "A" else ["below", "eng"])
     return {k: (row[k].item() if hasattr(row[k], "item") else row[k]) for k in keys}
 
 

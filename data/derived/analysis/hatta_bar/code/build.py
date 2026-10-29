@@ -1,5 +1,5 @@
 """종목별 1분봉 → (N, tol)마다 ①·② 후보 표를 만들어 한데 모은다(+ 같은 분 다른 종목 대조값).
-사용: py build.py alp1m 2026-07-01 2026-10-28      → cache/cand_alp1m/{A,B}_{N}_{tol}.parquet, plain_{A,B}_{N}.parquet
+사용: py build.py alp1m 2026-07-01 2026-10-28      → cache/cand_alp1m/{A,B}_{N}_{tol}_{mode}.parquet, plain_{A,B}_{N}.parquet
       py build.py alp1m_2025 2025-07-01 2025-10-31
       py build.py yf1m 2026-09-30 2026-10-28"""
 import os, sys, json, time
@@ -40,12 +40,12 @@ def main(src, a_day, b_day):
         stats[sym] = {"bars": int(inper.sum()), "valid": int(v.sum()), "days": int(len(np.unique(a["day"][inper]))),
                       "sane": int((a["sane"] & inper).sum())}
         for N in E.NS:
-            for tol in E.TOLS:
-                A, B = E.candidates(sym, a, out, N, tol)
+            for tol, mode in ((t_, m_) for t_ in E.TOLS for m_ in E.MODES):
+                A, B = E.candidates(sym, a, out, N, tol, mode=mode)
                 for tag, X in (("A", A), ("B", B)):
                     if X is not None and len(X):
                         X = X[(X.day >= lo) & (X.day <= hi)]
-                        c = removed.setdefault(f"{tag}_{N}_{tol}", {"rows": 0, "invalid": 0, "invalid_tradable": 0,
+                        c = removed.setdefault(f"{tag}_{N}_{tol}_{mode}", {"rows": 0, "invalid": 0, "invalid_tradable": 0,
                                                                      "insane": 0, "insane_tradable": 0})
                         c["rows"] += len(X)
                         c["invalid"] += int((~X.valid).sum())
@@ -54,7 +54,7 @@ def main(src, a_day, b_day):
                         c["insane_tradable"] += int((~X.sane & X.tradable).sum())
                         X = X[X.valid].copy()
                         X.insert(0, "sid", sid)
-                        parts.setdefault(f"{tag}_{N}_{tol}", []).append(X)
+                        parts.setdefault(f"{tag}_{N}_{tol}_{mode}", []).append(X)
             A, B = E.candidates(sym, a, out, N, 0.0, plain=True)
             for tag, X in (("A", A), ("B", B)):
                 if X is not None and len(X):

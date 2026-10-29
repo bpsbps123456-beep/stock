@@ -3,7 +3,8 @@
 // ① 꼬리 반전: 긴 하락 끝에서 처음으로 지지선(최근 N봉 최저가)을 깨고 더 낮은 바닥을 찍은 뒤, 봉 길이의 반 이상을 되돌려 마감한 봉(음봉 허용).
 // ② 장악 양봉: 지지선을 깨고 그 아래에서 마감한 음봉(로스컷 유도) 바로 다음에, 그 음봉을 말아 올린 양봉.
 // 목표: 신호 봉 마감 뒤 30분 안에 +1%. 계산 규칙은 data/derived/analysis/hatta_bar/BRIEF.md, 파이썬 code/engine.py와 같은 순서·부호다.
-// 지지선 S = 최근 N봉(바로 앞 봉 제외) 최저가. 처음 이탈 = 앞 봉은 S를 안 깼고 이 봉이 S 아래로 내려가 더 낮은 바닥을 찍음.
+// 지지선 S = 앞 봉까지 최근 N봉 최저가. 기본 '신저가'는 이 봉 저가가 S 아래(앞 봉이 살짝 깬 뒤 손절을 쓸고 올라오는 봉도 잡는다, NOW 10/29 09:38).
+// '처음 이탈'은 앞 봉이 S(앞 봉 제외 N봉 최저가)를 안 깼을 때만 센다.
 // '여러 지지선' = 확정된 스윙 저점 중 S 근처에 있는 점 수(같은 선 시험 0.3% / 겹친 지지선 1%, 0.15% 안은 한 선).
 // 백테스트 자료(Alpaca SIP)는 04:00~20:00 뉴욕 봉뿐이다. 차트에 주간거래 봉이 있으면 그 봉도 EMA·지지선 계산에 들어가 조금 다를 수 있다.
 // 백테스트는 체결 5건 미만 봉을 뺐지만 트레이딩뷰에는 체결 건수가 없어 한 가격 봉만 뺀다(장전·장후 신호가 백테스트보다 조금 많을 수 있다).
@@ -16,7 +17,10 @@ indicator("하따봉", shorttitle = "하따봉", overlay = true, max_lines_count
 const string G1 = "지지선"
 nBars   = input.int(120, "지지선 = 최근 N봉 최저가", minval = 10, maxval = 490, group = G1, display = display.none)
 tolPct  = input.float(0.05, "이탈 허용 오차 %", minval = 0.0, step = 0.01, group = G1, tooltip = "이만큼은 찔러도 선을 깬 것으로 보지 않는다", display = display.none)
-pSw     = input.int(3, "스윙 저점 좌우 봉 수", minval = 1, maxval = 10, group = G1, display = display.none)
+pSw     = input.int(2, "스윙 저점 좌우 봉 수", minval = 1, maxval = 10, group = G1, display = display.none)
+const string B_NEW = "신저가 (앞 봉까지 N봉 최저가 아래)"
+const string B_FIRST = "처음 이탈 (앞 봉은 안 깸)"
+brkMd   = input.string(B_NEW, "이탈 방식", options = [B_NEW, B_FIRST], group = G1, display = display.none)
 const string M_TOUCH = "같은 선 시험 (0.3%)"
 const string M_LEVEL = "겹친 지지선 (1%)"
 kModeA  = input.string(M_LEVEL, "① 지지선 세는 방식", options = [M_TOUCH, M_LEVEL], group = G1, display = display.none)
@@ -37,7 +41,7 @@ const string R_WICK = "아랫꼬리"
 const string R_CPOS = "종가 위치"
 recMd   = input.string(R_WICK, "회복 기준", options = [R_WICK, R_CPOS], group = G3, tooltip = "아랫꼬리 = (시가·종가 중 낮은 값 − 저가) ÷ 봉 길이, 종가 위치 = (종가 − 저가) ÷ 봉 길이", display = display.none)
 recMin  = input.float(0.5, "회복 비율", minval = 0.0, maxval = 1.0, step = 0.05, group = G3, display = display.none)
-rngMin  = input.float(1.0, "봉 길이 ≥ ATR14 × (0 = 끔)", minval = 0.0, step = 0.5, group = G3, display = display.none)
+rngMin  = input.float(0.0, "봉 길이 ≥ ATR14 × (0 = 끔)", minval = 0.0, step = 0.5, group = G3, display = display.none)
 needAb  = input.bool(false, "지지선 위에서 마감", group = G3, display = display.none)
 
 const string G4 = "② 장악 양봉"
@@ -92,9 +96,11 @@ for i = 1 to 480
         nIn30 += 1
 
 float tol = tolPct / 100
-float S = ta.lowest(low, nBars - 1)[2]
+float sNew = ta.lowest(low, nBars)[1]
+float sFirst = ta.lowest(low, nBars - 1)[2]
+float S = brkMd == B_NEW ? sNew : sFirst
 float thr = S * (1 - tol)
-bool brk = low[1] >= thr and low < thr and low < low[1]
+bool brk = brkMd == B_NEW ? low < thr : low[1] >= thr and low < thr and low < low[1]
 float rng = high - low
 bool single = open == high and high == low and low == close
 bool sane = volume * close >= minNot and rng >= minRng / 100 * close and not single
