@@ -250,9 +250,123 @@ class PayloadTests(unittest.TestCase):
     def test_recorded_ledger_is_valid_and_locked(self):
         data = forecast.read_ledger()
         for fc in data["forecasts"]:
+            if forecast.is_earnings(fc):
+                for ev in fc["events"]:
+                    self.assertLess(news.stamp(fc["recorded_at"]), forecast.event_times(ev)["cutoff"])
+                continue
             sch = forecast.schedule(fc)
             self.assertEqual(len(sch["days"]), fc["horizon_sessions"] + 1)
             self.assertLess(news.stamp(fc["recorded_at"]), sch["closes"][sch["baseline"]])
+
+
+def earnings_example() -> dict:
+    dist = lambda p, lo, mid, hi: {"p_up": p, "q": {"0.1": lo, "0.25": lo / 2, "0.5": mid, "0.75": hi / 2, "0.9": hi}}
+    event = lambda t, timing, at, levels=(): {
+        "ticker": t, "timing": timing, "announce_at": at, "base_date": "2026-10-28", "reaction_date": "2026-10-29",
+        "inputs": {"scale": 0.08}, "mechanical": dist(0.5, -0.1, 0.0, 0.1), "forecast": dist(0.6, -0.08, 0.01, 0.12),
+        "levels": list(levels), "thesis": "근거", "reasons": ["옵션 내재 변동"], "risks": ["가이던스"]}
+    return {"id": "earn", "type": "earnings", "title": "실적", "author": "claude", "request": "실적 반응", "benchmark": "QQQ",
+            "summary": "요약", "model": {"text": "기계 기준 + 판단"},
+            "events": [event("AAA", "amc", "2026-10-28T20:05:00Z",
+                             [{"name": "Z1", "price": 9.5, "p_touch": 0.4}, {"name": "Z3", "price": 8.5, "p_touch": 0.1}]),
+                       event("BBB", "bmo", "2026-10-29T11:00:00Z")]}
+
+
+EARN_PRICES = {"close": {"AAA": {"2026-10-28": 10.0, "2026-10-29": 11.0}, "BBB": {"2026-10-28": 20.0, "2026-10-29": 19.0},
+                         "QQQ": {"2026-10-28": 100.0, "2026-10-29": 101.0}},
+               "low": {"AAA": {"2026-10-29": 9.4}, "BBB": {"2026-10-29": 18.0}},
+               "ext": {"AAA|2026-10-29": {"post": {"low": 8.0, "floor": 8.9}, "pre": {"low": 9.45, "floor": 9.45},
+                                          "reg": {"low": 9.4, "floor": 9.4 / 0.999}}}}
+EARN_AFTER = news.stamp("2026-10-29T20:30:00Z")
+
+
+class EarningsTests(unittest.TestCase):
+    def test_record_must_precede_release_and_base_close(self):
+        forecast.validate_forecast(locked(earnings_example()))
+        for at in ("2026-10-28T20:00:00+00:00", "2026-10-28T21:00:00+00:00"):  # 기준일 마감 뒤: amc·bmo 모두 거부
+            with self.assertRaises(forecast.ForecastError):
+                forecast.validate_forecast(locked(earnings_example(), at))
+
+    def test_session_rules(self):
+        cases = [("reaction_date", "2026-10-30"), ("announce_at", "2026-10-28T18:00:00Z"), ("timing", "dmh")]
+        for key, value in cases:
+            fc = earnings_example()
+            fc["events"][0][key] = value
+            with self.assertRaises(forecast.ForecastError, msg=key):
+                forecast.validate_forecast(fc, locked=False)
+        fc = earnings_example()
+        fc["events"][1]["announce_at"] = "2026-10-29T14:00:00Z"  # 장중(10:00 ET) 발표는 bmo가 아니다
+        with self.assertRaises(forecast.ForecastError):
+            forecast.validate_forecast(fc, locked=False)
+
+    def test_distribution_rules(self):
+        for bad in ({"p_up": 1.0}, {"q": {"0.1": 0.1, "0.25": 0.0, "0.5": 0.0, "0.75": 0.1, "0.9": 0.2}}, {"q": {"0.5": 0.0}}):
+            fc = earnings_example()
+            fc["events"][0]["forecast"].update(bad)
+            with self.assertRaises(forecast.ForecastError):
+                forecast.validate_forecast(fc, locked=False)
+
+    def test_waiting_until_reaction_close_settles(self):
+        result = forecast.evaluate_earnings(locked(earnings_example()), EARN_PRICES, now=news.stamp("2026-10-29T19:59:00Z"))
+        self.assertEqual(result["status"], "발표 대기")
+        self.assertTrue(all(x["state"] == "waiting" for x in result["events"]))
+
+    def test_scoring_against_mechanical_and_levels(self):
+        result = forecast.evaluate_earnings(locked(earnings_example()), EARN_PRICES, now=EARN_AFTER)
+        self.assertEqual(result["status"], "완료")
+        a, b = result["events"]
+        self.assertAlmostEqual(a["return"], 0.10)
+        self.assertAlmostEqual(a["bench_return"], 0.01)
+        self.assertAlmostEqual(a["forecast"]["brier"], 0.16)
+        self.assertTrue(a["forecast"]["dir_hit"])
+        self.assertIsNone(a["mechanical"]["dir_hit"])  # 50%는 방향을 고르지 않은 것
+        self.assertTrue(a["forecast"]["in80"] and not a["forecast"]["in50"])
+        self.assertFalse(a["mechanical"]["in80"])
+        q = earnings_example()["events"][0]["forecast"]["q"]
+        self.assertAlmostEqual(a["forecast"]["pinball"], forecast.pinball(q, 0.10))
+        z1, z3 = a["levels"]
+        self.assertTrue(z1["touched"] and z1["touched_post"])  # 정규장 저가 9.4가 9.5보다 0.1% 넘게 아래
+        self.assertAlmostEqual(z1["to_close"], 11 / 9.5 - 1)
+        self.assertFalse(z3["touched"])  # 프리장·정규장은 못 닿음
+        self.assertFalse(z3["touched_post"])  # 애프터 원 저가 8.0은 한 번 찍힌 값, 확인 저가 8.9는 8.5 위
+        self.assertAlmostEqual(b["return"], -0.05)
+        self.assertFalse(b["forecast"]["dir_hit"])
+        score = result["score"]
+        self.assertEqual(score["n"], 2)
+        self.assertEqual((score["forecast"]["calls"], score["forecast"]["hits"]), (2, 1))
+        self.assertEqual(score["mechanical"]["calls"], 0)
+        self.assertEqual((score["levels"]["n"], score["levels"]["touched"]), (2, 1))
+        self.assertAlmostEqual(score["size_ratio"], (0.10 / 0.08 + 0.05 / 0.08) / 2)
+
+    def test_regular_low_needs_to_go_through_the_limit(self):
+        prices = copy.deepcopy(EARN_PRICES)
+        prices["ext"] = {}
+        prices["low"]["AAA"]["2026-10-29"] = 9.5  # 지정가와 같은 저가는 체결로 보지 않는다
+        z1 = forecast.evaluate_earnings(locked(earnings_example()), prices, now=EARN_AFTER)["events"][0]["levels"][0]
+        self.assertFalse(z1["touched"])
+
+    def test_missing_price_after_close_is_not_scored(self):
+        prices = copy.deepcopy(EARN_PRICES)
+        del prices["close"]["BBB"]["2026-10-29"]
+        result = forecast.evaluate_earnings(locked(earnings_example()), prices, now=EARN_AFTER)
+        self.assertEqual([x["state"] for x in result["events"]], ["scored", "no_price"])
+        self.assertEqual(result["status"], "진행 중")
+
+    def test_record_refused_after_cutoff_and_payload_history(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "ledger.json"
+            with mock.patch.object(forecast, "now_iso", return_value="2026-10-28T20:00:00+00:00"):
+                with self.assertRaises(forecast.ForecastError):
+                    forecast.record(earnings_example(), path)
+            self.assertFalse(path.exists())
+            with mock.patch.object(forecast, "now_iso", return_value="2026-10-28T14:30:00+00:00"):
+                forecast.record(earnings_example(), path)
+                forecast.record(example(), path)
+            data = forecast.read_ledger(path)
+        self.assertEqual(forecast.tickers_of(data), ["AAA", "BBB", "CCC", "DDD", "EEE", "FFF", "QQQ", "SOXX"])
+        out = forecast.payload(data=data, prices={**EARN_PRICES, "adj": PRICES["adj"]}, estimates={}, now=EARN_AFTER)
+        self.assertEqual(out["earnings"]["score"]["n"], 2)
+        self.assertEqual({x["record"] for x in out["earnings"]["events"]}, {"earn"})
 
 
 class ForecastHttpTests(unittest.TestCase):

@@ -3,6 +3,10 @@
 A forecast is stamped and hashed when it is recorded and never edited afterwards. Prices start
 at the first US regular-session close after the recording, so nothing seen while writing it can
 leak into the score. This module never feeds the portfolio engine.
+
+Earnings records (`type: "earnings"`, §14.2) predict the reaction-day close of each report from
+the last close before it. They must be recorded before the announcement (and before the base
+close for after-close reports) and are scored per event as soon as the reaction close settles.
 """
 from __future__ import annotations
 
@@ -31,10 +35,20 @@ KINDS = {"benchmark_return", "benchmark_min_close", "basket_excess", "basket_cou
          "ticker_excess", "event_excess", "eps_change", "manual"}
 REQUIRED = ("id", "title", "author", "request", "benchmark", "horizon_sessions", "summary",
             "universe", "baskets", "primary_basket", "picks", "claims")
+EARN_REQUIRED = ("id", "type", "title", "author", "request", "benchmark", "summary", "model", "events")
+QUANTILES = ("0.1", "0.25", "0.5", "0.75", "0.9")
+TIMINGS = ("amc", "bmo")
+EDGE_MIN = 5  # minutes a listed release time may sit inside the session edge (16:00 vs 15:55 listings)
+EXT_TOL = 1.005  # extended-hours low counts only if the bar closes or the next bar trades within 0.5% of it
+REG_THROUGH = 0.999  # a regular-session limit fills only when the low goes 0.1% through it
 
 
 class ForecastError(ValueError):
     pass
+
+
+def is_earnings(fc: dict) -> bool:
+    return isinstance(fc, dict) and fc.get("type") == "earnings"
 
 
 def digest(forecast: dict) -> str:
@@ -43,7 +57,92 @@ def digest(forecast: dict) -> str:
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
 
+def check_dist(d: dict, where: str) -> None:
+    """A reaction forecast: P(close up) and five rising return quantiles."""
+    p = d.get("p_up") if isinstance(d, dict) else None
+    if not isinstance(p, (int, float)) or not 0 < p < 1:
+        raise ForecastError(f"{where}: 상승 확률 p_up은 0과 1 사이입니다")
+    q = d.get("q")
+    if not isinstance(q, dict) or set(q) != set(QUANTILES) or not all(
+            isinstance(q[k], (int, float)) and math.isfinite(q[k]) for k in QUANTILES):
+        raise ForecastError(f"{where}: 분위수 q는 {', '.join(QUANTILES)} 다섯 개 숫자입니다")
+    vals = [q[k] for k in QUANTILES]
+    if any(b < a for a, b in zip(vals, vals[1:])):
+        raise ForecastError(f"{where}: 분위수는 커지는 순서여야 합니다")
+
+
+def event_times(ev: dict) -> dict:
+    """Release, base close and reaction close of one report, with the session rules checked.
+
+    amc: released on the base day at/after its close, reacts the next session.
+    bmo: released before the reaction session opens; base = the session before.
+    The record must be made before the cutoff = the earlier of the release and the base close,
+    so the base close is the first close after recording, as for every other forecast.
+    """
+    cal = market_calendar()
+    t = ev.get("ticker")
+    if not isinstance(t, str) or not t or ev.get("timing") not in TIMINGS:
+        raise ForecastError(f"{t}: 종목과 발표 시점(amc·bmo)이 필요합니다")
+    try:
+        at = stamp(ev.get("announce_at", ""))
+    except Exception as exc:
+        raise ForecastError(f"{t}: 발표 시각은 시간대가 있는 ISO 형식입니다") from exc
+    base, react = ev.get("base_date"), ev.get("reaction_date")
+    if not (isinstance(base, str) and isinstance(react, str) and cal.is_session(base) and cal.is_session(react)):
+        raise ForecastError(f"{t}: 기준일·반응일은 미국 거래일입니다")
+    if cal.next_session(base).strftime("%Y-%m-%d") != react:
+        raise ForecastError(f"{t}: 반응일은 기준일 다음 거래일입니다")
+    base_close = cal.session_close(base).to_pydatetime()
+    react_open = cal.session_open(react).to_pydatetime()
+    react_close = cal.session_close(react).to_pydatetime()
+    edge = timedelta(minutes=EDGE_MIN)
+    if ev["timing"] == "amc" and not base_close - edge <= at < react_open:
+        raise ForecastError(f"{t}: 장 마감 뒤 발표는 기준일 마감과 반응일 개장 사이여야 합니다")
+    if ev["timing"] == "bmo" and not base_close <= at < react_open + edge:
+        raise ForecastError(f"{t}: 장 시작 전 발표는 기준일 마감과 반응일 개장 사이여야 합니다")
+    return {"announce": at, "base_close": base_close, "react_open": react_open, "react_close": react_close,
+            "cutoff": min(at, base_close)}
+
+
+def validate_earnings(fc: dict, locked: bool = True) -> None:
+    if not all(k in fc for k in EARN_REQUIRED) or not isinstance(fc["events"], list) or not fc["events"]:
+        raise ForecastError("실적 예측 필수 항목이 빠졌습니다")
+    if not isinstance(fc["model"], dict) or not fc["model"].get("text"):
+        raise ForecastError("실적 예측: 계산 방법(model.text)이 필요합니다")
+    seen, cutoffs = set(), []
+    for ev in fc["events"]:
+        if not isinstance(ev, dict):
+            raise ForecastError("실적 예측: 사건 형식 오류")
+        cutoffs.append(event_times(ev)["cutoff"])
+        key = (ev["ticker"], ev["reaction_date"])
+        if key in seen:
+            raise ForecastError(f"{ev['ticker']}: 같은 반응일 사건이 두 번 있습니다")
+        seen.add(key)
+        for part in ("mechanical", "forecast"):
+            check_dist(ev.get(part), f"{ev['ticker']} {part}")
+        if not (ev.get("thesis") and isinstance(ev.get("reasons"), list) and ev["reasons"]
+                and isinstance(ev.get("risks"), list)):
+            raise ForecastError(f"{ev['ticker']}: 판단 근거·위험이 필요합니다")
+        levels = ev.get("levels", [])
+        if not isinstance(levels, list):
+            raise ForecastError(f"{ev['ticker']}: 지정가 단계는 목록입니다")
+        for lv in levels:
+            price, p = (lv.get("price"), lv.get("p_touch")) if isinstance(lv, dict) else (None, None)
+            if not isinstance(lv, dict) or not lv.get("name") or not isinstance(price, (int, float)) or price <= 0 or (
+                    p is not None and not (isinstance(p, (int, float)) and 0 < p < 1)):
+                raise ForecastError(f"{ev['ticker']}: 지정가 단계는 이름·가격(>0)·닿을 확률(0~1)입니다")
+    if locked:
+        at = stamp(fc.get("recorded_at", ""))
+        if fc.get("sha256") != digest(fc):
+            raise ForecastError(f"{fc['id']}: 기록 뒤 내용이 바뀌었습니다(해시 불일치)")
+        if any(at >= c for c in cutoffs):
+            raise ForecastError(f"{fc['id']}: 발표나 기준일 마감 중 이른 시각 뒤에는 기록할 수 없습니다")
+
+
 def validate_forecast(fc: dict, locked: bool = True) -> None:
+    if is_earnings(fc):
+        validate_earnings(fc, locked)
+        return
     if not isinstance(fc, dict) or not all(k in fc for k in REQUIRED):
         raise ForecastError("예측 필수 항목이 빠졌습니다")
     if not isinstance(fc["horizon_sessions"], int) or not 1 <= fc["horizon_sessions"] <= 126:
@@ -161,9 +260,64 @@ def final_close(day: str, at: datetime) -> bool:
 def tickers_of(data: dict) -> list[str]:
     out = set()
     for fc in data["forecasts"]:
-        out.update(fc["universe"])
+        if is_earnings(fc):
+            out.update(ev["ticker"] for ev in fc["events"])
+        else:
+            out.update(fc["universe"])
         out.add(fc["benchmark"])
     return sorted(out)
+
+
+def first_day(fc: dict) -> str:
+    return min(ev["base_date"] for ev in fc["events"]) if is_earnings(fc) else schedule(fc)["baseline"]
+
+
+def extended_lows(events: list[dict], fetched: datetime) -> dict:
+    """Lowest fillable price per window around each settled report, from Yahoo 1-hour bars.
+
+    post = base-day after-hours (amc only), pre = reaction-day pre-market, reg = regular session.
+    An extended bar's low counts only if the bar closes, or the next bar trades, within 0.5% of
+    it (one stray print is not a fill), so its fillable floor is max(low, min(close, next low)/1.005).
+    A regular-session limit needs the low to go 0.1% through it: floor = low / 0.999.
+    """
+    import yfinance as yf
+    out = {}
+    by_ticker: dict[str, list[dict]] = {}
+    for ev in events:
+        if event_times(ev)["react_close"] + timedelta(seconds=CLOSE_GRACE_SEC) <= fetched:
+            by_ticker.setdefault(ev["ticker"], []).append(ev)
+    for t, evs in by_ticker.items():
+        start = min(e["base_date"] for e in evs)
+        end = (pd.Timestamp(max(e["reaction_date"] for e in evs)) + pd.Timedelta(days=1)).strftime("%Y-%m-%d")
+        try:
+            bars = yf.Ticker(t).history(start=start, end=end, interval="1h", prepost=True, auto_adjust=False)
+        except Exception:  # one ticker failing leaves the others scored on the daily bar
+            continue
+        if bars is None or bars.empty:
+            continue
+        bars = bars.tz_convert(config.NY)
+        nxt = bars["Low"].shift(-1)
+        floor = pd.concat([bars["Close"], nxt], axis=1).min(axis=1) / EXT_TOL
+        ext_floor = pd.concat([bars["Low"], floor], axis=1).max(axis=1)
+        for ev in evs:
+            tm = event_times(ev)
+            day = pd.Timestamp(ev["reaction_date"], tz=config.NY)
+            spans = {"pre": (day + pd.Timedelta(hours=4), pd.Timestamp(tm["react_open"]).tz_convert(config.NY)),
+                     "reg": (pd.Timestamp(tm["react_open"]).tz_convert(config.NY),
+                             pd.Timestamp(tm["react_close"]).tz_convert(config.NY))}
+            if ev["timing"] == "amc":
+                b = pd.Timestamp(tm["base_close"]).tz_convert(config.NY)
+                spans["post"] = (b, b + pd.Timedelta(hours=4))
+            row = {}
+            for name, (a, z) in spans.items():
+                sel = (bars.index >= a) & (bars.index < z)
+                if not sel.any():
+                    continue
+                low = float(bars["Low"][sel].min())
+                eff = float(ext_floor[sel].min()) if name != "reg" else low / REG_THROUGH
+                row[name] = {"low": low, "floor": eff}
+            out[f"{t}|{ev['reaction_date']}"] = row
+    return out
 
 
 def refresh_prices(data: dict | None = None, path: Path = PRICES) -> dict:
@@ -172,18 +326,25 @@ def refresh_prices(data: dict | None = None, path: Path = PRICES) -> dict:
     tickers = tickers_of(data)
     if not tickers:
         raise ForecastError("기록된 예측이 없습니다")
-    start = min(schedule(fc)["baseline"] for fc in data["forecasts"])
+    start = min(first_day(fc) for fc in data["forecasts"])
     start = (pd.Timestamp(start) - pd.Timedelta(days=40)).strftime("%Y-%m-%d")
     frame = yf.download(tickers, start=start, auto_adjust=False, actions=True, progress=False, threads=True)
     fetched = datetime.now(timezone.utc)
     snap = {"source": "Yahoo Finance / yfinance · 종가(분할 반영)와 수정 종가(배당 반영)", "fetched_at": now_iso(),
             "fetched_epoch": time.time(), "close": {}, "adj": {}, "splits": {}}
     final = lambda d: final_close(d, fetched)
-    for field, key in (("Close", "close"), ("Adj Close", "adj")):
-        for t in tickers:
+    events = [ev for fc in data["forecasts"] if is_earnings(fc) for ev in fc["events"]]
+    earn = {ev["ticker"] for ev in events}
+    fields = [("Close", "close", tickers), ("Adj Close", "adj", tickers)]
+    fields += [(f, f.lower(), sorted(earn)) for f in ("Open", "High", "Low")] if earn else []
+    for field, key, names in fields:
+        snap.setdefault(key, {})
+        for t in names:
             if t in frame[field]:
                 s = frame[field][t].dropna()
                 snap[key][t] = {d.strftime("%Y-%m-%d"): float(v) for d, v in s.items() if final(d.strftime("%Y-%m-%d"))}
+    if events:
+        snap["ext"] = extended_lows(events, fetched)
     if "Stock Splits" in frame:
         for t in tickers:
             if t in frame["Stock Splits"]:
@@ -201,7 +362,7 @@ def refresh_estimates(data: dict | None = None, path: Path = ESTIMATES) -> dict:
     """Current next-fiscal-year EPS consensus for tickers an eps_change claim names."""
     import yfinance as yf
     data = data if data is not None else read_ledger()
-    wanted = sorted({c["ticker"] for fc in data["forecasts"] for c in fc["claims"] if c["kind"] == "eps_change"})
+    wanted = sorted({c["ticker"] for fc in data["forecasts"] for c in fc.get("claims", []) if c["kind"] == "eps_change"})
     values = {}
     for t in wanted:
         try:
@@ -380,6 +541,89 @@ def evaluate(fc: dict, prices: dict | None, estimates: dict | None = None, now: 
     return out
 
 
+def pinball(q: dict, y: float) -> float:
+    """Mean quantile (pinball) loss over the five quantiles; lower is better, in return units."""
+    return sum(max(float(k) * (y - v), (float(k) - 1) * (y - v)) for k, v in q.items()) / len(q)
+
+
+def score_dist(d: dict, y: float) -> dict:
+    q, p = d["q"], d["p_up"]
+    up = 1.0 if y > 0 else 0.0
+    return {"p_up": p, "brier": (p - up) ** 2, "dir_hit": None if p == 0.5 else (y > 0) == (p > 0.5),
+            "in80": q["0.1"] <= y <= q["0.9"], "in50": q["0.25"] <= y <= q["0.75"],
+            "pinball": pinball(q, y), "err50": y - q["0.5"]}
+
+
+def evaluate_earnings(fc: dict, prices: dict | None, now: datetime | None = None) -> dict:
+    """Score each report once its reaction close has settled; earlier events stay waiting."""
+    now = now or datetime.now(timezone.utc)
+    p = prices or {}
+    close, low, high, opn = (p.get(k, {}) for k in ("close", "low", "high", "open"))
+    ext, splits, bench = p.get("ext", {}), p.get("splits", {}), fc["benchmark"]
+    rows = []
+    for ev in fc["events"]:
+        tm = event_times(ev)
+        t, b, r = ev["ticker"], ev["base_date"], ev["reaction_date"]
+        cs = close.get(t, {})
+        row = {"ticker": t, "name": ev.get("name"), "timing": ev["timing"], "announce_at": ev["announce_at"],
+               "base_date": b, "reaction_date": r, "base_close": cs.get(b), "close": None, "return": None,
+               "levels": [], "state": "waiting"}
+        settled = now >= tm["react_close"] + timedelta(seconds=CLOSE_GRACE_SEC)
+        if settled and b in cs and r in cs:
+            row["state"] = "split" if unadjusted(cs, splits.get(t, {}), b) else "scored"
+        elif settled:
+            row["state"] = "no_price"
+        if row["state"] != "scored":
+            rows.append(row)
+            continue
+        y = cs[r] / cs[b] - 1
+        mb = close.get(bench, {})
+        w = ext.get(f"{t}|{r}", {})
+        reg_low = low.get(t, {}).get(r)
+        floors = {k: v["floor"] for k, v in w.items()}
+        if "reg" not in floors and reg_low is not None:
+            floors["reg"] = reg_low / REG_THROUGH
+        row.update(close=cs[r], open=opn.get(t, {}).get(r), high=high.get(t, {}).get(r), low=reg_low,
+                   ext={k: v["low"] for k, v in w.items()}, floors=floors, **{"return": y},
+                   bench_return=mb[r] / mb[b] - 1 if b in mb and r in mb else None,
+                   scale=(ev.get("inputs") or {}).get("scale"),
+                   forecast=score_dist(ev["forecast"], y), mechanical=score_dist(ev["mechanical"], y))
+        for lv in ev.get("levels", []):
+            price = lv["price"]
+            hit = {k: f <= price for k, f in floors.items()}
+            touched = hit.get("pre", False) or hit.get("reg", False)  # 반응일 프리장 + 정규장(p_touch 정의)
+            row["levels"].append({**lv, "dist": price / cs[b] - 1, "touched": touched, "touched_post": hit.get("post"),
+                                  "to_close": cs[r] / price - 1 if touched else None,
+                                  "brier": None if lv.get("p_touch") is None else (lv["p_touch"] - float(touched)) ** 2})
+        rows.append(row)
+    scored = [x for x in rows if x["state"] == "scored"]
+    done = all(x["state"] == "scored" for x in rows)
+    return {"status": "완료" if done else ("진행 중" if scored else "발표 대기"), "events": rows,
+            "score": earnings_score(scored)}
+
+
+def _mean(xs: list) -> float | None:
+    xs = [x for x in xs if x is not None]
+    return sum(xs) / len(xs) if xs else None
+
+
+def earnings_score(rows: list[dict]) -> dict:
+    """Running report card: my calls against the mechanical baseline on the same events."""
+    out = {"n": len(rows)}
+    for side in ("forecast", "mechanical"):
+        s = [x[side] for x in rows]
+        calls = [x["dir_hit"] for x in s if x["dir_hit"] is not None]
+        out[side] = {"brier": _mean([x["brier"] for x in s]), "pinball": _mean([x["pinball"] for x in s]),
+                     "in80": _mean([float(x["in80"]) for x in s]), "in50": _mean([float(x["in50"]) for x in s]),
+                     "calls": len(calls), "hits": sum(calls)}
+    out["size_ratio"] = _mean([abs(x["return"]) / x["scale"] for x in rows if x.get("scale")])
+    lv = [l for x in rows for l in x["levels"]]
+    out["levels"] = {"n": len(lv), "touched": sum(l["touched"] for l in lv),
+                     "brier": _mean([l["brier"] for l in lv]),
+                     "to_close": _mean([l["to_close"] for l in lv if l["touched"]])}
+    return out
+
+
 def _stale(snap: dict | None, max_age: float) -> bool:
     return snap is None or time.time() - snap.get("fetched_epoch", 0) > max_age
 
@@ -414,8 +658,11 @@ def payload(force: bool = False, data: dict | None = None, prices: dict | None =
                 estimates = refresh_estimates(data)
             except Exception as exc:
                 warning = (warning + " · " if warning else "") + f"전망치 갱신 실패: {type(exc).__name__}"
-    items = [{**fc, "result": evaluate(fc, prices, estimates, now)} for fc in data["forecasts"]]
-    return {"forecasts": items, "warning": warning,
+    items = [{**fc, "result": evaluate_earnings(fc, prices, now) if is_earnings(fc) else evaluate(fc, prices, estimates, now)}
+             for fc in data["forecasts"]]
+    history = [{**x, "record": fc["id"]} for fc in items if is_earnings(fc)
+               for x in fc["result"]["events"] if x["state"] == "scored"]
+    return {"forecasts": items, "warning": warning, "earnings": {"score": earnings_score(history), "events": history},
             "price_source": (prices or {}).get("source"), "prices_fetched_at": (prices or {}).get("fetched_at"),
             "estimates_fetched_at": (estimates or {}).get("fetched_at"),
             "method": "기록 시각을 찍고 해시로 잠근 예측입니다. 기준가는 기록 뒤 첫 미국 정규장 종가이고, "
@@ -423,6 +670,10 @@ def payload(force: bool = False, data: dict | None = None, prices: dict | None =
 
 
 def main(argv: list[str] | None = None) -> int:
+    argv = list(argv if argv is not None else [])
+    if argv[:1] == ["prep"]:  # 실적 반응 예측 초안(§14.2): py -m desk forecast prep --date … --amc … --out …
+        from .earnings_prep import main as prep
+        return prep(argv[1:])
     parser = argparse.ArgumentParser(description="예측 기록·점검")
     parser.add_argument("command", choices=("show", "validate", "record", "refresh"), nargs="?", default="show")
     parser.add_argument("file", nargs="?")
@@ -435,8 +686,14 @@ def main(argv: list[str] | None = None) -> int:
             if not args.file:
                 parser.error("record에는 JSON 파일이 필요합니다")
             fc = record(json.loads(Path(args.file).read_text(encoding="utf-8-sig")))
-            sch = schedule(fc)
-            print(f"기록: {fc['id']} · {fc['recorded_at']} · 기준 {sch['baseline']} → 마감 {sch['target']} · sha256 {fc['sha256']}")
+            if is_earnings(fc):
+                for ev in fc["events"]:
+                    print(f"  {ev['ticker']}: 기준 {ev['base_date']} 종가 → 반응 {ev['reaction_date']} 종가 · "
+                          f"기록 마감 {event_times(ev)['cutoff'].isoformat()}")
+                print(f"기록: {fc['id']} · {fc['recorded_at']} · 실적 {len(fc['events'])}건 · sha256 {fc['sha256']}")
+            else:
+                sch = schedule(fc)
+                print(f"기록: {fc['id']} · {fc['recorded_at']} · 기준 {sch['baseline']} → 마감 {sch['target']} · sha256 {fc['sha256']}")
         elif args.command == "refresh":
             data = read_ledger()
             snap = refresh_prices(data)
