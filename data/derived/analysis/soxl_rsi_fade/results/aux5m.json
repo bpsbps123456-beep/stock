@@ -1,0 +1,199 @@
+{
+ "rule": "5분 RSI(14, Wilder, 기준 R: 정규장 5분봉 09:30~15:55만 8/31부터 날을 넘어 이음, 8/31 첫 14봉 예열) T1(RSI[t−1] ≤ 70 < RSI[t]), 신호 봉 시작 09:30~10:25(12봉), 반대 종목 다음 5분봉 시가 + $0.01 진입, 진입 봉 포함 6봉 보유, 목표 P×1.01(고가 ≥ 목표 + $0.01 → +1.00%), 미도달 6번째 봉 종가 − $0.01, 같은 날 같은 매수 종목 겹침 금지(진입 시각 < 앞 청산 봉 시작 + 1분이면 건너뜀). 추종 = 같은 시각 X 자신 매수. B0 = 창 안 12봉 × SOXL·SOXS, 같은 체결·보유, 겹침 허용.",
+ "rsi_first_value_bar": {
+  "SOXL": "2026-08-31 10:40",
+  "SOXS": "2026-08-31 10:40"
+ },
+ "bootstrap": {
+  "n_boot": 5000,
+  "seed": 20261029,
+  "method": "기간마다 np.random.default_rng(seed).integers(0, 날 수, (5000, 날 수))로 날 복원 추출, 뽑힌 날의 매매를 통째로 합쳐 평균(합÷건수). 반대 매매가 0건인 추출은 NaN으로 빼고 개수 보고."
+ },
+ "periods": {
+  "2026-08-31~09-29": {
+   "n_days": 21,
+   "first_day": "2026-08-31",
+   "last_day": "2026-09-29",
+   "n_signals": 24,
+   "n_signals_by_ticker": {
+    "SOXL": 13,
+    "SOXS": 11
+   },
+   "fade": {
+    "n": 23,
+    "n_days": 18,
+    "skipped_overlap": 1,
+    "skipped_nobar": 0,
+    "hit_rate": 0.608696,
+    "ev_mean_pct": 0.101016,
+    "ev_median_pct": 1.0,
+    "miss_mean_pct": -1.297403,
+    "mae_median_pct": -1.114808,
+    "race_win": 0.478261,
+    "race_loss": 0.521739,
+    "race_ambig_n": 1,
+    "race_none": 0.0
+   },
+   "follow": {
+    "n": 21,
+    "n_days": 18,
+    "skipped_overlap": 3,
+    "skipped_nobar": 0,
+    "hit_rate": 0.666667,
+    "ev_mean_pct": -0.003984,
+    "ev_median_pct": 1.0,
+    "miss_mean_pct": -2.011951,
+    "mae_median_pct": -1.125392,
+    "race_win": 0.428571,
+    "race_loss": 0.571429,
+    "race_ambig_n": 1,
+    "race_none": 0.0
+   },
+   "b0": {
+    "n": 504,
+    "n_days": 21,
+    "hit_rate": 0.492063,
+    "ev_mean_pct": 0.013753,
+    "ev_median_pct": 0.749613,
+    "race_win": 0.428571,
+    "race_loss": 0.44246
+   },
+   "point_diff": {
+    "fade_minus_b0_ev_pct": 0.087263,
+    "fade_minus_b0_hit": 0.116633,
+    "fade_minus_follow_ev_pct": 0.105,
+    "fade_minus_follow_hit": -0.057971
+   },
+   "ci95": {
+    "fade_ev_mean_pct": {
+     "lo": -0.547793,
+     "hi": 0.614228,
+     "nan_draws": 0
+    },
+    "fade_minus_b0_ev_pct": {
+     "lo": -0.519919,
+     "hi": 0.566795,
+     "nan_draws": 0
+    },
+    "fade_hit_rate": {
+     "lo": 0.391304,
+     "hi": 0.8,
+     "nan_draws": 0
+    },
+    "fade_minus_b0_hit": {
+     "lo": -0.089326,
+     "hi": 0.302451,
+     "nan_draws": 0
+    },
+    "follow_ev_mean_pct": {
+     "lo": -0.747272,
+     "hi": 0.609503,
+     "nan_draws": 0
+    },
+    "fade_minus_follow_ev_pct": {
+     "lo": -0.997652,
+     "hi": 1.220579,
+     "nan_draws": 0
+    },
+    "b0_ev_mean_pct": {
+     "lo": -0.092202,
+     "hi": 0.122364,
+     "nan_draws": 0
+    }
+   }
+  },
+  "2026-09-30~10-28": {
+   "n_days": 21,
+   "first_day": "2026-09-30",
+   "last_day": "2026-10-28",
+   "n_signals": 22,
+   "n_signals_by_ticker": {
+    "SOXL": 7,
+    "SOXS": 15
+   },
+   "fade": {
+    "n": 21,
+    "n_days": 16,
+    "skipped_overlap": 1,
+    "skipped_nobar": 0,
+    "hit_rate": 0.666667,
+    "ev_mean_pct": 0.310107,
+    "ev_median_pct": 1.0,
+    "miss_mean_pct": -1.069679,
+    "mae_median_pct": -1.266897,
+    "race_win": 0.380952,
+    "race_loss": 0.571429,
+    "race_ambig_n": 3,
+    "race_none": 0.047619
+   },
+   "follow": {
+    "n": 21,
+    "n_days": 16,
+    "skipped_overlap": 1,
+    "skipped_nobar": 0,
+    "hit_rate": 0.666667,
+    "ev_mean_pct": 0.10093,
+    "ev_median_pct": 1.0,
+    "miss_mean_pct": -1.697211,
+    "mae_median_pct": -0.923579,
+    "race_win": 0.47619,
+    "race_loss": 0.47619,
+    "race_ambig_n": 1,
+    "race_none": 0.047619
+   },
+   "b0": {
+    "n": 504,
+    "n_days": 21,
+    "hit_rate": 0.553571,
+    "ev_mean_pct": -0.030521,
+    "ev_median_pct": 1.0,
+    "race_win": 0.436508,
+    "race_loss": 0.513889
+   },
+   "point_diff": {
+    "fade_minus_b0_ev_pct": 0.340628,
+    "fade_minus_b0_hit": 0.113096,
+    "fade_minus_follow_ev_pct": 0.209177,
+    "fade_minus_follow_hit": 0.0
+   },
+   "ci95": {
+    "fade_ev_mean_pct": {
+     "lo": -0.388674,
+     "hi": 0.781503,
+     "nan_draws": 0
+    },
+    "fade_minus_b0_ev_pct": {
+     "lo": -0.37497,
+     "hi": 0.829522,
+     "nan_draws": 0
+    },
+    "fade_hit_rate": {
+     "lo": 0.421053,
+     "hi": 0.857143,
+     "nan_draws": 0
+    },
+    "fade_minus_b0_hit": {
+     "lo": -0.126006,
+     "hi": 0.29446,
+     "nan_draws": 0
+    },
+    "follow_ev_mean_pct": {
+     "lo": -0.640366,
+     "hi": 0.715101,
+     "nan_draws": 0
+    },
+    "fade_minus_follow_ev_pct": {
+     "lo": -0.925908,
+     "hi": 1.220579,
+     "nan_draws": 0
+    },
+    "b0_ev_mean_pct": {
+     "lo": -0.154414,
+     "hi": 0.068777,
+     "nan_draws": 0
+    }
+   }
+  }
+ },
+ "events": "results/aux5m_events.csv"
+}

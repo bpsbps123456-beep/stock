@@ -1,0 +1,754 @@
+{
+ "variants_main_cell": [
+  {
+   "variant": "v0 기준(BRIEF 그대로)",
+   "fade_n": 30,
+   "fade_hit": 0.666667,
+   "fade_ev": 0.233643,
+   "b0_hit": 0.56746,
+   "b0_ev": 0.01589,
+   "fade_minus_b0_hit": 0.099206,
+   "fade_ev_ci": [
+    -0.172975,
+    0.630852
+   ],
+   "fade_minus_b0_hit_ci": [
+    -0.054765,
+    0.241007
+   ],
+   "half1_ev": 0.206608,
+   "half2_ev": 0.257299,
+   "mae_median": -0.815195,
+   "mae_median_ex_hitbar": -0.577718
+  },
+  {
+   "variant": "비용 한쪽 $0.02",
+   "fade_n": 29,
+   "fade_hit": 0.62069,
+   "fade_ev": 0.12339,
+   "b0_hit": 0.559127,
+   "b0_ev": -0.009691,
+   "fade_minus_b0_hit": 0.061563,
+   "fade_ev_ci": [
+    -0.291856,
+    0.5384
+   ],
+   "fade_minus_b0_hit_ci": [
+    -0.090087,
+    0.199605
+   ],
+   "half1_ev": -0.028824,
+   "half2_ev": 0.247063,
+   "mae_median": -1.167059,
+   "mae_median_ex_hitbar": -1.028885
+  },
+  {
+   "variant": "비용 한쪽 $0.03",
+   "fade_n": 29,
+   "fade_hit": 0.62069,
+   "fade_ev": 0.107802,
+   "b0_hit": 0.552381,
+   "b0_ev": -0.037011,
+   "fade_minus_b0_hit": 0.068309,
+   "fade_ev_ci": [
+    -0.314552,
+    0.527887
+   ],
+   "fade_minus_b0_hit_ci": [
+    -0.084127,
+    0.20754
+   ],
+   "half1_ev": -0.051004,
+   "half2_ev": 0.236832,
+   "mae_median": -1.200952,
+   "mae_median_ex_hitbar": -1.03917
+  },
+  {
+   "variant": "비용 한쪽 $0.05",
+   "fade_n": 29,
+   "fade_hit": 0.62069,
+   "fade_ev": 0.07665,
+   "b0_hit": 0.539286,
+   "b0_ev": -0.091065,
+   "fade_minus_b0_hit": 0.081404,
+   "fade_ev_ci": [
+    -0.356926,
+    0.507591
+   ],
+   "fade_minus_b0_hit_ci": [
+    -0.073026,
+    0.222867
+   ],
+   "half1_ev": -0.095323,
+   "half2_ev": 0.216379,
+   "mae_median": -1.268668,
+   "mae_median_ex_hitbar": -1.059734
+  },
+  {
+   "variant": "비용 한쪽 0.02%",
+   "fade_n": 30,
+   "fade_hit": 0.666667,
+   "fade_ev": 0.233288,
+   "b0_hit": 0.565873,
+   "b0_ev": 0.013004,
+   "fade_minus_b0_hit": 0.100794,
+   "fade_ev_ci": [
+    -0.174044,
+    0.632748
+   ],
+   "fade_minus_b0_hit_ci": [
+    -0.05371,
+    0.242628
+   ],
+   "half1_ev": 0.208235,
+   "half2_ev": 0.255209,
+   "mae_median": -0.824357,
+   "mae_median_ex_hitbar": -0.575538
+  },
+  {
+   "variant": "비용 한쪽 0.05%",
+   "fade_n": 29,
+   "fade_hit": 0.62069,
+   "fade_ev": 0.112433,
+   "b0_hit": 0.551587,
+   "b0_ev": -0.037096,
+   "fade_minus_b0_hit": 0.069102,
+   "fade_ev_ci": [
+    -0.304499,
+    0.553378
+   ],
+   "fade_minus_b0_hit_ci": [
+    -0.11627,
+    0.244633
+   ],
+   "half1_ev": -0.040541,
+   "half2_ev": 0.236724,
+   "mae_median": -1.05778,
+   "mae_median_ex_hitbar": -0.61589
+  },
+  {
+   "variant": "비용 한쪽 0.10%",
+   "fade_n": 28,
+   "fade_hit": 0.571429,
+   "fade_ev": -0.033305,
+   "b0_hit": 0.532937,
+   "b0_ev": -0.109602,
+   "fade_minus_b0_hit": 0.038492,
+   "fade_ev_ci": [
+    -0.456317,
+    0.431154
+   ],
+   "fade_minus_b0_hit_ci": [
+    -0.144048,
+    0.210648
+   ],
+   "half1_ev": -0.352298,
+   "half2_ev": 0.20594,
+   "mae_median": -1.273191,
+   "mae_median_ex_hitbar": -1.152603
+  },
+  {
+   "variant": "관통 +$0.02",
+   "fade_n": 29,
+   "fade_hit": 0.62069,
+   "fade_ev": 0.138986,
+   "b0_hit": 0.559127,
+   "b0_ev": 0.005713,
+   "fade_minus_b0_hit": 0.061563,
+   "fade_ev_ci": [
+    -0.268599,
+    0.549392
+   ],
+   "fade_minus_b0_hit_ci": [
+    -0.090087,
+    0.199605
+   ],
+   "half1_ev": -0.006631,
+   "half2_ev": 0.257299,
+   "mae_median": -1.133142,
+   "mae_median_ex_hitbar": -1.018599
+  },
+  {
+   "variant": "관통 +$0.03",
+   "fade_n": 29,
+   "fade_hit": 0.62069,
+   "fade_ev": 0.138986,
+   "b0_hit": 0.552381,
+   "b0_ev": -0.005532,
+   "fade_minus_b0_hit": 0.068309,
+   "fade_ev_ci": [
+    -0.268599,
+    0.549392
+   ],
+   "fade_minus_b0_hit_ci": [
+    -0.084127,
+    0.20754
+   ],
+   "half1_ev": -0.006631,
+   "half2_ev": 0.257299,
+   "mae_median": -1.133142,
+   "mae_median_ex_hitbar": -1.018599
+  },
+  {
+   "variant": "관통 +$0.05",
+   "fade_n": 29,
+   "fade_hit": 0.62069,
+   "fade_ev": 0.138986,
+   "b0_hit": 0.539286,
+   "b0_ev": -0.026021,
+   "fade_minus_b0_hit": 0.081404,
+   "fade_ev_ci": [
+    -0.268599,
+    0.549392
+   ],
+   "fade_minus_b0_hit_ci": [
+    -0.073026,
+    0.222867
+   ],
+   "half1_ev": -0.006631,
+   "half2_ev": 0.257299,
+   "mae_median": -1.133142,
+   "mae_median_ex_hitbar": -1.018599
+  },
+  {
+   "variant": "관통 +0.05%",
+   "fade_n": 29,
+   "fade_hit": 0.62069,
+   "fade_ev": 0.136168,
+   "b0_hit": 0.551587,
+   "b0_ev": -0.008308,
+   "fade_minus_b0_hit": 0.069102,
+   "fade_ev_ci": [
+    -0.273472,
+    0.568164
+   ],
+   "fade_minus_b0_hit_ci": [
+    -0.11627,
+    0.244633
+   ],
+   "half1_ev": -0.012916,
+   "half2_ev": 0.257299,
+   "mae_median": -1.018599,
+   "mae_median_ex_hitbar": -0.599266
+  },
+  {
+   "variant": "관통 +0.10%",
+   "fade_n": 28,
+   "fade_hit": 0.571429,
+   "fade_ev": 0.034649,
+   "b0_hit": 0.532937,
+   "b0_ev": -0.033539,
+   "fade_minus_b0_hit": 0.038492,
+   "fade_ev_ci": [
+    -0.367156,
+    0.470966
+   ],
+   "fade_minus_b0_hit_ci": [
+    -0.144048,
+    0.210648
+   ],
+   "half1_ev": -0.262218,
+   "half2_ev": 0.257299,
+   "mae_median": -1.196753,
+   "mae_median_ex_hitbar": -1.07587
+  },
+  {
+   "variant": "도달 = 종가 ≥ 목표",
+   "fade_n": 28,
+   "fade_hit": 0.571429,
+   "fade_ev": 0.034649,
+   "b0_hit": 0.513889,
+   "b0_ev": -0.078137,
+   "fade_minus_b0_hit": 0.05754,
+   "fade_ev_ci": [
+    -0.367156,
+    0.470966
+   ],
+   "fade_minus_b0_hit_ci": [
+    -0.125,
+    0.232937
+   ],
+   "half1_ev": -0.262218,
+   "half2_ev": 0.257299,
+   "mae_median": -1.396036,
+   "mae_median_ex_hitbar": -1.396036
+  },
+  {
+   "variant": "진입 봉 고가 제외",
+   "fade_n": 30,
+   "fade_hit": 0.666667,
+   "fade_ev": 0.233643,
+   "b0_hit": 0.56627,
+   "b0_ev": 0.012486,
+   "fade_minus_b0_hit": 0.100397,
+   "fade_ev_ci": [
+    -0.172975,
+    0.630852
+   ],
+   "fade_minus_b0_hit_ci": [
+    -0.053753,
+    0.24267
+   ],
+   "half1_ev": 0.206608,
+   "half2_ev": 0.257299,
+   "mae_median": -1.184406,
+   "mae_median_ex_hitbar": -1.184406
+  },
+  {
+   "variant": "진입 = 진입 봉 (고+저)/2 + 0.01, 진입 봉 고가 제외",
+   "fade_n": 28,
+   "fade_hit": 0.642857,
+   "fade_ev": 0.150343,
+   "b0_hit": 0.565476,
+   "b0_ev": 0.02036,
+   "fade_minus_b0_hit": 0.077381,
+   "fade_ev_ci": [
+    -0.260148,
+    0.581239
+   ],
+   "fade_minus_b0_hit_ci": [
+    -0.092063,
+    0.242725
+   ],
+   "half1_ev": -0.248405,
+   "half2_ev": 0.449404,
+   "mae_median": -1.292573,
+   "mae_median_ex_hitbar": -1.292573
+  },
+  {
+   "variant": "묶음: 비용 0.03%·관통 +$0.02·진입 봉 제외",
+   "fade_n": 29,
+   "fade_hit": 0.62069,
+   "fade_ev": 0.132118,
+   "b0_hit": 0.551984,
+   "b0_ev": -0.021655,
+   "fade_minus_b0_hit": 0.068706,
+   "fade_ev_ci": [
+    -0.278131,
+    0.544753
+   ],
+   "fade_minus_b0_hit_ci": [
+    -0.085873,
+    0.210191
+   ],
+   "half1_ev": -0.011794,
+   "half2_ev": 0.249046,
+   "mae_median": -1.372276,
+   "mae_median_ex_hitbar": -1.372276
+  }
+ ],
+ "entry_delay": [
+  {
+   "fill": "s+1분 시가",
+   "fade_n": 31,
+   "fade_hit": 0.741935,
+   "fade_ev": 0.367759,
+   "b0_hit": 0.571825,
+   "b0_ev": 0.020633,
+   "fade_ev_ci": [
+    -0.089747,
+    0.768697
+   ]
+  },
+  {
+   "fill": "s+2분 시가",
+   "fade_n": 30,
+   "fade_hit": 0.666667,
+   "fade_ev": 0.233643,
+   "b0_hit": 0.56746,
+   "b0_ev": 0.01589,
+   "fade_ev_ci": [
+    -0.172975,
+    0.630852
+   ]
+  },
+  {
+   "fill": "s+3분 시가",
+   "fade_n": 29,
+   "fade_hit": 0.689655,
+   "fade_ev": 0.150561,
+   "b0_hit": 0.563095,
+   "b0_ev": 0.012332,
+   "fade_ev_ci": [
+    -0.377181,
+    0.651692
+   ]
+  },
+  {
+   "fill": "s+4분 시가",
+   "fade_n": 27,
+   "fade_hit": 0.62963,
+   "fade_ev": -0.062526,
+   "b0_hit": 0.559127,
+   "b0_ev": 0.009175,
+   "fade_ev_ci": [
+    -0.561955,
+    0.458162
+   ]
+  },
+  {
+   "fill": "s+5분 시가",
+   "fade_n": 28,
+   "fade_hit": 0.642857,
+   "fade_ev": 0.027756,
+   "b0_hit": 0.555952,
+   "b0_ev": 0.009311,
+   "fade_ev_ci": [
+    -0.48003,
+    0.539838
+   ]
+  }
+ ],
+ "breakeven_cost_per_side_pct": 0.065,
+ "mirror_check_hits": [
+  {
+   "day": "2026-10-02",
+   "buy": "SOXS",
+   "hit_bar": "10:08",
+   "high": 28.84,
+   "mirror_implied_high": 28.827188,
+   "threshold": 28.810149,
+   "mirror_through": true,
+   "mirror_through_any_bar_to_hit": true
+  },
+  {
+   "day": "2026-10-06",
+   "buy": "SOXS",
+   "hit_bar": "09:33",
+   "high": 29.450001,
+   "mirror_implied_high": 29.438214,
+   "threshold": 29.441601,
+   "mirror_through": false,
+   "mirror_through_any_bar_to_hit": false
+  },
+  {
+   "day": "2026-10-06",
+   "buy": "SOXS",
+   "hit_bar": "09:49",
+   "high": 29.26,
+   "mirror_implied_high": 29.251883,
+   "threshold": 29.249501,
+   "mirror_through": true,
+   "mirror_through_any_bar_to_hit": true
+  },
+  {
+   "day": "2026-10-07",
+   "buy": "SOXS",
+   "hit_bar": "10:51",
+   "high": 31.290001,
+   "mirror_implied_high": 31.301167,
+   "threshold": 31.269803,
+   "mirror_through": true,
+   "mirror_through_any_bar_to_hit": true
+  },
+  {
+   "day": "2026-10-08",
+   "buy": "SOXL",
+   "hit_bar": "09:34",
+   "high": 151.5,
+   "mirror_implied_high": 151.41014,
+   "threshold": 151.449393,
+   "mirror_through": false,
+   "mirror_through_any_bar_to_hit": false
+  },
+  {
+   "day": "2026-10-08",
+   "buy": "SOXL",
+   "hit_bar": "10:05",
+   "high": 150.089996,
+   "mirror_implied_high": 150.067034,
+   "threshold": 149.929353,
+   "mirror_through": true,
+   "mirror_through_any_bar_to_hit": true
+  },
+  {
+   "day": "2026-10-12",
+   "buy": "SOXL",
+   "hit_bar": "09:39",
+   "high": 132.824997,
+   "mirror_implied_high": 132.713688,
+   "threshold": 132.410902,
+   "mirror_through": true,
+   "mirror_through_any_bar_to_hit": true
+  },
+  {
+   "day": "2026-10-12",
+   "buy": "SOXL",
+   "hit_bar": "10:15",
+   "high": 130.229904,
+   "mirror_implied_high": 130.122045,
+   "threshold": 129.784896,
+   "mirror_through": true,
+   "mirror_through_any_bar_to_hit": true
+  },
+  {
+   "day": "2026-10-13",
+   "buy": "SOXL",
+   "hit_bar": "09:34",
+   "high": 118.940002,
+   "mirror_implied_high": 118.741916,
+   "threshold": 118.644597,
+   "mirror_through": true,
+   "mirror_through_any_bar_to_hit": true
+  },
+  {
+   "day": "2026-10-15",
+   "buy": "SOXL",
+   "hit_bar": "09:32",
+   "high": 99.419998,
+   "mirror_implied_high": 99.14692,
+   "threshold": 99.161704,
+   "mirror_through": false,
+   "mirror_through_any_bar_to_hit": false
+  },
+  {
+   "day": "2026-10-15",
+   "buy": "SOXL",
+   "hit_bar": "10:00",
+   "high": 97.459999,
+   "mirror_implied_high": 97.347184,
+   "threshold": 97.182097,
+   "mirror_through": true,
+   "mirror_through_any_bar_to_hit": true
+  },
+  {
+   "day": "2026-10-16",
+   "buy": "SOXL",
+   "hit_bar": "09:32",
+   "high": 101.760002,
+   "mirror_implied_high": 101.645736,
+   "threshold": 101.575603,
+   "mirror_through": true,
+   "mirror_through_any_bar_to_hit": true
+  },
+  {
+   "day": "2026-10-19",
+   "buy": "SOXS",
+   "hit_bar": "09:36",
+   "high": 45.07,
+   "mirror_implied_high": 44.979091,
+   "threshold": 45.045902,
+   "mirror_through": false,
+   "mirror_through_any_bar_to_hit": false
+  },
+  {
+   "day": "2026-10-20",
+   "buy": "SOXL",
+   "hit_bar": "09:41",
+   "high": 94.0,
+   "mirror_implied_high": 93.128521,
+   "threshold": 93.7683,
+   "mirror_through": false,
+   "mirror_through_any_bar_to_hit": false
+  },
+  {
+   "day": "2026-10-21",
+   "buy": "SOXS",
+   "hit_bar": "09:32",
+   "high": 44.77,
+   "mirror_implied_high": 44.718181,
+   "threshold": 44.682301,
+   "mirror_through": true,
+   "mirror_through_any_bar_to_hit": true
+  },
+  {
+   "day": "2026-10-21",
+   "buy": "SOXS",
+   "hit_bar": "09:39",
+   "high": 45.549999,
+   "mirror_implied_high": 45.572515,
+   "threshold": 45.460002,
+   "mirror_through": true,
+   "mirror_through_any_bar_to_hit": true
+  },
+  {
+   "day": "2026-10-22",
+   "buy": "SOXL",
+   "hit_bar": "09:33",
+   "high": 90.900002,
+   "mirror_implied_high": 90.586214,
+   "threshold": 90.808999,
+   "mirror_through": false,
+   "mirror_through_any_bar_to_hit": false
+  },
+  {
+   "day": "2026-10-22",
+   "buy": "SOXL",
+   "hit_bar": "09:53",
+   "high": 90.980003,
+   "mirror_implied_high": 90.790995,
+   "threshold": 90.758604,
+   "mirror_through": true,
+   "mirror_through_any_bar_to_hit": true
+  },
+  {
+   "day": "2026-10-23",
+   "buy": "SOXS",
+   "hit_bar": "09:47",
+   "high": 52.490002,
+   "mirror_implied_high": 52.492801,
+   "threshold": 52.41385,
+   "mirror_through": true,
+   "mirror_through_any_bar_to_hit": true
+  },
+  {
+   "day": "2026-10-28",
+   "buy": "SOXS",
+   "hit_bar": "09:36",
+   "high": 41.491501,
+   "mirror_implied_high": 41.504233,
+   "threshold": 41.440198,
+   "mirror_through": true,
+   "mirror_through_any_bar_to_hit": true
+  }
+ ],
+ "mirror_check_summary": {
+  "hits": 20,
+  "hit_bar_mirror_through": 14,
+  "any_bar_mirror_through": 14
+ },
+ "mirror_mismatch_bars_0930_1100_gt_0.6pct": [
+  {
+   "ts": "2026-10-15 10:57",
+   "SOXL_up+SOXS_dn_pct": 1.818803,
+   "SOXS_up+SOXL_dn_pct": -0.054502
+  },
+  {
+   "ts": "2026-10-20 09:41",
+   "SOXL_up+SOXS_dn_pct": 0.939094,
+   "SOXS_up+SOXL_dn_pct": -0.146427
+  },
+  {
+   "ts": "2026-10-21 10:59",
+   "SOXL_up+SOXS_dn_pct": -0.00419,
+   "SOXS_up+SOXL_dn_pct": 3.749426
+  }
+ ],
+ "spike_clean_rerun": {
+  "bar": "SOXS 2026-10-21 10:59 고가 47.10 → 45.45",
+  "changed_fade_follow_cells": [],
+  "b0_change": {
+   "E1|W60": {
+    "old_hit": 0.571825,
+    "new_hit": 0.571429,
+    "n_changed": 1
+   },
+   "E1|W30": {
+    "old_hit": 0.62381,
+    "new_hit": 0.62381,
+    "n_changed": 0
+   },
+   "E2|W60": {
+    "old_hit": 0.56746,
+    "new_hit": 0.566667,
+    "n_changed": 2
+   },
+   "E2|W30": {
+    "old_hit": 0.619048,
+    "new_hit": 0.619048,
+    "n_changed": 0
+   }
+  }
+ },
+ "spread_proxy": {
+  "SOXL": {
+   "09:30-09:34": {
+    "median_px": 117.980003,
+    "range_median_cents": 120.000458,
+    "range_p10_cents": 77.999878,
+    "range_median_pct": 1.015918,
+    "abdi_ranaldo_median_pct": 0.385773,
+    "roll_median_pct": 0.773244,
+    "one_tick_pct_of_price": 0.008476,
+    "median_dollar_vol_per_min_musd": 67.344478,
+    "share_vol_median": 600223
+   },
+   "09:35-10:59": {
+    "median_px": 118.389999,
+    "range_median_cents": 58.009338,
+    "range_p10_cents": 33.000183,
+    "range_median_pct": 0.486565,
+    "abdi_ranaldo_median_pct": 0.063134,
+    "roll_median_pct": 0.0,
+    "one_tick_pct_of_price": 0.008447,
+    "median_dollar_vol_per_min_musd": 26.948454,
+    "share_vol_median": 220199
+   },
+   "11:00-15:59": {
+    "median_px": 111.917599,
+    "range_median_cents": 28.635025,
+    "range_p10_cents": 14.99939,
+    "range_median_pct": 0.243415,
+    "abdi_ranaldo_median_pct": 0.0,
+    "roll_median_pct": 0.0,
+    "one_tick_pct_of_price": 0.008935,
+    "median_dollar_vol_per_min_musd": 11.34977,
+    "share_vol_median": 96772
+   }
+  },
+  "SOXS": {
+   "09:30-09:34": {
+    "median_px": 40.259998,
+    "range_median_cents": 40.500069,
+    "range_p10_cents": 22.020111,
+    "range_median_pct": 0.972639,
+    "abdi_ranaldo_median_pct": 0.334081,
+    "roll_median_pct": 0.819481,
+    "one_tick_pct_of_price": 0.024839,
+    "median_dollar_vol_per_min_musd": 21.797336,
+    "share_vol_median": 539332
+   },
+   "09:35-10:59": {
+    "median_px": 40.169998,
+    "range_median_cents": 19.000244,
+    "range_p10_cents": 8.416138,
+    "range_median_pct": 0.481428,
+    "abdi_ranaldo_median_pct": 0.07659,
+    "roll_median_pct": 0.0,
+    "one_tick_pct_of_price": 0.024894,
+    "median_dollar_vol_per_min_musd": 8.556434,
+    "share_vol_median": 217526
+   },
+   "11:00-15:59": {
+    "median_px": 40.9501,
+    "range_median_cents": 9.500122,
+    "range_p10_cents": 3.99971,
+    "range_median_pct": 0.237967,
+    "abdi_ranaldo_median_pct": 0.026843,
+    "roll_median_pct": 0.0,
+    "one_tick_pct_of_price": 0.02442,
+    "median_dollar_vol_per_min_musd": 3.516651,
+    "share_vol_median": 87727
+   }
+  }
+ },
+ "order_time": {
+  "conversion": "서머타임(EDT, UTC−4): KST = ET + 13h → 24:00 KST = 11:00 ET. 표준시(EST, 2026-11-01부터): KST = ET + 14h → 24:00 KST = 10:00 ET(BRIEF의 10:30 ET는 틀림). desk_system.md 표 '한국 시각' 행과 같음",
+  "main_cell_time_exits": 10,
+  "main_cell_time_exit_after_summer_cut": 0,
+  "main_cell_time_exit_at_summer_cut_exact": [
+   {
+    "day": "2026-10-22",
+    "signal_time": "10:28",
+    "entry_time": "10:30",
+    "exit_time": "10:59",
+    "pnl_pct": -2.573404
+   }
+  ],
+  "main_cell_entries_after_winter_cut": 7,
+  "main_cell_time_exit_after_winter_cut": 10,
+  "main_cell_hits_done_by_winter_cut": 15,
+  "W60_E2_signal_minutes_whose_hold_ends_after_11:00": "s = 10:29 (마지막 봉 11:00 시작, 11:01 끝); s = 10:28은 11:00:00 정각 끝",
+  "winter_any_window_feasible_30min_time_exit": "없음: E1·E2 진입이 09:31 이후라 30봉째 종가가 10:01 이후 → 표준시 24:00 KST(10:00 ET) 뒤 시장가 매도 필요"
+ },
+ "gap_0930_split_main": {
+  "n_0930": 16,
+  "ev_0930": 0.17016,
+  "hit_0930": 0.625,
+  "n_later": 14,
+  "ev_later": 0.306196,
+  "hit_later": 0.714286,
+  "b0_0932_entry_ev": 0.250359,
+  "b0_0932_entry_hit": 0.738095
+ }
+}

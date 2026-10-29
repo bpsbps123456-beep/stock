@@ -1,0 +1,123 @@
+{
+ "mirror_fixed_bars": [
+  {
+   "ts": "2026-10-15 10:57:00-04:00",
+   "sym": "SOXL",
+   "field": "High",
+   "old": 104.699997,
+   "new": 102.915001
+  },
+  {
+   "ts": "2026-10-20 09:41:00-04:00",
+   "sym": "SOXL",
+   "field": "High",
+   "old": 94.0,
+   "new": 93.128521
+  },
+  {
+   "ts": "2026-10-21 10:59:00-04:00",
+   "sym": "SOXS",
+   "field": "High",
+   "old": 47.099998,
+   "new": 45.41
+  },
+  {
+   "ts": "2026-10-21 11:50:00-04:00",
+   "sym": "SOXL",
+   "field": "High",
+   "old": 106.129997,
+   "new": 104.291875
+  },
+  {
+   "ts": "2026-10-22 14:33:00-04:00",
+   "sym": "SOXL",
+   "field": "High",
+   "old": 85.209999,
+   "new": 83.111324
+  }
+ ],
+ "n_fixed": 5,
+ "cells_changed_after_fix": [],
+ "b0_after_fix": {
+  "E1|W60": {
+   "old_hit": 0.571825,
+   "new_hit": 0.571429,
+   "old_ev": 0.020633,
+   "new_ev": 0.020083,
+   "n_changed": 1
+  },
+  "E1|W30": {
+   "old_hit": 0.62381,
+   "new_hit": 0.62381,
+   "old_ev": 0.078417,
+   "new_ev": 0.078417,
+   "n_changed": 0
+  },
+  "E2|W60": {
+   "old_hit": 0.56746,
+   "new_hit": 0.566667,
+   "old_ev": 0.01589,
+   "new_ev": 0.014778,
+   "n_changed": 2
+  },
+  "E2|W30": {
+   "old_hit": 0.619048,
+   "new_hit": 0.619048,
+   "old_ev": 0.070359,
+   "new_ev": 0.070359,
+   "n_changed": 0
+  }
+ },
+ "main_after_fix": {
+  "n": 30,
+  "hit": 0.666667,
+  "ev": 0.233643
+ },
+ "time_matched_b0_main": {
+  "fade_hit": 0.666667,
+  "fade_ev": 0.233643,
+  "b0_unmatched_hit": 0.56746,
+  "b0_unmatched_ev": 0.01589,
+  "b0_time_matched_hit": 0.657143,
+  "b0_time_matched_ev": 0.150565,
+  "b0_time_and_ticker_matched_hit": 0.665079,
+  "b0_time_and_ticker_matched_ev": 0.140932,
+  "b0_hit_at_0932_entry": 0.738095,
+  "b0_ev_at_0932_entry": 0.250359,
+  "share_fade_entries_at_0932": 0.533333,
+  "fade_minus_matched_b0_hit": 0.009524,
+  "fade_minus_matched_b0_hit_ci": [
+   -0.125005,
+   0.13011
+  ],
+  "fade_minus_matched_b0_ev": 0.083078,
+  "fade_minus_matched_b0_ev_ci": [
+   -0.241956,
+   0.401169
+  ],
+  "s_0930": {
+   "n": 16,
+   "fade_hit": 0.625,
+   "fade_ev": 0.17016,
+   "matched_b0_hit": 0.738095,
+   "matched_b0_ev": 0.250359,
+   "follow_note": "추종은 별도 표"
+  },
+  "s_after_0930": {
+   "n": 14,
+   "fade_hit": 0.714286,
+   "fade_ev": 0.306196,
+   "matched_b0_hit": 0.564626,
+   "matched_b0_ev": 0.036515,
+   "follow_note": "추종은 별도 표"
+  }
+ },
+ "mirror_confirmed_hit_variant_main": {
+  "rule": "고가를 min(자기 고가, 반대 ETF 저가로 만든 고가 × 1.001)로 깎고 BRIEF 규칙 그대로",
+  "fade_n": 30,
+  "fade_hit": 0.666667,
+  "fade_ev": 0.233643,
+  "b0_hit": 0.566667,
+  "b0_ev": 0.014778
+ }
+}

@@ -1,0 +1,788 @@
+{
+ "n_days": 21,
+ "missing": {
+  "SOXL": {
+   "open_90m_missing_total": 0,
+   "open_90m_zero_vol_total": 0,
+   "open_90m_flat_total": 0,
+   "regular_bar_count_min": 390,
+   "regular_bar_count_max": 390,
+   "days_short_of_390": {},
+   "per_day_with_issue": []
+  },
+  "SOXS": {
+   "open_90m_missing_total": 0,
+   "open_90m_zero_vol_total": 0,
+   "open_90m_flat_total": 0,
+   "regular_bar_count_min": 390,
+   "regular_bar_count_max": 390,
+   "days_short_of_390": {},
+   "per_day_with_issue": []
+  }
+ },
+ "spikes": {
+  "SOXL": {
+   "rule": "튐 = (고가 − max(몸통, 앞뒤 봉 고가)) ÷ 앞뒤 15봉 고저폭 중앙 ≥ 3 (저가 쪽 대칭), 09:30~11:00",
+   "n": 0,
+   "bars": []
+  },
+  "SOXS": {
+   "rule": "튐 = (고가 − max(몸통, 앞뒤 봉 고가)) ÷ 앞뒤 15봉 고저폭 중앙 ≥ 3 (저가 쪽 대칭), 09:30~11:00",
+   "n": 1,
+   "bars": [
+    {
+     "ts": "2026-10-21 10:59",
+     "O": 45.40999984741211,
+     "H": 47.099998474121094,
+     "L": 45.25,
+     "C": 45.35499954223633,
+     "V": 124788,
+     "up_z": 8.823426,
+     "dn_z": -0.705868
+    }
+   ]
+  }
+ },
+ "agg_1m_vs_5m": {
+  "SOXL": {
+   "open_0930_1055": {
+    "n_bars": 378,
+    "Open": {
+     "share_gt_1c": 0.0,
+     "max_abs": 0.0,
+     "max_rel_pct": 0.0,
+     "p99_abs": 0.0
+    },
+    "High": {
+     "share_gt_1c": 0.0,
+     "max_abs": 0.0,
+     "max_rel_pct": 0.0,
+     "p99_abs": 0.0
+    },
+    "Low": {
+     "share_gt_1c": 0.0,
+     "max_abs": 0.0,
+     "max_rel_pct": 0.0,
+     "p99_abs": 0.0
+    },
+    "Close": {
+     "share_gt_1c": 0.0,
+     "max_abs": 0.0,
+     "max_rel_pct": 0.0,
+     "p99_abs": 0.0
+    },
+    "1m_high_above_5m_high_gt1c": 0,
+    "1m_low_below_5m_low_gt1c": 0,
+    "incomplete_5m_groups": 0
+   },
+   "regular_all": {
+    "n_bars": 1638,
+    "Open": {
+     "share_gt_1c": 0.0,
+     "max_abs": 0.0,
+     "max_rel_pct": 0.0,
+     "p99_abs": 0.0
+    },
+    "High": {
+     "share_gt_1c": 0.0,
+     "max_abs": 0.0,
+     "max_rel_pct": 0.0,
+     "p99_abs": 0.0
+    },
+    "Low": {
+     "share_gt_1c": 0.0,
+     "max_abs": 0.0,
+     "max_rel_pct": 0.0,
+     "p99_abs": 0.0
+    },
+    "Close": {
+     "share_gt_1c": 0.0,
+     "max_abs": 0.0,
+     "max_rel_pct": 0.0,
+     "p99_abs": 0.0
+    },
+    "1m_high_above_5m_high_gt1c": 0,
+    "1m_low_below_5m_low_gt1c": 0,
+    "incomplete_5m_groups": 0
+   },
+   "worst_open": [
+    {
+     "ts": "2026-09-30 09:30",
+     "H1": 150.77000427246094,
+     "H5": 150.77000427246094,
+     "L1": 147.35000610351562,
+     "L5": 147.35000610351562,
+     "C1": 149.9600067138672,
+     "C5": 149.9600067138672
+    },
+    {
+     "ts": "2026-09-30 09:35",
+     "H1": 150.05909729003906,
+     "H5": 150.05909729003906,
+     "L1": 147.5399932861328,
+     "L5": 147.5399932861328,
+     "C1": 148.92999267578125,
+     "C5": 148.92999267578125
+    },
+    {
+     "ts": "2026-09-30 09:40",
+     "H1": 149.17999267578125,
+     "H5": 149.17999267578125,
+     "L1": 147.54010009765625,
+     "L5": 147.54010009765625,
+     "C1": 148.85000610351562,
+     "C5": 148.85000610351562
+    },
+    {
+     "ts": "2026-09-30 09:45",
+     "H1": 149.4149932861328,
+     "H5": 149.4149932861328,
+     "L1": 147.36000061035156,
+     "L5": 147.36000061035156,
+     "C1": 147.77459716796875,
+     "C5": 147.77459716796875
+    },
+    {
+     "ts": "2026-09-30 09:50",
+     "H1": 147.80760192871094,
+     "H5": 147.80760192871094,
+     "L1": 146.22000122070312,
+     "L5": 146.22000122070312,
+     "C1": 146.82000732421875,
+     "C5": 146.82000732421875
+    },
+    {
+     "ts": "2026-09-30 09:55",
+     "H1": 148.3300018310547,
+     "H5": 148.3300018310547,
+     "L1": 146.78399658203125,
+     "L5": 146.78399658203125,
+     "C1": 148.27999877929688,
+     "C5": 148.27999877929688
+    },
+    {
+     "ts": "2026-09-30 10:00",
+     "H1": 148.5500030517578,
+     "H5": 148.5500030517578,
+     "L1": 147.5800018310547,
+     "L5": 147.5800018310547,
+     "C1": 147.77000427246094,
+     "C5": 147.77000427246094
+    },
+    {
+     "ts": "2026-09-30 10:05",
+     "H1": 148.36000061035156,
+     "H5": 148.36000061035156,
+     "L1": 146.38999938964844,
+     "L5": 146.38999938964844,
+     "C1": 146.77000427246094,
+     "C5": 146.77000427246094
+    }
+   ]
+  },
+  "SOXS": {
+   "open_0930_1055": {
+    "n_bars": 378,
+    "Open": {
+     "share_gt_1c": 0.0,
+     "max_abs": 0.0,
+     "max_rel_pct": 0.0,
+     "p99_abs": 0.0
+    },
+    "High": {
+     "share_gt_1c": 0.0,
+     "max_abs": 0.0,
+     "max_rel_pct": 0.0,
+     "p99_abs": 0.0
+    },
+    "Low": {
+     "share_gt_1c": 0.0,
+     "max_abs": 0.0,
+     "max_rel_pct": 0.0,
+     "p99_abs": 0.0
+    },
+    "Close": {
+     "share_gt_1c": 0.0,
+     "max_abs": 0.0,
+     "max_rel_pct": 0.0,
+     "p99_abs": 0.0
+    },
+    "1m_high_above_5m_high_gt1c": 0,
+    "1m_low_below_5m_low_gt1c": 0,
+    "incomplete_5m_groups": 0
+   },
+   "regular_all": {
+    "n_bars": 1638,
+    "Open": {
+     "share_gt_1c": 0.0,
+     "max_abs": 0.0,
+     "max_rel_pct": 0.0,
+     "p99_abs": 0.0
+    },
+    "High": {
+     "share_gt_1c": 0.0,
+     "max_abs": 0.0,
+     "max_rel_pct": 0.0,
+     "p99_abs": 0.0
+    },
+    "Low": {
+     "share_gt_1c": 0.0,
+     "max_abs": 0.0,
+     "max_rel_pct": 0.0,
+     "p99_abs": 0.0
+    },
+    "Close": {
+     "share_gt_1c": 0.0,
+     "max_abs": 0.0,
+     "max_rel_pct": 0.0,
+     "p99_abs": 0.0
+    },
+    "1m_high_above_5m_high_gt1c": 0,
+    "1m_low_below_5m_low_gt1c": 0,
+    "incomplete_5m_groups": 0
+   },
+   "worst_open": [
+    {
+     "ts": "2026-09-30 09:30",
+     "H1": 33.20000076293945,
+     "H5": 33.20000076293945,
+     "L1": 32.41999816894531,
+     "L5": 32.41999816894531,
+     "C1": 32.61000061035156,
+     "C5": 32.61000061035156
+    },
+    {
+     "ts": "2026-09-30 09:35",
+     "H1": 33.150001525878906,
+     "H5": 33.150001525878906,
+     "L1": 32.58100128173828,
+     "L5": 32.58100128173828,
+     "C1": 32.86000061035156,
+     "C5": 32.86000061035156
+    },
+    {
+     "ts": "2026-09-30 09:40",
+     "H1": 33.150001525878906,
+     "H5": 33.150001525878906,
+     "L1": 32.779998779296875,
+     "L5": 32.779998779296875,
+     "C1": 32.849998474121094,
+     "C5": 32.849998474121094
+    },
+    {
+     "ts": "2026-09-30 09:45",
+     "H1": 33.189998626708984,
+     "H5": 33.189998626708984,
+     "L1": 32.72050094604492,
+     "L5": 32.72050094604492,
+     "C1": 33.09000015258789,
+     "C5": 33.09000015258789
+    },
+    {
+     "ts": "2026-09-30 09:50",
+     "H1": 33.44070053100586,
+     "H5": 33.44070053100586,
+     "L1": 33.09000015258789,
+     "L5": 33.09000015258789,
+     "C1": 33.32500076293945,
+     "C5": 33.32500076293945
+    },
+    {
+     "ts": "2026-09-30 09:55",
+     "H1": 33.32849884033203,
+     "H5": 33.32849884033203,
+     "L1": 32.974998474121094,
+     "L5": 32.974998474121094,
+     "C1": 32.97999954223633,
+     "C5": 32.97999954223633
+    },
+    {
+     "ts": "2026-09-30 10:00",
+     "H1": 33.149898529052734,
+     "H5": 33.149898529052734,
+     "L1": 32.92499923706055,
+     "L5": 32.92499923706055,
+     "C1": 33.09000015258789,
+     "C5": 33.09000015258789
+    },
+    {
+     "ts": "2026-09-30 10:05",
+     "H1": 33.41999816894531,
+     "H5": 33.41999816894531,
+     "L1": 32.970001220703125,
+     "L5": 32.970001220703125,
+     "C1": 33.334999084472656,
+     "C5": 33.334999084472656
+    }
+   ]
+  }
+ },
+ "hit_bars": [
+  {
+   "day": "2026-10-02",
+   "buy": "SOXS",
+   "entry": "10:05",
+   "hit_bar": "10:08",
+   "P": 28.515,
+   "target": 28.8002,
+   "hit_bar_H": 28.84000015258789,
+   "hit_bar_C": 28.78499984741211,
+   "hit_bar_V": 461423,
+   "through_ticks": 4,
+   "through_pct": 0.138368,
+   "spike_z": -0.584902,
+   "next_bar_H": 28.917499542236328,
+   "bars_in_hold_through_target": 10,
+   "any_close_ge_target": true,
+   "same_bar_as_entry": false,
+   "five_min_high": 28.917499542236328,
+   "five_min_high_through": true
+  },
+  {
+   "day": "2026-10-06",
+   "buy": "SOXS",
+   "entry": "09:32",
+   "hit_bar": "09:33",
+   "P": 29.1402,
+   "target": 29.4316,
+   "hit_bar_H": 29.450000762939453,
+   "hit_bar_C": 29.354999542236328,
+   "hit_bar_V": 604108,
+   "through_ticks": 2,
+   "through_pct": 0.062514,
+   "spike_z": 0.144234,
+   "next_bar_H": 29.420000076293945,
+   "bars_in_hold_through_target": 1,
+   "any_close_ge_target": false,
+   "same_bar_as_entry": false,
+   "five_min_high": 29.450000762939453,
+   "five_min_high_through": true
+  },
+  {
+   "day": "2026-10-06",
+   "buy": "SOXS",
+   "entry": "09:45",
+   "hit_bar": "09:49",
+   "P": 28.95,
+   "target": 29.2395,
+   "hit_bar_H": 29.260000228881836,
+   "hit_bar_C": 29.259899139404297,
+   "hit_bar_V": 264879,
+   "through_ticks": 2,
+   "through_pct": 0.070111,
+   "spike_z": -0.38539,
+   "next_bar_H": 29.310100555419922,
+   "bars_in_hold_through_target": 3,
+   "any_close_ge_target": true,
+   "same_bar_as_entry": false,
+   "five_min_high": 29.260000228881836,
+   "five_min_high_through": true
+  },
+  {
+   "day": "2026-10-07",
+   "buy": "SOXS",
+   "entry": "10:26",
+   "hit_bar": "10:51",
+   "P": 30.9503,
+   "target": 31.2598,
+   "hit_bar_H": 31.290000915527344,
+   "hit_bar_C": 31.258899688720703,
+   "hit_bar_V": 129275,
+   "through_ticks": 3,
+   "through_pct": 0.096603,
+   "spike_z": 0.142857,
+   "next_bar_H": 31.280000686645508,
+   "bars_in_hold_through_target": 5,
+   "any_close_ge_target": true,
+   "same_bar_as_entry": false,
+   "five_min_high": 31.350000381469727,
+   "five_min_high_through": true
+  },
+  {
+   "day": "2026-10-08",
+   "buy": "SOXL",
+   "entry": "09:32",
+   "hit_bar": "09:34",
+   "P": 149.94,
+   "target": 151.4394,
+   "hit_bar_H": 151.5,
+   "hit_bar_C": 151.25999450683594,
+   "hit_bar_V": 434825,
+   "through_ticks": 6,
+   "through_pct": 0.040016,
+   "spike_z": 0.220189,
+   "next_bar_H": 151.22999572753906,
+   "bars_in_hold_through_target": 1,
+   "any_close_ge_target": false,
+   "same_bar_as_entry": false,
+   "five_min_high": 151.5,
+   "five_min_high_through": true
+  },
+  {
+   "day": "2026-10-08",
+   "buy": "SOXL",
+   "entry": "09:53",
+   "hit_bar": "10:05",
+   "P": 148.435,
+   "target": 149.9194,
+   "hit_bar_H": 150.08999633789062,
+   "hit_bar_C": 149.89999389648438,
+   "hit_bar_V": 324057,
+   "through_ticks": 17,
+   "through_pct": 0.113825,
+   "spike_z": -0.863643,
+   "next_bar_H": 150.66000366210938,
+   "bars_in_hold_through_target": 18,
+   "any_close_ge_target": true,
+   "same_bar_as_entry": false,
+   "five_min_high": 151.0800018310547,
+   "five_min_high_through": true
+  },
+  {
+   "day": "2026-10-12",
+   "buy": "SOXL",
+   "entry": "09:32",
+   "hit_bar": "09:39",
+   "P": 131.09,
+   "target": 132.4009,
+   "hit_bar_H": 132.8249969482422,
+   "hit_bar_C": 132.67999267578125,
+   "hit_bar_V": 512399,
+   "through_ticks": 42,
+   "through_pct": 0.320313,
+   "spike_z": 0.079833,
+   "next_bar_H": 132.72999572753906,
+   "bars_in_hold_through_target": 2,
+   "any_close_ge_target": true,
+   "same_bar_as_entry": false,
+   "five_min_high": 132.8249969482422,
+   "five_min_high_through": true
+  },
+  {
+   "day": "2026-10-12",
+   "buy": "SOXL",
+   "entry": "10:08",
+   "hit_bar": "10:15",
+   "P": 128.49,
+   "target": 129.7749,
+   "hit_bar_H": 130.2299041748047,
+   "hit_bar_C": 130.0496063232422,
+   "hit_bar_V": 331067,
+   "through_ticks": 46,
+   "through_pct": 0.35061,
+   "spike_z": 0.187334,
+   "next_bar_H": 130.1199951171875,
+   "bars_in_hold_through_target": 5,
+   "any_close_ge_target": true,
+   "same_bar_as_entry": false,
+   "five_min_high": 130.2299041748047,
+   "five_min_high_through": true
+  },
+  {
+   "day": "2026-10-13",
+   "buy": "SOXL",
+   "entry": "09:32",
+   "hit_bar": "09:34",
+   "P": 117.46,
+   "target": 118.6346,
+   "hit_bar_H": 118.94000244140625,
+   "hit_bar_C": 118.41000366210938,
+   "hit_bar_V": 1007006,
+   "through_ticks": 31,
+   "through_pct": 0.257431,
+   "spike_z": 0.394051,
+   "next_bar_H": 118.41000366210938,
+   "bars_in_hold_through_target": 27,
+   "any_close_ge_target": true,
+   "same_bar_as_entry": false,
+   "five_min_high": 118.97000122070312,
+   "five_min_high_through": true
+  },
+  {
+   "day": "2026-10-15",
+   "buy": "SOXL",
+   "entry": "09:32",
+   "hit_bar": "09:32",
+   "P": 98.17,
+   "target": 99.1517,
+   "hit_bar_H": 99.41999816894531,
+   "hit_bar_C": 98.63999938964844,
+   "hit_bar_V": 1005875,
+   "through_ticks": 27,
+   "through_pct": 0.270594,
+   "spike_z": -0.102045,
+   "next_bar_H": 99.3499984741211,
+   "bars_in_hold_through_target": 14,
+   "any_close_ge_target": true,
+   "same_bar_as_entry": true,
+   "five_min_high": 99.56999969482422,
+   "five_min_high_through": true
+  },
+  {
+   "day": "2026-10-15",
+   "buy": "SOXL",
+   "entry": "09:54",
+   "hit_bar": "10:00",
+   "P": 96.21,
+   "target": 97.1721,
+   "hit_bar_H": 97.45999908447266,
+   "hit_bar_C": 96.9813003540039,
+   "hit_bar_V": 823763,
+   "through_ticks": 29,
+   "through_pct": 0.296278,
+   "spike_z": -0.552083,
+   "next_bar_H": 97.98999786376953,
+   "bars_in_hold_through_target": 24,
+   "any_close_ge_target": true,
+   "same_bar_as_entry": false,
+   "five_min_high": 98.58999633789062,
+   "five_min_high_through": true
+  },
+  {
+   "day": "2026-10-16",
+   "buy": "SOXL",
+   "entry": "09:32",
+   "hit_bar": "09:32",
+   "P": 100.56,
+   "target": 101.5656,
+   "hit_bar_H": 101.76000213623047,
+   "hit_bar_C": 101.19000244140625,
+   "hit_bar_V": 536644,
+   "through_ticks": 19,
+   "through_pct": 0.191405,
+   "spike_z": 0.172666,
+   "next_bar_H": 101.5199966430664,
+   "bars_in_hold_through_target": 5,
+   "any_close_ge_target": true,
+   "same_bar_as_entry": true,
+   "five_min_high": 101.76000213623047,
+   "five_min_high_through": true
+  },
+  {
+   "day": "2026-10-19",
+   "buy": "SOXS",
+   "entry": "09:32",
+   "hit_bar": "09:36",
+   "P": 44.59,
+   "target": 45.0359,
+   "hit_bar_H": 45.06999969482422,
+   "hit_bar_C": 44.709999084472656,
+   "hit_bar_V": 768504,
+   "through_ticks": 3,
+   "through_pct": 0.075717,
+   "spike_z": 0.176988,
+   "next_bar_H": 44.7599983215332,
+   "bars_in_hold_through_target": 15,
+   "any_close_ge_target": true,
+   "same_bar_as_entry": false,
+   "five_min_high": 45.06999969482422,
+   "five_min_high_through": true
+  },
+  {
+   "day": "2026-10-20",
+   "buy": "SOXL",
+   "entry": "09:41",
+   "hit_bar": "09:41",
+   "P": 92.83,
+   "target": 93.7583,
+   "hit_bar_H": 94.0,
+   "hit_bar_C": 92.09500122070312,
+   "hit_bar_V": 1315885,
+   "through_ticks": 24,
+   "through_pct": 0.257791,
+   "spike_z": 0.303227,
+   "next_bar_H": 92.36000061035156,
+   "bars_in_hold_through_target": 20,
+   "any_close_ge_target": true,
+   "same_bar_as_entry": true,
+   "five_min_high": 94.0,
+   "five_min_high_through": true
+  },
+  {
+   "day": "2026-10-21",
+   "buy": "SOXS",
+   "entry": "09:32",
+   "hit_bar": "09:32",
+   "P": 44.23,
+   "target": 44.6723,
+   "hit_bar_H": 44.77000045776367,
+   "hit_bar_C": 44.55500030517578,
+   "hit_bar_V": 379049,
+   "through_ticks": 10,
+   "through_pct": 0.218705,
+   "spike_z": -0.040205,
+   "next_bar_H": 44.78990173339844,
+   "bars_in_hold_through_target": 30,
+   "any_close_ge_target": true,
+   "same_bar_as_entry": true,
+   "five_min_high": 44.78990173339844,
+   "five_min_high_through": true
+  },
+  {
+   "day": "2026-10-21",
+   "buy": "SOXS",
+   "entry": "09:36",
+   "hit_bar": "09:39",
+   "P": 45.0,
+   "target": 45.45,
+   "hit_bar_H": 45.54999923706055,
+   "hit_bar_C": 44.869998931884766,
+   "hit_bar_V": 496573,
+   "through_ticks": 10,
+   "through_pct": 0.22002,
+   "spike_z": 0.268043,
+   "next_bar_H": 45.28459930419922,
+   "bars_in_hold_through_target": 22,
+   "any_close_ge_target": true,
+   "same_bar_as_entry": false,
+   "five_min_high": 45.54999923706055,
+   "five_min_high_through": true
+  },
+  {
+   "day": "2026-10-22",
+   "buy": "SOXL",
+   "entry": "09:32",
+   "hit_bar": "09:33",
+   "P": 89.9,
+   "target": 90.799,
+   "hit_bar_H": 90.9000015258789,
+   "hit_bar_C": 90.88999938964844,
+   "hit_bar_V": 1011966,
+   "through_ticks": 10,
+   "through_pct": 0.111236,
+   "spike_z": -0.514563,
+   "next_bar_H": 91.43000030517578,
+   "bars_in_hold_through_target": 18,
+   "any_close_ge_target": true,
+   "same_bar_as_entry": false,
+   "five_min_high": 91.43000030517578,
+   "five_min_high_through": true
+  },
+  {
+   "day": "2026-10-22",
+   "buy": "SOXL",
+   "entry": "09:52",
+   "hit_bar": "09:53",
+   "P": 89.8501,
+   "target": 90.7486,
+   "hit_bar_H": 90.9800033569336,
+   "hit_bar_C": 90.94200134277344,
+   "hit_bar_V": 377673,
+   "through_ticks": 23,
+   "through_pct": 0.254993,
+   "spike_z": -1.058814,
+   "next_bar_H": 91.69999694824219,
+   "bars_in_hold_through_target": 18,
+   "any_close_ge_target": true,
+   "same_bar_as_entry": false,
+   "five_min_high": 91.69999694824219,
+   "five_min_high_through": true
+  },
+  {
+   "day": "2026-10-23",
+   "buy": "SOXS",
+   "entry": "09:46",
+   "hit_bar": "09:47",
+   "P": 51.885,
+   "target": 52.4038,
+   "hit_bar_H": 52.4900016784668,
+   "hit_bar_C": 52.11000061035156,
+   "hit_bar_V": 364523,
+   "through_ticks": 9,
+   "through_pct": 0.1644,
+   "spike_z": 0.204593,
+   "next_bar_H": 52.400001525878906,
+   "bars_in_hold_through_target": 21,
+   "any_close_ge_target": true,
+   "same_bar_as_entry": false,
+   "five_min_high": 52.4900016784668,
+   "five_min_high_through": true
+  },
+  {
+   "day": "2026-10-28",
+   "buy": "SOXS",
+   "entry": "09:32",
+   "hit_bar": "09:36",
+   "P": 41.02,
+   "target": 41.4302,
+   "hit_bar_H": 41.49150085449219,
+   "hit_bar_C": 41.42210006713867,
+   "hit_bar_V": 325649,
+   "through_ticks": 6,
+   "through_pct": 0.147962,
+   "spike_z": -0.363536,
+   "next_bar_H": 41.5989990234375,
+   "bars_in_hold_through_target": 24,
+   "any_close_ge_target": true,
+   "same_bar_as_entry": false,
+   "five_min_high": 41.5989990234375,
+   "five_min_high_through": true
+  }
+ ],
+ "hit_bar_summary": {
+  "n_hits": 20,
+  "through_ticks_min_median_max": [
+   2,
+   10.0,
+   46
+  ],
+  "hits_with_spike_z_ge_3": 0,
+  "hits_only_1_bar_through_target": 2,
+  "hits_without_any_close_ge_target": 2,
+  "hits_in_entry_bar": 4,
+  "hits_not_through_on_5m": 0
+ },
+ "overnight_gap_pct": {
+  "by_day_next_open_vs_close": {
+   "SOXL": {
+    "2026-09-30": 0.612935,
+    "2026-10-01": 7.556737,
+    "2026-10-02": -1.276334,
+    "2026-10-05": 1.813024,
+    "2026-10-06": -6.388943,
+    "2026-10-07": -5.209452,
+    "2026-10-08": 3.98596,
+    "2026-10-09": -3.793032,
+    "2026-10-12": -7.736663,
+    "2026-10-13": -6.746063,
+    "2026-10-14": -11.189958,
+    "2026-10-15": -5.725337,
+    "2026-10-16": 10.958348,
+    "2026-10-19": -4.211005,
+    "2026-10-20": 5.287134,
+    "2026-10-21": -12.286989,
+    "2026-10-22": -0.572404,
+    "2026-10-23": 2.764147,
+    "2026-10-26": 4.773456,
+    "2026-10-27": 2.848237
+   },
+   "SOXS": {
+    "2026-09-30": -0.55841,
+    "2026-10-01": -7.403908,
+    "2026-10-02": 1.279034,
+    "2026-10-05": -1.874051,
+    "2026-10-06": 6.408449,
+    "2026-10-07": 5.254571,
+    "2026-10-08": -4.08525,
+    "2026-10-09": 3.833865,
+    "2026-10-12": 7.82971,
+    "2026-10-13": 6.932008,
+    "2026-10-14": 11.071879,
+    "2026-10-15": 5.839256,
+    "2026-10-16": -10.945273,
+    "2026-10-19": 4.288165,
+    "2026-10-20": -5.62918,
+    "2026-10-21": 12.384384,
+    "2026-10-22": 0.579875,
+    "2026-10-23": -2.74443,
+    "2026-10-26": -4.583335,
+    "2026-10-27": -2.741492
+   }
+  },
+  "soxl_plus_soxs_gap_corr": -0.999821,
+  "max_abs_gap": {
+   "SOXL": 12.286989,
+   "SOXS": 12.384384
+  }
+ }
+}
