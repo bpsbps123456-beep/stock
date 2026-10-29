@@ -1,5 +1,5 @@
 """E1 실측 비용: 주 가설 칸 신호마다 Alpaca SIP 호가 두 번(신호 마감 + 10초의 매도호가, 30분 창 끝의 매수호가)을 받는다.
-사용: py fetch_quotes.py        → cache/quotes.parquet (sym, ts, ask_in, bid_in, ask_out, bid_out)"""
+사용: py fetch_quotes.py [칸 이름…]   → cache/quotes.parquet (기본 원안 두 칸, 뒤 구간만) (sym, ts, ask_in, bid_in, ask_out, bid_out)"""
 import os, glob
 from concurrent.futures import ThreadPoolExecutor
 import pandas as pd, requests
@@ -36,9 +36,12 @@ def one(row, head, pace):
 
 
 if __name__ == "__main__":
+    import sys
+    names = sys.argv[1:] or ["orig_A", "orig_B"]          # 기본: 원안 두 칸의 뒤 구간(9/1~) 신호
     need = set()
-    for f in glob.glob(os.path.join(E.CACHE, "../results/signals_*.csv")):
-        s = pd.read_csv(f, usecols=["sid", "ts"])
+    for nm in names:
+        s = pd.read_csv(os.path.join(E.CACHE, f"../results/signals_{nm}.csv"), usecols=["sid", "ts", "day"])
+        s = s[s.day > 20260831]
         need |= {(SYMS[i], t) for i, t in zip(s.sid, s.ts)}
     done = pd.read_parquet(OUT) if os.path.exists(OUT) else pd.DataFrame(columns=["sym", "ts"])
     have = set(zip(done.sym, done.ts.astype(int)))
