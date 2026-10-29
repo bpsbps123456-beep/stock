@@ -39,6 +39,13 @@ TOUCH = {0.25: 0.699, 0.5: 0.590, 0.75: 0.488, 1.0: 0.390, 1.25: 0.312, 1.5: 0.2
          1.75: 0.184, 2.0: 0.146, 2.25: 0.115, 2.5: 0.088, 2.75: 0.064, 3.0: 0.050}
 
 
+MODEL_TEXT = ("기계 기준 v1. 규모 s = 옵션 내재 변동(첫 만기 ATM 스트래들 ÷ 직전 종가, 만기 안 평소 하루 변동을 뺀 사건 몫)과 "
+              "최근 8번 반응일 |수익률| 평균을 반씩 섞는다(한쪽이 없으면 다른 쪽만). P(상승) 50%, 분위 = s × 2026 반응 분포 "
+              "(q10 −1.67, q25 −0.78, q50 +0.01, q75 +0.91, q90 +1.84, 4,701건). 지지 구역은 160분봉(정규장, 1시간봉 근사) "
+              "dip_scalper.pine 규칙, 지정가 = 구역 하단, 닿을 확률 = 2026 시총 100억 달러 이상 2,680건의 '반응일 프리장+정규장 "
+              "저가가 기준 종가 × (1 − m·s)에 체결될 비율'을 m으로 보간(거리는 기록 때 기준가 대비).")
+
+
 def reaction_day(ts: pd.Timestamp, cal) -> str | None:
     """Session that first trades on a report released at `ts` (None when released in the session)."""
     t = ts.tz_convert(config.NY)
@@ -207,7 +214,7 @@ def main(argv: list[str] | None = None) -> int:
             print(f"{t.upper()}: 기준 {events[-1]['inputs']['scale']:.1%} · 지지 {len(events[-1]['levels'])}개")
     record = {"id": f"{args.date}-earnings", "type": "earnings", "title": f"{args.date} 실적 반응 예측",
               "author": "Claude", "request": "", "benchmark": "QQQ", "summary": "",
-              "model": {"name": "기계 기준 v1", "text": __doc__.strip(), "z": Z, "p_up": P_UP, "w_im": W_IM,
+              "model": {"name": "기계 기준 v1", "text": MODEL_TEXT, "z": Z, "p_up": P_UP, "w_im": W_IM,
                         "touch": {str(k): v for k, v in TOUCH.items()}},
               "events": events, "drafted_at": datetime.now(timezone.utc).isoformat(timespec="seconds")}
     Path(args.out).write_text(json.dumps(record, ensure_ascii=False, indent=2), encoding="utf-8")

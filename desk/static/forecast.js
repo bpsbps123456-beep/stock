@@ -16,7 +16,7 @@ async function fcLoad(refresh = false) {
     const data = await api("/api/forecast" + (refresh ? "?refresh=1" : ""));
     if (seq !== FC.request) return;
     FC.data = data;
-    if (!FC.id || !data.forecasts.some(f => f.id === FC.id)) FC.id = data.forecasts[0]?.id;
+    if (!FC.id || !data.forecasts.some(f => f.id === FC.id)) FC.id = data.forecasts.at(-1)?.id;  // 가장 최근 기록부터
     fcRender();
   } catch (error) {
     if (seq !== FC.request) return;
@@ -60,6 +60,12 @@ function fcTile(label, value, foot, tone = "") {
     h("strong", {class: tone}, value), h("p", {class: "fc-dim"}, foot));
 }
 
+function fcPickers(data, fc) {
+  return data.forecasts.length > 1 && h("nav", {class: "fc-pickers", "aria-label": "예측 기록 선택"},
+    data.forecasts.map(f => h("button", {class: "btn" + (f.id === fc.id ? " primary" : ""), "aria-pressed": String(f.id === fc.id),
+      onclick: () => { FC.id = f.id; fcRender(); }}, f.type === "earnings" ? `📊 ${f.title}` : f.title)));
+}
+
 function fcRender() {
   const root = $("#forecast-view"), data = FC.data;
   const fc = data.forecasts.find(f => f.id === FC.id);
@@ -68,6 +74,7 @@ function fcRender() {
       h("h1", {}, "예측 점검"), h("p", {}, "기록된 예측이 없습니다. ‘예측 기록’ 요청으로 만들 수 있습니다."))));
     return;
   }
+  if (fc.type === "earnings") return fcRenderEarnings(fc, data);
   const headKey = fc.headline_basket || fc.primary_basket, many = fc.picks.length > 20;
   const r = fc.result, B = r.baskets || {}, P = B[headKey] || {};
   const soxx = r.returns?.[fc.benchmark];
@@ -85,9 +92,7 @@ function fcRender() {
       h("p", {}, `기록 ${fcTime(fc.recorded_at)} · 기준 ${md(r.baseline)} 종가 → 마감 ${md(r.target)} 종가 · `,
         h("b", {}, waiting ? "기준 종가 대기" : `${r.elapsed}/${r.sessions}거래일`), r.complete ? " · 완료" : "")),
     h("div", {class: "fc-tools"}, h("button", {class: "btn", onclick: () => fcLoad(true)}, "가격·전망치 갱신")));
-  const pickers = data.forecasts.length > 1 && h("nav", {class: "fc-pickers", "aria-label": "예측 기록 선택"},
-    data.forecasts.map(f => h("button", {class: "btn" + (f.id === fc.id ? " primary" : ""), "aria-pressed": String(f.id === fc.id),
-      onclick: () => { FC.id = f.id; fcRender(); }}, f.title)));
+  const pickers = fcPickers(data, fc);
   const bar = h("div", {class: "fc-progress", role: "progressbar", "aria-valuemin": 0, "aria-valuemax": r.sessions,
     "aria-valuenow": r.elapsed}, h("i", {style: `width:${(progress * 100).toFixed(1)}%`}));
   const lock = h("p", {class: "fc-lock"}, "🔒 기록 뒤 수정 불가 — 내용 해시 ", h("code", {title: fc.sha256}, fc.sha256.slice(0, 12)),
@@ -178,6 +183,147 @@ function fcRender() {
       fmtY: v => pct(v / 100, Math.abs(v - Math.round(v)) < 1e-9 ? 0 : 1), fmtTip: v => pct(v / 100, 1),
       aria: "기준가 이후 바스켓별 누적 수익"});
   } else mount(chartHost, h("p", {class: "fc-dim"}, "기준 종가 뒤 첫 거래일이 지나면 그려집니다."));
+}
+
+/* ---- 실적 반응 예측(§14.2): 발표 전에 잠근 반응일 종가 분포를 실제 종가·저가와 비교한다 ---- */
+const FC_EV = {waiting: "반응일 종가 대기", no_price: "가격 대기", split: "분할 반영 대기"};
+const fcKst = s => s ? new Date(s).toLocaleString("ko-KR", {timeZone: "Asia/Seoul", month: "numeric", day: "numeric",
+  hour: "2-digit", minute: "2-digit", hour12: false}) : "—";
+const fcPp = v => v == null ? "—" : `${Math.round(v * 100)}%`;
+
+function fcRangeBar(q, actual, lim) {
+  const x = v => Math.max(0, Math.min(100, (v + lim) / (2 * lim) * 100));
+  const span = (a, b) => `left:${x(a).toFixed(2)}%;width:${Math.max(0.6, x(b) - x(a)).toFixed(2)}%`;
+  return h("div", {class: "fc-range", role: "img", "aria-label": `80% 구간 ${pct(q["0.1"])}~${pct(q["0.9"])}, 가운데 ${pct(q["0.5"])}`
+      + (actual == null ? "" : `, 실제 ${pct(actual)}`)},
+    h("i", {class: "zero", style: `left:${x(0).toFixed(2)}%`}),
+    h("i", {class: "q80", style: span(q["0.1"], q["0.9"])}), h("i", {class: "q50", style: span(q["0.25"], q["0.75"])}),
+    h("i", {class: "mid", style: `left:${x(q["0.5"]).toFixed(2)}%`}),
+    actual != null && h("b", {class: `act ${cls(actual)}`, style: `left:${x(actual).toFixed(2)}%`}));
+}
+
+function fcVerdicts(row) {
+  if (row.state !== "scored") return fcChip("pending");
+  const f = row.forecast;
+  const dir = f.dir_hit == null ? h("span", {class: "fc-chip"}, "방향 안 고름")
+    : h("span", {class: `fc-chip ${f.dir_hit ? "up s-hit" : "down s-miss"}`}, f.dir_hit ? "방향 적중" : "방향 빗나감");
+  return [dir, " ", h("span", {class: `fc-chip ${f.in80 ? "up s-hit" : "down s-miss"}`}, f.in80 ? "80% 구간 안" : "80% 구간 밖")];
+}
+
+function fcScoreTiles(s, scope) {
+  const f = s.forecast || {}, m = s.mechanical || {};
+  const none = !s.n;
+  const pinPp = v => v == null ? "—" : `${(v * 100).toFixed(2)}%p`;
+  return h("section", {class: "fc-tiles"},
+    fcTile(`채점된 실적${scope}`, `${s.n}건`, none ? "반응일 종가가 나오면 채워집니다" : "반응일 정규장 종가 기준"),
+    fcTile("방향 적중(판단)", none || !f.calls ? "—" : `${f.hits}/${f.calls}`, "P(상승) 50%인 종목은 방향을 고르지 않은 것"),
+    fcTile("Brier 판단 / 기계", none ? "—" : `${f.brier.toFixed(3)} / ${m.brier.toFixed(3)}`, "낮을수록 좋음 · 무조건 50%면 0.250"),
+    fcTile("80% 구간 적중", none ? "—" : fcPp(f.in80), "80%에 가까워야 규모가 맞은 것"),
+    fcTile("분위 손실 판단 / 기계", none ? "—" : `${pinPp(f.pinball)} / ${pinPp(m.pinball)}`, "분포 전체의 오차 · 낮을수록 좋음"),
+    fcTile("실제 크기 ÷ 예상 규모", none || s.size_ratio == null ? "—" : s.size_ratio.toFixed(2),
+      "2026 과거 평균 1.13 · 크게 넘으면 규모를 키운다"));
+}
+
+function fcRenderEarnings(fc, data) {
+  const root = $("#forecast-view"), r = fc.result, rows = r.events;
+  const byT = Object.fromEntries(rows.map(x => [x.ticker, x]));
+  const scored = rows.filter(x => x.state === "scored");
+  const lim = Math.max(0.1, ...fc.events.flatMap(e => [Math.abs(e.forecast.q["0.1"]), Math.abs(e.forecast.q["0.9"])]),
+    ...scored.map(x => Math.abs(x.return))) * 1.05;
+  const first = fc.events[0];
+  const days = [...new Set(fc.events.map(e => e.reaction_date))].sort(), oneDay = days.length === 1;
+
+  const head = h("section", {class: "page-heading"},
+    h("div", {}, h("div", {class: "eyebrow"}, "잠긴 실적 반응 예측 · ", fc.author),
+      h("h1", {}, fc.title),
+      h("p", {}, `기록 ${fcTime(fc.recorded_at)} · `, oneDay ? `기준 ${md(first.base_date)} 종가 → 반응 ${md(first.reaction_date)} 종가 · `
+        : `반응일 ${md(days[0])}~${md(days.at(-1))} · `,
+        h("b", {}, `${scored.length}/${rows.length}건 채점`), r.status === "완료" ? " · 완료" : "")),
+    h("div", {class: "fc-tools"}, h("button", {class: "btn", onclick: () => fcLoad(true)}, "가격 갱신")));
+  const lock = h("p", {class: "fc-lock"}, "🔒 기록 뒤 수정 불가 — 내용 해시 ", h("code", {title: fc.sha256}, fc.sha256.slice(0, 12)),
+    " · 발표 전, 그리고 기준일 정규장 마감 전에만 기록할 수 있어 기준가를 보고 쓴 예측이 아닙니다.");
+  const why = h("section", {class: "card fc-summary"}, h("div", {class: "eyebrow"}, "예측 요지"), h("p", {}, fc.summary),
+    h("details", {}, h("summary", {}, "기록 당시 상황"), h("ul", {}, (fc.context || []).map(s => h("li", {}, s)))),
+    h("details", {open: true}, h("summary", {}, "이렇게 되면 내가 틀린 것"), h("ul", {}, (fc.wrong_if || []).map(s => h("li", {}, s)))));
+
+  const evRows = fc.events.map(e => {
+    const x = byT[e.ticker] || {}, f = e.forecast, q = f.q;
+    return h("tr", {},
+      h("td", {}, h("b", {}, e.ticker), h("small", {}, e.name || "", " · ", e.judged ? "판단 넣음" : "기계 기준 그대로")),
+      h("td", {class: "fc-dim"}, fcKst(e.announce_at), h("small", {}, e.timing === "amc" ? "장 마감 뒤" : "장 시작 전")),
+      h("td", {}, fcPp(f.p_up), h("small", {}, `기계 ${fcPp(e.mechanical.p_up)}`)),
+      h("td", {class: "fc-rangecell"}, fcRangeBar(q, x.return ?? null, lim),
+        h("small", {}, `${pct(q["0.1"])} ~ ${pct(q["0.9"])} · 가운데 ${pct(q["0.5"])} · 규모 ${pctAbs(e.inputs?.scale)}`)),
+      h("td", {class: cls(x.return)}, x.state === "scored" ? pct(x.return) : h("span", {class: "fc-dim"}, FC_EV[x.state] || "—"),
+        x.state === "scored" && h("small", {}, `${usd(x.base_close)} → ${usd(x.close)}`)),
+      h("td", {class: cls(x.bench_return)}, x.state === "scored" ? pct(x.bench_return) : "—"),
+      h("td", {}, fcVerdicts(x)));
+  });
+  const main = h("section", {class: "card"}, h("header", {}, h("h2", {}, "종목별 예측과 실제"),
+    h("span", {class: "sub"}, "막대: 옅은 칸 80% 구간 · 진한 칸 50% 구간 · 세로선 가운데 예상 · 점 실제 반응일 종가 · 가운데 0선")),
+    h("div", {class: "fc-scroll"}, h("table", {class: "fc-table fc-earn"},
+      h("thead", {}, h("tr", {}, ["종목", "발표(한국)", "P(상승)", "예상 반응(기준 종가 대비)", "실제", fc.benchmark, "판정"].map(s => h("th", {}, s)))),
+      h("tbody", {}, evRows))));
+
+  const maxZ = Math.max(...fc.events.map(e => (e.levels || []).length));
+  const zCols = Array.from({length: maxZ}, (_, i) => `Z${i + 1}`);
+  const lvRows = fc.events.map(e => {
+    const x = byT[e.ticker] || {}, got = Object.fromEntries((x.levels || []).map(l => [l.name, l]));
+    return h("tr", {}, h("td", {}, h("b", {}, e.ticker)), zCols.map(name => {
+      const l = (e.levels || []).find(v => v.name === name);
+      if (!l) return h("td", {class: "fc-dim"}, "—");
+      const s = got[name];
+      const result = !s ? null : s.touched ? h("small", {class: cls(s.to_close)}, `닿음 → 종가 ${pct(s.to_close)}`)
+        : h("small", {class: "fc-dim"}, s.touched_post ? "애프터만 닿음" : "안 닿음");
+      return h("td", {}, usd(l.price), h("small", {}, `${pct(s ? s.dist : l.dist_ref)} · ${fcPp(l.p_touch)}`), result);
+    }));
+  });
+  const levels = h("section", {class: "card"}, h("header", {}, h("h2", {}, "지지 구역 지정가 (160분봉)"),
+    h("span", {class: "sub"}, "가격 = 구역 하단 · 거리(채점 전에는 기록 때 기준가, 채점 뒤에는 기준 종가 대비) · 반응일 프리장+정규장에 닿을 확률 · 결과")),
+    h("div", {class: "fc-scroll"}, h("table", {class: "fc-table fc-levels"},
+      h("thead", {}, h("tr", {}, ["종목", ...zCols].map(s => h("th", {}, s)))), h("tbody", {}, lvRows))),
+    h("p", {class: "fc-dim"}, "Z1이 지금 가격에 가장 가까운 지지입니다. 닿음은 프리장 1시간봉(한 번 찍힌 가격은 거름)이나 정규장 저가가 지정가를 0.1% 넘게 뚫은 경우입니다. ",
+      "프리·애프터는 Yahoo 1시간봉이라 한국 낮 주간거래(뉴욕 20:00~04:00) 체결은 보이지 않습니다. 이 칸은 체결 확률 예측이고 매수 추천이 아닙니다."));
+
+  const cards = h("section", {class: "fc-reasons"}, h("h2", {}, "판단 이유와 확인할 것"),
+    fc.events.map(e => {
+      const i = e.inputs || {}, x = byT[e.ticker] || {};
+      const facts = [i.implied_move != null && `옵션 내재 ${pctAbs(i.implied_move)}(${md(i.expiry)} 만기 ATM, 사건 몫 ${pctAbs(i.implied_move_event)})`,
+        i.s_hist != null && `최근 ${(i.hist || []).length}번 반응 평균 ${pctAbs(i.s_hist)}`, `규모 ${pctAbs(i.scale)}`,
+        `지지 구역 ${i.zones_asof || "—"} 기준 · 기준가 ${usd(i.spot_ref)}(${md(i.spot_ref_date)})`].filter(Boolean).join(" · ");
+      return h("details", {class: "card fc-pick", open: e.judged},
+        h("summary", {}, h("b", {}, e.ticker), h("span", {class: "fc-dim"}, e.name || ""),
+          h("span", {class: "fc-dim"}, `P(상승) ${fcPp(e.forecast.p_up)} · 80% ${pct(e.forecast.q["0.1"])}~${pct(e.forecast.q["0.9"])}`),
+          x.state === "scored" && h("span", {class: "fc-ret " + cls(x.return)}, `실제 ${pct(x.return)}`)),
+        h("p", {}, e.thesis), h("p", {class: "fc-dim"}, facts),
+        h("div", {class: "fc-sides"},
+          h("div", {}, h("h3", {}, "판단 근거"), h("ul", {}, e.reasons.map(s => h("li", {}, s)))),
+          h("div", {}, h("h3", {}, "틀릴 수 있는 이유"), h("ul", {}, e.risks.map(s => h("li", {}, s))))));
+    }));
+
+  const hist = (data.earnings || {}).events || [];
+  const cum = h("section", {class: "card"}, h("header", {}, h("h2", {}, "누적 성적표 — 고도화 근거"),
+    h("span", {class: "sub"}, "모든 실적 반응 기록의 채점된 사건 · 판단이 기계 기준보다 나은지, 규모가 맞는지 본다")),
+    fcScoreTiles((data.earnings || {}).score || {n: 0}, "(누적)"),
+    hist.length ? h("div", {class: "fc-scroll tall"}, h("table", {class: "fc-table"},
+      h("thead", {}, h("tr", {}, ["반응일", "종목", "P(상승)", "80% 구간", "실제", "방향", "구간"].map(s => h("th", {}, s)))),
+      h("tbody", {}, hist.map(x => h("tr", {}, h("td", {}, md(x.reaction_date)), h("td", {}, h("b", {}, x.ticker)),
+        h("td", {}, fcPp(x.forecast.p_up)), h("td", {class: "fc-dim"}, `${pct(x.forecast.q["0.1"])} ~ ${pct(x.forecast.q["0.9"])}`),
+        h("td", {class: cls(x.return)}, pct(x.return)),
+        h("td", {}, x.forecast.dir_hit == null ? "안 고름" : x.forecast.dir_hit ? "적중" : "빗나감"),
+        h("td", {}, x.forecast.in80 ? "안" : "밖"))))))
+      : h("p", {class: "fc-dim"}, "아직 채점된 사건이 없습니다. 첫 반응일 종가(10/30, 한국 10/31 05:00) 뒤 20분이 지나면 채워집니다."));
+
+  mount(root, fcPickers(data, fc), head, lock,
+    h("div", {id: "fc-status", class: "fc-dim", role: "status"}, "가격 ", data.prices_fetched_at ? fcTime(data.prices_fetched_at) : "미수집"),
+    data.warning && h("p", {class: "fc-error", role: "alert"}, data.warning),
+    why, fcScoreTiles(r.score, ""), main, levels, cards, cum,
+    h("footer", {class: "fc-dim"},
+      h("p", {}, "계산: 기계 기준은 P(상승) 50%(2026년 실적 4,701건의 반응일 상승 비율)와, 옵션 내재 변동(사건 몫)과 최근 8번 반응 평균을 반씩 섞은 규모에 ",
+        "2026 반응 분포의 분위(규모 단위)를 곱한 구간입니다. 판단은 근거와 함께 P(상승)을 옮기고 분포를 그만큼 평행 이동합니다."),
+      fc.model?.judgment && h("p", {}, fc.model.judgment),
+      h("details", {}, h("summary", {}, "기록된 계산 설명(원문)"), h("pre", {class: "fc-model"}, fc.model?.text || "")),
+      "가격: ", data.price_source || "미수집"));
 }
 
 window.addEventListener("desk:tab", e => {

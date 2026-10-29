@@ -549,7 +549,7 @@ def pinball(q: dict, y: float) -> float:
 def score_dist(d: dict, y: float) -> dict:
     q, p = d["q"], d["p_up"]
     up = 1.0 if y > 0 else 0.0
-    return {"p_up": p, "brier": (p - up) ** 2, "dir_hit": None if p == 0.5 else (y > 0) == (p > 0.5),
+    return {"p_up": p, "q": q, "brier": (p - up) ** 2, "dir_hit": None if p == 0.5 else (y > 0) == (p > 0.5),
             "in80": q["0.1"] <= y <= q["0.9"], "in50": q["0.25"] <= y <= q["0.75"],
             "pinball": pinball(q, y), "err50": y - q["0.5"]}
 
