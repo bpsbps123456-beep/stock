@@ -1,0 +1,111 @@
+{
+ "dump": {
+  "orig_A": {
+   "engine": 433,
+   "mine": 433,
+   "matched": 433,
+   "only_e": 0,
+   "only_m": 0,
+   "attr_mismatch": 0
+  },
+  "orig_B": {
+   "engine": 277,
+   "mine": 277,
+   "matched": 277,
+   "only_e": 0,
+   "only_m": 0,
+   "attr_mismatch": 0
+  },
+  "alt_A1": {
+   "engine": 242,
+   "mine": 242,
+   "matched": 242,
+   "only_e": 0,
+   "only_m": 0,
+   "attr_mismatch": 0
+  },
+  "alt_A2": {
+   "engine": 6,
+   "mine": 6,
+   "matched": 6,
+   "only_e": 0,
+   "only_m": 0,
+   "attr_mismatch": 0
+  },
+  "alt_B1": {
+   "engine": 112,
+   "mine": 112,
+   "matched": 112,
+   "only_e": 0,
+   "only_m": 0,
+   "attr_mismatch": 0
+  },
+  "alt_B2": {
+   "engine": 823,
+   "mine": 823,
+   "matched": 823,
+   "only_e": 0,
+   "only_m": 0,
+   "attr_mismatch": 0
+  }
+ },
+ "plain": {
+  "plain_A_60": {
+   "engine": 73331,
+   "mine": 73331,
+   "matched": 73331
+  },
+  "plain_B_60": {
+   "engine": 50662,
+   "mine": 50662,
+   "matched": 50662
+  },
+  "plain_A_120": {
+   "engine": 50079,
+   "mine": 50079,
+   "matched": 50079
+  },
+  "plain_B_120": {
+   "engine": 34651,
+   "mine": 34651,
+   "matched": 34651
+  },
+  "plain_A_240": {
+   "engine": 35027,
+   "mine": 35027,
+   "matched": 35027
+  },
+  "plain_B_240": {
+   "engine": 24208,
+   "mine": 24208,
+   "matched": 24208
+  },
+  "plain_A_390": {
+   "engine": 27008,
+   "mine": 27008,
+   "matched": 27008
+  },
+  "plain_B_390": {
+   "engine": 18754,
+   "mine": 18754,
+   "matched": 18754
+  }
+ },
+ "drop": {
+  "tradsane_breaks": 5921,
+  "kept_valid": 5920,
+  "e2_only_invalid": 0,
+  "next_gap": 1
+ },
+ "struct": {
+  "rows": 5920,
+  "e0_ok_e2_bad": 0,
+  "gap_or_dayend": 0,
+  "after1929": 0,
+  "cost_sess_cross_entry": 11,
+  "cost_sess_cross_exit": 819,
+  "sig_1058_1059": 29,
+  "first_day": 187,
+  "prepost_sane": 0
+ }
+}

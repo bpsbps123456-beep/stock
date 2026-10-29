@@ -1,0 +1,99 @@
+{
+ "counts": {
+  "r1_e0": {
+   "lit": 0,
+   "res": 0
+  },
+  "hit_e0": {
+   "lit": 0,
+   "res": 0
+  },
+  "r1_e2": {
+   "lit": 0,
+   "res": 0
+  },
+  "r1net_e2": {
+   "lit": 0,
+   "res": 0
+  },
+  "hit_e2": {
+   "lit": 0,
+   "res": 0
+  },
+  "hits_e2": {
+   "lit": 0,
+   "res": 0
+  },
+  "race_e2": {
+   "lit": 0,
+   "res": 0
+  },
+  "bv_r1_e2": {
+   "lit": 67,
+   "res": 0
+  },
+  "bv_hit_e2": {
+   "lit": 46,
+   "res": 0
+  },
+  "bv_race_e2": {
+   "lit": 21,
+   "res": 0
+  },
+  "bv_r1net_e2": {
+   "lit": 67,
+   "res": 0
+  },
+  "bt_r1_e2": {
+   "lit": 113,
+   "res": 0
+  },
+  "bt_r1net_e2": {
+   "lit": 113,
+   "res": 0
+  },
+  "r2_e2": {
+   "lit": 86,
+   "res": 0
+  }
+ },
+ "causes": {
+  "r1_e0": {},
+  "hit_e0": {},
+  "r1_e2": {},
+  "r1net_e2": {},
+  "hit_e2": {},
+  "hits_e2": {},
+  "race_e2": {},
+  "bv_r1_e2": {
+   "gap>3min invalid": 53,
+   "gap>3min invalid+>=19:30 invalid": 12,
+   "NaN-ATR->tercile0": 1,
+   ">=19:30 invalid": 1
+  },
+  "bv_hit_e2": {
+   "gap>3min invalid": 39,
+   "gap>3min invalid+>=19:30 invalid": 6,
+   ">=19:30 invalid": 1
+  },
+  "bv_race_e2": {
+   "gap>3min invalid": 17,
+   "gap>3min invalid+>=19:30 invalid": 4
+  },
+  "bv_r1net_e2": {
+   "gap>3min invalid": 53,
+   "gap>3min invalid+>=19:30 invalid": 12,
+   "NaN-ATR->tercile0": 1,
+   ">=19:30 invalid": 1
+  },
+  "bt_r1_e2": {
+   "gap>3min invalid": 113
+  },
+  "bt_r1net_e2": {
+   "gap>3min invalid": 113
+  },
+  "r2_e2": {
+   "entry<stop->0": 86
+  }
+ }
+}

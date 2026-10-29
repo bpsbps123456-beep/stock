@@ -1,0 +1,198 @@
+// This Pine Script® code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// 하따봉 (1분봉 지지 이탈 반전) — 2026-10-29
+// ① 꼬리 반전: 긴 하락 끝에서 처음으로 지지선(최근 N봉 최저가)을 깨고 더 낮은 바닥을 찍은 뒤, 봉 길이의 반 이상을 되돌려 마감한 봉(음봉 허용).
+// ② 장악 양봉: 지지선을 깨고 그 아래에서 마감한 음봉(로스컷 유도) 바로 다음에, 그 음봉을 말아 올린 양봉.
+// 목표: 신호 봉 마감 뒤 30분 안에 +1%. 계산 규칙은 data/derived/analysis/hatta_bar/BRIEF.md, 파이썬 code/engine.py와 같은 순서·부호다.
+// 지지선 S = 최근 N봉(바로 앞 봉 제외) 최저가. 처음 이탈 = 앞 봉은 S를 안 깼고 이 봉이 S 아래로 내려가 더 낮은 바닥을 찍음.
+// '여러 지지선' = 확정된 스윙 저점 중 S 근처에 있는 점 수(같은 선 시험 0.3% / 겹친 지지선 1%, 0.15% 안은 한 선).
+// 백테스트 자료(Alpaca SIP)는 04:00~20:00 뉴욕 봉뿐이다. 차트에 주간거래 봉이 있으면 그 봉도 EMA·지지선 계산에 들어가 조금 다를 수 있다.
+// 백테스트는 체결 5건 미만 봉을 뺐지만 트레이딩뷰에는 체결 건수가 없어 한 가격 봉만 뺀다(장전·장후 신호가 백테스트보다 조금 많을 수 있다).
+// 알림은 봉 확정 때 온다(체결이 드문 분에는 늦을 수 있다). 백테스트 기본 진입은 신호 다음 봉 종가, 목표는 그 값 × 1.01이다.
+// 1분봉 + 연장 시간 차트에서 쓴다.
+//@version=6
+indicator("하따봉", shorttitle = "하따봉", overlay = true, max_lines_count = 500, max_bars_back = 500)
+
+// ── 입력 ──────────────────────────────────────────────
+const string G1 = "지지선"
+nBars   = input.int(120, "지지선 = 최근 N봉 최저가", minval = 10, maxval = 490, group = G1, display = display.none)
+tolPct  = input.float(0.05, "이탈 허용 오차 %", minval = 0.0, step = 0.01, group = G1, tooltip = "이만큼은 찔러도 선을 깬 것으로 보지 않는다", display = display.none)
+pSw     = input.int(3, "스윙 저점 좌우 봉 수", minval = 1, maxval = 10, group = G1, display = display.none)
+const string M_TOUCH = "같은 선 시험 (0.3%)"
+const string M_LEVEL = "겹친 지지선 (1%)"
+kModeA  = input.string(M_LEVEL, "① 지지선 세는 방식", options = [M_TOUCH, M_LEVEL], group = G1, display = display.none)
+kMinA   = input.int(2, "① 최소 개수", minval = 1, group = G1, display = display.none)
+kModeB  = input.string(M_TOUCH, "② 지지선 세는 방식", options = [M_TOUCH, M_LEVEL], group = G1, display = display.none)
+kMinB   = input.int(1, "② 최소 개수", minval = 1, group = G1, display = display.none)
+
+const string G2 = "하락 추세"
+const string T_OFF = "끔"
+const string T_NOW = "지금 정렬"
+const string T_PER = "지속 정렬"
+trendMd = input.string(T_PER, "EMA 10 < 25 < 60", options = [T_OFF, T_NOW, T_PER], group = G2, tooltip = "지속 = 직전 30봉 중 80% 이상 정렬, EMA60이 30봉 전보다 낮음", display = display.none)
+dropPct = input.float(2.0, "최근 120분 고점 대비 하락 % (0 = 끔)", minval = 0.0, step = 0.5, group = G2, display = display.none)
+
+const string G3 = "① 꼬리 반전"
+showA   = input.bool(true, "① 표시", group = G3, display = display.none)
+const string R_WICK = "아랫꼬리"
+const string R_CPOS = "종가 위치"
+recMd   = input.string(R_WICK, "회복 기준", options = [R_WICK, R_CPOS], group = G3, tooltip = "아랫꼬리 = (시가·종가 중 낮은 값 − 저가) ÷ 봉 길이, 종가 위치 = (종가 − 저가) ÷ 봉 길이", display = display.none)
+recMin  = input.float(0.5, "회복 비율", minval = 0.0, maxval = 1.0, step = 0.05, group = G3, display = display.none)
+rngMin  = input.float(1.0, "봉 길이 ≥ ATR14 × (0 = 끔)", minval = 0.0, step = 0.5, group = G3, display = display.none)
+needAb  = input.bool(false, "지지선 위에서 마감", group = G3, display = display.none)
+
+const string G4 = "② 장악 양봉"
+showB   = input.bool(true, "② 표시", group = G4, display = display.none)
+needBl  = input.bool(true, "이탈 봉이 지지선 아래에서 마감", group = G4, display = display.none)
+const string E_BASIC = "기본 (앞 봉 시가 − 10%)"
+const string E_BODY  = "몸통 (앞 봉 시가)"
+const string E_FULL  = "전체 (앞 봉 고가)"
+const string E_RECL  = "선 회복 (지지선)"
+engMd   = input.string(E_BASIC, "장악 기준", options = [E_BASIC, E_BODY, E_FULL, E_RECL], group = G4, tooltip = "양봉 종가가 이 값 이상. 기본은 앞 음봉 시가에서 그 봉 길이의 10%를 뺀 값", display = display.none)
+
+const string G5 = "공통"
+volMin  = input.float(0.0, "거래량 ≥ 직전 20봉 평균 × (0 = 끔)", minval = 0.0, step = 0.5, group = G5, display = display.none)
+minNot  = input.float(25000, "최소 거래대금 $", minval = 0, step = 5000, group = G5, display = display.none)
+minRng  = input.float(0.2, "최소 봉 길이 %", minval = 0.0, step = 0.05, group = G5, display = display.none)
+minDens = input.int(15, "직전 30분 봉 수 최소", minval = 0, maxval = 30, group = G5, tooltip = "거래가 드문 시간의 한 건짜리 꼬리를 거른다", display = display.none)
+noNight = input.bool(false, "주간거래(20:00~04:00 뉴욕) 신호 끄기", group = G5, tooltip = "신호만 끈다. 계산에는 그 봉도 들어간다", display = display.none)
+onlyTrd = input.bool(false, "주문 가능 시간(08~24시 한국)만", group = G5, display = display.none)
+dedup30 = input.bool(true, "앞 신호 30분 안의 같은 신호 숨기기", group = G5, tooltip = "백테스트는 한 번에 한 자리만 잡았다(같은 종목·같은 신호 30분 안 신호 뺌)", display = display.none)
+
+const string G6 = "표시"
+colA    = input.color(#D81B60, "① 색", group = G6, display = display.none)
+colB    = input.color(#1E88E5, "② 색", group = G6, display = display.none)
+showTg  = input.bool(true, "+1% 목표선 (30분)", group = G6, display = display.none)
+showSp  = input.bool(true, "깨진 지지선", group = G6, display = display.none)
+
+// ── 계산 (봉 마감 때 아는 값만) ──────────────────────────
+f_ema(float src, int len) =>
+    float a = 2.0 / (len + 1)
+    var float e = na
+    e := na(e) ? src : a * src + (1 - a) * e
+    e
+
+float e10 = f_ema(close, 10)
+float e25 = f_ema(close, 25)
+float e60 = f_ema(close, 60)
+bool stack = e10 < e25 and e25 < e60
+float s30 = ta.sma(stack ? 1.0 : 0.0, 30)
+bool persist = s30 >= 0.8 and e60 < e60[30]
+float atr14 = ta.atr(14)
+float vAvg = ta.sma(volume, 20)[1]
+float volR = vAvg > 0 ? volume / vAvg : na
+
+// 최근 120분(봉 시작 시각 기준) 최고가, 직전 30분 봉 수
+float hh120 = high
+int nIn30 = 1
+for i = 1 to 480
+    if na(time[i]) or time[i] <= time - 120 * 60000
+        break
+    hh120 := math.max(hh120, high[i])
+    if time[i] > time - 30 * 60000
+        nIn30 += 1
+
+float tol = tolPct / 100
+float S = ta.lowest(low, nBars - 1)[2]
+float thr = S * (1 - tol)
+bool brk = low[1] >= thr and low < thr and low < low[1]
+float rng = high - low
+bool single = open == high and high == low and low == close
+bool sane = volume * close >= minNot and rng >= minRng / 100 * close and not single
+bool densOk = nIn30 >= minDens
+float dd = (hh120 - low) / hh120
+bool trendNow = trendMd == T_OFF ? true : trendMd == T_NOW ? stack : persist
+bool dropOk = dropPct <= 0 or dd >= dropPct / 100
+bool volOk = volMin <= 0 or volR >= volMin
+float loR = ta.lowest(low, pSw)
+bool isSw = low[pSw] < loR[pSw + 1] and low[pSw] <= loR
+int dayNY = year(time, "America/New_York") * 10000 + month(time, "America/New_York") * 100 + dayofmonth(time, "America/New_York")
+int hrNY = hour(time, "America/New_York")
+bool night = hrNY >= 20 or hrNY < 4
+bool trdOk = not onlyTrd or hour(time, "Asia/Seoul") >= 8
+
+// 확정 스윙 저점 목록(가격, 봉 번호) — 봉 마감에만 바꾼다
+var array<float> swP = array.new<float>()
+var array<int>   swB = array.new<int>()
+float nTouch = na
+float nLevel = na
+if barstate.isconfirmed
+    while array.size(swB) > 0 and array.get(swB, 0) < bar_index - nBars
+        array.shift(swP)
+        array.shift(swB)
+    if brk
+        array<float> pts = array.new<float>()
+        bool sIn = false
+        int nSw = array.size(swB)
+        if nSw > 0
+            for i = 0 to nSw - 1
+                if array.get(swB, i) <= bar_index - 1 - pSw
+                    float px = array.get(swP, i)
+                    array.push(pts, px)
+                    if px == S
+                        sIn := true
+        if not sIn
+            array.push(pts, S)
+        array.sort(pts, order.ascending)
+        int tc = 0
+        int lc = 0
+        float anchor = -1.0
+        for i = 0 to array.size(pts) - 1
+            float x = array.get(pts, i)
+            if x <= S * (1 + 0.003)
+                tc += 1
+            if x <= S * (1 + 0.01)
+                if lc == 0 or x > anchor * (1 + 0.0015)
+                    lc += 1
+                    anchor := x
+        nTouch := tc
+        nLevel := lc
+    if bar_index >= 2 * pSw and isSw
+        array.push(swP, low[pSw])
+        array.push(swB, bar_index - pSw)
+
+float kCntA = kModeA == M_TOUCH ? nTouch : nLevel
+float kCntB = kModeB == M_TOUCH ? nTouch : nLevel
+
+// ① 꼬리 반전 — 이탈 봉 자신
+float rec = rng > 0 ? (recMd == R_WICK ? (math.min(open, close) - low) / rng : (close - low) / rng) : -1.0
+bool sigA = showA and barstate.isconfirmed and brk and kCntA >= kMinA and trendNow[1] and dropOk and volOk and sane and densOk
+     and open >= thr and rec >= recMin and (rngMin <= 0 or rng >= rngMin * atr14[1]) and (not needAb or close >= S)
+     and not (noNight and night) and trdOk
+
+// ② 장악 양봉 — 이탈 봉(앞 봉) 다음 봉
+float engLvl = engMd == E_BASIC ? open[1] - 0.1 * (high[1] - low[1]) : engMd == E_BODY ? open[1] : engMd == E_FULL ? high[1] : S[1]
+bool sigB = showB and barstate.isconfirmed and brk[1] and kCntB[1] >= kMinB and close[1] < open[1] and dayNY == dayNY[1]
+     and (not needBl or close[1] < thr[1]) and trendNow[2] and dropOk[1] and volOk[1] and sane[1] and sane and densOk
+     and close > open and close >= engLvl and not (noNight and night) and trdOk
+
+// 같은 신호가 30분 안에 다시 나오면 숨긴다(백테스트와 같은 한 자리 규칙)
+var int lastA = na
+var int lastB = na
+bool keepA = sigA and (not dedup30 or na(lastA) or time - lastA >= 30 * 60000)
+bool keepB = sigB and (not dedup30 or na(lastB) or time - lastB >= 30 * 60000)
+if keepA
+    lastA := time
+if keepB
+    lastB := time
+
+// ── 표시·알림 ─────────────────────────────────────────
+plotshape(keepA, "하따봉 ①", shape.labelup, location.belowbar, colA, text = "①", textcolor = color.white, size = size.tiny, display = display.pane)
+plotshape(keepB, "하따봉 ②", shape.labelup, location.belowbar, colB, text = "②", textcolor = color.white, size = size.tiny, display = display.pane)
+if keepA or keepB
+    color c = keepA ? colA : colB
+    float sLine = keepA ? S : S[1]
+    if showTg
+        line.new(time, close * 1.01, time + 31 * 60000, close * 1.01, xloc = xloc.bar_time, color = c, style = line.style_dotted, width = 1)
+    if showSp
+        line.new(math.max(0, bar_index - 15), sLine, bar_index, sLine, color = color.new(c, 40), width = 1)
+
+alertcondition(keepA, "하따봉 ①", "{{ticker}} 하따봉 ① 꼬리 반전 {{close}}")
+alertcondition(keepB, "하따봉 ②", "{{ticker}} 하따봉 ② 장악 양봉 {{close}}")
+if keepA or keepB
+    string tag = keepA and keepB ? " 하따봉 ①+② " : keepA ? " 하따봉 ① " : " 하따봉 ② "
+    alert(syminfo.ticker + tag + str.tostring(close, format.mintick) + " → +1% " + str.tostring(close * 1.01, format.mintick), alert.freq_once_per_bar_close)
+
+// 1분봉이 아니면 알려 준다
+var label warnLb = na
+if barstate.islast and timeframe.period != "1" and na(warnLb)
+    warnLb := label.new(bar_index, high, "하따봉은 1분봉(연장 시간 켬)에서 쓰는 지표", style = label.style_label_down, color = color.gray, textcolor = color.white, size = size.small)
