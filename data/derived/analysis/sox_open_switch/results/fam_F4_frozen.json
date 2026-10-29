@@ -1,0 +1,348 @@
+{
+ "family": "F4",
+ "n_configs": 300,
+ "period": "sel 2026-01-02~06-30",
+ "engine": "Engine(D) / Engine(D, scheme='std'), fill='close', cost_table 1x",
+ "score": "t of daily mean (all sel days), eligible active_days>=25, final = median t of config + grid neighbors (one ordered axis one step; ref/unit categorical)",
+ "grid": "A 192 = ref{open,vwap} x unit{z,pct} x level4 (z 1.5/2/2.5/3, % 1/2/3/4) x start{09:35,09:45,10:00} x hold{10,20,30,60}; B 88 = ref2 x z2 x start{09:45,10:00} x hold{30,60} x stop{none,2%,1%} x target{none,1.5%,1%,0.5%} minus 8 overlap; C 12 = RSI{80,85,90} x ref2 x z1.5 x start{09:45,10:00} x hold30; D 8 = maxent2 x ref2 x z2 x start{09:45,10:00} x hold{10,20}",
+ "landscape": {
+  "actual": {
+   "n_eligible": 136,
+   "t_max_all": 1.94675604148119,
+   "t_median_all": 0.3121737836959241,
+   "t_pos_frac_all": 0.5666666666666667,
+   "t_max_eligible": 1.7845458009160953,
+   "t_median_eligible": -0.08318299014474687,
+   "t_pos_frac_eligible": 0.47794117647058826,
+   "nbr_med_max_eligible": 1.5607195234871065,
+   "mean_pct_median_eligible": -0.01226359267590681
+  },
+  "std": {
+   "n_eligible": 60,
+   "t_max_all": 1.194564338452139,
+   "t_median_all": 0.0,
+   "t_pos_frac_all": 0.12666666666666668,
+   "t_max_eligible": -0.4768620614926529,
+   "t_median_eligible": -1.2517132061732328,
+   "t_pos_frac_eligible": 0.0,
+   "nbr_med_max_eligible": -0.5674073538864708,
+   "mean_pct_median_eligible": -0.14905939896115195
+  }
+ },
+ "frozen": [
+  {
+   "id": "F4-vp3-0945-h20-sN-tN-rN-m1",
+   "scheme": "actual",
+   "params": {
+    "ref": "vwap",
+    "unit": "pct",
+    "level": 3,
+    "start": "09:45",
+    "hold": 20,
+    "stop": null,
+    "target": null,
+    "rsi": null,
+    "maxent": 1
+   },
+   "factory": "fam_F4.make({\"ref\": \"vwap\", \"unit\": \"pct\", \"level\": 3, \"start\": \"09:45\", \"hold\": 20, \"stop\": None, \"target\": None, \"rsi\": None, \"maxent\": 1})",
+   "code": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\sox_open_switch\\code\\fam_F4.py",
+   "sel_actual": {
+    "days": 123,
+    "active_days": 28,
+    "trades": 28,
+    "mean_pct": 0.19673079657472722,
+    "sd_pct": 1.222636079290857,
+    "hit_days": 0.6785714285714286,
+    "sum_pct": 24.197887978691448,
+    "compound_pct": 26.20185245655231,
+    "t": 1.7845458009160953,
+    "ci95": [
+     -0.015289018186527004,
+     0.4201834152644397
+    ],
+    "p_one_sided": 0.0344,
+    "max_dd_pct": -6.069524221180089,
+    "avg_trade_pct": 0.864210284953266,
+    "exits": {
+     "signal": 23,
+     "cutoff": 5
+    },
+    "entries_by_sym": {
+     "SOXL": 16,
+     "SOXS": 12
+    },
+    "nbr_med_t": 1.5607195234871065
+   },
+   "sel_std": {
+    "days": 123,
+    "active_days": 9,
+    "trades": 9,
+    "mean_pct": 0.04571970304610468,
+    "sd_pct": 1.0371152924620268,
+    "hit_days": 0.6666666666666666,
+    "sum_pct": 5.623523474670876,
+    "compound_pct": 5.0791639492387075,
+    "t": 0.48890999812693176,
+    "ci95": [
+     -0.15162226424694408,
+     0.22087517866684836
+    ],
+    "p_one_sided": 0.2921,
+    "max_dd_pct": -8.213557884610513,
+    "avg_trade_pct": 0.6248359416300975,
+    "exits": {
+     "cutoff": 7,
+     "signal": 2
+    },
+    "entries_by_sym": {
+     "SOXL": 6,
+     "SOXS": 3
+    },
+    "nbr_med_t": 0.4589448385999247
+   },
+   "mirror_sel": {
+    "actual": {
+     "days": 123,
+     "active_days": 28,
+     "trades": 28,
+     "mean_pct": -0.20013218861971319,
+     "sd_pct": 1.182810151174972,
+     "hit_days": 0.2857142857142857,
+     "sum_pct": -24.61625920022472,
+     "compound_pct": -22.506034536567142,
+     "t": -1.8765254439097259,
+     "ci95": [
+      -0.4094557735783221,
+      0.009796259510718462
+     ],
+     "p_one_sided": 0.9678,
+     "max_dd_pct": -27.33162655345308
+    },
+    "std": {
+     "days": 123,
+     "active_days": 9,
+     "trades": 9,
+     "mean_pct": -0.03697859923861319,
+     "sd_pct": 1.13940112582662,
+     "hit_days": 0.3333333333333333,
+     "sum_pct": -4.548367706349422,
+     "compound_pct": -5.178947871178508,
+     "t": -0.3599368962481866,
+     "ci95": [
+      -0.21997062694658115,
+      0.18555028168604396
+     ],
+     "p_one_sided": 0.6687,
+     "max_dd_pct": -13.771608169303128
+    }
+   },
+   "neighbors": [
+    {
+     "id": "F4-vp2-0945-h20-sN-tN-rN-m1",
+     "actual_t": -0.2969758990928552,
+     "std_t": 0.5467735711680553
+    },
+    {
+     "id": "F4-vp3-0935-h20-sN-tN-rN-m1",
+     "actual_t": 1.713214496165953,
+     "std_t": 0.3667724416140876
+    },
+    {
+     "id": "F4-vp3-1000-h20-sN-tN-rN-m1",
+     "actual_t": 1.688146454215662,
+     "std_t": 0.0
+    },
+    {
+     "id": "F4-vp3-0945-h10-sN-tN-rN-m1",
+     "actual_t": 0.8809863327554077,
+     "std_t": 0.4289796790729176
+    },
+    {
+     "id": "F4-vp3-0945-h30-sN-tN-rN-m1",
+     "actual_t": 1.4332925927585511,
+     "std_t": 0.48890999812693176
+    }
+   ]
+  },
+  {
+   "id": "F4-vp1-0945-h10-sN-tN-rN-m1",
+   "scheme": "std",
+   "params": {
+    "ref": "vwap",
+    "unit": "pct",
+    "level": 1,
+    "start": "09:45",
+    "hold": 10,
+    "stop": null,
+    "target": null,
+    "rsi": null,
+    "maxent": 1
+   },
+   "factory": "fam_F4.make({\"ref\": \"vwap\", \"unit\": \"pct\", \"level\": 1, \"start\": \"09:45\", \"hold\": 10, \"stop\": None, \"target\": None, \"rsi\": None, \"maxent\": 1})",
+   "code": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\sox_open_switch\\code\\fam_F4.py",
+   "sel_actual": {
+    "days": 123,
+    "active_days": 80,
+    "trades": 80,
+    "mean_pct": -0.0705124434826217,
+    "sd_pct": 1.3999961976996058,
+    "hit_days": 0.475,
+    "sum_pct": -8.673030548362469,
+    "compound_pct": -9.413485703717217,
+    "t": -0.558587823227748,
+    "ci95": [
+     -0.3217952182219989,
+     0.1713274546906058
+    ],
+    "p_one_sided": 0.7095,
+    "max_dd_pct": -18.581049302197705,
+    "avg_trade_pct": -0.10841288185453088,
+    "exits": {
+     "signal": 74,
+     "cutoff": 6
+    },
+    "entries_by_sym": {
+     "SOXL": 41,
+     "SOXS": 39
+    },
+    "nbr_med_t": -0.6833429836563771
+   },
+   "sel_std": {
+    "days": 123,
+    "active_days": 45,
+    "trades": 45,
+    "mean_pct": -0.06982299960765703,
+    "sd_pct": 1.1769456822062028,
+    "hit_days": 0.4444444444444444,
+    "sum_pct": -8.588228951741815,
+    "compound_pct": -9.01668984366224,
+    "t": -0.6579526462802887,
+    "ci95": [
+     -0.2789991355272547,
+     0.1249760268011502
+    ],
+    "p_one_sided": 0.741,
+    "max_dd_pct": -10.958079730034221,
+    "avg_trade_pct": -0.19084953226092927,
+    "exits": {
+     "signal": 34,
+     "cutoff": 11
+    },
+    "entries_by_sym": {
+     "SOXL": 23,
+     "SOXS": 22
+    },
+    "nbr_med_t": -0.5674073538864708
+   },
+   "mirror_sel": {
+    "actual": {
+     "days": 123,
+     "active_days": 80,
+     "trades": 80,
+     "mean_pct": -0.017676688766233906,
+     "sd_pct": 1.4290417004811569,
+     "hit_days": 0.5,
+     "sum_pct": -2.1742327182467704,
+     "compound_pct": -3.343976618525346,
+     "t": -0.137185613273809,
+     "ci95": [
+      -0.2616516100534387,
+      0.2443038000623941
+     ],
+     "p_one_sided": 0.5654,
+     "max_dd_pct": -21.098685409445494
+    },
+    "std": {
+     "days": 123,
+     "active_days": 45,
+     "trades": 45,
+     "mean_pct": 0.01671008565140538,
+     "sd_pct": 1.2010856883544636,
+     "hit_days": 0.5111111111111111,
+     "sum_pct": 2.0553405351228617,
+     "compound_pct": 1.2007321530112636,
+     "t": 0.1542969138163995,
+     "ci95": [
+      -0.1785810744761606,
+      0.2379229625084874
+     ],
+     "p_one_sided": 0.4608,
+     "max_dd_pct": -12.483215492475052
+    }
+   },
+   "neighbors": [
+    {
+     "id": "F4-vp0-0945-h10-sN-tN-rN-m1",
+     "actual_t": -0.7532011454911641,
+     "std_t": -0.4768620614926529
+    },
+    {
+     "id": "F4-vp2-0945-h10-sN-tN-rN-m1",
+     "actual_t": -0.6134848218215901,
+     "std_t": 0.35166486923113577
+    },
+    {
+     "id": "F4-vp1-0935-h10-sN-tN-rN-m1",
+     "actual_t": -0.7665096679051379,
+     "std_t": -1.0638092544006406
+    },
+    {
+     "id": "F4-vp1-1000-h10-sN-tN-rN-m1",
+     "actual_t": 0.3737937966270451,
+     "std_t": 0.0
+    },
+    {
+     "id": "F4-vp1-0945-h20-sN-tN-rN-m1",
+     "actual_t": -0.805029602690927,
+     "std_t": -0.7590556476201974
+    }
+   ]
+  }
+ ],
+ "runtime_s": 16.3,
+ "landscape_by_start_actual_eligible": {
+  "09:35": {
+   "n": 40,
+   "t_median": -0.77,
+   "t_max": 1.71,
+   "pos_frac": 0.25
+  },
+  "09:45": {
+   "n": 64,
+   "t_median": -0.37,
+   "t_max": 1.78,
+   "pos_frac": 0.38
+  },
+  "10:00": {
+   "n": 32,
+   "t_median": 1.09,
+   "t_max": 1.61,
+   "pos_frac": 0.97
+  }
+ },
+ "landscape_by_start_std_eligible": {
+  "09:35": {
+   "n": 32,
+   "t_median": -1.79,
+   "t_max": -0.62,
+   "pos_frac": 0.0
+  },
+  "09:45": {
+   "n": 28,
+   "t_median": -0.76,
+   "t_max": -0.48,
+   "pos_frac": 0.0
+  },
+  "10:00": {
+   "n": 0,
+   "note": "std 마감 10:00이라 결정 없음"
+  }
+ },
+ "notes": [
+  "격자 설계 결함(실행 전 정한 그대로 두고 공개): VWAP z는 분모를 sigma*sqrt(경과분)으로 시가 z와 같게 잡았는데, 가격과 그 누적 평균의 차이는 크기가 약 1/sqrt(3)이라 z_vwap>=2가 사실상 3.5시그마 사건이 됐다. VWAP z 칸은 활동일 0~19일(z1.5 09:35만 19일)로 거의 쓰이지 않았고, B(손절·목표) 44칸·C(RSI) 6칸·D(하루 2번) 4칸의 VWAP 쪽 54칸도 0~4일만 활동해 자격 밖이다.",
+  "RSI 극단(80·85·90, 연장 끔) + z1.5: 09:45 뒤에는 RSI 극단이 드물어 활동일 0~15일, 전부 자격 밖. RSI 90은 0건.",
+  "손절은 되돌림을 죽인다(시가 z2 B칸 actual t 중앙값: 손절 없음 -0.52, 2% -1.27, 1% -1.05; 1% 손절·목표 없음 -2.9~-3.9). 목표 0.5%만 손절 없음과 비슷(-0.34).",
+  "얼린 actual 1위 F4-vp3-0945-h20의 이웃 중 문턱 축(VWAP 3%)은 t -0.30이다. 시작·보유 이웃(09:35·10:00, 10·30분)은 같은 신호를 상당 부분 공유해 평탄해 보인다. 28건 중 19건이 5~6월(SOXL 115->266달러 급등기), 6월 11건이 합계의 55%.",
+  "std 1위 F4-vp1-0945-h10은 규칙대로 얼렸지만 std 자격 칸 60개 모두 t<0이다(10:00 마감이라 되돌림 창이 없다)."
+ ]
+}

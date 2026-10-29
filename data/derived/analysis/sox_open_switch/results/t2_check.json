@@ -1,0 +1,3497 @@
+{
+ "rule": {
+  "signal": "T2 = 창(신호 봉 09:30~10:29) 안 그날 그 티커의 두 번째 RSI14 70 상향 돌파, 기준 R(정규장 봉만 날을 넘어 이음, 반일장 12:59까지)",
+  "trade": "반대 종목을 신호 봉 시작 + 2분 시가에 매수, +1% 지정가(관통), 진입 봉 포함 30봉 안 못 닿으면 29분 뒤 봉 종가 매도",
+  "cost": "primary = cost_table.json 시간대별 실측 반 호가",
+  "cost_table": {
+   "SOXL": {
+    "pre": 0.00019755037534574402,
+    "open5": 0.0002254158127419302,
+    "early": 0.00019496977968411016,
+    "late": 0.0001795009872553942
+   },
+   "SOXS": {
+    "pre": 0.0006397952655150897,
+    "open5": 0.0005755159089040556,
+    "early": 0.0005216484089723414,
+    "late": 0.0005274333496440686
+   }
+  },
+  "data": "Alpaca SIP 1분봉(분할 반영) cache/alp1m",
+  "half_days": [
+   "2024-12-24",
+   "2025-07-03",
+   "2025-11-28",
+   "2025-12-24"
+  ],
+  "bootstrap": "날 묶음(기간 모든 날) 10000회, numpy default_rng(20261029).integers(0, nd, (10000, nd))"
+ },
+ "checks": {
+  "vector_vs_loop_trades_checked": 1350,
+  "rsi_vector_vs_loop": "일치(assert)",
+  "t2_signal_diff_if_rth_gaps_ffilled": {
+   "SOXL": 0,
+   "SOXS": 0
+  },
+  "rth_days": 478,
+  "first_day": "2024-12-02",
+  "last_day": "2026-10-28"
+ },
+ "periods": {
+  "main_2026": {
+   "n_days_period": 186,
+   "n": 114,
+   "n_days_with_trade": 112,
+   "b0_window": {
+    "n": 22320,
+    "hit_rate": 0.602778,
+    "ev_mean_pct": -0.093162
+   },
+   "hit_rate": 0.640351,
+   "ev_mean_pct": -0.106291,
+   "ev_median_pct": 1.0,
+   "miss_n": 41,
+   "miss_mean_pct": -2.076029,
+   "worst_pct": -8.834527,
+   "mae_median_pct": -1.209949,
+   "days_pos": 77,
+   "days_neg": 35,
+   "days_both_tickers": 2,
+   "by_buy": {
+    "SOXL": {
+     "n": 52,
+     "hit_rate": 0.673077,
+     "ev_mean_pct": -0.156474
+    },
+    "SOXS": {
+     "n": 62,
+     "hit_rate": 0.612903,
+     "ev_mean_pct": -0.064203
+    }
+   },
+   "matched_b0": {
+    "rule": "각 매매의 진입 분에서 기간 모든 날 × 두 종목 평균",
+    "hit_rate": 0.619765,
+    "ev_mean_pct": -0.103127
+   },
+   "boot": {
+    "n_boot": 10000,
+    "seed": 20261029,
+    "nan_draws": 0,
+    "ev_mean_ci95": [
+     -0.480275,
+     0.232605
+    ],
+    "hit_rate_ci95": [
+     0.552,
+     0.725667
+    ],
+    "ev_p_le_0": 0.7123,
+    "minus_matched_b0_hit": 0.020586,
+    "minus_matched_b0_hit_ci95": [
+     -0.065552,
+     0.10414
+    ],
+    "minus_matched_b0_ev_pct": -0.003165,
+    "minus_matched_b0_ev_ci95": [
+     -0.369288,
+     0.32157
+    ]
+   },
+   "follow_same_signal": {
+    "n": 114,
+    "hit_rate": 0.657895,
+    "ev_mean_pct": 0.176073,
+    "ev_mean_ci95": [
+     -0.083763,
+     0.414268
+    ]
+   },
+   "sensitivity": {
+    "cost_2x": {
+     "n": 114,
+     "hit_rate": 0.640351,
+     "ev_mean_pct": -0.133482,
+     "ev_mean_ci95": [
+      -0.512924,
+      0.209655
+     ]
+    },
+    "flat_0.03pct": {
+     "n": 114,
+     "hit_rate": 0.649123,
+     "ev_mean_pct": -0.094121,
+     "ev_mean_ci95": [
+      -0.468514,
+      0.243992
+     ]
+    },
+    "zero_cost": {
+     "n": 114,
+     "hit_rate": 0.666667,
+     "ev_mean_pct": -0.068129,
+     "ev_mean_ci95": [
+      -0.439419,
+      0.265939
+     ]
+    }
+   },
+   "order_cutoff_variant": {
+    "rule": "진입 분 ≥ 마감이면 매매 불가, 보유는 min(진입 + 29분, 마감 1분 전) 봉 종가에서 청산",
+    "trades_on_std_time_days": 28,
+    "dropped": 10,
+    "n": 104,
+    "hit_rate": 0.634615,
+    "ev_mean_pct": -0.180802
+   },
+   "events": [
+    {
+     "day": "2026-01-05",
+     "signal": "SOXL",
+     "signal_time": "10:29",
+     "buy": "SOXS",
+     "entry": "10:31",
+     "hit": false,
+     "exit": "11:00",
+     "pnl_pct": 0.477124,
+     "mae_pct": -1.030673
+    },
+    {
+     "day": "2026-01-06",
+     "signal": "SOXL",
+     "signal_time": "09:42",
+     "buy": "SOXS",
+     "entry": "09:44",
+     "hit": false,
+     "exit": "10:13",
+     "pnl_pct": -4.226499,
+     "mae_pct": -5.17205
+    },
+    {
+     "day": "2026-01-07",
+     "signal": "SOXS",
+     "signal_time": "09:35",
+     "buy": "SOXL",
+     "entry": "09:37",
+     "hit": false,
+     "exit": "10:06",
+     "pnl_pct": -0.649416,
+     "mae_pct": -2.754755
+    },
+    {
+     "day": "2026-01-08",
+     "signal": "SOXS",
+     "signal_time": "09:38",
+     "buy": "SOXL",
+     "entry": "09:40",
+     "hit": false,
+     "exit": "10:09",
+     "pnl_pct": -2.526134,
+     "mae_pct": -4.602674
+    },
+    {
+     "day": "2026-01-09",
+     "signal": "SOXL",
+     "signal_time": "10:02",
+     "buy": "SOXS",
+     "entry": "10:04",
+     "hit": true,
+     "exit": "10:06",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.462336
+    },
+    {
+     "day": "2026-01-13",
+     "signal": "SOXL",
+     "signal_time": "09:40",
+     "buy": "SOXS",
+     "entry": "09:42",
+     "hit": true,
+     "exit": "09:43",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.052138
+    },
+    {
+     "day": "2026-01-16",
+     "signal": "SOXL",
+     "signal_time": "09:45",
+     "buy": "SOXS",
+     "entry": "09:47",
+     "hit": true,
+     "exit": "09:56",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.101108
+    },
+    {
+     "day": "2026-01-21",
+     "signal": "SOXL",
+     "signal_time": "09:43",
+     "buy": "SOXS",
+     "entry": "09:45",
+     "hit": false,
+     "exit": "10:14",
+     "pnl_pct": -2.039868,
+     "mae_pct": -2.714187
+    },
+    {
+     "day": "2026-01-23",
+     "signal": "SOXS",
+     "signal_time": "09:32",
+     "buy": "SOXL",
+     "entry": "09:34",
+     "hit": true,
+     "exit": "09:42",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.232799
+    },
+    {
+     "day": "2026-01-27",
+     "signal": "SOXL",
+     "signal_time": "09:40",
+     "buy": "SOXS",
+     "entry": "09:42",
+     "hit": false,
+     "exit": "10:11",
+     "pnl_pct": -2.893804,
+     "mae_pct": -3.096235
+    },
+    {
+     "day": "2026-01-29",
+     "signal": "SOXS",
+     "signal_time": "10:08",
+     "buy": "SOXL",
+     "entry": "10:10",
+     "hit": false,
+     "exit": "10:39",
+     "pnl_pct": -2.496822,
+     "mae_pct": -2.553455
+    },
+    {
+     "day": "2026-01-30",
+     "signal": "SOXS",
+     "signal_time": "09:59",
+     "buy": "SOXL",
+     "entry": "10:01",
+     "hit": true,
+     "exit": "10:07",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.613255
+    },
+    {
+     "day": "2026-02-02",
+     "signal": "SOXL",
+     "signal_time": "10:16",
+     "buy": "SOXS",
+     "entry": "10:18",
+     "hit": false,
+     "exit": "10:47",
+     "pnl_pct": -0.642499,
+     "mae_pct": -1.664769
+    },
+    {
+     "day": "2026-02-05",
+     "signal": "SOXS",
+     "signal_time": "10:13",
+     "buy": "SOXL",
+     "entry": "10:15",
+     "hit": true,
+     "exit": "10:16",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.201303
+    },
+    {
+     "day": "2026-02-06",
+     "signal": "SOXL",
+     "signal_time": "09:42",
+     "buy": "SOXS",
+     "entry": "09:44",
+     "hit": true,
+     "exit": "10:06",
+     "pnl_pct": 1.0,
+     "mae_pct": -4.015221
+    },
+    {
+     "day": "2026-02-11",
+     "signal": "SOXS",
+     "signal_time": "10:19",
+     "buy": "SOXL",
+     "entry": "10:21",
+     "hit": true,
+     "exit": "10:36",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.205576
+    },
+    {
+     "day": "2026-02-12",
+     "signal": "SOXL",
+     "signal_time": "09:35",
+     "buy": "SOXS",
+     "entry": "09:37",
+     "hit": true,
+     "exit": "09:46",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.660773
+    },
+    {
+     "day": "2026-02-17",
+     "signal": "SOXS",
+     "signal_time": "09:32",
+     "buy": "SOXL",
+     "entry": "09:34",
+     "hit": true,
+     "exit": "09:34",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.24884
+    },
+    {
+     "day": "2026-02-18",
+     "signal": "SOXL",
+     "signal_time": "10:00",
+     "buy": "SOXS",
+     "entry": "10:02",
+     "hit": false,
+     "exit": "10:31",
+     "pnl_pct": -1.847778,
+     "mae_pct": -2.95816
+    },
+    {
+     "day": "2026-02-19",
+     "signal": "SOXS",
+     "signal_time": "09:45",
+     "buy": "SOXL",
+     "entry": "09:47",
+     "hit": true,
+     "exit": "09:52",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.553476
+    },
+    {
+     "day": "2026-02-20",
+     "signal": "SOXL",
+     "signal_time": "09:42",
+     "buy": "SOXS",
+     "entry": "09:44",
+     "hit": true,
+     "exit": "09:50",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.214322
+    },
+    {
+     "day": "2026-02-24",
+     "signal": "SOXL",
+     "signal_time": "09:48",
+     "buy": "SOXS",
+     "entry": "09:50",
+     "hit": true,
+     "exit": "09:55",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.657882
+    },
+    {
+     "day": "2026-02-25",
+     "signal": "SOXL",
+     "signal_time": "09:33",
+     "buy": "SOXS",
+     "entry": "09:35",
+     "hit": false,
+     "exit": "10:04",
+     "pnl_pct": -1.671009,
+     "mae_pct": -1.93144
+    },
+    {
+     "day": "2026-02-26",
+     "signal": "SOXS",
+     "signal_time": "09:32",
+     "buy": "SOXL",
+     "entry": "09:34",
+     "hit": false,
+     "exit": "10:03",
+     "pnl_pct": -6.153787,
+     "mae_pct": -7.338477
+    },
+    {
+     "day": "2026-03-03",
+     "signal": "SOXS",
+     "signal_time": "09:39",
+     "buy": "SOXL",
+     "entry": "09:41",
+     "hit": false,
+     "exit": "10:10",
+     "pnl_pct": -1.411307,
+     "mae_pct": -2.346326
+    },
+    {
+     "day": "2026-03-04",
+     "signal": "SOXL",
+     "signal_time": "10:26",
+     "buy": "SOXS",
+     "entry": "10:28",
+     "hit": true,
+     "exit": "10:41",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.827501
+    },
+    {
+     "day": "2026-03-05",
+     "signal": "SOXS",
+     "signal_time": "10:26",
+     "buy": "SOXL",
+     "entry": "10:28",
+     "hit": true,
+     "exit": "10:40",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.322916
+    },
+    {
+     "day": "2026-03-06",
+     "signal": "SOXS",
+     "signal_time": "09:39",
+     "buy": "SOXL",
+     "entry": "09:41",
+     "hit": true,
+     "exit": "09:41",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.198243
+    },
+    {
+     "day": "2026-03-09",
+     "signal": "SOXS",
+     "signal_time": "09:33",
+     "buy": "SOXL",
+     "entry": "09:35",
+     "hit": true,
+     "exit": "10:04",
+     "pnl_pct": 1.0,
+     "mae_pct": -3.217468
+    },
+    {
+     "day": "2026-03-10",
+     "signal": "SOXL",
+     "signal_time": "09:37",
+     "buy": "SOXS",
+     "entry": "09:39",
+     "hit": true,
+     "exit": "10:08",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.371667
+    },
+    {
+     "day": "2026-03-11",
+     "signal": "SOXL",
+     "signal_time": "09:32",
+     "buy": "SOXS",
+     "entry": "09:34",
+     "hit": false,
+     "exit": "10:03",
+     "pnl_pct": -2.756839,
+     "mae_pct": -3.541872
+    },
+    {
+     "day": "2026-03-13",
+     "signal": "SOXL",
+     "signal_time": "09:51",
+     "buy": "SOXS",
+     "entry": "09:53",
+     "hit": true,
+     "exit": "10:06",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.075145
+    },
+    {
+     "day": "2026-03-16",
+     "signal": "SOXL",
+     "signal_time": "09:53",
+     "buy": "SOXS",
+     "entry": "09:55",
+     "hit": false,
+     "exit": "10:24",
+     "pnl_pct": 0.316756,
+     "mae_pct": -0.605792
+    },
+    {
+     "day": "2026-03-20",
+     "signal": "SOXS",
+     "signal_time": "09:57",
+     "buy": "SOXL",
+     "entry": "09:59",
+     "hit": true,
+     "exit": "10:05",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.303314
+    },
+    {
+     "day": "2026-03-23",
+     "signal": "SOXL",
+     "signal_time": "10:21",
+     "buy": "SOXS",
+     "entry": "10:23",
+     "hit": true,
+     "exit": "10:36",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.514163
+    },
+    {
+     "day": "2026-03-25",
+     "signal": "SOXL",
+     "signal_time": "09:36",
+     "buy": "SOXS",
+     "entry": "09:38",
+     "hit": true,
+     "exit": "09:51",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.812849
+    },
+    {
+     "day": "2026-03-26",
+     "signal": "SOXS",
+     "signal_time": "09:58",
+     "buy": "SOXL",
+     "entry": "10:00",
+     "hit": true,
+     "exit": "10:22",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.755477
+    },
+    {
+     "day": "2026-03-27",
+     "signal": "SOXS",
+     "signal_time": "09:55",
+     "buy": "SOXL",
+     "entry": "09:57",
+     "hit": true,
+     "exit": "10:00",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.41224
+    },
+    {
+     "day": "2026-03-30",
+     "signal": "SOXS",
+     "signal_time": "09:47",
+     "buy": "SOXL",
+     "entry": "09:49",
+     "hit": true,
+     "exit": "10:13",
+     "pnl_pct": 1.0,
+     "mae_pct": -2.899868
+    },
+    {
+     "day": "2026-03-31",
+     "signal": "SOXL",
+     "signal_time": "09:37",
+     "buy": "SOXS",
+     "entry": "09:39",
+     "hit": false,
+     "exit": "10:08",
+     "pnl_pct": -2.142189,
+     "mae_pct": -4.063203
+    },
+    {
+     "day": "2026-04-01",
+     "signal": "SOXL",
+     "signal_time": "10:01",
+     "buy": "SOXS",
+     "entry": "10:03",
+     "hit": false,
+     "exit": "10:32",
+     "pnl_pct": -1.264749,
+     "mae_pct": -1.682141
+    },
+    {
+     "day": "2026-04-06",
+     "signal": "SOXL",
+     "signal_time": "09:47",
+     "buy": "SOXS",
+     "entry": "09:49",
+     "hit": true,
+     "exit": "09:55",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.606581
+    },
+    {
+     "day": "2026-04-07",
+     "signal": "SOXS",
+     "signal_time": "10:05",
+     "buy": "SOXL",
+     "entry": "10:07",
+     "hit": true,
+     "exit": "10:10",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.417419
+    },
+    {
+     "day": "2026-04-09",
+     "signal": "SOXS",
+     "signal_time": "10:18",
+     "buy": "SOXL",
+     "entry": "10:20",
+     "hit": true,
+     "exit": "10:24",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.047096
+    },
+    {
+     "day": "2026-04-09",
+     "signal": "SOXL",
+     "signal_time": "09:41",
+     "buy": "SOXS",
+     "entry": "09:43",
+     "hit": false,
+     "exit": "10:12",
+     "pnl_pct": 0.260078,
+     "mae_pct": -0.840037
+    },
+    {
+     "day": "2026-04-10",
+     "signal": "SOXL",
+     "signal_time": "09:45",
+     "buy": "SOXS",
+     "entry": "09:47",
+     "hit": true,
+     "exit": "10:01",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.11768
+    },
+    {
+     "day": "2026-04-17",
+     "signal": "SOXL",
+     "signal_time": "10:10",
+     "buy": "SOXS",
+     "entry": "10:12",
+     "hit": true,
+     "exit": "10:20",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.209299
+    },
+    {
+     "day": "2026-04-21",
+     "signal": "SOXL",
+     "signal_time": "10:05",
+     "buy": "SOXS",
+     "entry": "10:07",
+     "hit": true,
+     "exit": "10:32",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.16442
+    },
+    {
+     "day": "2026-04-27",
+     "signal": "SOXS",
+     "signal_time": "09:45",
+     "buy": "SOXL",
+     "entry": "09:47",
+     "hit": true,
+     "exit": "09:55",
+     "pnl_pct": 1.0,
+     "mae_pct": -2.784184
+    },
+    {
+     "day": "2026-04-29",
+     "signal": "SOXL",
+     "signal_time": "09:36",
+     "buy": "SOXS",
+     "entry": "09:38",
+     "hit": true,
+     "exit": "09:46",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.474085
+    },
+    {
+     "day": "2026-05-05",
+     "signal": "SOXL",
+     "signal_time": "09:49",
+     "buy": "SOXS",
+     "entry": "09:51",
+     "hit": false,
+     "exit": "10:20",
+     "pnl_pct": -1.091472,
+     "mae_pct": -1.532847
+    },
+    {
+     "day": "2026-05-06",
+     "signal": "SOXS",
+     "signal_time": "10:22",
+     "buy": "SOXL",
+     "entry": "10:24",
+     "hit": true,
+     "exit": "10:25",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.310467
+    },
+    {
+     "day": "2026-05-07",
+     "signal": "SOXS",
+     "signal_time": "09:41",
+     "buy": "SOXL",
+     "entry": "09:43",
+     "hit": true,
+     "exit": "09:52",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.637593
+    },
+    {
+     "day": "2026-05-08",
+     "signal": "SOXL",
+     "signal_time": "09:52",
+     "buy": "SOXS",
+     "entry": "09:54",
+     "hit": false,
+     "exit": "10:23",
+     "pnl_pct": -0.891017,
+     "mae_pct": -1.41554
+    },
+    {
+     "day": "2026-05-12",
+     "signal": "SOXS",
+     "signal_time": "09:57",
+     "buy": "SOXL",
+     "entry": "09:59",
+     "hit": true,
+     "exit": "10:01",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.827565
+    },
+    {
+     "day": "2026-05-18",
+     "signal": "SOXS",
+     "signal_time": "09:49",
+     "buy": "SOXL",
+     "entry": "09:51",
+     "hit": true,
+     "exit": "09:52",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.394186
+    },
+    {
+     "day": "2026-05-19",
+     "signal": "SOXS",
+     "signal_time": "10:06",
+     "buy": "SOXL",
+     "entry": "10:08",
+     "hit": false,
+     "exit": "10:37",
+     "pnl_pct": 0.448533,
+     "mae_pct": -3.082943
+    },
+    {
+     "day": "2026-05-20",
+     "signal": "SOXL",
+     "signal_time": "09:37",
+     "buy": "SOXS",
+     "entry": "09:39",
+     "hit": false,
+     "exit": "10:08",
+     "pnl_pct": -4.079177,
+     "mae_pct": -4.028558
+    },
+    {
+     "day": "2026-05-21",
+     "signal": "SOXL",
+     "signal_time": "10:04",
+     "buy": "SOXS",
+     "entry": "10:06",
+     "hit": true,
+     "exit": "10:13",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.472159
+    },
+    {
+     "day": "2026-05-26",
+     "signal": "SOXL",
+     "signal_time": "10:14",
+     "buy": "SOXS",
+     "entry": "10:16",
+     "hit": false,
+     "exit": "10:45",
+     "pnl_pct": -4.352363,
+     "mae_pct": -4.317174
+    },
+    {
+     "day": "2026-05-27",
+     "signal": "SOXS",
+     "signal_time": "09:47",
+     "buy": "SOXL",
+     "entry": "09:49",
+     "hit": true,
+     "exit": "09:50",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.354933
+    },
+    {
+     "day": "2026-05-28",
+     "signal": "SOXS",
+     "signal_time": "09:47",
+     "buy": "SOXL",
+     "entry": "09:49",
+     "hit": true,
+     "exit": "10:09",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.143512
+    },
+    {
+     "day": "2026-05-29",
+     "signal": "SOXL",
+     "signal_time": "09:35",
+     "buy": "SOXS",
+     "entry": "09:37",
+     "hit": false,
+     "exit": "10:06",
+     "pnl_pct": -1.708412,
+     "mae_pct": -3.228204
+    },
+    {
+     "day": "2026-06-01",
+     "signal": "SOXS",
+     "signal_time": "09:55",
+     "buy": "SOXL",
+     "entry": "09:57",
+     "hit": true,
+     "exit": "10:08",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.491449
+    },
+    {
+     "day": "2026-06-02",
+     "signal": "SOXL",
+     "signal_time": "10:04",
+     "buy": "SOXS",
+     "entry": "10:06",
+     "hit": true,
+     "exit": "10:11",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.324066
+    },
+    {
+     "day": "2026-06-04",
+     "signal": "SOXS",
+     "signal_time": "10:04",
+     "buy": "SOXL",
+     "entry": "10:06",
+     "hit": true,
+     "exit": "10:10",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.579106
+    },
+    {
+     "day": "2026-06-05",
+     "signal": "SOXS",
+     "signal_time": "09:58",
+     "buy": "SOXL",
+     "entry": "10:00",
+     "hit": true,
+     "exit": "10:01",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.415097
+    },
+    {
+     "day": "2026-06-09",
+     "signal": "SOXS",
+     "signal_time": "10:16",
+     "buy": "SOXL",
+     "entry": "10:18",
+     "hit": true,
+     "exit": "10:22",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.607643
+    },
+    {
+     "day": "2026-06-09",
+     "signal": "SOXL",
+     "signal_time": "09:43",
+     "buy": "SOXS",
+     "entry": "09:45",
+     "hit": true,
+     "exit": "09:55",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.903377
+    },
+    {
+     "day": "2026-06-11",
+     "signal": "SOXL",
+     "signal_time": "09:46",
+     "buy": "SOXS",
+     "entry": "09:48",
+     "hit": true,
+     "exit": "09:49",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.052138
+    },
+    {
+     "day": "2026-06-16",
+     "signal": "SOXS",
+     "signal_time": "10:22",
+     "buy": "SOXL",
+     "entry": "10:24",
+     "hit": true,
+     "exit": "10:24",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.103614
+    },
+    {
+     "day": "2026-06-18",
+     "signal": "SOXL",
+     "signal_time": "09:37",
+     "buy": "SOXS",
+     "entry": "09:39",
+     "hit": false,
+     "exit": "10:08",
+     "pnl_pct": -2.336414,
+     "mae_pct": -2.810226
+    },
+    {
+     "day": "2026-06-22",
+     "signal": "SOXL",
+     "signal_time": "09:35",
+     "buy": "SOXS",
+     "entry": "09:37",
+     "hit": true,
+     "exit": "09:41",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.922816
+    },
+    {
+     "day": "2026-06-29",
+     "signal": "SOXS",
+     "signal_time": "10:00",
+     "buy": "SOXL",
+     "entry": "10:02",
+     "hit": true,
+     "exit": "10:31",
+     "pnl_pct": 1.0,
+     "mae_pct": -7.032789
+    },
+    {
+     "day": "2026-06-30",
+     "signal": "SOXL",
+     "signal_time": "09:44",
+     "buy": "SOXS",
+     "entry": "09:46",
+     "hit": true,
+     "exit": "09:46",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.338521
+    },
+    {
+     "day": "2026-07-02",
+     "signal": "SOXS",
+     "signal_time": "10:25",
+     "buy": "SOXL",
+     "entry": "10:27",
+     "hit": false,
+     "exit": "10:56",
+     "pnl_pct": -6.070731,
+     "mae_pct": -7.379749
+    },
+    {
+     "day": "2026-07-06",
+     "signal": "SOXL",
+     "signal_time": "10:11",
+     "buy": "SOXS",
+     "entry": "10:13",
+     "hit": true,
+     "exit": "10:21",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.86786
+    },
+    {
+     "day": "2026-07-07",
+     "signal": "SOXS",
+     "signal_time": "10:11",
+     "buy": "SOXL",
+     "entry": "10:13",
+     "hit": false,
+     "exit": "10:42",
+     "pnl_pct": -4.190485,
+     "mae_pct": -4.633578
+    },
+    {
+     "day": "2026-07-08",
+     "signal": "SOXL",
+     "signal_time": "09:34",
+     "buy": "SOXS",
+     "entry": "09:36",
+     "hit": true,
+     "exit": "09:36",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.483878
+    },
+    {
+     "day": "2026-07-10",
+     "signal": "SOXS",
+     "signal_time": "09:37",
+     "buy": "SOXL",
+     "entry": "09:39",
+     "hit": true,
+     "exit": "09:45",
+     "pnl_pct": 1.0,
+     "mae_pct": -3.168701
+    },
+    {
+     "day": "2026-07-13",
+     "signal": "SOXS",
+     "signal_time": "09:51",
+     "buy": "SOXL",
+     "entry": "09:53",
+     "hit": true,
+     "exit": "09:58",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.866432
+    },
+    {
+     "day": "2026-07-14",
+     "signal": "SOXL",
+     "signal_time": "09:35",
+     "buy": "SOXS",
+     "entry": "09:37",
+     "hit": true,
+     "exit": "09:42",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.694529
+    },
+    {
+     "day": "2026-07-15",
+     "signal": "SOXS",
+     "signal_time": "10:20",
+     "buy": "SOXL",
+     "entry": "10:22",
+     "hit": false,
+     "exit": "10:51",
+     "pnl_pct": -2.789461,
+     "mae_pct": -5.50803
+    },
+    {
+     "day": "2026-07-17",
+     "signal": "SOXL",
+     "signal_time": "10:08",
+     "buy": "SOXS",
+     "entry": "10:10",
+     "hit": true,
+     "exit": "10:15",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.833528
+    },
+    {
+     "day": "2026-07-20",
+     "signal": "SOXL",
+     "signal_time": "09:40",
+     "buy": "SOXS",
+     "entry": "09:42",
+     "hit": true,
+     "exit": "09:51",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.456745
+    },
+    {
+     "day": "2026-07-23",
+     "signal": "SOXS",
+     "signal_time": "09:33",
+     "buy": "SOXL",
+     "entry": "09:35",
+     "hit": true,
+     "exit": "09:36",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.758792
+    },
+    {
+     "day": "2026-07-27",
+     "signal": "SOXS",
+     "signal_time": "10:10",
+     "buy": "SOXL",
+     "entry": "10:12",
+     "hit": false,
+     "exit": "10:41",
+     "pnl_pct": -8.834527,
+     "mae_pct": -9.167967
+    },
+    {
+     "day": "2026-07-29",
+     "signal": "SOXS",
+     "signal_time": "09:51",
+     "buy": "SOXL",
+     "entry": "09:53",
+     "hit": true,
+     "exit": "09:53",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.869636
+    },
+    {
+     "day": "2026-07-30",
+     "signal": "SOXL",
+     "signal_time": "09:41",
+     "buy": "SOXS",
+     "entry": "09:43",
+     "hit": false,
+     "exit": "10:12",
+     "pnl_pct": -7.012585,
+     "mae_pct": -9.450943
+    },
+    {
+     "day": "2026-08-05",
+     "signal": "SOXS",
+     "signal_time": "09:32",
+     "buy": "SOXL",
+     "entry": "09:34",
+     "hit": true,
+     "exit": "09:42",
+     "pnl_pct": 1.0,
+     "mae_pct": -2.053533
+    },
+    {
+     "day": "2026-08-06",
+     "signal": "SOXL",
+     "signal_time": "10:13",
+     "buy": "SOXS",
+     "entry": "10:15",
+     "hit": true,
+     "exit": "10:39",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.959574
+    },
+    {
+     "day": "2026-08-10",
+     "signal": "SOXL",
+     "signal_time": "09:32",
+     "buy": "SOXS",
+     "entry": "09:34",
+     "hit": true,
+     "exit": "09:34",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.172536
+    },
+    {
+     "day": "2026-08-12",
+     "signal": "SOXL",
+     "signal_time": "09:41",
+     "buy": "SOXS",
+     "entry": "09:43",
+     "hit": false,
+     "exit": "10:12",
+     "pnl_pct": -0.768381,
+     "mae_pct": -2.241172
+    },
+    {
+     "day": "2026-08-13",
+     "signal": "SOXL",
+     "signal_time": "09:46",
+     "buy": "SOXS",
+     "entry": "09:48",
+     "hit": false,
+     "exit": "10:17",
+     "pnl_pct": -1.121081,
+     "mae_pct": -1.475607
+    },
+    {
+     "day": "2026-08-14",
+     "signal": "SOXS",
+     "signal_time": "09:33",
+     "buy": "SOXL",
+     "entry": "09:35",
+     "hit": true,
+     "exit": "09:39",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.543179
+    },
+    {
+     "day": "2026-08-17",
+     "signal": "SOXL",
+     "signal_time": "09:49",
+     "buy": "SOXS",
+     "entry": "09:51",
+     "hit": true,
+     "exit": "10:08",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.530126
+    },
+    {
+     "day": "2026-08-18",
+     "signal": "SOXS",
+     "signal_time": "09:57",
+     "buy": "SOXL",
+     "entry": "09:59",
+     "hit": false,
+     "exit": "10:28",
+     "pnl_pct": -0.23939,
+     "mae_pct": -2.960858
+    },
+    {
+     "day": "2026-08-19",
+     "signal": "SOXS",
+     "signal_time": "09:54",
+     "buy": "SOXL",
+     "entry": "09:56",
+     "hit": false,
+     "exit": "10:25",
+     "pnl_pct": -2.427903,
+     "mae_pct": -3.671787
+    },
+    {
+     "day": "2026-08-21",
+     "signal": "SOXS",
+     "signal_time": "10:18",
+     "buy": "SOXL",
+     "entry": "10:20",
+     "hit": true,
+     "exit": "10:22",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.222324
+    },
+    {
+     "day": "2026-08-24",
+     "signal": "SOXS",
+     "signal_time": "09:48",
+     "buy": "SOXL",
+     "entry": "09:50",
+     "hit": false,
+     "exit": "10:19",
+     "pnl_pct": -1.473908,
+     "mae_pct": -1.752815
+    },
+    {
+     "day": "2026-08-26",
+     "signal": "SOXS",
+     "signal_time": "10:15",
+     "buy": "SOXL",
+     "entry": "10:17",
+     "hit": false,
+     "exit": "10:46",
+     "pnl_pct": 0.339692,
+     "mae_pct": -1.66946
+    },
+    {
+     "day": "2026-08-27",
+     "signal": "SOXL",
+     "signal_time": "09:39",
+     "buy": "SOXS",
+     "entry": "09:41",
+     "hit": true,
+     "exit": "09:46",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.601785
+    },
+    {
+     "day": "2026-09-02",
+     "signal": "SOXL",
+     "signal_time": "10:21",
+     "buy": "SOXS",
+     "entry": "10:23",
+     "hit": false,
+     "exit": "10:52",
+     "pnl_pct": 0.858244,
+     "mae_pct": -1.562049
+    },
+    {
+     "day": "2026-09-04",
+     "signal": "SOXL",
+     "signal_time": "10:02",
+     "buy": "SOXS",
+     "entry": "10:04",
+     "hit": true,
+     "exit": "10:12",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.052716
+    },
+    {
+     "day": "2026-09-09",
+     "signal": "SOXL",
+     "signal_time": "09:58",
+     "buy": "SOXS",
+     "entry": "10:00",
+     "hit": true,
+     "exit": "10:21",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.046004
+    },
+    {
+     "day": "2026-09-10",
+     "signal": "SOXS",
+     "signal_time": "09:44",
+     "buy": "SOXL",
+     "entry": "09:46",
+     "hit": false,
+     "exit": "10:15",
+     "pnl_pct": -0.606327,
+     "mae_pct": -2.118575
+    },
+    {
+     "day": "2026-09-11",
+     "signal": "SOXL",
+     "signal_time": "09:34",
+     "buy": "SOXS",
+     "entry": "09:36",
+     "hit": true,
+     "exit": "09:36",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.074274
+    },
+    {
+     "day": "2026-09-16",
+     "signal": "SOXL",
+     "signal_time": "09:45",
+     "buy": "SOXS",
+     "entry": "09:47",
+     "hit": false,
+     "exit": "10:16",
+     "pnl_pct": -0.104646,
+     "mae_pct": -0.98468
+    },
+    {
+     "day": "2026-09-18",
+     "signal": "SOXL",
+     "signal_time": "09:41",
+     "buy": "SOXS",
+     "entry": "09:43",
+     "hit": true,
+     "exit": "10:01",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.69726
+    },
+    {
+     "day": "2026-09-21",
+     "signal": "SOXL",
+     "signal_time": "10:18",
+     "buy": "SOXS",
+     "entry": "10:20",
+     "hit": false,
+     "exit": "10:49",
+     "pnl_pct": -0.94198,
+     "mae_pct": -1.660269
+    },
+    {
+     "day": "2026-09-22",
+     "signal": "SOXL",
+     "signal_time": "10:28",
+     "buy": "SOXS",
+     "entry": "10:30",
+     "hit": true,
+     "exit": "10:41",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.075107
+    },
+    {
+     "day": "2026-09-23",
+     "signal": "SOXS",
+     "signal_time": "09:36",
+     "buy": "SOXL",
+     "entry": "09:38",
+     "hit": false,
+     "exit": "10:07",
+     "pnl_pct": -1.808497,
+     "mae_pct": -2.703808
+    },
+    {
+     "day": "2026-09-28",
+     "signal": "SOXS",
+     "signal_time": "09:34",
+     "buy": "SOXL",
+     "entry": "09:36",
+     "hit": false,
+     "exit": "10:05",
+     "pnl_pct": -2.246178,
+     "mae_pct": -2.496194
+    },
+    {
+     "day": "2026-09-29",
+     "signal": "SOXL",
+     "signal_time": "09:55",
+     "buy": "SOXS",
+     "entry": "09:57",
+     "hit": true,
+     "exit": "10:11",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.514574
+    }
+   ],
+   "halves_descriptive": {
+    "2026-01-02~2026-05-15": {
+     "n": 55,
+     "hit_rate": 0.654545,
+     "ev_mean_pct": 0.042705
+    },
+    "2026-05-18~2026-09-29": {
+     "n": 59,
+     "hit_rate": 0.627119,
+     "ev_mean_pct": -0.245186
+    }
+   }
+  },
+  "aux_2025": {
+   "n_days_period": 250,
+   "n": 128,
+   "n_days_with_trade": 125,
+   "b0_window": {
+    "n": 30000,
+    "hit_rate": 0.461033,
+    "ev_mean_pct": -0.070678
+   },
+   "hit_rate": 0.570312,
+   "ev_mean_pct": 0.070293,
+   "ev_median_pct": 1.0,
+   "miss_n": 55,
+   "miss_mean_pct": -1.163682,
+   "worst_pct": -7.979403,
+   "mae_median_pct": -0.8902,
+   "days_pos": 80,
+   "days_neg": 45,
+   "days_both_tickers": 3,
+   "by_buy": {
+    "SOXL": {
+     "n": 54,
+     "hit_rate": 0.611111,
+     "ev_mean_pct": 0.106272
+    },
+    "SOXS": {
+     "n": 74,
+     "hit_rate": 0.540541,
+     "ev_mean_pct": 0.044038
+    }
+   },
+   "matched_b0": {
+    "rule": "각 매매의 진입 분에서 기간 모든 날 × 두 종목 평균",
+    "hit_rate": 0.482203,
+    "ev_mean_pct": -0.084113
+   },
+   "boot": {
+    "n_boot": 10000,
+    "seed": 20261029,
+    "nan_draws": 0,
+    "ev_mean_ci95": [
+     -0.201586,
+     0.316517
+    ],
+    "hit_rate_ci95": [
+     0.484375,
+     0.655738
+    ],
+    "ev_p_le_0": 0.2947,
+    "minus_matched_b0_hit": 0.088109,
+    "minus_matched_b0_hit_ci95": [
+     0.004201,
+     0.169765
+    ],
+    "minus_matched_b0_ev_pct": 0.154406,
+    "minus_matched_b0_ev_ci95": [
+     -0.103442,
+     0.389282
+    ]
+   },
+   "follow_same_signal": {
+    "n": 128,
+    "hit_rate": 0.484375,
+    "ev_mean_pct": 0.00656,
+    "ev_mean_ci95": [
+     -0.203727,
+     0.207353
+    ]
+   },
+   "sensitivity": {
+    "cost_2x": {
+     "n": 128,
+     "hit_rate": 0.539062,
+     "ev_mean_pct": 0.011012,
+     "ev_mean_ci95": [
+      -0.264152,
+      0.260523
+     ]
+    },
+    "flat_0.03pct": {
+     "n": 128,
+     "hit_rate": 0.5625,
+     "ev_mean_pct": 0.072128,
+     "ev_mean_ci95": [
+      -0.199446,
+      0.31634
+     ]
+    },
+    "zero_cost": {
+     "n": 128,
+     "hit_rate": 0.578125,
+     "ev_mean_pct": 0.110641,
+     "ev_mean_ci95": [
+      -0.157279,
+      0.352666
+     ]
+    }
+   },
+   "order_cutoff_variant": {
+    "rule": "진입 분 ≥ 마감이면 매매 불가, 보유는 min(진입 + 29분, 마감 1분 전) 봉 종가에서 청산",
+    "trades_on_std_time_days": 38,
+    "dropped": 13,
+    "n": 115,
+    "hit_rate": 0.521739,
+    "ev_mean_pct": -0.007933
+   },
+   "events": [
+    {
+     "day": "2025-01-02",
+     "signal": "SOXL",
+     "signal_time": "09:49",
+     "buy": "SOXS",
+     "entry": "09:51",
+     "hit": true,
+     "exit": "10:20",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.645545
+    },
+    {
+     "day": "2025-01-03",
+     "signal": "SOXL",
+     "signal_time": "09:37",
+     "buy": "SOXS",
+     "entry": "09:39",
+     "hit": false,
+     "exit": "10:08",
+     "pnl_pct": -0.922708,
+     "mae_pct": -1.244498
+    },
+    {
+     "day": "2025-01-06",
+     "signal": "SOXL",
+     "signal_time": "09:54",
+     "buy": "SOXS",
+     "entry": "09:56",
+     "hit": false,
+     "exit": "10:25",
+     "pnl_pct": -0.823126,
+     "mae_pct": -0.936632
+    },
+    {
+     "day": "2025-01-08",
+     "signal": "SOXS",
+     "signal_time": "09:36",
+     "buy": "SOXL",
+     "entry": "09:38",
+     "hit": true,
+     "exit": "09:49",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.285491
+    },
+    {
+     "day": "2025-01-10",
+     "signal": "SOXS",
+     "signal_time": "09:46",
+     "buy": "SOXL",
+     "entry": "09:48",
+     "hit": true,
+     "exit": "09:57",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.341549
+    },
+    {
+     "day": "2025-01-13",
+     "signal": "SOXS",
+     "signal_time": "10:26",
+     "buy": "SOXL",
+     "entry": "10:28",
+     "hit": true,
+     "exit": "10:31",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.426419
+    },
+    {
+     "day": "2025-01-21",
+     "signal": "SOXL",
+     "signal_time": "09:35",
+     "buy": "SOXS",
+     "entry": "09:37",
+     "hit": true,
+     "exit": "09:40",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.163438
+    },
+    {
+     "day": "2025-01-22",
+     "signal": "SOXL",
+     "signal_time": "09:44",
+     "buy": "SOXS",
+     "entry": "09:46",
+     "hit": false,
+     "exit": "10:15",
+     "pnl_pct": -0.256365,
+     "mae_pct": -0.954466
+    },
+    {
+     "day": "2025-01-27",
+     "signal": "SOXS",
+     "signal_time": "10:04",
+     "buy": "SOXL",
+     "entry": "10:06",
+     "hit": true,
+     "exit": "10:33",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.918885
+    },
+    {
+     "day": "2025-01-28",
+     "signal": "SOXS",
+     "signal_time": "09:42",
+     "buy": "SOXL",
+     "entry": "09:44",
+     "hit": true,
+     "exit": "09:45",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.313307
+    },
+    {
+     "day": "2025-01-30",
+     "signal": "SOXL",
+     "signal_time": "09:50",
+     "buy": "SOXS",
+     "entry": "09:52",
+     "hit": true,
+     "exit": "09:53",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.052138
+    },
+    {
+     "day": "2025-01-31",
+     "signal": "SOXL",
+     "signal_time": "09:55",
+     "buy": "SOXS",
+     "entry": "09:57",
+     "hit": false,
+     "exit": "10:26",
+     "pnl_pct": -1.922506,
+     "mae_pct": -2.148593
+    },
+    {
+     "day": "2025-02-04",
+     "signal": "SOXL",
+     "signal_time": "10:03",
+     "buy": "SOXS",
+     "entry": "10:05",
+     "hit": false,
+     "exit": "10:34",
+     "pnl_pct": -0.954393,
+     "mae_pct": -1.751536
+    },
+    {
+     "day": "2025-02-05",
+     "signal": "SOXS",
+     "signal_time": "09:39",
+     "buy": "SOXL",
+     "entry": "09:41",
+     "hit": true,
+     "exit": "09:43",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.292771
+    },
+    {
+     "day": "2025-02-07",
+     "signal": "SOXS",
+     "signal_time": "10:12",
+     "buy": "SOXL",
+     "entry": "10:14",
+     "hit": true,
+     "exit": "10:19",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.263892
+    },
+    {
+     "day": "2025-02-10",
+     "signal": "SOXL",
+     "signal_time": "09:42",
+     "buy": "SOXS",
+     "entry": "09:44",
+     "hit": false,
+     "exit": "10:13",
+     "pnl_pct": -0.2046,
+     "mae_pct": -0.498998
+    },
+    {
+     "day": "2025-02-13",
+     "signal": "SOXL",
+     "signal_time": "10:00",
+     "buy": "SOXS",
+     "entry": "10:02",
+     "hit": false,
+     "exit": "10:31",
+     "pnl_pct": -0.047691,
+     "mae_pct": -0.768451
+    },
+    {
+     "day": "2025-02-19",
+     "signal": "SOXL",
+     "signal_time": "09:35",
+     "buy": "SOXS",
+     "entry": "09:37",
+     "hit": true,
+     "exit": "09:41",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.524507
+    },
+    {
+     "day": "2025-02-24",
+     "signal": "SOXS",
+     "signal_time": "09:57",
+     "buy": "SOXL",
+     "entry": "09:59",
+     "hit": true,
+     "exit": "10:14",
+     "pnl_pct": 1.0,
+     "mae_pct": -3.00993
+    },
+    {
+     "day": "2025-02-25",
+     "signal": "SOXS",
+     "signal_time": "10:17",
+     "buy": "SOXL",
+     "entry": "10:19",
+     "hit": true,
+     "exit": "10:36",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.771481
+    },
+    {
+     "day": "2025-02-26",
+     "signal": "SOXL",
+     "signal_time": "09:41",
+     "buy": "SOXS",
+     "entry": "09:43",
+     "hit": false,
+     "exit": "10:12",
+     "pnl_pct": -1.460325,
+     "mae_pct": -1.698244
+    },
+    {
+     "day": "2025-02-27",
+     "signal": "SOXS",
+     "signal_time": "09:54",
+     "buy": "SOXL",
+     "entry": "09:56",
+     "hit": true,
+     "exit": "10:23",
+     "pnl_pct": 1.0,
+     "mae_pct": -3.961377
+    },
+    {
+     "day": "2025-03-04",
+     "signal": "SOXS",
+     "signal_time": "10:10",
+     "buy": "SOXL",
+     "entry": "10:12",
+     "hit": true,
+     "exit": "10:12",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.017947
+    },
+    {
+     "day": "2025-03-07",
+     "signal": "SOXL",
+     "signal_time": "09:33",
+     "buy": "SOXS",
+     "entry": "09:35",
+     "hit": true,
+     "exit": "09:36",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.325917
+    },
+    {
+     "day": "2025-03-10",
+     "signal": "SOXS",
+     "signal_time": "10:03",
+     "buy": "SOXL",
+     "entry": "10:05",
+     "hit": true,
+     "exit": "10:15",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.808527
+    },
+    {
+     "day": "2025-03-13",
+     "signal": "SOXL",
+     "signal_time": "09:38",
+     "buy": "SOXS",
+     "entry": "09:40",
+     "hit": true,
+     "exit": "09:51",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.715207
+    },
+    {
+     "day": "2025-03-14",
+     "signal": "SOXL",
+     "signal_time": "09:43",
+     "buy": "SOXS",
+     "entry": "09:45",
+     "hit": true,
+     "exit": "10:00",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.872366
+    },
+    {
+     "day": "2025-03-18",
+     "signal": "SOXS",
+     "signal_time": "09:52",
+     "buy": "SOXL",
+     "entry": "09:54",
+     "hit": false,
+     "exit": "10:23",
+     "pnl_pct": 0.541834,
+     "mae_pct": -1.606485
+    },
+    {
+     "day": "2025-03-24",
+     "signal": "SOXL",
+     "signal_time": "10:18",
+     "buy": "SOXS",
+     "entry": "10:20",
+     "hit": false,
+     "exit": "10:49",
+     "pnl_pct": -0.170392,
+     "mae_pct": -0.119038
+    },
+    {
+     "day": "2025-03-26",
+     "signal": "SOXS",
+     "signal_time": "09:43",
+     "buy": "SOXL",
+     "entry": "09:45",
+     "hit": false,
+     "exit": "10:14",
+     "pnl_pct": -2.937176,
+     "mae_pct": -3.341299
+    },
+    {
+     "day": "2025-03-28",
+     "signal": "SOXS",
+     "signal_time": "10:06",
+     "buy": "SOXL",
+     "entry": "10:08",
+     "hit": false,
+     "exit": "10:37",
+     "pnl_pct": -2.860071,
+     "mae_pct": -3.372259
+    },
+    {
+     "day": "2025-04-03",
+     "signal": "SOXS",
+     "signal_time": "10:03",
+     "buy": "SOXL",
+     "entry": "10:05",
+     "hit": true,
+     "exit": "10:08",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.392411
+    },
+    {
+     "day": "2025-04-04",
+     "signal": "SOXS",
+     "signal_time": "09:49",
+     "buy": "SOXL",
+     "entry": "09:51",
+     "hit": true,
+     "exit": "09:53",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.259227
+    },
+    {
+     "day": "2025-04-07",
+     "signal": "SOXL",
+     "signal_time": "10:10",
+     "buy": "SOXS",
+     "entry": "10:12",
+     "hit": true,
+     "exit": "10:12",
+     "pnl_pct": 1.0,
+     "mae_pct": -3.994089
+    },
+    {
+     "day": "2025-04-08",
+     "signal": "SOXL",
+     "signal_time": "09:42",
+     "buy": "SOXS",
+     "entry": "09:44",
+     "hit": true,
+     "exit": "09:48",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.538653
+    },
+    {
+     "day": "2025-04-09",
+     "signal": "SOXL",
+     "signal_time": "09:41",
+     "buy": "SOXS",
+     "entry": "09:43",
+     "hit": true,
+     "exit": "09:43",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.908898
+    },
+    {
+     "day": "2025-04-15",
+     "signal": "SOXS",
+     "signal_time": "10:25",
+     "buy": "SOXL",
+     "entry": "10:27",
+     "hit": true,
+     "exit": "10:29",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.25634
+    },
+    {
+     "day": "2025-04-16",
+     "signal": "SOXS",
+     "signal_time": "09:45",
+     "buy": "SOXL",
+     "entry": "09:47",
+     "hit": false,
+     "exit": "10:16",
+     "pnl_pct": -0.680276,
+     "mae_pct": -2.347166
+    },
+    {
+     "day": "2025-04-21",
+     "signal": "SOXS",
+     "signal_time": "09:43",
+     "buy": "SOXL",
+     "entry": "09:45",
+     "hit": false,
+     "exit": "10:14",
+     "pnl_pct": -2.133335,
+     "mae_pct": -2.756292
+    },
+    {
+     "day": "2025-04-29",
+     "signal": "SOXS",
+     "signal_time": "09:33",
+     "buy": "SOXL",
+     "entry": "09:35",
+     "hit": true,
+     "exit": "09:45",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.960092
+    },
+    {
+     "day": "2025-05-01",
+     "signal": "SOXL",
+     "signal_time": "09:47",
+     "buy": "SOXS",
+     "entry": "09:49",
+     "hit": true,
+     "exit": "09:51",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.066283
+    },
+    {
+     "day": "2025-05-02",
+     "signal": "SOXL",
+     "signal_time": "09:37",
+     "buy": "SOXS",
+     "entry": "09:39",
+     "hit": true,
+     "exit": "09:52",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.088491
+    },
+    {
+     "day": "2025-05-06",
+     "signal": "SOXS",
+     "signal_time": "09:46",
+     "buy": "SOXL",
+     "entry": "09:48",
+     "hit": true,
+     "exit": "10:12",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.641755
+    },
+    {
+     "day": "2025-05-09",
+     "signal": "SOXS",
+     "signal_time": "10:26",
+     "buy": "SOXL",
+     "entry": "10:28",
+     "hit": false,
+     "exit": "10:57",
+     "pnl_pct": 0.178162,
+     "mae_pct": -1.231148
+    },
+    {
+     "day": "2025-05-09",
+     "signal": "SOXL",
+     "signal_time": "09:38",
+     "buy": "SOXS",
+     "entry": "09:40",
+     "hit": true,
+     "exit": "10:05",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.402385
+    },
+    {
+     "day": "2025-05-12",
+     "signal": "SOXL",
+     "signal_time": "09:47",
+     "buy": "SOXS",
+     "entry": "09:49",
+     "hit": false,
+     "exit": "10:18",
+     "pnl_pct": -2.535678,
+     "mae_pct": -3.246887
+    },
+    {
+     "day": "2025-05-13",
+     "signal": "SOXL",
+     "signal_time": "10:00",
+     "buy": "SOXS",
+     "entry": "10:02",
+     "hit": false,
+     "exit": "10:31",
+     "pnl_pct": -0.816579,
+     "mae_pct": -1.558634
+    },
+    {
+     "day": "2025-05-15",
+     "signal": "SOXS",
+     "signal_time": "09:39",
+     "buy": "SOXL",
+     "entry": "09:41",
+     "hit": false,
+     "exit": "10:10",
+     "pnl_pct": -0.706769,
+     "mae_pct": -2.055874
+    },
+    {
+     "day": "2025-05-20",
+     "signal": "SOXS",
+     "signal_time": "09:36",
+     "buy": "SOXL",
+     "entry": "09:38",
+     "hit": true,
+     "exit": "09:54",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.476025
+    },
+    {
+     "day": "2025-05-22",
+     "signal": "SOXS",
+     "signal_time": "10:29",
+     "buy": "SOXL",
+     "entry": "10:31",
+     "hit": false,
+     "exit": "11:00",
+     "pnl_pct": 0.167061,
+     "mae_pct": -1.234707
+    },
+    {
+     "day": "2025-05-27",
+     "signal": "SOXL",
+     "signal_time": "09:38",
+     "buy": "SOXS",
+     "entry": "09:40",
+     "hit": false,
+     "exit": "10:09",
+     "pnl_pct": -2.500138,
+     "mae_pct": -2.645125
+    },
+    {
+     "day": "2025-05-28",
+     "signal": "SOXL",
+     "signal_time": "09:39",
+     "buy": "SOXS",
+     "entry": "09:41",
+     "hit": true,
+     "exit": "09:48",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.19305
+    },
+    {
+     "day": "2025-05-29",
+     "signal": "SOXS",
+     "signal_time": "10:09",
+     "buy": "SOXL",
+     "entry": "10:11",
+     "hit": false,
+     "exit": "10:40",
+     "pnl_pct": 0.487811,
+     "mae_pct": -0.891916
+    },
+    {
+     "day": "2025-05-30",
+     "signal": "SOXS",
+     "signal_time": "09:50",
+     "buy": "SOXL",
+     "entry": "09:52",
+     "hit": true,
+     "exit": "10:00",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.3357
+    },
+    {
+     "day": "2025-06-03",
+     "signal": "SOXL",
+     "signal_time": "09:56",
+     "buy": "SOXS",
+     "entry": "09:58",
+     "hit": true,
+     "exit": "10:08",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.799877
+    },
+    {
+     "day": "2025-06-04",
+     "signal": "SOXS",
+     "signal_time": "10:07",
+     "buy": "SOXL",
+     "entry": "10:09",
+     "hit": true,
+     "exit": "10:09",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.181584
+    },
+    {
+     "day": "2025-06-06",
+     "signal": "SOXL",
+     "signal_time": "09:46",
+     "buy": "SOXS",
+     "entry": "09:48",
+     "hit": true,
+     "exit": "09:56",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.289318
+    },
+    {
+     "day": "2025-06-09",
+     "signal": "SOXL",
+     "signal_time": "09:52",
+     "buy": "SOXS",
+     "entry": "09:54",
+     "hit": false,
+     "exit": "10:23",
+     "pnl_pct": -2.049661,
+     "mae_pct": -2.659062
+    },
+    {
+     "day": "2025-06-13",
+     "signal": "SOXS",
+     "signal_time": "10:28",
+     "buy": "SOXL",
+     "entry": "10:30",
+     "hit": true,
+     "exit": "10:36",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.241899
+    },
+    {
+     "day": "2025-06-16",
+     "signal": "SOXL",
+     "signal_time": "09:41",
+     "buy": "SOXS",
+     "entry": "09:43",
+     "hit": false,
+     "exit": "10:12",
+     "pnl_pct": -3.852205,
+     "mae_pct": -3.852827
+    },
+    {
+     "day": "2025-06-17",
+     "signal": "SOXL",
+     "signal_time": "10:16",
+     "buy": "SOXS",
+     "entry": "10:18",
+     "hit": true,
+     "exit": "10:24",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.218092
+    },
+    {
+     "day": "2025-06-23",
+     "signal": "SOXL",
+     "signal_time": "10:02",
+     "buy": "SOXS",
+     "entry": "10:04",
+     "hit": false,
+     "exit": "10:33",
+     "pnl_pct": 0.432215,
+     "mae_pct": -1.020988
+    },
+    {
+     "day": "2025-06-24",
+     "signal": "SOXL",
+     "signal_time": "10:07",
+     "buy": "SOXS",
+     "entry": "10:09",
+     "hit": false,
+     "exit": "10:38",
+     "pnl_pct": -1.742856,
+     "mae_pct": -1.866035
+    },
+    {
+     "day": "2025-06-25",
+     "signal": "SOXL",
+     "signal_time": "09:33",
+     "buy": "SOXS",
+     "entry": "09:35",
+     "hit": true,
+     "exit": "09:48",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.057518
+    },
+    {
+     "day": "2025-06-27",
+     "signal": "SOXL",
+     "signal_time": "09:39",
+     "buy": "SOXS",
+     "entry": "09:41",
+     "hit": false,
+     "exit": "10:10",
+     "pnl_pct": -0.944308,
+     "mae_pct": -1.150466
+    },
+    {
+     "day": "2025-07-01",
+     "signal": "SOXS",
+     "signal_time": "09:35",
+     "buy": "SOXL",
+     "entry": "09:37",
+     "hit": true,
+     "exit": "09:50",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.345397
+    },
+    {
+     "day": "2025-07-07",
+     "signal": "SOXS",
+     "signal_time": "09:32",
+     "buy": "SOXL",
+     "entry": "09:34",
+     "hit": true,
+     "exit": "09:35",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.178812
+    },
+    {
+     "day": "2025-07-08",
+     "signal": "SOXL",
+     "signal_time": "09:35",
+     "buy": "SOXS",
+     "entry": "09:37",
+     "hit": false,
+     "exit": "10:06",
+     "pnl_pct": -0.173929,
+     "mae_pct": -1.678228
+    },
+    {
+     "day": "2025-07-16",
+     "signal": "SOXS",
+     "signal_time": "09:40",
+     "buy": "SOXL",
+     "entry": "09:42",
+     "hit": false,
+     "exit": "10:11",
+     "pnl_pct": -0.651295,
+     "mae_pct": -1.535221
+    },
+    {
+     "day": "2025-07-18",
+     "signal": "SOXS",
+     "signal_time": "10:23",
+     "buy": "SOXL",
+     "entry": "10:25",
+     "hit": true,
+     "exit": "10:36",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.888483
+    },
+    {
+     "day": "2025-07-25",
+     "signal": "SOXS",
+     "signal_time": "09:37",
+     "buy": "SOXL",
+     "entry": "09:39",
+     "hit": true,
+     "exit": "09:51",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.027546
+    },
+    {
+     "day": "2025-07-28",
+     "signal": "SOXL",
+     "signal_time": "09:59",
+     "buy": "SOXS",
+     "entry": "10:01",
+     "hit": true,
+     "exit": "10:21",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.192336
+    },
+    {
+     "day": "2025-07-29",
+     "signal": "SOXL",
+     "signal_time": "09:44",
+     "buy": "SOXS",
+     "entry": "09:46",
+     "hit": false,
+     "exit": "10:15",
+     "pnl_pct": -0.623937,
+     "mae_pct": -1.407605
+    },
+    {
+     "day": "2025-07-31",
+     "signal": "SOXS",
+     "signal_time": "09:36",
+     "buy": "SOXL",
+     "entry": "09:38",
+     "hit": true,
+     "exit": "09:54",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.139457
+    },
+    {
+     "day": "2025-08-01",
+     "signal": "SOXS",
+     "signal_time": "09:39",
+     "buy": "SOXL",
+     "entry": "09:41",
+     "hit": false,
+     "exit": "10:10",
+     "pnl_pct": -0.937617,
+     "mae_pct": -3.256426
+    },
+    {
+     "day": "2025-08-04",
+     "signal": "SOXL",
+     "signal_time": "09:42",
+     "buy": "SOXS",
+     "entry": "09:44",
+     "hit": false,
+     "exit": "10:13",
+     "pnl_pct": -0.171794,
+     "mae_pct": -0.438534
+    },
+    {
+     "day": "2025-08-05",
+     "signal": "SOXL",
+     "signal_time": "09:37",
+     "buy": "SOXS",
+     "entry": "09:39",
+     "hit": true,
+     "exit": "10:05",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.172186
+    },
+    {
+     "day": "2025-08-06",
+     "signal": "SOXS",
+     "signal_time": "10:23",
+     "buy": "SOXL",
+     "entry": "10:25",
+     "hit": false,
+     "exit": "10:54",
+     "pnl_pct": -0.207801,
+     "mae_pct": -1.350468
+    },
+    {
+     "day": "2025-08-07",
+     "signal": "SOXL",
+     "signal_time": "09:56",
+     "buy": "SOXS",
+     "entry": "09:58",
+     "hit": true,
+     "exit": "10:04",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.388662
+    },
+    {
+     "day": "2025-08-11",
+     "signal": "SOXL",
+     "signal_time": "09:52",
+     "buy": "SOXS",
+     "entry": "09:54",
+     "hit": false,
+     "exit": "10:23",
+     "pnl_pct": -0.035482,
+     "mae_pct": -0.885036
+    },
+    {
+     "day": "2025-08-12",
+     "signal": "SOXL",
+     "signal_time": "09:41",
+     "buy": "SOXS",
+     "entry": "09:43",
+     "hit": true,
+     "exit": "09:44",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.276036
+    },
+    {
+     "day": "2025-08-13",
+     "signal": "SOXL",
+     "signal_time": "09:47",
+     "buy": "SOXS",
+     "entry": "09:49",
+     "hit": false,
+     "exit": "10:18",
+     "pnl_pct": -0.01013,
+     "mae_pct": -0.793511
+    },
+    {
+     "day": "2025-08-15",
+     "signal": "SOXS",
+     "signal_time": "09:45",
+     "buy": "SOXL",
+     "entry": "09:47",
+     "hit": false,
+     "exit": "10:16",
+     "pnl_pct": 0.573245,
+     "mae_pct": -2.315895
+    },
+    {
+     "day": "2025-08-18",
+     "signal": "SOXS",
+     "signal_time": "09:32",
+     "buy": "SOXL",
+     "entry": "09:34",
+     "hit": true,
+     "exit": "09:47",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.059158
+    },
+    {
+     "day": "2025-08-19",
+     "signal": "SOXS",
+     "signal_time": "10:29",
+     "buy": "SOXL",
+     "entry": "10:31",
+     "hit": false,
+     "exit": "11:00",
+     "pnl_pct": -2.090956,
+     "mae_pct": -2.183491
+    },
+    {
+     "day": "2025-08-19",
+     "signal": "SOXL",
+     "signal_time": "10:09",
+     "buy": "SOXS",
+     "entry": "10:11",
+     "hit": true,
+     "exit": "10:25",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.055659
+    },
+    {
+     "day": "2025-08-20",
+     "signal": "SOXS",
+     "signal_time": "09:32",
+     "buy": "SOXL",
+     "entry": "09:34",
+     "hit": false,
+     "exit": "10:03",
+     "pnl_pct": -4.118474,
+     "mae_pct": -5.227268
+    },
+    {
+     "day": "2025-08-22",
+     "signal": "SOXL",
+     "signal_time": "09:39",
+     "buy": "SOXS",
+     "entry": "09:41",
+     "hit": false,
+     "exit": "10:10",
+     "pnl_pct": -7.979403,
+     "mae_pct": -8.068054
+    },
+    {
+     "day": "2025-08-26",
+     "signal": "SOXL",
+     "signal_time": "09:41",
+     "buy": "SOXS",
+     "entry": "09:43",
+     "hit": false,
+     "exit": "10:12",
+     "pnl_pct": 0.032402,
+     "mae_pct": -0.287983
+    },
+    {
+     "day": "2025-08-28",
+     "signal": "SOXL",
+     "signal_time": "09:39",
+     "buy": "SOXS",
+     "entry": "09:41",
+     "hit": true,
+     "exit": "09:49",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.439232
+    },
+    {
+     "day": "2025-08-29",
+     "signal": "SOXS",
+     "signal_time": "10:05",
+     "buy": "SOXL",
+     "entry": "10:07",
+     "hit": true,
+     "exit": "10:24",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.047903
+    },
+    {
+     "day": "2025-09-05",
+     "signal": "SOXL",
+     "signal_time": "09:47",
+     "buy": "SOXS",
+     "entry": "09:49",
+     "hit": true,
+     "exit": "10:11",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.702558
+    },
+    {
+     "day": "2025-09-08",
+     "signal": "SOXL",
+     "signal_time": "09:35",
+     "buy": "SOXS",
+     "entry": "09:37",
+     "hit": true,
+     "exit": "09:46",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.198474
+    },
+    {
+     "day": "2025-09-10",
+     "signal": "SOXL",
+     "signal_time": "09:46",
+     "buy": "SOXS",
+     "entry": "09:48",
+     "hit": true,
+     "exit": "09:55",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.543263
+    },
+    {
+     "day": "2025-09-11",
+     "signal": "SOXL",
+     "signal_time": "09:38",
+     "buy": "SOXS",
+     "entry": "09:40",
+     "hit": false,
+     "exit": "10:09",
+     "pnl_pct": -0.030506,
+     "mae_pct": -0.606085
+    },
+    {
+     "day": "2025-09-15",
+     "signal": "SOXS",
+     "signal_time": "09:36",
+     "buy": "SOXL",
+     "entry": "09:38",
+     "hit": true,
+     "exit": "09:46",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.071038
+    },
+    {
+     "day": "2025-09-15",
+     "signal": "SOXL",
+     "signal_time": "09:57",
+     "buy": "SOXS",
+     "entry": "09:59",
+     "hit": true,
+     "exit": "10:06",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.139113
+    },
+    {
+     "day": "2025-09-18",
+     "signal": "SOXL",
+     "signal_time": "09:47",
+     "buy": "SOXS",
+     "entry": "09:49",
+     "hit": false,
+     "exit": "10:18",
+     "pnl_pct": -2.858191,
+     "mae_pct": -3.253315
+    },
+    {
+     "day": "2025-09-19",
+     "signal": "SOXS",
+     "signal_time": "09:57",
+     "buy": "SOXL",
+     "entry": "09:59",
+     "hit": false,
+     "exit": "10:28",
+     "pnl_pct": 0.199529,
+     "mae_pct": -0.363542
+    },
+    {
+     "day": "2025-09-22",
+     "signal": "SOXL",
+     "signal_time": "09:42",
+     "buy": "SOXS",
+     "entry": "09:44",
+     "hit": false,
+     "exit": "10:13",
+     "pnl_pct": -0.527083,
+     "mae_pct": -1.489214
+    },
+    {
+     "day": "2025-09-23",
+     "signal": "SOXL",
+     "signal_time": "09:37",
+     "buy": "SOXS",
+     "entry": "09:39",
+     "hit": false,
+     "exit": "10:08",
+     "pnl_pct": -0.298074,
+     "mae_pct": -0.632106
+    },
+    {
+     "day": "2025-09-24",
+     "signal": "SOXS",
+     "signal_time": "09:35",
+     "buy": "SOXL",
+     "entry": "09:37",
+     "hit": true,
+     "exit": "09:46",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.449932
+    },
+    {
+     "day": "2025-09-25",
+     "signal": "SOXL",
+     "signal_time": "10:14",
+     "buy": "SOXS",
+     "entry": "10:16",
+     "hit": false,
+     "exit": "10:45",
+     "pnl_pct": 0.147402,
+     "mae_pct": -0.280018
+    },
+    {
+     "day": "2025-10-03",
+     "signal": "SOXL",
+     "signal_time": "09:36",
+     "buy": "SOXS",
+     "entry": "09:38",
+     "hit": true,
+     "exit": "09:56",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.826927
+    },
+    {
+     "day": "2025-10-08",
+     "signal": "SOXL",
+     "signal_time": "09:42",
+     "buy": "SOXS",
+     "entry": "09:44",
+     "hit": false,
+     "exit": "10:13",
+     "pnl_pct": -1.559094,
+     "mae_pct": -2.626383
+    },
+    {
+     "day": "2025-10-13",
+     "signal": "SOXL",
+     "signal_time": "09:50",
+     "buy": "SOXS",
+     "entry": "09:52",
+     "hit": true,
+     "exit": "10:21",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.437096
+    },
+    {
+     "day": "2025-10-15",
+     "signal": "SOXL",
+     "signal_time": "09:33",
+     "buy": "SOXS",
+     "entry": "09:35",
+     "hit": true,
+     "exit": "09:38",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.285437
+    },
+    {
+     "day": "2025-10-20",
+     "signal": "SOXL",
+     "signal_time": "09:45",
+     "buy": "SOXS",
+     "entry": "09:47",
+     "hit": false,
+     "exit": "10:16",
+     "pnl_pct": -0.115192,
+     "mae_pct": -1.474423
+    },
+    {
+     "day": "2025-10-21",
+     "signal": "SOXS",
+     "signal_time": "09:42",
+     "buy": "SOXL",
+     "entry": "09:44",
+     "hit": false,
+     "exit": "10:13",
+     "pnl_pct": -0.424557,
+     "mae_pct": -1.496322
+    },
+    {
+     "day": "2025-10-22",
+     "signal": "SOXS",
+     "signal_time": "10:14",
+     "buy": "SOXL",
+     "entry": "10:16",
+     "hit": false,
+     "exit": "10:45",
+     "pnl_pct": -4.812719,
+     "mae_pct": -5.098258
+    },
+    {
+     "day": "2025-10-23",
+     "signal": "SOXL",
+     "signal_time": "09:44",
+     "buy": "SOXS",
+     "entry": "09:46",
+     "hit": false,
+     "exit": "10:15",
+     "pnl_pct": -0.71846,
+     "mae_pct": -1.771143
+    },
+    {
+     "day": "2025-10-27",
+     "signal": "SOXL",
+     "signal_time": "09:42",
+     "buy": "SOXS",
+     "entry": "09:44",
+     "hit": true,
+     "exit": "09:51",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.373788
+    },
+    {
+     "day": "2025-10-30",
+     "signal": "SOXS",
+     "signal_time": "09:37",
+     "buy": "SOXL",
+     "entry": "09:39",
+     "hit": true,
+     "exit": "09:45",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.090527
+    },
+    {
+     "day": "2025-10-31",
+     "signal": "SOXL",
+     "signal_time": "09:37",
+     "buy": "SOXS",
+     "entry": "09:39",
+     "hit": true,
+     "exit": "10:00",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.515574
+    },
+    {
+     "day": "2025-11-11",
+     "signal": "SOXS",
+     "signal_time": "09:44",
+     "buy": "SOXL",
+     "entry": "09:46",
+     "hit": false,
+     "exit": "10:15",
+     "pnl_pct": -2.427849,
+     "mae_pct": -2.513286
+    },
+    {
+     "day": "2025-11-12",
+     "signal": "SOXL",
+     "signal_time": "10:09",
+     "buy": "SOXS",
+     "entry": "10:11",
+     "hit": true,
+     "exit": "10:12",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.345816
+    },
+    {
+     "day": "2025-11-18",
+     "signal": "SOXS",
+     "signal_time": "10:01",
+     "buy": "SOXL",
+     "entry": "10:03",
+     "hit": true,
+     "exit": "10:06",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.03269
+    },
+    {
+     "day": "2025-11-19",
+     "signal": "SOXL",
+     "signal_time": "10:12",
+     "buy": "SOXS",
+     "entry": "10:14",
+     "hit": false,
+     "exit": "10:43",
+     "pnl_pct": -0.154982,
+     "mae_pct": -1.589603
+    },
+    {
+     "day": "2025-11-24",
+     "signal": "SOXL",
+     "signal_time": "09:47",
+     "buy": "SOXS",
+     "entry": "09:49",
+     "hit": true,
+     "exit": "09:50",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.168746
+    },
+    {
+     "day": "2025-11-26",
+     "signal": "SOXL",
+     "signal_time": "09:40",
+     "buy": "SOXS",
+     "entry": "09:42",
+     "hit": true,
+     "exit": "09:59",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.638612
+    },
+    {
+     "day": "2025-12-02",
+     "signal": "SOXL",
+     "signal_time": "09:49",
+     "buy": "SOXS",
+     "entry": "09:51",
+     "hit": true,
+     "exit": "10:11",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.147028
+    },
+    {
+     "day": "2025-12-05",
+     "signal": "SOXL",
+     "signal_time": "10:03",
+     "buy": "SOXS",
+     "entry": "10:05",
+     "hit": true,
+     "exit": "10:27",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.441403
+    },
+    {
+     "day": "2025-12-08",
+     "signal": "SOXL",
+     "signal_time": "09:40",
+     "buy": "SOXS",
+     "entry": "09:42",
+     "hit": true,
+     "exit": "09:49",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.736712
+    },
+    {
+     "day": "2025-12-11",
+     "signal": "SOXS",
+     "signal_time": "09:47",
+     "buy": "SOXL",
+     "entry": "09:49",
+     "hit": false,
+     "exit": "10:18",
+     "pnl_pct": 0.113842,
+     "mae_pct": -3.60256
+    },
+    {
+     "day": "2025-12-12",
+     "signal": "SOXS",
+     "signal_time": "10:00",
+     "buy": "SOXL",
+     "entry": "10:02",
+     "hit": false,
+     "exit": "10:31",
+     "pnl_pct": -4.533899,
+     "mae_pct": -5.405682
+    },
+    {
+     "day": "2025-12-18",
+     "signal": "SOXS",
+     "signal_time": "10:18",
+     "buy": "SOXL",
+     "entry": "10:20",
+     "hit": true,
+     "exit": "10:24",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.824673
+    },
+    {
+     "day": "2025-12-19",
+     "signal": "SOXL",
+     "signal_time": "09:41",
+     "buy": "SOXS",
+     "entry": "09:43",
+     "hit": false,
+     "exit": "10:12",
+     "pnl_pct": -0.893411,
+     "mae_pct": -2.683072
+    },
+    {
+     "day": "2025-12-26",
+     "signal": "SOXL",
+     "signal_time": "09:35",
+     "buy": "SOXS",
+     "entry": "09:37",
+     "hit": true,
+     "exit": "09:51",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.503841
+    }
+   ]
+  },
+  "repl_2026_09_30_10_28": {
+   "n_days_period": 21,
+   "n": 13,
+   "n_days_with_trade": 12,
+   "b0_window": {
+    "n": 2520,
+    "hit_rate": 0.551587,
+    "ev_mean_pct": -0.02509
+   },
+   "hit_rate": 0.923077,
+   "ev_mean_pct": 0.861748,
+   "ev_median_pct": 1.0,
+   "miss_n": 1,
+   "miss_mean_pct": -0.79728,
+   "worst_pct": -0.79728,
+   "mae_median_pct": -0.850167,
+   "days_pos": 11,
+   "days_neg": 1,
+   "days_both_tickers": 1,
+   "by_buy": {
+    "SOXL": {
+     "n": 5,
+     "hit_rate": 0.8,
+     "ev_mean_pct": 0.640544
+    },
+    "SOXS": {
+     "n": 8,
+     "hit_rate": 1.0,
+     "ev_mean_pct": 1.0
+    }
+   },
+   "matched_b0": {
+    "rule": "각 매매의 진입 분에서 기간 모든 날 × 두 종목 평균",
+    "hit_rate": 0.591575,
+    "ev_mean_pct": 0.064876
+   },
+   "boot": {
+    "n_boot": 10000,
+    "seed": 20261029,
+    "nan_draws": 0,
+    "ev_mean_ci95": [
+     0.520725,
+     1.0
+    ],
+    "hit_rate_ci95": [
+     0.733333,
+     1.0
+    ],
+    "ev_p_le_0": 0.0001,
+    "minus_matched_b0_hit": 0.331502,
+    "minus_matched_b0_hit_ci95": [
+     0.133323,
+     0.445238
+    ],
+    "minus_matched_b0_ev_pct": 0.796872,
+    "minus_matched_b0_ev_ci95": [
+     0.447326,
+     1.027714
+    ]
+   },
+   "follow_same_signal": {
+    "n": 13,
+    "hit_rate": 0.384615,
+    "ev_mean_pct": 0.064484,
+    "ev_mean_ci95": [
+     -0.644984,
+     0.623731
+    ]
+   },
+   "sensitivity": {
+    "cost_2x": {
+     "n": 13,
+     "hit_rate": 0.846154,
+     "ev_mean_pct": 0.840905,
+     "ev_mean_ci95": [
+      0.502426,
+      1.0
+     ]
+    },
+    "flat_0.03pct": {
+     "n": 13,
+     "hit_rate": 0.923077,
+     "ev_mean_pct": 0.860027,
+     "ev_mean_ci95": [
+      0.51476,
+      1.0
+     ]
+    },
+    "zero_cost": {
+     "n": 13,
+     "hit_rate": 0.923077,
+     "ev_mean_pct": 0.864606,
+     "ev_mean_ci95": [
+      0.530633,
+      1.0
+     ]
+    },
+    "abs_0.01usd": {
+     "n": 13,
+     "hit_rate": 0.923077,
+     "ev_mean_pct": 0.863651,
+     "ev_mean_ci95": [
+      0.527323,
+      1.0
+     ]
+    }
+   },
+   "order_cutoff_variant": {
+    "rule": "진입 분 ≥ 마감이면 매매 불가, 보유는 min(진입 + 29분, 마감 1분 전) 봉 종가에서 청산",
+    "trades_on_std_time_days": 0,
+    "dropped": 0,
+    "n": 13,
+    "hit_rate": 0.923077,
+    "ev_mean_pct": 0.861748
+   },
+   "events": [
+    {
+     "day": "2026-09-30",
+     "signal": "SOXL",
+     "signal_time": "09:34",
+     "buy": "SOXS",
+     "entry": "09:36",
+     "hit": true,
+     "exit": "09:53",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.856333
+    },
+    {
+     "day": "2026-10-02",
+     "signal": "SOXL",
+     "signal_time": "10:03",
+     "buy": "SOXS",
+     "entry": "10:05",
+     "hit": true,
+     "exit": "10:08",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.210499
+    },
+    {
+     "day": "2026-10-05",
+     "signal": "SOXS",
+     "signal_time": "09:37",
+     "buy": "SOXL",
+     "entry": "09:39",
+     "hit": false,
+     "exit": "10:08",
+     "pnl_pct": -0.79728,
+     "mae_pct": -1.526987
+    },
+    {
+     "day": "2026-10-06",
+     "signal": "SOXL",
+     "signal_time": "09:43",
+     "buy": "SOXS",
+     "entry": "09:45",
+     "hit": true,
+     "exit": "09:49",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.155746
+    },
+    {
+     "day": "2026-10-08",
+     "signal": "SOXS",
+     "signal_time": "09:51",
+     "buy": "SOXL",
+     "entry": "09:53",
+     "hit": true,
+     "exit": "10:05",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.383553
+    },
+    {
+     "day": "2026-10-08",
+     "signal": "SOXL",
+     "signal_time": "10:22",
+     "buy": "SOXS",
+     "entry": "10:24",
+     "hit": true,
+     "exit": "10:48",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.36262
+    },
+    {
+     "day": "2026-10-12",
+     "signal": "SOXS",
+     "signal_time": "10:06",
+     "buy": "SOXL",
+     "entry": "10:08",
+     "hit": true,
+     "exit": "10:15",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.47708
+    },
+    {
+     "day": "2026-10-15",
+     "signal": "SOXS",
+     "signal_time": "09:52",
+     "buy": "SOXL",
+     "entry": "09:54",
+     "hit": true,
+     "exit": "10:00",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.027613
+    },
+    {
+     "day": "2026-10-20",
+     "signal": "SOXL",
+     "signal_time": "10:27",
+     "buy": "SOXS",
+     "entry": "10:29",
+     "hit": true,
+     "exit": "10:33",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.850167
+    },
+    {
+     "day": "2026-10-21",
+     "signal": "SOXL",
+     "signal_time": "09:34",
+     "buy": "SOXS",
+     "entry": "09:36",
+     "hit": true,
+     "exit": "09:39",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.452018
+    },
+    {
+     "day": "2026-10-22",
+     "signal": "SOXS",
+     "signal_time": "09:50",
+     "buy": "SOXL",
+     "entry": "09:52",
+     "hit": true,
+     "exit": "09:53",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.086377
+    },
+    {
+     "day": "2026-10-27",
+     "signal": "SOXL",
+     "signal_time": "09:37",
+     "buy": "SOXS",
+     "entry": "09:39",
+     "hit": true,
+     "exit": "10:01",
+     "pnl_pct": 1.0,
+     "mae_pct": -2.005805
+    },
+    {
+     "day": "2026-10-28",
+     "signal": "SOXL",
+     "signal_time": "09:34",
+     "buy": "SOXS",
+     "entry": "09:36",
+     "hit": true,
+     "exit": "09:46",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.414969
+    }
+   ]
+  }
+ },
+ "replication": {
+  "prior_yahoo_reported": {
+   "n": 12,
+   "n_days": 11,
+   "hit_rate": 0.916667,
+   "ev_mean_pct": 0.852288,
+   "source": "../soxl_rsi_fade/results/impl_a.json cells['T2|R|E2|W60'].fade (야후, 한쪽 $0.01)"
+  },
+  "prior_yahoo_recomputed": {
+   "n": 12,
+   "hit_rate": 0.916667,
+   "ev_mean_pct": 0.852288,
+   "events": [
+    {
+     "day": "2026-10-02",
+     "signal": "SOXL",
+     "signal_time": "10:03",
+     "buy": "SOXS",
+     "hit": true,
+     "pnl_pct": 1.0
+    },
+    {
+     "day": "2026-10-05",
+     "signal": "SOXS",
+     "signal_time": "09:37",
+     "buy": "SOXL",
+     "hit": false,
+     "pnl_pct": -0.772538
+    },
+    {
+     "day": "2026-10-06",
+     "signal": "SOXL",
+     "signal_time": "09:43",
+     "buy": "SOXS",
+     "hit": true,
+     "pnl_pct": 1.0
+    },
+    {
+     "day": "2026-10-08",
+     "signal": "SOXS",
+     "signal_time": "09:51",
+     "buy": "SOXL",
+     "hit": true,
+     "pnl_pct": 1.0
+    },
+    {
+     "day": "2026-10-08",
+     "signal": "SOXL",
+     "signal_time": "10:22",
+     "buy": "SOXS",
+     "hit": true,
+     "pnl_pct": 1.0
+    },
+    {
+     "day": "2026-10-12",
+     "signal": "SOXS",
+     "signal_time": "10:06",
+     "buy": "SOXL",
+     "hit": true,
+     "pnl_pct": 1.0
+    },
+    {
+     "day": "2026-10-15",
+     "signal": "SOXS",
+     "signal_time": "09:52",
+     "buy": "SOXL",
+     "hit": true,
+     "pnl_pct": 1.0
+    },
+    {
+     "day": "2026-10-20",
+     "signal": "SOXL",
+     "signal_time": "10:27",
+     "buy": "SOXS",
+     "hit": true,
+     "pnl_pct": 1.0
+    },
+    {
+     "day": "2026-10-21",
+     "signal": "SOXL",
+     "signal_time": "09:34",
+     "buy": "SOXS",
+     "hit": true,
+     "pnl_pct": 1.0
+    },
+    {
+     "day": "2026-10-22",
+     "signal": "SOXS",
+     "signal_time": "09:50",
+     "buy": "SOXL",
+     "hit": true,
+     "pnl_pct": 1.0
+    },
+    {
+     "day": "2026-10-27",
+     "signal": "SOXL",
+     "signal_time": "09:37",
+     "buy": "SOXS",
+     "hit": true,
+     "pnl_pct": 1.0
+    },
+    {
+     "day": "2026-10-28",
+     "signal": "SOXL",
+     "signal_time": "09:34",
+     "buy": "SOXS",
+     "hit": true,
+     "pnl_pct": 1.0
+    }
+   ]
+  },
+  "alpaca_abs001_rsi_restart_0930": {
+   "n": 12,
+   "hit_rate": 0.916667,
+   "ev_mean_pct": 0.852289,
+   "matched_b0": {
+    "rule": "각 매매의 진입 분에서 기간 모든 날 × 두 종목 평균",
+    "hit_rate": 0.605159,
+    "ev_mean_pct": 0.117032
+   },
+   "ev_mean_ci95": [
+    0.493561,
+    1.0
+   ],
+   "events": [
+    {
+     "day": "2026-10-02",
+     "signal": "SOXL",
+     "signal_time": "10:03",
+     "buy": "SOXS",
+     "entry": "10:05",
+     "hit": true,
+     "exit": "10:08",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.192881
+    },
+    {
+     "day": "2026-10-05",
+     "signal": "SOXS",
+     "signal_time": "09:37",
+     "buy": "SOXL",
+     "entry": "09:39",
+     "hit": false,
+     "exit": "10:08",
+     "pnl_pct": -0.772538,
+     "mae_pct": -1.513924
+    },
+    {
+     "day": "2026-10-06",
+     "signal": "SOXL",
+     "signal_time": "09:43",
+     "buy": "SOXS",
+     "entry": "09:45",
+     "hit": true,
+     "exit": "09:49",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.138169
+    },
+    {
+     "day": "2026-10-08",
+     "signal": "SOXS",
+     "signal_time": "09:51",
+     "buy": "SOXL",
+     "entry": "09:53",
+     "hit": true,
+     "exit": "10:05",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.37097
+    },
+    {
+     "day": "2026-10-08",
+     "signal": "SOXL",
+     "signal_time": "10:22",
+     "buy": "SOXS",
+     "entry": "10:24",
+     "hit": true,
+     "exit": "10:47",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.341752
+    },
+    {
+     "day": "2026-10-12",
+     "signal": "SOXS",
+     "signal_time": "10:06",
+     "buy": "SOXL",
+     "entry": "10:08",
+     "hit": true,
+     "exit": "10:15",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.466962
+    },
+    {
+     "day": "2026-10-15",
+     "signal": "SOXS",
+     "signal_time": "09:52",
+     "buy": "SOXL",
+     "entry": "09:54",
+     "hit": true,
+     "exit": "10:00",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.018605
+    },
+    {
+     "day": "2026-10-20",
+     "signal": "SOXL",
+     "signal_time": "10:27",
+     "buy": "SOXS",
+     "entry": "10:29",
+     "hit": true,
+     "exit": "10:33",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.819854
+    },
+    {
+     "day": "2026-10-21",
+     "signal": "SOXL",
+     "signal_time": "09:34",
+     "buy": "SOXS",
+     "entry": "09:36",
+     "hit": true,
+     "exit": "09:39",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.422222
+    },
+    {
+     "day": "2026-10-22",
+     "signal": "SOXS",
+     "signal_time": "09:50",
+     "buy": "SOXL",
+     "entry": "09:52",
+     "hit": true,
+     "exit": "09:53",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.078019
+    },
+    {
+     "day": "2026-10-27",
+     "signal": "SOXL",
+     "signal_time": "09:37",
+     "buy": "SOXS",
+     "entry": "09:39",
+     "hit": true,
+     "exit": "10:01",
+     "pnl_pct": 1.0,
+     "mae_pct": -1.97646
+    },
+    {
+     "day": "2026-10-28",
+     "signal": "SOXL",
+     "signal_time": "09:34",
+     "buy": "SOXS",
+     "entry": "09:36",
+     "hit": true,
+     "exit": "09:46",
+     "pnl_pct": 1.0,
+     "mae_pct": -0.387128
+    }
+   ]
+  },
+  "yahoo_vs_alpaca_restart": {
+   "n_a": 12,
+   "n_b": 12,
+   "matched": 12,
+   "only_a": [],
+   "only_b": [],
+   "hit_disagree": [],
+   "pnl_max_abs_diff_pct": 0.0
+  },
+  "alpaca_abs001_full_history_rsi": {
+   "n": 13,
+   "hit_rate": 0.923077,
+   "ev_mean_pct": 0.863651,
+   "ev_mean_ci95": [
+    0.527323,
+    1.0
+   ]
+  },
+  "yahoo_vs_alpaca_full_history_abs001": {
+   "n_a": 12,
+   "n_b": 13,
+   "matched": 12,
+   "only_a": [],
+   "only_b": [
+    [
+     "2026-09-30",
+     "SOXL",
+     "09:34"
+    ]
+   ],
+   "hit_disagree": [],
+   "pnl_max_abs_diff_pct": 0.0
+  }
+ },
+ "verdict": {
+  "rule": "2026-01-02~09-29 평균 > 0이고 날 묶음 95% 하한 > 0이면 통과",
+  "main_ev_mean_pct": -0.106291,
+  "main_ci95": [
+   -0.480275,
+   0.232605
+  ],
+  "pass": false
+ }
+}
