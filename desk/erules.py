@@ -118,7 +118,11 @@ RULES = {
            "horizon": "다음 실적 반응일 전날 종가까지",
            "research": _research(139, 0.201, 0.439, -8.06, [[0.22, 59], [0.409, 22], [0.103, 58]], [0.161, 62], [0.451, 0.474])},
 }
+# 사용자 결정(2026-10-29): 실적 후 매매는 핵심 규칙 K1·K2로 하고, 피할 규칙은 X2를 쓴다. 나머지는 보조로만 본다.
+CORE_BUY = ("K1", "K2")
+CORE_AVOID = ("X2",)
 for _code, _rule in RULES.items():
+    _rule["core"] = _code in CORE_BUY + CORE_AVOID
     _rule["conditions"] = [PRED[p][0] for p in _rule["preds"]]
     _rule["entry"] = ENTRY_TEXT[OUTCOMES[_rule["out"]][0]]
     _rule["needs_eps"] = any(p in EPS_PREDS for p in _rule["preds"])
@@ -602,10 +606,15 @@ def payload(force: bool = False, path: Path = STATE, state: dict | None = None) 
     for code, rule in RULES.items():
         hits = sorted((e for e in events if code in e.get("hits", [])), key=lambda e: e["reaction"], reverse=True)
         rows = [_row(e, code) for e in hits]
-        upcoming += [{**r, "code": code, "side": rule["side"], "label": rule["label"]} for r in rows if not r["entered"] and not r["closed"]]
+        upcoming += [{**r, "code": code, "side": rule["side"], "label": rule["label"], "core": rule["core"],
+                      "research_win": rule["research"]["win"]} for r in rows if not r["entered"] and not r["closed"]]
         rules.append({"code": code, **{k: v for k, v in rule.items() if k != "preds"}, "live": rule_stats(events, code),
                       "open": [r for r in rows if r["entered"] and not r["closed"]],
                       "closed": [r for r in rows if r["closed"]]})
+    # 핵심 규칙: K1·K2 진입 예정(아직 진입일 시가 전), X2에 걸려 아직 기간이 끝나지 않은 종목(따라 사지 않을 목록)
+    core_buy = [u for u in upcoming if u["code"] in CORE_BUY]
+    x2 = next(r for r in rules if r["code"] in CORE_AVOID)
+    core_avoid = [{**r, "code": x2["code"], "label": x2["label"]} for r in x2["open"]] +                  [u for u in upcoming if u["code"] in CORE_AVOID]
     recent_from = sorted({e["reaction"] for e in events})[-10:]
     recent = sorted((_row(e) for e in events if recent_from and e["reaction"] >= recent_from[0]),
                     key=lambda r: (r["reaction"], -(r["mcap_b"] or 0)), reverse=True)
@@ -616,6 +625,9 @@ def payload(force: bool = False, path: Path = STATE, state: dict | None = None) 
             "latest_close": state.get("latest_close"), "events_n": len(events), "status_counts": status,
             "calendar_days": len(state.get("calendar", {})), "unknown_timing": state.get("unknown_timing", []),
             "rules": rules, "upcoming": sorted(upcoming, key=lambda r: (r["entry_date"] or "", r["side"] != "buy")),
+            "core": {"buy": list(CORE_BUY), "avoid": list(CORE_AVOID),
+                     "entries": sorted(core_buy, key=lambda r: (r["entry_date"] or "", r["code"])),
+                     "avoid_now": sorted(core_avoid, key=lambda r: r["reaction"], reverse=True)},
             "recent": recent, "warning": warning or ("; ".join(state.get("warnings") or []) or None),
             "alarm_min_n": ALARM_MIN_N,
             "method": "나스닥 실적 달력으로 발표 종목을 찾고, SEC 8-K 2.02 접수 시각으로 장전·장후를 가려 반응일을 정한다(없으면 나스닥·yfinance 시각). "

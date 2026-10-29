@@ -47,9 +47,10 @@ function erCard(r, need) {
       : "실전에서 절반 넘게 SPY를 이겼습니다 — 이 회피 규칙이 안 맞는 장세입니다.")
     : lv.state === "holding" ? "실전 성적이 연구 방향과 같습니다." : `닫힌 사례가 ${need}건 쌓이면 판정합니다.`;
   const tone = lv.win == null ? "" : (r.side === "buy" ? cls(lv.win - 0.5) : cls(0.5 - lv.win));
-  return h("section", { class: `card er-rule side-${r.side} st-${lv.state}` },
+  return h("section", { class: `card er-rule side-${r.side} st-${lv.state}${r.core ? " is-core" : ""}` },
     h("header", {}, h("span", { class: "er-code" }, r.code), h("h2", {}, r.label),
-      h("span", { class: `er-side ${r.side}` }, ER_SIDE[r.side]), erChip(lv.state, lv.n, need)),
+      h("span", { class: `er-side ${r.side}` }, ER_SIDE[r.side]), r.core && h("span", { class: "er-core-tag" }, "핵심"),
+      erChip(lv.state, lv.n, need)),
     h("ul", { class: "er-cond" }, r.conditions.map((c) => h("li", {}, c))),
     h("p", { class: "er-dim" }, `진입 ${r.entry} · ${r.horizon}`),
     h("div", { class: "er-live" },
@@ -85,11 +86,32 @@ function erTable(head, rows) {
     h("tbody", {}, rows)));
 }
 
+function erCore(data) {
+  const c = data.core, rules = Object.fromEntries(data.rules.map((r) => [r.code, r]));
+  const rows = c.entries;
+  return h("section", { class: "card er-core" },
+    h("header", {}, h("h2", {}, `핵심 규칙(${c.buy.join("·")}) 진입 대상`),
+      h("span", { class: "sub" }, "사용자가 고른 실적 후 매매 방법입니다(2026-10-29). 진입일 정규장 시가 기준 — 한국 시각 22:30(11/2부터 23:30). 시가가 이미 지났으면 그날은 늦은 진입입니다.")),
+    rows.length ? erTable([["진입일"], ["규칙", "er-rc"], ["종목", "er-tk"], ["반응일"], ["실적날 SPY 대비"], ["조건 값", true], ["연구 승률(2026)"], ["끝"]],
+      rows.map((row) => h("tr", { class: "er-hit" },
+        h("td", {}, h("b", {}, md(row.entry_date))),
+        h("td", { class: "er-rc" }, h("span", { class: "er-tag buy" }, row.code), h("small", { class: "er-dim" }, ` ${row.label}`)),
+        h("td", { class: "er-tk" }, erTicker(row)), h("td", {}, md(row.reaction)), h("td", { class: cls(row.r0_x) }, erPct(row.r0_x)),
+        h("td", { class: "er-feat" }, erFeat(row)), h("td", {}, erRate(row.research_win)),
+        h("td", { class: "er-dim" }, rules[row.code].horizon))))
+      : h("p", { class: "er-dim" }, "지금 핵심 규칙에 걸려 진입을 기다리는 종목이 없습니다."),
+    h("div", { class: "er-avoid-now" }, h("b", {}, `따라 사지 않을 종목(${c.avoid.join("·")} ${rules[c.avoid[0]].label}): `),
+      c.avoid_now.length ? c.avoid_now.map((r) => h("span", { class: "er-tag avoid", title: `반응일 ${md(r.reaction)} · ${erFeat(r)}` }, r.ticker))
+        : h("span", { class: "er-dim" }, "없음"),
+      h("small", { class: "er-dim" }, " — 실적날 오르고 5일 더 오른 중형주. 연구에서 그 뒤 약 19거래일 SPY를 이긴 비율 26%")),
+    h("p", { class: "er-dim" }, "규칙이 내놓는 진입 대상이지 확신의 근거가 아닙니다. 연구 승률 70% 안팎은 10번 중 3번은 SPY에 진다는 뜻이고, 매수 수량·비중은 정하지 않습니다."));
+}
+
 function erUpcoming(data) {
   const rows = data.upcoming;
-  return h("section", { class: "card er-up" },
-    h("header", {}, h("h2", {}, "다음 정규장 시가 진입 예정"),
-      h("span", { class: "sub" }, "조건이 확정됐고 진입일 시가가 아직 오지 않은 종목입니다. 한국 시각 22:30(11/2부터 23:30) 정규장 시가 기준입니다.")),
+  return h("details", { class: "card er-up" },
+    h("summary", {}, h("b", {}, `모든 규칙 진입 예정 ${rows.length}건`),
+      h("span", { class: "er-dim" }, " — 보조 규칙(K3~K5)과 피할 쪽(X1~X3)까지. 조건이 확정됐고 진입일 시가가 아직 오지 않은 종목")),
     rows.length ? erTable([["진입일"], ["규칙", "er-rc"], ["종목", "er-tk"], ["반응일"], ["실적날 SPY 대비"], ["조건 값", true]],
       rows.map((row) => h("tr", { class: row.side === "buy" ? "er-hit" : "er-avoid" },
         h("td", {}, md(row.entry_date)),
@@ -157,6 +179,7 @@ function erRender() {
         counts.waiting ? ` · 반응일 종가 대기 ${counts.waiting}건` : "",
         data.unknown_timing?.length ? ` · 발표 시각 미상으로 뺀 ${data.unknown_timing.length}건` : "")),
     data.warning && h("p", { class: "er-note", role: "status" }, data.warning),
+    erCore(data),
     erUpcoming(data),
     h("h2", { class: "er-group" }, "매수 쪽 규칙"),
     h("div", { class: "er-rules" }, buy.map((r) => erCard(r, need))),

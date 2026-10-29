@@ -58,3 +58,11 @@
   .er-live { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .er-live strong { font-size: 19px; }
 }
+.er-core { border-top: 3px solid var(--accent); box-shadow: 0 0 0 1px var(--accent-soft) inset; }
+.er-core h2 { font-size: 18px; }
+.er-avoid-now { margin: 12px 0 4px; font-size: 13px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.er-core-tag { font: 600 11px/1.6 var(--sans); padding: 1px 6px; border-radius: 5px; background: var(--accent-soft); color: var(--ink); border: 1px solid var(--accent); }
+.er-rule.is-core { box-shadow: 0 0 0 1px var(--accent) inset; }
+.er-up > summary { cursor: pointer; font-size: 14px; }
+.er-up[open] > summary { margin-bottom: 10px; }
+.er-table td.er-dim { font-family: var(--sans); }

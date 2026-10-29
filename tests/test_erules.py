@@ -201,6 +201,22 @@ class LedgerTests(unittest.TestCase):
         self.assertEqual((len(k2["open"]), len(k2["closed"])), (1, 0))  # 다음 실적까지는 90거래일 상한까지 보유 중
         self.assertEqual(data["events_n"], 1)
         self.assertEqual(data["upcoming"], [])
+        self.assertEqual((data["core"]["buy"], data["core"]["avoid"]), (["K1", "K2"], ["X2"]))
+        self.assertEqual(data["core"]["entries"], [])  # 이미 진입한 사건은 진입 대상에 없다
+
+    def test_core_entries_list_pending_k_rules_only(self) -> None:
+        st = erules.empty_state()
+        base = {"name": "", "sector": "Technology", "ai": "", "cal_day": "2026-10-28", "status": "ok",
+                "timing": {"src": "sec"}, "entry_dates": {"1": "2026-10-29", "6": "2026-11-05"}, "features": {},
+                "waits": [], "out": {k: {"entered": False, "closed": False, "x": None, "days": 0} for k in erules.OUTCOMES}}
+        st["events"] = {"AAA|2026-10-28": {**base, "ticker": "AAA", "reaction": "2026-10-28", "hits": ["K2", "K4"]},
+                        "BBB|2026-10-28": {**base, "ticker": "BBB", "reaction": "2026-10-28", "hits": ["K3"]}}
+        data = erules.payload(state=st)
+        self.assertEqual([(r["ticker"], r["code"]) for r in data["core"]["entries"]], [("AAA", "K2")])
+        self.assertEqual(data["core"]["entries"][0]["entry_date"], "2026-10-29")
+        self.assertEqual(len(data["upcoming"]), 3)  # 모든 규칙 목록에는 K3·K4도 남는다
+        self.assertTrue(next(r for r in data["rules"] if r["code"] == "K1")["core"])
+        self.assertFalse(next(r for r in data["rules"] if r["code"] == "K3")["core"])
 
     def test_read_state_rejects_other_version(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
