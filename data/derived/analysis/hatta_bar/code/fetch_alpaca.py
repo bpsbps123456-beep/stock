@@ -2,7 +2,8 @@
 키: 저장소 루트 .env(Git 제외)의 ALPACA_KEY_ID·ALPACA_SECRET_KEY(또는 APCA_API_KEY_ID·APCA_API_SECRET_KEY).
 결과: cache/alp1m<접미사>/<TICKER>.parquet — ET 시각 인덱스, Open·High·Low·Close·Volume·Trades·VWAP.
 사용: py fetch_alpaca.py 2026-06-24 2026-10-29           (끝 날짜는 포함 안 함)
-      py fetch_alpaca.py 2025-06-24 2025-11-01 _2025"""
+      py fetch_alpaca.py 2025-06-24 2025-11-01 _2025
+      py fetch_alpaca.py 2026-06-24 2026-10-29 - u2        (2차 넓힌 400종목, 없는 파일만)"""
 import os, sys, time, threading
 from concurrent.futures import ThreadPoolExecutor
 import pandas as pd, requests
@@ -82,7 +83,10 @@ def one(sym, start, end, head, pace, out):
 
 if __name__ == "__main__":
     a, b = sys.argv[1], sys.argv[2]
-    suffix = sys.argv[3] if len(sys.argv) > 3 else ""
+    suffix = sys.argv[3] if len(sys.argv) > 3 and sys.argv[3] != "-" else ""
+    if len(sys.argv) > 4 and sys.argv[4] == "u2":           # 2차: results/universe2.json 400종목
+        import json
+        SYMS = sorted(json.load(open(os.path.join(HERE, "../results/universe2.json"), encoding="utf-8"))) + ["SPY", "QQQ"]
     out = os.path.join(HERE, f"../cache/alp1m{suffix}")
     os.makedirs(out, exist_ok=True)
     start = pd.Timestamp(a, tz=ET).tz_convert("UTC").strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -90,6 +94,6 @@ if __name__ == "__main__":
     head, pace = keys(), Pace()
     todo = [s for s in SYMS if not os.path.exists(os.path.join(out, f"{s}.parquet"))]
     print(f"{len(todo)}종목 {start} → {end}", flush=True)
-    with ThreadPoolExecutor(3) as ex:
+    with ThreadPoolExecutor(8) as ex:                      # 응답이 느려 동시 요청을 늘린다(속도 한도는 Pace가 지킨다)
         for sym, n in ex.map(lambda s: one(s, start, end, head, pace, out), todo):
             print(sym, n, flush=True)
