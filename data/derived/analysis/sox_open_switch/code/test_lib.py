@@ -43,6 +43,7 @@ def test_cutoff():
     assert L.cutoff_idx(dt.date(2026, 11, 2)) == L.idx("10:00")
     assert L.cutoff_idx(dt.date(2026, 1, 5)) == L.idx("10:00")
     assert L.cutoff_idx(dt.date(2026, 7, 1), "std") == L.idx("10:00")
+    assert L.cutoff_idx(dt.date(2026, 1, 5), "w90") == L.idx("11:00")
 
 
 def test_delay_fill_and_cutoff_exit():
@@ -122,11 +123,12 @@ def test_no_future_in_ctx():
 
 def test_locked_period():
     D = fake()
-    try:
-        L.Engine(D, costs=ZERO).run(lambda: Once(L.Order(1)), period="conf")
-        assert False
-    except PermissionError:
-        pass
+    for kw in ({"period": "conf"}, {"days": [0]}):        # 날 0 = 2026-07-01(conf)
+        try:
+            L.Engine(D, costs=ZERO).run(lambda: Once(L.Order(1)), **kw)
+            assert False, kw
+        except PermissionError:
+            pass
 
 
 if __name__ == "__main__":

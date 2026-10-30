@@ -47,9 +47,12 @@ def idx(hhmm):
 
 
 def cutoff_idx(day, scheme="actual"):
-    """그날 밤 24:00 KST의 ET 시각 색인(서머타임 420 = 11:00, 표준시 360 = 10:00)."""
+    """그날 밤 24:00 KST의 ET 시각 색인(서머타임 420 = 11:00, 표준시 360 = 10:00).
+    scheme='std'는 매일 10:00, 'w90'은 매일 11:00(사용자 '장초 1시간 30분 안에 다 끝낸다', BRIEF3)."""
     if scheme == "std":
         return idx("10:00")
+    if scheme == "w90":
+        return idx("11:00")
     k = datetime(day.year, day.month, day.day, tzinfo=KST) + timedelta(days=1)
     e = k.astimezone(ET)
     return e.hour * 60 + e.minute - 240
@@ -81,11 +84,17 @@ class Data:
             arrs["Close"] = c
             arrs["Volume"] = np.where(has, arrs["Volume"], 0.0)
             self.A[s], self.has[s] = arrs, has
+        # 반일장(13:00 마감): 13:00~15:59 거래량이 09:30~12:59의 15% 미만인 날(반일장 4~7%, 보통 날 28% 이상; 2026-10-30 감사 지적 반영)
+        v = self.A["SOXL"]["Volume"]
+        half = v[:, idx("13:00"):RTH1].sum(1) < 0.15 * v[:, RTH0:idx("13:00")].sum(1)
+        self.rth_end = np.where(half, idx("13:00"), RTH1)
         rows = []
         for s in SYMS:
-            o, h, l, c = (self.A[s][k][:, RTH0:RTH1] for k in ["Open", "High", "Low", "Close"])
-            rows.append(pd.DataFrame({"day": days, "sym": s, "open": o[:, 0], "high": np.nanmax(h, 1),
-                                      "low": np.nanmin(l, 1), "close": c[:, -1]}))
+            o, h, l, c = (self.A[s][k] for k in ["Open", "High", "Low", "Close"])
+            hi = np.array([np.nanmax(h[k, RTH0:e]) for k, e in enumerate(self.rth_end)])
+            lo = np.array([np.nanmin(l[k, RTH0:e]) for k, e in enumerate(self.rth_end)])
+            cl = np.array([c[k, e - 1] for k, e in enumerate(self.rth_end)])
+            rows.append(pd.DataFrame({"day": days, "sym": s, "open": o[:, RTH0], "high": hi, "low": lo, "close": cl}))
         self.daily = pd.concat(rows).set_index(["sym", "day"]).sort_index()
 
     def days_in(self, period):
@@ -232,9 +241,11 @@ class Engine:
     def run(self, make_strat, period=None, days=None):
         """make_strat: 날마다 새 전략 객체를 만드는 함수. 반환: (날별 DataFrame, 매매 DataFrame)."""
         if days is None:
-            if period in LOCKED and os.environ.get("SOS_UNLOCK") != "frozen":
-                raise PermissionError(f"{period} 구간은 후보를 얼린 뒤 확인 단계에서만 연다")
             days = self.D.days_in(period)
+        if os.environ.get("SOS_UNLOCK") != "frozen":          # days=로 넘겨도 잠금을 거친다
+            locked = {k for p in LOCKED for k in self.D.days_in(p)}
+            if locked & set(days):
+                raise PermissionError("conf·aux 구간은 후보를 얼린 뒤 확인 단계에서만 연다")
         rows, allt = [], []
         for d in days:
             r, t = self.run_day(make_strat(), d)
