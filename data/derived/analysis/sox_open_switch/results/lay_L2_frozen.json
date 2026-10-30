@@ -1,0 +1,430 @@
+{
+ "family": "L2 반전 확인과 청산",
+ "n_configs": 390,
+ "period": "sel 2026-01-02~06-30 (123일)",
+ "engine": "Engine(D, scheme='w90') / Engine(D, scheme='std'), fill='close', cost_table 1배",
+ "score": "sel 하루 평균 t(모든 sel 날), 자격 활동일 ≥ 20, 최종 = 설정 + 격자 이웃(x·대기·목표·손절·시간 손절 한 칸) t 중앙값, 같으면 자기 t",
+ "grid": "A 120 = x{2.5,3,4} × 확인{none, red/low/rsi × 대기 5·10·15} × 목표{0.5,0.75,1,1.5%}; B 240 = x3 × 확인{none, red10, low10, rsi10} × 목표 4 × 손절{없음,3,2,1%} × 시간 손절{15,30,45,없음} − A 겹침 16; C 30 = x{2.5,4} × none × 목표1% × 손절 4 × 시간 손절 4 − A 겹침 2",
+ "checks": {
+  "vs_events_sel": {
+   "w90": {
+    "days_strategy": 116,
+    "days_events": 116,
+    "only_one_side": 0,
+    "entry_time_mismatch": 0,
+    "sym_mismatch": 0,
+    "max_abs_diff_pct": 8.881784197001252e-16
+   },
+   "std": {
+    "days_strategy": 81,
+    "days_events": 81,
+    "only_one_side": 0,
+    "entry_time_mismatch": 0,
+    "sym_mismatch": 0,
+    "max_abs_diff_pct": 8.881784197001252e-16
+   }
+  },
+  "confirm_rule": {
+   "L2-x3-red10-t1-sN-hN_w90": {
+    "trades": 209,
+    "bad": 0
+   },
+   "L2-x3-red10-t1-sN-hN_std": {
+    "trades": 77,
+    "bad": 0
+   },
+   "L2-x3-low10-t1-sN-hN_w90": {
+    "trades": 181,
+    "bad": 0
+   },
+   "L2-x3-low10-t1-sN-hN_std": {
+    "trades": 60,
+    "bad": 0
+   },
+   "L2-x3-rsi10-t1-sN-hN_w90": {
+    "trades": 84,
+    "bad": 0
+   },
+   "L2-x3-rsi10-t1-sN-hN_std": {
+    "trades": 18,
+    "bad": 0
+   }
+  },
+  "rsi_vs_events_sel": {
+   "n": 1740,
+   "max_abs": 3.552713678800501e-14,
+   "p99_abs": 2.842170943040401e-14
+  }
+ },
+ "landscape": {
+  "w90": {
+   "n_eligible": 390,
+   "t_max_all": 1.658105679969686,
+   "t_median_all": -0.41560213838502436,
+   "t_pos_frac_all": 0.3153846153846154,
+   "t_max_eligible": 1.658105679969686,
+   "t_median_eligible": -0.41560213838502436,
+   "t_pos_frac_eligible": 0.3153846153846154,
+   "nbr_med_max_eligible": 1.1126434661155322,
+   "mean_pct_median_eligible": -0.0701483789999669,
+   "dir_mean_median_all": 0.05738933944594375,
+   "dir_t_pos_frac_all": 0.6205128205128205
+  },
+  "std": {
+   "n_eligible": 302,
+   "t_max_all": 1.3121865583629377,
+   "t_median_all": -1.1400462238705367,
+   "t_pos_frac_all": 0.07948717948717948,
+   "t_max_eligible": 1.3121865583629377,
+   "t_median_eligible": -0.9118156171073784,
+   "t_pos_frac_eligible": 0.09933774834437085,
+   "nbr_med_max_eligible": 0.8543804216780663,
+   "mean_pct_median_eligible": -0.09620724659147303,
+   "dir_mean_median_all": -0.08466738421779932,
+   "dir_t_pos_frac_all": 0.2
+  }
+ },
+ "frozen": [
+  {
+   "id": "L2-x4-low10-t1.5-sN-hN",
+   "scheme": "w90",
+   "params": {
+    "x": 4.0,
+    "conf": "low",
+    "wait": 10,
+    "target": 0.015,
+    "stop": null,
+    "hold": null
+   },
+   "factory": "lay_L2.make({\"x\": 4.0, \"conf\": \"low\", \"wait\": 10, \"target\": 0.015, \"stop\": None, \"hold\": None})",
+   "code": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\sox_open_switch\\code\\lay_L2.py",
+   "sel_w90": {
+    "days": 123,
+    "active_days": 90,
+    "trades": 121,
+    "mean_pct": 0.3186958984521255,
+    "sd_pct": 2.1316545374181852,
+    "hit_days": 0.6666666666666666,
+    "sum_pct": 39.199595509611434,
+    "compound_pct": 43.82720609733239,
+    "t": 1.658105679969686,
+    "ci95": [
+     -0.06374494118789055,
+     0.6830656615813354
+    ],
+    "p_one_sided": 0.0495,
+    "max_dd_pct": -10.40853071518104,
+    "avg_trade_pct": 0.3223815704939119,
+    "x_target": 81,
+    "x_stop": 0,
+    "x_signal": 0,
+    "x_cutoff": 40,
+    "hit_target": 0.6694214876033058,
+    "n_soxl": 54,
+    "hold_min_mean": 25.40495867768595,
+    "miss_avg_pct": -2.0622957492558966,
+    "worst_trade_pct": -7.4078692862660445,
+    "exits": {
+     "target": 81,
+     "cutoff": 40
+    },
+    "entries_by_sym": {
+     "SOXS": 67,
+     "SOXL": 54
+    },
+    "nbr_med_t": 1.1126434661155322
+   },
+   "sel_std": {
+    "days": 123,
+    "active_days": 28,
+    "trades": 28,
+    "mean_pct": -0.024507608523627405,
+    "sd_pct": 1.0312331164748756,
+    "hit_days": 0.6071428571428571,
+    "sum_pct": -3.014435848406171,
+    "compound_pct": -3.607226016251408,
+    "t": -0.2635704019525661,
+    "ci95": [
+     -0.21036858305089515,
+     0.14828462168614265
+    ],
+    "p_one_sided": 0.5838,
+    "max_dd_pct": -6.715108773469591,
+    "avg_trade_pct": -0.10765842315736326,
+    "x_target": 16,
+    "x_stop": 0,
+    "x_signal": 0,
+    "x_cutoff": 12,
+    "hit_target": 0.5714285714285714,
+    "n_soxl": 9,
+    "hold_min_mean": 11.535714285714286,
+    "miss_avg_pct": -2.2512029873671677,
+    "worst_trade_pct": -4.453667795339255,
+    "exits": {
+     "target": 16,
+     "cutoff": 12
+    },
+    "entries_by_sym": {
+     "SOXS": 19,
+     "SOXL": 9
+    },
+    "nbr_med_t": -0.2635704019525661
+   },
+   "mirror_sel": {
+    "w90": {
+     "days": 123,
+     "active_days": 90,
+     "trades": 118,
+     "mean_pct": -0.157608713345814,
+     "sd_pct": 2.4877574348299665,
+     "hit_days": 0.6111111111111112,
+     "sum_pct": -19.385871741535123,
+     "compound_pct": -20.780860511943033,
+     "t": -0.7026268576741034,
+     "ci95": [
+      -0.6088880222006526,
+      0.25483620627988685
+     ],
+     "p_one_sided": 0.7623,
+     "max_dd_pct": -32.914164266492996,
+     "avg_trade_pct": -0.16227480485119644,
+     "x_target": 64,
+     "x_stop": 0,
+     "x_signal": 0,
+     "x_cutoff": 54,
+     "hit_target": 0.5423728813559322,
+     "n_soxl": 68,
+     "hold_min_mean": 30.28813559322034,
+     "miss_avg_pct": -2.1323782772674176,
+     "worst_trade_pct": -11.606398499519965,
+     "dir_mean_pct": 0.23815230589896982
+    },
+    "std": {
+     "days": 123,
+     "active_days": 28,
+     "trades": 28,
+     "mean_pct": 0.01343740540527427,
+     "sd_pct": 1.0607460098739552,
+     "hit_days": 0.6785714285714286,
+     "sum_pct": 1.6528008648487353,
+     "compound_pct": 0.9558848011452126,
+     "t": 0.14049360903683816,
+     "ci95": [
+      -0.18367175560856017,
+      0.18726347252617084
+     ],
+     "p_one_sided": 0.432,
+     "max_dd_pct": -9.388456804386713,
+     "avg_trade_pct": 0.059028602316026274,
+     "x_target": 16,
+     "x_stop": 0,
+     "x_signal": 0,
+     "x_cutoff": 12,
+     "hit_target": 0.5714285714285714,
+     "n_soxl": 19,
+     "hold_min_mean": 10.107142857142858,
+     "miss_avg_pct": -1.8622665945959256,
+     "worst_trade_pct": -6.319050037168861,
+     "dir_mean_pct": -0.018972506964450856
+    }
+   },
+   "neighbors": [
+    {
+     "id": "L2-x3-low10-t1.5-sN-hN",
+     "w90_t": -0.34454196986495167,
+     "std_t": -1.1232331098513133
+    },
+    {
+     "id": "L2-x4-low5-t1.5-sN-hN",
+     "w90_t": 1.0265171780336675,
+     "std_t": -0.027153704912636262
+    },
+    {
+     "id": "L2-x4-low15-t1.5-sN-hN",
+     "w90_t": 1.1570494676533793,
+     "std_t": -0.2635704019525661
+    },
+    {
+     "id": "L2-x4-low10-t1-sN-hN",
+     "w90_t": 1.1126434661155322,
+     "std_t": -0.7040632658746144
+    }
+   ]
+  },
+  {
+   "id": "L2-x3-none-t0.5-s2-h30",
+   "scheme": "std",
+   "params": {
+    "x": 3.0,
+    "conf": "none",
+    "wait": null,
+    "target": 0.005,
+    "stop": 0.02,
+    "hold": 30
+   },
+   "factory": "lay_L2.make({\"x\": 3.0, \"conf\": \"none\", \"wait\": None, \"target\": 0.005, \"stop\": 0.02, \"hold\": 30})",
+   "code": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\sox_open_switch\\code\\lay_L2.py",
+   "sel_w90": {
+    "days": 123,
+    "active_days": 116,
+    "trades": 333,
+    "mean_pct": 0.0638263767529858,
+    "sd_pct": 1.4153256271976127,
+    "hit_days": 0.6120689655172413,
+    "sum_pct": 7.8506443406172535,
+    "compound_pct": 6.840513830523021,
+    "t": 0.500145512699033,
+    "ci95": [
+     -0.1909918759811296,
+     0.30276902313028287
+    ],
+    "p_one_sided": 0.306,
+    "max_dd_pct": -11.403706070879515,
+    "avg_trade_pct": 0.02458670432212626,
+    "x_target": 264,
+    "x_stop": 57,
+    "x_signal": 6,
+    "x_cutoff": 6,
+    "hit_target": 0.7927927927927928,
+    "n_soxl": 162,
+    "hold_min_mean": 4.918918918918919,
+    "miss_avg_pct": -1.7943859052279594,
+    "worst_trade_pct": -2.0516884682651337,
+    "exits": {
+     "target": 264,
+     "stop": 57,
+     "cutoff": 6,
+     "signal": 6
+    },
+    "entries_by_sym": {
+     "SOXS": 171,
+     "SOXL": 162
+    },
+    "nbr_med_t": 0.25900336799669055
+   },
+   "sel_std": {
+    "days": 123,
+    "active_days": 81,
+    "trades": 103,
+    "mean_pct": 0.09516477729479896,
+    "sd_pct": 0.8568952427547297,
+    "hit_days": 0.8024691358024691,
+    "sum_pct": 11.705267607260271,
+    "compound_pct": 11.905987851886191,
+    "t": 1.2316889907327757,
+    "ci95": [
+     -0.061385717956331395,
+     0.24112289942349516
+    ],
+    "p_one_sided": 0.1132,
+    "max_dd_pct": -6.173587263208269,
+    "avg_trade_pct": 0.11340307488190773,
+    "x_target": 87,
+    "x_stop": 15,
+    "x_signal": 0,
+    "x_cutoff": 1,
+    "hit_target": 0.8446601941747572,
+    "n_soxl": 45,
+    "hold_min_mean": 3.3106796116504853,
+    "miss_avg_pct": -1.988717705447661,
+    "worst_trade_pct": -2.051121544079293,
+    "exits": {
+     "target": 87,
+     "stop": 15,
+     "cutoff": 1
+    },
+    "entries_by_sym": {
+     "SOXS": 58,
+     "SOXL": 45
+    },
+    "nbr_med_t": 0.8543804216780663
+   },
+   "mirror_sel": {
+    "w90": {
+     "days": 123,
+     "active_days": 116,
+     "trades": 330,
+     "mean_pct": -0.1616806119763887,
+     "sd_pct": 1.6291832040460288,
+     "hit_days": 0.5086206896551724,
+     "sum_pct": -19.88671527309581,
+     "compound_pct": -19.37362366333044,
+     "t": -1.1006280478767407,
+     "ci95": [
+      -0.44787207934697537,
+      0.12837275070911378
+     ],
+     "p_one_sided": 0.8583,
+     "max_dd_pct": -22.80960787167201,
+     "avg_trade_pct": -0.059913526759133376,
+     "x_target": 250,
+     "x_stop": 66,
+     "x_signal": 8,
+     "x_cutoff": 6,
+     "hit_target": 0.7575757575757576,
+     "n_soxl": 176,
+     "hold_min_mean": 4.9,
+     "miss_avg_pct": -1.809643297881392,
+     "worst_trade_pct": -2.051688468265145,
+     "dir_mean_pct": 0.11275349436468723
+    },
+    "std": {
+     "days": 123,
+     "active_days": 81,
+     "trades": 101,
+     "mean_pct": -0.12623057583533479,
+     "sd_pct": 0.9618450151727742,
+     "hit_days": 0.6666666666666666,
+     "sum_pct": -15.526360827746178,
+     "compound_pct": -14.876792707861398,
+     "t": -1.4554993657428168,
+     "ci95": [
+      -0.30046442071930507,
+      0.04113512100582336
+     ],
+     "p_one_sided": 0.9266,
+     "max_dd_pct": -18.613303097365165,
+     "avg_trade_pct": -0.15342900679182636,
+     "x_target": 73,
+     "x_stop": 24,
+     "x_signal": 0,
+     "x_cutoff": 4,
+     "hit_target": 0.7227722772277227,
+     "n_soxl": 58,
+     "hold_min_mean": 3.4158415841584158,
+     "miss_avg_pct": -1.8570117744990602,
+     "worst_trade_pct": -2.051121544079293,
+     "dir_mean_pct": 0.11069767656506688
+    }
+   },
+   "neighbors": [
+    {
+     "id": "L2-x3-none-t0.75-s2-h30",
+     "w90_t": 0.12419855614344001,
+     "std_t": 0.058523417053666454
+    },
+    {
+     "id": "L2-x3-none-t0.5-s3-h30",
+     "w90_t": -0.13792141084634257,
+     "std_t": 0.4770718526233568
+    },
+    {
+     "id": "L2-x3-none-t0.5-s1-h30",
+     "w90_t": -0.8707790909976387,
+     "std_t": -0.10348575621941346
+    },
+    {
+     "id": "L2-x3-none-t0.5-s2-h15",
+     "w90_t": 0.3938081798499411,
+     "std_t": 1.3121865583629377
+    },
+    {
+     "id": "L2-x3-none-t0.5-s2-h45",
+     "w90_t": 0.5553639705204005,
+     "std_t": 1.2316889907327757
+    }
+   ]
+  }
+ ],
+ "runtime_s": 34.1
+}

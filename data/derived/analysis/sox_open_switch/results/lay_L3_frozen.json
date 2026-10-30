@@ -1,0 +1,572 @@
+{
+ "family": "L3",
+ "n_configs": 279,
+ "period": "sel 2026-01-02~06-30 (123일)",
+ "engine": "Engine(D, scheme='w90') / Engine(D, scheme='std'), fill='close', cost_table 1배",
+ "signal": "H0: 오른 종목 1분 종가 ≥ L(09:30 또는 청산 다음 봉부터 저가 최저) × 1.03 → 반대 종목, +1% 지정가, 손절 없음, 창 끝 청산, 진입 마감 창 끝 15분 전",
+ "gate": "맥락 조건은 문: H0 신호 참 & 맥락 참인 첫 봉에 진입, 막힌 봉은 넘어가고 L은 H0대로",
+ "score": "sel 하루 평균 t(123일, 매매 없는 날 0), 자격 활동일 ≥ 20, 최종 = 자기+이웃 t 중앙값(매매 0건 설정 제외); 같으면 t, 조건 수, id",
+ "grid": "T{1,2,3}·G{down,flat,up}·F{up,down}·M{0,1,2}·P{lo,mid,hi} 중 any 아닌 축 0~2개 (1+14+78=93) × S{both,SOXL,SOXS} = 279",
+ "neighbors": "한 축 한 칸: any↔특정 값, 순서 축의 붙은 값(T 1-2-3, G down-flat-up, M 0-1-2, P lo-mid-hi); F up↔down, S SOXL↔SOXS 제외",
+ "PR_Q": [
+  0.067834671827,
+  0.104454534104
+ ],
+ "gap_thr_pct": 1.0,
+ "mkt_thr": 0.01,
+ "landscape": {
+  "w90": {
+   "n_configs_with_trades": 279,
+   "n_eligible": 184,
+   "base_H0": {
+    "mean_pct": 0.0833736250539942,
+    "t": 0.3089983704971711,
+    "active_days": 116,
+    "trades": 223,
+    "nbr_med_t": -0.10063114502784104
+   },
+   "t_max_eligible": 3.85345244133498,
+   "t_median_eligible": -0.04441099560297637,
+   "t_pos_frac_eligible": 0.483695652173913,
+   "n_eligible_t_gt_2": 9,
+   "nbr_med_max_eligible": 1.596432494378746,
+   "mean_pct_median_eligible": -0.005298445614912061,
+   "top5_by_score": [
+    {
+     "id": "L3-T1-Gdown-Fany-Many-Pany-SSOXL",
+     "nbr_med_t": 1.596432494378746,
+     "t": 1.981886535648582,
+     "mean_pct": 0.14727977509158185,
+     "active_days": 27
+    },
+    {
+     "id": "L3-T1-Gany-Fany-Many-Phi-SSOXL",
+     "nbr_med_t": 1.4475229865244603,
+     "t": 1.8831356081145934,
+     "mean_pct": 0.12604530224822816,
+     "active_days": 23
+    },
+    {
+     "id": "L3-T1-Gany-Fany-Many-Pany-SSOXL",
+     "nbr_med_t": 1.4200453956193917,
+     "t": 2.782024589116951,
+     "mean_pct": 0.2701493191619729,
+     "active_days": 58
+    },
+    {
+     "id": "L3-T1-Gany-Fany-M1-Pany-SSOXL",
+     "nbr_med_t": 1.4200453956193917,
+     "t": 2.0270966353654862,
+     "mean_pct": 0.1330383182630575,
+     "active_days": 31
+    },
+    {
+     "id": "L3-T1-Gup-Fany-Many-Pany-SSOXL",
+     "nbr_med_t": 1.4193614935862215,
+     "t": 1.066452710429678,
+     "mean_pct": 0.06595897496469985,
+     "active_days": 24
+    }
+   ]
+  },
+  "std": {
+   "n_configs_with_trades": 192,
+   "n_eligible": 66,
+   "base_H0": {
+    "mean_pct": -0.07696036533009265,
+    "t": -0.41294873411486205,
+    "active_days": 81,
+    "trades": 94,
+    "nbr_med_t": -0.3863456063917013
+   },
+   "t_max_eligible": 3.4066846824213064,
+   "t_median_eligible": -0.13242173860386952,
+   "t_pos_frac_eligible": 0.4696969696969697,
+   "n_eligible_t_gt_2": 12,
+   "nbr_med_max_eligible": 2.823134088600365,
+   "mean_pct_median_eligible": -0.014029090925185079,
+   "top5_by_score": [
+    {
+     "id": "L3-T1-Gany-Fany-M0-Pany-SSOXL",
+     "nbr_med_t": 2.823134088600365,
+     "t": 2.823134088600365,
+     "mean_pct": 0.20593988975812277,
+     "active_days": 45
+    },
+    {
+     "id": "L3-T1-Gany-Fany-Many-Pmid-SSOXL",
+     "nbr_med_t": 2.7860552237246736,
+     "t": 2.8825045599807324,
+     "mean_pct": 0.10714372554044234,
+     "active_days": 21
+    },
+    {
+     "id": "L3-T1-Gdown-Fany-Many-Pany-SSOXL",
+     "nbr_med_t": 2.78334296504231,
+     "t": 2.78334296504231,
+     "mean_pct": 0.15457549559669548,
+     "active_days": 27
+    },
+    {
+     "id": "L3-T1-Gany-Fany-Many-Phi-SSOXL",
+     "nbr_med_t": 2.689605887468615,
+     "t": 2.689605887468615,
+     "mean_pct": 0.1490780573776196,
+     "active_days": 23
+    },
+    {
+     "id": "L3-Tany-Gdown-Fany-M0-Pany-SSOXL",
+     "nbr_med_t": 2.6003316239411878,
+     "t": 2.8822603230891968,
+     "mean_pct": 0.14269396898251813,
+     "active_days": 21
+    }
+   ]
+  }
+ },
+ "frozen": [
+  {
+   "id": "L3-T1-Gdown-Fany-Many-Pany-SSOXL",
+   "scheme": "w90",
+   "params": {
+    "T": "1",
+    "G": "down",
+    "F": "any",
+    "M": "any",
+    "P": "any",
+    "S": "SOXL"
+   },
+   "factory": "lay_L3.make({\"T\": \"1\", \"G\": \"down\", \"F\": \"any\", \"M\": \"any\", \"P\": \"any\", \"S\": \"SOXL\"})",
+   "code": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\sox_open_switch\\code\\lay_L3.py",
+   "sel_w90": {
+    "days": 123,
+    "active_days": 27,
+    "trades": 30,
+    "mean_pct": 0.14727977509158185,
+    "sd_pct": 0.8241701494654008,
+    "hit_days": 0.9259259259259259,
+    "sum_pct": 18.11541233626457,
+    "compound_pct": 19.34062650418371,
+    "t": 1.981886535648582,
+    "ci95": [
+     -0.00690549046724284,
+     0.2794637686445437
+    ],
+    "p_one_sided": 0.0306,
+    "max_dd_pct": -5.144003315714918,
+    "avg_trade_pct": 0.6025104112088193,
+    "target_rate": 0.9333333333333333,
+    "avg_miss_pct": -4.962343831867722,
+    "worst_trade_pct": -5.144003315714918,
+    "exits": {
+     "target": 28,
+     "cutoff": 2
+    },
+    "buys_by_sym": {
+     "SOXS": 30
+    },
+    "sel_halves": {
+     "1~3월": {
+      "days": 61,
+      "active_days": 15,
+      "mean_pct": 0.06697233338138636
+     },
+     "4~6월": {
+      "days": 62,
+      "active_days": 12,
+      "mean_pct": 0.226291935483871
+     }
+    },
+    "top3_days_share_of_sum": 0.3334232689756965,
+    "nbr_med_t": 1.596432494378746,
+    "direction_component_mean_pct": 0.019264618238795436
+   },
+   "sel_std": {
+    "days": 123,
+    "active_days": 27,
+    "trades": 30,
+    "mean_pct": 0.15457549559669548,
+    "sd_pct": 0.6159230818633304,
+    "hit_days": 0.8518518518518519,
+    "sum_pct": 19.012785958393543,
+    "compound_pct": 20.643505556820063,
+    "t": 2.78334296504231,
+    "ci95": [
+     0.047353154567621805,
+     0.26323277892527014
+    ],
+    "p_one_sided": 0.0023,
+    "max_dd_pct": -3.1277826885991122,
+    "avg_trade_pct": 0.6324228652797851,
+    "target_rate": 0.8333333333333334,
+    "avg_miss_pct": -1.2054628083212937,
+    "worst_trade_pct": -3.1277826885991122,
+    "exits": {
+     "target": 25,
+     "cutoff": 5
+    },
+    "buys_by_sym": {
+     "SOXS": 30
+    },
+    "sel_halves": {
+     "1~3월": {
+      "days": 61,
+      "active_days": 15,
+      "mean_pct": 0.09566641386675351
+     },
+     "4~6월": {
+      "days": 62,
+      "active_days": 12,
+      "mean_pct": 0.2125344308471222
+     }
+    },
+    "top3_days_share_of_sum": 0.3176862145935788,
+    "nbr_med_t": 2.78334296504231,
+    "direction_component_mean_pct": 0.08740310228215604
+   },
+   "mirror_sel": {
+    "w90": {
+     "days": 123,
+     "active_days": 27,
+     "trades": 30,
+     "mean_pct": 0.10875053861399098,
+     "sd_pct": 0.7911155016018392,
+     "hit_days": 0.8518518518518519,
+     "sum_pct": 13.37631624952089,
+     "compound_pct": 13.863108324947572,
+     "t": 1.5245584445609477,
+     "ci95": [
+      -0.04000925130452881,
+      0.24206071554865144
+     ],
+     "p_one_sided": 0.0674,
+     "max_dd_pct": -4.811721770732125,
+     "avg_trade_pct": 0.4448772083173632,
+     "target_rate": 0.8666666666666667,
+     "avg_miss_pct": -3.163420937619782,
+     "worst_trade_pct": -4.530808275295151,
+     "exits": {
+      "target": 26,
+      "cutoff": 4
+     },
+     "buys_by_sym": {
+      "SOXL": 30
+     },
+     "sel_halves": {
+      "1~3월": {
+       "days": 61,
+       "active_days": 15,
+       "mean_pct": 0.05937692614464719
+      },
+      "4~6월": {
+       "days": 62,
+       "active_days": 12,
+       "mean_pct": 0.15732780249511957
+      }
+     },
+     "top3_days_share_of_sum": 0.4507967580548182
+    },
+    "std": {
+     "days": 123,
+     "active_days": 27,
+     "trades": 30,
+     "mean_pct": -0.02023070896761662,
+     "sd_pct": 1.0782150616573685,
+     "hit_days": 0.7037037037037037,
+     "sum_pct": -2.488377203016844,
+     "compound_pct": -3.172189365967082,
+     "t": -0.20809337982258297,
+     "ci95": [
+      -0.22866840883275819,
+      0.14587265483513553
+     ],
+     "p_one_sided": 0.5516,
+     "max_dd_pct": -12.782743033812983,
+     "avg_trade_pct": -0.08307698799043102,
+     "target_rate": 0.7,
+     "avg_miss_pct": -2.610256626634772,
+     "worst_trade_pct": -8.250396051711583,
+     "exits": {
+      "target": 21,
+      "cutoff": 9
+     },
+     "buys_by_sym": {
+      "SOXL": 30
+     },
+     "sel_halves": {
+      "1~3월": {
+       "days": 61,
+       "active_days": 15,
+       "mean_pct": 0.0012023715105763662
+      },
+      "4~6월": {
+       "days": 62,
+       "active_days": 12,
+       "mean_pct": -0.04131809459938715
+      }
+     },
+     "top3_days_share_of_sum": null
+    }
+   },
+   "neighbors": [
+    {
+     "id": "L3-Tany-Gdown-Fany-Many-Pany-SSOXL",
+     "w90_t": 1.2109784531089098,
+     "std_t": 2.78334296504231,
+     "w90_active_days": 40,
+     "std_active_days": 27
+    },
+    {
+     "id": "L3-T2-Gdown-Fany-Many-Pany-SSOXL",
+     "w90_t": -0.5288977549258143,
+     "std_t": NaN,
+     "w90_active_days": 36,
+     "std_active_days": 0
+    },
+    {
+     "id": "L3-T1-Gany-Fany-Many-Pany-SSOXL",
+     "w90_t": 2.782024589116951,
+     "std_t": 3.4066846824213064,
+     "w90_active_days": 58,
+     "std_active_days": 58
+    },
+    {
+     "id": "L3-T1-Gflat-Fany-Many-Pany-SSOXL",
+     "w90_t": 2.713313281859882,
+     "std_t": 2.63439237398487,
+     "w90_active_days": 7,
+     "std_active_days": 7
+    },
+    {
+     "id": "L3-T1-Gdown-Fany-Many-Pany-Sboth",
+     "w90_t": -0.1585722710926219,
+     "std_t": -0.6564704749216204,
+     "w90_active_days": 51,
+     "std_active_days": 51
+    }
+   ]
+  },
+  {
+   "id": "L3-T1-Gany-Fany-M0-Pany-SSOXL",
+   "scheme": "std",
+   "params": {
+    "T": "1",
+    "G": "any",
+    "F": "any",
+    "M": "0",
+    "P": "any",
+    "S": "SOXL"
+   },
+   "factory": "lay_L3.make({\"T\": \"1\", \"G\": \"any\", \"F\": \"any\", \"M\": \"0\", \"P\": \"any\", \"S\": \"SOXL\"})",
+   "code": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\sox_open_switch\\code\\lay_L3.py",
+   "sel_w90": {
+    "days": 123,
+    "active_days": 45,
+    "trades": 48,
+    "mean_pct": 0.22462515751598308,
+    "sd_pct": 0.9763285406468966,
+    "hit_days": 0.9111111111111111,
+    "sum_pct": 27.62889437446592,
+    "compound_pct": 31.007015449436715,
+    "t": 2.5516139352418663,
+    "ci95": [
+     0.04237243112424215,
+     0.38641811057137765
+    ],
+    "p_one_sided": 0.0081,
+    "max_dd_pct": -5.144003315714906,
+    "avg_trade_pct": 0.5747665494680403,
+    "target_rate": 0.9166666666666666,
+    "avg_miss_pct": -4.102801406383527,
+    "worst_trade_pct": -5.144003315714918,
+    "exits": {
+     "target": 44,
+     "cutoff": 4
+    },
+    "buys_by_sym": {
+     "SOXS": 48
+    },
+    "sel_halves": {
+     "1~3월": {
+      "days": 61,
+      "active_days": 17,
+      "mean_pct": 0.1945245358079524
+     },
+     "4~6월": {
+      "days": 62,
+      "active_days": 28,
+      "mean_pct": 0.2542402853254971
+     }
+    },
+    "top3_days_share_of_sum": 0.21861533502339983,
+    "nbr_med_t": 1.3527347313646987,
+    "direction_component_mean_pct": 0.10031314330296522
+   },
+   "sel_std": {
+    "days": 123,
+    "active_days": 45,
+    "trades": 48,
+    "mean_pct": 0.20593988975812277,
+    "sd_pct": 0.8090242240745745,
+    "hit_days": 0.8444444444444444,
+    "sum_pct": 25.330606440249102,
+    "compound_pct": 28.27856594644085,
+    "t": 2.823134088600365,
+    "ci95": [
+     0.05835719337259137,
+     0.34202930239637036
+    ],
+    "p_one_sided": 0.0035,
+    "max_dd_pct": -4.049381481356185,
+    "avg_trade_pct": 0.5268855508385233,
+    "target_rate": 0.7916666666666666,
+    "avg_miss_pct": -1.2709493559750917,
+    "worst_trade_pct": -4.049381481356196,
+    "exits": {
+     "target": 38,
+     "cutoff": 10
+    },
+    "buys_by_sym": {
+     "SOXS": 48
+    },
+    "sel_halves": {
+     "1~3월": {
+      "days": 61,
+      "active_days": 17,
+      "mean_pct": 0.10217749062344517
+     },
+     "4~6월": {
+      "days": 62,
+      "active_days": 28,
+      "mean_pct": 0.30802870180998304
+     }
+    },
+    "top3_days_share_of_sum": 0.2384506669529462,
+    "nbr_med_t": 2.823134088600365,
+    "direction_component_mean_pct": 0.21309488859138415
+   },
+   "mirror_sel": {
+    "w90": {
+     "days": 123,
+     "active_days": 45,
+     "trades": 48,
+     "mean_pct": 0.023998870910052615,
+     "sd_pct": 1.148027152203508,
+     "hit_days": 0.7333333333333333,
+     "sum_pct": 2.9518611219364717,
+     "compound_pct": 2.1558008889408953,
+     "t": 0.23184151474961276,
+     "ci95": [
+      -0.18666995161551417,
+      0.21491843389212784
+     ],
+     "p_one_sided": 0.4055,
+     "max_dd_pct": -13.058583237731469,
+     "avg_trade_pct": 0.060872106707009904,
+     "target_rate": 0.75,
+     "avg_miss_pct": -2.756511573171963,
+     "worst_trade_pct": -5.231326639521838,
+     "exits": {
+      "target": 36,
+      "cutoff": 12
+     },
+     "buys_by_sym": {
+      "SOXL": 48
+     },
+     "sel_halves": {
+      "1~3월": {
+       "days": 61,
+       "active_days": 17,
+       "mean_pct": -0.07539313512465001
+      },
+      "4~6월": {
+       "days": 62,
+       "active_days": 28,
+       "mean_pct": 0.12178778007322778
+      }
+     },
+     "top3_days_share_of_sum": 2.0427790302154225
+    },
+    "std": {
+     "days": 123,
+     "active_days": 45,
+     "trades": 48,
+     "mean_pct": -0.2202498874246455,
+     "sd_pct": 1.4444227710780762,
+     "hit_days": 0.5555555555555556,
+     "sum_pct": -27.090736153231397,
+     "compound_pct": -24.749936111164406,
+     "t": -1.6911180479330445,
+     "ci95": [
+      -0.49153411856949253,
+      0.018291207933455476
+     ],
+     "p_one_sided": 0.9622,
+     "max_dd_pct": -27.5776148778336,
+     "avg_trade_pct": -0.5644722622901559,
+     "target_rate": 0.5416666666666666,
+     "avg_miss_pct": -2.4133940268148866,
+     "worst_trade_pct": -8.250396051711583,
+     "exits": {
+      "target": 26,
+      "cutoff": 22
+     },
+     "buys_by_sym": {
+      "SOXL": 48
+     },
+     "sel_halves": {
+      "1~3월": {
+       "days": 61,
+       "active_days": 17,
+       "mean_pct": -0.13409993588112623
+      },
+      "4~6월": {
+       "days": 62,
+       "active_days": 28,
+       "mean_pct": -0.3050103236206887
+      }
+     },
+     "top3_days_share_of_sum": null
+    }
+   },
+   "neighbors": [
+    {
+     "id": "L3-Tany-Gany-Fany-M0-Pany-SSOXL",
+     "w90_t": 0.19290813438992055,
+     "std_t": 2.823134088600365,
+     "w90_active_days": 82,
+     "std_active_days": 45
+    },
+    {
+     "id": "L3-T2-Gany-Fany-M0-Pany-SSOXL",
+     "w90_t": -1.1252504383488084,
+     "std_t": NaN,
+     "w90_active_days": 65,
+     "std_active_days": 0
+    },
+    {
+     "id": "L3-T1-Gany-Fany-Many-Pany-SSOXL",
+     "w90_t": 2.782024589116951,
+     "std_t": 3.4066846824213064,
+     "w90_active_days": 58,
+     "std_active_days": 58
+    },
+    {
+     "id": "L3-T1-Gany-Fany-M1-Pany-SSOXL",
+     "w90_t": 2.0270966353654862,
+     "std_t": 1.8069293229640224,
+     "w90_active_days": 31,
+     "std_active_days": 31
+    },
+    {
+     "id": "L3-T1-Gany-Fany-M0-Pany-Sboth",
+     "w90_t": 0.6783728273639111,
+     "std_t": 0.640865941603982,
+     "w90_active_days": 64,
+     "std_active_days": 64
+    }
+   ]
+  }
+ ],
+ "runtime_s": 22.7
+}

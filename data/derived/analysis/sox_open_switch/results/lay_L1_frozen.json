@@ -1,0 +1,743 @@
+{
+ "family": "L1 소진",
+ "n_configs": 396,
+ "period": "sel 2026-01-02~06-30 (123일), 잠금 켜지 않음",
+ "engine": "Engine(D, scheme='w90'|'std'), fill='close', cost_table 1x, 목표 +1% 지정가, 손절 없음",
+ "score": "sel 하루 평균 t(전체 sel 날), 활동일 20일 이상만 후보, 최종 = 자기+격자 이웃 t 중앙값(순서 축 하나 바로 옆, base는 범주)",
+ "grid": "A 54 = Lmin x6 x speed5 + {low15,low30,open,pclose} x6; B 144 = Lmin x6 x vol{lt1,lt2,any,ge2,ge4} x vwap{any,1,2,3,4} (A와 겹침 6 뺌); C 54 = Lmin x6 x rsi{60,70,80} x vwap{any,2,4}; D 48 = Lmin x speed{30,15,10,5} x6 x vwap{2,4}; E 96 = {low15,low30,open,pclose} x6 x one of {vwap2, vwap4, vol<2, rsi70}",
+ "axes": {
+  "x": [
+   "2.0",
+   "2.5",
+   "3.0",
+   "3.5",
+   "4.0",
+   "5.0"
+  ],
+  "speed": [
+   "None",
+   "30",
+   "15",
+   "10",
+   "5"
+  ],
+  "vol": [
+   "lt1",
+   "lt2",
+   "None",
+   "ge2",
+   "ge4"
+  ],
+  "rsi": [
+   "None",
+   "60",
+   "70",
+   "80"
+  ],
+  "vwap": [
+   "None",
+   "1.0",
+   "2.0",
+   "3.0",
+   "4.0"
+  ]
+ },
+ "bases": [
+  "Lmin",
+  "low15",
+  "low30",
+  "open",
+  "pclose"
+ ],
+ "h0_on_sel_reference": {
+  "id": "L1-Lmin-x3-sN-vN-rN-wN",
+  "w90": {
+   "mean_pct": 0.0833736250539942,
+   "t": 0.3089983704971711,
+   "ci_lo": -0.4620337566689914,
+   "ci_hi": 0.5931084266571954,
+   "active_days": 116.0,
+   "trades": 223.0,
+   "avg_trade_pct": 0.04252281045071366,
+   "target_rate": 0.7309417040358744,
+   "miss_avg_pct": -2.5586235544915166,
+   "nbr_med_t": 0.3453633728734698
+  },
+  "std": {
+   "mean_pct": -0.07696036533009265,
+   "t": -0.41294873411486205,
+   "ci_lo": -0.4709199503417798,
+   "ci_hi": 0.2559298693583055,
+   "active_days": 81.0,
+   "trades": 94.0,
+   "avg_trade_pct": -0.10150512325818399,
+   "target_rate": 0.6914893617021277,
+   "miss_avg_pct": -2.5703959167679087,
+   "nbr_med_t": -0.41294873411486205
+  }
+ },
+ "landscape": {
+  "w90": {
+   "n_eligible": 318,
+   "t_max_all": 3.6587594121131235,
+   "t_median_all": 0.9504552363408891,
+   "t_pos_frac_all": 0.8181818181818182,
+   "t_max_eligible": 3.1753455071878274,
+   "t_median_eligible": 0.9052835150404206,
+   "t_pos_frac_eligible": 0.8427672955974843,
+   "nbr_med_max_eligible": 3.091782272907207,
+   "mean_pct_median_eligible": 0.12337385272249884,
+   "ci_lo_pos_eligible": 34,
+   "by_base_t_median_eligible": {
+    "Lmin": 1.064,
+    "low15": 0.87,
+    "low30": 1.145,
+    "open": 0.331,
+    "pclose": 0.684
+   }
+  },
+  "std": {
+   "n_eligible": 192,
+   "t_max_all": 2.5179051315305663,
+   "t_median_all": -0.327224590995097,
+   "t_pos_frac_all": 0.2904040404040404,
+   "t_max_eligible": 1.88901181029748,
+   "t_median_eligible": -0.49848118811548153,
+   "t_pos_frac_eligible": 0.18229166666666666,
+   "nbr_med_max_eligible": 1.5151516713990487,
+   "mean_pct_median_eligible": -0.06255895710463143,
+   "ci_lo_pos_eligible": 0,
+   "by_base_t_median_eligible": {
+    "Lmin": -0.466,
+    "low15": -0.66,
+    "low30": -0.66,
+    "open": -0.922,
+    "pclose": 0.051
+   }
+  }
+ },
+ "top10_by_score": {
+  "w90": [
+   {
+    "id": "L1-Lmin-x5-sN-vlt1-rN-w2",
+    "w90_nbr_med_t": 3.0918,
+    "w90_t": 3.0918,
+    "w90_mean_pct": 0.3408,
+    "w90_active_days": 71,
+    "w90_trades": 84,
+    "w90_target_rate": 0.8571,
+    "w90_avg_trade_pct": 0.4985
+   },
+   {
+    "id": "L1-Lmin-x5-sN-vlt1-rN-w1",
+    "w90_nbr_med_t": 2.873,
+    "w90_t": 2.873,
+    "w90_mean_pct": 0.3324,
+    "w90_active_days": 74,
+    "w90_trades": 91,
+    "w90_target_rate": 0.8352,
+    "w90_avg_trade_pct": 0.4488
+   },
+   {
+    "id": "L1-Lmin-x5-sN-vlt2-rN-w1",
+    "w90_nbr_med_t": 2.7024,
+    "w90_t": 2.9645,
+    "w90_mean_pct": 0.4089,
+    "w90_active_days": 77,
+    "w90_trades": 103,
+    "w90_target_rate": 0.8738,
+    "w90_avg_trade_pct": 0.4867
+   },
+   {
+    "id": "L1-Lmin-x5-sN-vlt2-rN-w2",
+    "w90_nbr_med_t": 2.5809,
+    "w90_t": 3.1408,
+    "w90_mean_pct": 0.4243,
+    "w90_active_days": 75,
+    "w90_trades": 102,
+    "w90_target_rate": 0.8725,
+    "w90_avg_trade_pct": 0.5099
+   },
+   {
+    "id": "L1-Lmin-x5-sN-vlt1-rN-w3",
+    "w90_nbr_med_t": 2.5092,
+    "w90_t": 3.1753,
+    "w90_mean_pct": 0.2401,
+    "w90_active_days": 45,
+    "w90_trades": 51,
+    "w90_target_rate": 0.8039,
+    "w90_avg_trade_pct": 0.5784
+   },
+   {
+    "id": "L1-Lmin-x3-sN-vlt1-rN-w3",
+    "w90_nbr_med_t": 2.4625,
+    "w90_t": 2.5242,
+    "w90_mean_pct": 0.2183,
+    "w90_active_days": 45,
+    "w90_trades": 59,
+    "w90_target_rate": 0.7797,
+    "w90_avg_trade_pct": 0.4546
+   },
+   {
+    "id": "L1-Lmin-x2.5-sN-vlt1-rN-w2",
+    "w90_nbr_med_t": 2.4535,
+    "w90_t": 2.9792,
+    "w90_mean_pct": 0.4944,
+    "w90_active_days": 85,
+    "w90_trades": 137,
+    "w90_target_rate": 0.8467,
+    "w90_avg_trade_pct": 0.4404
+   },
+   {
+    "id": "L1-Lmin-x3-sN-vlt1-rN-w2",
+    "w90_nbr_med_t": 2.4274,
+    "w90_t": 2.67,
+    "w90_mean_pct": 0.4393,
+    "w90_active_days": 85,
+    "w90_trades": 130,
+    "w90_target_rate": 0.8385,
+    "w90_avg_trade_pct": 0.4122
+   },
+   {
+    "id": "L1-Lmin-x3.5-sN-vlt1-rN-w3",
+    "w90_nbr_med_t": 2.3657,
+    "w90_t": 2.4009,
+    "w90_mean_pct": 0.1927,
+    "w90_active_days": 45,
+    "w90_trades": 55,
+    "w90_target_rate": 0.7636,
+    "w90_avg_trade_pct": 0.4315
+   },
+   {
+    "id": "L1-Lmin-x4-sN-vlt1-rN-w2",
+    "w90_nbr_med_t": 2.3105,
+    "w90_t": 2.0909,
+    "w90_mean_pct": 0.3164,
+    "w90_active_days": 83,
+    "w90_trades": 112,
+    "w90_target_rate": 0.8304,
+    "w90_avg_trade_pct": 0.3455
+   }
+  ],
+  "std": [
+   {
+    "id": "L1-Lmin-x5-sN-vlt2-rN-w1",
+    "std_nbr_med_t": 1.5152,
+    "std_t": 1.889,
+    "std_mean_pct": 0.0999,
+    "std_active_days": 23,
+    "std_trades": 23,
+    "std_target_rate": 0.8696,
+    "std_avg_trade_pct": 0.5343
+   },
+   {
+    "id": "L1-Lmin-x5-sN-vlt2-rN-wN",
+    "std_nbr_med_t": 1.1112,
+    "std_t": 1.7642,
+    "std_mean_pct": 0.0924,
+    "std_active_days": 23,
+    "std_trades": 23,
+    "std_target_rate": 0.8261,
+    "std_avg_trade_pct": 0.4941
+   },
+   {
+    "id": "L1-pclose-x5-sN-vN-r70-wN",
+    "std_nbr_med_t": 0.8289,
+    "std_t": 0.8289,
+    "std_mean_pct": 0.1,
+    "std_active_days": 64,
+    "std_trades": 64,
+    "std_target_rate": 0.7656,
+    "std_avg_trade_pct": 0.1922
+   },
+   {
+    "id": "L1-pclose-x5-sN-vN-rN-wN",
+    "std_nbr_med_t": 0.7756,
+    "std_t": 0.9603,
+    "std_mean_pct": 0.1162,
+    "std_active_days": 66,
+    "std_trades": 66,
+    "std_target_rate": 0.7727,
+    "std_avg_trade_pct": 0.2166
+   },
+   {
+    "id": "L1-Lmin-x5-sN-vlt2-rN-w2",
+    "std_nbr_med_t": 0.7655,
+    "std_t": 1.889,
+    "std_mean_pct": 0.0999,
+    "std_active_days": 23,
+    "std_trades": 23,
+    "std_target_rate": 0.8696,
+    "std_avg_trade_pct": 0.5343
+   },
+   {
+    "id": "L1-pclose-x4-sN-vN-r70-wN",
+    "std_nbr_med_t": 0.6992,
+    "std_t": 0.6227,
+    "std_mean_pct": 0.0872,
+    "std_active_days": 80,
+    "std_trades": 81,
+    "std_target_rate": 0.7778,
+    "std_avg_trade_pct": 0.1323
+   },
+   {
+    "id": "L1-Lmin-x4-sN-vN-r60-w2",
+    "std_nbr_med_t": 0.5408,
+    "std_t": 0.6283,
+    "std_mean_pct": 0.043,
+    "std_active_days": 24,
+    "std_trades": 25,
+    "std_target_rate": 0.76,
+    "std_avg_trade_pct": 0.2111
+   },
+   {
+    "id": "L1-pclose-x4-sN-vN-rN-wN",
+    "std_nbr_med_t": 0.5167,
+    "std_t": 0.7756,
+    "std_mean_pct": 0.1096,
+    "std_active_days": 84,
+    "std_trades": 85,
+    "std_target_rate": 0.7765,
+    "std_avg_trade_pct": 0.1585
+   },
+   {
+    "id": "L1-Lmin-x2.5-sN-vN-r60-w2",
+    "std_nbr_med_t": 0.435,
+    "std_t": 0.435,
+    "std_mean_pct": 0.0328,
+    "std_active_days": 26,
+    "std_trades": 28,
+    "std_target_rate": 0.75,
+    "std_avg_trade_pct": 0.1432
+   },
+   {
+    "id": "L1-Lmin-x3-sN-vN-r60-w2",
+    "std_nbr_med_t": 0.435,
+    "std_t": 0.435,
+    "std_mean_pct": 0.0328,
+    "std_active_days": 26,
+    "std_trades": 28,
+    "std_target_rate": 0.75,
+    "std_avg_trade_pct": 0.1432
+   }
+  ]
+ },
+ "frozen": [
+  {
+   "id": "L1-Lmin-x5-sN-vlt1-rN-w2",
+   "scheme": "w90",
+   "params": {
+    "base": "Lmin",
+    "x": 5.0,
+    "speed": null,
+    "vol": "lt1",
+    "rsi": null,
+    "vwap": 2.0
+   },
+   "factory": "lay_L1.make({\"base\": \"Lmin\", \"x\": 5.0, \"speed\": None, \"vol\": \"lt1\", \"rsi\": None, \"vwap\": 2.0})",
+   "code": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\sox_open_switch\\code\\lay_L1.py",
+   "sel_w90": {
+    "days": 123,
+    "active_days": 71,
+    "trades": 84,
+    "mean_pct": 0.34076837691512474,
+    "sd_pct": 1.2223707204496617,
+    "hit_days": 0.8591549295774648,
+    "sum_pct": 41.91451036056034,
+    "compound_pct": 50.55878466758927,
+    "t": 3.091782272907207,
+    "ci95": [
+     0.1131368248408991,
+     0.5470800497668646
+    ],
+    "p_one_sided": 0.0027,
+    "max_dd_pct": -10.200303416400436,
+    "avg_trade_pct": 0.4985319888227984,
+    "target_rate": 0.8571428571428571,
+    "exits": {
+     "target": 72,
+     "cutoff": 12
+    },
+    "buys_by_sym": {
+     "SOXS": 44,
+     "SOXL": 40
+    },
+    "nbr_med_t": 3.091782272907207,
+    "miss": {
+     "n": 12,
+     "mean": -2.510276078240416,
+     "min": -5.919784084817914
+    }
+   },
+   "sel_std": {
+    "days": 123,
+    "active_days": 10,
+    "trades": 10,
+    "mean_pct": 0.03885744144804894,
+    "sd_pct": 0.46717844536164027,
+    "hit_days": 0.9,
+    "sum_pct": 4.779465298110019,
+    "compound_pct": 4.752590622125719,
+    "t": 0.9224523888118538,
+    "ci95": [
+     -0.05415938297292651,
+     0.1138211382113822
+    ],
+    "p_one_sided": 0.1753,
+    "max_dd_pct": -4.220534701889989,
+    "avg_trade_pct": 0.47794652981100194,
+    "target_rate": 0.9,
+    "exits": {
+     "target": 9,
+     "cutoff": 1
+    },
+    "buys_by_sym": {
+     "SOXS": 8,
+     "SOXL": 2
+    },
+    "nbr_med_t": 1.2660876373964152,
+    "miss": {
+     "n": 1,
+     "mean": -4.220534701889989,
+     "min": -4.220534701889989
+    }
+   },
+   "sel_halves_daily_mean_pct": {
+    "w90": {
+     "1~3월": 0.19090963190632118,
+     "4~6월": 0.48821004539152824
+    },
+    "std": {
+     "1~3월": -0.003615322981803033,
+     "4~6월": 0.08064516129032266
+    }
+   },
+   "mirror_sel": {
+    "w90": {
+     "days": 123,
+     "active_days": 71,
+     "trades": 83,
+     "mean_pct": -0.22718979975822773,
+     "sd_pct": 2.1729394727435585,
+     "hit_days": 0.7183098591549296,
+     "sum_pct": -27.94434537026201,
+     "compound_pct": -26.634088246103495,
+     "t": -1.1595614142538198,
+     "ci95": [
+      -0.6298925558241969,
+      0.14257831985418054
+     ],
+     "p_one_sided": 0.8814,
+     "max_dd_pct": -35.742024408791195,
+     "avg_trade_pct": -0.33739343624974844
+    },
+    "std": {
+     "days": 123,
+     "active_days": 10,
+     "trades": 10,
+     "mean_pct": -0.0460397945637946,
+     "sd_pct": 0.6434465877562298,
+     "hit_days": 0.6,
+     "sum_pct": -5.662894731346737,
+     "compound_pct": -5.751869430111444,
+     "t": -0.7935484188950231,
+     "ci95": [
+      -0.17476943087082425,
+      0.05226258772212736
+     ],
+     "p_one_sided": 0.7759,
+     "max_dd_pct": -8.847474383972331,
+     "avg_trade_pct": -0.5662894731346735
+    }
+   },
+   "same_minute_sel": {
+    "w90": {
+     "n": 84,
+     "engine_vs_independent_max_abs_pct": 8.881784197001252e-16,
+     "opp_mean": [
+      0.4985,
+      0.174,
+      0.7708
+     ],
+     "follow_same_minute_mean": [
+      -0.3115,
+      -0.8482,
+      0.1887
+     ],
+     "same_minute_random_mean": [
+      0.0935,
+      -0.2067,
+      0.3718
+     ],
+     "opp_minus_random": [
+      0.405,
+      0.0948,
+      0.7095
+     ],
+     "note": "추종 다리는 반대 다리 체결 분에 오른 종목을 같은 규칙(+1% 지정가·창 끝)으로 산 값, 서로 독립 계산"
+    },
+    "std": {
+     "n": 10,
+     "engine_vs_independent_max_abs_pct": 8.881784197001252e-16,
+     "opp_mean": [
+      0.4779,
+      -0.5662,
+      1.0
+     ],
+     "follow_same_minute_mean": [
+      -0.5663,
+      -1.9852,
+      0.6639
+     ],
+     "same_minute_random_mean": [
+      -0.0442,
+      -0.8062,
+      0.6629
+     ],
+     "opp_minus_random": [
+      0.5221,
+      -0.3898,
+      1.4352
+     ],
+     "note": "추종 다리는 반대 다리 체결 분에 오른 종목을 같은 규칙(+1% 지정가·창 끝)으로 산 값, 서로 독립 계산"
+    }
+   },
+   "neighbors": [
+    {
+     "id": "L1-Lmin-x4-sN-vlt1-rN-w2",
+     "w90_t": 2.0908986800500173,
+     "std_t": -0.11579609847482057
+    },
+    {
+     "id": "L1-Lmin-x5-sN-vlt2-rN-w2",
+     "w90_t": 3.140778114157868,
+     "std_t": 1.88901181029748
+    },
+    {
+     "id": "L1-Lmin-x5-sN-vlt1-rN-w1",
+     "w90_t": 2.873044223644826,
+     "std_t": 1.2660876373964152
+    },
+    {
+     "id": "L1-Lmin-x5-sN-vlt1-rN-w3",
+     "w90_t": 3.1753455071878274,
+     "std_t": 1.7464249196572985
+    }
+   ]
+  },
+  {
+   "id": "L1-Lmin-x5-sN-vlt2-rN-w1",
+   "scheme": "std",
+   "params": {
+    "base": "Lmin",
+    "x": 5.0,
+    "speed": null,
+    "vol": "lt2",
+    "rsi": null,
+    "vwap": 1.0
+   },
+   "factory": "lay_L1.make({\"base\": \"Lmin\", \"x\": 5.0, \"speed\": None, \"vol\": \"lt2\", \"rsi\": None, \"vwap\": 1.0})",
+   "code": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\sox_open_switch\\code\\lay_L1.py",
+   "sel_w90": {
+    "days": 123,
+    "active_days": 77,
+    "trades": 103,
+    "mean_pct": 0.4089119830262276,
+    "sd_pct": 1.5297984402841656,
+    "hit_days": 0.8571428571428571,
+    "sum_pct": 50.296173912225996,
+    "compound_pct": 62.8117203167798,
+    "t": 2.9644776437464815,
+    "ci95": [
+     0.12304734578633057,
+     0.6666242067225399
+    ],
+    "p_one_sided": 0.0038,
+    "max_dd_pct": -7.482757559150066,
+    "avg_trade_pct": 0.48673719702043616,
+    "target_rate": 0.8737864077669902,
+    "exits": {
+     "target": 90,
+     "cutoff": 13
+    },
+    "buys_by_sym": {
+     "SOXS": 53,
+     "SOXL": 50
+    },
+    "nbr_med_t": 2.702365998731617,
+    "miss": {
+     "n": 13,
+     "mean": -3.066620669761165,
+     "min": -7.482757559150066
+    }
+   },
+   "sel_std": {
+    "days": 123,
+    "active_days": 23,
+    "trades": 23,
+    "mean_pct": 0.0999129206595515,
+    "sd_pct": 0.5865965940478916,
+    "hit_days": 0.8695652173913043,
+    "sum_pct": 12.289289241124834,
+    "compound_pct": 12.830114839830165,
+    "t": 1.88901181029748,
+    "ci95": [
+     -0.01288567155417177,
+     0.20028620772107117
+    ],
+    "p_one_sided": 0.0408,
+    "max_dd_pct": -3.7641661543732607,
+    "avg_trade_pct": 0.5343169235271666,
+    "target_rate": 0.8695652173913043,
+    "exits": {
+     "target": 20,
+     "cutoff": 3
+    },
+    "buys_by_sym": {
+     "SOXS": 13,
+     "SOXL": 10
+    },
+    "nbr_med_t": 1.5151516713990487,
+    "miss": {
+     "n": 3,
+     "mean": -2.5702369196250614,
+     "min": -3.764166154373272
+    }
+   },
+   "sel_halves_daily_mean_pct": {
+    "w90": {
+     "1~3월": 0.48150718803218645,
+     "4~6월": 0.33748766842359057
+    },
+    "std": {
+     "1~3월": 0.11475409836065585,
+     "4~6월": 0.08531111679233594
+    }
+   },
+   "mirror_sel": {
+    "w90": {
+     "days": 123,
+     "active_days": 77,
+     "trades": 105,
+     "mean_pct": 0.06484686743620069,
+     "sd_pct": 1.9932055763395868,
+     "hit_days": 0.7012987012987013,
+     "sum_pct": 7.9761646946526845,
+     "compound_pct": 5.617359147950429,
+     "t": 0.36081905407279796,
+     "ci95": [
+      -0.30506475625903673,
+      0.40048183877928845
+     ],
+     "p_one_sided": 0.3442,
+     "max_dd_pct": -13.389391468589096,
+     "avg_trade_pct": 0.07554944541126063
+    },
+    "std": {
+     "days": 123,
+     "active_days": 23,
+     "trades": 24,
+     "mean_pct": -0.00458958674893301,
+     "sd_pct": 0.8616926373558302,
+     "hit_days": 0.6956521739130435,
+     "sum_pct": -0.5645191701187602,
+     "compound_pct": -1.0236519986973835,
+     "t": -0.05907092295063355,
+     "ci95": [
+      -0.16913119306613458,
+      0.1347571372694292
+     ],
+     "p_one_sided": 0.4946,
+     "max_dd_pct": -8.231735299340304,
+     "avg_trade_pct": -0.023938298754948295
+    }
+   },
+   "same_minute_sel": {
+    "w90": {
+     "n": 103,
+     "engine_vs_independent_max_abs_pct": 8.881784197001252e-16,
+     "opp_mean": [
+      0.4867,
+      0.1672,
+      0.7623
+     ],
+     "follow_same_minute_mean": [
+      0.0269,
+      -0.3551,
+      0.3882
+     ],
+     "same_minute_random_mean": [
+      0.2568,
+      0.0313,
+      0.4733
+     ],
+     "opp_minus_random": [
+      0.2299,
+      -0.0237,
+      0.4785
+     ],
+     "note": "추종 다리는 반대 다리 체결 분에 오른 종목을 같은 규칙(+1% 지정가·창 끝)으로 산 값, 서로 독립 계산"
+    },
+    "std": {
+     "n": 23,
+     "engine_vs_independent_max_abs_pct": 8.881784197001252e-16,
+     "opp_mean": [
+      0.5343,
+      -0.0436,
+      1.0
+     ],
+     "follow_same_minute_mean": [
+      -0.0685,
+      -0.9397,
+      0.6462
+     ],
+     "same_minute_random_mean": [
+      0.2329,
+      -0.2132,
+      0.6415
+     ],
+     "opp_minus_random": [
+      0.3014,
+      -0.2045,
+      0.8245
+     ],
+     "note": "추종 다리는 반대 다리 체결 분에 오른 종목을 같은 규칙(+1% 지정가·창 끝)으로 산 값, 서로 독립 계산"
+    }
+   },
+   "neighbors": [
+    {
+     "id": "L1-Lmin-x4-sN-vlt2-rN-w1",
+     "w90_t": 0.8564401268836904,
+     "std_t": -0.6661795680657975
+    },
+    {
+     "id": "L1-Lmin-x5-sN-vlt1-rN-w1",
+     "w90_t": 2.873044223644826,
+     "std_t": 1.2660876373964152
+    },
+    {
+     "id": "L1-Lmin-x5-sN-vN-rN-w1",
+     "w90_t": 1.4415719724964235,
+     "std_t": -0.7454502737702883
+    },
+    {
+     "id": "L1-Lmin-x5-sN-vlt2-rN-wN",
+     "w90_t": 2.5316877738184083,
+     "std_t": 1.764215705401682
+    },
+    {
+     "id": "L1-Lmin-x5-sN-vlt2-rN-w2",
+     "w90_t": 3.140778114157868,
+     "std_t": 1.88901181029748
+    }
+   ]
+  }
+ ],
+ "feature_check_vs_events_sel": {
+  "n_bars": 1000,
+  "vratio": 4.440892098500626e-16,
+  "rsi": 2.842170943040401e-14,
+  "vwap_pct": 8.881784197001252e-16
+ },
+ "runtime_s": 29.7
+}
