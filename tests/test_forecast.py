@@ -363,10 +363,77 @@ class EarningsTests(unittest.TestCase):
                 forecast.record(earnings_example(), path)
                 forecast.record(example(), path)
             data = forecast.read_ledger(path)
-        self.assertEqual(forecast.tickers_of(data), ["AAA", "BBB", "CCC", "DDD", "EEE", "FFF", "QQQ", "SOXX"])
+        self.assertEqual(forecast.tickers_of(data),  # 실적 기록이 있으면 시장 몫 후보 지수도 함께 받는다
+                         sorted({"AAA", "BBB", "CCC", "DDD", "EEE", "FFF", "QQQ", "SOXX", *forecast.MARKET_PROXIES}))
         out = forecast.payload(data=data, prices={**EARN_PRICES, "adj": PRICES["adj"]}, estimates={}, now=EARN_AFTER)
         self.assertEqual(out["earnings"]["score"]["n"], 2)
         self.assertEqual({x["record"] for x in out["earnings"]["events"]}, {"earn"})
+
+
+def market_frame(n: int = 160, shock: tuple[int, float, float] | None = None):
+    """Prices where AAA moves 1.5× SOXX and has nothing to do with RSP; shock = (day, AAA move, SOXX move)."""
+    import numpy as np
+    import pandas as pd
+    rng = np.random.default_rng(7)
+    days = pd.bdate_range("2026-03-02", periods=n).strftime("%Y-%m-%d")
+    rsp, soxx = rng.normal(0, 0.01, n), rng.normal(0, 0.02, n)
+    aaa = 1.5 * soxx + rng.normal(0, 0.002, n)
+    if shock:
+        i, a, s = shock
+        aaa[i], soxx[i] = a, s
+    path = lambda r: 100 * np.cumprod(1 + r)
+    return pd.DataFrame({"AAA": path(aaa), "RSP": path(rsp), "SOXX": path(soxx)}, index=days), list(days)
+
+
+class MarketSplitTests(unittest.TestCase):
+    def test_fit_picks_the_closest_proxy_and_skips_past_report_days(self):
+        frame, days = market_frame(shock=(100, -0.30, 0.05))
+        base = days[140]
+        fit = forecast.market_fit(frame, "AAA", base, {days[100]})
+        self.assertEqual(fit["proxy"], "SOXX")
+        self.assertAlmostEqual(fit["beta"], 1.5, delta=0.05)
+        self.assertEqual((fit["n"], fit["to"]), (forecast.BETA_SESSIONS, base))
+        raw = forecast.market_fit(frame, "AAA", base, set())  # 지난 실적 갭을 넣으면 베타가 흔들린다
+        self.assertGreater(abs(raw["beta"] - 1.5), 0.2)
+
+    def test_fit_uses_closes_up_to_the_base_day_only(self):
+        frame, days = market_frame()
+        later = frame.copy()
+        later.loc[days[150]:, "AAA"] *= 0.5  # 기준일 뒤 급락은 고르는 데 쓰이지 않는다
+        self.assertEqual(forecast.market_fit(frame, "AAA", days[140], set()),
+                         forecast.market_fit(later, "AAA", days[140], set()))
+
+    def test_short_history_and_missing_prices(self):
+        frame, days = market_frame(n=40)
+        self.assertIsNone(forecast.market_fit(frame, "AAA", days[-1], set())["proxy"])
+        self.assertIsNone(forecast.market_fit(frame, "ZZZ", days[-1], set()))  # 가격이 없으면 다음 갱신에 다시
+
+    def test_scored_report_is_split_into_market_and_own(self):
+        market = {"events": {"AAA|2026-10-29": {"proxy": "QQQ", "beta": 2.0, "corr": 0.8},
+                             "BBB|2026-10-29": {"proxy": "SOXX", "beta": 1.0, "corr": 0.5}}}
+        result = forecast.evaluate_earnings(locked(earnings_example()), EARN_PRICES, now=EARN_AFTER, market=market)
+        a, b = result["events"]
+        self.assertAlmostEqual(a["market"]["part"], 2.0 * 0.01)
+        self.assertAlmostEqual(a["market"]["own"], 0.10 - 0.02)
+        self.assertIsNone(b["market"])  # 비교 지수 가격이 없으면 나누지 않는다
+        own = result["score"]["own"]
+        self.assertEqual((own["n"], own["calls"], own["hits"]), (1, 1, 1))
+
+    def test_proxy_split_not_rescaled_leaves_the_split_out(self):
+        prices = copy.deepcopy(EARN_PRICES)
+        prices["close"]["QQQ"] = {"2026-10-28": 100.0, "2026-10-29": 34.0}
+        prices["splits"] = {"QQQ": {"2026-10-29": 3.0}}
+        market = {"events": {"AAA|2026-10-29": {"proxy": "QQQ", "beta": 1.0, "corr": 0.8}}}
+        a = forecast.evaluate_earnings(locked(earnings_example()), prices, now=EARN_AFTER, market=market)["events"][0]
+        self.assertIsNone(a["market"])
+
+    def test_pending_only_after_the_base_close(self):
+        data = {"version": 1, "forecasts": [locked(earnings_example())]}
+        self.assertEqual(forecast.pending_market(data, None, news.stamp("2026-10-28T19:00:00Z")), [])
+        settled = news.stamp("2026-10-28T20:30:00Z")
+        self.assertEqual([e["ticker"] for e in forecast.pending_market(data, None, settled)], ["AAA", "BBB"])
+        done = {"events": {"AAA|2026-10-29": {"proxy": None}, "BBB|2026-10-29": {"proxy": "QQQ"}}}
+        self.assertEqual(forecast.pending_market(data, done, settled), [])
 
 
 class ForecastHttpTests(unittest.TestCase):

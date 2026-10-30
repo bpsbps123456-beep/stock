@@ -216,7 +216,8 @@ function fcScoreTiles(s, scope) {
   const pinPp = v => v == null ? "—" : `${(v * 100).toFixed(2)}%p`;
   return h("section", {class: "fc-tiles"},
     fcTile(`채점된 실적${scope}`, `${s.n}건`, none ? "반응일 종가가 나오면 채워집니다" : "반응일 정규장 종가 기준"),
-    fcTile("방향 적중(판단)", none || !f.calls ? "—" : `${f.hits}/${f.calls}`, "P(상승) 50%인 종목은 방향을 고르지 않은 것"),
+    fcTile("방향 적중(판단)", none || !f.calls ? "—" : `${f.hits}/${f.calls}`,
+      s.own?.calls ? `시장 몫을 빼면 ${s.own.hits}/${s.own.calls} · 50%는 고르지 않은 것` : "P(상승) 50%인 종목은 방향을 고르지 않은 것"),
     fcTile("Brier 판단 / 기계", none ? "—" : `${f.brier.toFixed(3)} / ${m.brier.toFixed(3)}`, "낮을수록 좋음 · 무조건 50%면 0.250"),
     fcTile("80% 구간 적중", none ? "—" : fcPp(f.in80), "80%에 가까워야 규모가 맞은 것"),
     fcTile("분위 손실 판단 / 기계", none ? "—" : `${pinPp(f.pinball)} / ${pinPp(m.pinball)}`, "분포 전체의 오차 · 낮을수록 좋음"),
@@ -256,13 +257,14 @@ function fcRenderEarnings(fc, data) {
         h("small", {}, `${pct(q["0.1"])} ~ ${pct(q["0.9"])} · 가운데 ${pct(q["0.5"])} · 규모 ${pctAbs(e.inputs?.scale)}`)),
       h("td", {class: cls(x.return)}, x.state === "scored" ? pct(x.return) : h("span", {class: "fc-dim"}, FC_EV[x.state] || "—"),
         x.state === "scored" && h("small", {}, `${usd(x.base_close)} → ${usd(x.close)}`)),
-      h("td", {class: cls(x.bench_return)}, x.state === "scored" ? pct(x.bench_return) : "—"),
+      h("td", {class: cls(x.market?.own)}, x.state === "scored" && x.market ? pct(x.market.own) : "—",
+        x.state === "scored" && x.market && h("small", {}, `시장 ${pct(x.market.part)} = ${x.market.proxy} ${pct(x.market.proxy_return)} × ${x.market.beta.toFixed(2)}`)),
       h("td", {}, fcVerdicts(x)));
   });
   const main = h("section", {class: "card"}, h("header", {}, h("h2", {}, "종목별 예측과 실제"),
-    h("span", {class: "sub"}, "막대: 옅은 칸 80% 구간 · 진한 칸 50% 구간 · 세로선 가운데 예상 · 점 실제 반응일 종가 · 가운데 0선")),
+    h("span", {class: "sub"}, "막대: 옅은 칸 80% 구간 · 진한 칸 50% 구간 · 세로선 가운데 예상 · 점 실제 반응일 종가 · 가운데 0선 · 회사 몫 = 실제 − 시장 몫")),
     h("div", {class: "fc-scroll"}, h("table", {class: "fc-table fc-earn"},
-      h("thead", {}, h("tr", {}, ["종목", "발표(한국)", "P(상승)", "예상 반응(기준 종가 대비)", "실제", fc.benchmark, "판정"].map(s => h("th", {}, s)))),
+      h("thead", {}, h("tr", {}, ["종목", "발표(한국)", "P(상승)", "예상 반응(기준 종가 대비)", "실제", "회사 몫", "판정"].map(s => h("th", {}, s)))),
       h("tbody", {}, evRows))));
 
   const maxZ = Math.max(...fc.events.map(e => (e.levels || []).length));
@@ -306,10 +308,11 @@ function fcRenderEarnings(fc, data) {
     h("span", {class: "sub"}, "모든 실적 반응 기록의 채점된 사건 · 판단이 기계 기준보다 나은지, 규모가 맞는지 본다")),
     fcScoreTiles((data.earnings || {}).score || {n: 0}, "(누적)"),
     hist.length ? h("div", {class: "fc-scroll tall"}, h("table", {class: "fc-table"},
-      h("thead", {}, h("tr", {}, ["반응일", "종목", "P(상승)", "80% 구간", "실제", "방향", "구간"].map(s => h("th", {}, s)))),
+      h("thead", {}, h("tr", {}, ["반응일", "종목", "P(상승)", "80% 구간", "실제", "회사 몫", "방향", "구간"].map(s => h("th", {}, s)))),
       h("tbody", {}, hist.map(x => h("tr", {}, h("td", {}, md(x.reaction_date)), h("td", {}, h("b", {}, x.ticker)),
         h("td", {}, fcPp(x.forecast.p_up)), h("td", {class: "fc-dim"}, `${pct(x.forecast.q["0.1"])} ~ ${pct(x.forecast.q["0.9"])}`),
         h("td", {class: cls(x.return)}, pct(x.return)),
+        h("td", {class: cls(x.market?.own)}, x.market ? pct(x.market.own) : "—"),
         h("td", {}, x.forecast.dir_hit == null ? "안 고름" : x.forecast.dir_hit ? "적중" : "빗나감"),
         h("td", {}, x.forecast.in80 ? "안" : "밖"))))))
       : h("p", {class: "fc-dim"}, "아직 채점된 사건이 없습니다. 첫 반응일 종가(10/30, 한국 10/31 05:00) 뒤 20분이 지나면 채워집니다."));
@@ -321,6 +324,9 @@ function fcRenderEarnings(fc, data) {
     h("footer", {class: "fc-dim"},
       h("p", {}, "계산: 기계 기준은 P(상승) 50%(2026년 실적 4,701건의 반응일 상승 비율)와, 옵션 내재 변동(사건 몫)과 최근 8번 반응 평균을 반씩 섞은 규모에 ",
         "2026 반응 분포의 분위(규모 단위)를 곱한 구간입니다. 판단은 근거와 함께 P(상승)을 옮기고 분포를 그만큼 평행 이동합니다."),
+      h("p", {}, "시장 몫은 발표 전 120거래일(기준일 종가까지, 지난 실적 반응일 제외) 하루 수익으로 동일가중 S&P500(RSP)·나스닥100(QQQE)·업종 11개, ",
+        "SOXX, 비트코인(IBIT) 중 가장 비슷하게 움직인 것을 고르고, 그 기준→반응일 변화에 베타를 곱한 값입니다. 동일가중이라 발표 종목 자신의 움직임이 시장 몫에 거의 섞이지 않습니다. ",
+        "공식 판정(방향·Brier·구간)은 그대로 실제 반응으로 잽니다."),
       fc.model?.judgment && h("p", {}, fc.model.judgment),
       h("details", {}, h("summary", {}, "기록된 계산 설명(원문)"), h("pre", {class: "fc-model"}, fc.model?.text || "")),
       "가격: ", data.price_source || "미수집"));

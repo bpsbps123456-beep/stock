@@ -7,6 +7,8 @@ leak into the score. This module never feeds the portfolio engine.
 Earnings records (`type: "earnings"`, §14.2) predict the reaction-day close of each report from
 the last close before it. They must be recorded before the announcement (and before the base
 close for after-close reports) and are scored per event as soon as the reaction close settles.
+A scored report is also split into a market part (beta × a proxy fixed from pre-release closes)
+and its own part, so a night when every report falls with the market is not read as skill or luck.
 """
 from __future__ import annotations
 
@@ -28,6 +30,12 @@ from .news import market_calendar, now_iso, stamp, write_atomic
 LEDGER = config.ROOT / "data" / "forecast" / "ledger.json"
 PRICES = config.CACHE / "forecast_prices.json"
 ESTIMATES = config.CACHE / "forecast_estimates.json"
+MARKET = config.CACHE / "forecast_market.json"
+# Candidates for an earnings report's market part (§14.2). Equal-weight funds keep a reporting
+# megacap's own move out of its "market" (AMZN is ~22% of XLY, ~2% of RSPD); SOXX caps names near 8%.
+MARKET_PROXIES = ("RSP", "QQQE", "SOXX", "IBIT", "RSPT", "RSPC", "RSPD", "RSPF", "RSPH", "RSPN", "RSPG", "RSPM",
+                  "RSPS", "RSPU", "RSPR")
+BETA_SESSIONS, BETA_MIN, BETA_CALENDAR_DAYS = 120, 60, 200
 PRICE_MAX_AGE_SEC = 3600
 ESTIMATE_MAX_AGE_SEC = 24 * 3600
 OPS = {">": lambda a, b: a > b, ">=": lambda a, b: a >= b, "<": lambda a, b: a < b, "<=": lambda a, b: a <= b}
@@ -262,6 +270,7 @@ def tickers_of(data: dict) -> list[str]:
     for fc in data["forecasts"]:
         if is_earnings(fc):
             out.update(ev["ticker"] for ev in fc["events"])
+            out.update(MARKET_PROXIES)
         else:
             out.update(fc["universe"])
         out.add(fc["benchmark"])
@@ -374,6 +383,72 @@ def refresh_estimates(data: dict | None = None, path: Path = ESTIMATES) -> dict:
             continue
     snap = {"source": "yfinance eps_trend · 다음 회계연도(+1y) 컨센서스 EPS", "fetched_at": now_iso(),
             "fetched_epoch": time.time(), "values": values}
+    write_atomic(path, snap)
+    return snap
+
+
+def market_fit(adj: pd.DataFrame, ticker: str, base: str, skip: set[str]) -> dict | None:
+    """The proxy that moved most like the stock before a report, and the stock's beta to it.
+
+    Only closes up to the base day enter, so the choice was knowable before the release and the
+    reaction never picks its own benchmark. The stock's past reaction days are left out so one
+    earnings gap does not set the beta. None = no stock prices (try again later).
+    """
+    upto = adj[adj.index <= base]
+    if ticker not in upto or upto[ticker].dropna().empty:
+        return None
+    rets = upto.pct_change(fill_method=None)
+    rets = rets[~rets.index.isin(skip)]
+    best = None
+    for p in MARKET_PROXIES:
+        if p == ticker or p not in rets:
+            continue
+        pair = pd.concat([rets[ticker], rets[p]], axis=1, keys=["s", "m"]).dropna().iloc[-BETA_SESSIONS:]
+        if len(pair) < BETA_MIN or not pair["m"].var() > 0:
+            continue
+        corr = float(pair["s"].corr(pair["m"]))
+        if best is None or corr > best["corr"]:
+            best = {"proxy": p, "beta": round(float(pair["s"].cov(pair["m"]) / pair["m"].var()), 4),
+                    "corr": round(corr, 4), "n": len(pair), "from": pair.index[0], "to": pair.index[-1]}
+    return best or {"proxy": None, "reason": f"발표 전 겹치는 거래일 {BETA_MIN}일 미만"}
+
+
+def market_key(ev: dict) -> str:
+    return f"{ev['ticker']}|{ev['reaction_date']}"
+
+
+def pending_market(data: dict, market: dict | None, now: datetime) -> list[dict]:
+    """Reports whose base close has settled but whose market proxy is not fixed yet."""
+    done = (market or {}).get("events", {})
+    return [ev for fc in data["forecasts"] if is_earnings(fc) for ev in fc["events"] if market_key(ev) not in done
+            and now >= event_times(ev)["base_close"] + timedelta(seconds=CLOSE_GRACE_SEC)]
+
+
+def refresh_market(data: dict | None = None, path: Path = MARKET, now: datetime | None = None) -> dict:
+    """Fix each settled report's market proxy and beta once. Pre-release closes only, so they never change."""
+    import yfinance as yf
+    data = data if data is not None else read_ledger()
+    now = now or datetime.now(timezone.utc)
+    snap = _read(path) or {"events": {}}
+    todo = pending_market(data, snap, now)
+    if not todo:
+        return snap
+    names = sorted({ev["ticker"] for ev in todo} | set(MARKET_PROXIES))
+    start = (pd.Timestamp(min(ev["base_date"] for ev in todo)) - pd.Timedelta(days=BETA_CALENDAR_DAYS)).strftime("%Y-%m-%d")
+    end = (pd.Timestamp(max(ev["base_date"] for ev in todo)) + pd.Timedelta(days=1)).strftime("%Y-%m-%d")
+    frame = yf.download(names, start=start, end=end, auto_adjust=False, progress=False, threads=True)
+    if frame is None or frame.empty:
+        raise ForecastError("시장 몫 계산용 가격을 받지 못했습니다")
+    adj = frame["Adj Close"]
+    adj.index = adj.index.strftime("%Y-%m-%d")
+    for ev in todo:
+        skip = {h["reaction_date"] for h in (ev.get("inputs") or {}).get("hist", []) if h.get("reaction_date")}
+        fit = market_fit(adj, ev["ticker"], ev["base_date"], skip)
+        if fit is not None:
+            snap["events"][market_key(ev)] = fit
+    snap.update(source="yfinance 수정 종가(분할·배당 반영)", fetched_at=now_iso(),
+                method=f"발표 전 {BETA_SESSIONS}거래일(기준일 종가까지, 지난 실적 반응일 제외) 하루 수익으로 "
+                       f"후보 {len(MARKET_PROXIES)}개 중 상관이 가장 큰 지수를 고르고 그 베타를 쓴다")
     write_atomic(path, snap)
     return snap
 
@@ -554,12 +629,24 @@ def score_dist(d: dict, y: float) -> dict:
             "pinball": pinball(q, y), "err50": y - q["0.5"]}
 
 
-def evaluate_earnings(fc: dict, prices: dict | None, now: datetime | None = None) -> dict:
+def market_split(fit: dict | None, close: dict, splits: dict, base: str, react: str, y: float) -> dict | None:
+    """Market part = beta × the proxy's base→reaction close move; own part = the rest of the reaction."""
+    proxy = (fit or {}).get("proxy")
+    px = close.get(proxy, {}) if proxy else {}
+    if base not in px or react not in px or unadjusted(px, splits.get(proxy, {}), base):
+        return None
+    move = px[react] / px[base] - 1
+    part = fit["beta"] * move
+    return {"proxy": proxy, "beta": fit["beta"], "corr": fit.get("corr"), "proxy_return": move, "part": part, "own": y - part}
+
+
+def evaluate_earnings(fc: dict, prices: dict | None, now: datetime | None = None, market: dict | None = None) -> dict:
     """Score each report once its reaction close has settled; earlier events stay waiting."""
     now = now or datetime.now(timezone.utc)
     p = prices or {}
     close, low, high, opn = (p.get(k, {}) for k in ("close", "low", "high", "open"))
     ext, splits, bench = p.get("ext", {}), p.get("splits", {}), fc["benchmark"]
+    fits = (market or {}).get("events", {})
     rows = []
     for ev in fc["events"]:
         tm = event_times(ev)
@@ -586,6 +673,7 @@ def evaluate_earnings(fc: dict, prices: dict | None, now: datetime | None = None
         row.update(close=cs[r], open=opn.get(t, {}).get(r), high=high.get(t, {}).get(r), low=reg_low,
                    ext={k: v["low"] for k, v in w.items()}, floors=floors, **{"return": y},
                    bench_return=mb[r] / mb[b] - 1 if b in mb and r in mb else None,
+                   market=market_split(fits.get(market_key(ev)), close, splits, b, r, y),
                    scale=(ev.get("inputs") or {}).get("scale"),
                    forecast=score_dist(ev["forecast"], y), mechanical=score_dist(ev["mechanical"], y))
         for lv in ev.get("levels", []):
@@ -617,6 +705,12 @@ def earnings_score(rows: list[dict]) -> dict:
                      "in80": _mean([float(x["in80"]) for x in s]), "in50": _mean([float(x["in50"]) for x in s]),
                      "calls": len(calls), "hits": sum(calls)}
     out["size_ratio"] = _mean([abs(x["return"]) / x["scale"] for x in rows if x.get("scale")])
+    split = [x for x in rows if x.get("market")]
+    calls = [x for x in split if x["forecast"]["p_up"] != 0.5]
+    out["own"] = {"n": len(split), "calls": len(calls),
+                  "hits": sum((x["market"]["own"] > 0) == (x["forecast"]["p_up"] > 0.5) for x in calls),
+                  "abs_part": _mean([abs(x["market"]["part"]) for x in split]),
+                  "abs_own": _mean([abs(x["market"]["own"]) for x in split])}
     lv = [l for x in rows for l in x["levels"]]
     out["levels"] = {"n": len(lv), "touched": sum(l["touched"] for l in lv),
                      "brier": _mean([l["brier"] for l in lv]),
@@ -641,25 +735,31 @@ def _missed_close(snap: dict | None, now: datetime) -> bool:
 
 
 def payload(force: bool = False, data: dict | None = None, prices: dict | None = None,
-            estimates: dict | None = None, now: datetime | None = None) -> dict:
+            estimates: dict | None = None, now: datetime | None = None, market: dict | None = None) -> dict:
     data = data if data is not None else read_ledger()
     validate(data)
     warning = None
     if data["forecasts"] and prices is None:
         prices = _read(PRICES)
+        market = _read(MARKET) if market is None else market
         if force or _stale(prices, PRICE_MAX_AGE_SEC) or _missed_close(prices, now or datetime.now(timezone.utc)):
             try:
                 prices = refresh_prices(data)
             except Exception as exc:
                 warning = f"가격 갱신 실패 · 저장 자료 사용: {type(exc).__name__}: {exc}"
+            if pending_market(data, market, now or datetime.now(timezone.utc)):  # 가격 갱신 주기에만 다시 시도
+                try:
+                    market = refresh_market(data)
+                except Exception as exc:
+                    warning = (warning + " · " if warning else "") + f"시장 몫 계산 실패: {type(exc).__name__}"
         estimates = _read(ESTIMATES) if estimates is None else estimates
         if force or _stale(estimates, ESTIMATE_MAX_AGE_SEC):
             try:
                 estimates = refresh_estimates(data)
             except Exception as exc:
                 warning = (warning + " · " if warning else "") + f"전망치 갱신 실패: {type(exc).__name__}"
-    items = [{**fc, "result": evaluate_earnings(fc, prices, now) if is_earnings(fc) else evaluate(fc, prices, estimates, now)}
-             for fc in data["forecasts"]]
+    items = [{**fc, "result": evaluate_earnings(fc, prices, now, market) if is_earnings(fc)
+              else evaluate(fc, prices, estimates, now)} for fc in data["forecasts"]]
     history = [{**x, "record": fc["id"]} for fc in items if is_earnings(fc)
                for x in fc["result"]["events"] if x["state"] == "scored"]
     return {"forecasts": items, "warning": warning, "earnings": {"score": earnings_score(history), "events": history},
@@ -698,7 +798,8 @@ def main(argv: list[str] | None = None) -> int:
             data = read_ledger()
             snap = refresh_prices(data)
             est = refresh_estimates(data)
-            print(f"가격 {len(snap['adj'])}종목 · 전망치 {len(est['values'])}종목 갱신")
+            mk = refresh_market(data)
+            print(f"가격 {len(snap['adj'])}종목 · 전망치 {len(est['values'])}종목 · 시장 몫 {len(mk.get('events', {}))}건 갱신")
         else:
             print(json.dumps(payload(), ensure_ascii=False, indent=2, default=str))
         return 0
