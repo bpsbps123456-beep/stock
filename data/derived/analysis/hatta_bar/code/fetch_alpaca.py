@@ -53,16 +53,20 @@ def one(sym, start, end, head, pace, out):
     while True:
         if token:
             params["page_token"] = token
-        for attempt in range(6):
+        for attempt in range(8):
             pace.wait()
-            r = requests.get(URL, headers=head, params=params, timeout=60)
+            try:
+                r = requests.get(URL, headers=head, params=params, timeout=60)
+            except requests.exceptions.RequestException:          # 접속 시간 초과 등은 쉬었다 다시
+                time.sleep(5 + 5 * attempt)
+                continue
             if r.status_code == 429 or r.status_code >= 500:
                 time.sleep(2 + 3 * attempt)
                 continue
             r.raise_for_status()
             break
         else:
-            raise RuntimeError(f"{sym}: 재시도 초과 {r.status_code}")
+            raise RuntimeError(f"{sym}: 재시도 초과")
         j = r.json()
         rows += (j.get("bars") or {}).get(sym, [])
         token = j.get("next_page_token")

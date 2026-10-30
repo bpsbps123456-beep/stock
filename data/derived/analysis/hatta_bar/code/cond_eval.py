@@ -264,6 +264,66 @@ def boot_p(G, mask, per, rng):
             "p_r1n": float((1 + np.sum(d1 <= 0)) / (B_BOOT + 1)), "p_bt": float((1 + np.sum(d2 <= 0)) / (B_BOOT + 1))}
 
 
+def confirm_rows(G, mask, per, name, year):
+    a = G.a
+    sel = np.nonzero(mask & (a["per"] == per))[0]
+    sel = sel[E.dedup(a["sid"][sel], a["ts"][sel], 30)]
+    X = G.R.iloc[sel][["sym", "ts", "day", "t", "mins", "pat", "r1_e2", "r1n", "hit_e2", "c_in", "c_out"]].copy()
+    X["hyp"], X["year"] = name, year
+    return X
+
+
+def e1():
+    """주 가설 확인 구간 신호의 실측 호가 손익(신호 마감 + 10초 매도호가 진입, 창 끝 매수호가 청산)."""
+    from concurrent.futures import ThreadPoolExecutor
+    from fetch_alpaca import keys, Pace
+    from fetch_quotes import last_quote
+    S = pd.read_csv(os.path.join(RES, "cond_hyp_signals.csv"))
+    U = S.drop_duplicates(["sym", "ts"])[["sym", "ts"]]
+    head, pace = keys(), Pace(3.0)
+
+    def one(r):
+        t = pd.Timestamp(int(r[1]) * 60, unit="s", tz="UTC")
+        ai, bi = last_quote(r[0], t + pd.Timedelta(seconds=70), head, pace)
+        ao, bo = last_quote(r[0], t + pd.Timedelta(minutes=31), head, pace)
+        return r[0], int(r[1]), ai, bi, ao, bo
+
+    with ThreadPoolExecutor(6) as ex:
+        Q = pd.DataFrame(list(ex.map(one, U.itertuples(index=False, name=None))),
+                         columns=["sym", "ts", "ask_in", "bid_in", "ask_out", "bid_out"])
+    S = S.merge(Q, on=["sym", "ts"], how="left")
+    bars = {}
+    r = []
+    for x in S.itertuples():
+        src = "alp1m" if x.year == 2026 or str(x.year) == "2026" else "alp1m_2025"
+        if (x.sym, src) not in bars:
+            bars[(x.sym, src)] = E.prep(E.load(x.sym, src))
+        a = bars[(x.sym, src)]
+        t = int(x.t)
+        if not (x.ask_in > 0):
+            r.append(np.nan)
+            continue
+        tlim = a["ts"][t] + 30
+        z = t + 1
+        while z + 1 < len(a["ts"]) and a["ts"][z + 1] <= tlim and a["day"][z + 1] == a["day"][t]:
+            z += 1
+        tg = x.ask_in * 1.01
+        hit = a["c"][t + 1] >= tg or (z >= t + 2 and np.max(a["h"][t + 2:z + 1]) >= tg)
+        ex_ = x.bid_out if x.bid_out > 0 else a["c"][z]
+        r.append(0.01 if hit else ex_ / x.ask_in - 1)
+    S["r1_e1"] = r
+    S.to_csv(os.path.join(RES, "cond_hyp_signals_e1.csv"), index=False)
+    res = {k: {"n": int(g.r1_e1.notna().sum()), "r1_e1": float(g.r1_e1.mean()), "r1n_model": float(g.r1n.mean()),
+               "hit_e1": float((g.r1_e1 == 0.01).mean())} for k, g in S.groupby("hyp")}
+    P = json.load(open(os.path.join(RES, "cond_primary.json"), encoding="utf-8"))
+    for k, v in res.items():
+        h = P["hyps"][k]
+        v["accept"] = bool(h["pass_stat"] and v["r1_e1"] > 0 and (h["chain"] or h["y2025"].get("r1n", -1) > 0))
+        h["e1"] = v
+    json.dump(P, open(os.path.join(RES, "cond_primary.json"), "w"), ensure_ascii=False, indent=1, default=float)
+    print(json.dumps(res, ensure_ascii=False, indent=1))
+
+
 def holm(ps):
     order = sorted(ps, key=lambda k: ps[k])
     out, run = {}, 0.0
@@ -282,7 +342,7 @@ def stage1():
     cells = cell_list()
     rng = np.random.default_rng(20261030)
     out = {"atr_edges": atr_edges, "n_cells_per_group": len(cells), "groups": {}}
-    single_rows, all_cells = [], []
+    single_rows, all_cells, hyp_rows = [], [], []
     hyps = {}
     for gname, sel26, sel25 in (("①", R26.pat == "A", R25.pat == "A"), ("②", R26.pat == "B", R25.pat == "B"),
                                ("아무거나", np.ones(len(R26), bool), np.ones(len(R25), bool))):
@@ -365,6 +425,10 @@ def stage1():
         chain_tree = "chain" in rule
         hyps[f"{gname} 나무"] = {"cell": rule, "chain": chain_tree, "back": boot_p(G, tmask, 1, rng),
                                  "y2025": boot_p(H, tmask25, 0, rng)}
+        for hk, mk26, mk25, ch in ((f"{gname} 1위칸", m1, cell_mask(H.C, top1), chain_cell),
+                                   (f"{gname} 나무", tmask, tmask25, chain_tree)):
+            hyp_rows.append(confirm_rows(H if ch else G, mk25 if ch else mk26, 0 if ch else 1, hk,
+                                         "2025" if ch else "2026"))
         print(gname, "자격", int(el.sum()), "1위", describe(top1), "뒤", hyps[f"{gname} 1위칸"]["back"], flush=True)
     ps = {}
     for k, h in hyps.items():
@@ -378,9 +442,10 @@ def stage1():
     out["hyps"] = hyps
     json.dump(out, open(os.path.join(RES, "cond_primary.json"), "w"), ensure_ascii=False, indent=1, default=float)
     pd.DataFrame(single_rows).to_csv(os.path.join(RES, "cond_single.csv"), index=False, encoding="utf-8-sig")
+    pd.concat(hyp_rows, ignore_index=True).to_csv(os.path.join(RES, "cond_hyp_signals.csv"), index=False)
     pd.DataFrame(all_cells).to_parquet(os.path.join(E.CACHE, "cond_cells.parquet"))
     print("done")
 
 
 if __name__ == "__main__":
-    {"stage1": stage1}[sys.argv[1]]()
+    {"stage1": stage1, "e1": e1}[sys.argv[1]]()

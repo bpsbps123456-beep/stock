@@ -134,7 +134,8 @@ def main(year):
                 Y["rel"] = (a["c"][t] / Y.prevclose - 1) - Y.qqq_day
                 med = np.array([vt_med.at[dd_, mm] if (mm in vt_med.columns) else np.nan
                                 for dd_, mm in zip(Y.day.to_numpy(), Y.mins.to_numpy())])
-                Y["vol_tod"] = np.where(med > 0, vol[t] / np.where(med > 0, med, 1), np.inf)
+                # 직전 10거래일이 다 없으면 모름(NaN), 같은 분 중앙값이 0이면 무한대(감사 2026-10-30: NaN을 무한대로 넣던 결함 고침)
+                Y["vol_tod"] = np.where(np.isnan(med), np.nan, np.where(med > 0, vol[t] / np.where(med > 0, med, 1), np.inf))
                 Y["vwap_gap"] = a["c"][t] / vwap[t] - 1
                 Y["recsize"] = ((np.minimum(a["o"][t], a["c"][t]) - a["l"][t]) / a["c"][t]) if pat == "A" else (
                     (a["c"][t] - a["o"][t]) / a["c"][t])

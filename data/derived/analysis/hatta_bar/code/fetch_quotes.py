@@ -18,7 +18,10 @@ def last_quote(sym, end, head, pace, look=300):
               "end": end.strftime("%Y-%m-%dT%H:%M:%S.%fZ"), "limit": 1, "sort": "desc", "feed": "sip"}
     for attempt in range(6):
         pace.wait()
-        r = requests.get(URL.format(sym=sym), headers=head, params=params, timeout=30)
+        try:
+            r = requests.get(URL.format(sym=sym), headers=head, params=params, timeout=30)
+        except requests.exceptions.RequestException:
+            continue
         if r.status_code == 429 or r.status_code >= 500:
             continue
         r.raise_for_status()
