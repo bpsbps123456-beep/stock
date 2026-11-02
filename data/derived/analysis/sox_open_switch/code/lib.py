@@ -59,9 +59,10 @@ def cutoff_idx(day, scheme="actual"):
 
 
 class Data:
-    """모든 날의 960분 격자. A[sym][field] = (날 수, 960) 배열."""
-    def __init__(self):
-        frames = {s: pd.read_parquet(os.path.join(CACHE, "alp1m", f"{s}.parquet")) for s in SYMS}
+    """모든 날의 960분 격자. A[sym][field] = (날 수, 960) 배열.
+    src: 'alp1m'(2024-12~, BRIEF2·3) 또는 'alp1m_long'(2023-01~, BRIEF4 — fetch.py 2023-01-01 2024-12-02 _2023 뒤 이어 붙임)."""
+    def __init__(self, src="alp1m"):
+        frames = {s: pd.read_parquet(os.path.join(CACHE, src, f"{s}.parquet")) for s in SYMS}
         rth = frames["SOXL"]
         m = rth.index.hour * 60 + rth.index.minute
         days = sorted({d for d, mm in zip(rth.index.date, m) if 570 <= mm < 960})
