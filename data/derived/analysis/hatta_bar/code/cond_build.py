@@ -1,7 +1,8 @@
 """2차: 넓힌 400종목에서 v3 원안 ①·② 신호(겹침 빼기 전)와 '모양 실패' 맥락 행을 모으고, BRIEF2의 조건 변수 18개를 붙인다.
 모든 변수는 신호 봉 마감 때 안다(일봉은 전일까지, 분봉은 신호 봉까지).
 사용: py cond_build.py 2026   → cache/cond_2026.parquet
-      py cond_build.py 2025   → cache/cond_2025.parquet"""
+      py cond_build.py 2025   → cache/cond_2025.parquet
+      py cond_build.py 2026h1 / 2025h1   → 3차 확인 자료(1~6월)"""
 import os, sys, json, time
 import numpy as np
 import pandas as pd
@@ -13,15 +14,18 @@ from fetch_alpaca import keys
 HERE = os.path.dirname(os.path.abspath(__file__))
 RES = os.path.join(HERE, "../results")
 ROOT = os.path.abspath(os.path.join(HERE, "../../../../.."))
-YEAR = {"2026": dict(src="alp1m", lo=20260701, hi=20261028, daily="daily_2026.parquet"),
-        "2025": dict(src="alp1m_2025", lo=20250701, hi=20251031, daily="daily_2025.parquet")}
+YEAR = {"2026": dict(src="alp1m", lo=20260701, hi=20261028, daily="daily_2026.parquet", q=("2026-05-01", "2026-11-05")),
+        "2025": dict(src="alp1m_2025", lo=20250701, hi=20251031, daily="daily_2025.parquet", q=("2025-05-01", "2025-11-05")),
+        # 3차(BRIEF3): 처음 보는 1~6월
+        "2026h1": dict(src="alp1m_2026h1", lo=20260102, hi=20260623, daily="daily_2026h1.parquet", q=("2025-11-01", "2026-07-01")),
+        "2025h1": dict(src="alp1m_2025h1", lo=20250102, hi=20250623, daily="daily_2025h1.parquet", q=("2024-11-01", "2025-07-01"))}
 SPEC = {"A": V.ORIG["A"], "B": V.ORIG["B"]}
 
 
-def etf_daily(year):
-    """QQQ 공식 일봉 종가(전일 종가용)."""
-    end_ts = min(pd.Timestamp(f"{year}-11-05", tz="UTC"), pd.Timestamp.now(tz="UTC") - pd.Timedelta(minutes=20))
-    start, end = f"{year}-05-01T00:00:00Z", end_ts.strftime("%Y-%m-%dT%H:%M:%SZ")      # 무료 SIP는 15분 지난 끝만 받는다
+def etf_daily(q):
+    """QQQ 공식 일봉 종가(전일 종가용). q = (시작일, 끝일)."""
+    end_ts = min(pd.Timestamp(q[1], tz="UTC"), pd.Timestamp.now(tz="UTC") - pd.Timedelta(minutes=20))
+    start, end = f"{q[0]}T00:00:00Z", end_ts.strftime("%Y-%m-%dT%H:%M:%SZ")      # 무료 SIP는 15분 지난 끝만 받는다
     j = requests.get("https://data.alpaca.markets/v2/stocks/bars", headers=keys(),
                      params={"symbols": "QQQ", "timeframe": "1Day", "start": start, "end": end, "limit": 10000,
                              "adjustment": "split", "feed": "sip"}, timeout=60).json()
@@ -59,7 +63,7 @@ def main(year):
         syms = [x for x in syms if x in os.environ["COND_SYMS"].split(",")]
     daily = pd.read_parquet(os.path.join(E.CACHE, cfg["daily"]))
     dfe = {s: daily_feats(g) for s, g in daily.groupby("sym")}
-    qd = etf_daily(year)
+    qd = etf_daily(cfg["q"])
     qm = E.load("QQQ", cfg["src"])
     q_ts = ((qm.index.tz_convert("UTC") - pd.Timestamp("1970-01-01", tz="UTC")) // pd.Timedelta(minutes=1)).to_numpy()
     q = (q_ts, qm.Close.to_numpy())
