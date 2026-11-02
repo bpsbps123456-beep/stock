@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "run_id": "20261102T225622796428+0900",
+  "workflow": "ETF_DAILY",
+  "requested_date": "2026-11-02",
+  "started_at": "2026-11-02T22:56:22+09:00",
+  "funds": {
+    "time": {
+      "fund_id": "456600",
+      "expected": true,
+      "fetch_requested": true,
+      "requested_date": "2026-11-02",
+      "as_of_date": "2026-11-02",
+      "holdings_count": 46,
+      "cash_weight_pct": 1.16826941,
+      "nav_weight_sum_pct": 100.0,
+      "quality_status": "valid",
+      "content_sha256": "a6a087b720d61613db67ebb42b051d70bfa05ae46e7112a091c221015cb71326",
+      "raw_capture_status": "created",
+      "raw_capture_path": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\raw\\etf_holdings\\2026-11-02_456600_83d5df2edf32.html",
+      "storage_status": "created",
+      "snapshot_path": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\normalized\\etf_holdings\\2026-11-02_456600.json",
+      "report_status": "generated"
+    },
+    "koact": {
+      "fund_id": "2ETFQ1",
+      "expected": true,
+      "fetch_requested": true,
+      "requested_date": "2026-11-02",
+      "as_of_date": "2026-11-02",
+      "holdings_count": 53,
+      "cash_weight_pct": 0.43618288,
+      "nav_weight_sum_pct": 99.99999999,
+      "quality_status": "valid",
+      "content_sha256": "cf68c5a3d51939d1a0102ad3ba05d67b8c43977419ec8aab23a1cd712d522d56",
+      "raw_capture_status": "created",
+      "raw_capture_path": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\raw\\etf_holdings\\2026-11-02_2ETFQ1_e321a6cc23d0.json",
+      "storage_status": "created",
+      "snapshot_path": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\normalized\\etf_holdings\\2026-11-02_2ETFQ1.json",
+      "report_status": "generated"
+    }
+  },
+  "errors": [],
+  "backfill": [
+    {
+      "fund": "time",
+      "date": "2026-10-29",
+      "status": "stored",
+      "storage_status": "created"
+    },
+    {
+      "fund": "time",
+      "date": "2026-10-30",
+      "status": "stored",
+      "storage_status": "created"
+    },
+    {
+      "fund": "koact",
+      "date": "2026-10-29",
+      "status": "stored",
+      "storage_status": "created"
+    },
+    {
+      "fund": "koact",
+      "date": "2026-10-30",
+      "status": "stored",
+      "storage_status": "created"
+    }
+  ],
+  "core_digest_status": "generated",
+  "performance_status": "generated",
+  "desk_digest_status": "generated",
+  "finished_at": "2026-11-02T22:56:44+09:00",
+  "status": "success",
+  "report_contract_status": "passed",
+  "report_path": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\briefings\\2026-11-02.md",
+  "manifest_path": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\state\\runs\\20261102T225622796428+0900_ETF_DAILY.json"
+}
