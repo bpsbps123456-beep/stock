@@ -10,6 +10,8 @@
 // 백테스트는 체결 5건 미만 봉을 뺐지만 트레이딩뷰에는 체결 건수가 없어 한 가격 봉만 뺀다(장전·장후 신호가 백테스트보다 조금 많을 수 있다).
 // 알림은 봉 확정 때 온다(체결이 드문 분에는 늦을 수 있다). 백테스트 기본 진입은 신호 다음 봉 종가, 목표는 그 값 × 1.01이다.
 // 1분봉 + 연장 시간 차트에서 쓴다.
+// ①★ = ① 중 종가가 당일 VWAP(뉴욕 날짜 첫 봉부터 누적, 고+저+종/3 근사)보다 3% 넘게 아래. 3차 사전 등록 확인(report3.md):
+//   처음 보는 2026 1~6월 810건, 30분 안 +1% 62~66%, 실측 호가 거래당 +0.15%(작음, 일부 종목·날짜에 몰림, 2026 7~10월은 0 근처).
 //@version=6
 indicator("하따봉", shorttitle = "하따봉", overlay = true, max_lines_count = 500, max_bars_back = 500)
 
@@ -43,6 +45,8 @@ recMd   = input.string(R_WICK, "회복 기준", options = [R_WICK, R_CPOS], grou
 recMin  = input.float(0.5, "회복 비율", minval = 0.0, maxval = 1.0, step = 0.05, group = G3, display = display.none)
 rngMin  = input.float(0.0, "봉 길이 ≥ ATR14 × (0 = 끔)", minval = 0.0, step = 0.5, group = G3, display = display.none)
 needAb  = input.bool(false, "지지선 위에서 마감", group = G3, display = display.none)
+vwapStar = input.float(3.0, "①★: 당일 VWAP보다 % 넘게 아래 (0 = 끔)", minval = 0.0, step = 0.5, group = G3, tooltip = "3차 확인에서 유일하게 통과한 조건(2026 1~6월 실측 호가 거래당 +0.15%). 효과는 작다", display = display.none)
+colStar = input.color(#6A1B9A, "①★ 색", group = G3, display = display.none)
 
 const string G4 = "② 장악 양봉"
 showB   = input.bool(true, "② 표시", group = G4, display = display.none)
@@ -116,6 +120,17 @@ int hrNY = hour(time, "America/New_York")
 bool night = hrNY >= 20 or hrNY < 4
 bool trdOk = not onlyTrd or hour(time, "Asia/Seoul") >= 8
 
+// 당일 VWAP(뉴욕 날짜가 바뀌면 다시 누적, 봉 안 VWAP 대신 고+저+종/3 — 파이썬 판정과 99.5% 같다)
+var float cumPV = 0.0
+var float cumV = 0.0
+if dayNY != dayNY[1]
+    cumPV := 0.0
+    cumV := 0.0
+cumPV += hlc3 * volume
+cumV += volume
+float dVwap = cumV > 0 ? cumPV / cumV : na
+float vwGap = close / dVwap - 1
+
 // 확정 스윙 저점 목록(가격, 봉 번호) — 봉 마감에만 바꾼다
 var array<float> swP = array.new<float>()
 var array<int>   swB = array.new<int>()
@@ -182,7 +197,9 @@ if keepB
     lastB := time
 
 // ── 표시·알림 ─────────────────────────────────────────
-plotshape(keepA, "하따봉 ①", shape.labelup, location.belowbar, colA, text = "①", textcolor = color.white, size = size.tiny, display = display.pane)
+bool starA = keepA and vwapStar > 0 and vwGap < -vwapStar / 100
+plotshape(keepA and not starA, "하따봉 ①", shape.labelup, location.belowbar, colA, text = "①", textcolor = color.white, size = size.tiny, display = display.pane)
+plotshape(starA, "하따봉 ①★", shape.labelup, location.belowbar, colStar, text = "①★", textcolor = color.white, size = size.small, display = display.pane)
 plotshape(keepB, "하따봉 ②", shape.labelup, location.belowbar, colB, text = "②", textcolor = color.white, size = size.tiny, display = display.pane)
 if keepA or keepB
     color c = keepA ? colA : colB
@@ -193,9 +210,10 @@ if keepA or keepB
         line.new(math.max(0, bar_index - 15), sLine, bar_index, sLine, color = color.new(c, 40), width = 1)
 
 alertcondition(keepA, "하따봉 ①", "{{ticker}} 하따봉 ① 꼬리 반전 {{close}}")
+alertcondition(starA, "하따봉 ①★", "{{ticker}} 하따봉 ①★ VWAP 아래 꼬리 반전 {{close}}")
 alertcondition(keepB, "하따봉 ②", "{{ticker}} 하따봉 ② 장악 양봉 {{close}}")
 if keepA or keepB
-    string tag = keepA and keepB ? " 하따봉 ①+② " : keepA ? " 하따봉 ① " : " 하따봉 ② "
+    string tag = keepA and keepB ? " 하따봉 ①+② " : starA ? " 하따봉 ①★ " : keepA ? " 하따봉 ① " : " 하따봉 ② "
     alert(syminfo.ticker + tag + str.tostring(close, format.mintick) + " → +1% " + str.tostring(close * 1.01, format.mintick), alert.freq_once_per_bar_close)
 
 // 1분봉이 아니면 알려 준다
