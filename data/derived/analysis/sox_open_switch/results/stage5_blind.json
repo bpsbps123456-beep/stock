@@ -1,0 +1,1216 @@
+{
+ "meta": {
+  "soxx_source": "yfinance(새로 받음)",
+  "days_total": 959,
+  "days_by_year": {
+   "2023": 250,
+   "2024": 252,
+   "2025": 250,
+   "2026": 207
+  },
+  "bar_fallback_counts": {
+   "SOXL_931": 0,
+   "SOXL_959": 0,
+   "SOXL_1059": 0,
+   "SOXS_931": 0,
+   "SOXS_959": 0,
+   "SOXS_1059": 0
+  },
+  "events_x3": 1415,
+  "one_side_overlap": 0,
+  "shifts": 5000,
+  "seed_2026": 20261103
+ },
+ "stage_counts": {
+  "2026": {
+   "days": {
+    "극상방": 36,
+    "상방": 49,
+    "애매": 79,
+    "하방": 43,
+    "극하방": 0
+   },
+   "runs": {
+    "극상방": 6,
+    "상방": 16,
+    "애매": 24,
+    "하방": 13,
+    "극하방": 0
+   },
+   "switches": 58
+  },
+  "2025": {
+   "days": {
+    "극상방": 32,
+    "상방": 79,
+    "애매": 93,
+    "하방": 42,
+    "극하방": 4
+   },
+   "runs": {
+    "극상방": 6,
+    "상방": 22,
+    "애매": 27,
+    "하방": 11,
+    "극하방": 1
+   },
+   "switches": 66
+  },
+  "2024": {
+   "days": {
+    "극상방": 15,
+    "상방": 75,
+    "애매": 111,
+    "하방": 51,
+    "극하방": 0
+   },
+   "runs": {
+    "극상방": 6,
+    "상방": 23,
+    "애매": 27,
+    "하방": 11,
+    "극하방": 0
+   },
+   "switches": 66
+  },
+  "2023": {
+   "days": {
+    "극상방": 20,
+    "상방": 96,
+    "애매": 84,
+    "하방": 50,
+    "극하방": 0
+   },
+   "runs": {
+    "극상방": 7,
+    "상방": 20,
+    "애매": 24,
+    "하방": 11,
+    "극하방": 0
+   },
+   "switches": 61
+  }
+ },
+ "port_check": {
+  "pine_port": {
+   "rsi_max_abs_diff": 0.0,
+   "stage_agree_pct_vs_old_def": 48.9872,
+   "note": "pine_port.pine_zone은 10-13 전 옛 z(60일 전 한 점 기준)라 단계 자체는 다르다; RSI만 같은 계산"
+  },
+  "port_k3": {
+   "rows_compared": 1333,
+   "stage_agree_pct": 100.0,
+   "na_mismatch": 0,
+   "rsi_max_abs_diff": 0.0,
+   "z_max_abs_diff": 0.0
+  },
+  "close_vs_panel_1d_20261012": {
+   "rows": 947,
+   "max_rel_diff": 0.0
+  }
+ },
+ "tableA": {
+  "2026": {
+   "극상방": {
+    "days": 36,
+    "SOXL_w90": -0.2028,
+    "SOXL_w90_c2": -0.2432,
+    "SOXL_w90_win": 0.5,
+    "SOXL_w90_t": -0.092,
+    "SOXL_w90_p": 0.9396,
+    "SOXL_w90_pfam": 1.0,
+    "SOXS_w90": 0.031,
+    "SOXS_w90_c2": -0.0793,
+    "SOXS_w90_win": 0.4722,
+    "SOXS_w90_t": 0.063,
+    "SOXS_w90_p": 0.9524,
+    "SOXS_w90_pfam": 1.0,
+    "SOXL_std": -0.6857,
+    "SOXL_std_c2": -0.7275,
+    "SOXL_std_win": 0.3611,
+    "SOXL_std_t": -0.8602,
+    "SOXL_std_p": 0.3119,
+    "SOXL_std_pfam": 0.894,
+    "SOXS_std": 0.5262,
+    "SOXS_std_c2": 0.416,
+    "SOXS_std_win": 0.6389,
+    "SOXS_std_t": 0.8485,
+    "SOXS_std_p": 0.2787,
+    "SOXS_std_pfam": 0.894
+   },
+   "상방": {
+    "days": 49,
+    "SOXL_w90": -0.2771,
+    "SOXL_w90_c2": -0.3175,
+    "SOXL_w90_win": 0.5918,
+    "SOXL_w90_t": -0.2306,
+    "SOXL_w90_p": 0.7996,
+    "SOXL_w90_pfam": 1.0,
+    "SOXS_w90": 0.0492,
+    "SOXS_w90_c2": -0.061,
+    "SOXS_w90_win": 0.4082,
+    "SOXS_w90_t": 0.0993,
+    "SOXS_w90_p": 0.9022,
+    "SOXS_w90_pfam": 1.0,
+    "SOXL_std": -0.0791,
+    "SOXL_std_c2": -0.1211,
+    "SOXL_std_win": 0.5714,
+    "SOXL_std_t": 0.3888,
+    "SOXL_std_p": 0.5919,
+    "SOXL_std_pfam": 1.0,
+    "SOXS_std": -0.1133,
+    "SOXS_std_c2": -0.2228,
+    "SOXS_std_win": 0.3878,
+    "SOXS_std_t": -0.481,
+    "SOXS_std_p": 0.5199,
+    "SOXS_std_pfam": 0.9872
+   },
+   "애매": {
+    "days": 79,
+    "SOXL_w90": -0.2781,
+    "SOXL_w90_c2": -0.3184,
+    "SOXL_w90_win": 0.4684,
+    "SOXL_w90_t": -0.2803,
+    "SOXL_w90_p": 0.7119,
+    "SOXL_w90_pfam": 1.0,
+    "SOXS_w90": 0.1148,
+    "SOXS_w90_c2": 0.0044,
+    "SOXS_w90_win": 0.4937,
+    "SOXS_w90_t": 0.2604,
+    "SOXS_w90_p": 0.7099,
+    "SOXS_w90_pfam": 1.0,
+    "SOXL_std": -0.1588,
+    "SOXL_std_c2": -0.2008,
+    "SOXL_std_win": 0.519,
+    "SOXL_std_t": 0.2161,
+    "SOXL_std_p": 0.7608,
+    "SOXL_std_pfam": 1.0,
+    "SOXS_std": 0.0503,
+    "SOXS_std_c2": -0.0594,
+    "SOXS_std_win": 0.443,
+    "SOXS_std_t": -0.1023,
+    "SOXS_std_p": 0.8866,
+    "SOXS_std_pfam": 1.0
+   },
+   "하방": {
+    "days": 43,
+    "SOXL_w90": 0.3028,
+    "SOXL_w90_c2": 0.2622,
+    "SOXL_w90_win": 0.5814,
+    "SOXL_w90_t": 0.611,
+    "SOXL_w90_p": 0.5155,
+    "SOXL_w90_pfam": 0.966,
+    "SOXS_w90": -0.3391,
+    "SOXS_w90_c2": -0.4489,
+    "SOXS_w90_win": 0.4186,
+    "SOXS_w90_t": -0.4399,
+    "SOXS_w90_p": 0.6387,
+    "SOXS_w90_pfam": 0.9936,
+    "SOXL_std": -0.2083,
+    "SOXL_std_c2": -0.2502,
+    "SOXL_std_win": 0.5116,
+    "SOXL_std_t": 0.0662,
+    "SOXL_std_p": 0.9386,
+    "SOXL_std_pfam": 1.0,
+    "SOXS_std": 0.0463,
+    "SOXS_std_c2": -0.0634,
+    "SOXS_std_win": 0.4884,
+    "SOXS_std_t": -0.0841,
+    "SOXS_std_p": 0.8844,
+    "SOXS_std_pfam": 1.0
+   },
+   "극하방": {
+    "days": 0,
+    "SOXL_w90": null,
+    "SOXS_w90": null,
+    "SOXL_std": null,
+    "SOXS_std": null
+   },
+   "전체": {
+    "days": 207,
+    "SOXL_w90": -0.1441,
+    "SOXS_w90": -0.0096,
+    "SOXL_std": -0.2419,
+    "SOXS_std": 0.0935
+   }
+  },
+  "2025": {
+   "극상방": {
+    "days": 32,
+    "SOXL_w90": -0.1949,
+    "SOXS_w90": 0.0355,
+    "SOXL_std": -0.371,
+    "SOXS_std": 0.1956
+   },
+   "상방": {
+    "days": 79,
+    "SOXL_w90": -0.3302,
+    "SOXS_w90": 0.1147,
+    "SOXL_std": -0.0705,
+    "SOXS_std": -0.0637
+   },
+   "애매": {
+    "days": 93,
+    "SOXL_w90": 0.441,
+    "SOXS_w90": -0.6376,
+    "SOXL_std": 0.1802,
+    "SOXS_std": -0.3796
+   },
+   "하방": {
+    "days": 42,
+    "SOXL_w90": -0.4739,
+    "SOXS_w90": 0.3514,
+    "SOXL_std": 0.2806,
+    "SOXS_std": -0.4055
+   },
+   "극하방": {
+    "days": 4,
+    "SOXL_w90": 0.755,
+    "SOXS_w90": -0.4968,
+    "SOXL_std": 2.3009,
+    "SOXS_std": -2.3021
+   },
+   "전체": {
+    "days": 250,
+    "SOXL_w90": -0.0328,
+    "SOXS_w90": -0.1453,
+    "SOXL_std": 0.0812,
+    "SOXS_std": -0.2413
+   }
+  },
+  "2024": {
+   "극상방": {
+    "days": 15,
+    "SOXL_w90": -0.1752,
+    "SOXS_w90": -0.0138,
+    "SOXL_std": -0.0723,
+    "SOXS_std": -0.0441
+   },
+   "상방": {
+    "days": 75,
+    "SOXL_w90": -0.6249,
+    "SOXS_w90": 0.4796,
+    "SOXL_std": -0.4677,
+    "SOXS_std": 0.307
+   },
+   "애매": {
+    "days": 111,
+    "SOXL_w90": -0.1083,
+    "SOXS_w90": -0.0552,
+    "SOXL_std": -0.0576,
+    "SOXS_std": -0.1059
+   },
+   "하방": {
+    "days": 51,
+    "SOXL_w90": 0.0924,
+    "SOXS_w90": -0.1735,
+    "SOXL_std": 0.0553,
+    "SOXS_std": -0.1265
+   },
+   "극하방": {
+    "days": 0,
+    "SOXL_w90": null,
+    "SOXS_w90": null,
+    "SOXL_std": null,
+    "SOXS_std": null
+   },
+   "전체": {
+    "days": 252,
+    "SOXL_w90": -0.2254,
+    "SOXS_w90": 0.0824,
+    "SOXL_std": -0.1577,
+    "SOXS_std": 0.0165
+   }
+  },
+  "2023": {
+   "극상방": {
+    "days": 20,
+    "SOXL_w90": -0.0159,
+    "SOXS_w90": -0.1124,
+    "SOXL_std": -0.3223,
+    "SOXS_std": 0.1768
+   },
+   "상방": {
+    "days": 96,
+    "SOXL_w90": 0.1014,
+    "SOXS_w90": -0.2782,
+    "SOXL_std": 0.1244,
+    "SOXS_std": -0.2735
+   },
+   "애매": {
+    "days": 84,
+    "SOXL_w90": -0.2358,
+    "SOXS_w90": 0.0742,
+    "SOXL_std": -0.0537,
+    "SOXS_std": -0.0972
+   },
+   "하방": {
+    "days": 50,
+    "SOXL_w90": -0.053,
+    "SOXS_w90": -0.0756,
+    "SOXL_std": 0.023,
+    "SOXS_std": -0.1654
+   },
+   "극하방": {
+    "days": 0,
+    "SOXL_w90": null,
+    "SOXS_w90": null,
+    "SOXL_std": null,
+    "SOXS_std": null
+   },
+   "전체": {
+    "days": 250,
+    "SOXL_w90": -0.0522,
+    "SOXS_w90": -0.106,
+    "SOXL_std": 0.0086,
+    "SOXS_std": -0.1566
+   }
+  }
+ },
+ "tableB": {
+  "2026": {
+   "극상방|user": {
+    "stage_days": 36,
+    "trades": 47,
+    "event_days": 28,
+    "r_w90": -0.064,
+    "hit": 0.6383,
+    "r_follow": 0.3545,
+    "dir": -0.2093,
+    "daily": -0.0895,
+    "daily_c2": -0.2674,
+    "t": -0.6561,
+    "p": 0.3493,
+    "pfam": 0.976
+   },
+   "극상방|mirror": {
+    "stage_days": 36,
+    "trades": 43,
+    "event_days": 30,
+    "r_w90": -0.045,
+    "hit": 0.7674,
+    "r_follow": -0.3015,
+    "dir": 0.1283,
+    "daily": -0.0508,
+    "daily_c2": -0.0607,
+    "t": 0.4776,
+    "p": 0.5469,
+    "pfam": 0.988
+   },
+   "상방|user": {
+    "stage_days": 49,
+    "trades": 47,
+    "event_days": 34,
+    "r_w90": 0.0718,
+    "hit": 0.6383,
+    "r_follow": -0.0137,
+    "dir": 0.0427,
+    "daily": 0.0682,
+    "daily_c2": 0.0322,
+    "t": -0.0406,
+    "p": 0.933,
+    "pfam": 1.0
+   },
+   "상방|mirror": {
+    "stage_days": 49,
+    "trades": 35,
+    "event_days": 28,
+    "r_w90": -0.9069,
+    "hit": 0.5714,
+    "r_follow": 0.2834,
+    "dir": -0.5951,
+    "daily": -0.6469,
+    "daily_c2": -0.6578,
+    "t": -1.0293,
+    "p": 0.2132,
+    "pfam": 0.7421
+   },
+   "애매|user": {
+    "stage_days": 79,
+    "trades": 104,
+    "event_days": 64,
+    "r_w90": 0.1565,
+    "hit": 0.7692,
+    "r_follow": 0.0784,
+    "dir": 0.0391,
+    "daily": 0.2064,
+    "daily_c2": 0.0395,
+    "t": 0.4826,
+    "p": 0.5433,
+    "pfam": 0.988
+   },
+   "애매|mirror": {
+    "stage_days": 79,
+    "trades": 92,
+    "event_days": 60,
+    "r_w90": -0.1249,
+    "hit": 0.7717,
+    "r_follow": 0.0901,
+    "dir": -0.1075,
+    "daily": -0.1488,
+    "daily_c2": -0.1842,
+    "t": 0.4652,
+    "p": 0.5319,
+    "pfam": 0.988
+   },
+   "하방|user": {
+    "stage_days": 43,
+    "trades": 60,
+    "event_days": 35,
+    "r_w90": -0.0055,
+    "hit": 0.7333,
+    "r_follow": 0.2221,
+    "dir": -0.1138,
+    "daily": -0.009,
+    "daily_c2": -0.0475,
+    "t": -0.2426,
+    "p": 0.7626,
+    "pfam": 1.0
+   },
+   "하방|mirror": {
+    "stage_days": 43,
+    "trades": 47,
+    "event_days": 34,
+    "r_w90": -0.2648,
+    "hit": 0.7447,
+    "r_follow": -0.1458,
+    "dir": -0.0595,
+    "daily": -0.2887,
+    "daily_c2": -0.2987,
+    "t": -0.0224,
+    "p": 0.977,
+    "pfam": 1.0
+   },
+   "극하방|user": {
+    "stage_days": 0,
+    "trades": 0,
+    "event_days": 0,
+    "r_w90": null,
+    "hit": null,
+    "r_follow": null,
+    "dir": null,
+    "daily": null,
+    "daily_c2": null,
+    "t": null,
+    "p": null,
+    "pfam": null
+   },
+   "극하방|mirror": {
+    "stage_days": 0,
+    "trades": 0,
+    "event_days": 0,
+    "r_w90": null,
+    "hit": null,
+    "r_follow": null,
+    "dir": null,
+    "daily": null,
+    "daily_c2": null,
+    "t": null,
+    "p": null,
+    "pfam": null
+   },
+   "전체|user": {
+    "stage_days": 207,
+    "trades": 258,
+    "r_w90": 0.0632,
+    "hit": 0.7132,
+    "daily": 0.0775
+   },
+   "전체|mirror": {
+    "stage_days": 207,
+    "trades": 217,
+    "r_w90": -0.2655,
+    "hit": 0.7327,
+    "daily": -0.2787
+   }
+  },
+  "2025": {
+   "극상방|user": {
+    "stage_days": 32,
+    "trades": 9,
+    "event_days": 9,
+    "r_w90": -0.2313,
+    "hit": 0.3333,
+    "r_follow": 0.5169,
+    "dir": -0.3741,
+    "daily": -0.0651
+   },
+   "극상방|mirror": {
+    "stage_days": 32,
+    "trades": 14,
+    "event_days": 13,
+    "r_w90": 0.7729,
+    "hit": 0.8571,
+    "r_follow": -0.4349,
+    "dir": 0.6039,
+    "daily": 0.3383
+   },
+   "상방|user": {
+    "stage_days": 79,
+    "trades": 40,
+    "event_days": 38,
+    "r_w90": 0.0397,
+    "hit": 0.475,
+    "r_follow": 0.116,
+    "dir": -0.0382,
+    "daily": 0.0202
+   },
+   "상방|mirror": {
+    "stage_days": 79,
+    "trades": 40,
+    "event_days": 35,
+    "r_w90": 0.0394,
+    "hit": 0.625,
+    "r_follow": 0.1966,
+    "dir": -0.0786,
+    "daily": 0.02
+   },
+   "애매|user": {
+    "stage_days": 93,
+    "trades": 66,
+    "event_days": 57,
+    "r_w90": -0.0456,
+    "hit": 0.6364,
+    "r_follow": 0.0641,
+    "dir": -0.0548,
+    "daily": -0.0317
+   },
+   "애매|mirror": {
+    "stage_days": 93,
+    "trades": 52,
+    "event_days": 40,
+    "r_w90": 0.1089,
+    "hit": 0.75,
+    "r_follow": -0.0574,
+    "dir": 0.0832,
+    "daily": 0.0606
+   },
+   "하방|user": {
+    "stage_days": 42,
+    "trades": 42,
+    "event_days": 30,
+    "r_w90": 0.1103,
+    "hit": 0.6905,
+    "r_follow": -0.1756,
+    "dir": 0.1429,
+    "daily": 0.1119
+   },
+   "하방|mirror": {
+    "stage_days": 42,
+    "trades": 54,
+    "event_days": 32,
+    "r_w90": 0.2988,
+    "hit": 0.7778,
+    "r_follow": 0.3621,
+    "dir": -0.0316,
+    "daily": 0.3885
+   },
+   "극하방|user": {
+    "stage_days": 4,
+    "trades": 9,
+    "event_days": 4,
+    "r_w90": -1.1144,
+    "hit": 0.8889,
+    "r_follow": -0.4523,
+    "dir": -0.331,
+    "daily": -2.4795
+   },
+   "극하방|mirror": {
+    "stage_days": 4,
+    "trades": 12,
+    "event_days": 4,
+    "r_w90": -0.9091,
+    "hit": 0.75,
+    "r_follow": 0.8709,
+    "dir": -0.89,
+    "daily": -2.7647
+   },
+   "전체|user": {
+    "stage_days": 250,
+    "trades": 166,
+    "r_w90": -0.0536,
+    "hit": 0.6084,
+    "daily": -0.0346
+   },
+   "전체|mirror": {
+    "stage_days": 250,
+    "trades": 172,
+    "r_w90": 0.1354,
+    "hit": 0.7384,
+    "daily": 0.0932
+   }
+  },
+  "2024": {
+   "극상방|user": {
+    "stage_days": 15,
+    "trades": 10,
+    "event_days": 9,
+    "r_w90": 0.0961,
+    "hit": 0.6,
+    "r_follow": -0.5053,
+    "dir": 0.3007,
+    "daily": 0.0644
+   },
+   "극상방|mirror": {
+    "stage_days": 15,
+    "trades": 10,
+    "event_days": 8,
+    "r_w90": 0.1541,
+    "hit": 0.7,
+    "r_follow": -0.1475,
+    "dir": 0.1508,
+    "daily": 0.1019
+   },
+   "상방|user": {
+    "stage_days": 75,
+    "trades": 39,
+    "event_days": 35,
+    "r_w90": -0.184,
+    "hit": 0.4359,
+    "r_follow": -0.1904,
+    "dir": 0.0032,
+    "daily": -0.0964
+   },
+   "상방|mirror": {
+    "stage_days": 75,
+    "trades": 43,
+    "event_days": 40,
+    "r_w90": -0.5918,
+    "hit": 0.5581,
+    "r_follow": -0.0254,
+    "dir": -0.2832,
+    "daily": -0.3398
+   },
+   "애매|user": {
+    "stage_days": 111,
+    "trades": 64,
+    "event_days": 58,
+    "r_w90": -0.0657,
+    "hit": 0.4531,
+    "r_follow": -0.0003,
+    "dir": -0.0327,
+    "daily": -0.0376
+   },
+   "애매|mirror": {
+    "stage_days": 111,
+    "trades": 67,
+    "event_days": 61,
+    "r_w90": 0.19,
+    "hit": 0.6269,
+    "r_follow": -0.1958,
+    "dir": 0.1929,
+    "daily": 0.1151
+   },
+   "하방|user": {
+    "stage_days": 51,
+    "trades": 48,
+    "event_days": 36,
+    "r_w90": -0.2801,
+    "hit": 0.6667,
+    "r_follow": 0.195,
+    "dir": -0.2376,
+    "daily": -0.2669
+   },
+   "하방|mirror": {
+    "stage_days": 51,
+    "trades": 60,
+    "event_days": 38,
+    "r_w90": 0.3418,
+    "hit": 0.75,
+    "r_follow": -0.3105,
+    "dir": 0.3261,
+    "daily": 0.4073
+   },
+   "극하방|user": {
+    "stage_days": 0,
+    "trades": 0,
+    "event_days": 0,
+    "r_w90": null,
+    "hit": null,
+    "r_follow": null,
+    "dir": null,
+    "daily": null
+   },
+   "극하방|mirror": {
+    "stage_days": 0,
+    "trades": 0,
+    "event_days": 0,
+    "r_w90": null,
+    "hit": null,
+    "r_follow": null,
+    "dir": null,
+    "daily": null
+   },
+   "전체|user": {
+    "stage_days": 252,
+    "trades": 161,
+    "r_w90": -0.1482,
+    "hit": 0.5217,
+    "daily": -0.0954
+   },
+   "전체|mirror": {
+    "stage_days": 252,
+    "trades": 180,
+    "r_w90": 0.0518,
+    "hit": 0.6556,
+    "daily": 0.0381
+   }
+  },
+  "2023": {
+   "극상방|user": {
+    "stage_days": 20,
+    "trades": 6,
+    "event_days": 6,
+    "r_w90": -0.8813,
+    "hit": 0.3333,
+    "r_follow": 0.577,
+    "dir": -0.7291,
+    "daily": -0.2644
+   },
+   "극상방|mirror": {
+    "stage_days": 20,
+    "trades": 8,
+    "event_days": 7,
+    "r_w90": -0.3471,
+    "hit": 0.25,
+    "r_follow": 0.9007,
+    "dir": -0.6239,
+    "daily": -0.1393
+   },
+   "상방|user": {
+    "stage_days": 96,
+    "trades": 49,
+    "event_days": 48,
+    "r_w90": -0.2149,
+    "hit": 0.5102,
+    "r_follow": -0.2166,
+    "dir": 0.0009,
+    "daily": -0.1096
+   },
+   "상방|mirror": {
+    "stage_days": 96,
+    "trades": 49,
+    "event_days": 44,
+    "r_w90": 0.2191,
+    "hit": 0.6531,
+    "r_follow": -0.0324,
+    "dir": 0.1257,
+    "daily": 0.1116
+   },
+   "애매|user": {
+    "stage_days": 84,
+    "trades": 48,
+    "event_days": 46,
+    "r_w90": 0.0828,
+    "hit": 0.5417,
+    "r_follow": -0.0526,
+    "dir": 0.0677,
+    "daily": 0.0472
+   },
+   "애매|mirror": {
+    "stage_days": 84,
+    "trades": 41,
+    "event_days": 40,
+    "r_w90": -0.2018,
+    "hit": 0.5366,
+    "r_follow": -0.019,
+    "dir": -0.0914,
+    "daily": -0.0984
+   },
+   "하방|user": {
+    "stage_days": 50,
+    "trades": 28,
+    "event_days": 26,
+    "r_w90": -0.234,
+    "hit": 0.5714,
+    "r_follow": 0.0302,
+    "dir": -0.1321,
+    "daily": -0.1306
+   },
+   "하방|mirror": {
+    "stage_days": 50,
+    "trades": 32,
+    "event_days": 30,
+    "r_w90": 0.0398,
+    "hit": 0.5625,
+    "r_follow": -0.1282,
+    "dir": 0.084,
+    "daily": 0.0247
+   },
+   "극하방|user": {
+    "stage_days": 0,
+    "trades": 0,
+    "event_days": 0,
+    "r_w90": null,
+    "hit": null,
+    "r_follow": null,
+    "dir": null,
+    "daily": null
+   },
+   "극하방|mirror": {
+    "stage_days": 0,
+    "trades": 0,
+    "event_days": 0,
+    "r_w90": null,
+    "hit": null,
+    "r_follow": null,
+    "dir": null,
+    "daily": null
+   },
+   "전체|user": {
+    "stage_days": 250,
+    "trades": 131,
+    "r_w90": -0.1404,
+    "hit": 0.5267,
+    "daily": -0.0735
+   },
+   "전체|mirror": {
+    "stage_days": 250,
+    "trades": 130,
+    "r_w90": 0.0074,
+    "hit": 0.5692,
+    "daily": 0.0036
+   }
+  }
+ },
+ "tableC": {
+  "C_trend": {
+   "2026": {
+    "days": 207,
+    "daily": -0.1638,
+    "p_shift": 0.7405,
+    "null_mean": -0.1042,
+    "trades": 138,
+    "trade_days": 93,
+    "per_trade": -0.2464,
+    "hit": 0.7029,
+    "dir": -0.1605,
+    "h1_JanJun": -0.1784,
+    "h2_JulOct": -0.1424,
+    "cost2x": -0.1761,
+    "best_month": "2026-06",
+    "best_month_sum": 12.7593,
+    "ex_best_month": -0.2509,
+    "ex_top5_days": -0.2531,
+    "by_stage_daily": {
+     "극상방": -0.0508,
+     "상방": -0.6469,
+     "애매": 0.0,
+     "하방": -0.009,
+     "극하방": null
+    },
+    "monthly_sum": {
+     "2026-01": -5.7296,
+     "2026-02": -15.8952,
+     "2026-03": 0.1825,
+     "2026-04": 3.5132,
+     "2026-05": -16.779,
+     "2026-06": 12.7593,
+     "2026-07": -4.3308,
+     "2026-08": -6.6517,
+     "2026-09": -1.4844,
+     "2026-10": 0.5058
+    },
+    "posthoc_warn": {
+     "warn_days": 80,
+     "daily_warn_on": 0.0025,
+     "daily_warn_off": -0.2686
+    },
+    "p_holm": 1.0,
+    "criteria": {
+     "(1) 평균>0": false,
+     "(2) Holm p≤0.05": false,
+     "(3) 두 반>0": false,
+     "(4) 비용2배>0": false
+    },
+    "verdict": "불통과"
+   },
+   "2025": {
+    "days": 250,
+    "daily": 0.0287,
+    "p_shift": 0.4625,
+    "null_mean": 0.0232,
+    "trades": 105,
+    "trade_days": 82,
+    "per_trade": 0.0667,
+    "hit": 0.7048,
+    "dir": 0.0794,
+    "h1_JanJun": 0.0867,
+    "h2_JulOct": -0.0265,
+    "cost2x": 0.013,
+    "best_month": "2025-03",
+    "best_month_sum": 10.0552,
+    "ex_best_month": -0.0125,
+    "ex_top5_days": -0.0326,
+    "by_stage_daily": {
+     "극상방": 0.3383,
+     "상방": 0.02,
+     "애매": 0.0,
+     "하방": 0.1119,
+     "극하방": -2.4795
+    },
+    "monthly_sum": {
+     "2025-01": 6.5654,
+     "2025-02": -7.5962,
+     "2025-03": 10.0552,
+     "2025-04": -8.0767,
+     "2025-05": 6.3389,
+     "2025-06": 3.2955,
+     "2025-07": 2.4758,
+     "2025-08": -0.2066,
+     "2025-09": 1.4968,
+     "2025-10": 2.6395,
+     "2025-11": -8.5238,
+     "2025-12": -1.2781
+    }
+   },
+   "2024": {
+    "days": 252,
+    "daily": -0.1491,
+    "p_shift": 1.0,
+    "null_mean": -0.0074,
+    "trades": 101,
+    "trade_days": 84,
+    "per_trade": -0.3698,
+    "hit": 0.6238,
+    "dir": -0.2185,
+    "h1_JanJun": 0.0422,
+    "h2_JulOct": -0.3343,
+    "cost2x": -0.1626,
+    "best_month": "2024-03",
+    "best_month_sum": 5.6364,
+    "ex_best_month": -0.1862,
+    "ex_top5_days": -0.1928,
+    "by_stage_daily": {
+     "극상방": 0.1019,
+     "상방": -0.3398,
+     "애매": 0.0,
+     "하방": -0.2669,
+     "극하방": null
+    },
+    "monthly_sum": {
+     "2024-01": -3.2213,
+     "2024-02": -2.0766,
+     "2024-03": 5.6364,
+     "2024-04": 3.0704,
+     "2024-05": -2.8603,
+     "2024-06": 4.6794,
+     "2024-07": 1.593,
+     "2024-08": -21.8348,
+     "2024-09": -15.9374,
+     "2024-10": -13.0555,
+     "2024-11": 5.41,
+     "2024-12": 1.033
+    }
+   },
+   "2023": {
+    "days": 250,
+    "daily": 0.0056,
+    "p_shift": 0.2825,
+    "null_mean": -0.0184,
+    "trades": 85,
+    "trade_days": 77,
+    "per_trade": 0.0165,
+    "hit": 0.5882,
+    "dir": -0.0298,
+    "h1_JanJun": 0.0339,
+    "h2_JulOct": -0.0223,
+    "cost2x": -0.0027,
+    "best_month": "2023-10",
+    "best_month_sum": 4.5873,
+    "ex_best_month": -0.014,
+    "ex_top5_days": -0.0312,
+    "by_stage_daily": {
+     "극상방": -0.1393,
+     "상방": 0.1116,
+     "애매": 0.0,
+     "하방": -0.1306,
+     "극하방": null
+    },
+    "monthly_sum": {
+     "2023-01": 3.896,
+     "2023-02": 3.6241,
+     "2023-03": -2.8059,
+     "2023-04": 1.2305,
+     "2023-05": -1.2722,
+     "2023-06": -0.4726,
+     "2023-07": -1.4263,
+     "2023-08": -7.9579,
+     "2023-09": 3.5503,
+     "2023-10": 4.5873,
+     "2023-11": 0.8917,
+     "2023-12": -2.4529
+    }
+   }
+  },
+  "C_counter": {
+   "2026": {
+    "days": 207,
+    "daily": -0.0594,
+    "p_shift": 0.6629,
+    "null_mean": -0.0241,
+    "trades": 141,
+    "trade_days": 96,
+    "per_trade": -0.0857,
+    "hit": 0.6738,
+    "dir": -0.0754,
+    "h1_JanJun": -0.0287,
+    "h2_JulOct": -0.1044,
+    "cost2x": -0.1009,
+    "best_month": "2026-05",
+    "best_month_sum": 5.424,
+    "ex_best_month": -0.0947,
+    "ex_top5_days": -0.1309,
+    "by_stage_daily": {
+     "극상방": -0.0895,
+     "상방": 0.0682,
+     "애매": 0.0,
+     "하방": -0.2887,
+     "극하방": null
+    },
+    "monthly_sum": {
+     "2026-01": -1.0837,
+     "2026-02": -1.9219,
+     "2026-03": -2.8654,
+     "2026-04": 0.2435,
+     "2026-05": 5.424,
+     "2026-06": -3.3242,
+     "2026-07": -16.7779,
+     "2026-08": 4.6614,
+     "2026-09": 1.1723,
+     "2026-10": 2.1776
+    },
+    "posthoc_warn": {
+     "warn_days": 80,
+     "daily_warn_on": -0.2198,
+     "daily_warn_off": 0.0417
+    },
+    "p_holm": 1.0,
+    "criteria": {
+     "(1) 평균>0": false,
+     "(2) Holm p≤0.05": false,
+     "(3) 두 반>0": false,
+     "(4) 비용2배>0": false
+    },
+    "verdict": "불통과"
+   },
+   "2025": {
+    "days": 250,
+    "daily": 0.0191,
+    "p_shift": 0.4733,
+    "null_mean": 0.0159,
+    "trades": 115,
+    "trade_days": 83,
+    "per_trade": 0.0412,
+    "hit": 0.6348,
+    "dir": -0.1503,
+    "h1_JanJun": -0.0649,
+    "h2_JulOct": 0.0991,
+    "cost2x": 0.0032,
+    "best_month": "2025-11",
+    "best_month_sum": 10.9601,
+    "ex_best_month": -0.0268,
+    "ex_top5_days": -0.0592,
+    "by_stage_daily": {
+     "극상방": -0.0651,
+     "상방": 0.0202,
+     "애매": 0.0,
+     "하방": 0.3885,
+     "극하방": -2.7647
+    },
+    "monthly_sum": {
+     "2025-01": 5.1484,
+     "2025-02": 2.01,
+     "2025-03": 1.7467,
+     "2025-04": -10.9232,
+     "2025-05": -1.1816,
+     "2025-06": -4.7188,
+     "2025-07": -1.0977,
+     "2025-08": -0.391,
+     "2025-09": 0.6125,
+     "2025-10": -2.4031,
+     "2025-11": 10.9601,
+     "2025-12": 5.01
+    }
+   },
+   "2024": {
+    "days": 252,
+    "daily": 0.0576,
+    "p_shift": 0.0586,
+    "null_mean": -0.0241,
+    "trades": 109,
+    "trade_days": 82,
+    "per_trade": 0.1311,
+    "hit": 0.6239,
+    "dir": 0.2083,
+    "h1_JanJun": -0.0769,
+    "h2_JulOct": 0.1878,
+    "cost2x": 0.0217,
+    "best_month": "2024-08",
+    "best_month_sum": 10.1035,
+    "ex_best_month": 0.0191,
+    "ex_top5_days": -0.011,
+    "by_stage_daily": {
+     "극상방": 0.0644,
+     "상방": -0.0964,
+     "애매": 0.0,
+     "하방": 0.4073,
+     "극하방": null
+    },
+    "monthly_sum": {
+     "2024-01": -2.01,
+     "2024-02": -4.5388,
+     "2024-03": -0.1828,
+     "2024-04": 0.4165,
+     "2024-05": -3.9192,
+     "2024-06": 0.6965,
+     "2024-07": 6.5416,
+     "2024-08": 10.1035,
+     "2024-09": 1.9592,
+     "2024-10": -3.1948,
+     "2024-11": 8.3167,
+     "2024-12": 0.315
+    }
+   },
+   "2023": {
+    "days": 250,
+    "daily": -0.0583,
+    "p_shift": 0.7588,
+    "null_mean": -0.0286,
+    "trades": 87,
+    "trade_days": 84,
+    "per_trade": -0.1672,
+    "hit": 0.5172,
+    "dir": -0.0189,
+    "h1_JanJun": -0.0571,
+    "h2_JulOct": -0.0595,
+    "cost2x": -0.0847,
+    "best_month": "2023-04",
+    "best_month_sum": 2.9263,
+    "ex_best_month": -0.0758,
+    "ex_top5_days": -0.0881,
+    "by_stage_daily": {
+     "극상방": -0.2644,
+     "상방": -0.1096,
+     "애매": 0.0,
+     "하방": 0.0247,
+     "극하방": null
+    },
+    "monthly_sum": {
+     "2023-01": -3.1575,
+     "2023-02": -0.1522,
+     "2023-03": 1.6778,
+     "2023-04": 2.9263,
+     "2023-05": -5.7524,
+     "2023-06": -2.6167,
+     "2023-07": -1.5564,
+     "2023-08": -4.732,
+     "2023-09": 2.0151,
+     "2023-10": -2.2214,
+     "2023-11": 1.7761,
+     "2023-12": -2.7802
+    }
+   }
+  }
+ }
+}
