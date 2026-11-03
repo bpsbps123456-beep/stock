@@ -1,0 +1,192 @@
+{
+ "examples": [
+  {
+   "period": "2026h1",
+   "sym": "CEG",
+   "pat": "A",
+   "signal_bar_NY": "2026-05-13 09:46",
+   "signal_OHLC": [
+    277.805,
+    278.35,
+    277.16,
+    277.8
+   ],
+   "break_bar_NY_low": null,
+   "L_used": 277.16,
+   "C_used": 277.8,
+   "zone_lo_hi": [
+    276.84,
+    277.865
+   ],
+   "zone_touches": 2,
+   "touch_band": [
+    275.4558,
+    278.1429
+   ],
+   "close_floor": 276.5632,
+   "zone_swings(160m bar, kind, price)": [
+    "2026-03-20 14:50-16:00 low 277.865",
+    "2026-04-21 14:50-16:00 low 276.84"
+   ],
+   "decision_bar": "2026-05-12 14:50-16:00",
+   "ref_close": 293.59,
+   "nearest_support": false,
+   "rank_in_supports": 3,
+   "prior_day_low": [
+    "2026-05-12",
+    287.5
+   ],
+   "pdl_hit": false,
+   "engine": {
+    "z_hit": true,
+    "z_str": 2,
+    "z_near": false,
+    "pdl_hit": false
+   }
+  },
+  {
+   "period": "2025h1",
+   "sym": "DDOG",
+   "pat": "B",
+   "signal_bar_NY": "2025-03-26 09:58",
+   "signal_OHLC": [
+    108.2,
+    108.52,
+    108.2,
+    108.49
+   ],
+   "break_bar_NY_low": [
+    "2025-03-26 09:57",
+    108.05
+   ],
+   "L_used": 108.05,
+   "C_used": 108.49,
+   "zone_lo_hi": [
+    108.35,
+    108.35
+   ],
+   "zone_touches": 1,
+   "touch_band": [
+    107.8082,
+    108.4583
+   ],
+   "close_floor": 108.2416,
+   "zone_swings(160m bar, kind, price)": [
+    "2024-09-16 09:30-12:10 low 108.35"
+   ],
+   "decision_bar": "2025-03-25 14:50-16:00",
+   "ref_close": 110.57,
+   "nearest_support": false,
+   "rank_in_supports": 2,
+   "prior_day_low": [
+    "2025-03-25",
+    110.03
+   ],
+   "pdl_hit": false,
+   "engine": {
+    "z_hit": true,
+    "z_str": 1,
+    "z_near": false,
+    "pdl_hit": false
+   }
+  },
+  {
+   "period": "2026",
+   "sym": "SPOT",
+   "pat": "A",
+   "signal_bar_NY": "2026-07-06 09:49",
+   "signal_OHLC": [
+    476.0,
+    477.21,
+    474.48,
+    476.85
+   ],
+   "break_bar_NY_low": null,
+   "L_used": 474.48,
+   "C_used": 476.85,
+   "zone_lo_hi": [
+    475.64,
+    476.23
+   ],
+   "zone_touches": 2,
+   "touch_band": [
+    473.2618,
+    476.7062
+   ],
+   "close_floor": 475.1644,
+   "zone_swings(160m bar, kind, price)": [
+    "2026-04-07 09:30-12:10 low 476.23",
+    "2026-06-29 09:30-12:10 high 475.64"
+   ],
+   "decision_bar": "2026-07-02 14:50-16:00",
+   "ref_close": 485.98,
+   "nearest_support": true,
+   "rank_in_supports": 1,
+   "prior_day_low": [
+    "2026-07-02",
+    467.54
+   ],
+   "pdl_hit": false,
+   "engine": {
+    "z_hit": true,
+    "z_str": 2,
+    "z_near": true,
+    "pdl_hit": false
+   }
+  }
+ ],
+ "z4_primary_vs_signals_csv": {
+  "Z1": {
+   "n": [
+    2776,
+    2776
+   ],
+   "hit": [
+    0.3987752161383285,
+    0.3987752161383285
+   ],
+   "r1": [
+    0.0006486876064858101,
+    0.0006486876064857993
+   ],
+   "r1n": [
+    -0.001008558940953512,
+    -0.0010085589409535073
+   ],
+   "days": [
+    201,
+    201
+   ],
+   "syms": [
+    384,
+    384
+   ]
+  },
+  "Z2": {
+   "n": [
+    1903,
+    1903
+   ],
+   "hit": [
+    0.4555964266946926,
+    0.4555964266946926
+   ],
+   "r1": [
+    0.0008270482135469316,
+    0.0008270482135469206
+   ],
+   "r1n": [
+    -0.0007542234604302029,
+    -0.0007542234604301945
+   ],
+   "days": [
+    200,
+    200
+   ],
+   "syms": [
+    341,
+    341
+   ]
+  }
+ }
+}

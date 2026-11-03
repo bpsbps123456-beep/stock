@@ -1,0 +1,145 @@
+{
+ "sample": {
+  "n": 400,
+  "by_period": {
+   "2026h1": 145,
+   "2025h1": 97,
+   "2026": 96,
+   "2025": 62
+  },
+  "by_pat": {
+   "A": 257,
+   "B": 143
+  },
+  "engine_z_hit_true": 76,
+  "engine_pdl_true": 17,
+  "rates": {
+   "z_hit": {
+    "match": 400,
+    "n": 400,
+    "rate": 1.0
+   },
+   "z_str": {
+    "match": 400,
+    "n": 400,
+    "rate": 1.0
+   },
+   "z_near": {
+    "match": 400,
+    "n": 400,
+    "rate": 1.0
+   },
+   "pdl_hit": {
+    "match": 400,
+    "n": 400,
+    "rate": 1.0
+   },
+   "z_rank": {
+    "match": 400,
+    "n": 400,
+    "rate": 1.0
+   },
+   "n_zones": {
+    "match": 400,
+    "n": 400,
+    "rate": 1.0
+   }
+  },
+  "mismatch_rows": {
+   "z_hit": [],
+   "z_str": [],
+   "z_near": [],
+   "pdl_hit": []
+  }
+ },
+ "full": {
+  "n": 43814,
+  "rates": {
+   "z_hit": {
+    "match": 43814,
+    "n": 43814,
+    "rate": 1.0
+   },
+   "z_str": {
+    "match": 43814,
+    "n": 43814,
+    "rate": 1.0
+   },
+   "z_near": {
+    "match": 43814,
+    "n": 43814,
+    "rate": 1.0
+   },
+   "pdl_hit": {
+    "match": 43814,
+    "n": 43814,
+    "rate": 1.0
+   },
+   "z_rank": {
+    "match": 43814,
+    "n": 43814,
+    "rate": 1.0
+   },
+   "n_zones": {
+    "match": 43814,
+    "n": 43814,
+    "rate": 1.0
+   }
+  },
+  "z_sweep_guess_rate": 0.9976035057287624,
+  "multi_zone_touch": 0,
+  "t_index_matches_ts": 1.0
+ },
+ "power_checks": {
+  "approx_bars(12:30/14:30)": {
+   "z_hit_match": 0.9942712375039942,
+   "n_diff": 251,
+   "n": 43814
+  },
+  "halfday_trim": {
+   "z_hit_match": 0.997124206874515,
+   "n_diff": 126,
+   "n": 43814
+  },
+  "patternB_L=low[t]": {
+   "z_hit_match": 0.9376124031007752,
+   "n_diff": 1006,
+   "n": 16125
+  },
+  "halfday_trim_str": {
+   "z_str_match": 0.9963938467156617
+  },
+  "halfday_trim_near": {
+   "z_near_match": 0.9989501072716483
+  },
+  "pdl_same_day_for_19h": {
+   "pdl_match_19h": 0.9424460431654677,
+   "n_19h": 139,
+   "n_diff": 8
+  },
+  "pdl_halfday_trim": {
+   "pdl_match": 1.0,
+   "n_diff": 0
+  }
+ },
+ "mismatch_full": {
+  "z_hit": {
+   "n": 0
+  },
+  "z_str": {
+   "n": 0
+  },
+  "z_near": {
+   "n": 0
+  },
+  "pdl_hit": {
+   "n": 0
+  },
+  "z_rank": {
+   "n": 0
+  },
+  "n_zones": {
+   "n": 0
+  }
+ }
+}
