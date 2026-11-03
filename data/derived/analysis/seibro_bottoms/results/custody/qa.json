@@ -1,0 +1,70 @@
+{
+ "custody_products_without_flag": [
+  "LOT",
+  "METV"
+ ],
+ "mapping_diff_vs_panel": {
+  "n": 0,
+  "dates": [],
+  "all_us_holiday": true
+ },
+ "custody_dates": 1001,
+ "soxl_missing_custody_dates": 0,
+ "custody_last_trade": "2026-10-29",
+ "stale_trade_dates": [
+  "2023-10-06",
+  "2024-05-24",
+  "2024-10-11",
+  "2024-11-08",
+  "2025-10-10",
+  "2025-11-10",
+  "2026-10-09"
+ ],
+ "orphan_soxl_net": {
+  "2024-05-28": -1.0,
+  "2024-09-03": 114.0,
+  "2024-11-29": -53.0,
+  "2025-01-13": 3052754.0
+ },
+ "echo": {
+  "n": 948,
+  "beta_soxx_ret": -1.6139,
+  "r2": 0.5818,
+  "const_by_regime_bp": [
+   14.06,
+   25.37,
+   -10.71,
+   135.5,
+   38.77
+  ]
+ },
+ "holder_cost_start": {
+  "date": "2023-01-03",
+  "shares_M": 83.727,
+  "close": 9.36
+ },
+ "reconcile": {
+  "rows": 1001,
+  "custody_first_last_shares_M": [
+   85.006,
+   65.996
+  ],
+  "cum_custody_M": -19.0097129096295,
+  "cum_settle_M": -14.999057245679865
+ },
+ "current": {
+  "top": "2026-10-05",
+  "settle_through": "2026-10-30",
+  "custody_through_trade": "2026-10-29",
+  "price_end": "2026-11-03",
+  "cohort_net_usd_M": 4618.0,
+  "cohort_net_sh_M": 40.679,
+  "cohort_cost_est": 113.523,
+  "soxl_price_end": 73.12,
+  "gap_cohort_price_end": -0.4399,
+  "holder_cost_mavg_last": 122.467,
+  "holder_cost_net_last": -8.552,
+  "gap_holder_mavg_price_end": -0.5157
+ },
+ "max_lev_products_in_custody": 8
+}

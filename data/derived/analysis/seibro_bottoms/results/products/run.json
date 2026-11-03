@@ -1,0 +1,209 @@
+{
+ "built_at": "2026-11-04T08:04:21",
+ "inputs": {
+  "flows_rows": 82105,
+  "trade_days": 964,
+  "first": "2022-12-28",
+  "last": "2026-10-30",
+  "products": 3116
+ },
+ "events": {
+  "B10": 11,
+  "B15": 6,
+  "F": 28,
+  "F_valid_by_window": {
+   "decline": 28,
+   "W1": 28,
+   "W2": 28,
+   "W3": 28,
+   "W4": 27,
+   "W5": 23
+  },
+  "decline_len": {
+   "2023-10-30": 63,
+   "2024-04-19": 30,
+   "2024-08-07": 20,
+   "2024-09-06": 11,
+   "2024-11-15": 24,
+   "2025-04-08": 53,
+   "2025-11-20": 16,
+   "2026-03-30": 23,
+   "2026-06-05": 2,
+   "2026-07-29": 26,
+   "2026-09-14": 19
+  }
+ },
+ "cells": {
+  "top_list_rows": 1100,
+  "event_windows": 55,
+  "recurrence_rows": 521,
+  "recurrence_rows_B15_hit": 196,
+  "recurrence_B15_p05": 40,
+  "recurrence_B15_p05_expected_upper": 9.8,
+  "recurrence_B15_q10": 6,
+  "recurrence_B15_ppx05": 23,
+  "recurrence_B15_qpx10": 0,
+  "recurrence_recurring_B15": [
+   "W2:buy:SOXL",
+   "W2:buy:TQQQ",
+   "W3:buy:SOXL",
+   "W4:buy:TSLA",
+   "W4:sell:SOXL",
+   "W5:sell:NVDA",
+   "W5:sell:TQQQ",
+   "decline:buy:SOXL"
+  ],
+  "rotation_cells": 78,
+  "rotation_pair_p05": 4,
+  "rotation_pair_p05_cells": [
+   "W4:SOXL",
+   "W4:ALL",
+   "W5:L3_single",
+   "W5:LEV_oth"
+  ],
+  "rotation_pair_p05_null_expect": 1.2
+ },
+ "censor": {
+  "safe5_share": {
+   "buy": 0.909,
+   "sell": 0.636
+  },
+  "safe10_share": {
+   "buy": 0.673,
+   "sell": 0.164
+  },
+  "safe_by_window": [
+   {
+    "window": "W2",
+    "side": "buy",
+    "safe5": 0.818,
+    "safe10": 1.0
+   },
+   {
+    "window": "W2",
+    "side": "sell",
+    "safe5": 0.455,
+    "safe10": 0.0
+   },
+   {
+    "window": "W3",
+    "side": "buy",
+    "safe5": 1.0,
+    "safe10": 1.0
+   },
+   {
+    "window": "W3",
+    "side": "sell",
+    "safe5": 1.0,
+    "safe10": 0.727
+   },
+   {
+    "window": "W4",
+    "side": "buy",
+    "safe5": 0.909,
+    "safe10": 0.636
+   },
+   {
+    "window": "W4",
+    "side": "sell",
+    "safe5": 0.636,
+    "safe10": 0.091
+   },
+   {
+    "window": "W5",
+    "side": "buy",
+    "safe5": 0.909,
+    "safe10": 0.273
+   },
+   {
+    "window": "W5",
+    "side": "sell",
+    "safe5": 0.818,
+    "safe10": 0.0
+   },
+   {
+    "window": "decline",
+    "side": "buy",
+    "safe5": 0.909,
+    "safe10": 0.455
+   },
+   {
+    "window": "decline",
+    "side": "sell",
+    "safe5": 0.273,
+    "safe10": 0.0
+   }
+  ],
+  "daily_hidden_max_buy_median": 924951,
+  "daily_hidden_max_sell_median": 2413438,
+  "top_rows_not_fully_listed": 188
+ },
+ "categories": {
+  "SOXL": {
+   "label": "SOXL",
+   "n_products": 1,
+   "net_sum_usd": -665942570
+  },
+  "EQ3L_oth": {
+   "label": "기타 3배 롱(지수)",
+   "n_products": 22,
+   "net_sum_usd": -2983037851
+  },
+  "L3_single": {
+   "label": "단일종목 레버리지 롱(L3)",
+   "n_products": 120,
+   "net_sum_usd": 6324227978
+  },
+  "LEV_oth": {
+   "label": "기타 레버리지 롱(2배 지수 등)",
+   "n_products": 18,
+   "net_sum_usd": 2399917465
+  },
+  "H4_inv": {
+   "label": "주식 인버스(H4)",
+   "n_products": 74,
+   "net_sum_usd": 3351190704
+  },
+  "R5_inc": {
+   "label": "인컴·커버드콜(R5)",
+   "n_products": 32,
+   "net_sum_usd": 5840547763
+  },
+  "R1_semi": {
+   "label": "1배 반도체(R1)",
+   "n_products": 49,
+   "net_sum_usd": 3692967070
+  },
+  "R2_idx": {
+   "label": "1배 지수 ETF(R2)",
+   "n_products": 250,
+   "net_sum_usd": 16574846733
+  },
+  "R4_stock": {
+   "label": "그 밖 1배 개별주(R4)",
+   "n_products": 2398,
+   "net_sum_usd": 30892237591
+  },
+  "R3_bond": {
+   "label": "채권·현금(R3)",
+   "n_products": 83,
+   "net_sum_usd": 4758385088
+  },
+  "OTH": {
+   "label": "기타(원자재·코인·VIX·FX·OTHER·인버스 채권)",
+   "n_products": 69,
+   "net_sum_usd": 4764840302
+  }
+ },
+ "params": {
+  "TOPN": 10,
+  "RECN": 5,
+  "REC_MIN": 5,
+  "BASE_MIN": 0.2,
+  "decline": "(10% 지그재그 고점, 바닥] = 고점 다음 세션 ~ 바닥 날",
+  "F_decline": "(국면 고점, F 날]",
+  "baseline": "같은 길이 굴린 창, 창 끝이 같은 해(흐름 자료 2022-12-28 ~ 2026-10-30 안, 사건 창 포함)",
+  "baseline_px": "위 창 가운데 SOXX 창 수익 5분위(그 해 안)가 같은 창(메아리 대조)",
+  "share": "범주 순매수 ÷ Σ|범주 순매수|(창 합)"
+ }
+}

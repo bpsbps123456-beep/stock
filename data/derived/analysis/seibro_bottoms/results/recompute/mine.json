@@ -1,0 +1,2277 @@
+{
+ "generated": "2026-11-04T08:09:40",
+ "events": {
+  "b15": [
+   {
+    "date": "2023-10-30",
+    "confirmed": "2023-11-14",
+    "close": 146.1266632080078,
+    "top": "2023-08-01",
+    "drop": -0.1815771738262819
+   },
+   {
+    "date": "2024-04-19",
+    "confirmed": "2024-05-15",
+    "close": 198.38999938964844,
+    "top": "2024-03-07",
+    "drop": -0.16555205304038512
+   },
+   {
+    "date": "2024-08-07",
+    "confirmed": "2024-08-15",
+    "close": 199.2899932861328,
+    "top": "2024-07-10",
+    "drop": -0.2493502556906222
+   },
+   {
+    "date": "2025-04-08",
+    "confirmed": "2025-04-09",
+    "close": 154.86000061035156,
+    "top": "2024-10-14",
+    "drop": -0.3542118488758861
+   },
+   {
+    "date": "2026-03-30",
+    "confirmed": "2026-04-08",
+    "close": 309.7900085449219,
+    "top": "2026-02-25",
+    "drop": -0.15817932460619055
+   },
+   {
+    "date": "2026-07-29",
+    "confirmed": "2026-08-04",
+    "close": 465.0,
+    "top": "2026-06-22",
+    "drop": -0.29008718482579243
+   }
+  ],
+  "b15_out_of_data": [
+   "2022-10-14"
+  ],
+  "b10": [
+   "2023-10-30",
+   "2024-04-19",
+   "2024-08-07",
+   "2024-09-06",
+   "2024-11-15",
+   "2025-04-08",
+   "2025-11-20",
+   "2026-03-30",
+   "2026-06-05",
+   "2026-07-29",
+   "2026-09-14"
+  ],
+  "b10_out_of_data": [
+   "2022-10-14",
+   "2022-12-28"
+  ],
+  "b10_absorbed": [
+   {
+    "kept": "2025-04-08",
+    "dropped": "2025-04-21",
+    "gap_sessions": 8
+   }
+  ],
+  "b10_raw": [
+   "2022-10-14",
+   "2022-12-28",
+   "2023-10-30",
+   "2024-04-19",
+   "2024-08-07",
+   "2024-09-06",
+   "2024-11-15",
+   "2025-04-08",
+   "2025-04-21",
+   "2025-11-20",
+   "2026-03-30",
+   "2026-06-05",
+   "2026-07-29",
+   "2026-09-14"
+  ],
+  "tops10": [
+   "2022-10-05",
+   "2022-11-30",
+   "2023-08-01",
+   "2024-03-07",
+   "2024-07-10",
+   "2024-08-21",
+   "2024-10-14",
+   "2025-01-22",
+   "2025-04-09",
+   "2025-10-29",
+   "2026-02-25",
+   "2026-06-03",
+   "2026-06-22",
+   "2026-08-17",
+   "2026-10-05"
+  ],
+  "tops15": [
+   "2023-08-01",
+   "2024-03-07",
+   "2024-07-10",
+   "2024-10-14",
+   "2026-02-25",
+   "2026-06-22",
+   "2026-10-05"
+  ],
+  "F": [
+   {
+    "date": "2023-09-15",
+    "close": 160.39666748046875,
+    "fwd_sessions": 20,
+    "c2_excl_same": true,
+    "top10": "2023-08-01",
+    "phase_bottom": "2023-10-30"
+   },
+   {
+    "date": "2023-09-19",
+    "close": 159.586669921875,
+    "fwd_sessions": 20,
+    "c2_excl_same": true,
+    "top10": "2023-08-01",
+    "phase_bottom": "2023-10-30"
+   },
+   {
+    "date": "2023-10-19",
+    "close": 154.6666717529297,
+    "fwd_sessions": 20,
+    "c2_excl_same": true,
+    "top10": "2023-08-01",
+    "phase_bottom": "2023-10-30"
+   },
+   {
+    "date": "2023-10-20",
+    "close": 152.42999267578125,
+    "fwd_sessions": 20,
+    "c2_excl_same": true,
+    "top10": "2023-08-01",
+    "phase_bottom": "2023-10-30"
+   },
+   {
+    "date": "2024-07-19",
+    "close": 236.44000244140625,
+    "fwd_sessions": 20,
+    "c2_excl_same": true,
+    "top10": "2024-07-10",
+    "phase_bottom": "2024-08-07"
+   },
+   {
+    "date": "2024-07-24",
+    "close": 229.6699981689453,
+    "fwd_sessions": 20,
+    "c2_excl_same": true,
+    "top10": "2024-07-10",
+    "phase_bottom": "2024-08-07"
+   },
+   {
+    "date": "2024-07-25",
+    "close": 224.5500030517578,
+    "fwd_sessions": 20,
+    "c2_excl_same": true,
+    "top10": "2024-07-10",
+    "phase_bottom": "2024-08-07"
+   },
+   {
+    "date": "2024-07-30",
+    "close": 220.5800018310547,
+    "fwd_sessions": 20,
+    "c2_excl_same": true,
+    "top10": "2024-07-10",
+    "phase_bottom": "2024-08-07"
+   },
+   {
+    "date": "2024-08-28",
+    "close": 225.8999938964844,
+    "fwd_sessions": 20,
+    "c2_excl_same": true,
+    "top10": "2024-08-21",
+    "phase_bottom": "2024-09-06"
+   },
+   {
+    "date": "2025-02-27",
+    "close": 205.25,
+    "fwd_sessions": 20,
+    "c2_excl_same": true,
+    "top10": "2025-01-22",
+    "phase_bottom": "2025-04-08"
+   },
+   {
+    "date": "2025-03-03",
+    "close": 201.1499938964844,
+    "fwd_sessions": 20,
+    "c2_excl_same": true,
+    "top10": "2025-01-22",
+    "phase_bottom": "2025-04-08"
+   },
+   {
+    "date": "2025-03-06",
+    "close": 198.0399932861328,
+    "fwd_sessions": 20,
+    "c2_excl_same": true,
+    "top10": "2025-01-22",
+    "phase_bottom": "2025-04-08"
+   },
+   {
+    "date": "2025-03-10",
+    "close": 194.4199981689453,
+    "fwd_sessions": 20,
+    "c2_excl_same": true,
+    "top10": "2025-01-22",
+    "phase_bottom": "2025-04-08"
+   },
+   {
+    "date": "2025-03-11",
+    "close": 192.1199951171875,
+    "fwd_sessions": 20,
+    "c2_excl_same": true,
+    "top10": "2025-01-22",
+    "phase_bottom": "2025-04-08"
+   },
+   {
+    "date": "2025-03-27",
+    "close": 194.55999755859372,
+    "fwd_sessions": 20,
+    "c2_excl_same": true,
+    "top10": "2025-01-22",
+    "phase_bottom": "2025-04-08"
+   },
+   {
+    "date": "2025-03-28",
+    "close": 188.67999267578125,
+    "fwd_sessions": 20,
+    "c2_excl_same": true,
+    "top10": "2025-01-22",
+    "phase_bottom": "2025-04-08"
+   },
+   {
+    "date": "2025-03-31",
+    "close": 188.1699981689453,
+    "fwd_sessions": 20,
+    "c2_excl_same": true,
+    "top10": "2025-01-22",
+    "phase_bottom": "2025-04-08"
+   },
+   {
+    "date": "2026-03-06",
+    "close": 323.510009765625,
+    "fwd_sessions": 20,
+    "c2_excl_same": true,
+    "top10": "2026-02-25",
+    "phase_bottom": "2026-03-30"
+   },
+   {
+    "date": "2026-07-02",
+    "close": 566.3200073242188,
+    "fwd_sessions": 20,
+    "c2_excl_same": true,
+    "top10": "2026-06-22",
+    "phase_bottom": "2026-07-29"
+   },
+   {
+    "date": "2026-07-07",
+    "close": 551.6900024414062,
+    "fwd_sessions": 20,
+    "c2_excl_same": true,
+    "top10": "2026-06-22",
+    "phase_bottom": "2026-07-29"
+   },
+   {
+    "date": "2026-07-16",
+    "close": 530.5,
+    "fwd_sessions": 20,
+    "c2_excl_same": true,
+    "top10": "2026-06-22",
+    "phase_bottom": "2026-07-29"
+   },
+   {
+    "date": "2026-07-17",
+    "close": 521.8099975585938,
+    "fwd_sessions": 20,
+    "c2_excl_same": true,
+    "top10": "2026-06-22",
+    "phase_bottom": "2026-07-29"
+   },
+   {
+    "date": "2026-08-19",
+    "close": 519.6699829101562,
+    "fwd_sessions": 20,
+    "c2_excl_same": true,
+    "top10": "2026-08-17",
+    "phase_bottom": "2026-09-14"
+   },
+   {
+    "date": "2026-10-14",
+    "close": 519.4199829101562,
+    "fwd_sessions": 14,
+    "c2_excl_same": true,
+    "top10": "2026-10-05",
+    "phase_bottom": "current"
+   },
+   {
+    "date": "2026-10-15",
+    "close": 514.7100219726562,
+    "fwd_sessions": 13,
+    "c2_excl_same": true,
+    "top10": "2026-10-05",
+    "phase_bottom": "current"
+   },
+   {
+    "date": "2026-10-16",
+    "close": 493.3900146484375,
+    "fwd_sessions": 12,
+    "c2_excl_same": true,
+    "top10": "2026-10-05",
+    "phase_bottom": "current"
+   },
+   {
+    "date": "2026-10-22",
+    "close": 475.6900024414063,
+    "fwd_sessions": 8,
+    "c2_excl_same": true,
+    "top10": "2026-10-05",
+    "phase_bottom": "current"
+   },
+   {
+    "date": "2026-10-30",
+    "close": 471.510009765625,
+    "fwd_sessions": 2,
+    "c2_excl_same": true,
+    "top10": "2026-10-05",
+    "phase_bottom": "current"
+   }
+  ],
+  "F_undetermined": [
+   "2026-11-02"
+  ],
+  "pending15": {
+   "mode": "down",
+   "extreme": "2026-11-02"
+  },
+  "pending10": {
+   "mode": "down",
+   "extreme": "2026-11-02"
+  }
+ },
+ "calendar_check": {
+  "dates": 1002,
+  "pred_empty": 45,
+  "pred_empty_max_ratio": 0.13826032146714962,
+  "pred_double": 7,
+  "pred_double_min_ratio": 1.540613008952152,
+  "pred_double_dates": [
+   "2023-10-12",
+   "2024-05-30",
+   "2024-10-16",
+   "2024-11-13",
+   "2025-10-15",
+   "2025-11-13",
+   "2026-10-14"
+  ],
+  "pred_single": 950,
+  "single_ratio_lt_0.3": 0,
+  "single_ratio_gt_1.6": 25,
+  "single_hi_with_low_neighbor": 0,
+  "single_hi": [
+   {
+    "seibro": "2023-02-07",
+    "trade": "2023-02-02",
+    "ratio": 1.924,
+    "prev": 1.478,
+    "next": 1.528
+   },
+   {
+    "seibro": "2023-03-16",
+    "trade": "2023-03-13",
+    "ratio": 1.684,
+    "prev": 1.248,
+    "next": 1.224
+   },
+   {
+    "seibro": "2023-05-31",
+    "trade": "2023-05-25",
+    "ratio": 1.664,
+    "prev": 0.0,
+    "next": 1.443
+   },
+   {
+    "seibro": "2023-06-02",
+    "trade": "2023-05-30",
+    "ratio": 1.767,
+    "prev": 1.443,
+    "next": 1.043
+   },
+   {
+    "seibro": "2023-12-19",
+    "trade": "2023-12-14",
+    "ratio": 1.82,
+    "prev": 1.43,
+    "next": 1.18
+   },
+   {
+    "seibro": "2024-03-07",
+    "trade": "2024-03-04",
+    "ratio": 1.654,
+    "prev": 1.065,
+    "next": 1.473
+   },
+   {
+    "seibro": "2024-03-13",
+    "trade": "2024-03-08",
+    "ratio": 1.987,
+    "prev": 1.509,
+    "next": 1.534
+   },
+   {
+    "seibro": "2024-04-24",
+    "trade": "2024-04-19",
+    "ratio": 1.624,
+    "prev": 1.14,
+    "next": 1.234
+   },
+   {
+    "seibro": "2024-08-08",
+    "trade": "2024-08-06",
+    "ratio": 1.857,
+    "prev": 1.112,
+    "next": 1.255
+   },
+   {
+    "seibro": "2024-11-08",
+    "trade": "2024-11-06",
+    "ratio": 1.733,
+    "prev": 0.6,
+    "next": 1.263
+   },
+   {
+    "seibro": "2024-11-14",
+    "trade": "2024-11-12",
+    "ratio": 1.607,
+    "prev": 3.481,
+    "next": 1.384
+   },
+   {
+    "seibro": "2025-01-29",
+    "trade": "2025-01-27",
+    "ratio": 1.703,
+    "prev": 0.823,
+    "next": 1.047
+   },
+   {
+    "seibro": "2025-04-08",
+    "trade": "2025-04-04",
+    "ratio": 1.83,
+    "prev": 1.218,
+    "next": 2.178
+   },
+   {
+    "seibro": "2025-04-09",
+    "trade": "2025-04-07",
+    "ratio": 2.178,
+    "prev": 1.83,
+    "next": 1.466
+   },
+   {
+    "seibro": "2025-04-11",
+    "trade": "2025-04-09",
+    "ratio": 2.127,
+    "prev": 1.466,
+    "next": 1.47
+   },
+   {
+    "seibro": "2025-06-09",
+    "trade": "2025-06-05",
+    "ratio": 1.622,
+    "prev": 0.911,
+    "next": 1.112
+   },
+   {
+    "seibro": "2025-06-25",
+    "trade": "2025-06-23",
+    "ratio": 1.859,
+    "prev": 1.091,
+    "next": 1.51
+   },
+   {
+    "seibro": "2025-10-17",
+    "trade": "2025-10-15",
+    "ratio": 1.686,
+    "prev": 1.278,
+    "next": 1.055
+   },
+   {
+    "seibro": "2025-12-19",
+    "trade": "2025-12-17",
+    "ratio": 1.605,
+    "prev": 1.235,
+    "next": 1.137
+   },
+   {
+    "seibro": "2026-02-02",
+    "trade": "2026-01-29",
+    "ratio": 1.653,
+    "prev": 1.222,
+    "next": 1.578
+   },
+   {
+    "seibro": "2026-04-10",
+    "trade": "2026-04-08",
+    "ratio": 1.603,
+    "prev": 1.031,
+    "next": 0.911
+   },
+   {
+    "seibro": "2026-08-06",
+    "trade": "2026-08-04",
+    "ratio": 1.7,
+    "prev": 0.939,
+    "next": 1.071
+   },
+   {
+    "seibro": "2026-10-15",
+    "trade": "2026-10-13",
+    "ratio": 1.6,
+    "prev": 2.061,
+    "next": 1.405
+   },
+   {
+    "seibro": "2026-10-19",
+    "trade": "2026-10-15",
+    "ratio": 1.921,
+    "prev": 1.405,
+    "next": 0.991
+   },
+   {
+    "seibro": "2026-11-03",
+    "trade": "2026-10-30",
+    "ratio": 1.821,
+    "prev": 1.276,
+    "next": NaN
+   }
+  ]
+ },
+ "dropped_pred_empty": {
+  "dates": 45,
+  "A1_sum": 315166740.0,
+  "A1_max": {
+   "date": "2025-01-13",
+   "A1": 292538476.0
+  }
+ },
+ "unclassified_isins": {
+  "AU0000424897": "BRAIIN LIMITED",
+  "CA85207H1047": "SPROTT PHYSICAL GOLD TRUST",
+  "IE000GVCI8S8": "DAVION HEALTHCARE PLC",
+  "KYG7396L1370": "JIADE LIMITED SPLR 2641921616002 KYG7396L1297",
+  "MHY2258E1077": "AI OKTO CORPORATION",
+  "US0029421007": "AARDVK THPTC ORD",
+  "US0209522061": "ALPHA MODUS HLDGS SPLR 2641923096002 US0209521071",
+  "US0321085732": "AMPLIFY GLOBAL CLOUD TECHNO AMPLIFY GLOBAL CLOUD TECH MRGR 955998811 US26924G8050",
+  "US1311001093": "CALLAN JMB INC",
+  "US45773H4092": "INOVIO PHARMACEUTICALS INC COM USD0.001(POST REV SPLIT) SPLR 955968915 US45773H2013",
+  "US5000811043": "KODIAK ROBOTICS INC",
+  "US51255A2015": "LAKEWOOD-AMEDEX SPLR 2642122802002 US51255A1025",
+  "US67021W5094": "NUBURU INC SPLR 2642600635002 US67021W4006",
+  "US90137F7078": "22ND CENTURY GROUP, INC. SPLR 2641012450002 US90137F6088",
+  "US9396531017": "WASHINGTON REAL ESTATE INVESTMENT TRUST",
+  "VGG1110E1079": "Biohaven"
+ },
+ "trade_dates": 964,
+ "trade_first": "2022-12-28",
+ "trade_last": "2026-10-30",
+ "b15": {
+  "2023-10-30": {
+   "days": [
+    {
+     "k": -5,
+     "trade": "2023-10-23",
+     "seibro": "2023-10-26",
+     "merged": false,
+     "soxx_close": 151.56333923339844,
+     "SOXL_buy": 65111308.0,
+     "SOXL_sell": 52483095.0,
+     "SOXL_net": 12628214.0,
+     "SOXS_net": -6373070.0,
+     "SOXS_censored": false,
+     "A1": 918317466.0,
+     "Npos_d": 62983032.0
+    },
+    {
+     "k": -4,
+     "trade": "2023-10-24",
+     "seibro": "2023-10-27",
+     "merged": false,
+     "soxx_close": 153.6199951171875,
+     "SOXL_buy": 57876303.0,
+     "SOXL_sell": 47297819.0,
+     "SOXL_net": 10578484.0,
+     "SOXS_net": -14729940.0,
+     "SOXS_censored": false,
+     "A1": 807476009.0,
+     "Npos_d": 136365686.0
+    },
+    {
+     "k": -3,
+     "trade": "2023-10-25",
+     "seibro": "2023-10-30",
+     "merged": false,
+     "soxx_close": 147.41000366210938,
+     "SOXL_buy": 92952632.0,
+     "SOXL_sell": 43742211.0,
+     "SOXL_net": 49210420.0,
+     "SOXS_net": -13996615.0,
+     "SOXS_censored": false,
+     "A1": 843946139.0,
+     "Npos_d": 124999426.0
+    },
+    {
+     "k": -2,
+     "trade": "2023-10-26",
+     "seibro": "2023-10-31",
+     "merged": false,
+     "soxx_close": 146.53334045410156,
+     "SOXL_buy": 77622485.0,
+     "SOXL_sell": 80979595.0,
+     "SOXL_net": -3357110.0,
+     "SOXS_net": 11423445.0,
+     "SOXS_censored": false,
+     "A1": 1087927625.0,
+     "Npos_d": 67880699.0
+    },
+    {
+     "k": -1,
+     "trade": "2023-10-27",
+     "seibro": "2023-11-01",
+     "merged": false,
+     "soxx_close": 148.11000061035156,
+     "SOXL_buy": 42462025.0,
+     "SOXL_sell": 50298981.0,
+     "SOXL_net": -7836957.0,
+     "SOXS_net": 19869531.0,
+     "SOXS_censored": false,
+     "A1": 679276268.0,
+     "Npos_d": 90929746.0
+    },
+    {
+     "k": 0,
+     "trade": "2023-10-30",
+     "seibro": "2023-11-02",
+     "merged": false,
+     "soxx_close": 146.1266632080078,
+     "SOXL_buy": 76208118.0,
+     "SOXL_sell": 43893640.0,
+     "SOXL_net": 32314478.0,
+     "SOXS_net": -12348769.0,
+     "SOXS_censored": false,
+     "A1": 841563543.0,
+     "Npos_d": 116409128.0
+    },
+    {
+     "k": 1,
+     "trade": "2023-10-31",
+     "seibro": "2023-11-03",
+     "merged": false,
+     "soxx_close": 147.4633331298828,
+     "SOXL_buy": 36017902.0,
+     "SOXL_sell": 43907276.0,
+     "SOXL_net": -7889374.0,
+     "SOXS_net": 3005819.0,
+     "SOXS_censored": false,
+     "A1": 724321726.0,
+     "Npos_d": 60768229.0
+    },
+    {
+     "k": 2,
+     "trade": "2023-11-01",
+     "seibro": "2023-11-06",
+     "merged": false,
+     "soxx_close": 150.93333435058594,
+     "SOXL_buy": 38987112.0,
+     "SOXL_sell": 44761192.0,
+     "SOXL_net": -5774080.0,
+     "SOXS_net": -6374697.0,
+     "SOXS_censored": false,
+     "A1": 642825228.0,
+     "Npos_d": 84922308.0
+    },
+    {
+     "k": 3,
+     "trade": "2023-11-02",
+     "seibro": "2023-11-07",
+     "merged": false,
+     "soxx_close": 154.3633270263672,
+     "SOXL_buy": 45006981.0,
+     "SOXL_sell": 67120125.0,
+     "SOXL_net": -22113144.0,
+     "SOXS_net": 22342118.0,
+     "SOXS_censored": false,
+     "A1": 928452655.0,
+     "Npos_d": 139354974.0
+    },
+    {
+     "k": 4,
+     "trade": "2023-11-03",
+     "seibro": "2023-11-08",
+     "merged": false,
+     "soxx_close": 158.4199981689453,
+     "SOXL_buy": 35801071.0,
+     "SOXL_sell": 89139759.0,
+     "SOXL_net": -53338689.0,
+     "SOXS_net": 22126795.0,
+     "SOXS_censored": false,
+     "A1": 840126802.0,
+     "Npos_d": 99139461.0
+    },
+    {
+     "k": 5,
+     "trade": "2023-11-06",
+     "seibro": "2023-11-09",
+     "merged": false,
+     "soxx_close": 158.1266632080078,
+     "SOXL_buy": 36473955.0,
+     "SOXL_sell": 32809662.0,
+     "SOXL_net": 3664293.0,
+     "SOXS_net": -890700.0,
+     "SOXS_censored": false,
+     "A1": 651616946.0,
+     "Npos_d": 108548421.0
+    }
+   ],
+   "win": {
+    "W2": {
+     "end": "2023-10-27",
+     "n_sessions": 5,
+     "SOXL_net": 61223051.0,
+     "Npos": 362125408.0,
+     "Npos_daysum": 483158589.0,
+     "SOXL_buy": 336024753.0,
+     "SOXS_buy": 158506394.0,
+     "SOXS_cens_days": 0,
+     "X4": 0.12671419362887493,
+     "P_X4": {
+      "n": 206,
+      "rank": 81.06796116504854,
+      "weak": 81.06796116504854,
+      "strict": 80.58252427184466,
+      "mean": 80.8252427184466
+     },
+     "X4pos": 0.1690658806244272,
+     "P_X4pos": {
+      "n": 206,
+      "rank": 82.52427184466019,
+      "weak": 82.52427184466019,
+      "strict": 82.03883495145631,
+      "mean": 82.28155339805825
+     },
+     "H2": 0.6794814746016392,
+     "P_H2": {
+      "n": 206,
+      "rank": 81.06796116504854,
+      "weak": 81.06796116504854,
+      "strict": 80.58252427184466,
+      "mean": 80.8252427184466
+     }
+    },
+    "W3": {
+     "end": "2023-10-30",
+     "n_sessions": 1,
+     "SOXL_net": 32314478.0,
+     "Npos": 116409128.0,
+     "Npos_daysum": 116409128.0,
+     "SOXL_buy": 76208118.0,
+     "SOXS_buy": 20170710.0,
+     "SOXS_cens_days": 0,
+     "X4": 0.2775940216646928,
+     "P_X4": {
+      "n": 211,
+      "rank": 91.94312796208531,
+      "weak": 91.94312796208531,
+      "strict": 91.4691943127962,
+      "mean": 91.70616113744076
+     },
+     "X4pos": 0.2775940216646928,
+     "P_X4pos": {
+      "n": 211,
+      "rank": 91.94312796208531,
+      "weak": 91.94312796208531,
+      "strict": 91.4691943127962,
+      "mean": 91.70616113744076
+     },
+     "H2": 0.7907143050131301,
+     "P_H2": {
+      "n": 211,
+      "rank": 92.41706161137441,
+      "weak": 92.41706161137441,
+      "strict": 91.94312796208531,
+      "mean": 92.18009478672985
+     }
+    }
+   }
+  },
+  "2024-04-19": {
+   "days": [
+    {
+     "k": -5,
+     "trade": "2024-04-12",
+     "seibro": "2024-04-17",
+     "merged": false,
+     "soxx_close": 218.07000732421875,
+     "SOXL_buy": 148342989.0,
+     "SOXL_sell": 61677622.0,
+     "SOXL_net": 86665367.0,
+     "SOXS_net": -11755267.0,
+     "SOXS_censored": false,
+     "A1": 1014678878.0,
+     "Npos_d": 173843194.0
+    },
+    {
+     "k": -4,
+     "trade": "2024-04-15",
+     "seibro": "2024-04-18",
+     "merged": false,
+     "soxx_close": 215.30999755859372,
+     "SOXL_buy": 86208452.0,
+     "SOXL_sell": 71293673.0,
+     "SOXL_net": 14914780.0,
+     "SOXS_net": -7933443.0,
+     "SOXS_censored": false,
+     "A1": 1128544903.0,
+     "Npos_d": 119392499.0
+    },
+    {
+     "k": -3,
+     "trade": "2024-04-16",
+     "seibro": "2024-04-19",
+     "merged": false,
+     "soxx_close": 216.94000244140625,
+     "SOXL_buy": 51810704.0,
+     "SOXL_sell": 63502752.0,
+     "SOXL_net": -11692048.0,
+     "SOXS_net": -5266108.0,
+     "SOXS_censored": false,
+     "A1": 985900585.0,
+     "Npos_d": 71862616.0
+    },
+    {
+     "k": -2,
+     "trade": "2024-04-17",
+     "seibro": "2024-04-22",
+     "merged": false,
+     "soxx_close": 210.3600006103516,
+     "SOXL_buy": 136341898.0,
+     "SOXL_sell": 82021999.0,
+     "SOXL_net": 54319899.0,
+     "SOXS_net": -7379927.0,
+     "SOXS_censored": false,
+     "A1": 1028275849.0,
+     "Npos_d": 169203525.0
+    },
+    {
+     "k": -1,
+     "trade": "2024-04-18",
+     "seibro": "2024-04-23",
+     "merged": false,
+     "soxx_close": 206.6300048828125,
+     "SOXL_buy": 161151453.0,
+     "SOXL_sell": 86184728.0,
+     "SOXL_net": 74966724.0,
+     "SOXS_net": -24450229.0,
+     "SOXS_censored": false,
+     "A1": 1164343574.0,
+     "Npos_d": 199827868.0
+    },
+    {
+     "k": 0,
+     "trade": "2024-04-19",
+     "seibro": "2024-04-24",
+     "merged": false,
+     "soxx_close": 198.38999938964844,
+     "SOXL_buy": 184044046.0,
+     "SOXL_sell": 131395684.0,
+     "SOXL_net": 52648362.0,
+     "SOXS_net": 3894697.0,
+     "SOXS_censored": false,
+     "A1": 1646911750.0,
+     "Npos_d": 116195969.0
+    },
+    {
+     "k": 1,
+     "trade": "2024-04-22",
+     "seibro": "2024-04-25",
+     "merged": false,
+     "soxx_close": 201.66000366210935,
+     "SOXL_buy": 95900806.0,
+     "SOXL_sell": 88304110.0,
+     "SOXL_net": 7596696.0,
+     "SOXS_net": -4643821.0,
+     "SOXS_censored": false,
+     "A1": 1234594987.0,
+     "Npos_d": 138304922.0
+    },
+    {
+     "k": 2,
+     "trade": "2024-04-23",
+     "seibro": "2024-04-26",
+     "merged": false,
+     "soxx_close": 205.8699951171875,
+     "SOXL_buy": 75150018.0,
+     "SOXL_sell": 68877083.0,
+     "SOXL_net": 6272936.0,
+     "SOXS_net": -5105626.0,
+     "SOXS_censored": false,
+     "A1": 894363113.0,
+     "Npos_d": 196953985.0
+    },
+    {
+     "k": 3,
+     "trade": "2024-04-24",
+     "seibro": "2024-04-29",
+     "merged": false,
+     "soxx_close": 208.5399932861328,
+     "SOXL_buy": 76103011.0,
+     "SOXL_sell": 103634710.0,
+     "SOXL_net": -27531699.0,
+     "SOXS_net": 180457.0,
+     "SOXS_censored": false,
+     "A1": 1147800596.0,
+     "Npos_d": 199546044.0
+    },
+    {
+     "k": 4,
+     "trade": "2024-04-25",
+     "seibro": "2024-04-30",
+     "merged": false,
+     "soxx_close": 212.41000366210935,
+     "SOXL_buy": 80825033.0,
+     "SOXL_sell": 127261983.0,
+     "SOXL_net": -46436950.0,
+     "SOXS_net": 16104613.0,
+     "SOXS_censored": false,
+     "A1": 1148882645.0,
+     "Npos_d": 118541436.0
+    },
+    {
+     "k": 5,
+     "trade": "2024-04-26",
+     "seibro": "2024-05-01",
+     "merged": false,
+     "soxx_close": 216.8999938964844,
+     "SOXL_buy": 66587343.0,
+     "SOXL_sell": 106222552.0,
+     "SOXL_net": -39635210.0,
+     "SOXS_net": 3450177.0,
+     "SOXS_censored": false,
+     "A1": 987741080.0,
+     "Npos_d": 133782137.0
+    }
+   ],
+   "win": {
+    "W2": {
+     "end": "2024-04-18",
+     "n_sessions": 5,
+     "SOXL_net": 219174722.0,
+     "Npos": 614373455.0,
+     "Npos_daysum": 734129702.0,
+     "SOXL_buy": 583855496.0,
+     "SOXS_buy": 146051707.0,
+     "SOXS_cens_days": 0,
+     "X4": 0.29855040792233195,
+     "P_X4": {
+      "n": 250,
+      "rank": 100.0,
+      "weak": 100.0,
+      "strict": 99.6,
+      "mean": 99.8
+     },
+     "X4pos": 0.35674510383916247,
+     "P_X4pos": {
+      "n": 250,
+      "rank": 100.0,
+      "weak": 100.0,
+      "strict": 99.6,
+      "mean": 99.8
+     },
+     "H2": 0.7999037324200786,
+     "P_H2": {
+      "n": 250,
+      "rank": 96.4,
+      "weak": 96.4,
+      "strict": 96.0,
+      "mean": 96.2
+     }
+    },
+    "W3": {
+     "end": "2024-04-19",
+     "n_sessions": 1,
+     "SOXL_net": 52648362.0,
+     "Npos": 116195969.0,
+     "Npos_daysum": 116195969.0,
+     "SOXL_buy": 184044046.0,
+     "SOXS_buy": 44783460.0,
+     "SOXS_cens_days": 0,
+     "X4": 0.45309972844238683,
+     "P_X4": {
+      "n": 250,
+      "rank": 98.4,
+      "weak": 98.4,
+      "strict": 98.0,
+      "mean": 98.2
+     },
+     "X4pos": 0.45309972844238683,
+     "P_X4pos": {
+      "n": 250,
+      "rank": 98.4,
+      "weak": 98.4,
+      "strict": 98.0,
+      "mean": 98.2
+     },
+     "H2": 0.8042916221793721,
+     "P_H2": {
+      "n": 250,
+      "rank": 88.8,
+      "weak": 88.8,
+      "strict": 88.4,
+      "mean": 88.6
+     }
+    }
+   }
+  },
+  "2024-08-07": {
+   "days": [
+    {
+     "k": -5,
+     "trade": "2024-07-31",
+     "seibro": "2024-08-02",
+     "merged": false,
+     "soxx_close": 235.3800048828125,
+     "SOXL_buy": 128383568.0,
+     "SOXL_sell": 200780243.0,
+     "SOXL_net": -72396675.0,
+     "SOXS_net": 8787467.0,
+     "SOXS_censored": false,
+     "A1": 1902512148.0,
+     "Npos_d": 186483902.0
+    },
+    {
+     "k": -4,
+     "trade": "2024-08-01",
+     "seibro": "2024-08-05",
+     "merged": false,
+     "soxx_close": 218.4199981689453,
+     "SOXL_buy": 376194021.0,
+     "SOXL_sell": 181109899.0,
+     "SOXL_net": 195084122.0,
+     "SOXS_net": -5849131.0,
+     "SOXS_censored": false,
+     "A1": 2322507085.0,
+     "Npos_d": 403598110.0
+    },
+    {
+     "k": -3,
+     "trade": "2024-08-02",
+     "seibro": "2024-08-06",
+     "merged": false,
+     "soxx_close": 206.80999755859372,
+     "SOXL_buy": 437902817.0,
+     "SOXL_sell": 240803353.0,
+     "SOXL_net": 197099463.0,
+     "SOXS_net": -15571755.0,
+     "SOXS_censored": false,
+     "A1": 2708740209.0,
+     "Npos_d": 316029414.0
+    },
+    {
+     "k": -2,
+     "trade": "2024-08-05",
+     "seibro": "2024-08-07",
+     "merged": false,
+     "soxx_close": 203.16000366210935,
+     "SOXL_buy": 175122037.0,
+     "SOXL_sell": 104976026.0,
+     "SOXL_net": 70146011.0,
+     "SOXS_net": -3045121.0,
+     "SOXS_censored": false,
+     "A1": 1934162187.0,
+     "Npos_d": 187393943.0
+    },
+    {
+     "k": -1,
+     "trade": "2024-08-06",
+     "seibro": "2024-08-08",
+     "merged": false,
+     "soxx_close": 205.0,
+     "SOXL_buy": 374114893.0,
+     "SOXL_sell": 335171494.0,
+     "SOXL_net": 38943399.0,
+     "SOXS_net": -1542030.0,
+     "SOXS_censored": false,
+     "A1": 3230304145.0,
+     "Npos_d": 167268626.0
+    },
+    {
+     "k": 0,
+     "trade": "2024-08-07",
+     "seibro": "2024-08-09",
+     "merged": false,
+     "soxx_close": 199.2899932861328,
+     "SOXL_buy": 261414840.0,
+     "SOXL_sell": 182305278.0,
+     "SOXL_net": 79109562.0,
+     "SOXS_net": -1586183.0,
+     "SOXS_censored": false,
+     "A1": 2109330172.0,
+     "Npos_d": 534712889.0
+    },
+    {
+     "k": 1,
+     "trade": "2024-08-08",
+     "seibro": "2024-08-12",
+     "merged": false,
+     "soxx_close": 213.0399932861328,
+     "SOXL_buy": 182494297.0,
+     "SOXL_sell": 254398096.0,
+     "SOXL_net": -71903799.0,
+     "SOXS_net": 15324994.0,
+     "SOXS_censored": false,
+     "A1": 1597720801.0,
+     "Npos_d": 99719965.0
+    },
+    {
+     "k": 2,
+     "trade": "2024-08-09",
+     "seibro": "2024-08-13",
+     "merged": false,
+     "soxx_close": 211.77999877929688,
+     "SOXL_buy": 160678288.0,
+     "SOXL_sell": 113501991.0,
+     "SOXL_net": 47176297.0,
+     "SOXS_net": 7529076.0,
+     "SOXS_censored": false,
+     "A1": 1329920532.0,
+     "Npos_d": 220314868.0
+    },
+    {
+     "k": 3,
+     "trade": "2024-08-12",
+     "seibro": "2024-08-14",
+     "merged": false,
+     "soxx_close": 213.0,
+     "SOXL_buy": 86977436.0,
+     "SOXL_sell": 100881329.0,
+     "SOXL_net": -13903893.0,
+     "SOXS_net": 1906407.0,
+     "SOXS_censored": false,
+     "A1": 1210472743.0,
+     "Npos_d": 123955190.0
+    },
+    {
+     "k": 4,
+     "trade": "2024-08-13",
+     "seibro": "2024-08-15",
+     "merged": false,
+     "soxx_close": 221.6499938964844,
+     "SOXL_buy": 108799793.0,
+     "SOXL_sell": 178419448.0,
+     "SOXL_net": -69619656.0,
+     "SOXS_net": 13434139.0,
+     "SOXS_censored": false,
+     "A1": 1775866736.0,
+     "Npos_d": 178768226.0
+    },
+    {
+     "k": 5,
+     "trade": "2024-08-14",
+     "seibro": "2024-08-16",
+     "merged": false,
+     "soxx_close": 221.08999633789065,
+     "SOXL_buy": 155892963.0,
+     "SOXL_sell": 121375767.0,
+     "SOXL_net": 34517196.0,
+     "SOXS_net": 2863022.0,
+     "SOXS_censored": false,
+     "A1": 1436166299.0,
+     "Npos_d": 200436595.0
+    }
+   ],
+   "win": {
+    "W2": {
+     "end": "2024-08-06",
+     "n_sessions": 5,
+     "SOXL_net": 428876320.0,
+     "Npos": 920569787.0,
+     "Npos_daysum": 1260773995.0,
+     "SOXL_buy": 1491717336.0,
+     "SOXS_buy": 101889679.0,
+     "SOXS_cens_days": 0,
+     "X4": 0.34016907209447955,
+     "P_X4": {
+      "n": 250,
+      "rank": 97.2,
+      "weak": 97.2,
+      "strict": 96.8,
+      "mean": 97.0
+     },
+     "X4pos": 0.46588137700852006,
+     "P_X4pos": {
+      "n": 250,
+      "rank": 98.4,
+      "weak": 98.4,
+      "strict": 98.0,
+      "mean": 98.2
+     },
+     "H2": 0.9360634848862033,
+     "P_H2": {
+      "n": 250,
+      "rank": 100.0,
+      "weak": 100.0,
+      "strict": 99.6,
+      "mean": 99.8
+     }
+    },
+    "W3": {
+     "end": "2024-08-07",
+     "n_sessions": 1,
+     "SOXL_net": 79109562.0,
+     "Npos": 534712889.0,
+     "Npos_daysum": 534712889.0,
+     "SOXL_buy": 261414840.0,
+     "SOXS_buy": 48632081.0,
+     "SOXS_cens_days": 0,
+     "X4": 0.14794773723885304,
+     "P_X4": {
+      "n": 250,
+      "rank": 70.4,
+      "weak": 70.4,
+      "strict": 70.0,
+      "mean": 70.2
+     },
+     "X4pos": 0.14794773723885304,
+     "P_X4pos": {
+      "n": 250,
+      "rank": 70.4,
+      "weak": 70.4,
+      "strict": 70.0,
+      "mean": 70.2
+     },
+     "H2": 0.8431460604635387,
+     "P_H2": {
+      "n": 250,
+      "rank": 92.4,
+      "weak": 92.4,
+      "strict": 92.0,
+      "mean": 92.2
+     }
+    }
+   }
+  },
+  "2025-04-08": {
+   "days": [
+    {
+     "k": -5,
+     "trade": "2025-04-01",
+     "seibro": "2025-04-03",
+     "merged": false,
+     "soxx_close": 188.2700042724609,
+     "SOXL_buy": 41896615.0,
+     "SOXL_sell": 19819819.0,
+     "SOXL_net": 22076796.0,
+     "SOXS_net": -2788984.0,
+     "SOXS_censored": false,
+     "A1": 1233583181.0,
+     "Npos_d": 159442626.0
+    },
+    {
+     "k": -4,
+     "trade": "2025-04-02",
+     "seibro": "2025-04-04",
+     "merged": false,
+     "soxx_close": 189.47999572753903,
+     "SOXL_buy": 33759785.0,
+     "SOXL_sell": 77648978.0,
+     "SOXL_net": -43889193.0,
+     "SOXS_net": 772371.0,
+     "SOXS_censored": false,
+     "A1": 1582458714.0,
+     "Npos_d": 134479370.0
+    },
+    {
+     "k": -3,
+     "trade": "2025-04-03",
+     "seibro": "2025-04-07",
+     "merged": false,
+     "soxx_close": 170.36000061035156,
+     "SOXL_buy": 288960484.0,
+     "SOXL_sell": 42664686.0,
+     "SOXL_net": 246295798.0,
+     "SOXS_net": -12341133.0,
+     "SOXS_censored": false,
+     "A1": 1677398651.0,
+     "Npos_d": 634183281.0
+    },
+    {
+     "k": -2,
+     "trade": "2025-04-04",
+     "seibro": "2025-04-08",
+     "merged": false,
+     "soxx_close": 157.6300048828125,
+     "SOXL_buy": 344843563.0,
+     "SOXL_sell": 118165045.0,
+     "SOXL_net": 226678518.0,
+     "SOXS_net": -9035641.0,
+     "SOXS_censored": false,
+     "A1": 2521298696.0,
+     "Npos_d": 835438606.0
+    },
+    {
+     "k": -1,
+     "trade": "2025-04-07",
+     "seibro": "2025-04-09",
+     "merged": false,
+     "soxx_close": 161.27000427246094,
+     "SOXL_buy": 262535217.0,
+     "SOXL_sell": 230724615.0,
+     "SOXL_net": 31810602.0,
+     "SOXS_net": 8468446.0,
+     "SOXS_censored": false,
+     "A1": 3000192532.0,
+     "Npos_d": 457035837.0
+    },
+    {
+     "k": 0,
+     "trade": "2025-04-08",
+     "seibro": "2025-04-10",
+     "merged": false,
+     "soxx_close": 154.86000061035156,
+     "SOXL_buy": 232512880.0,
+     "SOXL_sell": 100897742.0,
+     "SOXL_net": 131615138.0,
+     "SOXS_net": 7235327.0,
+     "SOXS_censored": false,
+     "A1": 2019843122.0,
+     "Npos_d": 517654856.0
+    },
+    {
+     "k": 1,
+     "trade": "2025-04-09",
+     "seibro": "2025-04-11",
+     "merged": false,
+     "soxx_close": 183.6199951171875,
+     "SOXL_buy": 383633615.0,
+     "SOXL_sell": 495443163.0,
+     "SOXL_net": -111809547.0,
+     "SOXS_net": 26154089.0,
+     "SOXS_censored": false,
+     "A1": 2913509669.0,
+     "Npos_d": 192108114.0
+    },
+    {
+     "k": 2,
+     "trade": "2025-04-10",
+     "seibro": "2025-04-14",
+     "merged": false,
+     "soxx_close": 168.61000061035156,
+     "SOXL_buy": 362349485.0,
+     "SOXL_sell": 148031079.0,
+     "SOXL_net": 214318407.0,
+     "SOXS_net": -13863891.0,
+     "SOXS_censored": false,
+     "A1": 2013827863.0,
+     "Npos_d": 385080970.0
+    },
+    {
+     "k": 3,
+     "trade": "2025-04-11",
+     "seibro": "2025-04-15",
+     "merged": false,
+     "soxx_close": 172.25999450683594,
+     "SOXL_buy": 106186166.0,
+     "SOXL_sell": 135970446.0,
+     "SOXL_net": -29784281.0,
+     "SOXS_net": 2449267.0,
+     "SOXS_censored": false,
+     "A1": 1266902472.0,
+     "Npos_d": 174417586.0
+    },
+    {
+     "k": 4,
+     "trade": "2025-04-14",
+     "seibro": "2025-04-16",
+     "merged": false,
+     "soxx_close": 173.39999389648438,
+     "SOXL_buy": 118541626.0,
+     "SOXL_sell": 92032686.0,
+     "SOXL_net": 26508940.0,
+     "SOXS_net": 1182706.0,
+     "SOXS_censored": false,
+     "A1": 1605201726.0,
+     "Npos_d": 295635279.0
+    },
+    {
+     "k": 5,
+     "trade": "2025-04-15",
+     "seibro": "2025-04-17",
+     "merged": false,
+     "soxx_close": 174.11000061035156,
+     "SOXL_buy": 72253401.0,
+     "SOXL_sell": 48959227.0,
+     "SOXL_net": 23294174.0,
+     "SOXS_net": 6868861.0,
+     "SOXS_censored": false,
+     "A1": 1004747641.0,
+     "Npos_d": 226657758.0
+    }
+   ],
+   "win": {
+    "W2": {
+     "end": "2025-04-07",
+     "n_sessions": 5,
+     "SOXL_net": 482972521.0,
+     "Npos": 1995467866.0,
+     "Npos_daysum": 2220579720.0,
+     "SOXL_buy": 971995664.0,
+     "SOXS_buy": 58811650.0,
+     "SOXS_cens_days": 0,
+     "X4": 0.2174983931673482,
+     "P_X4": {
+      "n": 250,
+      "rank": 86.8,
+      "weak": 86.8,
+      "strict": 86.4,
+      "mean": 86.6
+     },
+     "X4pos": 0.24203472740863471,
+     "P_X4pos": {
+      "n": 250,
+      "rank": 83.6,
+      "weak": 83.6,
+      "strict": 83.2,
+      "mean": 83.4
+     },
+     "H2": 0.9429460295816255,
+     "P_H2": {
+      "n": 250,
+      "rank": 100.0,
+      "weak": 100.0,
+      "strict": 99.6,
+      "mean": 99.8
+     }
+    },
+    "W3": {
+     "end": "2025-04-08",
+     "n_sessions": 1,
+     "SOXL_net": 131615138.0,
+     "Npos": 517654856.0,
+     "Npos_daysum": 517654856.0,
+     "SOXL_buy": 232512880.0,
+     "SOXS_buy": 11859148.0,
+     "SOXS_cens_days": 0,
+     "X4": 0.2542526868520287,
+     "P_X4": {
+      "n": 250,
+      "rank": 78.8,
+      "weak": 78.8,
+      "strict": 78.4,
+      "mean": 78.6
+     },
+     "X4pos": 0.2542526868520287,
+     "P_X4pos": {
+      "n": 250,
+      "rank": 78.8,
+      "weak": 78.8,
+      "strict": 78.4,
+      "mean": 78.6
+     },
+     "H2": 0.9514709269425877,
+     "P_H2": {
+      "n": 250,
+      "rank": 96.8,
+      "weak": 96.8,
+      "strict": 96.4,
+      "mean": 96.6
+     }
+    }
+   }
+  },
+  "2026-03-30": {
+   "days": [
+    {
+     "k": -5,
+     "trade": "2026-03-23",
+     "seibro": "2026-03-25",
+     "merged": false,
+     "soxx_close": 336.5899963378906,
+     "SOXL_buy": 61829003.0,
+     "SOXL_sell": 370966146.0,
+     "SOXL_net": -309137143.0,
+     "SOXS_net": 7943145.0,
+     "SOXS_censored": false,
+     "A1": 1766336215.0,
+     "Npos_d": 218314421.0
+    },
+    {
+     "k": -4,
+     "trade": "2026-03-24",
+     "seibro": "2026-03-26",
+     "merged": false,
+     "soxx_close": 341.0199890136719,
+     "SOXL_buy": 42116601.0,
+     "SOXL_sell": 291943638.0,
+     "SOXL_net": -249827037.0,
+     "SOXS_net": 23771376.0,
+     "SOXS_censored": false,
+     "A1": 1315819736.0,
+     "Npos_d": 259895730.0
+    },
+    {
+     "k": -3,
+     "trade": "2026-03-25",
+     "seibro": "2026-03-27",
+     "merged": false,
+     "soxx_close": 345.25,
+     "SOXL_buy": 39544504.0,
+     "SOXL_sell": 154834769.0,
+     "SOXL_net": -115290266.0,
+     "SOXS_net": 15176979.0,
+     "SOXS_censored": false,
+     "A1": 1217320475.0,
+     "Npos_d": 306080117.0
+    },
+    {
+     "k": -2,
+     "trade": "2026-03-26",
+     "seibro": "2026-03-30",
+     "merged": false,
+     "soxx_close": 328.8500061035156,
+     "SOXL_buy": 476182860.0,
+     "SOXL_sell": 23920802.0,
+     "SOXL_net": 452262058.0,
+     "SOXS_net": -51694392.0,
+     "SOXS_censored": false,
+     "A1": 1573108645.0,
+     "Npos_d": 740508450.0
+    },
+    {
+     "k": -1,
+     "trade": "2026-03-27",
+     "seibro": "2026-03-31",
+     "merged": false,
+     "soxx_close": 323.4800109863281,
+     "SOXL_buy": 352929100.0,
+     "SOXL_sell": 28308249.0,
+     "SOXL_net": 324620851.0,
+     "SOXS_net": -19200339.0,
+     "SOXS_censored": false,
+     "A1": 1518117133.0,
+     "Npos_d": 777631651.0
+    },
+    {
+     "k": 0,
+     "trade": "2026-03-30",
+     "seibro": "2026-04-01",
+     "merged": false,
+     "soxx_close": 309.7900085449219,
+     "SOXL_buy": 429869492.0,
+     "SOXL_sell": 43518871.0,
+     "SOXL_net": 386350621.0,
+     "SOXS_net": -18216057.0,
+     "SOXS_censored": false,
+     "A1": 1478395621.0,
+     "Npos_d": 607108829.0
+    },
+    {
+     "k": 1,
+     "trade": "2026-03-31",
+     "seibro": "2026-04-02",
+     "merged": false,
+     "soxx_close": 328.6600036621094,
+     "SOXL_buy": 51471354.0,
+     "SOXL_sell": 542308602.0,
+     "SOXL_net": -490837247.0,
+     "SOXS_net": 29576543.0,
+     "SOXS_censored": false,
+     "A1": 1605090451.0,
+     "Npos_d": 215863562.0
+    },
+    {
+     "k": 2,
+     "trade": "2026-04-01",
+     "seibro": "2026-04-03",
+     "merged": false,
+     "soxx_close": 338.5400085449219,
+     "SOXL_buy": 46847510.0,
+     "SOXL_sell": 459086605.0,
+     "SOXL_net": -412239095.0,
+     "SOXS_net": 31899378.0,
+     "SOXS_censored": false,
+     "A1": 1707711118.0,
+     "Npos_d": 403664907.0
+    },
+    {
+     "k": 3,
+     "trade": "2026-04-02",
+     "seibro": "2026-04-07",
+     "merged": false,
+     "soxx_close": 339.6099853515625,
+     "SOXL_buy": 90759436.0,
+     "SOXL_sell": 269023671.0,
+     "SOXL_net": -178264235.0,
+     "SOXS_net": 12288079.0,
+     "SOXS_censored": false,
+     "A1": 1332937141.0,
+     "Npos_d": 131648685.0
+    },
+    {
+     "k": 4,
+     "trade": "2026-04-06",
+     "seibro": "2026-04-08",
+     "merged": false,
+     "soxx_close": 344.1000061035156,
+     "SOXL_buy": 65493041.0,
+     "SOXL_sell": 149771121.0,
+     "SOXL_net": -84278080.0,
+     "SOXS_net": 18873710.0,
+     "SOXS_censored": false,
+     "A1": 1121760678.0,
+     "Npos_d": 343310660.0
+    },
+    {
+     "k": 5,
+     "trade": "2026-04-07",
+     "seibro": "2026-04-09",
+     "merged": false,
+     "soxx_close": 347.760009765625,
+     "SOXL_buy": 50263179.0,
+     "SOXL_sell": 273290775.0,
+     "SOXL_net": -223027596.0,
+     "SOXS_net": 20630752.0,
+     "SOXS_censored": false,
+     "A1": 1444184625.0,
+     "Npos_d": 188854127.0
+    }
+   ],
+   "win": {
+    "W2": {
+     "end": "2026-03-27",
+     "n_sessions": 5,
+     "SOXL_net": 102628463.0,
+     "Npos": 1324036283.0,
+     "Npos_daysum": 2302430369.0,
+     "SOXL_buy": 972602068.0,
+     "SOXS_buy": 115086055.0,
+     "SOXS_cens_days": 0,
+     "X4": 0.04457397034967619,
+     "P_X4": {
+      "n": 250,
+      "rank": 72.0,
+      "weak": 72.0,
+      "strict": 71.6,
+      "mean": 71.8
+     },
+     "X4pos": 0.07751182072402467,
+     "P_X4pos": {
+      "n": 250,
+      "rank": 73.6,
+      "weak": 73.6,
+      "strict": 73.2,
+      "mean": 73.4
+     },
+     "H2": 0.8941920458940232,
+     "P_H2": {
+      "n": 250,
+      "rank": 72.4,
+      "weak": 72.4,
+      "strict": 72.0,
+      "mean": 72.2
+     }
+    },
+    "W3": {
+     "end": "2026-03-30",
+     "n_sessions": 1,
+     "SOXL_net": 386350621.0,
+     "Npos": 607108829.0,
+     "Npos_daysum": 607108829.0,
+     "SOXL_buy": 429869492.0,
+     "SOXS_buy": 18513049.0,
+     "SOXS_cens_days": 0,
+     "X4": 0.6363778659525968,
+     "P_X4": {
+      "n": 250,
+      "rank": 99.2,
+      "weak": 99.2,
+      "strict": 98.8,
+      "mean": 99.0
+     },
+     "X4pos": 0.6363778659525968,
+     "P_X4pos": {
+      "n": 250,
+      "rank": 99.2,
+      "weak": 99.2,
+      "strict": 98.8,
+      "mean": 99.0
+     },
+     "H2": 0.9587114856017555,
+     "P_H2": {
+      "n": 250,
+      "rank": 89.2,
+      "weak": 89.2,
+      "strict": 88.8,
+      "mean": 89.0
+     }
+    }
+   }
+  },
+  "2026-07-29": {
+   "days": [
+    {
+     "k": -5,
+     "trade": "2026-07-22",
+     "seibro": "2026-07-24",
+     "merged": false,
+     "soxx_close": 555.52001953125,
+     "SOXL_buy": 18580395.0,
+     "SOXL_sell": 213486967.0,
+     "SOXL_net": -194906572.0,
+     "SOXS_net": 7407862.0,
+     "SOXS_censored": false,
+     "A1": 1065037156.0,
+     "Npos_d": 283745819.0
+    },
+    {
+     "k": -4,
+     "trade": "2026-07-23",
+     "seibro": "2026-07-27",
+     "merged": false,
+     "soxx_close": 551.239990234375,
+     "SOXL_buy": 471232221.0,
+     "SOXL_sell": 17364105.0,
+     "SOXL_net": 453868117.0,
+     "SOXS_net": -4040816.0,
+     "SOXS_censored": false,
+     "A1": 1740793132.0,
+     "Npos_d": 1026394029.0
+    },
+    {
+     "k": -3,
+     "trade": "2026-07-24",
+     "seibro": "2026-07-28",
+     "merged": false,
+     "soxx_close": 527.010009765625,
+     "SOXL_buy": 595705553.0,
+     "SOXL_sell": 18922907.0,
+     "SOXL_net": 576782646.0,
+     "SOXS_net": -28263447.0,
+     "SOXS_censored": false,
+     "A1": 1486086858.0,
+     "Npos_d": 861514458.0
+    },
+    {
+     "k": -2,
+     "trade": "2026-07-27",
+     "seibro": "2026-07-29",
+     "merged": false,
+     "soxx_close": 516.22998046875,
+     "SOXL_buy": 297197702.0,
+     "SOXL_sell": 24811367.0,
+     "SOXL_net": 272386335.0,
+     "SOXS_net": -12548271.0,
+     "SOXS_censored": false,
+     "A1": 1212732659.0,
+     "Npos_d": 532938299.0
+    },
+    {
+     "k": -1,
+     "trade": "2026-07-28",
+     "seibro": "2026-07-30",
+     "merged": false,
+     "soxx_close": 491.4599914550781,
+     "SOXL_buy": 756617406.0,
+     "SOXL_sell": 32023259.0,
+     "SOXL_net": 724594147.0,
+     "SOXS_net": -30705551.0,
+     "SOXS_censored": false,
+     "A1": 1869193064.0,
+     "Npos_d": 978170948.0
+    },
+    {
+     "k": 0,
+     "trade": "2026-07-29",
+     "seibro": "2026-07-31",
+     "merged": false,
+     "soxx_close": 465.0,
+     "SOXL_buy": 498417427.0,
+     "SOXL_sell": 45511589.0,
+     "SOXL_net": 452905838.0,
+     "SOXS_net": -3324337.0,
+     "SOXS_censored": false,
+     "A1": 1613864381.0,
+     "Npos_d": 708834692.0
+    },
+    {
+     "k": 1,
+     "trade": "2026-07-30",
+     "seibro": "2026-08-03",
+     "merged": false,
+     "soxx_close": 504.5299987792969,
+     "SOXL_buy": 34634363.0,
+     "SOXL_sell": 699034339.0,
+     "SOXL_net": -664399976.0,
+     "SOXS_net": 10563589.0,
+     "SOXS_censored": false,
+     "A1": 1932443732.0,
+     "Npos_d": 526132796.0
+    },
+    {
+     "k": 2,
+     "trade": "2026-07-31",
+     "seibro": "2026-08-04",
+     "merged": false,
+     "soxx_close": 504.8900146484375,
+     "SOXL_buy": 90018532.0,
+     "SOXL_sell": 32969608.0,
+     "SOXL_net": 57048924.0,
+     "SOXS_net": 6423071.0,
+     "SOXS_censored": false,
+     "A1": 1456916573.0,
+     "Npos_d": 741739761.0
+    },
+    {
+     "k": 3,
+     "trade": "2026-08-03",
+     "seibro": "2026-08-05",
+     "merged": false,
+     "soxx_close": 507.6799926757813,
+     "SOXL_buy": 43330751.0,
+     "SOXL_sell": 227035386.0,
+     "SOXL_net": -183704635.0,
+     "SOXS_net": -5031007.0,
+     "SOXS_censored": false,
+     "A1": 1367843298.0,
+     "Npos_d": 522261292.0
+    },
+    {
+     "k": 4,
+     "trade": "2026-08-04",
+     "seibro": "2026-08-06",
+     "merged": false,
+     "soxx_close": 542.2100219726562,
+     "SOXL_buy": 22549911.0,
+     "SOXL_sell": 883499669.0,
+     "SOXL_net": -860949758.0,
+     "SOXS_net": 54223197.0,
+     "SOXS_censored": false,
+     "A1": 2358813415.0,
+     "Npos_d": 668998246.0
+    },
+    {
+     "k": 5,
+     "trade": "2026-08-05",
+     "seibro": "2026-08-07",
+     "merged": false,
+     "soxx_close": 530.7000122070312,
+     "SOXL_buy": 489395666.0,
+     "SOXL_sell": 20856180.0,
+     "SOXL_net": 468539486.0,
+     "SOXS_net": -743908.0,
+     "SOXS_censored": false,
+     "A1": 1485561766.0,
+     "Npos_d": 865999029.0
+    }
+   ],
+   "win": {
+    "W2": {
+     "end": "2026-07-28",
+     "n_sessions": 5,
+     "SOXL_net": 1832724673.0,
+     "Npos": 3176695130.0,
+     "Npos_daysum": 3682763553.0,
+     "SOXL_buy": 2139333277.0,
+     "SOXS_buy": 38165244.0,
+     "SOXS_cens_days": 0,
+     "X4": 0.49764929152376675,
+     "P_X4": {
+      "n": 250,
+      "rank": 100.0,
+      "weak": 100.0,
+      "strict": 99.6,
+      "mean": 99.8
+     },
+     "X4pos": 0.5769280960241218,
+     "P_X4pos": {
+      "n": 250,
+      "rank": 98.8,
+      "weak": 98.8,
+      "strict": 98.4,
+      "mean": 98.6
+     },
+     "H2": 0.9824728955579392,
+     "P_H2": {
+      "n": 250,
+      "rank": 99.6,
+      "weak": 99.6,
+      "strict": 99.2,
+      "mean": 99.4
+     }
+    },
+    "W3": {
+     "end": "2026-07-29",
+     "n_sessions": 1,
+     "SOXL_net": 452905838.0,
+     "Npos": 708834692.0,
+     "Npos_daysum": 708834692.0,
+     "SOXL_buy": 498417427.0,
+     "SOXS_buy": 6135272.0,
+     "SOXS_cens_days": 0,
+     "X4": 0.6389442321482764,
+     "P_X4": {
+      "n": 250,
+      "rank": 95.6,
+      "weak": 95.6,
+      "strict": 95.2,
+      "mean": 95.4
+     },
+     "X4pos": 0.6389442321482764,
+     "P_X4pos": {
+      "n": 250,
+      "rank": 95.6,
+      "weak": 95.6,
+      "strict": 95.2,
+      "mean": 95.4
+     },
+     "H2": 0.987840176036795,
+     "P_H2": {
+      "n": 250,
+      "rank": 95.6,
+      "weak": 95.6,
+      "strict": 95.2,
+      "mean": 95.4
+     }
+    }
+   }
+  }
+ },
+ "custody": {
+  "valuation_r2": {
+   "-2": {
+    "2023": 0.0042,
+    "2024": 0.0569,
+    "2025": 0.1011,
+    "2026": 0.3357
+   },
+   "-1": {
+    "2023": 0.0001,
+    "2024": 0.0016,
+    "2025": 0.0129,
+    "2026": 0.0037
+   },
+   "0": {
+    "2023": 0.8619,
+    "2024": 0.8203,
+    "2025": 0.6955,
+    "2026": 0.5929
+   },
+   "1": {
+    "2023": 0.0016,
+    "2024": 0.0018,
+    "2025": 0.0072,
+    "2026": 0.0
+   }
+  },
+  "best_val_offset": 0,
+  "lag_seibro_corr": {
+   "-2": {
+    "T+2": 0.1763,
+    "T+1": -0.0482
+   },
+   "-1": {
+    "T+2": 0.2736,
+    "T+1": 0.03
+   },
+   "0": {
+    "T+2": 0.9881,
+    "T+1": 0.9914
+   },
+   "1": {
+    "T+2": 0.2833,
+    "T+1": 0.045
+   },
+   "2": {
+    "T+2": 0.1934,
+    "T+1": -0.0691
+   }
+  },
+  "lag_seibro_fit0": {
+   "slope": 0.9879,
+   "n": 1000,
+   "median_abs_resid": 4267991.055058325
+  },
+  "lag_session_corr": {
+   "0": {
+    "T+2": 0.0756,
+    "T+1": -0.0812
+   },
+   "1": {
+    "T+2": 0.2001,
+    "T+1": 0.0518
+   },
+   "2": {
+    "T+2": 0.2742,
+    "T+1": 0.9638
+   },
+   "3": {
+    "T+2": 0.959,
+    "T+1": 0.0553
+   },
+   "4": {
+    "T+2": 0.2925,
+    "T+1": -0.0569
+   }
+  },
+  "events": {
+   "2025-04-08": [
+    {
+     "k": -5,
+     "trade": "2025-04-01",
+     "custody_date": "2025-04-03",
+     "custody_date_lag": "2025-04-03",
+     "shared_with_other_trade": false,
+     "amt": 1325284734.0,
+     "val_date": "2025-04-03",
+     "val_close": 11.40999984741211,
+     "shares": 116151161.41308157
+    },
+    {
+     "k": -4,
+     "trade": "2025-04-02",
+     "custody_date": "2025-04-04",
+     "custody_date_lag": "2025-04-04",
+     "shared_with_other_trade": false,
+     "amt": 992350445.0,
+     "val_date": "2025-04-04",
+     "val_close": 8.729999542236328,
+     "shares": 113671305.50224447
+    },
+    {
+     "k": -3,
+     "trade": "2025-04-03",
+     "custody_date": "2025-04-07",
+     "custody_date_lag": "2025-04-07",
+     "shared_with_other_trade": false,
+     "amt": 1245100996.0,
+     "val_date": "2025-04-07",
+     "val_close": 9.149999618530272,
+     "shares": 136076617.25782624
+    },
+    {
+     "k": -2,
+     "trade": "2025-04-04",
+     "custody_date": "2025-04-08",
+     "custody_date_lag": "2025-04-08",
+     "shared_with_other_trade": false,
+     "amt": 1304405017.0,
+     "val_date": "2025-04-08",
+     "val_close": 8.25,
+     "shares": 158109699.03030303
+    },
+    {
+     "k": -1,
+     "trade": "2025-04-07",
+     "custody_date": "2025-04-09",
+     "custody_date_lag": "2025-04-09",
+     "shared_with_other_trade": false,
+     "amt": 2090336088.0,
+     "val_date": "2025-04-09",
+     "val_close": 12.770000457763672,
+     "shares": 163691152.15882045
+    },
+    {
+     "k": 0,
+     "trade": "2025-04-08",
+     "custody_date": "2025-04-10",
+     "custody_date_lag": "2025-04-10",
+     "shared_with_other_trade": false,
+     "amt": 1727592218.0,
+     "val_date": "2025-04-10",
+     "val_close": 9.630000114440918,
+     "shares": 179396905.24087784
+    },
+    {
+     "k": 1,
+     "trade": "2025-04-09",
+     "custody_date": "2025-04-11",
+     "custody_date_lag": "2025-04-11",
+     "shared_with_other_trade": false,
+     "amt": 1769697351.0,
+     "val_date": "2025-04-11",
+     "val_close": 10.229999542236328,
+     "shares": 172990951.1426171
+    },
+    {
+     "k": 2,
+     "trade": "2025-04-10",
+     "custody_date": "2025-04-14",
+     "custody_date_lag": "2025-04-14",
+     "shared_with_other_trade": false,
+     "amt": 2028612447.0,
+     "val_date": "2025-04-14",
+     "val_close": 10.470000267028809,
+     "shares": 193754765.5455488
+    },
+    {
+     "k": 3,
+     "trade": "2025-04-11",
+     "custody_date": "2025-04-15",
+     "custody_date_lag": "2025-04-15",
+     "shared_with_other_trade": false,
+     "amt": 2025228731.0,
+     "val_date": "2025-04-15",
+     "val_close": 10.600000381469728,
+     "shares": 191059307.36949602
+    },
+    {
+     "k": 4,
+     "trade": "2025-04-14",
+     "custody_date": "2025-04-16",
+     "custody_date_lag": "2025-04-16",
+     "shared_with_other_trade": false,
+     "amt": 1811655507.0,
+     "val_date": "2025-04-16",
+     "val_close": 9.34000015258789,
+     "shares": 193967395.86755076
+    },
+    {
+     "k": 5,
+     "trade": "2025-04-15",
+     "custody_date": "2025-04-17",
+     "custody_date_lag": "2025-04-17",
+     "shared_with_other_trade": false,
+     "amt": 1801487414.0,
+     "val_date": "2025-04-17",
+     "val_close": 9.199999809265137,
+     "shares": 195813853.40744877
+    }
+   ],
+   "2026-07-29": [
+    {
+     "k": -5,
+     "trade": "2026-07-22",
+     "custody_date": "2026-07-24",
+     "custody_date_lag": "2026-07-24",
+     "shared_with_other_trade": false,
+     "amt": 4804144280.0,
+     "val_date": "2026-07-24",
+     "val_close": 136.80999755859375,
+     "shares": 35115447.45070589
+    },
+    {
+     "k": -4,
+     "trade": "2026-07-23",
+     "custody_date": "2026-07-27",
+     "custody_date_lag": "2026-07-27",
+     "shared_with_other_trade": false,
+     "amt": 4866106673.0,
+     "val_date": "2026-07-27",
+     "val_close": 128.14999389648438,
+     "shares": 37971961.80072152
+    },
+    {
+     "k": -3,
+     "trade": "2026-07-24",
+     "custody_date": "2026-07-28",
+     "custody_date_lag": "2026-07-28",
+     "shared_with_other_trade": false,
+     "amt": 4621620543.0,
+     "val_date": "2026-07-28",
+     "val_close": 109.54000091552734,
+     "shares": 42191167.64992544
+    },
+    {
+     "k": -2,
+     "trade": "2026-07-27",
+     "custody_date": "2026-07-29",
+     "custody_date_lag": "2026-07-29",
+     "shared_with_other_trade": false,
+     "amt": 4078399468.0,
+     "val_date": "2026-07-29",
+     "val_close": 91.98999786376952,
+     "shares": 44335249.07827275
+    },
+    {
+     "k": -1,
+     "trade": "2026-07-28",
+     "custody_date": "2026-07-30",
+     "custody_date_lag": "2026-07-30",
+     "shared_with_other_trade": false,
+     "amt": 5811458458.0,
+     "val_date": "2026-07-30",
+     "val_close": 114.72000122070312,
+     "shares": 50657761.472820014
+    },
+    {
+     "k": 0,
+     "trade": "2026-07-29",
+     "custody_date": "2026-07-31",
+     "custody_date_lag": "2026-07-31",
+     "shared_with_other_trade": false,
+     "amt": 6318027310.0,
+     "val_date": "2026-07-31",
+     "val_close": 114.72000122070312,
+     "shares": 55073459.2291811
+    },
+    {
+     "k": 1,
+     "trade": "2026-07-30",
+     "custody_date": "2026-08-03",
+     "custody_date_lag": "2026-08-03",
+     "shared_with_other_trade": false,
+     "amt": 5758613926.0,
+     "val_date": "2026-08-03",
+     "val_close": 116.70999908447266,
+     "shares": 49341221.584896214
+    },
+    {
+     "k": 2,
+     "trade": "2026-07-31",
+     "custody_date": "2026-08-04",
+     "custody_date_lag": "2026-08-04",
+     "shared_with_other_trade": false,
+     "amt": 6969722169.0,
+     "val_date": "2026-08-04",
+     "val_close": 139.89999389648438,
+     "shares": 49819317.17707635
+    },
+    {
+     "k": 3,
+     "trade": "2026-08-03",
+     "custody_date": "2026-08-05",
+     "custody_date_lag": "2026-08-05",
+     "shared_with_other_trade": false,
+     "amt": 6357022123.0,
+     "val_date": "2026-08-05",
+     "val_close": 132.07000732421875,
+     "shares": 48133730.37372628
+    },
+    {
+     "k": 4,
+     "trade": "2026-08-04",
+     "custody_date": "2026-08-06",
+     "custody_date_lag": "2026-08-06",
+     "shared_with_other_trade": false,
+     "amt": 5571025120.0,
+     "val_date": "2026-08-06",
+     "val_close": 132.3300018310547,
+     "shares": 42099486.457443796
+    },
+    {
+     "k": 5,
+     "trade": "2026-08-05",
+     "custody_date": "2026-08-07",
+     "custody_date_lag": "2026-08-07",
+     "shared_with_other_trade": false,
+     "amt": 6382093674.0,
+     "val_date": "2026-08-07",
+     "val_close": 140.25,
+     "shares": 45505124.23529412
+    }
+   ]
+  }
+ }
+}
