@@ -127,7 +127,7 @@ def flags():
                 C = cl1[t]
                 dec = int(np.searchsorted(ends, int(r.ts), side="right")) - 1
                 rec = {"period": per, "sym": sym, "ts": int(r.ts), "pat": r.pat, "z_hit": False, "z_str": 0,
-                       "z_near": False, "z_sweep": False, "pdl_hit": False, "n_zones": 0}
+                       "z_near": False, "z_rank": -1, "z_sweep": False, "pdl_hit": False, "n_zones": 0}
                 if dec >= 0:
                     ref = float(b["close"].iloc[dec])
                     sup, res, _ = Z.zones(piv, dec, ref)
@@ -138,6 +138,7 @@ def flags():
                         rec["z_hit"] = True
                         rec["z_str"] = int(z[2])
                         rec["z_near"] = bool(sup) and z is sup[0]
+                        rec["z_rank"] = next((i + 1 for i, s_ in enumerate(sup) if s_ is z), -1)   # 지지 몇 번째(보조)
                     rec["z_sweep"] = sweep(zs, L, C)
                 i = int(np.searchsorted(dl_days, int(r.day))) - 1
                 if i >= 0:
@@ -227,7 +228,9 @@ def judge():
                     "by_period": {per: summ(dedup(A[(A.period == per) & (A.pat == pat) & A.z_hit])) for per in PERIODS}}
         sig.append(X.assign(hyp=hk)[["hyp", "period", "sym", "sid", "ts", "day", "t", "r1_e2", "r1n", "hit_e2"]])
         t = {}
-        for nm, mk in (("가장 가까운 구역(Z1)", lambda D: D.z_hit & D.z_near), ("시험 2회 이상 구역", lambda D: D.z_hit & (D.z_str >= 2)),
+        for nm, mk in (("가장 가까운 구역(Z1)", lambda D: D.z_hit & D.z_near),
+                       ("화면에 보이는 지지 3개 안(Z1~Z3, 보조 추가)", lambda D: D.z_hit & D.z_rank.between(1, 3)),
+                       ("시험 2회 이상 구역", lambda D: D.z_hit & (D.z_str >= 2)),
                        ("구역 아래를 0.5~2% 쓸고 회복", lambda D: D.z_sweep), ("전일 정규장 저가", lambda D: D.pdl_hit)):
             t[nm] = {"2026": summ(dedup(P26[mk(P26)])), "2025": summ(dedup(P25[mk(P25)]))}
         if pat == "A":

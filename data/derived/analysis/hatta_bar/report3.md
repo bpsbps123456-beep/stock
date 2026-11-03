@@ -10,7 +10,7 @@
 
 트레이딩뷰 지표에는 ① 중 이 조건을 만족하는 봉을 '①★'로 따로 표시하고 알림도 따로 붙였다(`hatta_bar.pine`, 기본 3%).
 
-사전 등록: `BRIEF3.md`(커밋 5bca775, 1~6월 자료를 받기 전). 2차: `report2.md`. 코드: `code/h3_eval.py`, `cond_build.py`(기간 설정 추가).
+사전 등록: `BRIEF3.md`(커밋 5bca775, 1~6월 자료를 받기 전). 4차(큰 시간봉 지지 구역과 묶기, 맞지 않음): `report4.md`. 2차: `report2.md`. 코드: `code/h3_eval.py`, `cond_build.py`(기간 설정 추가).
 
 ## 가설과 확인 자료
 
