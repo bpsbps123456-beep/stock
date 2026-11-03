@@ -1,6 +1,7 @@
 """실측 호가 간격 표본: 2025-01~2026-10에서 고른 30일 × SOXL·SOXS × 하루 59개 시각의 직전 NBBO(Alpaca SIP).
 시각: 프리장 07:00~09:20 10분 간격·09:25·09:29, 정규장 09:31~10:00 매분, 10:05~11:00 5분 간격(ET).
-결과: cache/quotes.parquet (sym, t, ask, bid). 사용: py fetch_quotes.py"""
+결과: cache/quotes.parquet (sym, t, ask, bid). 사용: py fetch_quotes.py [시작 끝 출력이름]
+  (BRIEF7: py fetch_quotes.py 2016-01-04 2022-12-30 quotes_2016 — 1분봉은 cache/alp1m_2016 에서 날을 고른다)"""
 import os, sys, time
 from concurrent.futures import ThreadPoolExecutor
 import numpy as np, pandas as pd, requests
@@ -10,7 +11,9 @@ sys.path.insert(0, os.path.join(HERE, "../../hatta_bar/code"))
 from fetch_alpaca import keys, Pace  # noqa: E402
 
 URL = "https://data.alpaca.markets/v2/stocks/{sym}/quotes"
-OUT = os.path.join(HERE, "../cache/quotes.parquet")
+OUT = os.path.join(HERE, "../cache/" + (sys.argv[3] if len(sys.argv) > 3 else "quotes") + ".parquet")
+A0, A1 = (sys.argv[1], sys.argv[2]) if len(sys.argv) > 2 else ("2025-01-02", None)
+BARS = "alp1m_2016" if len(sys.argv) > 3 and sys.argv[3] == "quotes_2016" else "alp1m"
 
 
 def times_for(day):
@@ -40,8 +43,8 @@ def last_quote(sym, t, head, pace):
 
 
 if __name__ == "__main__":
-    d = pd.read_parquet(os.path.join(HERE, "../cache/alp1m/SOXL.parquet"))
-    days = sorted({x for x in d.index.date if x >= pd.Timestamp("2025-01-02").date()})
+    d = pd.read_parquet(os.path.join(HERE, f"../cache/{BARS}/SOXL.parquet"))
+    days = sorted({x for x in d.index.date if x >= pd.Timestamp(A0).date() and (A1 is None or x <= pd.Timestamp(A1).date())})
     pick = [days[i] for i in np.linspace(0, len(days) - 1, 30).round().astype(int)]
     todo = [(s, t) for day in pick for t in times_for(day) for s in ["SOXL", "SOXS"]]
     part = OUT + ".part.parquet"                       # 중간 저장: 끊겨도 받은 것부터 잇는다
