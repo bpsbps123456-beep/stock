@@ -17,7 +17,7 @@ import webbrowser
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import parse_qs, urlparse
 
-from . import bottom, config, dip, erules, forecast, giant, journal, news, sox_paper, tour, trend, value
+from . import bottom, config, dip, erules, forecast, giant, journal, news, tour, trend, value
 from .state import Desk, clean
 
 DESK = Desk()
@@ -69,7 +69,7 @@ class Handler(BaseHTTPRequestHandler):
         try:
             fn()
         except (journal.JournalError, dip.DipError, trend.TrendError, news.NewsError, bottom.BottomError,
-                forecast.ForecastError, erules.ErulesError, sox_paper.PaperError) as exc:
+                forecast.ForecastError, erules.ErulesError) as exc:
             self._json({"error": str(exc)}, 400)
         except Exception as exc:
             traceback.print_exc()
@@ -83,8 +83,6 @@ class Handler(BaseHTTPRequestHandler):
             return self._json({"app": APP, "journal": str(config.JOURNAL_DIR)})
         if path == "/api/state":
             return self._guard(lambda: self._json(DESK.state()))
-        if path == "/api/paper":  # §16: GET never fetches prices or writes the frozen paper ledger
-            return self._guard(lambda: self._json(sox_paper.payload()))
         if path == "/api/news":
             q = parse_qs(urlparse(self.path).query)
             return self._guard(lambda: self._json(news.payload(
@@ -135,9 +133,6 @@ class Handler(BaseHTTPRequestHandler):
         path = urlparse(self.path).path
 
         def run():
-            if path == "/api/paper/update":
-                self._body()
-                return self._json(sox_paper.payload(force=True))
             if path == "/api/refresh":
                 DESK.ensure(force=bool(self._body().get("prices")))
                 return self._json(DESK.state(force_quotes=True))
@@ -210,18 +205,6 @@ def _warm() -> None:
         print(f"준비 완료 ({time.time() - started:.0f}초)", flush=True)
 
 
-def _paper_watch(stop: threading.Event) -> None:
-    """Catch up complete paper sessions while the desk is running, away from account state."""
-    while not stop.wait(15):
-        try:
-            if sox_paper.payload().get("initialized"):
-                sox_paper.payload(force=True)
-        except Exception as exc:
-            print(f"종이 기록 갱신 보류: {type(exc).__name__}: {exc}", flush=True)
-        if stop.wait(15 * 60 - 15):
-            return
-
-
 def main(argv: list[str] | None = None) -> int:
     argv = sys.argv[2:] if argv is None else argv
     if "--launcher" in argv:
@@ -252,8 +235,6 @@ def main(argv: list[str] | None = None) -> int:
     # downloading, and a bare console window meanwhile looked like a desk that never started.
     print("가격과 7종목 신호를 계산합니다 — 화면은 먼저 열리고, 계산이 끝나면 채워집니다.", flush=True)
     threading.Thread(target=_warm, name="desk-warm", daemon=True).start()
-    paper_stop = threading.Event()
-    threading.Thread(target=_paper_watch, args=(paper_stop,), name="desk-paper", daemon=True).start()
     if "--launcher" in argv:
         print(f"열기: {url}\n이 창은 최소화해 두세요. 끄려면 창을 닫으면 됩니다.", flush=True)
     else:
@@ -268,7 +249,6 @@ def main(argv: list[str] | None = None) -> int:
     except KeyboardInterrupt:
         pass
     finally:
-        paper_stop.set()
         server.server_close()
     return 0
 
