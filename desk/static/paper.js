@@ -117,8 +117,8 @@ function ppRender() {
   const note = h("div", { class: "pp-note", role: "status" },
     PP.busy ? "완료한 거래일의 자료를 확인하고 있습니다…" : (data.status || (data.initialized ? "앞으로 쌓이는 거래일을 기다립니다." : "종이 기록 등록 대기")),
     h("p", {}, "두 규칙은 서로 독립된 가상 경로입니다. 실제 계좌 성적과 분리하며, 첫 60개 평가일 점검은 실전 채택 기준이 아닙니다."));
-  const warnings = (data.warnings || []).length && h("div", { class: "pp-warnings", role: "status" },
-    data.warnings.map(s => h("p", {}, s)));
+  const warnings = (data.warnings || []).length > 0 ? h("div", { class: "pp-warnings", role: "status" },
+    data.warnings.map(s => h("p", {}, s))) : null;
   mount(root, head, error, info, note, warnings,
     h("section", { class: "pp-rules", "aria-label": "고정한 두 종이 기록 규칙" }, (data.rules || []).map(r => ppRule(r, data))),
     ppDays(data),
