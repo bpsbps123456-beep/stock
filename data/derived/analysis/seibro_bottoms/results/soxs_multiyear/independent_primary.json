@@ -1,0 +1,568 @@
+{
+  "created_date_kst": "2026-11-05",
+  "method": "Independent temporary calculation; no target code or helper imports. Source US sessions from 2023-01-03; strict uncensored/nonpartial complete windows; explicit 250-session midpoint percentiles with at least 120 finite observations; latest source per publication entry chosen before validity; publication convention checked against entry; R10 requires entry open and all ten closes finite and positive. Entry-year groups; pooled OFF and ON-year-count-matched OFF reported separately. No added signal search.",
+  "source_sha256": {
+    "BRIEF4.md": "16fe85428053329108e9d9751c4ae0c4a09bb396d2bb96a49970406f789aa12c",
+    "derived/measures_daily.parquet": "bae09cfacabe9dc1035a04ef78f0273b39d16a1534cad1b8f5b11d2bfa8bab28",
+    "derived/price_feats.parquet": "a5d6570a642296961a41314c6470223a3d0d4eb30c7e6e47fcec0eb286223cb9"
+  },
+  "units": {
+    "returns": "percent",
+    "win_rate": "percent",
+    "lift": "percentage points",
+    "buy_amount": "USD"
+  },
+  "primary_all_price_states": {
+    "gross_usd_L1": {
+      "complete_R10_rows": 623,
+      "periods": {
+        "2024": {
+          "on": {
+            "n": 76,
+            "win_pct": 46.05263157894737,
+            "mean_pct": -0.38399716852607435,
+            "median_pct": -0.38205647676901044
+          },
+          "off": {
+            "n": 148,
+            "win_pct": 58.108108108108105,
+            "mean_pct": 1.0566559733313798,
+            "median_pct": 1.3638280153159932
+          },
+          "on_year_matched_off_mean_pct": 1.0566559733313798,
+          "on_year_matched_off_win_pct": 58.108108108108105,
+          "matched_mean_lift_pp": -1.4406531418574542,
+          "matched_win_lift_pp": -12.055476529160735
+        },
+        "2025": {
+          "on": {
+            "n": 5,
+            "win_pct": 100,
+            "mean_pct": 8.526515742800559,
+            "median_pct": 6.48841399320903
+          },
+          "off": {
+            "n": 214,
+            "win_pct": 63.084112149532714,
+            "mean_pct": 1.2866036906663039,
+            "median_pct": 1.7263570093795533
+          },
+          "on_year_matched_off_mean_pct": 1.2866036906663039,
+          "on_year_matched_off_win_pct": 63.084112149532714,
+          "matched_mean_lift_pp": 7.239912052134255,
+          "matched_win_lift_pp": 36.915887850467286
+        },
+        "2026": {
+          "on": {
+            "n": 35,
+            "win_pct": 80,
+            "mean_pct": 6.985017608023391,
+            "median_pct": 7.773592614611169
+          },
+          "off": {
+            "n": 145,
+            "win_pct": 54.48275862068965,
+            "mean_pct": 1.508029335472113,
+            "median_pct": 1.1262461588078088
+          },
+          "on_year_matched_off_mean_pct": 1.508029335472113,
+          "on_year_matched_off_win_pct": 54.48275862068965,
+          "matched_mean_lift_pp": 5.476988272551278,
+          "matched_win_lift_pp": 25.51724137931035
+        },
+        "2024_25": {
+          "on": {
+            "n": 81,
+            "win_pct": 49.382716049382715,
+            "mean_pct": 0.1660344926669276,
+            "median_pct": -0.02217430233162343
+          },
+          "off": {
+            "n": 362,
+            "win_pct": 61.04972375690608,
+            "mean_pct": 1.1925919167282688,
+            "median_pct": 1.6066841737386373
+          },
+          "on_year_matched_off_mean_pct": 1.0708502768705725,
+          "on_year_matched_off_win_pct": 58.41526885140591,
+          "matched_mean_lift_pp": -0.904815784203645,
+          "matched_win_lift_pp": -9.032552802023197
+        },
+        "all": {
+          "on": {
+            "n": 116,
+            "win_pct": 58.620689655172406,
+            "mean_pct": 2.223486294714136,
+            "median_pct": 1.6561180482296822
+          },
+          "off": {
+            "n": 507,
+            "win_pct": 59.171597633136095,
+            "mean_pct": 1.2828057741599403,
+            "median_pct": 1.474319702715543
+          },
+          "on_year_matched_off_mean_pct": 1.2027577514486238,
+          "on_year_matched_off_win_pct": 57.22873559213808,
+          "matched_mean_lift_pp": 1.0207285432655122,
+          "matched_win_lift_pp": 1.3919540630343263
+        }
+      }
+    },
+    "gross_usd_L5": {
+      "complete_R10_rows": 607,
+      "periods": {
+        "2024": {
+          "on": {
+            "n": 80,
+            "win_pct": 51.24999999999999,
+            "mean_pct": 0.15395896169446477,
+            "median_pct": 0.4369291243306317
+          },
+          "off": {
+            "n": 144,
+            "win_pct": 55.55555555555556,
+            "mean_pct": 0.7978095993715653,
+            "median_pct": 0.8358935020731706
+          },
+          "on_year_matched_off_mean_pct": 0.7978095993715653,
+          "on_year_matched_off_win_pct": 55.55555555555556,
+          "matched_mean_lift_pp": -0.6438506376771005,
+          "matched_win_lift_pp": -4.305555555555564
+        },
+        "2025": {
+          "on": {
+            "n": 0,
+            "win_pct": null,
+            "mean_pct": null,
+            "median_pct": null
+          },
+          "off": {
+            "n": 215,
+            "win_pct": 65.11627906976744,
+            "mean_pct": 1.6177205741419056,
+            "median_pct": 2.1781924625412508
+          },
+          "on_year_matched_off_mean_pct": null,
+          "on_year_matched_off_win_pct": null,
+          "matched_mean_lift_pp": null,
+          "matched_win_lift_pp": null
+        },
+        "2026": {
+          "on": {
+            "n": 29,
+            "win_pct": 62.06896551724138,
+            "mean_pct": 5.76167524401913,
+            "median_pct": 9.909610910310196
+          },
+          "off": {
+            "n": 139,
+            "win_pct": 59.71223021582733,
+            "mean_pct": 2.184355766256022,
+            "median_pct": 2.057376202937
+          },
+          "on_year_matched_off_mean_pct": 2.184355766256022,
+          "on_year_matched_off_win_pct": 59.71223021582733,
+          "matched_mean_lift_pp": 3.577319477763108,
+          "matched_win_lift_pp": 2.356735301414048
+        },
+        "2024_25": {
+          "on": {
+            "n": 80,
+            "win_pct": 51.24999999999999,
+            "mean_pct": 0.15395896169446477,
+            "median_pct": 0.4369291243306317
+          },
+          "off": {
+            "n": 359,
+            "win_pct": 61.28133704735376,
+            "mean_pct": 1.2888426344011563,
+            "median_pct": 1.5239220926898556
+          },
+          "on_year_matched_off_mean_pct": 0.7978095993715653,
+          "on_year_matched_off_win_pct": 55.55555555555556,
+          "matched_mean_lift_pp": -0.6438506376771005,
+          "matched_win_lift_pp": -4.305555555555564
+        },
+        "all": {
+          "on": {
+            "n": 109,
+            "win_pct": 54.12844036697248,
+            "mean_pct": 1.6459201744230454,
+            "median_pct": 1.4463085322846236
+          },
+          "off": {
+            "n": 498,
+            "win_pct": 60.8433734939759,
+            "mean_pct": 1.5387950948987996,
+            "median_pct": 1.6127065710712318
+          },
+          "on_year_matched_off_mean_pct": 1.1667072034050445,
+          "on_year_matched_off_win_pct": 56.66145982296731,
+          "matched_mean_lift_pp": 0.47921297101800087,
+          "matched_win_lift_pp": -2.5330194559948325
+        }
+      }
+    }
+  },
+  "decline_state_and_volume_description": {
+    "gross_usd_L1_DD10": {
+      "2024": {
+        "on": {
+          "n": 37,
+          "win_pct": 45.94594594594595,
+          "mean_pct": -0.6128235481441779,
+          "median_pct": -0.6595809470990477
+        },
+        "off": {
+          "n": 29,
+          "win_pct": 86.20689655172413,
+          "mean_pct": 4.27688473926467,
+          "median_pct": 3.467689309174915
+        },
+        "matched_off_mean_pct": 4.27688473926467,
+        "matched_off_win_pct": 86.20689655172413,
+        "matched_mean_lift_pp": -4.8897082874088476,
+        "matched_win_lift_pp": -40.26095060577818
+      },
+      "2025": {
+        "on": {
+          "n": 2,
+          "win_pct": 100,
+          "mean_pct": 13.720750303616015,
+          "median_pct": 13.720750303616015
+        },
+        "off": {
+          "n": 49,
+          "win_pct": 61.224489795918366,
+          "mean_pct": 0.9817399026385842,
+          "median_pct": 1.768713672166955
+        },
+        "matched_off_mean_pct": 0.9817399026385842,
+        "matched_off_win_pct": 61.224489795918366,
+        "matched_mean_lift_pp": 12.739010400977431,
+        "matched_win_lift_pp": 38.775510204081634
+      },
+      "2026": {
+        "on": {
+          "n": 11,
+          "win_pct": 81.81818181818183,
+          "mean_pct": 7.980966982800376,
+          "median_pct": 7.773592614611169
+        },
+        "off": {
+          "n": 54,
+          "win_pct": 48.148148148148145,
+          "mean_pct": 0.6554170299358644,
+          "median_pct": -0.5432987812998613
+        },
+        "matched_off_mean_pct": 0.6554170299358644,
+        "matched_off_win_pct": 48.148148148148145,
+        "matched_mean_lift_pp": 7.325549952864511,
+        "matched_win_lift_pp": 33.67003367003368
+      },
+      "2024_25": {
+        "on": {
+          "n": 39,
+          "win_pct": 48.717948717948715,
+          "mean_pct": 0.12223152117685761,
+          "median_pct": -0.1045320064389732
+        },
+        "off": {
+          "n": 78,
+          "win_pct": 70.51282051282051,
+          "mean_pct": 2.206857854717513,
+          "median_pct": 3.1036964721183558
+        },
+        "matched_off_mean_pct": 4.107902952771024,
+        "matched_off_win_pct": 84.92574748732383,
+        "matched_mean_lift_pp": -3.9856714315941666,
+        "matched_win_lift_pp": -36.20779876937512
+      },
+      "all": {
+        "on": {
+          "n": 50,
+          "win_pct": 56.00000000000001,
+          "mean_pct": 1.8511533227340318,
+          "median_pct": 1.3443399087345709
+        },
+        "off": {
+          "n": 132,
+          "win_pct": 61.36363636363637,
+          "mean_pct": 1.572177517306839,
+          "median_pct": 1.9042344847867154
+        },
+        "matched_off_mean_pct": 3.3483560497472893,
+        "matched_off_win_pct": 76.83467563270517,
+        "matched_mean_lift_pp": -1.4972027270132575,
+        "matched_win_lift_pp": -20.834675632705164
+      }
+    },
+    "gross_usd_L5_DD10": {
+      "2024": {
+        "on": {
+          "n": 44,
+          "win_pct": 47.72727272727273,
+          "mean_pct": -0.3106223040017047,
+          "median_pct": -0.38205647676901044
+        },
+        "off": {
+          "n": 22,
+          "win_pct": 95.45454545454545,
+          "mean_pct": 5.228298524246174,
+          "median_pct": 4.417233895597095
+        },
+        "matched_off_mean_pct": 5.228298524246174,
+        "matched_off_win_pct": 95.45454545454545,
+        "matched_mean_lift_pp": -5.538920828247879,
+        "matched_win_lift_pp": -47.72727272727273
+      },
+      "2025": {
+        "on": {
+          "n": 0,
+          "win_pct": null,
+          "mean_pct": null,
+          "median_pct": null
+        },
+        "off": {
+          "n": 51,
+          "win_pct": 62.745098039215684,
+          "mean_pct": 1.4813089379710327,
+          "median_pct": 1.8127486724739628
+        },
+        "matched_off_mean_pct": null,
+        "matched_off_win_pct": null,
+        "matched_mean_lift_pp": null,
+        "matched_win_lift_pp": null
+      },
+      "2026": {
+        "on": {
+          "n": 9,
+          "win_pct": 44.44444444444444,
+          "mean_pct": 1.706426895282663,
+          "median_pct": -3.6276858606385076
+        },
+        "off": {
+          "n": 51,
+          "win_pct": 58.82352941176471,
+          "mean_pct": 2.439162250142025,
+          "median_pct": 1.995720297099468
+        },
+        "matched_off_mean_pct": 2.439162250142025,
+        "matched_off_win_pct": 58.82352941176472,
+        "matched_mean_lift_pp": -0.732735354859362,
+        "matched_win_lift_pp": -14.379084967320274
+      },
+      "2024_25": {
+        "on": {
+          "n": 44,
+          "win_pct": 47.72727272727273,
+          "mean_pct": -0.3106223040017047,
+          "median_pct": -0.38205647676901044
+        },
+        "off": {
+          "n": 73,
+          "win_pct": 72.6027397260274,
+          "mean_pct": 2.610538676300527,
+          "median_pct": 3.467689309174915
+        },
+        "matched_off_mean_pct": 5.228298524246174,
+        "matched_off_win_pct": 95.45454545454545,
+        "matched_mean_lift_pp": -5.538920828247879,
+        "matched_win_lift_pp": -47.72727272727273
+      },
+      "all": {
+        "on": {
+          "n": 53,
+          "win_pct": 47.16981132075472,
+          "mean_pct": 0.0318954845560181,
+          "median_pct": -0.6595809470990477
+        },
+        "off": {
+          "n": 124,
+          "win_pct": 66.93548387096774,
+          "mean_pct": 2.540053210703078,
+          "median_pct": 3.1986934119029864
+        },
+        "matched_off_mean_pct": 4.7546716097756585,
+        "matched_off_win_pct": 89.23418423973364,
+        "matched_mean_lift_pp": -4.7227761252196405,
+        "matched_win_lift_pp": -42.06437291897892
+      }
+    },
+    "annual_source_description": [
+      {
+        "source_year": 2023,
+        "source_valid": 250,
+        "buy_usd_median": 28278271,
+        "buy_usd_mean": 32477585.364,
+        "gross1_P_median": 37.723214285714285,
+        "gross1_source_P80_count": 17,
+        "gross5_source_P80_count": 5,
+        "gross5_P_max": 89.66244725738396
+      },
+      {
+        "source_year": 2024,
+        "source_valid": 252,
+        "buy_usd_median": 33473746,
+        "buy_usd_mean": 41329720.178571425,
+        "gross1_P_median": 63,
+        "gross1_source_P80_count": 88,
+        "gross5_source_P80_count": 90,
+        "gross5_P_max": 99.8
+      },
+      {
+        "source_year": 2025,
+        "source_valid": 249,
+        "buy_usd_median": 17405853,
+        "buy_usd_mean": 19972258.879518073,
+        "gross1_P_median": 28.6,
+        "gross1_source_P80_count": 6,
+        "gross5_source_P80_count": 0,
+        "gross5_P_max": 71.4
+      },
+      {
+        "source_year": 2026,
+        "source_valid": 206,
+        "buy_usd_median": 15444178,
+        "buy_usd_mean": 18585841.563106798,
+        "gross1_P_median": 44.3563728598605,
+        "gross1_source_P80_count": 40,
+        "gross5_source_P80_count": 32,
+        "gross5_P_max": 99.7872340425532
+      }
+    ],
+    "monthly2025_gross1": [
+      {
+        "month": 1,
+        "valid_R10_entry": 13,
+        "entry_ON": 0,
+        "source_buy_median_usd": 21746713.5,
+        "source_gross1_P_median": 25.200000000000003
+      },
+      {
+        "month": 2,
+        "valid_R10_entry": 18,
+        "entry_ON": 0,
+        "source_buy_median_usd": 20006489,
+        "source_gross1_P_median": 21.4
+      },
+      {
+        "month": 3,
+        "valid_R10_entry": 20,
+        "entry_ON": 0,
+        "source_buy_median_usd": 12279681,
+        "source_gross1_P_median": 7.4
+      },
+      {
+        "month": 4,
+        "valid_R10_entry": 20,
+        "entry_ON": 1,
+        "source_buy_median_usd": 15616125,
+        "source_gross1_P_median": 18.2
+      },
+      {
+        "month": 5,
+        "valid_R10_entry": 17,
+        "entry_ON": 1,
+        "source_buy_median_usd": 26156895,
+        "source_gross1_P_median": 45.8
+      },
+      {
+        "month": 6,
+        "valid_R10_entry": 17,
+        "entry_ON": 1,
+        "source_buy_median_usd": 31147136.5,
+        "source_gross1_P_median": 54
+      },
+      {
+        "month": 7,
+        "valid_R10_entry": 21,
+        "entry_ON": 0,
+        "source_buy_median_usd": 12817202.5,
+        "source_gross1_P_median": 13.8
+      },
+      {
+        "month": 8,
+        "valid_R10_entry": 20,
+        "entry_ON": 0,
+        "source_buy_median_usd": 16852218,
+        "source_gross1_P_median": 28.6
+      },
+      {
+        "month": 9,
+        "valid_R10_entry": 20,
+        "entry_ON": 1,
+        "source_buy_median_usd": 12446140,
+        "source_gross1_P_median": 18.6
+      },
+      {
+        "month": 10,
+        "valid_R10_entry": 17,
+        "entry_ON": 1,
+        "source_buy_median_usd": 14292169,
+        "source_gross1_P_median": 30.6
+      },
+      {
+        "month": 11,
+        "valid_R10_entry": 17,
+        "entry_ON": 0,
+        "source_buy_median_usd": 16589894,
+        "source_gross1_P_median": 43.574297188755025
+      },
+      {
+        "month": 12,
+        "valid_R10_entry": 19,
+        "entry_ON": 0,
+        "source_buy_median_usd": 12021607,
+        "source_gross1_P_median": 25.30120481927711
+      }
+    ]
+  },
+  "year_2025_details": {
+    "daily_buy_median_yoy_pct": -48.00147853186195,
+    "daily_buy_mean_yoy_pct": -51.67579457778846,
+    "source_daily_buy_P80_count": 6,
+    "latest_source_entry_ON_count": 5,
+    "suppressed_source": {
+      "source": "2025-01-06",
+      "entry": "2025-01-10",
+      "latest_selected_source": "2025-01-07",
+      "buy_usd": 58709105,
+      "P": 81.4
+    },
+    "selected_ON_entries": [
+      {
+        "source": "2025-04-24",
+        "entry": "2025-04-29",
+        "buy_usd": 87353177,
+        "P": 92.2
+      },
+      {
+        "source": "2025-05-02",
+        "entry": "2025-05-07",
+        "buy_usd": 95559970,
+        "P": 93
+      },
+      {
+        "source": "2025-06-04",
+        "entry": "2025-06-09",
+        "buy_usd": 61760059,
+        "P": 83.8
+      },
+      {
+        "source": "2025-09-18",
+        "entry": "2025-09-23",
+        "buy_usd": 42171124,
+        "P": 83
+      },
+      {
+        "source": "2025-10-16",
+        "entry": "2025-10-21",
+        "buy_usd": 33036309,
+        "P": 80.2
+      }
+    ],
+    "gross5_max_P": 71.4,
+    "gross5_ON_count": 0
+  }
+}

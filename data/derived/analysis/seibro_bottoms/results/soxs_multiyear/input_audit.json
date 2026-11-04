@@ -1,0 +1,1302 @@
+{
+  "created_kst": "2026-11-05T00:49:22.692054+09:00",
+  "scope": "User correction:2024-2026 main evaluation,2023 percentile warmup. Inputs/timing audit only; no performance calculations.",
+  "source_sha256": {
+    "data/derived/analysis/seibro_bottoms/derived/measures_daily.parquet": "bae09cfacabe9dc1035a04ef78f0273b39d16a1534cad1b8f5b11d2bfa8bab28",
+    "data/derived/analysis/seibro_bottoms/derived/price_feats.parquet": "a5d6570a642296961a41314c6470223a3d0d4eb30c7e6e47fcec0eb286223cb9",
+    "data/derived/analysis/seibro_bottoms/derived/units.parquet": "132468051c1055867114d78cafb5621c016dd4e3f820fb3f15d61c7c513dc336",
+    "data/derived/analysis/seibro_bottoms/derived/events.json": "72f80e3da30821d0681aa46142fee16f81e179f2a3429375ebc521ba23ca82fb",
+    "data/derived/analysis/seibro_bottoms/derived/flows_trade_product.parquet": "0e2bf025fda15916138db087e1292d97ee68ac7bf3fa7ca5f2965dbdad278b87",
+    "data/derived/analysis/seibro_bottoms/derived/prices.csv": "6eafcf80fb528f71ab7c5c5f64c85251d5b24af963b82ff854ecbd6aa6a97894",
+    "data/derived/analysis/seibro_bottoms/derived/PANEL.md": "356a2d398b1702958dba24ea88129d3897c2e23464fe282390eb29d11a90aa1d",
+    "data/derived/analysis/seibro_flows/classes.csv": "eb1f02c99c8bfcab1dd81e696292a62d9e87f419e03d0d51b7b0720ebfffd6d4",
+    "data/derived/analysis/seibro_flows/code/calendar_map.py": "1eb62f511a0a6cbb8e47643faf424850339e54d797e4e2161a3bef43382e2187",
+    "data/derived/analysis/seibro_bottoms/code/build.py": "2218306605053e3f3adbe3224fcd34bcefa3a6043579dbb9634b510c22628ba0",
+    "data/derived/analysis/seibro_flows/README.md": "6f5e54dcd96b426b243a8e9a9b58d908b82ec3091012b47a2ff5a32275552ac1",
+    "data/derived/analysis/seibro_bottoms/results/soxs_focus/raw_audit.json": "c41351d0887f2e6806ddb26c34ed7a9bd57ea1dd8684c396f421235dd8cf2877"
+  },
+  "previous_raw_audit_preserved_sha256": "c41351d0887f2e6806ddb26c34ed7a9bd57ea1dd8684c396f421235dd8cf2877",
+  "raw_audit_reuse": {
+    "path": "data/derived/analysis/seibro_bottoms/results/soxs_focus/raw_audit.json",
+    "checks": {
+      "calendar_dates": 1002,
+      "calendar_mismatches": {
+        "unit_id": 0,
+        "unit_n_trades": 0,
+        "unit_seibro_dates": 0,
+        "unit_trades": 0,
+        "known_kst_date": 0
+      },
+      "soxs_cross_list_inconsistencies": [],
+      "daily_2026_count": 209,
+      "daily_2026_merged_count": 2,
+      "max_abs_amount_difference_usd": {
+        "buy": 0.0,
+        "sell": 0.0,
+        "net": 0.0,
+        "tot": 0.0
+      },
+      "flag_mismatches": {
+        "cens": 0,
+        "part": 0
+      },
+      "date_mismatches": {
+        "seibro_date": 0,
+        "unit_last": 0,
+        "known_settle": 0,
+        "entry_settle": 0
+      },
+      "censored_2026_dates": [
+        "2026-01-26",
+        "2026-03-04",
+        "2026-07-14"
+      ],
+      "partial_2026_dates": [],
+      "passed": true
+    },
+    "inputs_unchanged": [
+      {
+        "path": "data/derived/analysis/seibro_bottoms/BRIEF3.md",
+        "same_sha256": true
+      },
+      {
+        "path": "data/derived/analysis/seibro_bottoms/code/build.py",
+        "same_sha256": true
+      },
+      {
+        "path": "data/derived/analysis/seibro_flows/code/calendar_map.py",
+        "same_sha256": true
+      },
+      {
+        "path": "data/derived/analysis/seibro_flows/classes.csv",
+        "same_sha256": true
+      },
+      {
+        "path": "data/derived/analysis/seibro_bottoms/derived/units.parquet",
+        "same_sha256": true
+      },
+      {
+        "path": "data/derived/analysis/seibro_bottoms/derived/measures_daily.parquet",
+        "same_sha256": true
+      },
+      {
+        "path": "data/derived/analysis/seibro_bottoms/derived/price_feats.parquet",
+        "same_sha256": true
+      },
+      {
+        "path": "data/derived/analysis/seibro_bottoms/derived/events.json",
+        "same_sha256": true
+      }
+    ],
+    "limitation": "Raw money was independently audited for all2024-2026 main evaluation years. 2026 reuse is protected by unchanged source hashes;2024/2025 newly reread original JSON. 2023 warmup money is reused from existing derived panel; its calendar mapping was independently verified."
+  },
+  "by_source_year": [
+    {
+      "source_year": 2023,
+      "role": "percentile warmup",
+      "flow_n": 250,
+      "flow_first": "2023-01-03",
+      "flow_last": "2023-12-29",
+      "missing_flow_sessions": [],
+      "valid_flow_n": 250,
+      "cens_dates": [],
+      "part_dates": [],
+      "unique_entries": 226,
+      "duplicate_entry_excess": 24,
+      "duplicate_entry_groups": [
+        {
+          "entry": "2023-01-17",
+          "sources": [
+            "2023-01-10",
+            "2023-01-11"
+          ],
+          "latest_source": "2023-01-11"
+        },
+        {
+          "entry": "2023-01-25",
+          "sources": [
+            "2023-01-17",
+            "2023-01-18",
+            "2023-01-19"
+          ],
+          "latest_source": "2023-01-19"
+        },
+        {
+          "entry": "2023-02-21",
+          "sources": [
+            "2023-02-14",
+            "2023-02-15"
+          ],
+          "latest_source": "2023-02-15"
+        },
+        {
+          "entry": "2023-03-02",
+          "sources": [
+            "2023-02-23",
+            "2023-02-24"
+          ],
+          "latest_source": "2023-02-24"
+        },
+        {
+          "entry": "2023-04-10",
+          "sources": [
+            "2023-04-03",
+            "2023-04-04"
+          ],
+          "latest_source": "2023-04-04"
+        },
+        {
+          "entry": "2023-05-02",
+          "sources": [
+            "2023-04-25",
+            "2023-04-26"
+          ],
+          "latest_source": "2023-04-26"
+        },
+        {
+          "entry": "2023-05-08",
+          "sources": [
+            "2023-05-01",
+            "2023-05-02"
+          ],
+          "latest_source": "2023-05-02"
+        },
+        {
+          "entry": "2023-05-30",
+          "sources": [
+            "2023-05-23",
+            "2023-05-24"
+          ],
+          "latest_source": "2023-05-24"
+        },
+        {
+          "entry": "2023-06-07",
+          "sources": [
+            "2023-05-31",
+            "2023-06-01"
+          ],
+          "latest_source": "2023-06-01"
+        },
+        {
+          "entry": "2023-06-20",
+          "sources": [
+            "2023-06-13",
+            "2023-06-14"
+          ],
+          "latest_source": "2023-06-14"
+        },
+        {
+          "entry": "2023-07-05",
+          "sources": [
+            "2023-06-28",
+            "2023-06-29"
+          ],
+          "latest_source": "2023-06-29"
+        },
+        {
+          "entry": "2023-08-16",
+          "sources": [
+            "2023-08-09",
+            "2023-08-10"
+          ],
+          "latest_source": "2023-08-10"
+        },
+        {
+          "entry": "2023-09-05",
+          "sources": [
+            "2023-08-29",
+            "2023-08-30"
+          ],
+          "latest_source": "2023-08-30"
+        },
+        {
+          "entry": "2023-10-04",
+          "sources": [
+            "2023-09-22",
+            "2023-09-25",
+            "2023-09-26",
+            "2023-09-27",
+            "2023-09-28"
+          ],
+          "latest_source": "2023-09-28"
+        },
+        {
+          "entry": "2023-10-10",
+          "sources": [
+            "2023-10-03",
+            "2023-10-04"
+          ],
+          "latest_source": "2023-10-04"
+        },
+        {
+          "entry": "2023-10-13",
+          "sources": [
+            "2023-10-06",
+            "2023-10-09"
+          ],
+          "latest_source": "2023-10-09"
+        },
+        {
+          "entry": "2023-11-24",
+          "sources": [
+            "2023-11-17",
+            "2023-11-20"
+          ],
+          "latest_source": "2023-11-20"
+        },
+        {
+          "entry": "2023-12-26",
+          "sources": [
+            "2023-12-19",
+            "2023-12-20"
+          ],
+          "latest_source": "2023-12-20"
+        },
+        {
+          "entry": "2024-01-02",
+          "sources": [
+            "2023-12-22",
+            "2023-12-26",
+            "2023-12-27"
+          ],
+          "latest_source": "2023-12-27"
+        }
+      ],
+      "merged_source_n": 2,
+      "merged_unit_n": 1,
+      "price_n": 250,
+      "price_first": "2023-01-03",
+      "price_last": "2023-12-29",
+      "missing_price_sessions": [],
+      "price_nonpositive_or_missing": {
+        "SOXX_Open": [],
+        "SOXX_Close": [],
+        "max60": []
+      },
+      "entry_outside_price_cutoff": [],
+      "B10_dates": [
+        "2023-10-30"
+      ],
+      "B15_dates": [
+        "2023-10-30"
+      ],
+      "F_dates": [
+        "2023-09-15",
+        "2023-09-19",
+        "2023-10-19",
+        "2023-10-20"
+      ]
+    },
+    {
+      "source_year": 2024,
+      "role": "main evaluation inputs",
+      "flow_n": 252,
+      "flow_first": "2024-01-02",
+      "flow_last": "2024-12-31",
+      "missing_flow_sessions": [],
+      "valid_flow_n": 252,
+      "cens_dates": [],
+      "part_dates": [],
+      "unique_entries": 223,
+      "duplicate_entry_excess": 29,
+      "duplicate_entry_groups": [
+        {
+          "entry": "2024-01-16",
+          "sources": [
+            "2024-01-09",
+            "2024-01-10"
+          ],
+          "latest_source": "2024-01-10"
+        },
+        {
+          "entry": "2024-02-13",
+          "sources": [
+            "2024-02-05",
+            "2024-02-06",
+            "2024-02-07"
+          ],
+          "latest_source": "2024-02-07"
+        },
+        {
+          "entry": "2024-02-20",
+          "sources": [
+            "2024-02-13",
+            "2024-02-14"
+          ],
+          "latest_source": "2024-02-14"
+        },
+        {
+          "entry": "2024-03-04",
+          "sources": [
+            "2024-02-26",
+            "2024-02-27"
+          ],
+          "latest_source": "2024-02-27"
+        },
+        {
+          "entry": "2024-04-01",
+          "sources": [
+            "2024-03-25",
+            "2024-03-26"
+          ],
+          "latest_source": "2024-03-26"
+        },
+        {
+          "entry": "2024-04-11",
+          "sources": [
+            "2024-04-04",
+            "2024-04-05"
+          ],
+          "latest_source": "2024-04-05"
+        },
+        {
+          "entry": "2024-05-02",
+          "sources": [
+            "2024-04-25",
+            "2024-04-26"
+          ],
+          "latest_source": "2024-04-26"
+        },
+        {
+          "entry": "2024-05-07",
+          "sources": [
+            "2024-04-30",
+            "2024-05-01"
+          ],
+          "latest_source": "2024-05-01"
+        },
+        {
+          "entry": "2024-05-16",
+          "sources": [
+            "2024-05-09",
+            "2024-05-10"
+          ],
+          "latest_source": "2024-05-10"
+        },
+        {
+          "entry": "2024-05-28",
+          "sources": [
+            "2024-05-21",
+            "2024-05-22"
+          ],
+          "latest_source": "2024-05-22"
+        },
+        {
+          "entry": "2024-05-31",
+          "sources": [
+            "2024-05-24",
+            "2024-05-28"
+          ],
+          "latest_source": "2024-05-28"
+        },
+        {
+          "entry": "2024-06-07",
+          "sources": [
+            "2024-06-03",
+            "2024-06-04"
+          ],
+          "latest_source": "2024-06-04"
+        },
+        {
+          "entry": "2024-06-20",
+          "sources": [
+            "2024-06-14",
+            "2024-06-17"
+          ],
+          "latest_source": "2024-06-17"
+        },
+        {
+          "entry": "2024-07-05",
+          "sources": [
+            "2024-07-01",
+            "2024-07-02"
+          ],
+          "latest_source": "2024-07-02"
+        },
+        {
+          "entry": "2024-08-16",
+          "sources": [
+            "2024-08-12",
+            "2024-08-13"
+          ],
+          "latest_source": "2024-08-13"
+        },
+        {
+          "entry": "2024-09-03",
+          "sources": [
+            "2024-08-28",
+            "2024-08-29"
+          ],
+          "latest_source": "2024-08-29"
+        },
+        {
+          "entry": "2024-09-19",
+          "sources": [
+            "2024-09-11",
+            "2024-09-12",
+            "2024-09-13",
+            "2024-09-16"
+          ],
+          "latest_source": "2024-09-16"
+        },
+        {
+          "entry": "2024-10-02",
+          "sources": [
+            "2024-09-26",
+            "2024-09-27"
+          ],
+          "latest_source": "2024-09-27"
+        },
+        {
+          "entry": "2024-10-04",
+          "sources": [
+            "2024-09-30",
+            "2024-10-01"
+          ],
+          "latest_source": "2024-10-01"
+        },
+        {
+          "entry": "2024-10-10",
+          "sources": [
+            "2024-10-04",
+            "2024-10-07"
+          ],
+          "latest_source": "2024-10-07"
+        },
+        {
+          "entry": "2024-10-17",
+          "sources": [
+            "2024-10-11",
+            "2024-10-14"
+          ],
+          "latest_source": "2024-10-14"
+        },
+        {
+          "entry": "2024-11-14",
+          "sources": [
+            "2024-11-08",
+            "2024-11-11"
+          ],
+          "latest_source": "2024-11-11"
+        },
+        {
+          "entry": "2024-11-29",
+          "sources": [
+            "2024-11-25",
+            "2024-11-26"
+          ],
+          "latest_source": "2024-11-26"
+        },
+        {
+          "entry": "2024-12-26",
+          "sources": [
+            "2024-12-20",
+            "2024-12-23"
+          ],
+          "latest_source": "2024-12-23"
+        },
+        {
+          "entry": "2025-01-02",
+          "sources": [
+            "2024-12-26",
+            "2024-12-27",
+            "2024-12-30"
+          ],
+          "latest_source": "2024-12-30"
+        }
+      ],
+      "merged_source_n": 6,
+      "merged_unit_n": 3,
+      "price_n": 252,
+      "price_first": "2024-01-02",
+      "price_last": "2024-12-31",
+      "missing_price_sessions": [],
+      "price_nonpositive_or_missing": {
+        "SOXX_Open": [],
+        "SOXX_Close": [],
+        "max60": []
+      },
+      "entry_outside_price_cutoff": [],
+      "B10_dates": [
+        "2024-04-19",
+        "2024-08-07",
+        "2024-09-06",
+        "2024-11-15"
+      ],
+      "B15_dates": [
+        "2024-04-19",
+        "2024-08-07"
+      ],
+      "F_dates": [
+        "2024-07-19",
+        "2024-07-24",
+        "2024-07-25",
+        "2024-07-30",
+        "2024-08-28"
+      ]
+    },
+    {
+      "source_year": 2025,
+      "role": "main evaluation inputs",
+      "flow_n": 250,
+      "flow_first": "2025-01-02",
+      "flow_last": "2025-12-31",
+      "missing_flow_sessions": [],
+      "valid_flow_n": 249,
+      "cens_dates": [
+        "2025-11-03"
+      ],
+      "part_dates": [],
+      "unique_entries": 220,
+      "duplicate_entry_excess": 30,
+      "duplicate_entry_groups": [
+        {
+          "entry": "2025-01-10",
+          "sources": [
+            "2025-01-06",
+            "2025-01-07"
+          ],
+          "latest_source": "2025-01-07"
+        },
+        {
+          "entry": "2025-01-21",
+          "sources": [
+            "2025-01-15",
+            "2025-01-16"
+          ],
+          "latest_source": "2025-01-16"
+        },
+        {
+          "entry": "2025-01-31",
+          "sources": [
+            "2025-01-22",
+            "2025-01-23",
+            "2025-01-24",
+            "2025-01-27",
+            "2025-01-28"
+          ],
+          "latest_source": "2025-01-28"
+        },
+        {
+          "entry": "2025-02-18",
+          "sources": [
+            "2025-02-12",
+            "2025-02-13"
+          ],
+          "latest_source": "2025-02-13"
+        },
+        {
+          "entry": "2025-03-04",
+          "sources": [
+            "2025-02-26",
+            "2025-02-27"
+          ],
+          "latest_source": "2025-02-27"
+        },
+        {
+          "entry": "2025-04-21",
+          "sources": [
+            "2025-04-15",
+            "2025-04-16"
+          ],
+          "latest_source": "2025-04-16"
+        },
+        {
+          "entry": "2025-05-02",
+          "sources": [
+            "2025-04-28",
+            "2025-04-29"
+          ],
+          "latest_source": "2025-04-29"
+        },
+        {
+          "entry": "2025-05-07",
+          "sources": [
+            "2025-04-30",
+            "2025-05-01",
+            "2025-05-02"
+          ],
+          "latest_source": "2025-05-02"
+        },
+        {
+          "entry": "2025-05-27",
+          "sources": [
+            "2025-05-21",
+            "2025-05-22"
+          ],
+          "latest_source": "2025-05-22"
+        },
+        {
+          "entry": "2025-06-04",
+          "sources": [
+            "2025-05-29",
+            "2025-05-30"
+          ],
+          "latest_source": "2025-05-30"
+        },
+        {
+          "entry": "2025-06-09",
+          "sources": [
+            "2025-06-03",
+            "2025-06-04"
+          ],
+          "latest_source": "2025-06-04"
+        },
+        {
+          "entry": "2025-06-20",
+          "sources": [
+            "2025-06-16",
+            "2025-06-17"
+          ],
+          "latest_source": "2025-06-17"
+        },
+        {
+          "entry": "2025-07-07",
+          "sources": [
+            "2025-07-01",
+            "2025-07-02"
+          ],
+          "latest_source": "2025-07-02"
+        },
+        {
+          "entry": "2025-08-18",
+          "sources": [
+            "2025-08-12",
+            "2025-08-13"
+          ],
+          "latest_source": "2025-08-13"
+        },
+        {
+          "entry": "2025-09-02",
+          "sources": [
+            "2025-08-27",
+            "2025-08-28"
+          ],
+          "latest_source": "2025-08-28"
+        },
+        {
+          "entry": "2025-10-10",
+          "sources": [
+            "2025-09-30",
+            "2025-10-01",
+            "2025-10-02",
+            "2025-10-03",
+            "2025-10-06",
+            "2025-10-07"
+          ],
+          "latest_source": "2025-10-07"
+        },
+        {
+          "entry": "2025-10-16",
+          "sources": [
+            "2025-10-10",
+            "2025-10-13"
+          ],
+          "latest_source": "2025-10-13"
+        },
+        {
+          "entry": "2025-11-14",
+          "sources": [
+            "2025-11-10",
+            "2025-11-11"
+          ],
+          "latest_source": "2025-11-11"
+        },
+        {
+          "entry": "2025-11-28",
+          "sources": [
+            "2025-11-24",
+            "2025-11-25"
+          ],
+          "latest_source": "2025-11-25"
+        },
+        {
+          "entry": "2025-12-26",
+          "sources": [
+            "2025-12-22",
+            "2025-12-23"
+          ],
+          "latest_source": "2025-12-23"
+        },
+        {
+          "entry": "2026-01-02",
+          "sources": [
+            "2025-12-26",
+            "2025-12-29",
+            "2025-12-30"
+          ],
+          "latest_source": "2025-12-30"
+        }
+      ],
+      "merged_source_n": 4,
+      "merged_unit_n": 2,
+      "price_n": 250,
+      "price_first": "2025-01-02",
+      "price_last": "2025-12-31",
+      "missing_price_sessions": [],
+      "price_nonpositive_or_missing": {
+        "SOXX_Open": [],
+        "SOXX_Close": [],
+        "max60": []
+      },
+      "entry_outside_price_cutoff": [],
+      "B10_dates": [
+        "2025-04-08",
+        "2025-11-20"
+      ],
+      "B15_dates": [
+        "2025-04-08"
+      ],
+      "F_dates": [
+        "2025-02-27",
+        "2025-03-03",
+        "2025-03-06",
+        "2025-03-10",
+        "2025-03-11",
+        "2025-03-27",
+        "2025-03-28",
+        "2025-03-31"
+      ]
+    },
+    {
+      "source_year": 2026,
+      "role": "main evaluation inputs",
+      "flow_n": 209,
+      "flow_first": "2026-01-02",
+      "flow_last": "2026-10-30",
+      "missing_flow_sessions": [],
+      "valid_flow_n": 206,
+      "cens_dates": [
+        "2026-01-26",
+        "2026-03-04",
+        "2026-07-14"
+      ],
+      "part_dates": [],
+      "unique_entries": 191,
+      "duplicate_entry_excess": 18,
+      "duplicate_entry_groups": [
+        {
+          "entry": "2026-01-20",
+          "sources": [
+            "2026-01-14",
+            "2026-01-15"
+          ],
+          "latest_source": "2026-01-15"
+        },
+        {
+          "entry": "2026-02-19",
+          "sources": [
+            "2026-02-11",
+            "2026-02-12",
+            "2026-02-13"
+          ],
+          "latest_source": "2026-02-13"
+        },
+        {
+          "entry": "2026-03-03",
+          "sources": [
+            "2026-02-25",
+            "2026-02-26"
+          ],
+          "latest_source": "2026-02-26"
+        },
+        {
+          "entry": "2026-04-06",
+          "sources": [
+            "2026-03-31",
+            "2026-04-01"
+          ],
+          "latest_source": "2026-04-01"
+        },
+        {
+          "entry": "2026-05-04",
+          "sources": [
+            "2026-04-28",
+            "2026-04-29"
+          ],
+          "latest_source": "2026-04-29"
+        },
+        {
+          "entry": "2026-05-06",
+          "sources": [
+            "2026-04-30",
+            "2026-05-01"
+          ],
+          "latest_source": "2026-05-01"
+        },
+        {
+          "entry": "2026-05-26",
+          "sources": [
+            "2026-05-20",
+            "2026-05-21"
+          ],
+          "latest_source": "2026-05-21"
+        },
+        {
+          "entry": "2026-06-04",
+          "sources": [
+            "2026-05-29",
+            "2026-06-01"
+          ],
+          "latest_source": "2026-06-01"
+        },
+        {
+          "entry": "2026-06-22",
+          "sources": [
+            "2026-06-16",
+            "2026-06-17"
+          ],
+          "latest_source": "2026-06-17"
+        },
+        {
+          "entry": "2026-07-06",
+          "sources": [
+            "2026-06-30",
+            "2026-07-01"
+          ],
+          "latest_source": "2026-07-01"
+        },
+        {
+          "entry": "2026-08-18",
+          "sources": [
+            "2026-08-12",
+            "2026-08-13"
+          ],
+          "latest_source": "2026-08-13"
+        },
+        {
+          "entry": "2026-09-08",
+          "sources": [
+            "2026-09-02",
+            "2026-09-03"
+          ],
+          "latest_source": "2026-09-03"
+        },
+        {
+          "entry": "2026-09-28",
+          "sources": [
+            "2026-09-21",
+            "2026-09-22",
+            "2026-09-23"
+          ],
+          "latest_source": "2026-09-23"
+        },
+        {
+          "entry": "2026-10-06",
+          "sources": [
+            "2026-09-30",
+            "2026-10-01"
+          ],
+          "latest_source": "2026-10-01"
+        },
+        {
+          "entry": "2026-10-12",
+          "sources": [
+            "2026-10-06",
+            "2026-10-07"
+          ],
+          "latest_source": "2026-10-07"
+        },
+        {
+          "entry": "2026-10-15",
+          "sources": [
+            "2026-10-09",
+            "2026-10-12"
+          ],
+          "latest_source": "2026-10-12"
+        }
+      ],
+      "merged_source_n": 2,
+      "merged_unit_n": 1,
+      "price_n": 211,
+      "price_first": "2026-01-02",
+      "price_last": "2026-11-03",
+      "missing_price_sessions": [],
+      "price_nonpositive_or_missing": {
+        "SOXX_Open": [],
+        "SOXX_Close": [],
+        "max60": []
+      },
+      "entry_outside_price_cutoff": [
+        {
+          "source": "2026-10-30",
+          "entry": "2026-11-04"
+        }
+      ],
+      "B10_dates": [
+        "2026-03-30",
+        "2026-06-05",
+        "2026-07-29",
+        "2026-09-14"
+      ],
+      "B15_dates": [
+        "2026-03-30",
+        "2026-07-29"
+      ],
+      "F_dates": [
+        "2026-03-06",
+        "2026-07-02",
+        "2026-07-07",
+        "2026-07-16",
+        "2026-07-17",
+        "2026-08-19",
+        "2026-10-14",
+        "2026-10-15",
+        "2026-10-16",
+        "2026-10-22",
+        "2026-10-30"
+      ]
+    }
+  ],
+  "by_entry_year_global_latest_source": [
+    {
+      "entry_year": 2023,
+      "latest_source_n": 223,
+      "first_entry": "2023-01-09",
+      "last_entry": "2023-12-28",
+      "cens_n": 0,
+      "part_n": 0,
+      "entries_with_price_n": 223
+    },
+    {
+      "entry_year": 2024,
+      "latest_source_n": 224,
+      "first_entry": "2024-01-02",
+      "last_entry": "2024-12-30",
+      "cens_n": 0,
+      "part_n": 0,
+      "entries_with_price_n": 224
+    },
+    {
+      "entry_year": 2025,
+      "latest_source_n": 220,
+      "first_entry": "2025-01-02",
+      "last_entry": "2025-12-30",
+      "cens_n": 1,
+      "part_n": 0,
+      "entries_with_price_n": 220
+    },
+    {
+      "entry_year": 2026,
+      "latest_source_n": 193,
+      "first_entry": "2026-01-02",
+      "last_entry": "2026-11-04",
+      "cens_n": 3,
+      "part_n": 0,
+      "entries_with_price_n": 192
+    }
+  ],
+  "cross_source_year_duplicate_groups": [],
+  "soxs_isin_chain": [
+    {
+      "isin": "US25460G1123",
+      "first_observed_us_source": "2024-04-11",
+      "last_observed_us_source": "2026-03-03",
+      "source_n": 472,
+      "class_note": "Retired SOXS ISIN (FIGI shows V32S); lifetime 2024-04 to 2026-03 sits between the other SOXS ISINs"
+    },
+    {
+      "isin": "US25460G3368",
+      "first_observed_us_source": "2022-12-28",
+      "last_observed_us_source": "2024-04-10",
+      "source_n": 322,
+      "class_note": "Old SOXS ISIN, 2023-01 to 2024-04"
+    },
+    {
+      "isin": "US25461H5726",
+      "first_observed_us_source": "2026-03-05",
+      "last_observed_us_source": "2026-07-13",
+      "source_n": 89,
+      "class_note": "SOXS ISIN 2026-03 to 2026-07 (FIGI SOXSGBP)"
+    },
+    {
+      "isin": "US25461H2913",
+      "first_observed_us_source": "2026-07-15",
+      "last_observed_us_source": "2026-10-30",
+      "source_n": 77,
+      "class_note": "Current SOXS ISIN from 2026-07"
+    }
+  ],
+  "soxs_isin_changes": [
+    {
+      "first_source": "2022-12-28",
+      "isin": "US25460G3368"
+    },
+    {
+      "first_source": "2024-04-11",
+      "isin": "US25460G1123"
+    },
+    {
+      "first_source": "2026-03-05",
+      "isin": "US25461H5726"
+    },
+    {
+      "first_source": "2026-07-15",
+      "isin": "US25461H2913"
+    }
+  ],
+  "multi_isin_same_source_rows": [],
+  "split_handling": {
+    "unit": "USD money, not shares or investor count",
+    "rule": "Sum chained SOXS ISIN USD amounts without split multipliers. Dates above are observed-list US source dates, not independently verified corporate-action effective dates. Exact split ratios were not verified and are unnecessary for USD signals.",
+    "censored_at_recent_change": [
+      "2026-03-04",
+      "2026-07-14"
+    ]
+  },
+  "T2_to_T1_2024": {
+    "rule": "US source before2024-05-28:T+2, from2024-05-28:T+1. Settlement calendar excludes NYSE and specified federal holidays, adds2025-01-09. SEIBRO date=settlement+1calendar day, weekend shifted to Monday.",
+    "rows": [
+      {
+        "date": "2024-05-22",
+        "SOXS_buy": 16808450.0,
+        "SOXS_sell": 20815005.0,
+        "SOXS_net": -4006555.0,
+        "unit_id": 365,
+        "unit_n_trades": 1,
+        "seibro_date": "2024-05-27",
+        "unit_first": "2024-05-27",
+        "unit_last": "2024-05-27",
+        "known_settle": "2024-05-28",
+        "entry_settle": "2024-05-28"
+      },
+      {
+        "date": "2024-05-23",
+        "SOXS_buy": 54821017.0,
+        "SOXS_sell": 36336068.0,
+        "SOXS_net": 18484948.0,
+        "unit_id": 367,
+        "unit_n_trades": 1,
+        "seibro_date": "2024-05-29",
+        "unit_first": "2024-05-29",
+        "unit_last": "2024-05-29",
+        "known_settle": "2024-05-30",
+        "entry_settle": "2024-05-30"
+      },
+      {
+        "date": "2024-05-24",
+        "SOXS_buy": 43739784.0,
+        "SOXS_sell": 30763952.0,
+        "SOXS_net": 12975832.0,
+        "unit_id": 368,
+        "unit_n_trades": 2,
+        "seibro_date": "2024-05-30",
+        "unit_first": "2024-05-30",
+        "unit_last": "2024-05-30",
+        "known_settle": "2024-05-31",
+        "entry_settle": "2024-05-31"
+      },
+      {
+        "date": "2024-05-28",
+        "SOXS_buy": 43739784.0,
+        "SOXS_sell": 30763952.0,
+        "SOXS_net": 12975832.0,
+        "unit_id": 368,
+        "unit_n_trades": 2,
+        "seibro_date": "2024-05-30",
+        "unit_first": "2024-05-30",
+        "unit_last": "2024-05-30",
+        "known_settle": "2024-05-31",
+        "entry_settle": "2024-05-31"
+      },
+      {
+        "date": "2024-05-29",
+        "SOXS_buy": 34461787.0,
+        "SOXS_sell": 36603920.0,
+        "SOXS_net": -2142133.0,
+        "unit_id": 369,
+        "unit_n_trades": 1,
+        "seibro_date": "2024-05-31",
+        "unit_first": "2024-05-31",
+        "unit_last": "2024-05-31",
+        "known_settle": "2024-06-03",
+        "entry_settle": "2024-06-03"
+      },
+      {
+        "date": "2024-05-30",
+        "SOXS_buy": 34429333.0,
+        "SOXS_sell": 40658312.0,
+        "SOXS_net": -6228979.0,
+        "unit_id": 370,
+        "unit_n_trades": 1,
+        "seibro_date": "2024-06-03",
+        "unit_first": "2024-06-03",
+        "unit_last": "2024-06-03",
+        "known_settle": "2024-06-04",
+        "entry_settle": "2024-06-04"
+      },
+      {
+        "date": "2024-05-31",
+        "SOXS_buy": 42942524.0,
+        "SOXS_sell": 68200185.0,
+        "SOXS_net": -25257662.0,
+        "unit_id": 371,
+        "unit_n_trades": 1,
+        "seibro_date": "2024-06-04",
+        "unit_first": "2024-06-04",
+        "unit_last": "2024-06-04",
+        "known_settle": "2024-06-05",
+        "entry_settle": "2024-06-05"
+      },
+      {
+        "date": "2024-06-03",
+        "SOXS_buy": 25642710.0,
+        "SOXS_sell": 27198226.0,
+        "SOXS_net": -1555516.0,
+        "unit_id": 372,
+        "unit_n_trades": 1,
+        "seibro_date": "2024-06-05",
+        "unit_first": "2024-06-05",
+        "unit_last": "2024-06-05",
+        "known_settle": "2024-06-07",
+        "entry_settle": "2024-06-07"
+      }
+    ],
+    "combined_unit": "2024-05-24(T+2) and05-28(T+1) both settle05-29, SEIBRO05-30, known05-31 09:00KST, entry05-31 USopen. Combined USD amount is divided equally by2. Actual individual-day demand cannot be recovered."
+  },
+  "point_in_time": {
+    "known_rule": "Last SEIBRO date in unit ->next KSD businessday09:00KST ->first subsequent USopen. Actual historical release timestamps not logged;09:00 is conservative convention.",
+    "dedup_rule": "Choose globally latest source per entry before signal filtering, including year boundaries. Invalid latest source cannot be replaced by older source.",
+    "percentile_warmup": "Start2023-01-03, trailing250 includes current, min120 valid. First119 source observations cannot be ranked. Cens/part invalidate that day and all rolling windows containing it before percentile.",
+    "retrospective_labels": "B10/B15 require later reversal; F requires future20sessions. Use only explanatory/outcome labels, never signal inputs.",
+    "centered_classifier": "Observed empty/normal/double classification uses centered41-date median and20future settlement dates. Current actually used merged units are calendar-predicted doubles only, with no empty-shift merged unit; current grouping therefore does not add USdays from future-based empty classification. Expanded rebuilds need this checked again.",
+    "used_merged_units": [
+      {
+        "unit_id": 203,
+        "unit_seibro_dates": "2023-10-12",
+        "unit_trades": "2023-10-06;2023-10-09",
+        "unit_reason": "2023-10-12:pred2"
+      },
+      {
+        "unit_id": 368,
+        "unit_seibro_dates": "2024-05-30",
+        "unit_trades": "2024-05-24;2024-05-28",
+        "unit_reason": "2024-05-30:pred2"
+      },
+      {
+        "unit_id": 467,
+        "unit_seibro_dates": "2024-10-16",
+        "unit_trades": "2024-10-11;2024-10-14",
+        "unit_reason": "2024-10-16:pred2"
+      },
+      {
+        "unit_id": 487,
+        "unit_seibro_dates": "2024-11-13",
+        "unit_trades": "2024-11-08;2024-11-11",
+        "unit_reason": "2024-11-13:pred2"
+      },
+      {
+        "unit_id": 727,
+        "unit_seibro_dates": "2025-10-15",
+        "unit_trades": "2025-10-10;2025-10-13",
+        "unit_reason": "2025-10-15:pred2"
+      },
+      {
+        "unit_id": 748,
+        "unit_seibro_dates": "2025-11-13",
+        "unit_trades": "2025-11-10;2025-11-11",
+        "unit_reason": "2025-11-13:pred2;obs_normal/pred_double"
+      },
+      {
+        "unit_id": 987,
+        "unit_seibro_dates": "2026-10-14",
+        "unit_trades": "2026-10-09;2026-10-12",
+        "unit_reason": "2026-10-14:pred2"
+      }
+    ],
+    "empty_shift_merged_units": [],
+    "price_snapshot": "Use existing internally consistent SOXX adjusted snapshot. Do not append newly downloaded post-split prices.",
+    "flow_interpretation": "Top50 absence is censorship, not zero demand. Money is buy/sell settlement USD, not quantity.",
+    "centered_classifier_final_conclusion": "For current2023warmup and2024-2026 panel, centered41-date volume statistic adds zero merge choices: all7 merged units are predetermined two-trade-day settlement collisions on a single SEIBRO date. Ignoring observed empty/normal/double gives identical grouping and allocation. This conclusion concerns grouping, not a guarantee of daily publication timestamps."
+  },
+  "centered_future_information_final_check": {
+    "calendar_dates": 1002,
+    "empty_shift_count": 0,
+    "merged_units": 7,
+    "merged_pred_trade_counts": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "all_unit_ids_equal_single_settlement_date_ordinals": true,
+    "all_unit_settlement_date_counts_one": true,
+    "calendar_only_grouping_identical": true,
+    "conclusion": "For current2023warmup and2024-2026 panel, centered41-date volume statistic adds zero merge choices: all7 merged units are predetermined two-trade-day settlement collisions on a single SEIBRO date. Ignoring observed empty/normal/double gives identical grouping and allocation. This conclusion concerns grouping, not a guarantee of daily publication timestamps."
+  },
+  "independent_raw_money_audit": {
+    "created_kst": "2026-11-05T00:51:10.645654+09:00",
+    "production_functions_called": false,
+    "procedure": "Read d1..d4 rawJSON for every unit carrying2024/2025 US source dates. Deduplicate date/ISIN, verify duplicates, chain four SOXS ISINs, sum within unit and divide by number of sourceUSdays. Independently recompute censor/part and nextKSD09KST/USopen dates. Calendar/unit mapping was independently reconstructed and verified for all1002dates in unchanged prior raw audit.",
+    "raw_files_read": 1988,
+    "raw_subset_manifest_sha256": "9b2756708359bb7f26e795946507aafb57d57659da0085e4184519c27b3a89e8",
+    "raw_hash_mismatch_against_prior_audit": [],
+    "cross_list_money_inconsistencies": [],
+    "by_source_year": [
+      {
+        "source_year": 2024,
+        "rows": 252,
+        "max_abs_money_error_usd": {
+          "buy": 0.0,
+          "sell": 0.0,
+          "net": 0.0,
+          "tot": 0.0
+        },
+        "flag_mismatches": {
+          "cens": 0,
+          "part": 0
+        },
+        "date_mismatches": {
+          "known_settle": 0,
+          "entry_settle": 0
+        },
+        "passed": true
+      },
+      {
+        "source_year": 2025,
+        "rows": 250,
+        "max_abs_money_error_usd": {
+          "buy": 0.0,
+          "sell": 0.0,
+          "net": 0.0,
+          "tot": 0.0
+        },
+        "flag_mismatches": {
+          "cens": 0,
+          "part": 0
+        },
+        "date_mismatches": {
+          "known_settle": 0,
+          "entry_settle": 0
+        },
+        "passed": true
+      },
+      {
+        "source_year": 2026,
+        "rows": 209,
+        "max_abs_money_error_usd": {
+          "buy": 0.0,
+          "sell": 0.0,
+          "net": 0.0,
+          "tot": 0.0
+        },
+        "flag_mismatches": {
+          "cens": 0,
+          "part": 0
+        },
+        "date_mismatches": {
+          "seibro_date": 0,
+          "unit_last": 0,
+          "known_settle": 0,
+          "entry_settle": 0
+        },
+        "passed": true,
+        "reused_from_unchanged_prior_independent_raw_audit": true
+      }
+    ],
+    "passed": true
+  }
+}
