@@ -1,0 +1,162 @@
+{
+  "brief": "BRIEF8.md",
+  "generated_at_utc": "2026-11-04T15:10:14.838031+00:00",
+  "source": "cached Alpaca SIP quotes only; no repeated API requests",
+  "sha256": {
+    "data/derived/analysis/sox_open_switch/code/premarket_quotes.py": "d55db51823dc0d3152f578f29de2025fa1cd27bac4e6d88a63aa371e9aa10326",
+    "data/derived/analysis/sox_open_switch/code/premarket_fade.py": "6204f6eb80531d3f6c9a08ed6d1291d9e261e46423f045f8ed63d753c06b123f",
+    "data/derived/analysis/sox_open_switch/results/premarket_fade_trades.csv": "38844fb3cc15bd4a969c3dcf5fbd4b0c0b21c351c44b8c8a4e6f6595bb8ecbce",
+    "data/derived/analysis/sox_open_switch/results/premarket_quote_trades.csv": "0ed6a1154a37a26547e35e30fd8e92720c35d1bf0a6292bc95a024163c75cfea",
+    "data/derived/analysis/sox_open_switch/results/premarket_quote_summary.json": "5fdc54864b2ea682557d93087f945c52cbd9bf14bdfb93a7dead248addd3d2f2",
+    "data/derived/analysis/sox_open_switch/cache/premarket_fade_quotes.parquet": "579e2e14dc2076cad82cb2717277d3f9875b2af989101c34de6708325538eb9c",
+    "data/derived/analysis/sox_open_switch/results/premarket_fade_daily.csv": "72ef3a2cb5500b504d78d495c30f869fceee79b2971b4ed76adeb958477374b6",
+    "data/derived/analysis/sox_open_switch/results/premarket_quote_daily_stats.json": "ae5ae31f6a72546644417bf745d29fdab0bd169153a8a0da0cde54114a546142",
+    "tests/test_premarket_quotes.py": "5a3a397eb5061cf86d5d7e2e047d8fe22264f7ef3b04e1093853f15ec1e72036"
+  },
+  "unique_quotes": 417,
+  "valid_quotes": 417,
+  "quote_age_seconds": {
+    "n": 417,
+    "min": 0.000101,
+    "median": 0.008284,
+    "mean": 0.36720917505995204,
+    "p95": 2.0045387999999975,
+    "max": 11.675357
+  },
+  "all_strategy_trades": 508,
+  "valid_trades": 508,
+  "ratio_flag_count": 0,
+  "max_abs_ratio_change_pct": 0.6270329584198597,
+  "spread_units": "full bid-ask spread / midpoint * 100 (percent); no additional market impact",
+  "unique_quote_spread_pct": {
+    "n": 417,
+    "min": 0.0,
+    "median": 0.10259040779686882,
+    "mean": 0.16600031504428508,
+    "p95": 0.5099524454299866,
+    "max": 0.6309148264984233
+  },
+  "all_trades_spread_pct": {
+    "entry": {
+      "n": 508,
+      "min": 0.0,
+      "median": 0.10772959870724254,
+      "mean": 0.166969178370355,
+      "p95": 0.5089058524173032,
+      "max": 0.619195046439629
+    },
+    "exit": {
+      "n": 508,
+      "min": 0.019199385619669995,
+      "median": 0.10438552691401189,
+      "mean": 0.16652205985047747,
+      "p95": 0.5071112222072673,
+      "max": 0.6309148264984233
+    }
+  },
+  "2026_primary_trade_count": 50,
+  "2026_primary_spread_pct": {
+    "entry": {
+      "n": 50,
+      "min": 0.0,
+      "median": 0.11188169183379107,
+      "mean": 0.18724129423707161,
+      "p95": 0.5533903133903085,
+      "max": 0.6079027355623106
+    },
+    "exit": {
+      "n": 50,
+      "min": 0.022200022200017783,
+      "median": 0.11741588558044269,
+      "mean": 0.18310798927223462,
+      "p95": 0.537769153103093,
+      "max": 0.6042296072507559
+    }
+  },
+  "2026_primary_top_2": [
+    {
+      "day": "2026-06-25",
+      "strategy_id": "g5_exit0959",
+      "entry_timestamp": "2026-06-25T09:01:00-04:00",
+      "entry_quote_timestamp": "2026-06-25T13:00:59.920516211+00:00",
+      "entry_age_seconds": 0.079483,
+      "entry_bid": 3.37,
+      "entry_ask": 3.38,
+      "entry_bid_size": 213100.0,
+      "entry_ask_size": 90700.0,
+      "exit_timestamp": "2026-06-25T09:59:00-04:00",
+      "exit_quote_timestamp": "2026-06-25T13:58:59.992542608+00:00",
+      "exit_age_seconds": 0.007457,
+      "exit_bid": 4.09,
+      "exit_ask": 4.1,
+      "exit_bid_size": 334200.0,
+      "exit_ask_size": 318100.0,
+      "quote_return_pct": 21.00591715976332,
+      "quote_return_cost2_pct": 20.679468242245203,
+      "entry_mid_raw_to_adjusted": 0.0998520710059171,
+      "exit_mid_raw_to_adjusted": 0.100122249388753,
+      "ratio_change_pct": 0.2705786471067561,
+      "ratio_flag": false,
+      "return_pct": 20.865465463033207
+    },
+    {
+      "day": "2026-05-27",
+      "strategy_id": "g5_exit0959",
+      "entry_timestamp": "2026-05-27T09:01:00-04:00",
+      "entry_quote_timestamp": "2026-05-27T13:00:59.354758712+00:00",
+      "entry_age_seconds": 0.645241,
+      "entry_bid": 5.62,
+      "entry_ask": 5.63,
+      "entry_bid_size": 48500.0,
+      "entry_ask_size": 18400.0,
+      "exit_timestamp": "2026-05-27T09:59:00-04:00",
+      "exit_quote_timestamp": "2026-05-27T13:58:59.992444983+00:00",
+      "exit_age_seconds": 0.007555,
+      "exit_bid": 6.48,
+      "exit_ask": 6.49,
+      "exit_bid_size": 30800.0,
+      "exit_ask_size": 40900.0,
+      "quote_return_pct": 15.097690941385444,
+      "quote_return_cost2_pct": 14.906832298136653,
+      "entry_mid_raw_to_adjusted": 0.0999111900532859,
+      "exit_mid_raw_to_adjusted": 0.0999229583975346,
+      "ratio_change_pct": 0.0117788049991407,
+      "ratio_flag": false,
+      "return_pct": 15.141510658938916
+    }
+  ],
+  "2026_primary_worst_1": [
+    {
+      "day": "2026-07-30",
+      "strategy_id": "g5_exit0959",
+      "entry_timestamp": "2026-07-30T09:01:00-04:00",
+      "entry_quote_timestamp": "2026-07-30T13:00:59.929390526+00:00",
+      "entry_age_seconds": 0.070609,
+      "entry_bid": 62.17,
+      "entry_ask": 62.23,
+      "entry_bid_size": 200.0,
+      "entry_ask_size": 100.0,
+      "exit_timestamp": "2026-07-30T09:59:00-04:00",
+      "exit_quote_timestamp": "2026-07-30T13:58:59.992690625+00:00",
+      "exit_age_seconds": 0.007309,
+      "exit_bid": 55.67,
+      "exit_ask": 55.7,
+      "exit_bid_size": 200.0,
+      "exit_ask_size": 200.0,
+      "quote_return_pct": -10.54153945042583,
+      "quote_return_cost2_pct": -10.60873755220044,
+      "entry_mid_raw_to_adjusted": 0.999517917403182,
+      "exit_mid_raw_to_adjusted": 0.9997307001795332,
+      "ratio_change_pct": 0.0212885404700102,
+      "ratio_flag": false,
+      "return_pct": -10.59722167641609
+    }
+  ],
+  "limitations": [
+    "NBBO is a displayed quote, not proof of a filled order or size capacity.",
+    "Raw same-day ask-to-bid returns require no inferred split factor.",
+    "Ratio flags audit adjusted-bar units and do not automatically remove valid quote returns.",
+    "Quoted spread doubled uses midpoint +/- two half-spreads; extra slippage excluded."
+  ],
+  "provenance_refreshed_at_utc": "2026-11-04T15:12:07.624242+00:00"
+}

@@ -1,0 +1,126 @@
+{
+  "audit_created_at_utc": "2026-11-04T15:08:56.117680+00:00",
+  "auditor": "codex /root/other_review",
+  "status": "pass",
+  "read_only_source_audit": true,
+  "scope": "BRIEF8 six fixed settings; 2025 auxiliary and 2026 primary only; no performance before 2025 calculated",
+  "methods": [
+    "Read original SOXL and SOXS cache/alp1m and cache/alp1m_recent Parquet directly; concatenate chronologically and retain latest overlapping timestamp. Did not use merged cache or import target strategy, lib.Engine, Data, valid_bar, or gap_for_day.",
+    "Use exchange_calendars XNYS official prior session close minus one minute to select prior SOXL closing reference, independently of engine volume-based early-close detection. Signal is current SOXL 08:59 minute close versus that prior close.",
+    "Require actual raw rows, positive volume and positive finite closes for signal/reference and both ETFs entry/exit minute bars. Apply the common valid-day universe before the threshold.",
+    "Recompute SOXS entry at 09:00 minute close (actual09:01), exit09:58 or09:44 minute close (actual09:59 or09:45), multiplying pre/early half-spread costs once and twice. Set non-signal day return to zero.",
+    "Compare all daily CSV rows with numeric tolerance rtol=1e-10 and atol=1e-10; compare signal/execution booleans exactly. Independently verify every trade CSV actual entry and exit timestamp."
+  ],
+  "settings": 6,
+  "distinct_sessions": 461,
+  "sessions_2026": 211,
+  "sessions_2025": 250,
+  "compared_rows": 2766,
+  "checks": {
+    "signal_gap_pct": {
+      "compared_rows": 2766,
+      "mismatches": 0,
+      "maximum_absolute_error": 3.552713678800501e-15
+    },
+    "return_pct": {
+      "compared_rows": 2766,
+      "mismatches": 0,
+      "maximum_absolute_error": 1.7763568394002505e-15
+    },
+    "return_cost2_pct": {
+      "compared_rows": 2766,
+      "mismatches": 0,
+      "maximum_absolute_error": 1.7763568394002505e-15
+    },
+    "execution_valid": {
+      "compared_rows": 2766,
+      "mismatches": 0
+    },
+    "signal": {
+      "compared_rows": 2766,
+      "mismatches": 0
+    }
+  },
+  "trade_timestamp_check": {
+    "compared_trades": 508,
+    "mismatches": 0
+  },
+  "prior_early_close_handling": {
+    "calendar": "XNYS",
+    "exchange_calendars_version": "4.13.2",
+    "method": "Use official scheduled close, not a presumed 16:00 or inferred volume ratio. Reference bar is one minute before prior official close.",
+    "trade_days_after_early_close": [
+      {
+        "trade_day": "2025-07-07",
+        "prior_session_close": "2025-07-03T13:00:00-04:00",
+        "prior_signal_reference_bar": "2025-07-03T12:59:00-04:00"
+      },
+      {
+        "trade_day": "2025-12-01",
+        "prior_session_close": "2025-11-28T13:00:00-05:00",
+        "prior_signal_reference_bar": "2025-11-28T12:59:00-05:00"
+      },
+      {
+        "trade_day": "2025-12-26",
+        "prior_session_close": "2025-12-24T13:00:00-05:00",
+        "prior_signal_reference_bar": "2025-12-24T12:59:00-05:00"
+      }
+    ]
+  },
+  "sample_trades": [
+    {
+      "day": "2026-01-02",
+      "signal_gap_pct": 6.8760409231501285,
+      "entry_actual_timestamp": "2026-01-02T09:01:00-05:00",
+      "exit_actual_timestamp": "2026-01-02T09:59:00-05:00",
+      "raw_adjusted_entry_bar_close": 585.5,
+      "raw_adjusted_exit_bar_close": 547.0,
+      "independently_recomputed_return_pct": -6.684014258190074
+    },
+    {
+      "day": "2026-06-17",
+      "signal_gap_pct": 7.543913986106809,
+      "entry_actual_timestamp": "2026-06-17T09:01:00-04:00",
+      "exit_actual_timestamp": "2026-06-17T09:59:00-04:00",
+      "raw_adjusted_entry_bar_close": 42.68,
+      "raw_adjusted_exit_bar_close": 43.7,
+      "independently_recomputed_return_pct": 2.2710341226044317
+    },
+    {
+      "day": "2026-11-03",
+      "signal_gap_pct": 10.634003227226053,
+      "entry_actual_timestamp": "2026-11-03T09:01:00-05:00",
+      "exit_actual_timestamp": "2026-11-03T09:59:00-05:00",
+      "raw_adjusted_entry_bar_close": 51.88,
+      "raw_adjusted_exit_bar_close": 53.3,
+      "independently_recomputed_return_pct": 2.61783853762243
+    }
+  ],
+  "sha256": {
+    "target_code": {
+      "path": "data/derived/analysis/sox_open_switch/code/premarket_fade.py",
+      "sha256": "6204f6eb80531d3f6c9a08ed6d1291d9e261e46423f045f8ed63d753c06b123f"
+    },
+    "trade_csv": {
+      "path": "data/derived/analysis/sox_open_switch/results/premarket_fade_trades.csv",
+      "sha256": "38844fb3cc15bd4a969c3dcf5fbd4b0c0b21c351c44b8c8a4e6f6595bb8ecbce"
+    },
+    "daily_csv": {
+      "path": "data/derived/analysis/sox_open_switch/results/premarket_fade_daily.csv",
+      "sha256": "72ef3a2cb5500b504d78d495c30f869fceee79b2971b4ed76adeb958477374b6"
+    },
+    "frozen_spec": {
+      "path": "data/derived/analysis/sox_open_switch/BRIEF8.md",
+      "sha256": "9de8fb5f143016e9a48fa58ae386a187314a9da1671112cd5e35966629a109ef"
+    },
+    "cost_table": {
+      "path": "data/derived/analysis/sox_open_switch/cost_table.json",
+      "sha256": "ee84c1d9c729bd079716f3e41d910a34e8bed5bc65308cd11d12d7cf226e8852"
+    }
+  },
+  "limitations": [
+    "This verifies calculation integrity and timing; it does not establish an independent unseen performance holdout.",
+    "NBBO quote results are audited separately and are not included in these return comparisons.",
+    "Fixed half-spread cost model cannot guarantee a premarket order fill or account for market impact."
+  ]
+}

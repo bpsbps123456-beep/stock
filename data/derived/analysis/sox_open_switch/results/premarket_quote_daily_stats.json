@@ -1,0 +1,1168 @@
+{
+  "scope": "complete regular sessions, non-signal zero; signal entry raw ask -> exit raw bid",
+  "quote_coverage": "every signal key has a valid finite actual quote return; otherwise calculation fails",
+  "n_joined_signal_trades": 508,
+  "n_strategies": 6,
+  "statistics_reuse": "premarket_fade.bootstrap / max_dd / holm",
+  "seed": 20261104,
+  "bootstrap_draws": 10000,
+  "units": "percentage points (1.0 = 1%)",
+  "reference_only": "2026 reused history, bootstrap tails/Holm are not selection-corrected confirmation",
+  "slippage": "extra market impact excluded; NBBO displayed size does not guarantee full execution",
+  "rows": [
+    {
+      "strategy_id": "g3_exit0945",
+      "periods": {
+        "2026_all": {
+          "days": 211,
+          "signals": 84,
+          "n_valid_quote_trades": 84,
+          "n_ratio_flagged_valid": 0,
+          "per_day_pct": 0.16553257954530717,
+          "per_trade_pct": 0.4158020748102359,
+          "median_trade_pct": -0.08789548629601907,
+          "win_rate": 0.4642857142857143,
+          "worst_trade_pct": -5.802047781569975,
+          "ci95_per_day_pct": [
+            -0.13742798872306392,
+            0.49543746665747046
+          ],
+          "bootstrap_tail_le_zero_reference": 0.1576,
+          "cost2_per_day_pct": 0.09446092774600201,
+          "cost2_per_trade_pct": 0.23727685421912414,
+          "drop_top2_per_day_pct": 0.040515744939494495,
+          "removed_top2": [
+            {
+              "day": "2026-05-27",
+              "return_pct": 16.69626998223801
+            },
+            {
+              "day": "2026-06-25",
+              "return_pct": 9.763313609467449
+            }
+          ],
+          "compound_pct": 34.089127157962174,
+          "max_dd_pct": -20.957695708237534
+        },
+        "2026_front": {
+          "days": 123,
+          "signals": 50,
+          "n_valid_quote_trades": 50,
+          "n_ratio_flagged_valid": 0,
+          "per_day_pct": -0.0041196699503843505,
+          "per_trade_pct": -0.010134388077945467,
+          "median_trade_pct": -0.6163736406247067,
+          "win_rate": 0.38,
+          "worst_trade_pct": -5.802047781569975,
+          "ci95_per_day_pct": [
+            -0.413202803555423,
+            0.45527186413129295
+          ],
+          "bootstrap_tail_le_zero_reference": 0.531,
+          "cost2_per_day_pct": -0.10346176526050159,
+          "cost2_per_trade_pct": -0.2545159425408339,
+          "drop_top2_per_day_pct": -0.2228620082281218,
+          "removed_top2": [
+            {
+              "day": "2026-05-27",
+              "return_pct": 16.69626998223801
+            },
+            {
+              "day": "2026-06-25",
+              "return_pct": 9.763313609467449
+            }
+          ],
+          "compound_pct": -4.161150225478738,
+          "max_dd_pct": -20.957695708237534
+        },
+        "2026_back": {
+          "days": 88,
+          "signals": 34,
+          "n_valid_quote_trades": 34,
+          "n_ratio_flagged_valid": 0,
+          "per_day_pct": 0.4026601555449669,
+          "per_trade_pct": 1.042179226116385,
+          "median_trade_pct": 0.6586546235764379,
+          "win_rate": 0.5882352941176471,
+          "worst_trade_pct": -5.286839145106859,
+          "ci95_per_day_pct": [
+            -0.01579037023448354,
+            0.8424661633975754
+          ],
+          "bootstrap_tail_le_zero_reference": 0.0289,
+          "cost2_per_day_pct": 0.3711028736528196,
+          "cost2_per_trade_pct": 0.9605015553367093,
+          "drop_top2_per_day_pct": 0.23553768595473473,
+          "removed_top2": [
+            {
+              "day": "2026-07-27",
+              "return_pct": 8.393933097859962
+            },
+            {
+              "day": "2026-07-14",
+              "return_pct": 6.78391959798994
+            }
+          ],
+          "compound_pct": 39.91103552831843,
+          "max_dd_pct": -5.286839145106859,
+          "holm6_bootstrap_tail_reference": 0.1734
+        },
+        "2026_jul_aug": {
+          "days": 43,
+          "signals": 18,
+          "n_valid_quote_trades": 18,
+          "n_ratio_flagged_valid": 0,
+          "per_day_pct": 0.6647855511013983,
+          "per_trade_pct": 1.5880988165200074,
+          "median_trade_pct": 1.1662749249682913,
+          "win_rate": 0.7222222222222222,
+          "worst_trade_pct": -5.286839145106859,
+          "ci95_per_day_pct": [
+            -0.03696238506466252,
+            1.4304744861957444
+          ],
+          "bootstrap_tail_le_zero_reference": 0.0347,
+          "cost2_per_day_pct": 0.6172164763709898,
+          "cost2_per_trade_pct": 1.4744615824418084,
+          "drop_top2_per_day_pct": 0.3270225854026885,
+          "removed_top2": [
+            {
+              "day": "2026-07-27",
+              "return_pct": 8.393933097859962
+            },
+            {
+              "day": "2026-07-14",
+              "return_pct": 6.78391959798994
+            }
+          ],
+          "compound_pct": 31.28516903831442,
+          "max_dd_pct": -5.286839145106859
+        },
+        "2026_sep_nov": {
+          "days": 45,
+          "signals": 16,
+          "n_valid_quote_trades": 16,
+          "n_ratio_flagged_valid": 0,
+          "per_day_pct": 0.15218477756882132,
+          "per_trade_pct": 0.42801968691230985,
+          "median_trade_pct": -0.02995805871779389,
+          "win_rate": 0.4375,
+          "worst_trade_pct": -5.049701789264416,
+          "ci95_per_day_pct": [
+            -0.2720490628452329,
+            0.5867772424232031
+          ],
+          "bootstrap_tail_le_zero_reference": 0.2436,
+          "cost2_per_day_pct": 0.13592765327767922,
+          "cost2_per_trade_pct": 0.38229652484347276,
+          "drop_top2_per_day_pct": -0.06100764064304405,
+          "removed_top2": [
+            {
+              "day": "2026-10-09",
+              "return_pct": 5.538270068450535
+            },
+            {
+              "day": "2026-11-02",
+              "return_pct": 3.933373469797319
+            }
+          ],
+          "compound_pct": 6.570328204769749,
+          "max_dd_pct": -5.049701789264416
+        },
+        "2025_auxiliary": {
+          "days": 250,
+          "signals": 55,
+          "n_valid_quote_trades": 55,
+          "n_ratio_flagged_valid": 0,
+          "per_day_pct": -0.03240432356755281,
+          "per_trade_pct": -0.14729237985251276,
+          "median_trade_pct": -0.4310344827586188,
+          "win_rate": 0.43636363636363634,
+          "worst_trade_pct": -4.844911561138177,
+          "ci95_per_day_pct": [
+            -0.15768014671846375,
+            0.09483620702391729
+          ],
+          "bootstrap_tail_le_zero_reference": 0.6959,
+          "cost2_per_day_pct": -0.06518674852355097,
+          "cost2_per_trade_pct": -0.2963034023797772,
+          "drop_top2_per_day_pct": -0.07361914976504426,
+          "removed_top2": [
+            {
+              "day": "2025-03-03",
+              "return_pct": 5.919566199728887
+            },
+            {
+              "day": "2025-04-14",
+              "return_pct": 4.236902050113889
+            }
+          ],
+          "compound_pct": -8.948454953984408,
+          "max_dd_pct": -18.728212248015307
+        }
+      }
+    },
+    {
+      "strategy_id": "g3_exit0959",
+      "periods": {
+        "2026_all": {
+          "days": 211,
+          "signals": 84,
+          "n_valid_quote_trades": 84,
+          "n_ratio_flagged_valid": 0,
+          "per_day_pct": 0.32972777607046083,
+          "per_trade_pct": 0.8282447708436578,
+          "median_trade_pct": 0.3226067161465007,
+          "win_rate": 0.5357142857142857,
+          "worst_trade_pct": -10.54153945042583,
+          "ci95_per_day_pct": [
+            -0.08359803250129469,
+            0.7661920206409465
+          ],
+          "bootstrap_tail_le_zero_reference": 0.0632,
+          "cost2_per_day_pct": 0.2594992832739784,
+          "cost2_per_trade_pct": 0.6518374853667792,
+          "drop_top2_per_day_pct": 0.1601385294244903,
+          "removed_top2": [
+            {
+              "day": "2026-06-25",
+              "return_pct": 21.00591715976332
+            },
+            {
+              "day": "2026-05-27",
+              "return_pct": 15.097690941385444
+            }
+          ],
+          "compound_pct": 80.7945794074365,
+          "max_dd_pct": -16.900137692704032
+        },
+        "2026_front": {
+          "days": 123,
+          "signals": 50,
+          "n_valid_quote_trades": 50,
+          "n_ratio_flagged_valid": 0,
+          "per_day_pct": 0.16510166498314266,
+          "per_trade_pct": 0.40615009585853123,
+          "median_trade_pct": -0.27194998755544764,
+          "win_rate": 0.46,
+          "worst_trade_pct": -7.692307692307699,
+          "ci95_per_day_pct": [
+            -0.40008147073932926,
+            0.7779796604921232
+          ],
+          "bootstrap_tail_le_zero_reference": 0.3084,
+          "cost2_per_day_pct": 0.06575063364118161,
+          "cost2_per_trade_pct": 0.16174655875730656,
+          "drop_top2_per_day_pct": -0.130546308332415,
+          "removed_top2": [
+            {
+              "day": "2026-06-25",
+              "return_pct": 21.00591715976332
+            },
+            {
+              "day": "2026-05-27",
+              "return_pct": 15.097690941385444
+            }
+          ],
+          "compound_pct": 14.422223557842484,
+          "max_dd_pct": -16.900137692704032
+        },
+        "2026_back": {
+          "days": 88,
+          "signals": 34,
+          "n_valid_quote_trades": 34,
+          "n_ratio_flagged_valid": 0,
+          "per_day_pct": 0.559830181340235,
+          "per_trade_pct": 1.448972234057079,
+          "median_trade_pct": 1.7261124979156661,
+          "win_rate": 0.6470588235294118,
+          "worst_trade_pct": -10.54153945042583,
+          "ci95_per_day_pct": [
+            -0.021879788510055016,
+            1.1427968025618325
+          ],
+          "bootstrap_tail_le_zero_reference": 0.0299,
+          "cost2_per_day_pct": 0.5303070549198194,
+          "cost2_per_trade_pct": 1.3725594362630626,
+          "drop_top2_per_day_pct": 0.33740015887857805,
+          "removed_top2": [
+            {
+              "day": "2026-07-27",
+              "return_pct": 10.658632869312278
+            },
+            {
+              "day": "2026-08-19",
+              "return_pct": 9.59000942507069
+            }
+          ],
+          "compound_pct": 58.00652511882149,
+          "max_dd_pct": -13.424818255587178,
+          "holm6_bootstrap_tail_reference": 0.1734
+        },
+        "2026_jul_aug": {
+          "days": 43,
+          "signals": 18,
+          "n_valid_quote_trades": 18,
+          "n_ratio_flagged_valid": 0,
+          "per_day_pct": 1.006275033365907,
+          "per_trade_pct": 2.4038792463741117,
+          "median_trade_pct": 2.3799897392327685,
+          "win_rate": 0.7777777777777778,
+          "worst_trade_pct": -10.54153945042583,
+          "ci95_per_day_pct": [
+            -0.02517678951389869,
+            2.0309333292911997
+          ],
+          "bootstrap_tail_le_zero_reference": 0.0276,
+          "cost2_per_day_pct": 0.9602986578300341,
+          "cost2_per_trade_pct": 2.294046793705082,
+          "drop_top2_per_day_pct": 0.5614922961061228,
+          "removed_top2": [
+            {
+              "day": "2026-07-27",
+              "return_pct": 10.658632869312278
+            },
+            {
+              "day": "2026-08-19",
+              "return_pct": 9.59000942507069
+            }
+          ],
+          "compound_pct": 50.05850799316871,
+          "max_dd_pct": -10.54153945042583
+        },
+        "2026_sep_nov": {
+          "days": 45,
+          "signals": 16,
+          "n_valid_quote_trades": 16,
+          "n_ratio_flagged_valid": 0,
+          "per_day_pct": 0.13322732273792623,
+          "per_trade_pct": 0.37470184520041755,
+          "median_trade_pct": 0.040278010920286045,
+          "win_rate": 0.5,
+          "worst_trade_pct": -7.97216699801192,
+          "ci95_per_day_pct": [
+            -0.45917563137220246,
+            0.6935936228245367
+          ],
+          "bootstrap_tail_le_zero_reference": 0.3114,
+          "cost2_per_day_pct": 0.11942618991672559,
+          "cost2_per_trade_pct": 0.3358861591407907,
+          "drop_top2_per_day_pct": -0.10306416893450744,
+          "removed_top2": [
+            {
+              "day": "2026-10-09",
+              "return_pct": 5.911636589919089
+            },
+            {
+              "day": "2026-11-02",
+              "return_pct": 4.515352197471412
+            }
+          ],
+          "compound_pct": 5.296612122795907,
+          "max_dd_pct": -13.424818255587178
+        },
+        "2025_auxiliary": {
+          "days": 250,
+          "signals": 55,
+          "n_valid_quote_trades": 55,
+          "n_ratio_flagged_valid": 0,
+          "per_day_pct": -0.07317383534171173,
+          "per_trade_pct": -0.33260834246232596,
+          "median_trade_pct": -0.3060443764345888,
+          "win_rate": 0.36363636363636365,
+          "worst_trade_pct": -6.100999743655466,
+          "ci95_per_day_pct": [
+            -0.2111377773791107,
+            0.06377509389436944
+          ],
+          "bootstrap_tail_le_zero_reference": 0.8578,
+          "cost2_per_day_pct": -0.10557919434568679,
+          "cost2_per_trade_pct": -0.4799054288440309,
+          "drop_top2_per_day_pct": -0.11527004799705638,
+          "removed_top2": [
+            {
+              "day": "2025-03-03",
+              "return_pct": 5.87437867148668
+            },
+            {
+              "day": "2025-04-14",
+              "return_pct": 4.419134396355373
+            }
+          ],
+          "compound_pct": -17.998879297421166,
+          "max_dd_pct": -22.17936890426647
+        }
+      }
+    },
+    {
+      "strategy_id": "g5_exit0945",
+      "periods": {
+        "2026_all": {
+          "days": 211,
+          "signals": 50,
+          "n_valid_quote_trades": 50,
+          "n_ratio_flagged_valid": 0,
+          "per_day_pct": 0.061110421831091236,
+          "per_trade_pct": 0.25788598012720504,
+          "median_trade_pct": -0.5969921387150134,
+          "win_rate": 0.4,
+          "worst_trade_pct": -5.802047781569975,
+          "ci95_per_day_pct": [
+            -0.18650521434146386,
+            0.3385806830034034
+          ],
+          "bootstrap_tail_le_zero_reference": 0.3432,
+          "cost2_per_day_pct": 0.016744347944375862,
+          "cost2_per_trade_pct": 0.0706611483252662,
+          "drop_top2_per_day_pct": -0.0649056678724651,
+          "removed_top2": [
+            {
+              "day": "2026-05-27",
+              "return_pct": 16.69626998223801
+            },
+            {
+              "day": "2026-06-25",
+              "return_pct": 9.763313609467449
+            }
+          ],
+          "compound_pct": 9.350309055019125,
+          "max_dd_pct": -16.993122046029274
+        },
+        "2026_front": {
+          "days": 123,
+          "signals": 29,
+          "n_valid_quote_trades": 29,
+          "n_ratio_flagged_valid": 0,
+          "per_day_pct": 0.023554526624658133,
+          "per_trade_pct": 0.0999036818907914,
+          "median_trade_pct": -0.9661835748792313,
+          "win_rate": 0.3103448275862069,
+          "worst_trade_pct": -5.802047781569975,
+          "ci95_per_day_pct": [
+            -0.3360786014272014,
+            0.44587200692474904
+          ],
+          "bootstrap_tail_le_zero_reference": 0.4863,
+          "cost2_per_day_pct": -0.03762399953166826,
+          "cost2_per_trade_pct": -0.15957765318604109,
+          "drop_top2_per_day_pct": -0.1947303869163017,
+          "removed_top2": [
+            {
+              "day": "2026-05-27",
+              "return_pct": 16.69626998223801
+            },
+            {
+              "day": "2026-06-25",
+              "return_pct": 9.763313609467449
+            }
+          ],
+          "compound_pct": -0.04737595293197172,
+          "max_dd_pct": -16.993122046029274
+        },
+        "2026_back": {
+          "days": 88,
+          "signals": 21,
+          "n_valid_quote_trades": 21,
+          "n_ratio_flagged_valid": 0,
+          "per_day_pct": 0.11360332081281027,
+          "per_trade_pct": 0.4760520110251098,
+          "median_trade_pct": 0.632377740303558,
+          "win_rate": 0.5238095238095238,
+          "worst_trade_pct": -5.286839145106859,
+          "ci95_per_day_pct": [
+            -0.19234208781890844,
+            0.45903058141685654
+          ],
+          "bootstrap_tail_le_zero_reference": 0.2476,
+          "cost2_per_day_pct": 0.09273646998475572,
+          "cost2_per_trade_pct": 0.38860996945992876,
+          "drop_top2_per_day_pct": -0.06024140074793719,
+          "removed_top2": [
+            {
+              "day": "2026-07-27",
+              "return_pct": 8.393933097859962
+            },
+            {
+              "day": "2026-07-14",
+              "return_pct": 6.78391959798994
+            }
+          ],
+          "compound_pct": 9.402139361069416,
+          "max_dd_pct": -5.286839145106848,
+          "holm6_bootstrap_tail_reference": 0.7427999999999999
+        },
+        "2026_jul_aug": {
+          "days": 43,
+          "signals": 13,
+          "n_valid_quote_trades": 13,
+          "n_ratio_flagged_valid": 0,
+          "per_day_pct": 0.2176122143627625,
+          "per_trade_pct": 0.7197942475075991,
+          "median_trade_pct": 1.0327455919395323,
+          "win_rate": 0.6153846153846154,
+          "worst_trade_pct": -5.286839145106859,
+          "ci95_per_day_pct": [
+            -0.3679389436663315,
+            0.8832155431726142
+          ],
+          "bootstrap_tail_le_zero_reference": 0.2518,
+          "cost2_per_day_pct": 0.181886744743989,
+          "cost2_per_trade_pct": 0.6016253864608867,
+          "drop_top2_per_day_pct": -0.14196408483539302,
+          "removed_top2": [
+            {
+              "day": "2026-07-27",
+              "return_pct": 8.393933097859962
+            },
+            {
+              "day": "2026-07-14",
+              "return_pct": 6.78391959798994
+            }
+          ],
+          "compound_pct": 8.806144120899173,
+          "max_dd_pct": -5.286839145106848
+        },
+        "2026_sep_nov": {
+          "days": 45,
+          "signals": 8,
+          "n_valid_quote_trades": 8,
+          "n_ratio_flagged_valid": 0,
+          "per_day_pct": 0.014217044753967024,
+          "per_trade_pct": 0.07997087674106451,
+          "median_trade_pct": -0.3372518789747536,
+          "win_rate": 0.375,
+          "worst_trade_pct": -2.071397091229632,
+          "ci95_per_day_pct": [
+            -0.16443167259267247,
+            0.21684060553284856
+          ],
+          "bootstrap_tail_le_zero_reference": 0.4548,
+          "cost2_per_day_pct": 0.0075484296592661275,
+          "cost2_per_trade_pct": 0.04245991683337197,
+          "drop_top2_per_day_pct": -0.09228932399479577,
+          "removed_top2": [
+            {
+              "day": "2026-09-08",
+              "return_pct": 3.063104560110541
+            },
+            {
+              "day": "2026-10-19",
+              "return_pct": 1.5451033855941931
+            }
+          ],
+          "compound_pct": 0.5477588099326969,
+          "max_dd_pct": -3.1042574576851667
+        },
+        "2025_auxiliary": {
+          "days": 250,
+          "signals": 29,
+          "n_valid_quote_trades": 29,
+          "n_ratio_flagged_valid": 0,
+          "per_day_pct": -0.04927086964259271,
+          "per_trade_pct": -0.42474887622924756,
+          "median_trade_pct": -0.46948356807512415,
+          "win_rate": 0.3793103448275862,
+          "worst_trade_pct": -4.844911561138177,
+          "ci95_per_day_pct": [
+            -0.14425314940922354,
+            0.04186465548941395
+          ],
+          "bootstrap_tail_le_zero_reference": 0.8506,
+          "cost2_per_day_pct": -0.06663383703830038,
+          "cost2_per_trade_pct": -0.5744296296405208,
+          "drop_top2_per_day_pct": -0.07841203921702534,
+          "removed_top2": [
+            {
+              "day": "2025-04-14",
+              "return_pct": 4.236902050113889
+            },
+            {
+              "day": "2025-10-15",
+              "return_pct": 2.891566265060219
+            }
+          ],
+          "compound_pct": -12.228547675209533,
+          "max_dd_pct": -16.365039958046136
+        }
+      }
+    },
+    {
+      "strategy_id": "g5_exit0959",
+      "periods": {
+        "2026_all": {
+          "days": 211,
+          "signals": 50,
+          "n_valid_quote_trades": 50,
+          "n_ratio_flagged_valid": 0,
+          "per_day_pct": 0.20670111623757292,
+          "per_trade_pct": 0.8722787105225578,
+          "median_trade_pct": 0.15602116895220286,
+          "win_rate": 0.52,
+          "worst_trade_pct": -10.54153945042583,
+          "ci95_per_day_pct": [
+            -0.12138798117857677,
+            0.5708337235867059
+          ],
+          "bootstrap_tail_le_zero_reference": 0.1237,
+          "cost2_per_day_pct": 0.16268142572398922,
+          "cost2_per_trade_pct": 0.6865156165552345,
+          "drop_top2_per_day_pct": 0.035934580980761396,
+          "removed_top2": [
+            {
+              "day": "2026-06-25",
+              "return_pct": 21.00591715976332
+            },
+            {
+              "day": "2026-05-27",
+              "return_pct": 15.097690941385444
+            }
+          ],
+          "compound_pct": 44.43727275390974,
+          "max_dd_pct": -12.27265887331721
+        },
+        "2026_front": {
+          "days": 123,
+          "signals": 29,
+          "n_valid_quote_trades": 29,
+          "n_ratio_flagged_valid": 0,
+          "per_day_pct": 0.15682431147382878,
+          "per_trade_pct": 0.6651513900441703,
+          "median_trade_pct": -0.24449877750610804,
+          "win_rate": 0.4482758620689655,
+          "worst_trade_pct": -7.692307692307699,
+          "ci95_per_day_pct": [
+            -0.2987623613606106,
+            0.6922203009707428
+          ],
+          "bootstrap_tail_le_zero_reference": 0.2896,
+          "cost2_per_day_pct": 0.09563232890134425,
+          "cost2_per_trade_pct": 0.4056129812022532,
+          "drop_top2_per_day_pct": -0.13896047760221344,
+          "removed_top2": [
+            {
+              "day": "2026-06-25",
+              "return_pct": 21.00591715976332
+            },
+            {
+              "day": "2026-05-27",
+              "return_pct": 15.097690941385444
+            }
+          ],
+          "compound_pct": 15.657812814110116,
+          "max_dd_pct": -12.27265887331721
+        },
+        "2026_back": {
+          "days": 88,
+          "signals": 21,
+          "n_valid_quote_trades": 21,
+          "n_ratio_flagged_valid": 0,
+          "per_day_pct": 0.27641528653235176,
+          "per_trade_pct": 1.1583116768974742,
+          "median_trade_pct": 0.632377740303558,
+          "win_rate": 0.6190476190476191,
+          "worst_trade_pct": -10.54153945042583,
+          "ci95_per_day_pct": [
+            -0.17790035204799587,
+            0.74218895714476
+          ],
+          "bootstrap_tail_le_zero_reference": 0.12,
+          "cost2_per_day_pct": 0.25639777696473154,
+          "cost2_per_trade_pct": 1.0744287796617324,
+          "drop_top2_per_day_pct": 0.0799615890611648,
+          "removed_top2": [
+            {
+              "day": "2026-07-27",
+              "return_pct": 10.658632869312278
+            },
+            {
+              "day": "2026-08-07",
+              "return_pct": 6.789215686274508
+            }
+          ],
+          "compound_pct": 24.883282192146527,
+          "max_dd_pct": -10.54153945042584,
+          "holm6_bootstrap_tail_reference": 0.48
+        },
+        "2026_jul_aug": {
+          "days": 43,
+          "signals": 13,
+          "n_valid_quote_trades": 13,
+          "n_ratio_flagged_valid": 0,
+          "per_day_pct": 0.470251357581844,
+          "per_trade_pct": 1.5554467981553304,
+          "median_trade_pct": 2.3047375160051287,
+          "win_rate": 0.6923076923076923,
+          "worst_trade_pct": -10.54153945042583,
+          "ci95_per_day_pct": [
+            -0.44097518368429317,
+            1.366864015844516
+          ],
+          "bootstrap_tail_le_zero_reference": 0.1504,
+          "cost2_per_day_pct": 0.4355018017866506,
+          "cost2_per_trade_pct": 1.4405059597558447,
+          "drop_top2_per_day_pct": 0.06763316635201237,
+          "removed_top2": [
+            {
+              "day": "2026-07-27",
+              "return_pct": 10.658632869312278
+            },
+            {
+              "day": "2026-08-07",
+              "return_pct": 6.789215686274508
+            }
+          ],
+          "compound_pct": 20.061904517822814,
+          "max_dd_pct": -10.54153945042584
+        },
+        "2026_sep_nov": {
+          "days": 45,
+          "signals": 8,
+          "n_valid_quote_trades": 8,
+          "n_ratio_flagged_valid": 0,
+          "per_day_pct": 0.0911941519739481,
+          "per_trade_pct": 0.5129671048534581,
+          "median_trade_pct": 0.040278010920286045,
+          "win_rate": 0.5,
+          "worst_trade_pct": -1.967892283790773,
+          "ci95_per_day_pct": [
+            -0.14281424442705956,
+            0.3634291718511097
+          ],
+          "bootstrap_tail_le_zero_reference": 0.2464,
+          "cost2_per_day_pct": 0.08525393102378666,
+          "cost2_per_trade_pct": 0.47955336200879994,
+          "drop_top2_per_day_pct": -0.05933431776913507,
+          "removed_top2": [
+            {
+              "day": "2026-10-19",
+              "return_pct": 3.976369007043856
+            },
+            {
+              "day": "2026-11-03",
+              "return_pct": 2.678743495856617
+            }
+          ],
+          "compound_pct": 4.015743123255233,
+          "max_dd_pct": -4.11088466852334
+        },
+        "2025_auxiliary": {
+          "days": 250,
+          "signals": 29,
+          "n_valid_quote_trades": 29,
+          "n_ratio_flagged_valid": 0,
+          "per_day_pct": -0.07756011036862878,
+          "per_trade_pct": -0.6686216411088688,
+          "median_trade_pct": -0.3278688524590123,
+          "win_rate": 0.27586206896551724,
+          "worst_trade_pct": -6.100999743655466,
+          "ci95_per_day_pct": [
+            -0.18168064263050113,
+            0.019145770933876472
+          ],
+          "bootstrap_tail_le_zero_reference": 0.9399,
+          "cost2_per_day_pct": -0.09467756461742895,
+          "cost2_per_trade_pct": -0.8161859018743874,
+          "drop_top2_per_day_pct": -0.11001885248642194,
+          "removed_top2": [
+            {
+              "day": "2025-04-14",
+              "return_pct": 4.419134396355373
+            },
+            {
+              "day": "2025-01-16",
+              "return_pct": 3.4755134281200695
+            }
+          ],
+          "compound_pct": -18.322336217048996,
+          "max_dd_pct": -18.400507222724006
+        }
+      }
+    },
+    {
+      "strategy_id": "g8_exit0945",
+      "periods": {
+        "2026_all": {
+          "days": 211,
+          "signals": 26,
+          "n_valid_quote_trades": 26,
+          "n_ratio_flagged_valid": 0,
+          "per_day_pct": 0.08835470304277193,
+          "per_trade_pct": 0.7170323977701876,
+          "median_trade_pct": -0.5042390372463679,
+          "win_rate": 0.38461538461538464,
+          "worst_trade_pct": -5.286839145106859,
+          "ci95_per_day_pct": [
+            -0.1002743698477371,
+            0.3211668890688575
+          ],
+          "bootstrap_tail_le_zero_reference": 0.2184,
+          "cost2_per_day_pct": 0.06889970071138701,
+          "cost2_per_trade_pct": 0.5591475711577945,
+          "drop_top2_per_day_pct": -0.03740067583579225,
+          "removed_top2": [
+            {
+              "day": "2026-05-27",
+              "return_pct": 16.69626998223801
+            },
+            {
+              "day": "2026-06-25",
+              "return_pct": 9.763313609467449
+            }
+          ],
+          "compound_pct": 17.628525761457638,
+          "max_dd_pct": -6.445022400882272
+        },
+        "2026_front": {
+          "days": 123,
+          "signals": 13,
+          "n_valid_quote_trades": 13,
+          "n_ratio_flagged_valid": 0,
+          "per_day_pct": 0.13817143906590085,
+          "per_trade_pct": 1.3073143850081386,
+          "median_trade_pct": -0.5194805194805197,
+          "win_rate": 0.23076923076923078,
+          "worst_trade_pct": -3.3236994219653093,
+          "ci95_per_day_pct": [
+            -0.11764200188400846,
+            0.4887530563589449
+          ],
+          "bootstrap_tail_le_zero_reference": 0.2091,
+          "cost2_per_day_pct": 0.11500883226630211,
+          "cost2_per_trade_pct": 1.0881604899042432,
+          "drop_top2_per_day_pct": -0.07821898005454261,
+          "removed_top2": [
+            {
+              "day": "2026-05-27",
+              "return_pct": 16.69626998223801
+            },
+            {
+              "day": "2026-06-25",
+              "return_pct": 9.763313609467449
+            }
+          ],
+          "compound_pct": 16.37508222109649,
+          "max_dd_pct": -6.445022400882272
+        },
+        "2026_back": {
+          "days": 88,
+          "signals": 13,
+          "n_valid_quote_trades": 13,
+          "n_ratio_flagged_valid": 0,
+          "per_day_pct": 0.018724492464989508,
+          "per_trade_pct": 0.12675041053223668,
+          "median_trade_pct": 0.6849315068493178,
+          "win_rate": 0.5384615384615384,
+          "worst_trade_pct": -5.286839145106859,
+          "ci95_per_day_pct": [
+            -0.2158079016933634,
+            0.2684000577380415
+          ],
+          "bootstrap_tail_le_zero_reference": 0.4435,
+          "cost2_per_day_pct": 0.004451710015312456,
+          "cost2_per_trade_pct": 0.03013465241134589,
+          "drop_top2_per_day_pct": -0.1017485751051211,
+          "removed_top2": [
+            {
+              "day": "2026-07-14",
+              "return_pct": 6.78391959798994
+            },
+            {
+              "day": "2026-07-31",
+              "return_pct": 3.6142131979695513
+            }
+          ],
+          "compound_pct": 1.077072098629972,
+          "max_dd_pct": -5.286839145106859,
+          "holm6_bootstrap_tail_reference": 0.7427999999999999
+        },
+        "2026_jul_aug": {
+          "days": 43,
+          "signals": 9,
+          "n_valid_quote_trades": 9,
+          "n_ratio_flagged_valid": 0,
+          "per_day_pct": 0.02121340399725223,
+          "per_trade_pct": 0.10135293020909393,
+          "median_trade_pct": 1.0327455919395323,
+          "win_rate": 0.5555555555555556,
+          "worst_trade_pct": -5.286839145106859,
+          "ci95_per_day_pct": [
+            -0.46385078701156085,
+            0.5276526166107155
+          ],
+          "bootstrap_tail_le_zero_reference": 0.4721,
+          "cost2_per_day_pct": -0.004484151771856787,
+          "cost2_per_trade_pct": -0.021424280687760255,
+          "drop_top2_per_day_pct": -0.2313647908311621,
+          "removed_top2": [
+            {
+              "day": "2026-07-14",
+              "return_pct": 6.78391959798994
+            },
+            {
+              "day": "2026-07-31",
+              "return_pct": 3.6142131979695513
+            }
+          ],
+          "compound_pct": 0.35618218283839376,
+          "max_dd_pct": -5.286839145106859
+        },
+        "2026_sep_nov": {
+          "days": 45,
+          "signals": 4,
+          "n_valid_quote_trades": 4,
+          "n_ratio_flagged_valid": 0,
+          "per_day_pct": 0.016346199223049585,
+          "per_trade_pct": 0.18389474125930783,
+          "median_trade_pct": 0.005213874449905287,
+          "win_rate": 0.5,
+          "worst_trade_pct": -0.8199521694567724,
+          "ci95_per_day_pct": [
+            -0.06318807651789543,
+            0.11433336203858532
+          ],
+          "bootstrap_tail_le_zero_reference": 0.3734,
+          "cost2_per_day_pct": 0.01299042238971864,
+          "cost2_per_trade_pct": 0.14614225188433472,
+          "drop_top2_per_day_pct": -0.03475478900944837,
+          "removed_top2": [
+            {
+              "day": "2026-10-19",
+              "return_pct": 1.5451033855941931
+            },
+            {
+              "day": "2026-09-17",
+              "return_pct": 0.6849315068493178
+            }
+          ],
+          "compound_pct": 0.7183313475179975,
+          "max_dd_pct": -0.8199521694567724
+        },
+        "2025_auxiliary": {
+          "days": 250,
+          "signals": 10,
+          "n_valid_quote_trades": 10,
+          "n_ratio_flagged_valid": 0,
+          "per_day_pct": -0.0064437580858667685,
+          "per_trade_pct": -0.16109395214666922,
+          "median_trade_pct": -0.5288594310963846,
+          "win_rate": 0.4,
+          "worst_trade_pct": -4.844911561138177,
+          "ci95_per_day_pct": [
+            -0.07563530901269919,
+            0.06109679941044203
+          ],
+          "bootstrap_tail_le_zero_reference": 0.5653,
+          "cost2_per_day_pct": -0.012838662358031218,
+          "cost2_per_trade_pct": -0.3209665589507804,
+          "drop_top2_per_day_pct": -0.03523954772839032,
+          "removed_top2": [
+            {
+              "day": "2025-04-14",
+              "return_pct": 4.236902050113889
+            },
+            {
+              "day": "2025-10-15",
+              "return_pct": 2.891566265060219
+            }
+          ],
+          "compound_pct": -1.9655579229367892,
+          "max_dd_pct": -4.925520980360831
+        }
+      }
+    },
+    {
+      "strategy_id": "g8_exit0959",
+      "periods": {
+        "2026_all": {
+          "days": 211,
+          "signals": 26,
+          "n_valid_quote_trades": 26,
+          "n_ratio_flagged_valid": 0,
+          "per_day_pct": 0.19742089680598335,
+          "per_trade_pct": 1.6021465086947104,
+          "median_trade_pct": 0.29667549726396514,
+          "win_rate": 0.5769230769230769,
+          "worst_trade_pct": -10.54153945042583,
+          "ci95_per_day_pct": [
+            -0.07236152519998802,
+            0.5167139562876027
+          ],
+          "bootstrap_tail_le_zero_reference": 0.0819,
+          "cost2_per_day_pct": 0.1780962966213488,
+          "cost2_per_trade_pct": 1.4453199456578691,
+          "drop_top2_per_day_pct": 0.02656555562159671,
+          "removed_top2": [
+            {
+              "day": "2026-06-25",
+              "return_pct": 21.00591715976332
+            },
+            {
+              "day": "2026-05-27",
+              "return_pct": 15.097690941385444
+            }
+          ],
+          "compound_pct": 44.85069726608475,
+          "max_dd_pct": -10.54153945042583
+        },
+        "2026_front": {
+          "days": 123,
+          "signals": 13,
+          "n_valid_quote_trades": 13,
+          "n_ratio_flagged_valid": 0,
+          "per_day_pct": 0.29173294744307815,
+          "per_trade_pct": 2.7602425027306623,
+          "median_trade_pct": 0.21551724137931494,
+          "win_rate": 0.6153846153846154,
+          "worst_trade_pct": -5.491329479768781,
+          "ci95_per_day_pct": [
+            -0.05143371659695994,
+            0.7612381535866529
+          ],
+          "bootstrap_tail_le_zero_reference": 0.0711,
+          "cost2_per_day_pct": 0.2685600454599527,
+          "cost2_per_trade_pct": 2.5409911993518604,
+          "drop_top2_per_day_pct": -0.0018219468235550183,
+          "removed_top2": [
+            {
+              "day": "2026-06-25",
+              "return_pct": 21.00591715976332
+            },
+            {
+              "day": "2026-05-27",
+              "return_pct": 15.097690941385444
+            }
+          ],
+          "compound_pct": 38.616370497212,
+          "max_dd_pct": -5.491329479768781
+        },
+        "2026_back": {
+          "days": 88,
+          "signals": 13,
+          "n_valid_quote_trades": 13,
+          "n_ratio_flagged_valid": 0,
+          "per_day_pct": 0.06559837148368035,
+          "per_trade_pct": 0.4440505146587593,
+          "median_trade_pct": 0.37783375314861534,
+          "win_rate": 0.5384615384615384,
+          "worst_trade_pct": -10.54153945042583,
+          "ci95_per_day_pct": [
+            -0.3152488596003064,
+            0.4173333422296599
+          ],
+          "bootstrap_tail_le_zero_reference": 0.3529,
+          "cost2_per_day_pct": 0.05165264767648203,
+          "cost2_per_trade_pct": 0.3496486919638784,
+          "drop_top2_per_day_pct": -0.07901690079154017,
+          "removed_top2": [
+            {
+              "day": "2026-08-07",
+              "return_pct": 6.789215686274508
+            },
+            {
+              "day": "2026-07-14",
+              "return_pct": 5.778894472361817
+            }
+          ],
+          "compound_pct": 4.497540042716763,
+          "max_dd_pct": -10.54153945042583,
+          "holm6_bootstrap_tail_reference": 0.7427999999999999
+        },
+        "2026_jul_aug": {
+          "days": 43,
+          "signals": 9,
+          "n_valid_quote_trades": 9,
+          "n_ratio_flagged_valid": 0,
+          "per_day_pct": 0.03050833251737993,
+          "per_trade_pct": 0.145762033138593,
+          "median_trade_pct": 0.37783375314861534,
+          "win_rate": 0.5555555555555556,
+          "worst_trade_pct": -10.54153945042583,
+          "ci95_per_day_pct": [
+            -0.734183275238892,
+            0.7155577917498397
+          ],
+          "bootstrap_tail_le_zero_reference": 0.4553,
+          "cost2_per_day_pct": 0.0052351538665188465,
+          "cost2_per_trade_pct": 0.025012401806701105,
+          "drop_top2_per_day_pct": -0.27454272830217047,
+          "removed_top2": [
+            {
+              "day": "2026-08-07",
+              "return_pct": 6.789215686274508
+            },
+            {
+              "day": "2026-07-14",
+              "return_pct": 5.778894472361817
+            }
+          ],
+          "compound_pct": 0.06677481364707472,
+          "max_dd_pct": -10.54153945042583
+        },
+        "2026_sep_nov": {
+          "days": 45,
+          "signals": 4,
+          "n_valid_quote_trades": 4,
+          "n_ratio_flagged_valid": 0,
+          "per_day_pct": 0.09912885316258964,
+          "per_trade_pct": 1.1151995980791334,
+          "median_trade_pct": 1.0963315358204884,
+          "win_rate": 0.5,
+          "worst_trade_pct": -1.708233686368299,
+          "ci95_per_day_pct": [
+            -0.0867232843767164,
+            0.3461857850328112
+          ],
+          "bootstrap_tail_le_zero_reference": 0.2054,
+          "cost2_per_day_pct": 0.09600714176155797,
+          "cost2_per_trade_pct": 1.0800803448175271,
+          "drop_top2_per_day_pct": -0.0510305607112544,
+          "removed_top2": [
+            {
+              "day": "2026-10-19",
+              "return_pct": 3.976369007043856
+            },
+            {
+              "day": "2026-11-03",
+              "return_pct": 2.678743495856617
+            }
+          ],
+          "compound_pct": 4.42780856814966,
+          "max_dd_pct": -2.186010721034648
+        },
+        "2025_auxiliary": {
+          "days": 250,
+          "signals": 10,
+          "n_valid_quote_trades": 10,
+          "n_ratio_flagged_valid": 0,
+          "per_day_pct": -0.04010867041131023,
+          "per_trade_pct": -1.0027167602827558,
+          "median_trade_pct": -0.7081393708562533,
+          "win_rate": 0.3,
+          "worst_trade_pct": -6.100999743655466,
+          "ci95_per_day_pct": [
+            -0.11962614062607095,
+            0.030695981798197637
+          ],
+          "bootstrap_tail_le_zero_reference": 0.8604,
+          "cost2_per_day_pct": -0.04637948726544483,
+          "cost2_per_trade_pct": -1.159487181636121,
+          "drop_top2_per_day_pct": -0.06389512482738813,
+          "removed_top2": [
+            {
+              "day": "2025-04-14",
+              "return_pct": 4.419134396355373
+            },
+            {
+              "day": "2025-05-12",
+              "return_pct": 1.3996889580093264
+            }
+          ],
+          "compound_pct": -9.960611847125767,
+          "max_dd_pct": -9.960611847125767
+        }
+      }
+    }
+  ],
+  "source_daily": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\sox_open_switch\\results\\premarket_fade_daily.csv",
+  "source_quote_trades": "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\sox_open_switch\\results\\premarket_quote_trades.csv"
+}
