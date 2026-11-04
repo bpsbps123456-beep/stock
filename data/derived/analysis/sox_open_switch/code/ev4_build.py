@@ -1,6 +1,11 @@
 """BRIEF4 사건 표 — 면 2 × 문턱 4 단방향 H0를 lib.Engine(w90) 위에서 돌리고, 결정 봉 조건 28개와 결과 변형을 붙인다.
 
 사용: cd code && py ev4_build.py → results/ev4_events.parquet, results/ev4_events_meta.json
+자료·비용·기간·출력 인자(BRIEF7, 2026-11-04 추가, 기본값이면 앞 실행과 같다):
+  py ev4_build.py --src alp1m_2016 --costs ../cost_table_2016.json --start 2016-01-04 --end 2022-12-30 \
+      --out ../results/ev4_events_2016.parquet --meta ../results/ev4_events_2016_meta.json
+  비용표를 주면 엔진과 h0.sim_trade(모듈 전역 COSTS)가 실행 동안 같은 표를 쓴다. 점검 (3) h0.json 대조는 기본 자료·비용·기간일 때만 한다.
+  다른 스크립트는 build(D, days, costs, ...)를 불러 Data를 한 번만 읽는다(rescue_k45.py).
 
 사건(BRIEF4 '사건과 결과', h0.H0 단방향판과 같은 규칙)
 - 면 user = SOXL 오름 → SOXS 매수, mirror = SOXS 오름 → SOXL 매수. 문턱 x ∈ {2.5, 3, 3.5, 4}%. 면·문턱마다 따로 엔진 실행.
@@ -32,6 +37,7 @@ import numpy as np            # noqa: E402
 import pandas as pd           # noqa: E402
 from lib import Data, Ctx, Engine, Order, INST, RTH0, RTH1, ROOT, PERIODS, idx, hm  # noqa: E402
 from h0 import H0, sim_trade  # noqa: E402
+import h0 as _h0              # noqa: E402  비용표를 바꿔 돌릴 때 sim_trade가 읽는 모듈 전역 COSTS
 
 RES = os.path.join(ROOT, "results")
 SIDES = {"user": ("SOXL", -1), "mirror": ("SOXS", 1)}        # (오른 종목 R, 사는 pos)
@@ -443,9 +449,9 @@ class Ev4:
 
 # ------------------------------------------------------------------ 실행
 
-def run_combo(D, side, x, past, days):
+def run_combo(D, side, x, past, days, costs=None):
     log = []
-    E = Engine(D, scheme="w90")
+    E = Engine(D, scheme="w90", costs=costs)
     daily, tr = E.run(lambda: Ev4(side, x, log, past), days=days)
     assert len(log) == len(tr), (side, x, len(log), len(tr))
     lg = pd.DataFrame(log)
@@ -488,10 +494,10 @@ def run_combo(D, side, x, past, days):
     return pd.DataFrame(rows), daily, maxdiff
 
 
-def h0_bitcheck(D, side, x, ev, days):
+def h0_bitcheck(D, side, x, ev, days, costs=None):
     """h0.H0(thr=x, sides=(면,)) 엔진 실행과 매매(날·체결·청산·수익)가 같은지."""
     _, buy = SIDES[side]
-    E = Engine(D, scheme="w90")
+    E = Engine(D, scheme="w90", costs=costs)
     _, tr = E.run(lambda: H0(ref="low", thr=x, sides=(buy,)), days=days)
     a = tr[["day", "entry", "exit", "ret"]].reset_index(drop=True)
     b = ev[["day", "entry", "exit", "r_w90"]].reset_index(drop=True)
@@ -542,18 +548,55 @@ def leak_test(D, ev, n=40, seed=20261102):
 NMIN_ = 960
 
 
-def main():
-    D = Data("alp1m_long")
-    days = list(range(len(D.days)))
+def main(argv=None):
+    import argparse
+    ap = argparse.ArgumentParser(description="BRIEF4 사건 표. 기본값 = alp1m_long·cost_table.json·모든 날 → results/ev4_events.parquet")
+    ap.add_argument("--src", default="alp1m_long", help="cache 아래 1분봉 폴더(lib.Data src)")
+    ap.add_argument("--costs", default=None, help="비용표 JSON 경로(기본: lib.load_costs = cost_table.json)")
+    ap.add_argument("--start", default=None, help="실행 첫날 YYYY-MM-DD(기본: 자료 첫날)")
+    ap.add_argument("--end", default=None, help="실행 끝날 YYYY-MM-DD(기본: 자료 끝날)")
+    ap.add_argument("--out", default=None, help="사건 표 parquet(기본 results/ev4_events.parquet)")
+    ap.add_argument("--meta", default=None, help="meta JSON(기본 results/ev4_events_meta.json)")
+    a = ap.parse_args(argv)
+    D = Data(a.src)
+    days = run_days(D, a.start, a.end)
     print(f"자료 {D.days[0]}~{D.days[-1]} {len(D.days)}일 ({time.time() - T0:.0f}s)", flush=True)
+    costs = json.load(open(a.costs, encoding="utf-8")) if a.costs else None
+    default = a.src == "alp1m_long" and a.costs is None and a.start is None and a.end is None
+    build(D, days, costs=costs, out=a.out, meta_path=a.meta, src=a.src, h0_ref=default,
+          extra_meta=None if default else {"costs": a.costs or "cost_table.json", "run_days": [str(D.days[days[0]]), str(D.days[days[-1]]), len(days)]})
+
+
+def run_days(D, start=None, end=None):
+    """D 날 색인 중 [start, end](YYYY-MM-DD, None = 끝 없음). 둘 다 None이면 모든 날(기본 실행)."""
+    a = pd.Timestamp(start).date() if start else None
+    b = pd.Timestamp(end).date() if end else None
+    return [k for k, d in enumerate(D.days) if (a is None or d >= a) and (b is None or d <= b)]
+
+
+def build(D, days, costs=None, out=None, meta_path=None, src="alp1m_long", h0_ref=True, extra_meta=None):
+    """사건 표를 만들어 저장하고 (사건 표, 점검, {면_문턱: 엔진 날별}) 를 돌려준다.
+    기본값(costs None = cost_table.json, h0_ref = h0.json 대조, 기본 출력 경로)이 2026-11-02 실행과 같다.
+    costs를 주면 엔진과 h0.sim_trade(모듈 전역 COSTS)가 이 실행 동안만 같은 비용표를 쓴다."""
+    saved = _h0.COSTS
+    if costs is not None:
+        _h0.COSTS = costs
+    try:
+        return _build(D, days, costs, out, meta_path, src, h0_ref, extra_meta)
+    finally:
+        _h0.COSTS = saved
+
+
+def _build(D, days, costs, out, meta_path, src, h0_ref, extra_meta):
     past = Past()
-    parts, checks = [], {"engine_vs_sim_max_abs_diff": {}, "h0_bitmatch": {}}
+    parts, checks, dailies = [], {"engine_vs_sim_max_abs_diff": {}, "h0_bitmatch": {}}, {}
     for side in SIDES:
         for x in XS:
-            ev, daily, md = run_combo(D, side, x, past, days)
+            ev, daily, md = run_combo(D, side, x, past, days, costs)
             parts.append(ev)
+            dailies[f"{side}_{x}"] = daily
             checks["engine_vs_sim_max_abs_diff"][f"{side}_{x}"] = md
-            checks["h0_bitmatch"][f"{side}_{x}"] = h0_bitcheck(D, side, x, ev, days)
+            checks["h0_bitmatch"][f"{side}_{x}"] = h0_bitcheck(D, side, x, ev, days, costs)
             print(f"{side} x={x}: 사건 {len(ev)}  sim차 {md:.2e}  H0 {checks['h0_bitmatch'][f'{side}_{x}']['match']} "
                   f"({time.time() - T0:.0f}s)", flush=True)
     ev = pd.concat(parts, ignore_index=True)
@@ -566,36 +609,39 @@ def main():
     for c in ["year", "d", "dec_i", "fill_i", "exit_i", "s0_i", "L_i"]:
         ev[c] = ev[c].astype("int32")
     ev["hit"] = ev["hit"].astype("int8")
-    # 점검 3: 사용자 방향 x=3 w90 2026 하루 평균 vs h0.json 단독 실행
-    h0j = json.load(open(os.path.join(RES, "h0.json"), encoding="utf-8"))
-    ref = h0j["by_side"]["w90"]
-    chk3 = {}
-    for side, lab in (("user", "SOXL_up→buy_SOXS"), ("mirror", "SOXS_up→buy_SOXL")):
-        e3 = ev[(ev["side"] == side) & (ev["x"] == 0.03)]
-        for pl, ps in (("2026", ["sel", "conf"]), ("2026H1", ["sel"]), ("2026H2", ["conf"]), ("2025", ["aux"])):
-            dd = sorted(sum((D.days_in(p) for p in ps), []))
-            dset = {pd.Timestamp(D.days[k]) for k in dd}
-            sub = e3[e3["day"].isin(dset)]
-            per = sub.groupby("day")["r_w90"].apply(lambda r: (np.prod(1 + r.values / 100) - 1) * 100)
-            mean = float(per.reindex(sorted(dset), fill_value=0.0).mean())
-            o = ref[lab]["side_only_run"][pl]
-            chk3[f"{side}_{pl}"] = {"ev4_mean_daily": mean, "h0json_mean_daily": o["mean_daily"],
-                                    "ev4_trades": int(len(sub)), "h0json_trades": o["trades"],
-                                    "ev4_active_days": int(per.size), "h0json_active_days": o["active_days"],
-                                    "days": len(dset), "abs_diff": abs(mean - o["mean_daily"])}
-    checks["h0json_side_only"] = chk3
-    print(json.dumps(chk3, ensure_ascii=False, indent=0), flush=True)
+    # 점검 3: 사용자 방향 x=3 w90 2026 하루 평균 vs h0.json 단독 실행(기본 자료·비용·기간일 때만 — h0.json이 그 실행이다)
+    if h0_ref:
+        h0j = json.load(open(os.path.join(RES, "h0.json"), encoding="utf-8"))
+        ref = h0j["by_side"]["w90"]
+        chk3 = {}
+        for side, lab in (("user", "SOXL_up→buy_SOXS"), ("mirror", "SOXS_up→buy_SOXL")):
+            e3 = ev[(ev["side"] == side) & (ev["x"] == 0.03)]
+            for pl, ps in (("2026", ["sel", "conf"]), ("2026H1", ["sel"]), ("2026H2", ["conf"]), ("2025", ["aux"])):
+                dd = sorted(sum((D.days_in(p) for p in ps), []))
+                dset = {pd.Timestamp(D.days[k]) for k in dd}
+                sub = e3[e3["day"].isin(dset)]
+                per = sub.groupby("day")["r_w90"].apply(lambda r: (np.prod(1 + r.values / 100) - 1) * 100)
+                mean = float(per.reindex(sorted(dset), fill_value=0.0).mean())
+                o = ref[lab]["side_only_run"][pl]
+                chk3[f"{side}_{pl}"] = {"ev4_mean_daily": mean, "h0json_mean_daily": o["mean_daily"],
+                                        "ev4_trades": int(len(sub)), "h0json_trades": o["trades"],
+                                        "ev4_active_days": int(per.size), "h0json_active_days": o["active_days"],
+                                        "days": len(dset), "abs_diff": abs(mean - o["mean_daily"])}
+        checks["h0json_side_only"] = chk3
+        print(json.dumps(chk3, ensure_ascii=False, indent=0), flush=True)
+    else:
+        checks["h0json_side_only"] = "생략: h0.json은 기본 자료(alp1m_long)·cost_table.json 실행이라 대조 대상이 아니다"
     # 점검 4: 미래 참조
     checks["leak_test"] = leak_test(D, ev)
     print("leak", checks["leak_test"]["mismatch_events"], "/", checks["leak_test"]["n"], f"({time.time() - T0:.0f}s)", flush=True)
     # 저장
-    out = os.path.join(RES, "ev4_events.parquet")
+    out = out or os.path.join(RES, "ev4_events.parquet")
     ev.to_parquet(out, index=False, compression="zstd")
     n_events = {s: {f"{x:g}": {str(y): int(((ev["side"] == s) & (ev["x"] == x) & (ev["year"] == y)).sum())
                                for y in sorted(ev["year"].unique())} for x in XS} for s in SIDES}
     nulls = {c: int(ev[c + "_lv"].isna().sum()) for c in CNAME}
     code_hash = hashlib.sha256(open(os.path.abspath(__file__), "rb").read()).hexdigest()[:16]
-    meta = {"brief": "BRIEF4.md '사건과 결과'·'조건 목록'", "data": f"Data('alp1m_long') {D.days[0]}~{D.days[-1]} {len(D.days)}일",
+    meta = {"brief": "BRIEF4.md '사건과 결과'·'조건 목록'", "data": f"Data('{src}') {D.days[0]}~{D.days[-1]} {len(D.days)}일",
             "rows": int(len(ev)), "file_mb": round(os.path.getsize(out) / 1e6, 3), "code_sha256_16": code_hash,
             "units": "r_*, mae, mfe, '%' 붙은 조건 수치는 % (1.0 = 1%)",
             "event_rule": "면(user: SOXL 오름 → SOXS 매수, mirror: SOXS 오름 → SOXL 매수) × x. 오른 종목 1분 종가 ≥ L × (1 + x), "
@@ -639,11 +685,14 @@ def main():
             "conditions": [{"no": no, "col": col, "levels": labels, "kind": CKIND.get(col, "수치"), "def": desc,
                             "null_events": nulls[col]} for no, col, labels, _, desc in COND],
             "n_events": n_events, "checks": checks}
-    with open(os.path.join(RES, "ev4_events_meta.json"), "w", encoding="utf-8") as fh:
+    if extra_meta:
+        meta.update(extra_meta)
+    with open(meta_path or os.path.join(RES, "ev4_events_meta.json"), "w", encoding="utf-8") as fh:
         json.dump(meta, fh, ensure_ascii=False, indent=1, default=lambda v: v.item() if hasattr(v, "item") else str(v))
     print(json.dumps(n_events, ensure_ascii=False))
     print(json.dumps(nulls, ensure_ascii=False))
     print(f"저장 {out} {meta['file_mb']}MB, {len(ev)}행 × {ev.shape[1]}열 ({time.time() - T0:.0f}s)")
+    return ev, checks, dailies
 
 
 if __name__ == "__main__":

@@ -1,0 +1,1374 @@
+{
+ "brief": "BRIEF7.md K4·K5 (구현 A)",
+ "data": "Data('alp1m_2016') 2016-01-04~2022-12-30, 실행 2016-01-04~2022-12-30 1762거래일, 비용표 cost_table_2016.json",
+ "costs_2016": {
+  "SOXL": {
+   "pre": 0.001954740245094392,
+   "open5": 0.0010140559786165947,
+   "early": 0.0006556791453680123,
+   "late": 0.0005200184011780228
+  },
+  "SOXS": {
+   "pre": 0.002173913043478311,
+   "open5": 0.000924611767762846,
+   "early": 0.0006779661016949008,
+   "late": 0.0006680026720106738
+  }
+ },
+ "units": "% (1.0 = 1%)",
+ "settings": {
+  "seed": 20261104,
+  "boot": 10000,
+  "null_draws": 10000,
+  "x": 0.03,
+  "target": 0.01,
+  "window": "w90(10:59 봉 종가 청산)",
+  "K4_condition": "c10_wick >= 0.5 - 1e-9",
+  "drop_top2": "하루 손익 큰 두 날을 표본에서 뺌(stage5 drop_top5와 같은 방식)",
+  "K4_null": "해마다 그해 조건 없는 사용자 x3 사건에서 그해 K4 수만큼 비복원, 같은 날은 곱, 하루 평균 ≥ 관측 비율",
+  "K5_p": "2016~2022 거래일 복원 추출 하루 평균 ≤ 0 비율"
+ },
+ "code_sha256_16": "3d57a223bfb3951b",
+ "ev4_build_sha256_16": "58f1b974b90d3f25",
+ "events_sha256_16": "79f129328478da39",
+ "n_events_user_x3_by_year": {
+  "2016": 69,
+  "2017": 43,
+  "2018": 103,
+  "2019": 92,
+  "2020": 178,
+  "2021": 139,
+  "2022": 260
+ },
+ "checks": {
+  "engine_daily_vs_events_max_abs_diff": 0.0,
+  "engine_trades_vs_events": [
+   884,
+   884
+  ],
+  "h0_bitmatch_user_0.03": {
+   "n_h0": 884,
+   "n_ev4": 884,
+   "match": true,
+   "max_abs_diff_pct": 0.0
+  },
+  "engine_vs_sim_max_abs_diff_user_0.03": 0.0,
+  "leak_test": {
+   "n": 40,
+   "mismatch_events": 0
+  },
+  "nan_r_w90": 0,
+  "entry_px_uses_2016_costs_max_rel_diff": 0.0,
+  "entry_px_vs_default_costs_max_rel_diff": 0.0003488950641989952,
+  "indep_r_w90_max_abs_diff": 0.0,
+  "indep_exit_bar_mismatch": 0,
+  "indep_r_w90_c2_max_abs_diff": 0.0
+ },
+ "K5": {
+  "label": "K5 사용자 방향 x = 3% 단독",
+  "days": 1762,
+  "trades": 884,
+  "active_days": 743,
+  "daily_mean": -0.09105393933005858,
+  "trade_mean": -0.18104633797054323,
+  "trade_median": 1.0000000000000009,
+  "win_rate": 0.6142533936651584,
+  "target_hit_rate": 0.5463800904977375,
+  "worst_trade": -10.152383945043153,
+  "best_trade": 1.000000000000023,
+  "worst_day": -9.253907784493586,
+  "best_day": 4.060401000000002,
+  "boot_day": {
+   "p_one_sided": 0.9994,
+   "ci95": [
+    -0.15237462105660884,
+    -0.0330706600552951
+   ]
+  },
+  "drop_top2_days": {
+   "days_dropped": [
+    "2020-03-20",
+    "2020-03-26"
+   ],
+   "values": [
+    4.060401000000002,
+    4.060401000000002
+   ],
+   "daily_mean": -0.09577150176111546,
+   "days": 1760
+  },
+  "cost2x": {
+   "daily_mean": -0.1325815019867955,
+   "trade_mean": -0.2635207976547591,
+   "boot_day": {
+    "p_one_sided": 1.0,
+    "ci95": [
+     -0.1956756900758071,
+     -0.072323680406468
+    ]
+   }
+  },
+  "by_year": {
+   "2016": {
+    "days": 252,
+    "trades": 69,
+    "active_days": 67,
+    "daily_mean": -0.029059077089652486,
+    "trade_mean": -0.10618233663393221,
+    "win_rate": 0.5652173913043478,
+    "target_hit_rate": 0.37681159420289856,
+    "cost2x_daily_mean": -0.06403648448192137
+   },
+   "2017": {
+    "days": 251,
+    "trades": 43,
+    "active_days": 42,
+    "daily_mean": -0.024957103863160343,
+    "trade_mean": -0.1449633983206403,
+    "win_rate": 0.5116279069767442,
+    "target_hit_rate": 0.3488372093023256,
+    "cost2x_daily_mean": -0.03987513417936047
+   },
+   "2018": {
+    "days": 251,
+    "trades": 103,
+    "active_days": 94,
+    "daily_mean": -0.06707520677171018,
+    "trade_mean": -0.16274989490708097,
+    "win_rate": 0.5436893203883495,
+    "target_hit_rate": 0.46601941747572817,
+    "cost2x_daily_mean": -0.10170517450338541
+   },
+   "2019": {
+    "days": 252,
+    "trades": 92,
+    "active_days": 88,
+    "daily_mean": -0.21363473793188817,
+    "trade_mean": -0.5850814486933286,
+    "win_rate": 0.532608695652174,
+    "target_hit_rate": 0.4891304347826087,
+    "cost2x_daily_mean": -0.25938917813662377
+   },
+   "2020": {
+    "days": 253,
+    "trades": 178,
+    "active_days": 138,
+    "daily_mean": -0.1460857016943597,
+    "trade_mean": -0.2055601472503988,
+    "win_rate": 0.601123595505618,
+    "target_hit_rate": 0.5561797752808989,
+    "cost2x_daily_mean": -0.18744796110053766
+   },
+   "2021": {
+    "days": 252,
+    "trades": 139,
+    "active_days": 124,
+    "daily_mean": -0.040894914341307514,
+    "trade_mean": -0.07357651859936695,
+    "win_rate": 0.5899280575539568,
+    "target_hit_rate": 0.5107913669064749,
+    "cost2x_daily_mean": -0.079163364930442
+   },
+   "2022": {
+    "days": 251,
+    "trades": 260,
+    "active_days": 190,
+    "daily_mean": -0.1151907920402389,
+    "trade_mean": -0.11183607945897223,
+    "win_rate": 0.7230769230769231,
+    "target_hit_rate": 0.6884615384615385,
+    "cost2x_daily_mean": -0.19599673275132942
+   }
+  },
+  "years_positive": "0/7",
+  "p_main": 0.9994,
+  "criteria": {
+   "1_mean_gt0": false,
+   "2_p_raw_le_0.05": false,
+   "2_p_bonferroni6_le_0.05": false,
+   "3_drop_top2_gt0": false,
+   "4_cost2x_gt0": false,
+   "5_half_years_positive": false
+  },
+  "filled_bars": {
+   "trades": 884,
+   "fill_bar_filled": 18,
+   "exit_bar_filled": 30,
+   "fill_or_exit_filled": 40,
+   "signal_bar_filled_SOXL": 0,
+   "by_year_fill_or_exit": {
+    "2016": 28,
+    "2017": 10,
+    "2018": 2,
+    "2019": 0,
+    "2020": 0,
+    "2021": 0,
+    "2022": 0
+   },
+   "by_year_trades": {
+    "2016": 69,
+    "2017": 43,
+    "2018": 103,
+    "2019": 92,
+    "2020": 178,
+    "2021": 139,
+    "2022": 260
+   },
+   "filled_exit_why": {
+    "cutoff": 30,
+    "target": 0
+   }
+  },
+  "excl_filled": {
+   "label": "K5 채운 봉 매매 뺌",
+   "days": 1762,
+   "trades": 844,
+   "active_days": 703,
+   "daily_mean": -0.08171855199764899,
+   "trade_mean": -0.1701374529457992,
+   "trade_median": 1.0000000000000009,
+   "win_rate": 0.6220379146919431,
+   "target_hit_rate": 0.5651658767772512,
+   "worst_trade": -10.152383945043153,
+   "best_trade": 1.000000000000023,
+   "worst_day": -9.253907784493586,
+   "best_day": 4.060401000000002,
+   "boot_day": {
+    "p_one_sided": 0.9985,
+    "ci95": [
+     -0.14211957150202562,
+     -0.023588572670169332
+    ]
+   },
+   "drop_top2_days": {
+    "days_dropped": [
+     "2020-03-20",
+     "2020-03-26"
+    ],
+    "values": [
+     4.060401000000002,
+     4.060401000000002
+    ],
+    "daily_mean": -0.08642550603400996,
+    "days": 1760
+   },
+   "cost2x": {
+    "daily_mean": -0.12068071716492565,
+    "trade_mean": -0.2511649316003226,
+    "boot_day": {
+     "p_one_sided": 1.0,
+     "ci95": [
+      -0.18269022748431568,
+      -0.06140396942968792
+     ]
+    }
+   },
+   "by_year": {
+    "2016": {
+     "days": 252,
+     "trades": 41,
+     "active_days": 39,
+     "daily_mean": 0.02667731175089216,
+     "trade_mean": 0.16387777463599826,
+     "win_rate": 0.6341463414634146,
+     "target_hit_rate": 0.5121951219512195,
+     "cost2x_daily_mean": 0.003815763609763076
+    },
+    "2017": {
+     "days": 251,
+     "trades": 33,
+     "active_days": 32,
+     "daily_mean": -0.016719045070293464,
+     "trade_mean": -0.12623252638721047,
+     "win_rate": 0.5454545454545454,
+     "target_hit_rate": 0.42424242424242425,
+     "cost2x_daily_mean": -0.026858310469427358
+    },
+    "2018": {
+     "days": 251,
+     "trades": 101,
+     "active_days": 92,
+     "daily_mean": -0.06573803651322883,
+     "trade_mean": -0.16264959842129234,
+     "win_rate": 0.5445544554455446,
+     "target_hit_rate": 0.4752475247524752,
+     "cost2x_daily_mean": -0.0993020128068236
+    },
+    "2019": {
+     "days": 252,
+     "trades": 92,
+     "active_days": 88,
+     "daily_mean": -0.21363473793188817,
+     "trade_mean": -0.5850814486933286,
+     "win_rate": 0.532608695652174,
+     "target_hit_rate": 0.4891304347826087,
+     "cost2x_daily_mean": -0.25938917813662377
+    },
+    "2020": {
+     "days": 253,
+     "trades": 178,
+     "active_days": 138,
+     "daily_mean": -0.1460857016943597,
+     "trade_mean": -0.2055601472503988,
+     "win_rate": 0.601123595505618,
+     "target_hit_rate": 0.5561797752808989,
+     "cost2x_daily_mean": -0.18744796110053766
+    },
+    "2021": {
+     "days": 252,
+     "trades": 139,
+     "active_days": 124,
+     "daily_mean": -0.040894914341307514,
+     "trade_mean": -0.07357651859936695,
+     "win_rate": 0.5899280575539568,
+     "target_hit_rate": 0.5107913669064749,
+     "cost2x_daily_mean": -0.079163364930442
+    },
+    "2022": {
+     "days": 251,
+     "trades": 260,
+     "active_days": 190,
+     "daily_mean": -0.1151907920402389,
+     "trade_mean": -0.11183607945897223,
+     "win_rate": 0.7230769230769231,
+     "target_hit_rate": 0.6884615384615385,
+     "cost2x_daily_mean": -0.19599673275132942
+    }
+   },
+   "years_positive": "1/7",
+   "p_main": 0.9985,
+   "criteria": {
+    "1_mean_gt0": false,
+    "2_p_raw_le_0.05": false,
+    "2_p_bonferroni6_le_0.05": false,
+    "3_drop_top2_gt0": false,
+    "4_cost2x_gt0": false,
+    "5_half_years_positive": false
+   }
+  },
+  "ref_2026": {
+   "trades": 258,
+   "daily_mean": 0.0775041537556063,
+   "trade_mean": 0.06321703536779169,
+   "daily_p_one_sided": 0.2822
+  }
+ },
+ "K4": {
+  "label": "K4 H4 윗꼬리 ≥ 0.5",
+  "days": 1762,
+  "trades": 64,
+  "active_days": 64,
+  "daily_mean": -0.011050941762198115,
+  "trade_mean": -0.30424624039051684,
+  "trade_median": 0.3212250055338095,
+  "win_rate": 0.515625,
+  "target_hit_rate": 0.4375,
+  "worst_trade": -6.075760556180754,
+  "best_trade": 1.0000000000000009,
+  "worst_day": -6.075760556180754,
+  "best_day": 1.0000000000000009,
+  "boot_day": {
+   "p_one_sided": 0.9426,
+   "ci95": [
+    -0.02620782559532406,
+    0.0024840113181519245
+   ]
+  },
+  "drop_top2_days": {
+   "days_dropped": [
+    "2016-02-11",
+    "2016-02-16"
+   ],
+   "values": [
+    1.0000000000000009,
+    1.0000000000000009
+   ],
+   "daily_mean": -0.012199863286927888,
+   "days": 1760
+  },
+  "cost2x": {
+   "daily_mean": -0.013761393183256752,
+   "trade_mean": -0.37886835607653746,
+   "boot_day": {
+    "p_one_sided": 0.973,
+    "ci95": [
+     -0.029579156735289734,
+     0.00020477902663395254
+    ]
+   }
+  },
+  "ctrl_same_year_subset": {
+   "p_one_sided": 0.7083,
+   "p_plus1": 0.7083291670832916,
+   "null_mean": -0.007113060857771319,
+   "null_q95": 0.004646638842870122,
+   "pool_trades": 884,
+   "pool_daily_mean": -0.09105393933005858
+  },
+  "by_year": {
+   "2016": {
+    "days": 252,
+    "trades": 8,
+    "active_days": 8,
+    "daily_mean": 0.0005643607060860196,
+    "trade_mean": 0.017777362241709616,
+    "win_rate": 0.75,
+    "target_hit_rate": 0.625,
+    "cost2x_daily_mean": -0.0009993246422276352
+   },
+   "2017": {
+    "days": 251,
+    "trades": 5,
+    "active_days": 5,
+    "daily_mean": -0.022360706385681665,
+    "trade_mean": -1.1225074605612195,
+    "win_rate": 0.2,
+    "target_hit_rate": 0.0,
+    "cost2x_daily_mean": -0.0249981912686894
+   },
+   "2018": {
+    "days": 251,
+    "trades": 9,
+    "active_days": 9,
+    "daily_mean": 0.0017977301737345521,
+    "trade_mean": 0.05013669706748584,
+    "win_rate": 0.5555555555555556,
+    "target_hit_rate": 0.4444444444444444,
+    "cost2x_daily_mean": -0.0008507941600872312
+   },
+   "2019": {
+    "days": 252,
+    "trades": 10,
+    "active_days": 10,
+    "daily_mean": -0.019388503236042902,
+    "trade_mean": -0.48859028154828116,
+    "win_rate": 0.4,
+    "target_hit_rate": 0.3,
+    "cost2x_daily_mean": -0.023055375014570546
+   },
+   "2020": {
+    "days": 253,
+    "trades": 9,
+    "active_days": 9,
+    "daily_mean": 0.002676308183302863,
+    "trade_mean": 0.07523399670840271,
+    "win_rate": 0.5555555555555556,
+    "target_hit_rate": 0.4444444444444444,
+    "cost2x_daily_mean": 5.13993604272825e-05
+   },
+   "2021": {
+    "days": 252,
+    "trades": 12,
+    "active_days": 12,
+    "daily_mean": -0.02221309325777243,
+    "trade_mean": -0.46647495841322106,
+    "win_rate": 0.4166666666666667,
+    "target_hit_rate": 0.4166666666666667,
+    "cost2x_daily_mean": -0.02588102461455739
+   },
+   "2022": {
+    "days": 251,
+    "trades": 11,
+    "active_days": 11,
+    "daily_mean": -0.018510657002638226,
+    "trade_mean": -0.4223795370601995,
+    "win_rate": 0.6363636363636364,
+    "target_hit_rate": 0.6363636363636364,
+    "cost2x_daily_mean": -0.0206720357294102
+   }
+  },
+  "years_positive": "3/7",
+  "p_main": 0.7083,
+  "criteria": {
+   "1_mean_gt0": false,
+   "2_p_raw_le_0.05": false,
+   "2_p_bonferroni6_le_0.05": false,
+   "3_drop_top2_gt0": false,
+   "4_cost2x_gt0": false,
+   "5_half_years_positive": false
+  },
+  "filled_bars": {
+   "trades": 64,
+   "fill_bar_filled": 2,
+   "exit_bar_filled": 2,
+   "fill_or_exit_filled": 3,
+   "signal_bar_filled_SOXL": 0,
+   "by_year_fill_or_exit": {
+    "2016": 2,
+    "2017": 1,
+    "2018": 0,
+    "2019": 0,
+    "2020": 0,
+    "2021": 0,
+    "2022": 0
+   },
+   "by_year_trades": {
+    "2016": 8,
+    "2017": 5,
+    "2018": 9,
+    "2019": 10,
+    "2020": 9,
+    "2021": 12,
+    "2022": 11
+   },
+   "filled_exit_why": {
+    "cutoff": 2,
+    "target": 0
+   }
+  },
+  "excl_filled": {
+   "label": "K4 채운 봉 매매 뺌",
+   "days": 1762,
+   "trades": 61,
+   "active_days": 61,
+   "daily_mean": -0.0075060725090951245,
+   "trade_mean": -0.2168147501807477,
+   "trade_median": 0.3370047088115946,
+   "win_rate": 0.5409836065573771,
+   "target_hit_rate": 0.45901639344262296,
+   "worst_trade": -6.075760556180754,
+   "best_trade": 1.0000000000000009,
+   "worst_day": -6.075760556180754,
+   "best_day": 1.0000000000000009,
+   "boot_day": {
+    "p_one_sided": 0.8639,
+    "ci95": [
+     -0.02154823322308346,
+     0.0052400756428118075
+    ]
+   },
+   "drop_top2_days": {
+    "days_dropped": [
+     "2016-02-11",
+     "2016-02-16"
+    ],
+    "values": [
+     1.0000000000000009,
+     1.0000000000000009
+    ],
+    "daily_mean": -0.008650965773310008,
+    "days": 1760
+   },
+   "cost2x": {
+    "daily_mean": -0.009993381174817698,
+    "trade_mean": -0.2886612726234227,
+    "boot_day": {
+     "p_one_sided": 0.925,
+     "ci95": [
+      -0.024670613513328592,
+      0.0032236167814363257
+     ]
+    }
+   },
+   "ctrl_same_year_subset": {
+    "p_one_sided": 0.5858,
+    "p_plus1": 0.5858414158584142,
+    "null_mean": -0.006162212959154675,
+    "null_q95": 0.005299254891348939,
+    "pool_trades": 844,
+    "pool_daily_mean": -0.08171855199764899
+   },
+   "by_year": {
+    "2016": {
+     "days": 252,
+     "trades": 6,
+     "active_days": 6,
+     "daily_mean": 0.02108877929290064,
+     "trade_mean": 0.8857287303018269,
+     "win_rate": 1.0,
+     "target_hit_rate": 0.8333333333333334,
+     "cost2x_daily_mean": 0.020557306313858728
+    },
+    "2017": {
+     "days": 251,
+     "trades": 4,
+     "active_days": 4,
+     "daily_mean": -0.01808219586739407,
+     "trade_mean": -1.1346577906789779,
+     "win_rate": 0.25,
+     "target_hit_rate": 0.0,
+     "cost2x_daily_mean": -0.02018956115739119
+    },
+    "2018": {
+     "days": 251,
+     "trades": 9,
+     "active_days": 9,
+     "daily_mean": 0.0017977301737345521,
+     "trade_mean": 0.05013669706748584,
+     "win_rate": 0.5555555555555556,
+     "target_hit_rate": 0.4444444444444444,
+     "cost2x_daily_mean": -0.0008507941600872312
+    },
+    "2019": {
+     "days": 252,
+     "trades": 10,
+     "active_days": 10,
+     "daily_mean": -0.019388503236042902,
+     "trade_mean": -0.48859028154828116,
+     "win_rate": 0.4,
+     "target_hit_rate": 0.3,
+     "cost2x_daily_mean": -0.023055375014570546
+    },
+    "2020": {
+     "days": 253,
+     "trades": 9,
+     "active_days": 9,
+     "daily_mean": 0.002676308183302863,
+     "trade_mean": 0.07523399670840271,
+     "win_rate": 0.5555555555555556,
+     "target_hit_rate": 0.4444444444444444,
+     "cost2x_daily_mean": 5.13993604272825e-05
+    },
+    "2021": {
+     "days": 252,
+     "trades": 12,
+     "active_days": 12,
+     "daily_mean": -0.02221309325777243,
+     "trade_mean": -0.46647495841322106,
+     "win_rate": 0.4166666666666667,
+     "target_hit_rate": 0.4166666666666667,
+     "cost2x_daily_mean": -0.02588102461455739
+    },
+    "2022": {
+     "days": 251,
+     "trades": 11,
+     "active_days": 11,
+     "daily_mean": -0.018510657002638226,
+     "trade_mean": -0.4223795370601995,
+     "win_rate": 0.6363636363636364,
+     "target_hit_rate": 0.6363636363636364,
+     "cost2x_daily_mean": -0.0206720357294102
+    }
+   },
+   "years_positive": "3/7",
+   "p_main": 0.5858,
+   "criteria": {
+    "1_mean_gt0": false,
+    "2_p_raw_le_0.05": false,
+    "2_p_bonferroni6_le_0.05": false,
+    "3_drop_top2_gt0": false,
+    "4_cost2x_gt0": false,
+    "5_half_years_positive": false
+   }
+  },
+  "ref_2026": {
+   "trades": 9,
+   "daily_mean": 0.0380283923241253,
+   "trade_mean": 0.8746530234548818,
+   "daily_p_one_sided": 0.0004,
+   "holm10_p": 0.004,
+   "random_subset_p_posthoc": 0.0684
+  },
+  "trades_list": [
+   {
+    "day": "2016-02-04",
+    "dec_close": "10:12",
+    "entry": "10:12",
+    "exit": "10:59",
+    "c10_wick": 1.0,
+    "r_w90": -3.72460939,
+    "r_w90_c2": -3.8531480769,
+    "why": "cutoff",
+    "any_filled": true
+   },
+   {
+    "day": "2016-02-11",
+    "dec_close": "09:58",
+    "entry": "09:58",
+    "exit": "10:39",
+    "c10_wick": 0.5,
+    "r_w90": 1.0,
+    "r_w90_c2": 1.0,
+    "why": "target",
+    "any_filled": false
+   },
+   {
+    "day": "2016-02-16",
+    "dec_close": "09:34",
+    "entry": "09:34",
+    "exit": "09:53",
+    "c10_wick": 0.5,
+    "r_w90": 1.0,
+    "r_w90_c2": 1.0,
+    "why": "target",
+    "any_filled": false
+   },
+   {
+    "day": "2016-03-01",
+    "dec_close": "10:25",
+    "entry": "10:25",
+    "exit": "10:59",
+    "c10_wick": 0.5,
+    "r_w90": 0.3143723818,
+    "r_w90_c2": 0.1804411911,
+    "why": "cutoff",
+    "any_filled": false
+   },
+   {
+    "day": "2016-03-04",
+    "dec_close": "10:31",
+    "entry": "10:31",
+    "exit": "10:59",
+    "c10_wick": 0.5,
+    "r_w90": -1.4475440939,
+    "r_w90_c2": -1.5791229241,
+    "why": "cutoff",
+    "any_filled": true
+   },
+   {
+    "day": "2016-03-09",
+    "dec_close": "10:41",
+    "entry": "10:41",
+    "exit": "10:51",
+    "c10_wick": 0.5,
+    "r_w90": 1.0,
+    "r_w90_c2": 1.0,
+    "why": "target",
+    "any_filled": false
+   },
+   {
+    "day": "2016-04-26",
+    "dec_close": "09:44",
+    "entry": "09:44",
+    "exit": "10:49",
+    "c10_wick": 0.6666666667,
+    "r_w90": 1.0,
+    "r_w90_c2": 1.0,
+    "why": "target",
+    "any_filled": false
+   },
+   {
+    "day": "2016-07-06",
+    "dec_close": "09:57",
+    "entry": "09:57",
+    "exit": "10:31",
+    "c10_wick": 0.5,
+    "r_w90": 1.0,
+    "r_w90_c2": 1.0,
+    "why": "target",
+    "any_filled": false
+   },
+   {
+    "day": "2017-03-27",
+    "dec_close": "10:33",
+    "entry": "10:33",
+    "exit": "10:59",
+    "c10_wick": 0.5,
+    "r_w90": -0.123161417,
+    "r_w90_c2": -0.2565084499,
+    "why": "cutoff",
+    "any_filled": false
+   },
+   {
+    "day": "2017-06-12",
+    "dec_close": "09:58",
+    "entry": "09:58",
+    "exit": "10:59",
+    "c10_wick": 0.5081967213,
+    "r_w90": -3.0806941866,
+    "r_w90_c2": -3.2110549848,
+    "why": "cutoff",
+    "any_filled": false
+   },
+   {
+    "day": "2017-06-28",
+    "dec_close": "10:20",
+    "entry": "10:20",
+    "exit": "10:59",
+    "c10_wick": 0.5625,
+    "r_w90": -1.8921644466,
+    "r_w90_c2": -2.0231496576,
+    "why": "cutoff",
+    "any_filled": false
+   },
+   {
+    "day": "2017-08-23",
+    "dec_close": "09:50",
+    "entry": "09:50",
+    "exit": "10:59",
+    "c10_wick": 0.5,
+    "r_w90": -1.0739061401,
+    "r_w90_c2": -1.2069661579,
+    "why": "cutoff",
+    "any_filled": true
+   },
+   {
+    "day": "2017-12-27",
+    "dec_close": "10:02",
+    "entry": "10:02",
+    "exit": "10:59",
+    "c10_wick": 0.8333333333,
+    "r_w90": 0.5573888875,
+    "r_w90_c2": 0.4231332419,
+    "why": "cutoff",
+    "any_filled": false
+   },
+   {
+    "day": "2018-02-01",
+    "dec_close": "09:36",
+    "entry": "09:36",
+    "exit": "10:59",
+    "c10_wick": 0.6,
+    "r_w90": -1.6585574075,
+    "r_w90_c2": -1.7908310433,
+    "why": "cutoff",
+    "any_filled": false
+   },
+   {
+    "day": "2018-02-05",
+    "dec_close": "10:05",
+    "entry": "10:05",
+    "exit": "10:59",
+    "c10_wick": 0.5,
+    "r_w90": -1.2797551206,
+    "r_w90_c2": -1.4115579683,
+    "why": "cutoff",
+    "any_filled": false
+   },
+   {
+    "day": "2018-05-25",
+    "dec_close": "10:33",
+    "entry": "10:33",
+    "exit": "10:59",
+    "c10_wick": 1.0,
+    "r_w90": 0.3280776293,
+    "r_w90_c2": 0.1941281405,
+    "why": "cutoff",
+    "any_filled": false
+   },
+   {
+    "day": "2018-09-14",
+    "dec_close": "10:39",
+    "entry": "10:39",
+    "exit": "10:50",
+    "c10_wick": 0.5,
+    "r_w90": 1.0,
+    "r_w90_c2": 1.0,
+    "why": "target",
+    "any_filled": false
+   },
+   {
+    "day": "2018-11-02",
+    "dec_close": "09:45",
+    "entry": "09:45",
+    "exit": "09:56",
+    "c10_wick": 0.78125,
+    "r_w90": 1.0,
+    "r_w90_c2": 1.0,
+    "why": "target",
+    "any_filled": false
+   },
+   {
+    "day": "2018-11-13",
+    "dec_close": "09:33",
+    "entry": "09:33",
+    "exit": "09:42",
+    "c10_wick": 0.5833333333,
+    "r_w90": 1.0,
+    "r_w90_c2": 1.0,
+    "why": "target",
+    "any_filled": false
+   },
+   {
+    "day": "2018-12-14",
+    "dec_close": "09:44",
+    "entry": "09:44",
+    "exit": "10:59",
+    "c10_wick": 0.6428571429,
+    "r_w90": -0.9315168149,
+    "r_w90_c2": -1.0647683527,
+    "why": "cutoff",
+    "any_filled": false
+   },
+   {
+    "day": "2018-12-24",
+    "dec_close": "10:41",
+    "entry": "10:41",
+    "exit": "10:59",
+    "c10_wick": 0.6153846154,
+    "r_w90": -0.0070180126,
+    "r_w90_c2": -0.1405201103,
+    "why": "cutoff",
+    "any_filled": false
+   },
+   {
+    "day": "2018-12-27",
+    "dec_close": "09:35",
+    "entry": "09:35",
+    "exit": "09:48",
+    "c10_wick": 0.7027027027,
+    "r_w90": 1.0,
+    "r_w90_c2": 1.0,
+    "why": "target",
+    "any_filled": false
+   },
+   {
+    "day": "2019-01-10",
+    "dec_close": "10:08",
+    "entry": "10:08",
+    "exit": "10:59",
+    "c10_wick": 0.5714285714,
+    "r_w90": -1.5983347368,
+    "r_w90_c2": -1.7297122442,
+    "why": "cutoff",
+    "any_filled": false
+   },
+   {
+    "day": "2019-01-11",
+    "dec_close": "10:04",
+    "entry": "10:04",
+    "exit": "10:59",
+    "c10_wick": 0.5789473684,
+    "r_w90": -2.0881729399,
+    "r_w90_c2": -2.2188964571,
+    "why": "cutoff",
+    "any_filled": false
+   },
+   {
+    "day": "2019-02-01",
+    "dec_close": "10:11",
+    "entry": "10:11",
+    "exit": "10:59",
+    "c10_wick": 0.9230769231,
+    "r_w90": 0.7240038192,
+    "r_w90_c2": 0.5895257235,
+    "why": "cutoff",
+    "any_filled": false
+   },
+   {
+    "day": "2019-02-07",
+    "dec_close": "10:30",
+    "entry": "10:30",
+    "exit": "10:50",
+    "c10_wick": 0.5882352941,
+    "r_w90": 1.0,
+    "r_w90_c2": 1.0,
+    "why": "target",
+    "any_filled": false
+   },
+   {
+    "day": "2019-02-20",
+    "dec_close": "10:22",
+    "entry": "10:22",
+    "exit": "10:59",
+    "c10_wick": 0.5,
+    "r_w90": -0.1623110774,
+    "r_w90_c2": -0.295605841,
+    "why": "cutoff",
+    "any_filled": false
+   },
+   {
+    "day": "2019-08-07",
+    "dec_close": "09:37",
+    "entry": "09:37",
+    "exit": "09:44",
+    "c10_wick": 0.62,
+    "r_w90": 1.0,
+    "r_w90_c2": 1.0,
+    "why": "target",
+    "any_filled": false
+   },
+   {
+    "day": "2019-08-16",
+    "dec_close": "10:22",
+    "entry": "10:22",
+    "exit": "10:59",
+    "c10_wick": 0.6292134831,
+    "r_w90": -2.2428631215,
+    "r_w90_c2": -2.3733801096,
+    "why": "cutoff",
+    "any_filled": false
+   },
+   {
+    "day": "2019-10-15",
+    "dec_close": "10:29",
+    "entry": "10:29",
+    "exit": "10:59",
+    "c10_wick": 0.5,
+    "r_w90": -2.0783744883,
+    "r_w90_c2": -2.2091110876,
+    "why": "cutoff",
+    "any_filled": false
+   },
+   {
+    "day": "2019-11-21",
+    "dec_close": "10:11",
+    "entry": "10:11",
+    "exit": "10:16",
+    "c10_wick": 0.6666666667,
+    "r_w90": 1.0,
+    "r_w90_c2": 1.0,
+    "why": "target",
+    "any_filled": false
+   },
+   {
+    "day": "2019-11-25",
+    "dec_close": "10:09",
+    "entry": "10:09",
+    "exit": "10:59",
+    "c10_wick": 0.5,
+    "r_w90": -0.4398502707,
+    "r_w90_c2": -0.5727744877,
+    "why": "cutoff",
+    "any_filled": false
+   },
+   {
+    "day": "2020-03-02",
+    "dec_close": "10:44",
+    "entry": "10:44",
+    "exit": "10:59",
+    "c10_wick": 0.5,
+    "r_w90": -1.3122366927,
+    "r_w90_c2": -1.4439961738,
+    "why": "cutoff",
+    "any_filled": false
+   },
+   {
+    "day": "2020-03-26",
+    "dec_close": "09:55",
+    "entry": "09:55",
+    "exit": "09:58",
+    "c10_wick": 0.5076923077,
+    "r_w90": 1.0,
+    "r_w90_c2": 1.0,
+    "why": "target",
+    "any_filled": false
+   },
+   {
+    "day": "2020-04-02",
+    "dec_close": "09:33",
+    "entry": "09:33",
+    "exit": "09:43",
+    "c10_wick": 0.55,
+    "r_w90": 1.0,
+    "r_w90_c2": 1.0,
+    "why": "target",
+    "any_filled": false
+   },
+   {
+    "day": "2020-06-15",
+    "dec_close": "10:05",
+    "entry": "10:05",
+    "exit": "10:30",
+    "c10_wick": 0.75,
+    "r_w90": 1.0,
+    "r_w90_c2": 1.0,
+    "why": "target",
+    "any_filled": false
+   },
+   {
+    "day": "2020-07-10",
+    "dec_close": "10:44",
+    "entry": "10:44",
+    "exit": "10:59",
+    "c10_wick": 0.6666666667,
+    "r_w90": 0.3370047088,
+    "r_w90_c2": 0.2030433013,
+    "why": "cutoff",
+    "any_filled": false
+   },
+   {
+    "day": "2020-07-27",
+    "dec_close": "09:44",
+    "entry": "09:44",
+    "exit": "10:59",
+    "c10_wick": 0.5714285714,
+    "r_w90": -1.204729066,
+    "r_w90_c2": -1.3376131212,
+    "why": "cutoff",
+    "any_filled": false
+   },
+   {
+    "day": "2020-09-30",
+    "dec_close": "10:01",
+    "entry": "10:01",
+    "exit": "10:59",
+    "c10_wick": 0.8571428571,
+    "r_w90": -0.9221115124,
+    "r_w90_c2": -1.0543918554,
+    "why": "cutoff",
+    "any_filled": false
+   },
+   {
+    "day": "2020-10-05",
+    "dec_close": "10:00",
+    "entry": "10:00",
+    "exit": "10:59",
+    "c10_wick": 0.5,
+    "r_w90": -0.2208214672,
+    "r_w90_c2": -0.3540381128,
+    "why": "cutoff",
+    "any_filled": false
+   },
+   {
+    "day": "2020-12-01",
+    "dec_close": "10:07",
+    "entry": "10:07",
+    "exit": "10:36",
+    "c10_wick": 0.5,
+    "r_w90": 1.0,
+    "r_w90_c2": 1.0,
+    "why": "target",
+    "any_filled": false
+   },
+   {
+    "day": "2021-01-07",
+    "dec_close": "10:03",
+    "entry": "10:03",
+    "exit": "10:59",
+    "c10_wick": 0.5,
+    "r_w90": -1.8276744348,
+    "r_w90_c2": -1.9587457474,
+    "why": "cutoff",
+    "any_filled": false
+   },
+   {
+    "day": "2021-01-14",
+    "dec_close": "09:51",
+    "entry": "09:51",
+    "exit": "10:59",
+    "c10_wick": 0.6666666667,
+    "r_w90": -2.6328718908,
+    "r_w90_c2": -2.76383503,
+    "why": "cutoff",
+    "any_filled": false
+   },
+   {
+    "day": "2021-02-12",
+    "dec_close": "09:48",
+    "entry": "09:48",
+    "exit": "10:59",
+    "c10_wick": 0.6923076923,
+    "r_w90": -3.74371419,
+    "r_w90_c2": -3.8731831967,
+    "why": "cutoff",
+    "any_filled": false
+   },
+   {
+    "day": "2021-02-22",
+    "dec_close": "10:04",
+    "entry": "10:04",
+    "exit": "10:08",
+    "c10_wick": 0.625,
+    "r_w90": 1.0,
+    "r_w90_c2": 1.0,
+    "why": "target",
+    "any_filled": false
+   },
+   {
+    "day": "2021-03-30",
+    "dec_close": "10:45",
+    "entry": "10:45",
+    "exit": "10:59",
+    "c10_wick": 0.5217391304,
+    "r_w90": -0.1335113485,
+    "r_w90_c2": -0.266844563,
+    "why": "cutoff",
+    "any_filled": false
+   },
+   {
+    "day": "2021-04-23",
+    "dec_close": "09:55",
+    "entry": "09:55",
+    "exit": "10:59",
+    "c10_wick": 0.8903966597,
+    "r_w90": -0.8054423784,
+    "r_w90_c2": -0.938863492,
+    "why": "cutoff",
+    "any_filled": false
+   },
+   {
+    "day": "2021-04-26",
+    "dec_close": "09:48",
+    "entry": "09:48",
+    "exit": "09:52",
+    "c10_wick": 0.594095941,
+    "r_w90": 1.0,
+    "r_w90_c2": 1.0,
+    "why": "target",
+    "any_filled": false
+   },
+   {
+    "day": "2021-06-02",
+    "dec_close": "09:48",
+    "entry": "09:48",
+    "exit": "09:58",
+    "c10_wick": 0.61,
+    "r_w90": 1.0,
+    "r_w90_c2": 1.0,
+    "why": "target",
+    "any_filled": false
+   },
+   {
+    "day": "2021-06-03",
+    "dec_close": "10:34",
+    "entry": "10:34",
+    "exit": "10:40",
+    "c10_wick": 0.5217391304,
+    "r_w90": 1.0,
+    "r_w90_c2": 1.0,
+    "why": "target",
+    "any_filled": false
+   },
+   {
+    "day": "2021-06-28",
+    "dec_close": "10:42",
+    "entry": "10:42",
+    "exit": "10:59",
+    "c10_wick": 0.6363636364,
+    "r_w90": -0.1335113485,
+    "r_w90_c2": -0.266844563,
+    "why": "cutoff",
+    "any_filled": false
+   },
+   {
+    "day": "2021-07-29",
+    "dec_close": "09:37",
+    "entry": "09:37",
+    "exit": "09:56",
+    "c10_wick": 0.6341463415,
+    "r_w90": 1.0,
+    "r_w90_c2": 1.0,
+    "why": "target",
+    "any_filled": false
+   },
+   {
+    "day": "2021-09-23",
+    "dec_close": "09:57",
+    "entry": "09:57",
+    "exit": "10:59",
+    "c10_wick": 0.5384615385,
+    "r_w90": -1.3209739101,
+    "r_w90_c2": -1.4537016107,
+    "why": "cutoff",
+    "any_filled": false
+   },
+   {
+    "day": "2022-02-24",
+    "dec_close": "09:34",
+    "entry": "09:34",
+    "exit": "10:59",
+    "c10_wick": 0.5333333333,
+    "r_w90": -6.0757605562,
+    "r_w90_c2": -6.2251693559,
+    "why": "cutoff",
+    "any_filled": false
+   },
+   {
+    "day": "2022-02-25",
+    "dec_close": "10:22",
+    "entry": "10:22",
+    "exit": "10:59",
+    "c10_wick": 0.5185185185,
+    "r_w90": -3.9400815437,
+    "r_w90_c2": -4.0683325505,
+    "why": "cutoff",
+    "any_filled": false
+   },
+   {
+    "day": "2022-04-25",
+    "dec_close": "09:36",
+    "entry": "09:36",
+    "exit": "09:39",
+    "c10_wick": 0.66,
+    "r_w90": 1.0,
+    "r_w90_c2": 1.0,
+    "why": "target",
+    "any_filled": false
+   },
+   {
+    "day": "2022-05-10",
+    "dec_close": "09:56",
+    "entry": "09:56",
+    "exit": "10:40",
+    "c10_wick": 0.5466666667,
+    "r_w90": 1.0,
+    "r_w90_c2": 1.0,
+    "why": "target",
+    "any_filled": false
+   },
+   {
+    "day": "2022-06-10",
+    "dec_close": "09:46",
+    "entry": "09:46",
+    "exit": "09:48",
+    "c10_wick": 0.619047619,
+    "r_w90": 1.0,
+    "r_w90_c2": 1.0,
+    "why": "target",
+    "any_filled": false
+   },
+   {
+    "day": "2022-07-05",
+    "dec_close": "09:49",
+    "entry": "09:49",
+    "exit": "09:56",
+    "c10_wick": 0.7439310885,
+    "r_w90": 1.0,
+    "r_w90_c2": 1.0,
+    "why": "target",
+    "any_filled": false
+   },
+   {
+    "day": "2022-07-12",
+    "dec_close": "10:33",
+    "entry": "10:33",
+    "exit": "10:40",
+    "c10_wick": 0.5012468828,
+    "r_w90": 1.0,
+    "r_w90_c2": 1.0,
+    "why": "target",
+    "any_filled": false
+   },
+   {
+    "day": "2022-10-14",
+    "dec_close": "09:39",
+    "entry": "09:39",
+    "exit": "09:40",
+    "c10_wick": 0.5,
+    "r_w90": 1.0,
+    "r_w90_c2": 1.0,
+    "why": "target",
+    "any_filled": false
+   },
+   {
+    "day": "2022-11-08",
+    "dec_close": "10:36",
+    "entry": "10:36",
+    "exit": "10:59",
+    "c10_wick": 0.5,
+    "r_w90": -0.0317935967,
+    "r_w90_c2": -0.1652626162,
+    "why": "cutoff",
+    "any_filled": false
+   },
+   {
+    "day": "2022-11-22",
+    "dec_close": "10:43",
+    "entry": "10:43",
+    "exit": "10:59",
+    "c10_wick": 0.6661101836,
+    "r_w90": -1.598539211,
+    "r_w90_c2": -1.7299164454,
+    "why": "cutoff",
+    "any_filled": false
+   },
+   {
+    "day": "2022-12-21",
+    "dec_close": "09:47",
+    "entry": "09:47",
+    "exit": "09:55",
+    "c10_wick": 0.5,
+    "r_w90": 1.0,
+    "r_w90_c2": 1.0,
+    "why": "target",
+    "any_filled": false
+   }
+  ]
+ },
+ "notes": [
+  "사건 표는 조건 없는 사슬(한 번에 하나, 청산 뒤 L 다시 잼)의 사건이다. K4는 그 사건을 거른 것이라 조건 단독 실행과 다를 수 있다(c3_hyp 한계와 같음).",
+  "Holm m = 6은 여섯 후보를 모은 쪽에서 계산한다. criteria의 2_p_raw는 보정 전, 2_p_bonferroni6은 가장 엄격한 경우다.",
+  "r_w90_c2는 같은 결정 봉에 반 호가만 2배로 다시 잰 값(사슬은 기본 비용 그대로)."
+ ]
+}
