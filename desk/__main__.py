@@ -1,4 +1,4 @@
-"""py -m desk [serve|open|validate|digest|ant|news|bottom|forecast|erules]   (open = 야간데스크.cmd: reuse or start, then show the page)"""
+"""py -m desk [serve|open|validate|digest|ant|news|bottom|forecast|erules|paper]   (open = 야간데스크.cmd: reuse or start, then show the page)"""
 
 import sys
 
@@ -28,6 +28,9 @@ def main() -> int:
         return run(sys.argv[2:])
     if command == "erules":
         from .erules import main as run
+        return run(sys.argv[2:])
+    if command == "paper":
+        from .sox_paper import main as run
         return run(sys.argv[2:])
     if command == "digest":
         from .digest import briefing_block
