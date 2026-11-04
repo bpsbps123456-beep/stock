@@ -1,0 +1,39 @@
+{
+  "pass": true,
+  "signal_rows": 633,
+  "independent_signal_mismatches": 0,
+  "max_rsi_absolute_error": 2.1316282072803006e-14,
+  "trade_rows": 9450,
+  "max_return_absolute_error_pct": 3.552713678800501e-15,
+  "cost_formulas_checked": [
+    0,
+    5,
+    10,
+    20
+  ],
+  "prefix_invariance_checks": [
+    {
+      "cutoff": "2026-01-02 15:30:00-05:00",
+      "rows": 3,
+      "pass": true
+    },
+    {
+      "cutoff": "2026-06-30 15:30:00-04:00",
+      "rows": 369,
+      "pass": true
+    },
+    {
+      "cutoff": "2026-10-30 15:30:00-04:00",
+      "rows": 627,
+      "pass": true
+    }
+  ],
+  "future_price_mutation_factor": 7,
+  "future_mutation_cutoff": "2026-06-30 15:30:00-04:00",
+  "future_mutation_prior_signal_mismatches": 0,
+  "notes": [
+    "2025 used only to initialize indicator state.",
+    "Last observed minute15:29 is complete at15:30; 5m source bar starts15:25.",
+    "No test establishes executability from bar OHLC; quote audit is separate."
+  ]
+}
