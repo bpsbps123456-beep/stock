@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "start_session": "2026-11-05",
+  "frozen_at": "2026-11-04T15:07:37.707295+00:00",
+  "scheme": "actual",
+  "cutoff_kst": "24:00",
+  "review_sessions": 60,
+  "settings": {
+    "S1": {
+      "N": 1,
+      "entry": "confirm",
+      "tgt": 2,
+      "stop": null,
+      "rev": false,
+      "filt": null
+    },
+    "S2": {
+      "ref": "low",
+      "thr": 0.03,
+      "target": 0.01,
+      "stop": null,
+      "sides": [
+        -1
+      ]
+    },
+    "fill": "close",
+    "delay_minutes": 1,
+    "touch": 1.0002,
+    "commission": 0
+  },
+  "sources": {
+    "code/lib.py": "acf23511cf1f3929d675bf0ff48db5735dad79abe97485902a78af21fbe971d0",
+    "code/fam_F1.py": "8f7316f869d564d1da69fe99bc8969de64e509476400da420e271d0abeba0c31",
+    "code/h0.py": "fc134e54367d90f4e56d7ea6060fd9529a0bb2a7769d8d88861715a8d94bb1fb",
+    "cost_table.json": "c3bb0251d17745ffc4bd8cf1e66d3513ebfe43eec09aeb7d2785ec4fa55f38e1"
+  },
+  "costs": {
+    "SOXL": {
+      "pre": 0.00019755037534574402,
+      "open5": 0.0002254158127419302,
+      "early": 0.00019496977968411016,
+      "late": 0.0001795009872553942
+    },
+    "SOXS": {
+      "pre": 0.0006397952655150897,
+      "open5": 0.0005755159089040556,
+      "early": 0.0005216484089723414,
+      "late": 0.0005274333496440686
+    }
+  },
+  "adapter_sha256": "fc434a6bf00724adfd3c02446b396b10163db143836206606a7547d81e4e0a50",
+  "review": "60 valid sessions; reporting only; never authorizes real trading",
+  "sha256": "6c38304d8d4c195f571c0bc753757f5443fd5bb9741f8bda908feb8b517d6ee0"
+}
