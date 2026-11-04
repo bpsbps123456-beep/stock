@@ -31,8 +31,8 @@ def loop_rsi(values, n=14):
     for i in range(n, len(values)):
         if i > n:
             delta = values[i] - values[i - 1]
-            up = (13 * up + max(delta, 0)) / n
-            down = (13 * down + max(-delta, 0)) / n
+            up = ((n - 1) * up + max(delta, 0)) / n
+            down = ((n - 1) * down + max(-delta, 0)) / n
         ans[i] = 100 if down == 0 else 100 * up / (up + down)
     return ans
 
@@ -47,18 +47,27 @@ def raw_data():
 
 def independent_signals(data):
     schedule = xc.get_calendar("XNYS").schedule.loc["2025-01-01":"2026-11-03"]
-    minute_chunks, five_chunks, daily_closes = [], [], []
+    minute_chunks, three_chunks, five_chunks, daily_closes = [], [], [], []
     for day, row in schedule.iterrows():
         start = row["open"].tz_convert(ET)
         finish = row["close"].tz_convert(ET)
         chunk = data.loc[start:finish - pd.Timedelta(minutes=1), "Close"]
         minute_chunks.append(chunk)
+        # Anchor explicitly at the regular-session open. Each value belongs to
+        # the three-minute interval [start + 3k, start + 3(k+1)).
+        bucket = (chunk.index - start) // pd.Timedelta(minutes=3)
+        three = chunk.groupby(bucket).last()
+        three.index = start + pd.to_timedelta(three.index.to_numpy() * 3, unit="min")
+        three_chunks.append(three)
         # Group by exact five-minute bucket, rather than global resample.
         five_chunks.append(chunk.groupby(chunk.index.floor("5min")).last())
         daily_closes.append((day.date(), float(chunk.iloc[-1])))
     minute = pd.concat(minute_chunks)
+    three = pd.concat(three_chunks)
     five = pd.concat(five_chunks)
     minute_rsi = pd.Series(loop_rsi(minute.to_numpy()), index=minute.index)
+    minute42_rsi = pd.Series(loop_rsi(minute.to_numpy(), n=42), index=minute.index)
+    three_rsi = pd.Series(loop_rsi(three.to_numpy()), index=three.index)
     five_rsi = pd.Series(loop_rsi(five.to_numpy()), index=five.index)
     daily = pd.Series(dict(daily_closes))
     rows = []
@@ -73,6 +82,8 @@ def independent_signals(data):
         prev = daily.loc[daily.index < day.date()].to_numpy()
         forming = np.r_[prev, minute.loc[latest]]
         vals = {"1m": minute_rsi.loc[latest],
+                "3m": three_rsi.loc[decision - pd.Timedelta(minutes=3)],
+                "1m42": minute42_rsi.loc[latest],
                 "5m": five_rsi.loc[decision - pd.Timedelta(minutes=5)],
                 "daily": loop_rsi(forming)[-1]}
         for tf, value in vals.items():
@@ -90,6 +101,13 @@ def main():
     error = float(np.max(np.abs(actual.rsi - expected.rsi)))
     assert np.allclose(actual.rsi, expected.rsi, rtol=0, atol=1e-10)
     assert np.array_equal(actual.signal.to_numpy(), expected.signal.to_numpy())
+    # The observed 3m candle must start at15:27 and end at the15:30
+    # decision. A15:30-start candle would include prices unavailable then.
+    three_actual = actual.xs("3m", level="tf")
+    source_start = pd.to_datetime(three_actual.signal_bar_start, utc=True).dt.tz_convert(ET)
+    decision_time = pd.to_datetime(three_actual.decision, utc=True).dt.tz_convert(ET)
+    assert (source_start.dt.strftime("%H:%M") == "15:27").all()
+    assert ((decision_time - source_start).dt.total_seconds() == 180).all()
 
     trades = pd.read_csv(out / "trades.csv")
     entry = pd.to_datetime(trades.entry, utc=True).dt.tz_convert(ET)
@@ -148,8 +166,11 @@ def main():
               "prefix_invariance_checks": prefix_checks,
               "future_price_mutation_factor": 7, "future_mutation_cutoff": str(cutoff),
               "future_mutation_prior_signal_mismatches": 0,
+              "three_minute_source_bar": "15:27~15:30 ET; anchored09:30",
+              "time_matched_auxiliary": "1m42 Wilder42, nominal42min compared with3m14",
+              "signal_counts_by_timeframe": actual[actual.signal].reset_index().groupby("tf").size().to_dict(),
               "notes": ["2025 used only to initialize indicator state.",
-                        "Last observed minute15:29 is complete at15:30; 5m source bar starts15:25.",
+                        "Last observed minute15:29 is complete at15:30; 3m source15:27 and5m source15:25.",
                         "No test establishes executability from bar OHLC; quote audit is separate."]}
     (out / "audit.json").write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
     print(json.dumps(report, indent=2))

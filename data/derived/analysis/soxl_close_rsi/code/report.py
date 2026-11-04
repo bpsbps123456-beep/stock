@@ -12,6 +12,37 @@ def pct(x):
     return "—" if x is None else f"{x:+.2f}%"
 
 
+def three_minute_section(model, quote, signals, trades):
+    """Describe the explicitly requested extension without reselecting the RSI."""
+    selected = next(x for x in model["walk_forward"] if x["tf"] == "3m")
+    actual = next(x for x in quote["walk_forward"] if x["tf"] == "3m")
+    ex = selected["selected_exit"]
+    first, later = selected["H1"]["costs"]["10"], selected["H2"]["costs"]["10"]
+    qlater = actual["H2"]["quote"]
+    ci = qlater.get("mean_ci95_pct", [None, None])
+    days = {tf: set(signals[signals.tf.eq(tf) & signals.signal].day) for tf in ("1m", "3m", "1m42")}
+    h2same = {d for d in days["1m"] if d >= "2026-07-01"} == {d for d in days["3m"] if d >= "2026-07-01"}
+    lines = ["## 3분봉 RSI14 추가 테스트", "",
+             "2026-11-05 사용자 추가 요청. 정규장09:30 기준으로3분봉을 만들고,15:27~15:30 마지막 완성 봉의 RSI≤30을 판단했다.15:31 매수·청산4시각·비용은 기존과 같다.", "",
+             f'신호는3분봉 {len(days["3m"])}일,1분봉 {len(days["1m"])}일이며 {len(days["3m"] & days["1m"])}일이 겹친다. 2026 전체 가격을 재사용한 후속 연구다.', "",
+             "| 매도 ET |3분봉 유효 건수 |3분봉 평균(호가) |승률 |최악 최종 손익 |1분봉 평균(호가) |",
+             "|---|---:|---:|---:|---:|---:|"]
+    for hm in ("16:30", "17:00", "18:00", "19:00"):
+        a, b = [next(c for c in quote["cells"] if c["tf"] == tf and c["exit_hm"] == hm and c["period"] == "all")["quote"] for tf in ("3m", "1m")]
+        lines.append(f'| {hm} | {a["n"]} | {pct(a.get("mean_pct"))} | {a.get("win_rate_pct", 0):.1f}% | {pct(a.get("worst_pct"))} | {pct(b.get("mean_pct"))} |')
+    lines += ["", "1분봉·3분봉19:00의 유효 표본은각11건이며 다른 청산은각12건이다. 서로 다른 신호일의 평균을 나란히 놓은 표이므로 수익 차이를 봉 주기의 인과 효과로 해석하지 않는다.", "",
+              f'상반기3분봉 {first["n"]}건의 한쪽0.10% 모델 비용 후 평균으로 고른 청산은 **{ex} ET**다. 하반기는 {later["n"]}건, 모델 평균 {pct(later.get("mean_pct"))}, 실제 호가 평균 **{pct(qlater.get("mean_pct"))}**, 평균95% 구간 {pct(ci[0])}~{pct(ci[1])}다.',
+              f'하반기 신호일이 기존1분봉과 완전히 같은가: **{"예" if h2same else "아니오"}**. 같은 날짜·같은 체결이면 결과도 같으므로 독립 확인 횟수로 더하지 않는다.', "",
+              "|3분봉·선택 청산의 감도 |비용0 |한쪽0.05% |한쪽0.10% |한쪽0.20% |", "|---|---:|---:|---:|---:|"]
+    c = next(c for c in model["cells"] if c["tf"] == "3m" and c["exit_hm"] == ex and c["period"] == "all")
+    lines.append(f'| {ex} | ' + " | ".join(pct(c["costs"][bp].get("mean_pct")) for bp in ("0", "5", "10", "20")) + " |")
+    timed = next(w for w in model["walk_forward"] if w["tf"] == "1m42")
+    lines += ["", f'3분RSI14는 명목42분,1분RSI14는14분이다. 시간 길이 대조용1분RSI42는 {len(days["1m42"])}일 신호였고, 하반기 {timed.get("H2", {}).get("costs", {}).get("10", {}).get("n", 0)}건이라 비교 근거가 부족하다. 명목 길이를 맞춰도 서로 다른 봉 종가와 RMA 감쇠를 쓰므로 동일 필터가 아니다.',
+              f'3분봉 선택 청산까지의 최악 중간 하락(분봉 저가 기준)은 {pct(c["mae_worst_pct"])}였다. 손절·익절은 추가하지 않았다.',
+              f'사전 판정 통과: **{"예" if selected["passes_frozen_gate"] else "아니오"}**. 주기 추가는4개 청산의 후속 탐색이며 기존 자료의 재사용·작은 표본 한계가 남는다.', ""]
+    return lines
+
+
 def main():
     j = json.loads((OUT / "summary.json").read_text(encoding="utf-8"))
     q = json.loads((OUT / "quotes_summary.json").read_text(encoding="utf-8"))
@@ -23,7 +54,7 @@ def main():
         "# SOXL 마감 30분 전 RSI ≤30 매수 → 당일 애프터장 매도",
         "", "2026-11-05 · Path-Q 연구 · 사전 설계: [BRIEF.md](BRIEF.md)", "",
         "**주 판정(1분봉 RSI14): 평균 수익은 양수지만 하반기 확인 표본이 3건뿐이라 채택 근거 부족.**",
-        "사용자 확정 조건의 정본은 docs/desk_system.md §7이다. 아래 5분봉·일봉은 최초 답변 대기 중 계산한 참고 결과다. 시각을 고른 상반기를 포함한 전체 성과를 새 구간 검증 성과로 읽으면 안 된다.", "",
+        "사용자 확정 조건의 정본은 docs/desk_system.md §7이다. 3분봉은 사용자 추가 테스트,5분봉·일봉은 최초 참고 결과다. 시각을 고른 상반기를 포함한 전체 성과를 새 구간 검증 성과로 읽으면 안 된다.", "",
         "## 조건과 자료", "",
         "- 2026-01-02~11-03 미국 211거래일. 상반기 123일로 청산 시각을 고르고 하반기 88일에 고정 적용했다.",
         "- 사용자 확정에 따라 1분봉 RSI14만 주 판정으로 읽는다. 최초 계산한 5분·진행 중 일봉 결과는 참고로 보존했으며 주기 간 최적화는 하지 않았다.",
@@ -81,10 +112,10 @@ def main():
         lines.append(f'| {tf} | {pct(early.quote_return_pct.mean())} | {pct(end.quote_return_pct.mean())} | {pct(trimmed.mean())} |')
     lines += ["", "위 차이는 같은 날의 청산 시각 비교다. 애프터 보유가 이 표본에서 평균을 높였지만,19:00은 탐색한4개 시각 중 상반기 최고값이었다. 전체 구간의 구간 추정은 시각 선택 편향을 보정하지 않았다.", "",
               "## 탐색 범위·검증·실행 가능 시간", "",
-              "- 사용자 확정 범위는1분봉×애프터 매도4시각=4칸이다. 최초 답변 대기 중에는RSI3종×4시각=12칸을 계산했으며 이 탐색 이력을 소급해 줄이지 않았다. 문턱30·길이14는 고정. 비용4개·진입 지연3개는 감도만 확인했다.16:00 비교 청산은 선택 대상 밖이다.",
+              "- 원래1분봉4칸·최초참고 포함12칸에 이번3분봉4칸·시간길이 대조1분RSI42의4칸을 더해 누적20칸이다. 문턱30은 고정. RSI42는 시간 길이 대조 하나이며 길이 탐색이 아니다. 비용4개·지연3개는 감도만 확인했다.16:00 비교 청산은 선택 대상 밖이다.",
               f'- 독립 재계산: RSI{audit["signal_rows"]}행·모델 거래{audit["trade_rows"]:,}행 일치. 미래 가격7배 변조와 미래 자료 삭제에도 과거 신호 불변. [audit.json](results/audit.json).',
               "- 전체 py -m unittest 407개 통과. 기존 호가 검증 모듈 테스트9개도 별도 통과했다.",
-              f'- 호가 요청{q["n_unique_requests"]}개 중{q["n_unique_valid"]}개 유효. 오래된 호가1개 제외. 양수 bid/ask·양수 수량·비교차·시각≤체결 시각·나이≤30초를 확인했다. 원호가/분할가격 비율 변동 경고0건.',
+              f'- 호가 요청{q["n_unique_requests"]}개 중{q["n_unique_valid"]}개 유효. 제외 사유: {q["invalid_quote_reasons"]}。양수 bid/ask·양수 수량·비교차·시각≤체결 시각·나이≤30초를 확인했다. 원호가/분할가격 비율 변동 경고는 quotes_trades.csv에 보존했다.',
               "- SIP 호가 잔량은 해당 크기 전체의 체결을 보장하지 않는다. 애프터장에서는 지정가·예약 주문 지원 조건도 증권사마다 확인해야 한다.",
               "- 매수 결정15:30 ET는 다음 날 KST04:30(서머타임)/05:30(표준시),19:00 ET 매도는 KST08:00/09:00이다. 주 조건 매수는 여기서1분 늦다.",
               "- 기존 docs/desk_system.md §1 직접 주문 가능 시간08~24 밖의 진입이다. 사용자 요청대로 연구했지만 예약·조건 주문으로 RSI 신호 연동과 애프터 체결이 가능한지는 확인되지 않았다. 기존 운용 규칙은 변경하지 않았다.",
@@ -97,6 +128,7 @@ def main():
               "py -m unittest", "```", "",
               "`--offline`은 이 PC의 Git 제외 호가 캐시를 사용한다. 다른 환경은 기존 fetch_alpaca.one으로 SOXL2025-01-01~2026-11-03(끝2026-11-04) 봉을 두 입력 폴더에 준비하고, quotes.py를--offline 없이 실행해야 한다. 키는 Git 제외.env에 둔다. 원시 봉과 호가는 올리지 않으며 출처 파일 해시는summary.json에 기록했다.", "",
               "출처: [Alpaca 분봉 생성·시작 시각](https://alpaca.markets/learn/stock-minute-bars), [Historical bars API](https://docs.alpaca.markets/us/reference/stockbars), [Wilder RSI 설명](https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/relative-strength-index-rsi).", ""]
+    lines[7:7] = three_minute_section(j, q, signals, trades)
     (ROOT / "report.md").write_text("\n".join(lines), encoding="utf-8")
     print(ROOT / "report.md")
 

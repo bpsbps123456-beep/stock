@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 ANALYSIS = ROOT.parent
 ET = "America/New_York"
 EXITS = ("16:30", "17:00", "18:00", "19:00")
-TF = ("1m", "5m", "daily")
+TF = ("1m", "3m", "5m", "daily", "1m42")
 COSTS = (0.0, 0.0005, 0.001, 0.002)
 END = "2026-11-03"
 
@@ -67,6 +67,9 @@ def signals(full):
     reg, schedule, counts = regular_bars(full)
     rma = shared_rma()
     r1 = pd.Series(rma(reg.Close.to_numpy(), 14)[2], index=reg.index)
+    r42 = pd.Series(rma(reg.Close.to_numpy(), 42)[2], index=reg.index)
+    f3 = reg.Close.resample("3min", origin="start_day", offset="9h30min", closed="left", label="left").last().dropna()
+    r3 = pd.Series(rma(f3.to_numpy(), 14)[2], index=f3.index)
     f5 = reg.Close.resample("5min", closed="left", label="left").last().dropna()
     r5 = pd.Series(rma(f5.to_numpy(), 14)[2], index=f5.index)
     daily = reg.Close.groupby(reg.index.date).last()
@@ -87,9 +90,12 @@ def signals(full):
         delta = float(reg.at[last, "Close"] - daily.iloc[j - 1])
         ag, al = (g[j - 1] * 13 + max(delta, 0)) / 14, (l[j - 1] * 13 + max(-delta, 0)) / 14
         rd = 100.0 if al == 0 else 100 - 100 / (1 + ag / al)
-        vals = {"1m": r1.get(last, np.nan), "5m": r5.get(decision - pd.Timedelta(minutes=5), np.nan), "daily": rd}
+        vals = {"1m": r1.get(last, np.nan), "3m": r3.get(decision - pd.Timedelta(minutes=3), np.nan),
+                "5m": r5.get(decision - pd.Timedelta(minutes=5), np.nan), "daily": rd,
+                "1m42": r42.get(last, np.nan)}
         for tf, val in vals.items():
-            source_start = {"1m": last, "5m": decision - pd.Timedelta(minutes=5),
+            source_start = {"1m": last, "3m": decision - pd.Timedelta(minutes=3),
+                            "5m": decision - pd.Timedelta(minutes=5), "1m42": last,
                             "daily": row["open"].tz_convert(ET)}[tf]
             rows.append({"day": ds, "tf": tf, "decision": decision.isoformat(),
                          "last_observed_1m": last.isoformat(), "signal_bar_start": source_start.isoformat(),
