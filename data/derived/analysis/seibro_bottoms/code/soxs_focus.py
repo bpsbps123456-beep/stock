@@ -57,12 +57,12 @@ def shared_functions():
 PCT_RANK, SHIFT_NULL, HOLM = shared_functions()
 
 
-def features(md, price_sessions):
+def features(md, price_sessions, *, rank_start="2025-01-01"):
     """Strict windows on source US sessions; censored days cannot become zeros."""
     md = md.copy().sort_index()
     dates = pd.DatetimeIndex(price_sessions)
-    dates = dates[(dates >= "2025-01-01") & (dates <= md.index.max())]
-    x = md.loc[md.index >= "2025-01-01"].reindex(dates).copy()
+    dates = dates[(dates >= rank_start) & (dates <= md.index.max())]
+    x = md.loc[md.index >= rank_start].reindex(dates).copy()
     complete = (~x["cens_SOXS"].fillna(True).astype(bool)
                 & ~x["part_SOXS"].fillna(True).astype(bool))
     amount_cols = ["SOXS_buy", "SOXS_sell", "SOXS_net"]
@@ -92,11 +92,15 @@ def latest_sources(md):
 
 
 def reaction(pf, entry):
-    """Entry day counts as session 1; reference support is the previous close."""
+    """Entry counts as session 1; callers supply the full US-session price grid."""
     empty = {"previous_close": np.nan, "previous_dd60_pct": np.nan, "state": False,
              "R5_pct": np.nan, "R10_pct": np.nan, "complete20": False,
              "min_close20": np.nan, "support20": np.nan, "breach20": np.nan,
              "R5_end": None, "R10_end": None, "support20_end": None}
+    for h in (5, 10, 20):
+        empty.update({f"R{h}_pct": np.nan, f"R{h}_end": None,
+                      f"R{h}_complete": False, f"MAE{h}_pct": np.nan,
+                      f"MFE{h}_pct": np.nan})
     if entry not in pf.index:
         # A future entry can still have an already-observable preceding close.
         prior = pf[pf.index < entry]
@@ -113,12 +117,15 @@ def reaction(pf, entry):
     empty.update(previous_close=prevclose, previous_dd60_pct=float(previous.dd60) * 100,
                  state=bool(previous.dd60 <= -0.10))
     op = pf.SOXX_Open.iloc[i]
-    for h in (5, 10):
-        if i + h <= len(pf) and np.isfinite(op) and op > 0:
-            c = pf.SOXX_Close.iloc[i + h - 1]
-            if np.isfinite(c) and c > 0:
-                empty[f"R{h}_pct"] = float((c / op - 1) * 100)
-                empty[f"R{h}_end"] = str(pf.index[i + h - 1].date())
+    for h in (5, 10, 20):
+        window = pf.SOXX_Close.iloc[i:i + h]
+        if (len(window) == h and np.isfinite(op) and op > 0
+                and np.isfinite(window).all() and (window > 0).all()):
+            empty.update({f"R{h}_pct": float((window.iloc[-1] / op - 1) * 100),
+                          f"R{h}_end": str(pf.index[i + h - 1].date()),
+                          f"R{h}_complete": True,
+                          f"MAE{h}_pct": float(min(0, (window.min() / op - 1) * 100)),
+                          f"MFE{h}_pct": float(max(0, (window.max() / op - 1) * 100))})
     tail = pf.SOXX_Close.iloc[i:i + 20]
     if len(tail) == 20 and np.isfinite(tail).all() and (tail > 0).all() and np.isfinite(prevclose) and prevclose > 0:
         breached = bool(tail.min() < 0.97 * prevclose)
@@ -147,16 +154,16 @@ def shift_reference(on, response):
             "nonidentity_shifts": nshifts}
 
 
-def path_panel(md, feat, pf, sessions, measure, length, delay=0):
+def path_panel(md, feat, pf, sessions, measure, length, delay=0, *, start=START, end=END):
     key = f"{measure}_L{length}"
     mapping = latest_sources(md)
     sessions = pd.DatetimeIndex(sessions)
     rows = []
-    # Keep future published-entry rows as pending, but never score beyond END.
-    last = max(END, mapping.index.max())
+    # Keep future published-entry rows as pending, but score only the requested end.
+    last = max(pd.Timestamp(end), mapping.index.max())
     if delay:
         last = sessions[sessions.searchsorted(last) + delay]
-    grid = sessions[(sessions >= START) & (sessions <= last)]
+    grid = sessions[(sessions >= pd.Timestamp(start)) & (sessions <= last)]
     shifted = mapping.copy()
     shifted["entry_original"] = shifted.index
     shifted.index = pd.DatetimeIndex([sessions[sessions.get_loc(e) + delay] for e in mapping.index])
