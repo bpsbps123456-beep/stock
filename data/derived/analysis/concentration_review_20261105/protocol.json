@@ -1,0 +1,27 @@
+{
+  "registered": "2026-11-05",
+  "scope": "연구 전용. 운영 규칙 및 주문 변경 없음",
+  "historical_end_us": "2026-11-04",
+  "snapshot_cutoff": "2026-11-05",
+  "candidates": [
+    {"id": "baseline", "stock_cap": 0.25, "raw_ceiling": false},
+    {"id": "cap20", "stock_cap": 0.20, "raw_ceiling": false},
+    {"id": "cap15", "stock_cap": 0.15, "raw_ceiling": false},
+    {"id": "raw_ceiling25", "stock_cap": 0.25, "raw_ceiling": true}
+  ],
+  "raw_ceiling_definition": "기존 project_caps 결과와 원래 TIME 비례 비중 중 작은 값을 종목별로 사용. 잔여 현금, 재정규화 없음. 별도 최적 배분 계산을 만들지 않는 보수적 대조군",
+  "fixed": "7종목, 120일 순위, 12위 유지, 주간 시가 교체, 섹터60%, 반도체50%, 비용0. 가격·PDF 시점은 desk/strategies.py 재사용",
+  "historical_interpretation": "2026 앞1~5월·뒤6월 이후를 표시하되 이전 연구에서 이미 본 자료이므로 새 독립 검증 아님. 10월 구간은 부진을 본 뒤 만든 진단",
+  "forward": {
+    "primary": "cap20",
+    "activation_us": "2026-11-09",
+    "baseline_close_us": "2026-11-06",
+    "common_start": "11/9 이전에는 모든 후보가 현행 규칙으로 동일하게 재생. 11/9 시가부터 후보 적용",
+    "checkpoints_sessions": [20, 60],
+    "decision": "20일은 중간 관찰만. 60일에 cap20의 원화 수익이 현행 이상이고 최대 낙폭이 현행보다 얕으면 개선 후보. raw_ceiling25·cap15는 기전 대조이며 과거·미래 순위로 대체 주후보를 고르지 않음",
+    "risk_control": "현금 비중 효과는 후보의 실제 일별 투자비중을 사후에 현행 일별 수익에 곱한 진단 대조와 비교. 이 대조는 미래 평균 노출을 미리 아는 매매 전략이 아님",
+    "not_automatic": "사용자 결정 전 운영 반영 없음. 자동화·주문·예약 설치 없음"
+  },
+  "search_count": "현행1+후보3=4설정. 주식상한15/20/25%, 간격5%p; 현금대조1개. 곱집합 탐색·최적화 없음",
+  "limitations": "현재 분류의 사후성, 기존 규칙의 선택편향, 가정한 시가 체결, 호가·환전비용·세금·현금이자 제외. 모델은 split-adjusted Open/Close로 평가; ETF 표는 시장 종가, 배당 재투자 제외"
+}
