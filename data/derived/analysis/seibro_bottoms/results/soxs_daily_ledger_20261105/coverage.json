@@ -1,0 +1,196 @@
+{
+  "source_rows": 714,
+  "entry_rows": 715,
+  "warmup_rows": 250,
+  "source_first": "2024-01-02T00:00:00",
+  "source_last": "2026-11-04T00:00:00",
+  "entry_first": "2024-01-02T00:00:00",
+  "entry_last": "2026-11-05T00:00:00",
+  "latest_completed_price_session": "2026-11-04T00:00:00",
+  "latest_published_source": "2026-11-02T00:00:00",
+  "interior_missing_source_dates": [],
+  "unpublished_source_dates": [
+    "2026-11-03T00:00:00",
+    "2026-11-04T00:00:00"
+  ],
+  "entry_no_new_source_dates": [
+    "2024-01-03T00:00:00",
+    "2024-01-17T00:00:00",
+    "2024-02-09T00:00:00",
+    "2024-02-12T00:00:00",
+    "2024-02-21T00:00:00",
+    "2024-03-01T00:00:00",
+    "2024-04-02T00:00:00",
+    "2024-04-10T00:00:00",
+    "2024-05-01T00:00:00",
+    "2024-05-06T00:00:00",
+    "2024-05-15T00:00:00",
+    "2024-05-29T00:00:00",
+    "2024-06-06T00:00:00",
+    "2024-06-21T00:00:00",
+    "2024-07-08T00:00:00",
+    "2024-08-15T00:00:00",
+    "2024-09-04T00:00:00",
+    "2024-09-16T00:00:00",
+    "2024-09-17T00:00:00",
+    "2024-09-18T00:00:00",
+    "2024-10-01T00:00:00",
+    "2024-10-03T00:00:00",
+    "2024-10-09T00:00:00",
+    "2024-10-16T00:00:00",
+    "2024-11-13T00:00:00",
+    "2024-12-02T00:00:00",
+    "2024-12-27T00:00:00",
+    "2024-12-31T00:00:00",
+    "2025-01-03T00:00:00",
+    "2025-01-14T00:00:00",
+    "2025-01-22T00:00:00",
+    "2025-01-27T00:00:00",
+    "2025-01-28T00:00:00",
+    "2025-01-29T00:00:00",
+    "2025-01-30T00:00:00",
+    "2025-02-19T00:00:00",
+    "2025-03-03T00:00:00",
+    "2025-04-22T00:00:00",
+    "2025-05-01T00:00:00",
+    "2025-05-05T00:00:00",
+    "2025-05-06T00:00:00",
+    "2025-05-28T00:00:00",
+    "2025-06-03T00:00:00",
+    "2025-06-06T00:00:00",
+    "2025-06-23T00:00:00",
+    "2025-07-08T00:00:00",
+    "2025-08-15T00:00:00",
+    "2025-09-03T00:00:00",
+    "2025-10-03T00:00:00",
+    "2025-10-06T00:00:00",
+    "2025-10-07T00:00:00",
+    "2025-10-08T00:00:00",
+    "2025-10-09T00:00:00",
+    "2025-10-15T00:00:00",
+    "2025-11-13T00:00:00",
+    "2025-12-01T00:00:00",
+    "2025-12-29T00:00:00",
+    "2025-12-31T00:00:00",
+    "2026-01-05T00:00:00",
+    "2026-01-21T00:00:00",
+    "2026-02-17T00:00:00",
+    "2026-02-18T00:00:00",
+    "2026-03-02T00:00:00",
+    "2026-04-07T00:00:00",
+    "2026-05-01T00:00:00",
+    "2026-05-05T00:00:00",
+    "2026-05-27T00:00:00",
+    "2026-06-03T00:00:00",
+    "2026-06-23T00:00:00",
+    "2026-07-07T00:00:00",
+    "2026-08-17T00:00:00",
+    "2026-09-09T00:00:00",
+    "2026-09-24T00:00:00",
+    "2026-09-25T00:00:00",
+    "2026-10-05T00:00:00",
+    "2026-10-09T00:00:00",
+    "2026-10-14T00:00:00"
+  ],
+  "censored_source_dates": [
+    "2025-11-03T00:00:00",
+    "2026-01-26T00:00:00",
+    "2026-03-04T00:00:00",
+    "2026-07-14T00:00:00"
+  ],
+  "partial_source_dates": [],
+  "shadowed_source_rows": 77,
+  "source_year_counts": {
+    "2024": 252,
+    "2025": 250,
+    "2026": 212
+  },
+  "entry_year_counts": {
+    "2024": 252,
+    "2025": 250,
+    "2026": 213
+  },
+  "snapshot_availability": {
+    "complete_dates": [
+      "2026-10-26",
+      "2026-10-27",
+      "2026-10-28",
+      "2026-10-29",
+      "2026-10-30",
+      "2026-11-02",
+      "2026-11-03",
+      "2026-11-04"
+    ],
+    "excluded": [
+      {
+        "date": "2026-11-05",
+        "list_counts": {
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0
+        },
+        "reason": "unpublished, empty or incomplete; never a zero-flow observation"
+      }
+    ]
+  },
+  "frozen_overlap_rows": 964,
+  "frozen_money_max_error_usd": {
+    "SOXS_buy": 0.0,
+    "SOXS_sell": 0.0,
+    "SOXS_net": 0.0,
+    "SOXS_tot": 0.0
+  },
+  "frozen_mapping_mismatches": {
+    "cens_SOXS": 0,
+    "part_SOXS": 0,
+    "seibro_date": 0,
+    "known_settle": 0,
+    "entry_settle": 0
+  },
+  "price_coverage": {
+    "prices": {
+      "soxx_missing_sessions": [],
+      "soxx_extra_dates": [],
+      "soxx_given_check": {
+        "2026-07-29": {
+          "given": 465.0,
+          "yf": 465.0
+        },
+        "2026-10-22": {
+          "given": 475.69,
+          "yf": 475.69
+        },
+        "2026-10-28": {
+          "given": 521.94,
+          "yf": 521.94
+        },
+        "2026-10-29": {
+          "given": 513.86,
+          "yf": 513.86
+        },
+        "2026-10-30": {
+          "given": 471.51,
+          "yf": 471.51
+        },
+        "2026-11-02": {
+          "given": 453.65,
+          "yf": 453.65
+        }
+      }
+    }
+  },
+  "new_signal_definitions": 0,
+  "thresholds_tested": [
+    80
+  ],
+  "source_sha256": {
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\seibro_bottoms\\results\\soxs_current_20261105\\raw_snapshot.json": "08f8bdfc459dd7a5f062f8e8b032e5cf742bcfa8a2795fa0e1dc413ac93b7967",
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\seibro_bottoms\\results\\soxs_current_20261105\\market.prices.csv": "5767a1f2df3f0b6ef9ca4b7d94b030183a6baf531425e4a42a4952b19e97f58d",
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\seibro_bottoms\\code\\soxs_ledger.py": "bd614b3b59b9fc37419c096bfa8ef6e6dea17eda612347a3763fd09b94e54222",
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\seibro_bottoms\\code\\soxs_current.py": "9aee6413591570ad6d158672774ccfc884cf089fe89d1b781d9215966f171797",
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\seibro_bottoms\\code\\soxs_focus.py": "f068314dc03042ed5bae8633d9fd8ef6e48179c91f7b331d93fea238ccebda61",
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\seibro_bottoms\\code\\soxs_multiyear.py": "cf25d1b54c369ade0f63e78e7d862dace40937dcd924f57f8e1cb5929045d95f",
+    "C:\\Users\\geunt\\OneDrive\\Desktop\\주식\\data\\derived\\analysis\\seibro_bottoms\\code\\build.py": "2218306605053e3f3adbe3224fcd34bcefa3a6043579dbb9634b510c22628ba0"
+  }
+}

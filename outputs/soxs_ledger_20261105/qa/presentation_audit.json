@@ -1,0 +1,47 @@
+{
+  "built_at": "2026-11-05T13:33:47.897Z",
+  "inputs": [
+    {
+      "filename": "source_daily.csv",
+      "rows": 714,
+      "columns": 65,
+      "sha256": "31826b63237ed148d5b18dd3698fc3179689f2aa02736f9e9dd534e72203267c"
+    },
+    {
+      "filename": "entry_daily.csv",
+      "rows": 715,
+      "columns": 112,
+      "sha256": "9508f6bfd63b92c33e5b9f2b1759c7d4e961ea570934b415371e0d4f5e30168a"
+    },
+    {
+      "filename": "monthly.csv",
+      "rows": 210,
+      "columns": 15,
+      "sha256": "77d97e56b25cd318db3d104b4318f2a8c64e2298a9c5d0914146835f0e0cfaaa"
+    },
+    {
+      "filename": "warmup_daily.csv",
+      "rows": 250,
+      "columns": 65,
+      "sha256": "b902e2ee7005dd5075674f5ab8650bfc963531e3581535de15b271b5b06da3b8"
+    }
+  ],
+  "copied_cells_compared": 148221,
+  "mismatches": [],
+  "formula_error_scan": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}",
+  "sheets": [
+    "요약",
+    "최근일별",
+    "전체source",
+    "전체entry",
+    "월별",
+    "2023준비",
+    "열설명"
+  ],
+  "recent": {
+    "source": 46,
+    "entry": 47
+  },
+  "publication_timing": "next KSD business day 09:00 KST convention; actual historical publication timestamps unavailable",
+  "calculations_added": false
+}

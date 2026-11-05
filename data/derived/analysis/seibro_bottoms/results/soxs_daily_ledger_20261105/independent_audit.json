@@ -1,0 +1,197 @@
+{
+  "scope": "full independent raw/calendar/rank/latest-source/price-window audit; no production module imported",
+  "code_sha256": "6a2de80480b0f1cd493adfb8bd094a7aa5bf8c550b0f2604db049ef43c3f85bd",
+  "input_sha256": {
+    "seibro_bottoms\\derived\\measures_daily.parquet": "bae09cfacabe9dc1035a04ef78f0273b39d16a1534cad1b8f5b11d2bfa8bab28",
+    "seibro_bottoms\\results\\soxs_current_20261105\\raw_snapshot.json": "08f8bdfc459dd7a5f062f8e8b032e5cf742bcfa8a2795fa0e1dc413ac93b7967",
+    "seibro_bottoms\\results\\soxs_current_20261105\\market.prices.csv": "5767a1f2df3f0b6ef9ca4b7d94b030183a6baf531425e4a42a4952b19e97f58d",
+    "seibro_flows\\classes.csv": "eb1f02c99c8bfcab1dd81e696292a62d9e87f419e03d0d51b7b0720ebfffd6d4",
+    "seibro_bottoms\\results\\soxs_daily_ledger_20261105\\source_daily.csv": "31826b63237ed148d5b18dd3698fc3179689f2aa02736f9e9dd534e72203267c",
+    "seibro_bottoms\\results\\soxs_daily_ledger_20261105\\entry_daily.csv": "9508f6bfd63b92c33e5b9f2b1759c7d4e961ea570934b415371e0d4f5e30168a",
+    "seibro_bottoms\\results\\soxs_daily_ledger_20261105\\monthly.csv": "77d97e56b25cd318db3d104b4318f2a8c64e2298a9c5d0914146835f0e0cfaaa",
+    "seibro_bottoms\\results\\soxs_daily_ledger_20261105\\warmup_daily.csv": "b902e2ee7005dd5075674f5ab8650bfc963531e3581535de15b271b5b06da3b8",
+    "seibro_bottoms\\results\\soxs_daily_ledger_20261105\\coverage.json": "5dfac662f8b81d3ae8471108c91f91619a9e7aec57f5c2604619c88f05f64299"
+  },
+  "raw": {
+    "published_seibro_end": "2026-11-04",
+    "files": 4012,
+    "file_manifest_sha256": "4c99e2e1c9802ff9f0980f522771a9c4056dd27c724fe166c17e43f31bf70a9f",
+    "raw_calendar_days": 1003,
+    "soxs_cross_list_rows": 3334,
+    "soxs_unique_date_isins": 959,
+    "cross_list_amount_mismatches": 0,
+    "source_rows": 965,
+    "shared_unit_source_rows": 14,
+    "unpublished_snapshot_dates": [
+      "2026-11-05"
+    ]
+  },
+  "causality": "2023 warmup; trailing at most250 NYSE source observations including current only; strict uncensored full5-session windows; unpublished values stay missing",
+  "missing_semantics": "Top50-censored dollar placeholders are displayed as NA; UNKNOWN/UNPUBLISHED/NO_NEW_SOURCE ON flags are NA, not False; rank_n=0 records no usable rank for a published/entry row, never zero money or a zero outcome.",
+  "calendar_limit": "The fixed cal model has only same-SEIBRO-date pred2 groups; audit reconstructs these without centered future price/volume decisions.",
+  "checks": {
+    "raw_to_all_frozen_source_rows": {
+      "rows": 964,
+      "columns": 10,
+      "comparisons": 9640,
+      "mismatch_examples": [],
+      "passed": true
+    },
+    "every_source_day": {
+      "rows": 714,
+      "columns": 54,
+      "comparisons": 38556,
+      "mismatch_examples": [],
+      "passed": true
+    },
+    "every_entry_day": {
+      "rows": 715,
+      "columns": 106,
+      "comparisons": 75790,
+      "mismatch_examples": [],
+      "passed": true
+    },
+    "every_month_all_six_definitions": {
+      "rows": 210,
+      "columns": 13,
+      "comparisons": 2730,
+      "mismatch_examples": [],
+      "passed": true
+    },
+    "all_2023_warmup_rows": {
+      "rows": 250,
+      "columns": 54,
+      "comparisons": 13500,
+      "mismatch_examples": [],
+      "passed": true
+    },
+    "coverage_metadata": {
+      "fields": 20,
+      "mismatch_fields": [],
+      "passed": true
+    },
+    "publication_timestamps": {
+      "source_mismatches": 0,
+      "entry_mismatches": 0,
+      "passed": true
+    }
+  },
+  "findings": {
+    "harvest_holiday_same_entry": [
+      {
+        "source": "2026-09-21",
+        "P": 98.57723577235772,
+        "status": "ON",
+        "entry": "2026-09-28",
+        "selected": false
+      },
+      {
+        "source": "2026-09-22",
+        "P": 94.51219512195122,
+        "status": "ON",
+        "entry": "2026-09-28",
+        "selected": false
+      },
+      {
+        "source": "2026-09-23",
+        "P": 38.82113821138211,
+        "status": "OFF",
+        "entry": "2026-09-28",
+        "selected": true
+      }
+    ],
+    "chosen_2026_09_28_source": "2026-09-23",
+    "chosen_2026_09_28_status": "OFF",
+    "gross1_by_year": [
+      {
+        "year": 2024,
+        "ON_days": 76,
+        "R10_complete_ON": 76,
+        "R10_positive_ON": 35,
+        "R10_nonpositive_ON": 41,
+        "R10_mean_ON": -0.383997168524683,
+        "R10_mean_OFF": 1.0566559733297363,
+        "unscored_ON": 0
+      },
+      {
+        "year": 2025,
+        "ON_days": 5,
+        "R10_complete_ON": 5,
+        "R10_positive_ON": 5,
+        "R10_nonpositive_ON": 0,
+        "R10_mean_ON": 8.526515742784508,
+        "R10_mean_OFF": 1.2866036906688938,
+        "unscored_ON": 0
+      },
+      {
+        "year": 2026,
+        "ON_days": 37,
+        "R10_complete_ON": 35,
+        "R10_positive_ON": 28,
+        "R10_nonpositive_ON": 7,
+        "R10_mean_ON": 6.985017608023595,
+        "R10_mean_OFF": 1.442707797511287,
+        "unscored_ON": 2
+      }
+    ],
+    "recent_ON_entries": [
+      {
+        "entry": "2026-09-10",
+        "source": "2026-09-04",
+        "P": 87.60162601626017,
+        "dd10": true,
+        "R10_complete": true,
+        "R10_pct": 9.144922578543667
+      },
+      {
+        "entry": "2026-09-11",
+        "source": "2026-09-08",
+        "P": 83.53658536585365,
+        "dd10": true,
+        "R10_complete": true,
+        "R10_pct": 7.773592614602465
+      },
+      {
+        "entry": "2026-09-14",
+        "source": "2026-09-09",
+        "P": 84.34959349593495,
+        "dd10": true,
+        "R10_complete": true,
+        "R10_pct": 15.18795929133021
+      },
+      {
+        "entry": "2026-09-22",
+        "source": "2026-09-17",
+        "P": 96.95121951219512,
+        "dd10": true,
+        "R10_complete": true,
+        "R10_pct": 6.455865242983605
+      },
+      {
+        "entry": "2026-10-07",
+        "source": "2026-10-02",
+        "P": 95.32520325203252,
+        "dd10": false,
+        "R10_complete": true,
+        "R10_pct": -13.30408533620414
+      },
+      {
+        "entry": "2026-11-02",
+        "source": "2026-10-28",
+        "P": 83.130081300813,
+        "dd10": true,
+        "R10_complete": false,
+        "R10_pct": null
+      },
+      {
+        "entry": "2026-11-05",
+        "source": "2026-11-02",
+        "P": 95.34412955465586,
+        "dd10": true,
+        "R10_complete": false,
+        "R10_pct": null
+      }
+    ]
+  },
+  "passed": true
+}
