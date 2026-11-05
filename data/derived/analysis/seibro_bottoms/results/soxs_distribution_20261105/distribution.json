@@ -1,0 +1,292 @@
+{
+  "latest_us_source_date": "2026-11-02",
+  "retrieval_date_kst": "2026-11-05",
+  "window_start": "2025-11-04",
+  "window_end": "2026-11-02",
+  "window_sessions": 250,
+  "shared_settlement_source_rows": 4,
+  "rank_basis": "canonical current-inclusive250; midpoint ties; missing never zero",
+  "normal_model": "Normal(mean, sample SD ddof1), descriptive overlay only",
+  "not_a_probability": "Neither tail area nor buying percentile is a bottom/rebound probability.",
+  "source_sha256": "31826b63237ed148d5b18dd3698fc3179689f2aa02736f9e9dd534e72203267c",
+  "new_signal_definitions": 0,
+  "optimized_thresholds": 0,
+  "measures": [
+    {
+      "key": "gross_usd_L1",
+      "label": "하루 매수",
+      "n": 247,
+      "missing": 3,
+      "value_usd": 43723560.0,
+      "mean_usd": 18075017.87854251,
+      "sample_std_usd": 14507910.524704663,
+      "raw_amount_z": 1.7679004897212527,
+      "normal_model_percentile": 96.1461229533608,
+      "empirical_percentile": 95.34412955465586,
+      "empirical_upper_midrank_pct": 4.655870445344135,
+      "percentile_equivalent_normal_z": 1.6791777399523833,
+      "larger_count": 11,
+      "equal_count": 1,
+      "smaller_count": 235,
+      "descending_rank": 12,
+      "sample_skew": 2.805999092844769,
+      "histogram": [
+        {
+          "left": -3.5,
+          "right": -3.0,
+          "count": 0,
+          "density": 0.0
+        },
+        {
+          "left": -3.0,
+          "right": -2.5,
+          "count": 0,
+          "density": 0.0
+        },
+        {
+          "left": -2.5,
+          "right": -2.0,
+          "count": 0,
+          "density": 0.0
+        },
+        {
+          "left": -2.0,
+          "right": -1.5,
+          "count": 0,
+          "density": 0.0
+        },
+        {
+          "left": -1.5,
+          "right": -1.0,
+          "count": 10,
+          "density": 0.08097165991902834
+        },
+        {
+          "left": -1.0,
+          "right": -0.5,
+          "count": 74,
+          "density": 0.5991902834008097
+        },
+        {
+          "left": -0.5,
+          "right": 0.0,
+          "count": 68,
+          "density": 0.5506072874493927
+        },
+        {
+          "left": 0.0,
+          "right": 0.5,
+          "count": 48,
+          "density": 0.38866396761133604
+        },
+        {
+          "left": 0.5,
+          "right": 1.0,
+          "count": 25,
+          "density": 0.20242914979757085
+        },
+        {
+          "left": 1.0,
+          "right": 1.5,
+          "count": 9,
+          "density": 0.0728744939271255
+        },
+        {
+          "left": 1.5,
+          "right": 2.0,
+          "count": 5,
+          "density": 0.04048582995951417
+        },
+        {
+          "left": 2.0,
+          "right": 2.5,
+          "count": 2,
+          "density": 0.016194331983805668
+        },
+        {
+          "left": 2.5,
+          "right": 3.0,
+          "count": 0,
+          "density": 0.0
+        },
+        {
+          "left": 3.0,
+          "right": 3.5,
+          "count": 1,
+          "density": 0.008097165991902834
+        },
+        {
+          "left": 3.5,
+          "right": 4.0,
+          "count": 0,
+          "density": 0.0
+        },
+        {
+          "left": 4.0,
+          "right": 4.5,
+          "count": 2,
+          "density": 0.016194331983805668
+        },
+        {
+          "left": 4.5,
+          "right": 5.0,
+          "count": 1,
+          "density": 0.008097165991902834
+        },
+        {
+          "left": 5.0,
+          "right": 5.5,
+          "count": 1,
+          "density": 0.008097165991902834
+        },
+        {
+          "left": 5.5,
+          "right": 6.0,
+          "count": 0,
+          "density": 0.0
+        },
+        {
+          "left": 6.0,
+          "right": 6.5,
+          "count": 1,
+          "density": 0.008097165991902834
+        }
+      ]
+    },
+    {
+      "key": "gross_usd_L5",
+      "label": "5일 누적 매수",
+      "n": 231,
+      "missing": 19,
+      "value_usd": 110114979.0,
+      "mean_usd": 91369230.87878788,
+      "sample_std_usd": 44532586.51905466,
+      "raw_amount_z": 0.42094451695930957,
+      "normal_model_percentile": 66.3102201468795,
+      "empirical_percentile": 78.13852813852814,
+      "empirical_upper_midrank_pct": 21.861471861471856,
+      "percentile_equivalent_normal_z": 0.7768802284000322,
+      "larger_count": 50,
+      "equal_count": 1,
+      "smaller_count": 180,
+      "descending_rank": 51,
+      "sample_skew": 2.6475566343877355,
+      "histogram": [
+        {
+          "left": -3.5,
+          "right": -3.0,
+          "count": 0,
+          "density": 0.0
+        },
+        {
+          "left": -3.0,
+          "right": -2.5,
+          "count": 0,
+          "density": 0.0
+        },
+        {
+          "left": -2.5,
+          "right": -2.0,
+          "count": 0,
+          "density": 0.0
+        },
+        {
+          "left": -2.0,
+          "right": -1.5,
+          "count": 1,
+          "density": 0.008658008658008658
+        },
+        {
+          "left": -1.5,
+          "right": -1.0,
+          "count": 14,
+          "density": 0.12121212121212122
+        },
+        {
+          "left": -1.0,
+          "right": -0.5,
+          "count": 52,
+          "density": 0.45021645021645024
+        },
+        {
+          "left": -0.5,
+          "right": 0.0,
+          "count": 78,
+          "density": 0.6753246753246753
+        },
+        {
+          "left": 0.0,
+          "right": 0.5,
+          "count": 44,
+          "density": 0.38095238095238093
+        },
+        {
+          "left": 0.5,
+          "right": 1.0,
+          "count": 20,
+          "density": 0.17316017316017315
+        },
+        {
+          "left": 1.0,
+          "right": 1.5,
+          "count": 11,
+          "density": 0.09523809523809523
+        },
+        {
+          "left": 1.5,
+          "right": 2.0,
+          "count": 1,
+          "density": 0.008658008658008658
+        },
+        {
+          "left": 2.0,
+          "right": 2.5,
+          "count": 2,
+          "density": 0.017316017316017316
+        },
+        {
+          "left": 2.5,
+          "right": 3.0,
+          "count": 2,
+          "density": 0.017316017316017316
+        },
+        {
+          "left": 3.0,
+          "right": 3.5,
+          "count": 1,
+          "density": 0.008658008658008658
+        },
+        {
+          "left": 3.5,
+          "right": 4.0,
+          "count": 2,
+          "density": 0.017316017316017316
+        },
+        {
+          "left": 4.0,
+          "right": 4.5,
+          "count": 1,
+          "density": 0.008658008658008658
+        },
+        {
+          "left": 4.5,
+          "right": 5.0,
+          "count": 0,
+          "density": 0.0
+        },
+        {
+          "left": 5.0,
+          "right": 5.5,
+          "count": 0,
+          "density": 0.0
+        },
+        {
+          "left": 5.5,
+          "right": 6.0,
+          "count": 2,
+          "density": 0.017316017316017316
+        }
+      ]
+    }
+  ]
+}

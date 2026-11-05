@@ -1,0 +1,139 @@
+{
+  "space_id": 89,
+  "checked_at": "2026-11-05T14:03:31.208Z",
+  "html_sha256": "0529ff3c1340f39e5e417697b9c996439f710d11a5103b1ef8b621a23a4f9b08",
+  "viewports": [
+    {
+      "viewport_width": 736,
+      "document_width": 736,
+      "horizontal_overflow": false,
+      "svg_count": 2,
+      "legend": "원장 금액 분포\n평균·표준편차의 정규근사\n정규모형상 현재보다 큰 영역",
+      "note": "σ는 금액의 표본 표준편차입니다. 실제 분포는 오른쪽 꼬리가 길어 정규곡선과 다릅니다. 실제 상위 비율은 원장 순위 기준이며 저점·반등 확률이 아닙니다. 누락은 0달러로 채우지 않았고, 원거래일 4행은 합산 결제를 균등 배분한 기존 연구값입니다.",
+      "note_bottom": 877.4479179382324,
+      "shared_settlement_source_rows": 4,
+      "shared_row_count_text": "4",
+      "charts": [
+        {
+          "key": "gross_usd_L1",
+          "headline": "하루 매수 · 43.72백만 달러\n실제 상위 4.66% · +1.77σ",
+          "model": "정규모형상 상위 3.85% / 실제 순위 상위 4.66% · 2025-11-04~2026-11-02 · 유효 247개",
+          "n": 247,
+          "raw_z": 1.7679004897212527,
+          "empirical_upper_pct": 4.655870445344135,
+          "histogram_count": 247,
+          "rendered_histogram_bars": 13,
+          "histogram_nonzero_bins": 13,
+          "last_nonzero_bin": {
+            "left": 6,
+            "right": 6.5,
+            "count": 1,
+            "density": 0.008097165991902834
+          },
+          "headline_overlap": false,
+          "text_overlaps": [],
+          "text_outside_svg": []
+        },
+        {
+          "key": "gross_usd_L5",
+          "headline": "5일 누적 매수 · 110.11백만 달러\n실제 상위 21.86% · +0.42σ",
+          "model": "정규모형상 상위 33.69% / 실제 순위 상위 21.86% · 2025-11-04~2026-11-02 · 유효 231개",
+          "n": 231,
+          "raw_z": 0.42094451695930957,
+          "empirical_upper_pct": 21.861471861471856,
+          "histogram_count": 231,
+          "rendered_histogram_bars": 14,
+          "histogram_nonzero_bins": 14,
+          "last_nonzero_bin": {
+            "left": 5.5,
+            "right": 6,
+            "count": 2,
+            "density": 0.017316017316017316
+          },
+          "headline_overlap": false,
+          "text_overlaps": [],
+          "text_outside_svg": []
+        }
+      ]
+    },
+    {
+      "viewport_width": 360,
+      "document_width": 360,
+      "horizontal_overflow": false,
+      "svg_count": 2,
+      "legend": "원장 금액 분포\n평균·표준편차의 정규근사\n정규모형상 현재보다 큰 영역",
+      "note": "σ는 금액의 표본 표준편차입니다. 실제 분포는 오른쪽 꼬리가 길어 정규곡선과 다릅니다. 실제 상위 비율은 원장 순위 기준이며 저점·반등 확률이 아닙니다. 누락은 0달러로 채우지 않았고, 원거래일 4행은 합산 결제를 균등 배분한 기존 연구값입니다.",
+      "note_bottom": 990.7083587646484,
+      "shared_settlement_source_rows": 4,
+      "shared_row_count_text": "4",
+      "charts": [
+        {
+          "key": "gross_usd_L1",
+          "headline": "하루 매수 · 43.72백만 달러\n실제 상위 4.66% · +1.77σ",
+          "model": "정규모형상 상위 3.85% / 실제 순위 상위 4.66% · 2025-11-04~2026-11-02 · 유효 247개",
+          "n": 247,
+          "raw_z": 1.7679004897212527,
+          "empirical_upper_pct": 4.655870445344135,
+          "histogram_count": 247,
+          "rendered_histogram_bars": 13,
+          "histogram_nonzero_bins": 13,
+          "last_nonzero_bin": {
+            "left": 6,
+            "right": 6.5,
+            "count": 1,
+            "density": 0.008097165991902834
+          },
+          "headline_overlap": false,
+          "text_overlaps": [],
+          "text_outside_svg": []
+        },
+        {
+          "key": "gross_usd_L5",
+          "headline": "5일 누적 매수 · 110.11백만 달러\n실제 상위 21.86% · +0.42σ",
+          "model": "정규모형상 상위 33.69% / 실제 순위 상위 21.86% · 2025-11-04~2026-11-02 · 유효 231개",
+          "n": 231,
+          "raw_z": 0.42094451695930957,
+          "empirical_upper_pct": 21.861471861471856,
+          "histogram_count": 231,
+          "rendered_histogram_bars": 14,
+          "histogram_nonzero_bins": 14,
+          "last_nonzero_bin": {
+            "left": 5.5,
+            "right": 6,
+            "count": 2,
+            "density": 0.017316017316017316
+          },
+          "headline_overlap": false,
+          "text_overlaps": [],
+          "text_outside_svg": []
+        }
+      ]
+    }
+  ],
+  "visual_review": {
+    "status": "passed",
+    "reviewed_widths": [
+      736,
+      360
+    ],
+    "screenshots_inspected": true,
+    "findings": "Final ledger distribution legend and dynamically displayed 4 shared-settlement source rows are visible. Both SVG charts and note are legible, with no horizontal overflow, headline overlap or clipped SVG text.",
+    "corrections_needed": []
+  },
+  "source_modified": false,
+  "scratch_same_html": true,
+  "screenshots": [
+    {
+      "file": "screenshot_736.png",
+      "bytes": 54968,
+      "sha256": "1e3308499072b38c40c7895e398e629b8b17a4c59f4ae1c295a69e79aa9d59d3"
+    },
+    {
+      "file": "screenshot_360.png",
+      "bytes": 48459,
+      "sha256": "f5fadc79c16908c1a580c8c68cd6ea826c9dd4dd077c72ba63d72e375a3c3b23"
+    }
+  ],
+  "browser_render_html_sha256": "0529ff3c1340f39e5e417697b9c996439f710d11a5103b1ef8b621a23a4f9b08",
+  "previous_html_sha256": "07c5f201b2102634839342c486e201e925d4c01f58c67e5c94cde26fad25aaaa"
+}
