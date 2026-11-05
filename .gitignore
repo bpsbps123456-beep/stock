@@ -30,6 +30,9 @@ data/**/*.nbi
 data/**/*.nbc
 data/**/*.gz
 data/derived/analysis/giant_ui_tools/
+# SOXS 원장의 로컬 문서 런타임과 재생성 가능한 화면 검수 이미지
+outputs/soxs_ledger_20261105/.runtime/
+outputs/soxs_ledger_20261105/qa/*.png
 # 10MB 넘는 결과(코드로 다시 만든다). GitHub 파일 한도는 100MB다
 data/derived/analysis/structure_map/results/bt_rows_fee0.*.json
 data/derived/analysis/structure_map/results/bt_us_rows.json
