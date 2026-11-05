@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SOXS 현재 매수 수준</title>
+<style>
+:root{color-scheme:light dark;--background:light-dark(#fff,#171a20);--foreground:light-dark(#172337,#edf0f6);--muted-foreground:light-dark(#526179,#b1bccd);--border:light-dark(#d8dee8,#3b4454);--chart-1:light-dark(#2356b1,#8fb7ff);--chart-2:light-dark(#b04c24,#ffac85)}
+*{box-sizing:border-box}body{margin:0;background:transparent;color:var(--foreground);font:14px/1.55 system-ui,-apple-system,"Malgun Gothic",sans-serif}main{padding:18px 14px 8px;max-width:960px;margin:auto}h1,h2,p,figure{margin:0}h1{font-size:19px;font-weight:600;padding-right:80px}h2{font-size:16px;font-weight:600}.meta,.legend,.details,.note{color:var(--muted-foreground);font-size:12px}.meta{margin-top:5px}.legend{display:flex;gap:16px;flex-wrap:wrap;margin:16px 0 10px}.legend span{display:inline-flex;align-items:center;gap:6px}.swatch{width:20px;height:0;border-top:3px solid var(--chart-1)}.bar-swatch{width:14px;height:10px;background:var(--muted-foreground);opacity:.25}.tail-swatch{width:14px;height:10px;background:var(--chart-2);opacity:.25}figure{margin-top:18px}.headline{display:flex;align-items:baseline;justify-content:space-between;gap:8px;flex-wrap:wrap}.position{font-variant-numeric:tabular-nums;font-size:15px;font-weight:600}.details{margin-top:3px}.chart{width:100%;height:270px;display:block}.chart text{fill:var(--foreground);font-family:inherit;font-size:12px}.chart .axis-title{font-size:11px}.chart .grid{stroke:var(--border);stroke-width:1}.chart .hist{fill:var(--muted-foreground);opacity:.25}.chart .curve{fill:none;stroke:var(--chart-1);stroke-width:2.5}.chart .tail{fill:var(--chart-2);opacity:.22}.chart .current{stroke:var(--chart-2);stroke-width:2.5}.chart .reference{stroke:var(--border);stroke-width:1;stroke-dasharray:4 4}.chart .dot{fill:var(--chart-2)}.note{border-top:1px solid var(--border);padding-top:12px;margin:16px 0 8px}.model-result{font-size:12px;color:var(--muted-foreground)}@media(max-width:480px){main{padding:14px 6px 6px}.chart{height:250px}.position{font-size:14px}h1{font-size:17px}.legend{gap:8px}}
+</style></head><body><main id="soxs-normal-current">
+<h1>SOXS 매수는 지금 얼마나 큰가</h1><p class="meta">11/5 조회 · 최신 미국 11/2 거래분 · 최근 250미국 거래일</p>
+<div class="legend"><span><i class="bar-swatch"></i>원장 금액 분포</span><span><i class="swatch"></i>평균·표준편차의 정규근사</span><span><i class="tail-swatch"></i>정규모형상 현재보다 큰 영역</span></div>
+<div id="soxs-facets"></div>
+<p class="note">σ는 금액의 표본 표준편차입니다. 실제 분포는 오른쪽 꼬리가 길어 정규곡선과 다릅니다. <strong>실제 상위 비율은 원장 순위 기준이며 저점·반등 확률이 아닙니다.</strong> 누락은 0달러로 채우지 않았고, 원거래일 <span id="soxs-shared-row-count"></span>행은 합산 결제를 균등 배분한 기존 연구값입니다.</p>
+</main><script id="soxs-distribution-data" type="application/json">__SOXS_DISTRIBUTION_JSON__</script>
+<script>
+(()=>{
+const data=JSON.parse(document.getElementById('soxs-distribution-data').textContent),root=document.getElementById('soxs-normal-current'),facets=document.getElementById('soxs-facets');
+root.querySelector('#soxs-shared-row-count').textContent=data.shared_settlement_source_rows;
+const ns='http://www.w3.org/2000/svg',pdf=z=>Math.exp(-z*z/2)/Math.sqrt(2*Math.PI),fmt=v=>(v/1e6).toFixed(2),signed=v=>(v>=0?'+':'')+v.toFixed(2);
+function add(parent,tag,attrs={},text){const node=document.createElementNS(ns,tag);for(const[k,v]of Object.entries(attrs))node.setAttribute(k,v);if(text!==undefined)node.textContent=text;parent.appendChild(node);return node;}
+const ymin=0,ymax=Math.max(.42,...data.measures.flatMap(m=>m.histogram.map(b=>b.density)))*1.16;
+const allBins=data.measures.flatMap(m=>m.histogram.filter(b=>b.count>0)),lo=Math.min(-3.5,...allBins.map(b=>b.left)),hi=Math.max(3.5,...allBins.map(b=>b.right));
+for(const m of data.measures){
+ const fig=document.createElement('figure');fig.dataset.measure=m.key;
+ const top=document.createElement('div');top.className='headline';
+ const title=document.createElement('h2');title.textContent=`${m.label} · ${fmt(m.value_usd)}백만 달러`;
+ const position=document.createElement('span');position.className='position';position.textContent=`실제 상위 ${m.empirical_upper_midrank_pct.toFixed(2)}% · ${signed(m.raw_amount_z)}σ`;
+ top.append(title,position);fig.append(top);
+ const info=document.createElement('p');info.className='details';info.textContent=`평균 ${fmt(m.mean_usd)}백만$ · 표준편차 ${fmt(m.sample_std_usd)}백만$ · 큰 순서 ${m.descending_rank}/${m.n}위`;fig.append(info);
+ const svg=add(fig,'svg',{class:'chart',role:'img','aria-label':`${m.label}: 평균보다 ${m.raw_amount_z.toFixed(2)}표준편차 위, 실제 상위 ${m.empirical_upper_midrank_pct.toFixed(2)}퍼센트.`});
+ const model=document.createElement('p');model.className='model-result';model.textContent=`정규모형상 상위 ${(100-m.normal_model_percentile).toFixed(2)}% / 실제 순위 상위 ${m.empirical_upper_midrank_pct.toFixed(2)}% · ${data.window_start}~${data.window_end} · 유효 ${m.n}개`;fig.append(model);facets.append(fig);
+ function draw(){
+  svg.replaceChildren();const w=Math.max(280,fig.getBoundingClientRect().width),h=w<480?250:270,ml=52,mr=14,mt=29,mb=45,pw=w-ml-mr,ph=h-mt-mb;
+  svg.setAttribute('viewBox',`0 0 ${w} ${h}`);svg.setAttribute('height',h);const x=z=>ml+(z-lo)/(hi-lo)*pw,y=d=>mt+ph-(d-ymin)/(ymax-ymin)*ph;
+  add(svg,'title',{},`${m.label}: 실제 상위 ${m.empirical_upper_midrank_pct.toFixed(2)}%, 금액 z ${m.raw_amount_z.toFixed(2)}`);
+  add(svg,'desc',{},'막대는 실제 관측의 밀도, 곡선은 평균과 표본 표준편차로 근사한 정규분포다. 오른쪽 꼬리는 잘라내지 않았다.');
+  for(const q of [0,.2,.4,.6,.8].filter(t=>t<=ymax)){add(svg,'line',{x1:ml,x2:w-mr,y1:y(q),y2:y(q),class:'grid'});add(svg,'text',{x:ml-7,y:y(q)+4,'text-anchor':'end'},q.toFixed(1));}
+  for(const b of m.histogram)if(b.count){const rect=add(svg,'rect',{x:x(b.left)+1,y:y(b.density),width:Math.max(1,x(b.right)-x(b.left)-2),height:y(0)-y(b.density),class:'hist'});add(rect,'title',{},`${b.left.toFixed(1)}~${b.right.toFixed(1)}σ: ${b.count}개`);}
+  const line=[];for(let i=0;i<=450;i++){const z=lo+(hi-lo)*i/450;line.push([x(z),y(pdf(z))]);}
+  const path=points=>points.map((p,i)=>(i?'L':'M')+p.map(v=>v.toFixed(2)).join(',')).join('');
+  const tail=[[x(m.raw_amount_z),y(0)]];for(let i=0;i<=150;i++){const z=m.raw_amount_z+(hi-m.raw_amount_z)*i/150;tail.push([x(z),y(pdf(z))]);}tail.push([x(hi),y(0)]);add(svg,'path',{d:path(tail)+'Z',class:'tail'});
+  add(svg,'path',{d:path(line),class:'curve'});add(svg,'line',{x1:x(0),x2:x(0),y1:mt,y2:y(0),class:'reference'});
+  add(svg,'line',{x1:x(m.raw_amount_z),x2:x(m.raw_amount_z),y1:mt+8,y2:y(0),class:'current'});add(svg,'circle',{cx:x(m.raw_amount_z),cy:y(pdf(m.raw_amount_z)),r:4,class:'dot'});
+  const anchor=x(m.raw_amount_z)>w*.72?'end':'start';add(svg,'text',{x:x(m.raw_amount_z)+(anchor==='end'?-6:6),y:mt+1,'text-anchor':anchor},`현재 ${signed(m.raw_amount_z)}σ`);
+  const ticks=w<480?[-2,0,2,6]:[-3,-2,-1,0,1,2,3,4,5,6];for(const t of ticks.filter(t=>t>=lo&&t<=hi)){add(svg,'line',{x1:x(t),x2:x(t),y1:y(0),y2:y(0)+5,class:'grid'});add(svg,'text',{x:x(t),y:y(0)+20,'text-anchor':'middle'},t===0?'평균':`${t>0?'+':''}${t}σ`);}
+  add(svg,'text',{x:ml,y:14,class:'axis-title','data-axis':'y'},'밀도');add(svg,'text',{x:ml+pw/2,y:h-3,'text-anchor':'middle',class:'axis-title','data-axis':'x'},'금액의 평균 대비 위치 (표준편차 σ)');
+ }
+ new ResizeObserver(draw).observe(fig);draw();
+}
+window.soxsDistribution=data;
+})();
+</script></body></html>
