@@ -1,0 +1,106 @@
+{
+  "source": "https://seibro.or.kr/websquare/control.jsp?w2xPath=/IPORTAL/user/ovsSec/BIP_CNTS10013V.xml&menuNo=921",
+  "snapshot_fetched_at": "2026-11-05T21:49:29+09:00",
+  "latest_complete_seibro_date": "2026-11-04T00:00:00",
+  "latest_us_source_date": "2026-11-02T00:00:00",
+  "known_kst_convention": "2026-11-05T09:00:00+09:00",
+  "entry_us_session": "2026-11-05T00:00:00",
+  "not_current_day_flow": "Settlement-based delayed data; empty later dates are unpublished, not zero buying.",
+  "latest_source_censored": false,
+  "latest_source_partial": false,
+  "latest_raw_usd": {
+    "SOXS_buy": 43723560.0,
+    "SOXS_sell": 8893051.0,
+    "SOXS_net": 34830509.0,
+    "SOXS_tot": 52616612.0
+  },
+  "measures": {
+    "gross_usd_L1": {
+      "value": 43723560.0,
+      "P": 95.34412955465586,
+      "rank_n": 247,
+      "trailing250_valid_median": 15240252.0,
+      "difference_from_median": 28483308.0,
+      "multiple_of_median": 2.8689525606269504,
+      "P80_required_window_usd": 25006766.0,
+      "P80_gap_window_usd": -18716794.0,
+      "P80_required_latest_day_usd_prior_days_fixed": 25006766.0
+    },
+    "net_usd_L1": {
+      "value": 34830509.0,
+      "P": 95.34412955465586,
+      "rank_n": 247,
+      "trailing250_valid_median": 2253570.0,
+      "difference_from_median": 32576939.0,
+      "multiple_of_median": 15.455703173187432,
+      "P80_required_window_usd": 13341828.0,
+      "P80_gap_window_usd": -21488681.0,
+      "P80_required_latest_day_usd_prior_days_fixed": 13341828.0
+    },
+    "buy_share_L1": {
+      "value": 0.8309839643606085,
+      "P": 89.27125506072875,
+      "rank_n": 247,
+      "trailing250_valid_median": 0.5465309785673992,
+      "difference_from_median": 0.2844529857932093,
+      "multiple_of_median": 1.5204700135001223
+    },
+    "gross_usd_L5": {
+      "value": 110114979.0,
+      "P": 78.13852813852814,
+      "rank_n": 231,
+      "trailing250_valid_median": 83934237.0,
+      "difference_from_median": 26180742.0,
+      "multiple_of_median": 1.3119196997049012,
+      "P80_required_window_usd": 111972174.0,
+      "P80_gap_window_usd": 1857195.0,
+      "P80_required_latest_day_usd_prior_days_fixed": 45580755.0
+    },
+    "net_usd_L5": {
+      "value": 20910048.0,
+      "P": 63.41991341991342,
+      "rank_n": 231,
+      "trailing250_valid_median": 8561576.0,
+      "difference_from_median": 12348472.0,
+      "multiple_of_median": 2.4423129573340234,
+      "P80_required_window_usd": 43091614.0,
+      "P80_gap_window_usd": 22181566.0,
+      "P80_required_latest_day_usd_prior_days_fixed": 57012075.0
+    },
+    "buy_share_L5": {
+      "value": 0.5524534882263066,
+      "P": 57.35930735930736,
+      "rank_n": 231,
+      "trailing250_valid_median": 0.5306617225371475,
+      "difference_from_median": 0.02179176568915908,
+      "multiple_of_median": 1.0410652676906305
+    }
+  },
+  "rank_definition": "2023-01-03 onward, trailing250 US sessions including current, min120 valid, midrank ties",
+  "P80_definition": "Minimum whole USD replacing current window sum; canonical rank, other samples fixed. This is hypothetical threshold, not a forecast or order.",
+  "median_note": "Same current-inclusive250-session valid sample; signed net median multiples are arithmetic, not buying strength.",
+  "availability": {
+    "complete_dates": [
+      "2026-10-26",
+      "2026-10-27",
+      "2026-10-28",
+      "2026-10-29",
+      "2026-10-30",
+      "2026-11-02",
+      "2026-11-03",
+      "2026-11-04"
+    ],
+    "excluded": [
+      {
+        "date": "2026-11-05",
+        "list_counts": {
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0
+        },
+        "reason": "unpublished, empty or incomplete; never a zero-flow observation"
+      }
+    ]
+  }
+}

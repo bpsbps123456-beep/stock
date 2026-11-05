@@ -1,0 +1,236 @@
+{
+  "scope": "independent audit artifact; no current.py/build/features/pct_rank imports",
+  "method": "2023-01-03 onward NYSE sessions; censored/partial missing, strict five-session sums; share=sum buy/(sum buy+sum sell); current-inclusive last250, min120 valid; 100*(less+0.5*ties)/n",
+  "input_sha256": {
+    "raw_snapshot.json": "08f8bdfc459dd7a5f062f8e8b032e5cf742bcfa8a2795fa0e1dc413ac93b7967",
+    "measures_daily.parquet": "bae09cfacabe9dc1035a04ef78f0273b39d16a1534cad1b8f5b11d2bfa8bab28"
+  },
+  "audit_code_sha256": "8f95ce324d50ecee72b2d0c866aa24382990c962f77b6a95cda2dbd4152e73f2",
+  "latest": {
+    "seibro_date": "2026-11-04",
+    "source_date": "2026-11-02",
+    "request_row_counts": [
+      50,
+      50,
+      50,
+      50
+    ],
+    "four_list_rows": [
+      {
+        "dtype": "1",
+        "rank": 4,
+        "isin": "US25461H2913",
+        "buy": 43723560.0,
+        "sell": 8893051.0,
+        "net": 34830509.0,
+        "tot": 52616612.0
+      },
+      {
+        "dtype": "2",
+        "rank": 16,
+        "isin": "US25461H2913",
+        "buy": 43723560.0,
+        "sell": 8893051.0,
+        "net": 34830509.0,
+        "tot": 52616612.0
+      },
+      {
+        "dtype": "3",
+        "rank": 3,
+        "isin": "US25461H2913",
+        "buy": 43723560.0,
+        "sell": 8893051.0,
+        "net": 34830509.0,
+        "tot": 52616612.0
+      },
+      {
+        "dtype": "4",
+        "rank": 5,
+        "isin": "US25461H2913",
+        "buy": 43723560.0,
+        "sell": 8893051.0,
+        "net": 34830509.0,
+        "tot": 52616612.0
+      }
+    ],
+    "totals_unique_isin": {
+      "buy": 43723560.0,
+      "sell": 8893051.0,
+      "net": 34830509.0,
+      "tot": 52616612.0
+    },
+    "four_list_amounts_consistent": true
+  },
+  "source_map_check": "seibro_of(2026-11-02)=2026-11-04",
+  "known_settle_convention": "2026-11-05 09:00 KST, not a historical publication log",
+  "US_entry_convention": "2026-11-05 regular open; extra-delay case 2026-11-06",
+  "unpublished_not_inserted": [
+    {
+      "seibro_date": "2026-11-05",
+      "source_if_published": [
+        "2026-11-03"
+      ],
+      "action": "not inserted; empty is not zero"
+    }
+  ],
+  "overlap_frozen_exact_matches": [
+    {
+      "seibro_date": "2026-10-26",
+      "source_date": "2026-10-22",
+      "differences": {
+        "buy": 0.0,
+        "sell": 0.0,
+        "net": 0.0
+      }
+    },
+    {
+      "seibro_date": "2026-10-27",
+      "source_date": "2026-10-23",
+      "differences": {
+        "buy": 0.0,
+        "sell": 0.0,
+        "net": 0.0
+      }
+    },
+    {
+      "seibro_date": "2026-10-28",
+      "source_date": "2026-10-26",
+      "differences": {
+        "buy": 0.0,
+        "sell": 0.0,
+        "net": 0.0
+      }
+    },
+    {
+      "seibro_date": "2026-10-29",
+      "source_date": "2026-10-27",
+      "differences": {
+        "buy": 0.0,
+        "sell": 0.0,
+        "net": 0.0
+      }
+    },
+    {
+      "seibro_date": "2026-10-30",
+      "source_date": "2026-10-28",
+      "differences": {
+        "buy": 0.0,
+        "sell": 0.0,
+        "net": 0.0
+      }
+    },
+    {
+      "seibro_date": "2026-11-02",
+      "source_date": "2026-10-29",
+      "differences": {
+        "buy": 0.0,
+        "sell": 0.0,
+        "net": 0.0
+      }
+    },
+    {
+      "seibro_date": "2026-11-03",
+      "source_date": "2026-10-30",
+      "differences": {
+        "buy": 0.0,
+        "sell": 0.0,
+        "net": 0.0
+      }
+    }
+  ],
+  "recent_five_source_sessions": [
+    {
+      "source_date": "2026-10-27",
+      "buy": 19088861.0,
+      "sell": 5477935.0,
+      "net": 13610926.0
+    },
+    {
+      "source_date": "2026-10-28",
+      "buy": 26030184.0,
+      "sell": 5110173.0,
+      "net": 20920011.0
+    },
+    {
+      "source_date": "2026-10-29",
+      "buy": 11752583.0,
+      "sell": 14846500.0,
+      "net": -3093918.0
+    },
+    {
+      "source_date": "2026-10-30",
+      "buy": 9519791.0,
+      "sell": 54877271.0,
+      "net": -45357480.0
+    },
+    {
+      "source_date": "2026-11-02",
+      "buy": 43723560.0,
+      "sell": 8893051.0,
+      "net": 34830509.0
+    }
+  ],
+  "signals": {
+    "gross_usd_L1": {
+      "value": 43723560.0,
+      "percentile": 95.34412955465586,
+      "n_valid": 247,
+      "n_less": 235,
+      "n_ties": 1,
+      "P80_on": true,
+      "rank_window_start": "2025-11-04",
+      "rank_window_end": "2026-11-02"
+    },
+    "net_usd_L1": {
+      "value": 34830509.0,
+      "percentile": 95.34412955465586,
+      "n_valid": 247,
+      "n_less": 235,
+      "n_ties": 1,
+      "P80_on": true,
+      "rank_window_start": "2025-11-04",
+      "rank_window_end": "2026-11-02"
+    },
+    "buy_share_L1": {
+      "value": 0.8309839643606085,
+      "percentile": 89.27125506072875,
+      "n_valid": 247,
+      "n_less": 220,
+      "n_ties": 1,
+      "P80_on": true,
+      "rank_window_start": "2025-11-04",
+      "rank_window_end": "2026-11-02"
+    },
+    "gross_usd_L5": {
+      "value": 110114979.0,
+      "percentile": 78.13852813852814,
+      "n_valid": 231,
+      "n_less": 180,
+      "n_ties": 1,
+      "P80_on": false,
+      "rank_window_start": "2025-11-04",
+      "rank_window_end": "2026-11-02"
+    },
+    "net_usd_L5": {
+      "value": 20910048.0,
+      "percentile": 63.41991341991342,
+      "n_valid": 231,
+      "n_less": 146,
+      "n_ties": 1,
+      "P80_on": false,
+      "rank_window_start": "2025-11-04",
+      "rank_window_end": "2026-11-02"
+    },
+    "buy_share_L5": {
+      "value": 0.5524534882263066,
+      "percentile": 57.35930735930736,
+      "n_valid": 231,
+      "n_less": 132,
+      "n_ties": 1,
+      "P80_on": false,
+      "rank_window_start": "2025-11-04",
+      "rank_window_end": "2026-11-02"
+    }
+  },
+  "amount_note": "Reported net retained: five-day buy-sell differs from summed net by USD1; reported total differs from buy+sell by USD1. No split scaling."
+}

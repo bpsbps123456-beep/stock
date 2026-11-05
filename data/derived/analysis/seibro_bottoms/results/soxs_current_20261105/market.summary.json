@@ -1,0 +1,122 @@
+{
+  "symbol": "SOXX",
+  "calculated_at_kst": "2026-11-05T21:49:33.781770+09:00",
+  "history_source": {
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/SOXX?period1=993945600&period2=1793923200&interval=1d&events=div%2Csplits&includeAdjustedClose=true",
+    "fetched_at_start_kst": "2026-11-05T21:48:46.538709+09:00",
+    "fetched_at_end_kst": "2026-11-05T21:48:47.569554+09:00",
+    "status": 200
+  },
+  "official_price_source": {
+    "url": "https://www.ishares.com/us/products/239705/ishares-phlx-semiconductor-etf",
+    "fetched_at_kst": "2026-11-05T21:48:28.055706+09:00",
+    "closing_price_usd": 450.41,
+    "as_of": "Nov 04, 2026",
+    "nav_usd": 450.99,
+    "closing_vs_nav": "Market closing price and NAV are different. Returns use the closing price."
+  },
+  "latest_completed_US_session": "2026-11-04",
+  "latest_provider_regular_market_timestamp_ET": "2026-11-04T16:00:01-05:00",
+  "latest_close_usd": 450.4100036621094,
+  "official_close_difference_usd": 3.6621093499888957e-06,
+  "R1_pct": -3.1376336210517497,
+  "R5_pct": -13.704640082137976,
+  "R10_pct": -11.746606985294205,
+  "R5_base": {
+    "date": "2026-10-28",
+    "close_usd": 521.9400024414062
+  },
+  "R10_base": {
+    "date": "2026-10-21",
+    "close_usd": 510.3599853515625
+  },
+  "dd60_pct": -23.595868399048637,
+  "dd60_window_first": "2026-08-12",
+  "dd60_window_last": "2026-11-04",
+  "dd60_high": {
+    "date": "2026-10-05",
+    "close_usd": 589.510009765625
+  },
+  "last60_complete_sessions": 60,
+  "last60_missing_NYSE_sessions": [],
+  "fresh_history_rows": 6366,
+  "fresh_history_first": "2001-07-13",
+  "price_basis": "Single freshly downloaded daily-history response. Close is historical split-adjusted but dividend-unadjusted; 2026-11-05 forward split is not yet reflected in this history response. No desk/frozen historical cache mixed in.",
+  "split": {
+    "ratio": "3:1",
+    "effective_US_session": "2026-11-05",
+    "official_notice": "SOXX shares begin trading split-adjusted 2026-11-05; record 2026-11-03, effectuated after 2026-11-04 close.",
+    "official_notice_url": "https://www.ishares.com/us/products/239705/ishares-phlx-semiconductor-etf",
+    "SEC_notice_url": "https://www.sec.gov/Archives/edgar/data/1100663/000119312526430480/d156277d497.htm",
+    "provider_latest_split_event": {
+      "1709821800": {
+        "date": 1709821800,
+        "numerator": 3.0,
+        "denominator": 1.0,
+        "splitRatio": "3:1"
+      }
+    },
+    "equivalent_latest_close_after_split_usd": 150.13666788736978,
+    "return_scale_invariance_error_pct": {
+      "R5": 1.1102230246251565e-14,
+      "R10": 0.0,
+      "dd60": 0.0
+    },
+    "warning": "Do not compare split-basis 2026-11-05 premarket prices directly with 450.41 prior-close on old basis."
+  },
+  "last12_close_rows": [
+    {
+      "date": "2026-10-20",
+      "close": 500.010009765625
+    },
+    {
+      "date": "2026-10-21",
+      "close": 510.3599853515625
+    },
+    {
+      "date": "2026-10-22",
+      "close": 475.69000244140625
+    },
+    {
+      "date": "2026-10-23",
+      "close": 478.20001220703125
+    },
+    {
+      "date": "2026-10-26",
+      "close": 491.8299865722656
+    },
+    {
+      "date": "2026-10-27",
+      "close": 511.05999755859375
+    },
+    {
+      "date": "2026-10-28",
+      "close": 521.9400024414062
+    },
+    {
+      "date": "2026-10-29",
+      "close": 513.8599853515625
+    },
+    {
+      "date": "2026-10-30",
+      "close": 471.510009765625
+    },
+    {
+      "date": "2026-11-02",
+      "close": 453.6499938964844
+    },
+    {
+      "date": "2026-11-03",
+      "close": 465.0
+    },
+    {
+      "date": "2026-11-04",
+      "close": 450.4100036621094
+    }
+  ],
+  "artifact_sha256": {
+    "market.yahoo_daily.json": "1b30e0aa59aecbd2156a627fd6d7de3449559b2382f6d4d4afe0b95866a74deb",
+    "market.prices.csv": "5767a1f2df3f0b6ef9ca4b7d94b030183a6baf531425e4a42a4952b19e97f58d",
+    "market.ishares.html": "05c16c5e0856195fa5e49bb60ed61db547f4b8afa9e5d734dab5f33578f45d4c"
+  }
+}
