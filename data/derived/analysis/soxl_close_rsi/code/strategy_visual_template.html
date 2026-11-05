@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SOXL 마감 전 30분 RSI 매수</title>
+<style>
+:root{color-scheme:light dark;font-family:system-ui,-apple-system,"Malgun Gothic",sans-serif;color:var(--foreground,#1f2937);background:var(--background,#ffffff);font-synthesis:none}
+*{box-sizing:border-box}body{margin:0;padding:20px}main{max-width:940px;margin:auto}h1{font-size:23px;line-height:1.35;margin:0 0 7px;letter-spacing:-.6px}p{margin:0;line-height:1.65}.muted{color:var(--muted-foreground,#64748b)}.eyebrow{font-size:12px;letter-spacing:.06em;margin-bottom:7px;color:var(--muted-foreground,#64748b)}.intro{font-size:14px}.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:18px 0}.flow div{border:1px solid var(--border,#dbe2ea);border-radius:12px;background:var(--card,#ffffff);padding:12px;position:relative}.flow b{display:block;font-size:14px;line-height:1.5}.flow small{font-size:11px;color:var(--muted-foreground,#64748b)}.flow div:not(:last-child):after{content:"→";position:absolute;right:-10px;top:28%;color:var(--muted-foreground,#64748b);z-index:1;background:var(--background,#ffffff);font-weight:700}.controls{display:grid;grid-template-columns:1.1fr 1.1fr 1fr;gap:12px;background:var(--card,#ffffff);border:1px solid var(--border,#dbe2ea);border-radius:13px;padding:14px}.field label{display:block;font-size:12px;color:var(--muted-foreground,#64748b);margin-bottom:6px}.field.wide{grid-column:span 2}button,select,input{font:inherit}select{width:100%;padding:8px 10px;border:1px solid var(--border,#dbe2ea);border-radius:8px;background:var(--background,#ffffff);color:var(--foreground,#1f2937)}button{border:1px solid var(--border,#dbe2ea);border-radius:7px;padding:7px 13px;color:var(--foreground,#1f2937);background:var(--background,#ffffff);cursor:pointer}button:hover{background:var(--accent,#e8eef7);color:var(--accent-foreground,#102a56)}button.active{background:var(--accent,#e8eef7);color:var(--accent-foreground,#102a56);font-weight:700}.buttons{display:flex;gap:6px}.slider{display:flex;align-items:center;gap:10px;min-height:36px}input[type=range]{flex:1;min-width:0;accent-color:var(--chart-1,#4467d7)}output{font-size:17px;font-weight:750;min-width:33px}.counts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}.count{border:1px solid var(--border,#dbe2ea);background:var(--card,#ffffff);border-radius:12px;padding:13px 15px}.count.selected{border-color:var(--chart-1,#4467d7);box-shadow:inset 3px 0 var(--chart-1,#4467d7)}.count strong{font-size:29px;line-height:1.25;display:block;margin-top:4px;letter-spacing:-.8px}.count span{font-size:12px;color:var(--muted-foreground,#64748b)}.count b{font-size:13px}.count strong small{font-size:14px;font-weight:500;color:var(--muted-foreground,#64748b);margin-left:3px}.summary{background:var(--card,#ffffff);border:1px solid var(--border,#dbe2ea);border-radius:12px;padding:13px 15px;margin-bottom:13px;font-size:14px}.summary b{font-weight:750}.chart{border:1px solid var(--border,#dbe2ea);border-radius:14px;padding:14px 12px 7px;background:var(--card,#ffffff);margin-bottom:12px;overflow:hidden}.chart-title{display:flex;justify-content:space-between;gap:10px;align-items:baseline;padding:0 4px 4px}.chart-title b{font-size:14px}.chart-title span{font-size:11px;color:var(--muted-foreground,#64748b)}svg{display:block;width:100%;height:auto;overflow:visible}svg text{font-family:inherit;fill:var(--muted-foreground,#64748b);font-size:10px}.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:11px;color:var(--muted-foreground,#64748b);padding:3px 5px 4px}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px}.legend .zone{width:12px;height:8px;border-radius:2px;background:var(--chart-1,#4467d7);opacity:.2}.foot{font-size:11px;line-height:1.7;color:var(--muted-foreground,#64748b);margin:12px 2px 0}.hint{font-size:11px;margin-top:7px;color:var(--muted-foreground,#64748b)}.empty{font-size:12px;fill:var(--muted-foreground,#64748b)}.tag{font-size:10px;font-weight:650}
+@media(max-width:680px){body{padding:14px 10px}h1{font-size:20px}.flow{grid-template-columns:1fr 1fr;gap:7px}.flow div{padding:9px 11px}.flow div:nth-child(2):after{display:none}.flow b{font-size:13px}.controls{grid-template-columns:1fr 1fr;padding:12px;gap:10px}.field.wide{grid-column:span 1}.field.mode{grid-column:1/-1}.count{padding:11px 12px}.count strong{font-size:25px}.chart{padding:12px 7px 5px}.chart-title{align-items:flex-start}.chart-title span{text-align:right;max-width:48%}.summary{font-size:13px}button{padding:7px 11px}}
+</style>
+</head>
+<body><main>
+<div class="eyebrow">말씀하신 매수법 · 실제 SOXL 분봉으로 보기</div>
+<h1>마감 전 30분 동안 기다렸다가<br>RSI가 낮아지는 첫 순간에 매수</h1>
+<p class="intro muted">15:30부터 관찰하고, 기준 이하인 첫 RSI를 확인합니다. 애프터장 매도 시각은 미리 정합니다.</p>
+<div class="flow" aria-label="거래 흐름">
+ <div><small>관찰 시작 · 미국 동부시간</small><b>15:30부터 확인</b></div>
+ <div><small>선택한 1분봉 또는 3분봉</small><b>RSI(14) ≤ <span id="flow-cut">30</span><br>첫 시점 포착</b></div>
+ <div><small>기존 계산의 지연 유지</small><b>확인 1분 뒤<br>첫 매수 1회</b></div>
+ <div><small>당일 애프터마켓</small><b><span id="flow-exit">18:00</span>에 매도</b></div>
+</div>
+<div class="controls">
+ <div class="field"><label>RSI 차트</label><div class="buttons"><button id="tf1" type="button">1분봉</button><button id="tf3" type="button" class="active">3분봉</button></div></div>
+ <div class="field"><label for="cutoff">매수 기준 RSI ≤</label><div class="slider"><input id="cutoff" type="range" min="1" max="30" value="30" step="1"><output id="cut-value" for="cutoff">30</output></div></div>
+ <div class="field"><label for="exit">애프터장 매도 · ET</label><select id="exit"><option value="990">16:30</option><option value="1020">17:00</option><option value="1080" selected>18:00</option><option value="1140">19:00</option></select></div>
+ <div class="field"><label for="day">실제 거래일</label><select id="day"></select></div>
+ <div class="field wide mode"><label for="mode">매수 신호를 찾는 방법</label><select id="mode"><option value="window" selected>말씀하신 조건 · 15:30 이후 첫 신호</option><option value="point">앞선 계산 · 15:30 딱 한 번 확인</option></select></div>
+</div>
+<div class="counts">
+ <div class="count" id="point-card"><b>15:30 한 번만 확인</b><strong id="point-count"></strong><span>조건에 맞는 신호일</span></div>
+ <div class="count selected" id="window-card"><b>마감 전 구간에서 첫 신호</b><strong id="window-count"></strong><span>조건에 맞는 신호일 · 매일 최대 1회</span></div>
+</div>
+<div class="summary" id="summary" aria-live="polite"></div>
+<section class="chart">
+ <div class="chart-title"><b id="price-title">SOXL 가격과 매매 위치</b><span>분봉 시가 · USD · 미국 동부시간</span></div>
+ <svg id="price-chart" viewBox="0 0 760 230" role="img" aria-label="SOXL 가격과 매수 매도 시점"></svg>
+ <div class="legend"><span><i class="dot" style="background:var(--chart-2,#188563)"></i>매수 예시</span><span><i class="dot" style="background:var(--chart-3,#cf6d31)"></i>고정 시각 매도 위치</span><span><i class="dot zone"></i>마감 전 관찰 구간</span></div>
+</section>
+<section class="chart">
+ <div class="chart-title"><b id="rsi-title">RSI(14) · 마지막 1시간 확대</b><span>완성된 봉을 알 수 있는 시각에 표시</span></div>
+ <svg id="rsi-chart" viewBox="0 0 760 190" role="img" aria-label="마감 전 RSI와 기준 이하 첫 발생 시점"></svg>
+ <div class="legend"><span><i class="dot" style="background:var(--chart-1,#4467d7)"></i>RSI(14)</span><span><i class="dot" style="background:var(--chart-4,#a052bb)"></i>매수 기준선</span></div>
+</section>
+<p class="foot" id="coverage"></p>
+<p class="foot">분봉 가격을 그린 예시이며 실제 체결 내역이 아닙니다. 기존의 1분 지연을 유지해 정규장 안에 매수하도록 마지막 판단은 15:58(3분봉은 15:57)로 뒀습니다. 15:30에 이미 기준 이하라면 그 시점이 첫 신호입니다. 신호일 수는 수익률 재백테스트 결과가 아닙니다.</p>
+</main>
+<script>
+const DATA = __SOXL_VISUAL_DATA__;
+const $ = id => document.getElementById(id);
+const state = {tf:'3m',cutoff:30,day:DATA.meta.default_day,exit:1080,mode:'window'};
+const hhmm = t => `${String(Math.floor(t/60)).padStart(2,'0')}:${String(t%60).padStart(2,'0')}`;
+const finite = x => typeof x === 'number' && Number.isFinite(x);
+const esc = s => String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function firstSignal(day, tf, cutoff, mode){
+ const times=DATA.r_times[tf], vals=day.r[tf];
+ for(let i=0;i<times.length;i++){
+  const t=times[i];
+  if((mode==='point'?t===930:t>=930&&t<=958)&&finite(vals[i])&&vals[i]<=cutoff)return {t,rsi:vals[i]};
+ }
+ return null;
+}
+function linePath(points,x,y){
+ let d='',open=false;
+ for(const [t,v] of points){if(!finite(v)){open=false;continue}d+=`${open?'L':'M'}${x(t).toFixed(2)},${y(v).toFixed(2)} `;open=true;}
+ return d;
+}
+function txt(x,y,text,extra=''){return `<text x="${x}" y="${y}" ${extra}>${esc(text)}</text>`;}
+function priceAt(day,time){return day.p[DATA.p_times.indexOf(time)];}
+function drawPrice(day,signal){
+ const x=t=>48+(t-900)/240*690;
+ const valid=day.p.filter(finite);if(!valid.length){$('price-chart').innerHTML=txt(380,100,'이 날의 가격 자료가 없습니다.','text-anchor="middle"');return;}
+ const lo=Math.min(...valid),hi=Math.max(...valid),pad=Math.max((hi-lo)*.14,lo*.002),bottom=lo-pad,top=hi+pad;
+ const y=v=>185-(v-bottom)/(top-bottom)*143;
+ let svg=`<rect x="${x(930)}" y="25" width="${x(960)-x(930)}" height="160" fill="var(--chart-1,#4467d7)" opacity=".08"/>`;
+ for(let i=0;i<=3;i++){const val=bottom+(top-bottom)*i/3,py=y(val);svg+=`<line x1="48" y1="${py}" x2="738" y2="${py}" stroke="var(--border,#dbe2ea)" stroke-width=".7"/>`+txt(40,py+3,val.toFixed(2),'text-anchor="end"');}
+ const ticks=[900,930,960,990,1020,1080,1140];
+ ticks.forEach(t=>{svg+=txt(x(t),207,hhmm(t),'text-anchor="middle"');});
+ svg+=`<line x1="${x(960)}" y1="25" x2="${x(960)}" y2="185" stroke="var(--muted-foreground,#64748b)" stroke-dasharray="3 4" opacity=".6"/>`+txt(x(960)+5,35,'16:00 정규장 마감');
+ svg+=`<path d="${linePath(DATA.p_times.map((t,i)=>[t,day.p[i]]),x,y)}" fill="none" stroke="var(--foreground,#1f2937)" stroke-width="1.8" stroke-linejoin="round"/>`;
+ if(signal){
+  const entry=signal.t+1,ep=priceAt(day,entry),xp=priceAt(day,state.exit);
+  if(finite(ep)){svg+=`<line x1="${x(entry)}" y1="43" x2="${x(entry)}" y2="185" stroke="var(--chart-2,#188563)" stroke-dasharray="3 3" opacity=".8"/><circle cx="${x(entry)}" cy="${y(ep)}" r="5" fill="var(--chart-2,#188563)" stroke="var(--card,#ffffff)" stroke-width="2"/>`+txt(x(entry),18,`${hhmm(entry)} 매수`,'text-anchor="middle" style="fill:var(--chart-2,#188563);font-weight:700"');}
+  else svg+=txt(x(entry),18,`${hhmm(entry)} 매수 위치 · 가격 자료 없음`,'text-anchor="middle"');
+  if(finite(xp)){svg+=`<line x1="${x(state.exit)}" y1="43" x2="${x(state.exit)}" y2="185" stroke="var(--chart-3,#cf6d31)" stroke-dasharray="3 3" opacity=".8"/><circle cx="${x(state.exit)}" cy="${y(xp)}" r="5" fill="var(--chart-3,#cf6d31)" stroke="var(--card,#ffffff)" stroke-width="2"/>`+txt(Math.min(x(state.exit),700),18,`${hhmm(state.exit)} 매도`,'text-anchor="middle" style="fill:var(--chart-3,#cf6d31);font-weight:700"');}
+  else svg+=txt(Math.min(x(state.exit),680),18,`${hhmm(state.exit)} 가격 자료 없음`,'text-anchor="middle"');
+ }else svg+=txt(56,18,'이 조건에서는 매수 신호가 없습니다.');
+ $('price-chart').innerHTML=svg;
+}
+function drawRsi(day,signal){
+ const x=t=>48+(t-900)/60*690,y=v=>148-v/100*120;
+ let svg=`<rect x="${x(930)}" y="28" width="${x(960)-x(930)}" height="120" fill="var(--chart-1,#4467d7)" opacity=".08"/>`;
+ [0,20,30,50,70,100].forEach(v=>{svg+=`<line x1="48" y1="${y(v)}" x2="738" y2="${y(v)}" stroke="var(--border,#dbe2ea)" stroke-width=".7"/>`+txt(40,y(v)+3,String(v),'text-anchor="end"');});
+ [900,915,930,945,960].forEach(t=>{svg+=txt(x(t),171,hhmm(t),'text-anchor="middle"');});
+ svg+=`<line x1="48" y1="${y(state.cutoff)}" x2="738" y2="${y(state.cutoff)}" stroke="var(--chart-4,#a052bb)" stroke-dasharray="5 4" stroke-width="1.3"/>`;
+ svg+=txt(733,y(state.cutoff)-5,`기준 ${state.cutoff}`,'text-anchor="end" style="fill:var(--chart-4,#a052bb)"');
+ svg+=`<path d="${linePath(DATA.r_times[state.tf].map((t,i)=>[t,day.r[state.tf][i]]),x,y)}" fill="none" stroke="var(--chart-1,#4467d7)" stroke-width="2.1" stroke-linejoin="round"/>`;
+ const idx=DATA.r_times[state.tf].indexOf(930),r0=day.r[state.tf][idx];
+ if(finite(r0))svg+=`<circle cx="${x(930)}" cy="${y(r0)}" r="3.5" fill="var(--foreground,#1f2937)" stroke="var(--card,#ffffff)" stroke-width="1.5"/>`;
+ if(signal){
+  svg+=`<line x1="${x(signal.t)}" y1="25" x2="${x(signal.t)}" y2="148" stroke="var(--chart-2,#188563)" stroke-dasharray="3 3" opacity=".8"/><circle cx="${x(signal.t)}" cy="${y(signal.rsi)}" r="5" fill="var(--chart-2,#188563)" stroke="var(--card,#ffffff)" stroke-width="2"/>`;
+  svg+=txt(Math.max(150,Math.min(645,x(signal.t))),16,`${hhmm(signal.t)} 첫 확인 · RSI ${signal.rsi.toFixed(2)}`,'text-anchor="middle" style="fill:var(--chart-2,#188563);font-weight:700"');
+ }else svg+=txt(56,16,'선택한 방법과 기준에 맞는 신호가 없습니다.');
+ $('rsi-chart').innerHTML=svg;
+}
+function render(){
+ const day=DATA.days.find(d=>d.date===state.day)||DATA.days[0];if(!day)return;
+ state.day=day.date;$('day').value=state.day;
+ const signal=firstSignal(day,state.tf,state.cutoff,state.mode);
+ const point=DATA.days.filter(d=>firstSignal(d,state.tf,state.cutoff,'point')).length;
+ const windowCount=DATA.days.filter(d=>firstSignal(d,state.tf,state.cutoff,'window')).length;
+ $('point-count').innerHTML=`${point}<small>/ ${DATA.meta.sessions}일</small>`;
+ $('window-count').innerHTML=`${windowCount}<small>/ ${DATA.meta.sessions}일</small>`;
+ $('point-card').classList.toggle('selected',state.mode==='point');$('window-card').classList.toggle('selected',state.mode==='window');
+ $('tf1').classList.toggle('active',state.tf==='1m');$('tf3').classList.toggle('active',state.tf==='3m');
+ $('tf1').setAttribute('aria-pressed',String(state.tf==='1m'));$('tf3').setAttribute('aria-pressed',String(state.tf==='3m'));
+ $('cut-value').textContent=String(state.cutoff);$('flow-cut').textContent=String(state.cutoff);$('flow-exit').textContent=hhmm(state.exit);
+ $('price-title').textContent=`${day.date} · SOXL 가격과 매매 위치`;
+ $('rsi-title').textContent=`${state.tf==='1m'?'1분봉':'3분봉'} RSI(14) · 마지막 1시간 확대`;
+ const r0=day.r[state.tf][DATA.r_times[state.tf].indexOf(930)];
+ const start=finite(r0)?`15:30 RSI <b>${r0.toFixed(2)}</b>`:'15:30 RSI 자료 없음';
+ if(signal){$('summary').innerHTML=`${start} → <b>${hhmm(signal.t)} RSI ${signal.rsi.toFixed(2)}</b>로 첫 조건 충족 → <b>${hhmm(signal.t+1)} 매수 예시</b> → ${hhmm(state.exit)} 매도 위치`;}else{
+  const other=firstSignal(day,state.tf,state.cutoff,'window');
+  $('summary').innerHTML=`${start} · <b>${state.mode==='point'?'15:30 한 번 확인에서는':'관찰 구간에서'} 매수 신호 없음</b>${state.mode==='point'&&other?`<br>구간 동안 기다리면 ${hhmm(other.t)}에 RSI ${other.rsi.toFixed(2)}로 기준을 충족합니다.`:''}`;
+ }
+ $('coverage').textContent=`자료: ${DATA.meta.start}~${DATA.meta.end}, ${DATA.meta.sessions}거래일. 가격 차트는 마감 전 1분 간격·마감 후 5분 간격이며, RSI는 선택한 봉의 완성 시점에 표시합니다. 모든 시각은 미국 동부시간입니다.`;
+ drawPrice(day,signal);drawRsi(day,signal);
+}
+DATA.days.forEach(day=>{const option=document.createElement('option');option.value=day.date;option.textContent=day.date;$('day').appendChild(option);});
+$('tf1').addEventListener('click',()=>{state.tf='1m';render();});
+$('tf3').addEventListener('click',()=>{state.tf='3m';render();});
+$('cutoff').addEventListener('input',e=>{state.cutoff=Math.min(30,Math.max(1,Number(e.target.value)));render();});
+$('day').addEventListener('change',e=>{state.day=e.target.value;render();});
+$('exit').addEventListener('change',e=>{state.exit=Number(e.target.value);render();});
+$('mode').addEventListener('change',e=>{state.mode=e.target.value;render();});
+render();
+</script>
+</body></html>
