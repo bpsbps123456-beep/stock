@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SOXS 누적 매수와 반도체 가격 위치</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:var(--background,#fff);color:var(--foreground,#171717);font:14px/1.55 var(--font-sans,system-ui),"Malgun Gothic",sans-serif}main{max-width:960px;margin:auto;padding:19px 16px 12px;--soxs-blue:var(--chart-1,#2563eb);--soxs-orange:var(--chart-2,#c65a21);--soxs-grid:var(--border,#dde2e8);--soxs-muted:var(--muted-foreground,#566171)}h1,h2,p,figure{margin:0}h1{font-size:20px;line-height:1.4;font-weight:650}h2{font-size:16px;font-weight:650}.sub,.note,.legend,.chart-note,.detail{font-size:12px;color:var(--muted-foreground,#566171)}.sub{margin-top:6px}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin:18px 0 13px}.toolbar label{display:flex;align-items:center;gap:9px;font-weight:600}select{font:inherit;color:var(--foreground,#171717);background:var(--card,#fff);border:1px solid var(--border,#dde2e8);padding:6px 30px 6px 10px;border-radius:7px}select:focus-visible{outline:2px solid var(--ring,#2563eb);outline-offset:2px}.cards{display:grid;grid-template-columns:1.18fr 1fr;gap:10px}.card{border:1px solid var(--border,#dde2e8);background:var(--card,#fff);color:var(--card-foreground,#171717);border-radius:9px;padding:11px 13px;min-width:0}.card-title{font-size:12px;color:var(--muted-foreground,#566171)}.card-value{font-size:18px;font-weight:650;font-variant-numeric:tabular-nums;margin:4px 0}.card-foot{font-size:12px;color:var(--muted-foreground,#566171)}.badge{display:inline-block;border:1px solid var(--border,#dde2e8);border-radius:4px;font-size:11px;padding:1px 5px;margin-left:5px;vertical-align:2px}.badge.on{color:var(--soxs-blue);border-color:var(--soxs-blue)}.legend{display:flex;flex-wrap:wrap;gap:8px 17px;margin:12px 0 2px}.legend span{display:inline-flex;align-items:center;gap:6px}.key-line{width:20px;border-top:2px solid var(--soxs-blue)}.key-dot{width:9px;height:9px;border:1.5px solid var(--soxs-blue);border-radius:50%;background:var(--card,#fff)}.key-latest{width:13px;height:13px;border:2.5px solid var(--soxs-orange);border-radius:50%;background:var(--card,#fff)}.key-price{width:9px;height:9px;transform:rotate(45deg);background:var(--soxs-blue)}figure{margin-top:23px}.heading-row{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:4px 12px}.period{font-size:11px;color:var(--muted-foreground,#566171)}.chart{width:100%;display:block;height:280px;margin-top:4px}.chart text{fill:var(--foreground,#171717);font:11px var(--font-sans,system-ui),"Malgun Gothic",sans-serif}.chart .axis-title{font-size:10px;fill:var(--muted-foreground,#566171)}.chart .grid{stroke:var(--soxs-grid);stroke-width:1}.chart .line{fill:none;stroke:var(--soxs-blue);stroke-width:1.7;stroke-linejoin:round}.chart .signal{fill:var(--card,#fff);stroke:var(--soxs-blue);stroke-width:1.6;cursor:pointer}.chart .observation{fill:var(--muted-foreground,#566171);opacity:.27;cursor:pointer}.chart .signal.scatter-point{fill:var(--soxs-blue);stroke:var(--card,#fff);stroke-width:.6;opacity:.7}.chart .latest{fill:var(--card,#fff);stroke:var(--soxs-orange);stroke-width:2.8;cursor:pointer}.chart .latest-core{fill:var(--soxs-orange);pointer-events:none}.chart .price-dot{fill:var(--soxs-blue);stroke:var(--card,#fff);stroke-width:1.5;cursor:pointer}.chart .threshold{stroke:var(--soxs-blue);stroke-width:1;stroke-dasharray:4 4}.chart .threshold-area{fill:var(--soxs-blue);opacity:.07}.chart-note{margin-top:3px}.detail{border-left:2px solid var(--border,#dde2e8);padding:4px 9px;min-height:29px;margin-top:8px;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}.summary{margin-top:24px}.table-wrap{overflow-x:auto;border:1px solid var(--border,#dde2e8);border-radius:8px;margin-top:10px}table{border-collapse:collapse;width:100%;font-size:12px;font-variant-numeric:tabular-nums}th,td{text-align:right;padding:8px 10px;border-bottom:1px solid var(--border,#dde2e8);white-space:nowrap}th:first-child,td:first-child{text-align:left}thead th{background:var(--muted,#f4f6f9);color:var(--foreground,#171717);font-weight:600}tbody tr:last-child td{border-bottom:0}tbody tr.on-row td:first-child{color:var(--soxs-blue);font-weight:600}.bins{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:12px}.bin{border:1px solid var(--border,#dde2e8);border-radius:7px;padding:10px}.bin-title{font-size:12px;font-weight:600;min-height:20px}.bin-bar{height:7px;background:var(--muted,#edf0f4);border-radius:4px;overflow:hidden;margin-top:7px}.bin-fill{height:100%;background:var(--soxs-blue);max-width:100%}.bin-fill.entry{background:var(--soxs-orange)}.bin-value{font-size:11px;color:var(--muted-foreground,#566171);margin-top:3px}.note{margin-top:20px;padding-top:12px;border-top:1px solid var(--border,#dde2e8)}.note p+p{margin-top:7px}strong{font-weight:650}.empty{fill:var(--muted-foreground,#566171)}@media(max-width:480px){main{padding:14px 9px 10px}h1{font-size:18px}.cards{grid-template-columns:1fr}.card{padding:10px 12px}.card-value{font-size:17px}.chart{height:265px}figure{margin-top:20px}.bins{grid-template-columns:repeat(2,1fr);gap:7px}.legend{gap:7px 11px}.toolbar{margin-top:15px}th,td{padding:7px 8px}.bin{padding:8px}}
+h1{word-break:keep-all}
+</style>
+</head>
+<body>
+<main id="soxs-position">
+<h1>SOXS를 많이 살 때, 반도체 가격은 어디였나</h1>
+<p class="sub">SOXS 5세션 누적 매수 백분위 ≥80 · 반도체 가격은 SOXX 종가로 표시</p>
+<div class="toolbar"><label>표시 기간 <select id="year" aria-label="표시 기간"><option value="2026">2026년</option><option value="2025">2025년</option><option value="2024">2024년</option><option value="all">2024~2026 전체</option></select></label><span class="period" id="as-of"></span></div>
+<div class="cards"><section class="card" id="latest-source-card"></section><section class="card" id="latest-price-card"></section></div>
+<figure>
+<div class="heading-row"><h2>1. 실제 가격 위에서 보기</h2><span class="period" id="price-period"></span></div>
+<div class="legend"><span><i class="key-line"></i>SOXX 종가</span><span><i class="key-dot"></i>누적 매수 P80 이상인 매수일</span><span><i class="key-latest"></i>최신 매수분</span><span><i class="key-price"></i>최근 완료 종가</span></div>
+<svg class="chart" id="price-chart" role="img" aria-label="SOXX 종가와 SOXS 누적 매수 상위 날짜"></svg>
+<p class="chart-note">동그라미는 SOXS 원거래일의 SOXX 종가입니다. 한국인 SOXS 체결 가격·평균 단가를 뜻하지 않습니다.</p>
+<p class="detail" id="price-detail" aria-live="polite">동그라미를 누르면 매수일과 공개 후 관찰일을 함께 볼 수 있습니다.</p>
+</figure>
+<figure>
+<div class="heading-row"><h2>2. 매수가 많을수록 고점에서 멀었나</h2><span class="period" id="scatter-period"></span></div>
+<svg class="chart" id="scatter-chart" role="img" aria-label="5세션 누적 매수 백분위와 SOXX 60세션 고점 대비 낙폭"></svg>
+<p class="chart-note">점 하나 = 원거래일 하나 · 오른쪽 색 영역 = 누적 매수 백분위 ≥80 · 큰 테두리 = 최신 매수분</p>
+<p class="detail" id="scatter-detail" aria-live="polite">위쪽은 최근 60세션 종가 고점에 가깝고, 아래쪽은 고점에서 더 하락한 날입니다.</p>
+</figure>
+<section class="summary">
+<h2>3. 상위 매수일의 가격 위치 분포</h2>
+<p class="chart-note">60세션 종가 고점 대비 낙폭 · 파랑: 매수일 / 주황: 공개 후 관찰 직전 종가</p>
+<div class="bins" id="bins"></div>
+<div class="table-wrap"><table id="summary-table"><thead><tr><th>시점 · 매수 구분</th><th>날 수</th><th>낙폭 중앙</th><th>낙폭 사분위 범위</th><th>60세션 범위 위치 중앙</th><th>낙폭 5% 미만</th><th>낙폭 10% 이상</th><th>낙폭 20% 이상</th></tr></thead><tbody></tbody></table></div>
+<p class="chart-note">P80 미만(OFF)도 함께 표시합니다. 누락·미공개는 OFF로 세지 않습니다. 매수일과 공개 후 관찰일의 수는 서로 다를 수 있습니다.</p>
+</section>
+<div class="note"><p><strong>시간을 구분해서 읽기:</strong> 매수일은 사후에 확인한 원거래일입니다. ‘공개 후’는 다음 한국 영업일 09:00 공개 규약 뒤 첫 미국 관찰일이며, 표의 가격은 그 직전 완료 종가입니다. 09:00은 실제 과거 게시 시각을 확인한 값이 아닙니다. 같은 관찰일에 여러 매수분이 모이면 최신 원거래일만 반영합니다.</p><p><strong>가격 기준:</strong> <span id="basis-note"></span></p><p><strong>순위·해석:</strong> 매수 백분위는 당일 포함 최근 250미국 세션 기준입니다. 60세션 범위 위치는 과거 종가 최저=0, 최고=100이며 미래 바닥 위치가 아닙니다. 일부 합산 결제 금액은 기존 원장에서 여러 원거래일로 균등 배분된 연구값입니다. 일별 점은 독립 사건이 아니며, 이 그림은 가격 위치 설명이지 이후 반등 확률이나 매매 수익률이 아닙니다.</p></div>
+</main>
+<script id="soxs-position-data" type="application/json">__SOXS_POSITION_JSON__</script>
+<script>
+(()=>{
+'use strict';
+const data=JSON.parse(document.getElementById('soxs-position-data').textContent);
+const $=id=>document.getElementById(id),ns='http://www.w3.org/2000/svg',finite=v=>typeof v==='number'&&Number.isFinite(v),pct=(v,d=2)=>finite(v)?`${v.toFixed(d)}%`:'—',num=v=>finite(v)?v.toLocaleString('ko-KR'):'—',usd=v=>finite(v)?`$${(v/1e6).toFixed(2)}백만`:'금액 미확인',date=v=>v||'날짜 미확인';
+const latestSource=data.latest?.source||null,latestPrice=data.latest?.price||null,threshold=finite(data.threshold)?data.threshold:80;
+let selected='2026',priceRows=[],sourceRows=[];
+function inYear(row){return selected==='all'||String(row.date).slice(0,4)===selected;}
+function el(tag,attrs={},text){const n=document.createElement(tag);for(const[k,v]of Object.entries(attrs))n.setAttribute(k,v);if(text!==undefined)n.textContent=text;return n;}
+function add(parent,tag,attrs={},text){const n=document.createElementNS(ns,tag);for(const[k,v]of Object.entries(attrs))n.setAttribute(k,v);if(text!==undefined)n.textContent=text;parent.appendChild(n);return n;}
+function title(node,text){add(node,'title',{},text);}
+function detail(row){return `${date(row.date)} 매수분 · 5세션 ${usd(row.usd5)} · P${finite(row.p5)?row.p5.toFixed(2):'—'} · 그날 SOXX ${finite(row.close)?'$'+row.close.toFixed(2):'—'} · 고점 대비 ${pct(row.dd60)} · 60세션 범위 위치 ${pct(row.range60)} / 공개 후 관찰 ${date(row.entry_date)} · 직전 완료 종가의 고점 대비 ${pct(row.entry_dd60)} · 범위 위치 ${pct(row.entry_range60)}${row.selected_for_entry===false?' (동일 관찰일의 최신 매수분에 가려짐)':''}${row.shared?' · 합산 결제 균등 배분':''}`;}
+function connect(node,row,target){title(node,detail(row));node.addEventListener('pointerenter',()=>$(target).textContent=detail(row));node.addEventListener('click',()=>$(target).textContent=detail(row));node.addEventListener('focus',()=>$(target).textContent=detail(row));}
+function latestCards(){
+ const a=$('latest-source-card');a.append(el('p',{class:'card-title'},`최신 공개 매수분 · 미국 ${date(latestSource?.date||data.latest_source_date)} 거래`));
+ const v=el('p',{class:'card-value'},latestSource?`${usd(latestSource.usd5)} · P${finite(latestSource.p5)?latestSource.p5.toFixed(2):'—'}`:'유효한 최신 매수분 없음');
+ if(latestSource){const isOn=finite(latestSource.p5)&&latestSource.p5>=threshold;v.append(el('span',{class:`badge${isOn?' on':''}`},finite(latestSource.p5)?(isOn?'상위 20%':'P80 미만'):'순위 미확인'));}a.append(v);
+ a.append(el('p',{class:'card-foot'},latestSource?`그날 SOXX $${finite(latestSource.close)?latestSource.close.toFixed(2):'—'} · 고점 대비 ${pct(latestSource.dd60)}`:'누락은 0달러로 채우지 않습니다.'));
+ const b=$('latest-price-card');b.append(el('p',{class:'card-title'},`최근 완료 가격 · 미국 ${date(latestPrice?.date||data.latest_price_date)}`));b.append(el('p',{class:'card-value'},latestPrice?`SOXX $${finite(latestPrice.close)?latestPrice.close.toFixed(2):'—'}`:'완료 가격 미확인'));b.append(el('p',{class:'card-foot'},latestPrice?`60세션 고점 대비 ${pct(latestPrice.dd60)} · 범위 위치 ${pct(latestPrice.range60)}`:'매수분 날짜와 가격 날짜를 구분합니다.'));
+}
+function dimensions(svg,scatter=false){const w=Math.max(280,svg.getBoundingClientRect().width),h=w<480?265:280,ml=scatter?48:55,mr=16,mt=27,mb=43;svg.replaceChildren();svg.setAttribute('viewBox',`0 0 ${w} ${h}`);return{w,h,ml,mr,mt,mb,pw:w-ml-mr,ph:h-mt-mb};}
+function empty(svg,d){add(svg,'text',{x:d.w/2,y:d.h/2,'text-anchor':'middle',class:'empty'},'표시할 유효 가격이 없습니다.');}
+function ticks(lo,hi,n){const raw=(hi-lo)/n,p=Math.pow(10,Math.floor(Math.log10(raw||1))),q=raw/p,step=(q<=1?1:q<=2?2:q<=5?5:10)*p,out=[];for(let t=Math.ceil(lo/step)*step;t<=hi+step/100;t+=step)out.push(t);return out;}
+function drawPrice(){
+ const svg=$('price-chart'),d=dimensions(svg);if(!priceRows.length){empty(svg,d);return;}
+ const times=priceRows.map(r=>Date.parse(r.date+'T00:00:00Z')),minT=times[0],maxT=times[times.length-1],values=priceRows.map(r=>r.close),vmin=Math.min(...values),vmax=Math.max(...values),pad=Math.max((vmax-vmin)*.09,vmax*.01),lo=Math.max(0,vmin-pad),hi=vmax+pad;
+ const x=t=>d.ml+(t-minT)/Math.max(1,maxT-minT)*d.pw,y=v=>d.mt+(hi-v)/(hi-lo)*d.ph;
+ add(svg,'title',{},`SOXX ${priceRows[0].date}부터 ${priceRows.at(-1).date}까지 종가와 SOXS P80 이상 원거래일`);
+ for(const t of ticks(lo,hi,4)){add(svg,'line',{x1:d.ml,x2:d.w-d.mr,y1:y(t),y2:y(t),class:'grid'});add(svg,'text',{x:d.ml-7,y:y(t)+4,'text-anchor':'end'},'$'+t.toFixed(t<10?1:0));}
+ const count=d.w<480?3:5;for(let i=0;i<count;i++){const idx=Math.round((priceRows.length-1)*i/(count-1)),r=priceRows[idx],px=x(times[idx]);add(svg,'text',{x:px,y:d.h-21,'text-anchor':i===0?'start':i===count-1?'end':'middle'},selected==='all'?r.date.slice(0,7):r.date.slice(5));}
+ add(svg,'text',{x:d.ml,y:13,class:'axis-title'},'SOXX 종가 · 달러');
+ add(svg,'path',{d:priceRows.map((r,i)=>(i?'L':'M')+x(times[i]).toFixed(2)+','+y(r.close).toFixed(2)).join(''),class:'line'});
+ for(const r of sourceRows.filter(r=>finite(r.close)&&finite(r.p5)&&r.p5>=threshold)){const t=Date.parse(r.date+'T00:00:00Z');if(t<minT||t>maxT)continue;const c=add(svg,'circle',{cx:x(t),cy:y(r.close),r:d.w<480?3.2:3.8,class:'signal','data-date':r.date,'data-p':r.p5});connect(c,r,'price-detail');}
+ if(latestSource&&inYear(latestSource)&&finite(latestSource.close)){const t=Date.parse(latestSource.date+'T00:00:00Z');if(t>=minT&&t<=maxT){const c=add(svg,'circle',{cx:x(t),cy:y(latestSource.close),r:7,class:'latest','data-date':latestSource.date});connect(c,latestSource,'price-detail');}}
+ if(latestPrice&&inYear(latestPrice)&&finite(latestPrice.close)){const px=x(Date.parse(latestPrice.date+'T00:00:00Z')),py=y(latestPrice.close),r=5;const c=add(svg,'path',{d:`M${px},${py-r}L${px+r},${py}L${px},${py+r}L${px-r},${py}Z`,class:'price-dot','data-date':latestPrice.date});const text=`최근 완료 SOXX · ${latestPrice.date} · $${latestPrice.close.toFixed(2)} · 고점 대비 ${pct(latestPrice.dd60)}`;title(c,text);c.addEventListener('pointerenter',()=>$('price-detail').textContent=text);c.addEventListener('click',()=>$('price-detail').textContent=text);}
+ $('price-period').textContent=`${priceRows[0].date} ~ ${priceRows.at(-1).date}`;
+}
+function drawScatter(){
+ const svg=$('scatter-chart'),d=dimensions(svg,true),rows=sourceRows.filter(r=>finite(r.p5)&&finite(r.dd60));if(!rows.length){empty(svg,d);return;}
+ const minDD=Math.min(-5,...rows.map(r=>r.dd60)),lo=Math.floor(minDD/5)*5-2,hi=1,x=v=>d.ml+v/100*d.pw,y=v=>d.mt+(hi-v)/(hi-lo)*d.ph;
+ add(svg,'title',{},`매수 백분위와 SOXX 고점 대비 낙폭: ${rows.length}개 유효 원거래일`);
+ add(svg,'rect',{x:x(threshold),y:d.mt,width:x(100)-x(threshold),height:d.ph,class:'threshold-area'});
+ for(const t of ticks(lo,0,4)){add(svg,'line',{x1:d.ml,x2:d.w-d.mr,y1:y(t),y2:y(t),class:'grid'});add(svg,'text',{x:d.ml-6,y:y(t)+4,'text-anchor':'end'},`${t.toFixed(0)}%`);}
+ for(const t of [0,20,40,60,80,100]){add(svg,'text',{x:x(t),y:d.h-23,'text-anchor':'middle'},t);}
+ add(svg,'line',{x1:x(threshold),x2:x(threshold),y1:d.mt,y2:d.mt+d.ph,class:'threshold'});add(svg,'text',{x:x(90),y:d.mt-9,'text-anchor':'middle',class:'axis-title'},'P80 이상');add(svg,'text',{x:d.ml,y:13,class:'axis-title'},'60세션 고점 대비 낙폭');add(svg,'text',{x:d.ml+d.pw/2,y:d.h-4,'text-anchor':'middle',class:'axis-title'},'SOXS 5세션 누적 매수 백분위');
+ const sorted=[...rows.filter(r=>r.p5<threshold),...rows.filter(r=>r.p5>=threshold)];for(const r of sorted){const c=add(svg,'circle',{cx:x(r.p5),cy:y(r.dd60),r:r.p5>=threshold?3.1:2.2,class:r.p5>=threshold?'signal scatter-point':'observation','data-date':r.date,'data-p':r.p5});connect(c,r,'scatter-detail');}
+ if(latestSource&&inYear(latestSource)&&finite(latestSource.p5)&&finite(latestSource.dd60)){const c=add(svg,'circle',{cx:x(latestSource.p5),cy:y(latestSource.dd60),r:7,class:'latest','data-date':latestSource.date});connect(c,latestSource,'scatter-detail');add(svg,'circle',{cx:x(latestSource.p5),cy:y(latestSource.dd60),r:2,class:'latest-core'});}
+ $('scatter-period').textContent=`유효 원거래일 ${num(rows.length)}일`;
+}
+function summary(){
+ const s=data.summary?.[selected]||{},body=$('summary-table').querySelector('tbody');body.replaceChildren();
+ for(const[stage,label]of[['source','매수일'],['entry','공개 후']])for(const status of['ON','OFF']){const q=s[stage]?.[status]||{},r=el('tr',{class:status==='ON'?'on-row':''});for(const text of[`${label} · ${status==='ON'?'P80 이상':'P80 미만'}`,num(q.n),pct(q.median_dd60),`${pct(q.q25_dd60)} ~ ${pct(q.q75_dd60)}`,pct(q.median_range60),`${num(q.near_high_n)}/${num(q.n)}`,`${num(q.below10_n)}/${num(q.n)}`,`${num(q.below20_n)}/${num(q.n)}`])r.append(el('td',{},text));body.append(r);}
+ const bins=$('bins');bins.replaceChildren();const sb=s.source?.ON?.bins||[],eb=s.entry?.ON?.bins||[];
+ for(let i=0;i<Math.max(sb.length,eb.length);i++){const a=sb[i],b=eb[i],box=el('div',{class:'bin'});box.append(el('p',{class:'bin-title'},a?.label||b?.label||'—'));for(const q of[a,b]){const bar=el('div',{class:'bin-bar'}),fill=el('div',{class:'bin-fill'+(q===b?' entry':'')});fill.style.width=finite(q?.pct)?`${q.pct}%`:'0%';bar.append(fill);box.append(bar,el('p',{class:'bin-value'},`${q===b?'공개 후':'매수일'} ${pct(q?.pct,1)} · ${num(q?.n)}일`));}bins.append(box);}
+}
+function render(){selected=$('year').value;priceRows=(data.prices||[]).filter(r=>inYear(r)&&finite(r.close)).sort((a,b)=>a.date.localeCompare(b.date));sourceRows=(data.source_rows||[]).filter(inYear);$('price-period').textContent='';$('scatter-period').textContent='';$('price-detail').textContent='동그라미를 누르면 매수일과 공개 후 관찰일을 함께 볼 수 있습니다.';$('scatter-detail').textContent='위쪽은 최근 60세션 종가 고점에 가깝고, 아래쪽은 고점에서 더 하락한 날입니다.';drawPrice();drawScatter();summary();}
+ $('as-of').textContent=`조회 ${String(data.as_of||'').replace('T',' ').slice(0,19)}`;$('basis-note').textContent=data.price_basis_note||'같은 분할 기준의 SOXX 종가를 사용합니다.';latestCards();$('year').addEventListener('change',render);let lastWidth=0;new ResizeObserver(entries=>{const width=entries[0].contentRect.width;if(Math.abs(width-lastWidth)>.5){lastWidth=width;render();}}).observe($('soxs-position'));render();window.soxsPosition=data;window.soxsPositionReady=true;
+})();
+</script>
+</body>
+</html>
