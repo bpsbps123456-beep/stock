@@ -1,0 +1,824 @@
+{
+  "artifact_role": "Independent audit evidence; not a production calculation source. No signal, threshold or strategy search.",
+  "created_at_kst": "2026-11-06T09:10:40.603306+09:00",
+  "passed": true,
+  "position_audit": {
+    "comparisons": 38220,
+    "errors": 0,
+    "by_group": {
+      "prices": 2860,
+      "source_rows": 10010,
+      "entry_rows": 7160,
+      "summary": 304,
+      "csv_cells": 17170,
+      "entry_latest_source": 716
+    },
+    "method": "Independent whole-history current-inclusive 60-session close min/max; exact prior XNYS session with2025-01-09 closure; latest-source dedup; year/all ON/OFF summaries; CSV versus JSON. No production helper imported.",
+    "rows": {
+      "price": 715,
+      "source": 715,
+      "entry": 716
+    },
+    "source_status_counts": {
+      "OFF": 571,
+      "ON": 122,
+      "UNKNOWN": 20,
+      "UNPUBLISHED": 2
+    },
+    "entry_status_counts": {
+      "OFF": 510,
+      "ON": 109,
+      "NO_NEW_SOURCE": 77,
+      "UNKNOWN": 20
+    },
+    "missing_states_excluded_from_on_off": true,
+    "additional_bin_label_checks": 64,
+    "final_bin_labels": [
+      "낙폭 0~5% 미만",
+      "낙폭 5~10% 미만",
+      "낙폭 10~20% 미만",
+      "낙폭 20% 이상"
+    ],
+    "final_position_sha256_confirmed_with_other_review": "c2d914d3250429b12262c57561b20de4615d5a27d93076f2219c0b3805a54724",
+    "earlier_ui_version_sha256_announced_by_other_review": "4b7ace419645b99cccc7f72327ffeb700e8b5afe8f0199a18d156f9e216ffa44",
+    "final_regeneration_and_new_labels_reverified": true
+  },
+  "flow_rank_audit": {
+    "comparisons": 12870,
+    "errors": 0,
+    "method": "Frozen measures plus two published sources summed/deduplicated across all four daily lists. 2023+ grid, strict censored/partial 5-session windows, current-inclusive250NYSE sessions/minimum120valid, midpoint ties. UNKNOWN rank_n0, unpublished missing. No production helper imported.",
+    "new_source_raw_checks": [
+      {
+        "source_date": "2026-11-02",
+        "seibro_date": "2026-11-04",
+        "ranks_by_daily_list": {
+          "1": [
+            4
+          ],
+          "2": [
+            16
+          ],
+          "3": [
+            3
+          ],
+          "4": [
+            5
+          ]
+        },
+        "buy": 43723560.0,
+        "sell": 8893051.0,
+        "net": 34830509.0,
+        "tot": 52616612.0
+      },
+      {
+        "source_date": "2026-11-03",
+        "seibro_date": "2026-11-05",
+        "ranks_by_daily_list": {
+          "1": [
+            22
+          ],
+          "2": [
+            3
+          ],
+          "3": [
+            5
+          ],
+          "4": []
+        },
+        "buy": 6127639.0,
+        "sell": 31741057.0,
+        "net": -25613417.0,
+        "tot": 37868696.0
+      }
+    ],
+    "unpublished_11_06_four_empty_lists_excluded": true,
+    "latest_six_features": {
+      "gross_usd_L1": 6127639.0,
+      "gross_usd_L1_P": 13.157894736842104,
+      "gross_usd_L1_rank_n": 247.0,
+      "net_usd_L1": -25613417.0,
+      "net_usd_L1_P": 7.489878542510121,
+      "net_usd_L1_rank_n": 247.0,
+      "buy_share_L1": 0.16181278066717691,
+      "buy_share_L1_P": 6.680161943319838,
+      "buy_share_L1_rank_n": 247.0,
+      "gross_usd_L5": 97153757.0,
+      "gross_usd_L5_P": 70.47413793103448,
+      "gross_usd_L5_rank_n": 232.0,
+      "net_usd_L5": -18314295.0,
+      "net_usd_L5_P": 23.060344827586206,
+      "net_usd_L5_rank_n": 232.0,
+      "buy_share_L5": 0.4569322284338198,
+      "buy_share_L5_P": 27.801724137931036,
+      "buy_share_L5_rank_n": 232.0
+    }
+  },
+  "split_normalization_audit": {
+    "official_url": "https://www.sec.gov/Archives/edgar/data/1100663/000119312526430480/d156277d497.htm",
+    "issuer_url": "https://www.ishares.com/us/products/239705/ishares-phlx-semiconductor-etf",
+    "ratio": "3:1",
+    "effective_date": "2026-11-05",
+    "corrected_dates": [
+      "2026-11-02",
+      "2026-11-03",
+      "2026-11-04"
+    ],
+    "correction": "Only these3dates OHLC/adjclose divided by3, volume multiplied by3. Neither volume nor adjclose used by price-position calculation.",
+    "correction_only_max_absolute_numeric_error": 2.842170943040401e-14,
+    "ohlc_overlap": {
+      "open": {
+        "unadjusted_rows": 3,
+        "already_adjusted_rows": 6363,
+        "other_rows": 0,
+        "normalized_vs_prior_div3_max_relative_error": 1.6926038126641174e-07
+      },
+      "close": {
+        "unadjusted_rows": 3,
+        "already_adjusted_rows": 6363,
+        "other_rows": 0,
+        "normalized_vs_prior_div3_max_relative_error": 1.9681208396349348e-07
+      },
+      "low": {
+        "unadjusted_rows": 3,
+        "already_adjusted_rows": 6363,
+        "other_rows": 0,
+        "normalized_vs_prior_div3_max_relative_error": 1.8570983395527207e-07
+      },
+      "high": {
+        "unadjusted_rows": 3,
+        "already_adjusted_rows": 6363,
+        "other_rows": 0,
+        "normalized_vs_prior_div3_max_relative_error": 1.9036905951619332e-07
+      }
+    },
+    "official_11_04_close_rounded_usd": 150.14,
+    "latest_11_05_close_provider": "Yahoo; issuer page still as of11/4 at collection"
+  },
+  "historical_on_invariance": {
+    "source": {
+      "on_dates_unchanged": true,
+      "all_on_n": 122,
+      "2026_on_n": 32,
+      "max_on_dd_rounding_difference_pctpoint": 9.37797554056985e-06
+    },
+    "entry": {
+      "on_dates_unchanged": true,
+      "all_on_n": 109,
+      "2026_on_n": 29,
+      "max_on_dd_rounding_difference_pctpoint": 9.37797554056985e-06
+    }
+  },
+  "year_and_all_on_off": {
+    "2024": {
+      "source": {
+        "ON": {
+          "n": 90,
+          "missing_price_n": 0,
+          "median_dd60": -12.031139523701484,
+          "q25_dd60": -15.360360439032355,
+          "q75_dd60": -4.211216482003898,
+          "min_dd60": -23.187310416412522,
+          "max_dd60": 0.0,
+          "median_range60": 50.14702195503261,
+          "near_high_n": 26,
+          "below10_n": 53,
+          "below20_n": 4,
+          "bins": [
+            {
+              "label": "낙폭 0~5% 미만",
+              "n": 26,
+              "pct": 28.888888888888886
+            },
+            {
+              "label": "낙폭 5~10% 미만",
+              "n": 11,
+              "pct": 12.222222222222221
+            },
+            {
+              "label": "낙폭 10~20% 미만",
+              "n": 49,
+              "pct": 54.44444444444444
+            },
+            {
+              "label": "낙폭 20% 이상",
+              "n": 4,
+              "pct": 4.444444444444445
+            }
+          ]
+        },
+        "OFF": {
+          "n": 162,
+          "missing_price_n": 0,
+          "median_dd60": -5.327082100076947,
+          "q25_dd60": -8.492496722828303,
+          "q75_dd60": -2.7312196550975805,
+          "min_dd60": -24.935024852503595,
+          "max_dd60": 0.0,
+          "median_range60": 73.82359407110968,
+          "near_high_n": 73,
+          "below10_n": 23,
+          "below20_n": 4,
+          "bins": [
+            {
+              "label": "낙폭 0~5% 미만",
+              "n": 73,
+              "pct": 45.06172839506173
+            },
+            {
+              "label": "낙폭 5~10% 미만",
+              "n": 66,
+              "pct": 40.74074074074074
+            },
+            {
+              "label": "낙폭 10~20% 미만",
+              "n": 19,
+              "pct": 11.728395061728394
+            },
+            {
+              "label": "낙폭 20% 이상",
+              "n": 4,
+              "pct": 2.4691358024691357
+            }
+          ]
+        }
+      },
+      "entry": {
+        "ON": {
+          "n": 80,
+          "missing_price_n": 0,
+          "median_dd60": -11.348824317736167,
+          "q25_dd60": -14.425213383238065,
+          "q75_dd60": -4.425365661232444,
+          "min_dd60": -23.477341784319673,
+          "max_dd60": 0.0,
+          "median_range60": 50.70016674040697,
+          "near_high_n": 24,
+          "below10_n": 44,
+          "below20_n": 6,
+          "bins": [
+            {
+              "label": "낙폭 0~5% 미만",
+              "n": 24,
+              "pct": 30.0
+            },
+            {
+              "label": "낙폭 5~10% 미만",
+              "n": 12,
+              "pct": 15.0
+            },
+            {
+              "label": "낙폭 10~20% 미만",
+              "n": 38,
+              "pct": 47.5
+            },
+            {
+              "label": "낙폭 20% 이상",
+              "n": 6,
+              "pct": 7.5
+            }
+          ]
+        },
+        "OFF": {
+          "n": 144,
+          "missing_price_n": 0,
+          "median_dd60": -5.249871654908944,
+          "q25_dd60": -8.353863880266541,
+          "q75_dd60": -2.180323580155605,
+          "min_dd60": -24.935024852503595,
+          "max_dd60": 0.0,
+          "median_range60": 73.05353791414662,
+          "near_high_n": 65,
+          "below10_n": 22,
+          "below20_n": 2,
+          "bins": [
+            {
+              "label": "낙폭 0~5% 미만",
+              "n": 65,
+              "pct": 45.13888888888889
+            },
+            {
+              "label": "낙폭 5~10% 미만",
+              "n": 57,
+              "pct": 39.58333333333333
+            },
+            {
+              "label": "낙폭 10~20% 미만",
+              "n": 20,
+              "pct": 13.88888888888889
+            },
+            {
+              "label": "낙폭 20% 이상",
+              "n": 2,
+              "pct": 1.3888888888888888
+            }
+          ]
+        }
+      }
+    },
+    "2025": {
+      "source": {
+        "ON": {
+          "n": 0,
+          "missing_price_n": 0,
+          "median_dd60": null,
+          "q25_dd60": null,
+          "q75_dd60": null,
+          "min_dd60": null,
+          "max_dd60": null,
+          "median_range60": null,
+          "near_high_n": 0,
+          "below10_n": 0,
+          "below20_n": 0,
+          "bins": [
+            {
+              "label": "낙폭 0~5% 미만",
+              "n": 0,
+              "pct": null
+            },
+            {
+              "label": "낙폭 5~10% 미만",
+              "n": 0,
+              "pct": null
+            },
+            {
+              "label": "낙폭 10~20% 미만",
+              "n": 0,
+              "pct": null
+            },
+            {
+              "label": "낙폭 20% 이상",
+              "n": 0,
+              "pct": null
+            }
+          ]
+        },
+        "OFF": {
+          "n": 245,
+          "missing_price_n": 0,
+          "median_dd60": -3.594348435665451,
+          "q25_dd60": -9.087825167315433,
+          "q75_dd60": -0.4859301852464637,
+          "min_dd60": -34.32848547603462,
+          "max_dd60": 0.0,
+          "median_range60": 79.12759663146214,
+          "near_high_n": 144,
+          "below10_n": 55,
+          "below20_n": 22,
+          "bins": [
+            {
+              "label": "낙폭 0~5% 미만",
+              "n": 144,
+              "pct": 58.77551020408164
+            },
+            {
+              "label": "낙폭 5~10% 미만",
+              "n": 46,
+              "pct": 18.775510204081634
+            },
+            {
+              "label": "낙폭 10~20% 미만",
+              "n": 33,
+              "pct": 13.46938775510204
+            },
+            {
+              "label": "낙폭 20% 이상",
+              "n": 22,
+              "pct": 8.979591836734693
+            }
+          ]
+        }
+      },
+      "entry": {
+        "ON": {
+          "n": 0,
+          "missing_price_n": 0,
+          "median_dd60": null,
+          "q25_dd60": null,
+          "q75_dd60": null,
+          "min_dd60": null,
+          "max_dd60": null,
+          "median_range60": null,
+          "near_high_n": 0,
+          "below10_n": 0,
+          "below20_n": 0,
+          "bins": [
+            {
+              "label": "낙폭 0~5% 미만",
+              "n": 0,
+              "pct": null
+            },
+            {
+              "label": "낙폭 5~10% 미만",
+              "n": 0,
+              "pct": null
+            },
+            {
+              "label": "낙폭 10~20% 미만",
+              "n": 0,
+              "pct": null
+            },
+            {
+              "label": "낙폭 20% 이상",
+              "n": 0,
+              "pct": null
+            }
+          ]
+        },
+        "OFF": {
+          "n": 215,
+          "missing_price_n": 0,
+          "median_dd60": -3.594348435665451,
+          "q25_dd60": -9.10030270890459,
+          "q75_dd60": -0.3917126505193158,
+          "min_dd60": -34.32848547603462,
+          "max_dd60": 0.0,
+          "median_range60": 80.11741720550891,
+          "near_high_n": 123,
+          "below10_n": 51,
+          "below20_n": 20,
+          "bins": [
+            {
+              "label": "낙폭 0~5% 미만",
+              "n": 123,
+              "pct": 57.20930232558139
+            },
+            {
+              "label": "낙폭 5~10% 미만",
+              "n": 41,
+              "pct": 19.069767441860467
+            },
+            {
+              "label": "낙폭 10~20% 미만",
+              "n": 31,
+              "pct": 14.418604651162791
+            },
+            {
+              "label": "낙폭 20% 이상",
+              "n": 20,
+              "pct": 9.30232558139535
+            }
+          ]
+        }
+      }
+    },
+    "2026": {
+      "source": {
+        "ON": {
+          "n": 32,
+          "missing_price_n": 0,
+          "median_dd60": -3.363309523463415,
+          "q25_dd60": -10.762259168402789,
+          "q75_dd60": 0.0,
+          "min_dd60": -18.978340212030098,
+          "max_dd60": 0.0,
+          "median_range60": 91.56820097631513,
+          "near_high_n": 17,
+          "below10_n": 9,
+          "below20_n": 0,
+          "bins": [
+            {
+              "label": "낙폭 0~5% 미만",
+              "n": 17,
+              "pct": 53.125
+            },
+            {
+              "label": "낙폭 5~10% 미만",
+              "n": 6,
+              "pct": 18.75
+            },
+            {
+              "label": "낙폭 10~20% 미만",
+              "n": 9,
+              "pct": 28.125
+            },
+            {
+              "label": "낙폭 20% 이상",
+              "n": 0,
+              "pct": 0.0
+            }
+          ]
+        },
+        "OFF": {
+          "n": 164,
+          "missing_price_n": 0,
+          "median_dd60": -7.547552845738304,
+          "q25_dd60": -16.05204027804959,
+          "q75_dd60": -1.1190691775563284,
+          "min_dd60": -29.008718482579244,
+          "max_dd60": 0.0,
+          "median_range60": 75.46830275764114,
+          "near_high_n": 73,
+          "below10_n": 66,
+          "below20_n": 25,
+          "bins": [
+            {
+              "label": "낙폭 0~5% 미만",
+              "n": 73,
+              "pct": 44.51219512195122
+            },
+            {
+              "label": "낙폭 5~10% 미만",
+              "n": 25,
+              "pct": 15.24390243902439
+            },
+            {
+              "label": "낙폭 10~20% 미만",
+              "n": 41,
+              "pct": 25.0
+            },
+            {
+              "label": "낙폭 20% 이상",
+              "n": 25,
+              "pct": 15.24390243902439
+            }
+          ]
+        }
+      },
+      "entry": {
+        "ON": {
+          "n": 29,
+          "missing_price_n": 0,
+          "median_dd60": -3.5946371532245447,
+          "q25_dd60": -12.046847019662488,
+          "q75_dd60": 0.0,
+          "min_dd60": -19.53252630248896,
+          "max_dd60": 0.0,
+          "median_range60": 87.78064996960003,
+          "near_high_n": 17,
+          "below10_n": 9,
+          "below20_n": 0,
+          "bins": [
+            {
+              "label": "낙폭 0~5% 미만",
+              "n": 17,
+              "pct": 58.620689655172406
+            },
+            {
+              "label": "낙폭 5~10% 미만",
+              "n": 3,
+              "pct": 10.344827586206897
+            },
+            {
+              "label": "낙폭 10~20% 미만",
+              "n": 9,
+              "pct": 31.03448275862069
+            },
+            {
+              "label": "낙폭 20% 이상",
+              "n": 0,
+              "pct": 0.0
+            }
+          ]
+        },
+        "OFF": {
+          "n": 151,
+          "missing_price_n": 0,
+          "median_dd60": -8.005434699793168,
+          "q25_dd60": -17.013859224313105,
+          "q75_dd60": -1.1646076426003737,
+          "min_dd60": -32.87645746146812,
+          "max_dd60": 0.0,
+          "median_range60": 65.22933604589126,
+          "near_high_n": 62,
+          "below10_n": 63,
+          "below20_n": 27,
+          "bins": [
+            {
+              "label": "낙폭 0~5% 미만",
+              "n": 62,
+              "pct": 41.05960264900662
+            },
+            {
+              "label": "낙폭 5~10% 미만",
+              "n": 26,
+              "pct": 17.218543046357617
+            },
+            {
+              "label": "낙폭 10~20% 미만",
+              "n": 36,
+              "pct": 23.841059602649008
+            },
+            {
+              "label": "낙폭 20% 이상",
+              "n": 27,
+              "pct": 17.880794701986755
+            }
+          ]
+        }
+      }
+    },
+    "all": {
+      "source": {
+        "ON": {
+          "n": 122,
+          "missing_price_n": 0,
+          "median_dd60": -10.775655494763564,
+          "q25_dd60": -14.486423261132973,
+          "q75_dd60": -2.1226296781058585,
+          "min_dd60": -23.187310416412522,
+          "max_dd60": 0.0,
+          "median_range60": 61.4144507962924,
+          "near_high_n": 43,
+          "below10_n": 62,
+          "below20_n": 4,
+          "bins": [
+            {
+              "label": "낙폭 0~5% 미만",
+              "n": 43,
+              "pct": 35.24590163934426
+            },
+            {
+              "label": "낙폭 5~10% 미만",
+              "n": 17,
+              "pct": 13.934426229508196
+            },
+            {
+              "label": "낙폭 10~20% 미만",
+              "n": 58,
+              "pct": 47.540983606557376
+            },
+            {
+              "label": "낙폭 20% 이상",
+              "n": 4,
+              "pct": 3.278688524590164
+            }
+          ]
+        },
+        "OFF": {
+          "n": 571,
+          "missing_price_n": 0,
+          "median_dd60": -4.882753672367057,
+          "q25_dd60": -10.068078008552517,
+          "q75_dd60": -1.1352913921881869,
+          "min_dd60": -34.32848547603462,
+          "max_dd60": 0.0,
+          "median_range60": 76.94115732230392,
+          "near_high_n": 290,
+          "below10_n": 144,
+          "below20_n": 51,
+          "bins": [
+            {
+              "label": "낙폭 0~5% 미만",
+              "n": 290,
+              "pct": 50.78809106830122
+            },
+            {
+              "label": "낙폭 5~10% 미만",
+              "n": 137,
+              "pct": 23.992994746059544
+            },
+            {
+              "label": "낙폭 10~20% 미만",
+              "n": 93,
+              "pct": 16.28721541155867
+            },
+            {
+              "label": "낙폭 20% 이상",
+              "n": 51,
+              "pct": 8.93169877408056
+            }
+          ]
+        }
+      },
+      "entry": {
+        "ON": {
+          "n": 109,
+          "missing_price_n": 0,
+          "median_dd60": -8.76971223752957,
+          "q25_dd60": -14.195202262757645,
+          "q75_dd60": -3.3801937725913334,
+          "min_dd60": -23.477341784319673,
+          "max_dd60": 0.0,
+          "median_range60": 67.33370500385055,
+          "near_high_n": 41,
+          "below10_n": 53,
+          "below20_n": 6,
+          "bins": [
+            {
+              "label": "낙폭 0~5% 미만",
+              "n": 41,
+              "pct": 37.61467889908257
+            },
+            {
+              "label": "낙폭 5~10% 미만",
+              "n": 15,
+              "pct": 13.761467889908257
+            },
+            {
+              "label": "낙폭 10~20% 미만",
+              "n": 47,
+              "pct": 43.11926605504588
+            },
+            {
+              "label": "낙폭 20% 이상",
+              "n": 6,
+              "pct": 5.5045871559633035
+            }
+          ]
+        },
+        "OFF": {
+          "n": 510,
+          "missing_price_n": 0,
+          "median_dd60": -5.159692136848115,
+          "q25_dd60": -10.632191533436671,
+          "q75_dd60": -1.071908373445113,
+          "min_dd60": -34.32848547603462,
+          "max_dd60": 0.0,
+          "median_range60": 76.15241242767357,
+          "near_high_n": 250,
+          "below10_n": 136,
+          "below20_n": 49,
+          "bins": [
+            {
+              "label": "낙폭 0~5% 미만",
+              "n": 250,
+              "pct": 49.01960784313725
+            },
+            {
+              "label": "낙폭 5~10% 미만",
+              "n": 124,
+              "pct": 24.313725490196077
+            },
+            {
+              "label": "낙폭 10~20% 미만",
+              "n": 87,
+              "pct": 17.058823529411764
+            },
+            {
+              "label": "낙폭 20% 이상",
+              "n": 49,
+              "pct": 9.607843137254903
+            }
+          ]
+        }
+      }
+    }
+  },
+  "latest": {
+    "source": {
+      "date": "2026-11-03",
+      "close": 155.0,
+      "dd60": -21.12092816594323,
+      "range60": 8.354193528098355,
+      "p5": 70.47413793103448,
+      "usd5": 97153757.0,
+      "status": "OFF",
+      "on": false,
+      "observed": true,
+      "entry_date": "2026-11-06",
+      "entry_dd60": -32.87645746146812,
+      "entry_range60": 0.0,
+      "selected_for_entry": true,
+      "shared": false
+    },
+    "entry": {
+      "date": "2026-11-06",
+      "source_date": "2026-11-03",
+      "previous_price_date": "2026-11-05",
+      "close": 131.89999389648438,
+      "dd60": -32.87645746146812,
+      "range60": 0.0,
+      "p5": 70.47413793103448,
+      "usd5": 97153757.0,
+      "status": "OFF",
+      "on": false
+    },
+    "price": {
+      "date": "2026-11-05",
+      "close": 131.89999389648438,
+      "dd60": -32.87645746146812,
+      "range60": 0.0
+    }
+  },
+  "latest_dates": {
+    "source": "2026-11-03",
+    "price": "2026-11-05",
+    "entry": "2026-11-06"
+  },
+  "input_sha256_final": {
+    "derived/measures_daily.parquet": "bae09cfacabe9dc1035a04ef78f0273b39d16a1534cad1b8f5b11d2bfa8bab28",
+    "results/soxs_current_20261105/market.prices.csv": "5767a1f2df3f0b6ef9ca4b7d94b030183a6baf531425e4a42a4952b19e97f58d",
+    "results/soxs_daily_ledger_20261105/source_daily.csv": "31826b63237ed148d5b18dd3698fc3179689f2aa02736f9e9dd534e72203267c",
+    "results/soxs_daily_ledger_20261105/entry_daily.csv": "9508f6bfd63b92c33e5b9f2b1759c7d4e961ea570934b415371e0d4f5e30168a",
+    "code/soxs_position.py": "d02d01d1903ec4ea9f2daa37c0dd8fc858679b332aedfc2e9110f3915ddec96e",
+    "code/soxs_position_template.html": "35c73a88e751fc915b85e21452f6f1503f0a1770b2a777aa8e42aa87f20df6c2",
+    "results/soxs_position_20261106/fresh/raw_snapshot.json": "2b9d3e27a1f854ad4e32ae4ad32086fbdf7f37c7556e0deeb8ded75c2c884ef9",
+    "results/soxs_position_20261106/fresh/market.yahoo_daily.json": "17a5a8039af051439a5e5c1f6132464a17d6f67ef97b6fed6a2210e0074c8649",
+    "results/soxs_position_20261106/fresh/market.prices.csv": "5328de4a01ef627b7c6322b293fcbae3918d26d3edd493100bd4638b211b8389",
+    "results/soxs_position_20261106/fresh/market.prices.normalized.csv": "798735d7617416b8dadcb4ccd8a0659374979449888e638bfa3bd3d13c8dbca9",
+    "results/soxs_position_20261106/fresh/market.normalization.json": "f72ccc1e7ea3f5d6273ea09053027ad03d7a98f8a1c98df8ff9fcccdef33a91b",
+    "results/soxs_position_20261106/fresh/market.ishares.html": "14a9f7b699dc4e96a9f51183dcfd75322526e87045b7963ef68d863e123282af",
+    "results/soxs_position_20261106/fresh/ledger/source_daily.csv": "f05c50f409bba5465c701e60a1ea2e29d0039a06c3b5077862001c1b59fee34b",
+    "results/soxs_position_20261106/fresh/ledger/entry_daily.csv": "dabd4928cb9141ba5ed224468517308b55b313df3fa7beb68ecf9d4be5e3735a",
+    "results/soxs_position_20261106/fresh/ledger/warmup_daily.csv": "695c060a309ea736ef4b332e37f32e2367f2a001fd874caeda78f90c4fd1a8af",
+    "results/soxs_position_20261106/position.json": "c2d914d3250429b12262c57561b20de4615d5a27d93076f2219c0b3805a54724",
+    "results/soxs_position_20261106/source_position.csv": "9641d7391041e6eded8ff95a0abb5b674cf4256764d0797ddfaab3892fe61260",
+    "results/soxs_position_20261106/entry_position.csv": "008fd2957da56da74f32e3e811bf07bd36b99991161ccca4c2452afa97542ee7",
+    "results/soxs_position_20261106/position.html": "ea414a90c2dd225dc69284bd422d1bb6866512d6a507ed2ee2718cebb822d31a"
+  },
+  "notes": [
+    "Final JSON and labels rechecked after other_review confirmed no further regeneration.",
+    "Overlapping five-session windows and serial ON days are daily observations, not independent events.",
+    "Existing equal allocation within shared settlement units retained; true within-unit daily allocation unidentified."
+  ]
+}

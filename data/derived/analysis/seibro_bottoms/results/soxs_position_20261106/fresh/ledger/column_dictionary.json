@@ -1,0 +1,1050 @@
+{
+  "files": {
+    "source_daily.csv": {
+      "columns": {
+        "source_date": {
+          "ko": "원거래일",
+          "description": "US trade date represented by settlement money; not its publication date."
+        },
+        "SOXS_buy": {
+          "ko": "SOXS_buy",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "SOXS_sell": {
+          "ko": "SOXS_sell",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "SOXS_net": {
+          "ko": "SOXS_net",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "SOXS_tot": {
+          "ko": "SOXS_tot",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "cens_SOXS": {
+          "ko": "cens_SOXS",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "part_SOXS": {
+          "ko": "part_SOXS",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "unit_id": {
+          "ko": "unit_id",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "unit_n_trades": {
+          "ko": "unit_n_trades",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "unit_first": {
+          "ko": "unit_first",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "unit_last": {
+          "ko": "unit_last",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "seibro_date": {
+          "ko": "SEIBRO 결제표 날짜",
+          "description": "Display date equals US settlement+1calendar day, weekends shifted; not US source date."
+        },
+        "entry_settle": {
+          "ko": "entry_settle",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "source_observed": {
+          "ko": "공개 흐름 행 존재",
+          "description": "True includes Top50-censored rows; False is an unpublished source, whose money remains NA."
+        },
+        "reported_partial_SOXS_buy": {
+          "ko": "reported_partial_SOXS_buy",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "reported_partial_SOXS_sell": {
+          "ko": "reported_partial_SOXS_sell",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "reported_partial_SOXS_net": {
+          "ko": "reported_partial_SOXS_net",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "reported_partial_SOXS_tot": {
+          "ko": "reported_partial_SOXS_tot",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "timing_basis": {
+          "ko": "날짜 근거",
+          "description": "Published units use canonical mapping; unpublished dates show expected calendar mapping only."
+        },
+        "known_settle_kst": {
+          "ko": "공개 연구 규약",
+          "description": "Next KSD businessday09:00KST after the last settlement unit date; historical actual release logs unavailable."
+        },
+        "selected_source_for_same_entry": {
+          "ko": "selected_source_for_same_entry",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "selected_for_entry": {
+          "ko": "연구상 최신자료 채택",
+          "description": "Research latest-source model only; False never means the original published flow was absent or unobservable."
+        },
+        "selection_reason": {
+          "ko": "연구상 채택·가려짐 이유",
+          "description": "Both published source rows remain in the source ledger even if the model selects only the later one."
+        },
+        "unit_shared_source": {
+          "ko": "unit_shared_source",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "SOXX_Open": {
+          "ko": "SOXX_Open",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "SOXX_Close": {
+          "ko": "SOXX_Close",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "SOXX_daily_return_pct": {
+          "ko": "원거래일 SOXX 등락률",
+          "description": "Same-source-day close/previous close-1, descriptive concurrent price action, not a new signal."
+        },
+        "dd60_pct": {
+          "ko": "원거래일 고점 대비",
+          "description": "Source-day close versus its trailing60-session close maximum; distinct from entry_previous_dd60_pct."
+        },
+        "source_to_entry_sessions": {
+          "ko": "source_to_entry_sessions",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "entry_previous_price_date": {
+          "ko": "entry_previous_price_date",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "entry_previous_dd60_pct": {
+          "ko": "공개 직전 고점 대비",
+          "description": "Drawdown at the actual preceding US session close, reused from canonical reaction()."
+        },
+        "entry_previous_close": {
+          "ko": "entry_previous_close",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "source_close_to_entry_open_pct": {
+          "ko": "공개까지 SOXX 변화",
+          "description": "Entry open/source close-1; descriptive and only available after entry starts."
+        },
+        "gross_usd_L1": {
+          "ko": "gross_usd_L1",
+          "description": "USD window sum for gross/net; buy_share is sum(buy)/sum(buy+sell). L1/L5 are source US sessions. Missing source days invalidate the window."
+        },
+        "gross_usd_L1_P": {
+          "ko": "gross_usd_L1_P",
+          "description": "Current-inclusive trailing250-source-session canonical midrank percentile; not probability of a market rise."
+        },
+        "gross_usd_L1_rank_n": {
+          "ko": "gross_usd_L1_rank_n",
+          "description": "Number of valid window observations in the trailing250-source-session rank; minimum120."
+        },
+        "gross_usd_L1_status": {
+          "ko": "gross_usd_L1_status",
+          "description": "ON=P>=80, OFF=valid P<80, UNKNOWN=published but invalid/missing; UNPUBLISHED=source flow unavailable; NO_NEW_SOURCE=entry without new mapped source. OUTSIDE_DD10 is price-context ineligibility."
+        },
+        "gross_usd_L1_on": {
+          "ko": "gross_usd_L1_on",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "gross_usd_L5": {
+          "ko": "gross_usd_L5",
+          "description": "USD window sum for gross/net; buy_share is sum(buy)/sum(buy+sell). L1/L5 are source US sessions. Missing source days invalidate the window."
+        },
+        "gross_usd_L5_P": {
+          "ko": "gross_usd_L5_P",
+          "description": "Current-inclusive trailing250-source-session canonical midrank percentile; not probability of a market rise."
+        },
+        "gross_usd_L5_rank_n": {
+          "ko": "gross_usd_L5_rank_n",
+          "description": "Number of valid window observations in the trailing250-source-session rank; minimum120."
+        },
+        "gross_usd_L5_status": {
+          "ko": "gross_usd_L5_status",
+          "description": "ON=P>=80, OFF=valid P<80, UNKNOWN=published but invalid/missing; UNPUBLISHED=source flow unavailable; NO_NEW_SOURCE=entry without new mapped source. OUTSIDE_DD10 is price-context ineligibility."
+        },
+        "gross_usd_L5_on": {
+          "ko": "gross_usd_L5_on",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "net_usd_L1": {
+          "ko": "net_usd_L1",
+          "description": "USD window sum for gross/net; buy_share is sum(buy)/sum(buy+sell). L1/L5 are source US sessions. Missing source days invalidate the window."
+        },
+        "net_usd_L1_P": {
+          "ko": "net_usd_L1_P",
+          "description": "Current-inclusive trailing250-source-session canonical midrank percentile; not probability of a market rise."
+        },
+        "net_usd_L1_rank_n": {
+          "ko": "net_usd_L1_rank_n",
+          "description": "Number of valid window observations in the trailing250-source-session rank; minimum120."
+        },
+        "net_usd_L1_status": {
+          "ko": "net_usd_L1_status",
+          "description": "ON=P>=80, OFF=valid P<80, UNKNOWN=published but invalid/missing; UNPUBLISHED=source flow unavailable; NO_NEW_SOURCE=entry without new mapped source. OUTSIDE_DD10 is price-context ineligibility."
+        },
+        "net_usd_L1_on": {
+          "ko": "net_usd_L1_on",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "net_usd_L5": {
+          "ko": "net_usd_L5",
+          "description": "USD window sum for gross/net; buy_share is sum(buy)/sum(buy+sell). L1/L5 are source US sessions. Missing source days invalidate the window."
+        },
+        "net_usd_L5_P": {
+          "ko": "net_usd_L5_P",
+          "description": "Current-inclusive trailing250-source-session canonical midrank percentile; not probability of a market rise."
+        },
+        "net_usd_L5_rank_n": {
+          "ko": "net_usd_L5_rank_n",
+          "description": "Number of valid window observations in the trailing250-source-session rank; minimum120."
+        },
+        "net_usd_L5_status": {
+          "ko": "net_usd_L5_status",
+          "description": "ON=P>=80, OFF=valid P<80, UNKNOWN=published but invalid/missing; UNPUBLISHED=source flow unavailable; NO_NEW_SOURCE=entry without new mapped source. OUTSIDE_DD10 is price-context ineligibility."
+        },
+        "net_usd_L5_on": {
+          "ko": "net_usd_L5_on",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "buy_share_L1": {
+          "ko": "buy_share_L1",
+          "description": "USD window sum for gross/net; buy_share is sum(buy)/sum(buy+sell). L1/L5 are source US sessions. Missing source days invalidate the window."
+        },
+        "buy_share_L1_P": {
+          "ko": "buy_share_L1_P",
+          "description": "Current-inclusive trailing250-source-session canonical midrank percentile; not probability of a market rise."
+        },
+        "buy_share_L1_rank_n": {
+          "ko": "buy_share_L1_rank_n",
+          "description": "Number of valid window observations in the trailing250-source-session rank; minimum120."
+        },
+        "buy_share_L1_status": {
+          "ko": "buy_share_L1_status",
+          "description": "ON=P>=80, OFF=valid P<80, UNKNOWN=published but invalid/missing; UNPUBLISHED=source flow unavailable; NO_NEW_SOURCE=entry without new mapped source. OUTSIDE_DD10 is price-context ineligibility."
+        },
+        "buy_share_L1_on": {
+          "ko": "buy_share_L1_on",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "buy_share_L5": {
+          "ko": "buy_share_L5",
+          "description": "USD window sum for gross/net; buy_share is sum(buy)/sum(buy+sell). L1/L5 are source US sessions. Missing source days invalidate the window."
+        },
+        "buy_share_L5_P": {
+          "ko": "buy_share_L5_P",
+          "description": "Current-inclusive trailing250-source-session canonical midrank percentile; not probability of a market rise."
+        },
+        "buy_share_L5_rank_n": {
+          "ko": "buy_share_L5_rank_n",
+          "description": "Number of valid window observations in the trailing250-source-session rank; minimum120."
+        },
+        "buy_share_L5_status": {
+          "ko": "buy_share_L5_status",
+          "description": "ON=P>=80, OFF=valid P<80, UNKNOWN=published but invalid/missing; UNPUBLISHED=source flow unavailable; NO_NEW_SOURCE=entry without new mapped source. OUTSIDE_DD10 is price-context ineligibility."
+        },
+        "buy_share_L5_on": {
+          "ko": "buy_share_L5_on",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "raw_paths_d1_4": {
+          "ko": "raw_paths_d1_4",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "raw_source_url": {
+          "ko": "raw_source_url",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        }
+      }
+    },
+    "warmup_daily.csv": {
+      "columns": {
+        "source_date": {
+          "ko": "원거래일",
+          "description": "US trade date represented by settlement money; not its publication date."
+        },
+        "SOXS_buy": {
+          "ko": "SOXS_buy",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "SOXS_sell": {
+          "ko": "SOXS_sell",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "SOXS_net": {
+          "ko": "SOXS_net",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "SOXS_tot": {
+          "ko": "SOXS_tot",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "cens_SOXS": {
+          "ko": "cens_SOXS",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "part_SOXS": {
+          "ko": "part_SOXS",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "unit_id": {
+          "ko": "unit_id",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "unit_n_trades": {
+          "ko": "unit_n_trades",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "unit_first": {
+          "ko": "unit_first",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "unit_last": {
+          "ko": "unit_last",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "seibro_date": {
+          "ko": "SEIBRO 결제표 날짜",
+          "description": "Display date equals US settlement+1calendar day, weekends shifted; not US source date."
+        },
+        "entry_settle": {
+          "ko": "entry_settle",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "source_observed": {
+          "ko": "공개 흐름 행 존재",
+          "description": "True includes Top50-censored rows; False is an unpublished source, whose money remains NA."
+        },
+        "reported_partial_SOXS_buy": {
+          "ko": "reported_partial_SOXS_buy",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "reported_partial_SOXS_sell": {
+          "ko": "reported_partial_SOXS_sell",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "reported_partial_SOXS_net": {
+          "ko": "reported_partial_SOXS_net",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "reported_partial_SOXS_tot": {
+          "ko": "reported_partial_SOXS_tot",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "timing_basis": {
+          "ko": "날짜 근거",
+          "description": "Published units use canonical mapping; unpublished dates show expected calendar mapping only."
+        },
+        "known_settle_kst": {
+          "ko": "공개 연구 규약",
+          "description": "Next KSD businessday09:00KST after the last settlement unit date; historical actual release logs unavailable."
+        },
+        "selected_source_for_same_entry": {
+          "ko": "selected_source_for_same_entry",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "selected_for_entry": {
+          "ko": "연구상 최신자료 채택",
+          "description": "Research latest-source model only; False never means the original published flow was absent or unobservable."
+        },
+        "selection_reason": {
+          "ko": "연구상 채택·가려짐 이유",
+          "description": "Both published source rows remain in the source ledger even if the model selects only the later one."
+        },
+        "unit_shared_source": {
+          "ko": "unit_shared_source",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "SOXX_Open": {
+          "ko": "SOXX_Open",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "SOXX_Close": {
+          "ko": "SOXX_Close",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "SOXX_daily_return_pct": {
+          "ko": "원거래일 SOXX 등락률",
+          "description": "Same-source-day close/previous close-1, descriptive concurrent price action, not a new signal."
+        },
+        "dd60_pct": {
+          "ko": "원거래일 고점 대비",
+          "description": "Source-day close versus its trailing60-session close maximum; distinct from entry_previous_dd60_pct."
+        },
+        "source_to_entry_sessions": {
+          "ko": "source_to_entry_sessions",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "entry_previous_price_date": {
+          "ko": "entry_previous_price_date",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "entry_previous_dd60_pct": {
+          "ko": "공개 직전 고점 대비",
+          "description": "Drawdown at the actual preceding US session close, reused from canonical reaction()."
+        },
+        "entry_previous_close": {
+          "ko": "entry_previous_close",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "source_close_to_entry_open_pct": {
+          "ko": "공개까지 SOXX 변화",
+          "description": "Entry open/source close-1; descriptive and only available after entry starts."
+        },
+        "gross_usd_L1": {
+          "ko": "gross_usd_L1",
+          "description": "USD window sum for gross/net; buy_share is sum(buy)/sum(buy+sell). L1/L5 are source US sessions. Missing source days invalidate the window."
+        },
+        "gross_usd_L1_P": {
+          "ko": "gross_usd_L1_P",
+          "description": "Current-inclusive trailing250-source-session canonical midrank percentile; not probability of a market rise."
+        },
+        "gross_usd_L1_rank_n": {
+          "ko": "gross_usd_L1_rank_n",
+          "description": "Number of valid window observations in the trailing250-source-session rank; minimum120."
+        },
+        "gross_usd_L1_status": {
+          "ko": "gross_usd_L1_status",
+          "description": "ON=P>=80, OFF=valid P<80, UNKNOWN=published but invalid/missing; UNPUBLISHED=source flow unavailable; NO_NEW_SOURCE=entry without new mapped source. OUTSIDE_DD10 is price-context ineligibility."
+        },
+        "gross_usd_L1_on": {
+          "ko": "gross_usd_L1_on",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "gross_usd_L5": {
+          "ko": "gross_usd_L5",
+          "description": "USD window sum for gross/net; buy_share is sum(buy)/sum(buy+sell). L1/L5 are source US sessions. Missing source days invalidate the window."
+        },
+        "gross_usd_L5_P": {
+          "ko": "gross_usd_L5_P",
+          "description": "Current-inclusive trailing250-source-session canonical midrank percentile; not probability of a market rise."
+        },
+        "gross_usd_L5_rank_n": {
+          "ko": "gross_usd_L5_rank_n",
+          "description": "Number of valid window observations in the trailing250-source-session rank; minimum120."
+        },
+        "gross_usd_L5_status": {
+          "ko": "gross_usd_L5_status",
+          "description": "ON=P>=80, OFF=valid P<80, UNKNOWN=published but invalid/missing; UNPUBLISHED=source flow unavailable; NO_NEW_SOURCE=entry without new mapped source. OUTSIDE_DD10 is price-context ineligibility."
+        },
+        "gross_usd_L5_on": {
+          "ko": "gross_usd_L5_on",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "net_usd_L1": {
+          "ko": "net_usd_L1",
+          "description": "USD window sum for gross/net; buy_share is sum(buy)/sum(buy+sell). L1/L5 are source US sessions. Missing source days invalidate the window."
+        },
+        "net_usd_L1_P": {
+          "ko": "net_usd_L1_P",
+          "description": "Current-inclusive trailing250-source-session canonical midrank percentile; not probability of a market rise."
+        },
+        "net_usd_L1_rank_n": {
+          "ko": "net_usd_L1_rank_n",
+          "description": "Number of valid window observations in the trailing250-source-session rank; minimum120."
+        },
+        "net_usd_L1_status": {
+          "ko": "net_usd_L1_status",
+          "description": "ON=P>=80, OFF=valid P<80, UNKNOWN=published but invalid/missing; UNPUBLISHED=source flow unavailable; NO_NEW_SOURCE=entry without new mapped source. OUTSIDE_DD10 is price-context ineligibility."
+        },
+        "net_usd_L1_on": {
+          "ko": "net_usd_L1_on",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "net_usd_L5": {
+          "ko": "net_usd_L5",
+          "description": "USD window sum for gross/net; buy_share is sum(buy)/sum(buy+sell). L1/L5 are source US sessions. Missing source days invalidate the window."
+        },
+        "net_usd_L5_P": {
+          "ko": "net_usd_L5_P",
+          "description": "Current-inclusive trailing250-source-session canonical midrank percentile; not probability of a market rise."
+        },
+        "net_usd_L5_rank_n": {
+          "ko": "net_usd_L5_rank_n",
+          "description": "Number of valid window observations in the trailing250-source-session rank; minimum120."
+        },
+        "net_usd_L5_status": {
+          "ko": "net_usd_L5_status",
+          "description": "ON=P>=80, OFF=valid P<80, UNKNOWN=published but invalid/missing; UNPUBLISHED=source flow unavailable; NO_NEW_SOURCE=entry without new mapped source. OUTSIDE_DD10 is price-context ineligibility."
+        },
+        "net_usd_L5_on": {
+          "ko": "net_usd_L5_on",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "buy_share_L1": {
+          "ko": "buy_share_L1",
+          "description": "USD window sum for gross/net; buy_share is sum(buy)/sum(buy+sell). L1/L5 are source US sessions. Missing source days invalidate the window."
+        },
+        "buy_share_L1_P": {
+          "ko": "buy_share_L1_P",
+          "description": "Current-inclusive trailing250-source-session canonical midrank percentile; not probability of a market rise."
+        },
+        "buy_share_L1_rank_n": {
+          "ko": "buy_share_L1_rank_n",
+          "description": "Number of valid window observations in the trailing250-source-session rank; minimum120."
+        },
+        "buy_share_L1_status": {
+          "ko": "buy_share_L1_status",
+          "description": "ON=P>=80, OFF=valid P<80, UNKNOWN=published but invalid/missing; UNPUBLISHED=source flow unavailable; NO_NEW_SOURCE=entry without new mapped source. OUTSIDE_DD10 is price-context ineligibility."
+        },
+        "buy_share_L1_on": {
+          "ko": "buy_share_L1_on",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "buy_share_L5": {
+          "ko": "buy_share_L5",
+          "description": "USD window sum for gross/net; buy_share is sum(buy)/sum(buy+sell). L1/L5 are source US sessions. Missing source days invalidate the window."
+        },
+        "buy_share_L5_P": {
+          "ko": "buy_share_L5_P",
+          "description": "Current-inclusive trailing250-source-session canonical midrank percentile; not probability of a market rise."
+        },
+        "buy_share_L5_rank_n": {
+          "ko": "buy_share_L5_rank_n",
+          "description": "Number of valid window observations in the trailing250-source-session rank; minimum120."
+        },
+        "buy_share_L5_status": {
+          "ko": "buy_share_L5_status",
+          "description": "ON=P>=80, OFF=valid P<80, UNKNOWN=published but invalid/missing; UNPUBLISHED=source flow unavailable; NO_NEW_SOURCE=entry without new mapped source. OUTSIDE_DD10 is price-context ineligibility."
+        },
+        "buy_share_L5_on": {
+          "ko": "buy_share_L5_on",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "raw_paths_d1_4": {
+          "ko": "raw_paths_d1_4",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "raw_source_url": {
+          "ko": "raw_source_url",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        }
+      }
+    },
+    "entry_daily.csv": {
+      "columns": {
+        "entry": {
+          "ko": "공개 후 관찰 시작일",
+          "description": "Every NYSE session; latest source is selected before checking validity."
+        },
+        "source_date": {
+          "ko": "원거래일",
+          "description": "US trade date represented by settlement money; not its publication date."
+        },
+        "known_settle_kst": {
+          "ko": "공개 연구 규약",
+          "description": "Next KSD businessday09:00KST after the last settlement unit date; historical actual release logs unavailable."
+        },
+        "previous_close": {
+          "ko": "previous_close",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "previous_dd60_pct": {
+          "ko": "공개 직전 고점 대비",
+          "description": "Entry context uses preceding session close; never source-day drawdown."
+        },
+        "state": {
+          "ko": "공개 직전 10% 하락 상태",
+          "description": "Previous entry-session close is at least10% below its trailing60-session close maximum."
+        },
+        "cens_SOXS": {
+          "ko": "cens_SOXS",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "part_SOXS": {
+          "ko": "part_SOXS",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "unit_id": {
+          "ko": "unit_id",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "R5_pct": {
+          "ko": "R5_pct",
+          "description": "Canonical entry-inclusive5/10/20-session SOXX close response; incomplete or missing-price windows remain NA."
+        },
+        "R5_end": {
+          "ko": "R5_end",
+          "description": "Canonical entry-inclusive5/10/20-session SOXX close response; incomplete or missing-price windows remain NA."
+        },
+        "R5_complete": {
+          "ko": "R5_complete",
+          "description": "Canonical entry-inclusive5/10/20-session SOXX close response; incomplete or missing-price windows remain NA."
+        },
+        "MAE5_pct": {
+          "ko": "MAE5_pct",
+          "description": "Close-based minimum/maximum excursion versus entry open, clipped to include0; not intraday execution risk. NA until full horizon completes."
+        },
+        "MFE5_pct": {
+          "ko": "MFE5_pct",
+          "description": "Close-based minimum/maximum excursion versus entry open, clipped to include0; not intraday execution risk. NA until full horizon completes."
+        },
+        "R10_pct": {
+          "ko": "R10_pct",
+          "description": "Canonical entry-inclusive5/10/20-session SOXX close response; incomplete or missing-price windows remain NA."
+        },
+        "R10_end": {
+          "ko": "R10_end",
+          "description": "Canonical entry-inclusive5/10/20-session SOXX close response; incomplete or missing-price windows remain NA."
+        },
+        "R10_complete": {
+          "ko": "R10_complete",
+          "description": "Canonical entry-inclusive5/10/20-session SOXX close response; incomplete or missing-price windows remain NA."
+        },
+        "MAE10_pct": {
+          "ko": "MAE10_pct",
+          "description": "Close-based minimum/maximum excursion versus entry open, clipped to include0; not intraday execution risk. NA until full horizon completes."
+        },
+        "MFE10_pct": {
+          "ko": "MFE10_pct",
+          "description": "Close-based minimum/maximum excursion versus entry open, clipped to include0; not intraday execution risk. NA until full horizon completes."
+        },
+        "R20_pct": {
+          "ko": "R20_pct",
+          "description": "Canonical entry-inclusive5/10/20-session SOXX close response; incomplete or missing-price windows remain NA."
+        },
+        "R20_end": {
+          "ko": "R20_end",
+          "description": "Canonical entry-inclusive5/10/20-session SOXX close response; incomplete or missing-price windows remain NA."
+        },
+        "R20_complete": {
+          "ko": "R20_complete",
+          "description": "Canonical entry-inclusive5/10/20-session SOXX close response; incomplete or missing-price windows remain NA."
+        },
+        "MAE20_pct": {
+          "ko": "MAE20_pct",
+          "description": "Close-based minimum/maximum excursion versus entry open, clipped to include0; not intraday execution risk. NA until full horizon completes."
+        },
+        "MFE20_pct": {
+          "ko": "MFE20_pct",
+          "description": "Close-based minimum/maximum excursion versus entry open, clipped to include0; not intraday execution risk. NA until full horizon completes."
+        },
+        "new_source_available": {
+          "ko": "new_source_available",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "price_session_complete": {
+          "ko": "price_session_complete",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "evaluated_entry": {
+          "ko": "evaluated_entry",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "pending_entry": {
+          "ko": "pending_entry",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "gross_usd_L1": {
+          "ko": "gross_usd_L1",
+          "description": "USD window sum for gross/net; buy_share is sum(buy)/sum(buy+sell). L1/L5 are source US sessions. Missing source days invalidate the window."
+        },
+        "gross_usd_L1_P": {
+          "ko": "gross_usd_L1_P",
+          "description": "Current-inclusive trailing250-source-session canonical midrank percentile; not probability of a market rise."
+        },
+        "gross_usd_L1_rank_n": {
+          "ko": "gross_usd_L1_rank_n",
+          "description": "Number of valid window observations in the trailing250-source-session rank; minimum120."
+        },
+        "gross_usd_L1_status": {
+          "ko": "gross_usd_L1_status",
+          "description": "ON=P>=80, OFF=valid P<80, UNKNOWN=published but invalid/missing; UNPUBLISHED=source flow unavailable; NO_NEW_SOURCE=entry without new mapped source. OUTSIDE_DD10 is price-context ineligibility."
+        },
+        "gross_usd_L1_on": {
+          "ko": "gross_usd_L1_on",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "gross_usd_L1_dd10_on": {
+          "ko": "gross_usd_L1_dd10_on",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "gross_usd_L1_dd10_eligible": {
+          "ko": "gross_usd_L1_dd10_eligible",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "gross_usd_L1_dd10_status": {
+          "ko": "gross_usd_L1_dd10_status",
+          "description": "ON=P>=80, OFF=valid P<80, UNKNOWN=published but invalid/missing; UNPUBLISHED=source flow unavailable; NO_NEW_SOURCE=entry without new mapped source. OUTSIDE_DD10 is price-context ineligibility."
+        },
+        "gross_usd_L1_event5": {
+          "ko": "gross_usd_L1_event5",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "gross_usd_L1_event10": {
+          "ko": "gross_usd_L1_event10",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "gross_usd_L1_event20": {
+          "ko": "gross_usd_L1_event20",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "gross_usd_L1_transition": {
+          "ko": "gross_usd_L1_transition",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "gross_usd_L1_status_run_sessions": {
+          "ko": "gross_usd_L1_status_run_sessions",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "gross_usd_L1_on_streak_sessions": {
+          "ko": "gross_usd_L1_on_streak_sessions",
+          "description": "Consecutive NYSE entry sessions with newly mapped valid ON. OFF/UNKNOWN/NO_NEW_SOURCE reset to0."
+        },
+        "gross_usd_L5": {
+          "ko": "gross_usd_L5",
+          "description": "USD window sum for gross/net; buy_share is sum(buy)/sum(buy+sell). L1/L5 are source US sessions. Missing source days invalidate the window."
+        },
+        "gross_usd_L5_P": {
+          "ko": "gross_usd_L5_P",
+          "description": "Current-inclusive trailing250-source-session canonical midrank percentile; not probability of a market rise."
+        },
+        "gross_usd_L5_rank_n": {
+          "ko": "gross_usd_L5_rank_n",
+          "description": "Number of valid window observations in the trailing250-source-session rank; minimum120."
+        },
+        "gross_usd_L5_status": {
+          "ko": "gross_usd_L5_status",
+          "description": "ON=P>=80, OFF=valid P<80, UNKNOWN=published but invalid/missing; UNPUBLISHED=source flow unavailable; NO_NEW_SOURCE=entry without new mapped source. OUTSIDE_DD10 is price-context ineligibility."
+        },
+        "gross_usd_L5_on": {
+          "ko": "gross_usd_L5_on",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "gross_usd_L5_dd10_on": {
+          "ko": "gross_usd_L5_dd10_on",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "gross_usd_L5_dd10_eligible": {
+          "ko": "gross_usd_L5_dd10_eligible",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "gross_usd_L5_dd10_status": {
+          "ko": "gross_usd_L5_dd10_status",
+          "description": "ON=P>=80, OFF=valid P<80, UNKNOWN=published but invalid/missing; UNPUBLISHED=source flow unavailable; NO_NEW_SOURCE=entry without new mapped source. OUTSIDE_DD10 is price-context ineligibility."
+        },
+        "gross_usd_L5_event5": {
+          "ko": "gross_usd_L5_event5",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "gross_usd_L5_event10": {
+          "ko": "gross_usd_L5_event10",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "gross_usd_L5_event20": {
+          "ko": "gross_usd_L5_event20",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "gross_usd_L5_transition": {
+          "ko": "gross_usd_L5_transition",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "gross_usd_L5_status_run_sessions": {
+          "ko": "gross_usd_L5_status_run_sessions",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "gross_usd_L5_on_streak_sessions": {
+          "ko": "gross_usd_L5_on_streak_sessions",
+          "description": "Consecutive NYSE entry sessions with newly mapped valid ON. OFF/UNKNOWN/NO_NEW_SOURCE reset to0."
+        },
+        "net_usd_L1": {
+          "ko": "net_usd_L1",
+          "description": "USD window sum for gross/net; buy_share is sum(buy)/sum(buy+sell). L1/L5 are source US sessions. Missing source days invalidate the window."
+        },
+        "net_usd_L1_P": {
+          "ko": "net_usd_L1_P",
+          "description": "Current-inclusive trailing250-source-session canonical midrank percentile; not probability of a market rise."
+        },
+        "net_usd_L1_rank_n": {
+          "ko": "net_usd_L1_rank_n",
+          "description": "Number of valid window observations in the trailing250-source-session rank; minimum120."
+        },
+        "net_usd_L1_status": {
+          "ko": "net_usd_L1_status",
+          "description": "ON=P>=80, OFF=valid P<80, UNKNOWN=published but invalid/missing; UNPUBLISHED=source flow unavailable; NO_NEW_SOURCE=entry without new mapped source. OUTSIDE_DD10 is price-context ineligibility."
+        },
+        "net_usd_L1_on": {
+          "ko": "net_usd_L1_on",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "net_usd_L1_dd10_on": {
+          "ko": "net_usd_L1_dd10_on",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "net_usd_L1_dd10_eligible": {
+          "ko": "net_usd_L1_dd10_eligible",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "net_usd_L1_dd10_status": {
+          "ko": "net_usd_L1_dd10_status",
+          "description": "ON=P>=80, OFF=valid P<80, UNKNOWN=published but invalid/missing; UNPUBLISHED=source flow unavailable; NO_NEW_SOURCE=entry without new mapped source. OUTSIDE_DD10 is price-context ineligibility."
+        },
+        "net_usd_L1_event5": {
+          "ko": "net_usd_L1_event5",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "net_usd_L1_event10": {
+          "ko": "net_usd_L1_event10",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "net_usd_L1_event20": {
+          "ko": "net_usd_L1_event20",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "net_usd_L1_transition": {
+          "ko": "net_usd_L1_transition",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "net_usd_L1_status_run_sessions": {
+          "ko": "net_usd_L1_status_run_sessions",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "net_usd_L1_on_streak_sessions": {
+          "ko": "net_usd_L1_on_streak_sessions",
+          "description": "Consecutive NYSE entry sessions with newly mapped valid ON. OFF/UNKNOWN/NO_NEW_SOURCE reset to0."
+        },
+        "net_usd_L5": {
+          "ko": "net_usd_L5",
+          "description": "USD window sum for gross/net; buy_share is sum(buy)/sum(buy+sell). L1/L5 are source US sessions. Missing source days invalidate the window."
+        },
+        "net_usd_L5_P": {
+          "ko": "net_usd_L5_P",
+          "description": "Current-inclusive trailing250-source-session canonical midrank percentile; not probability of a market rise."
+        },
+        "net_usd_L5_rank_n": {
+          "ko": "net_usd_L5_rank_n",
+          "description": "Number of valid window observations in the trailing250-source-session rank; minimum120."
+        },
+        "net_usd_L5_status": {
+          "ko": "net_usd_L5_status",
+          "description": "ON=P>=80, OFF=valid P<80, UNKNOWN=published but invalid/missing; UNPUBLISHED=source flow unavailable; NO_NEW_SOURCE=entry without new mapped source. OUTSIDE_DD10 is price-context ineligibility."
+        },
+        "net_usd_L5_on": {
+          "ko": "net_usd_L5_on",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "net_usd_L5_dd10_on": {
+          "ko": "net_usd_L5_dd10_on",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "net_usd_L5_dd10_eligible": {
+          "ko": "net_usd_L5_dd10_eligible",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "net_usd_L5_dd10_status": {
+          "ko": "net_usd_L5_dd10_status",
+          "description": "ON=P>=80, OFF=valid P<80, UNKNOWN=published but invalid/missing; UNPUBLISHED=source flow unavailable; NO_NEW_SOURCE=entry without new mapped source. OUTSIDE_DD10 is price-context ineligibility."
+        },
+        "net_usd_L5_event5": {
+          "ko": "net_usd_L5_event5",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "net_usd_L5_event10": {
+          "ko": "net_usd_L5_event10",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "net_usd_L5_event20": {
+          "ko": "net_usd_L5_event20",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "net_usd_L5_transition": {
+          "ko": "net_usd_L5_transition",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "net_usd_L5_status_run_sessions": {
+          "ko": "net_usd_L5_status_run_sessions",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "net_usd_L5_on_streak_sessions": {
+          "ko": "net_usd_L5_on_streak_sessions",
+          "description": "Consecutive NYSE entry sessions with newly mapped valid ON. OFF/UNKNOWN/NO_NEW_SOURCE reset to0."
+        },
+        "buy_share_L1": {
+          "ko": "buy_share_L1",
+          "description": "USD window sum for gross/net; buy_share is sum(buy)/sum(buy+sell). L1/L5 are source US sessions. Missing source days invalidate the window."
+        },
+        "buy_share_L1_P": {
+          "ko": "buy_share_L1_P",
+          "description": "Current-inclusive trailing250-source-session canonical midrank percentile; not probability of a market rise."
+        },
+        "buy_share_L1_rank_n": {
+          "ko": "buy_share_L1_rank_n",
+          "description": "Number of valid window observations in the trailing250-source-session rank; minimum120."
+        },
+        "buy_share_L1_status": {
+          "ko": "buy_share_L1_status",
+          "description": "ON=P>=80, OFF=valid P<80, UNKNOWN=published but invalid/missing; UNPUBLISHED=source flow unavailable; NO_NEW_SOURCE=entry without new mapped source. OUTSIDE_DD10 is price-context ineligibility."
+        },
+        "buy_share_L1_on": {
+          "ko": "buy_share_L1_on",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "buy_share_L1_dd10_on": {
+          "ko": "buy_share_L1_dd10_on",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "buy_share_L1_dd10_eligible": {
+          "ko": "buy_share_L1_dd10_eligible",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "buy_share_L1_dd10_status": {
+          "ko": "buy_share_L1_dd10_status",
+          "description": "ON=P>=80, OFF=valid P<80, UNKNOWN=published but invalid/missing; UNPUBLISHED=source flow unavailable; NO_NEW_SOURCE=entry without new mapped source. OUTSIDE_DD10 is price-context ineligibility."
+        },
+        "buy_share_L1_event5": {
+          "ko": "buy_share_L1_event5",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "buy_share_L1_event10": {
+          "ko": "buy_share_L1_event10",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "buy_share_L1_event20": {
+          "ko": "buy_share_L1_event20",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "buy_share_L1_transition": {
+          "ko": "buy_share_L1_transition",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "buy_share_L1_status_run_sessions": {
+          "ko": "buy_share_L1_status_run_sessions",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "buy_share_L1_on_streak_sessions": {
+          "ko": "buy_share_L1_on_streak_sessions",
+          "description": "Consecutive NYSE entry sessions with newly mapped valid ON. OFF/UNKNOWN/NO_NEW_SOURCE reset to0."
+        },
+        "buy_share_L5": {
+          "ko": "buy_share_L5",
+          "description": "USD window sum for gross/net; buy_share is sum(buy)/sum(buy+sell). L1/L5 are source US sessions. Missing source days invalidate the window."
+        },
+        "buy_share_L5_P": {
+          "ko": "buy_share_L5_P",
+          "description": "Current-inclusive trailing250-source-session canonical midrank percentile; not probability of a market rise."
+        },
+        "buy_share_L5_rank_n": {
+          "ko": "buy_share_L5_rank_n",
+          "description": "Number of valid window observations in the trailing250-source-session rank; minimum120."
+        },
+        "buy_share_L5_status": {
+          "ko": "buy_share_L5_status",
+          "description": "ON=P>=80, OFF=valid P<80, UNKNOWN=published but invalid/missing; UNPUBLISHED=source flow unavailable; NO_NEW_SOURCE=entry without new mapped source. OUTSIDE_DD10 is price-context ineligibility."
+        },
+        "buy_share_L5_on": {
+          "ko": "buy_share_L5_on",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "buy_share_L5_dd10_on": {
+          "ko": "buy_share_L5_dd10_on",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "buy_share_L5_dd10_eligible": {
+          "ko": "buy_share_L5_dd10_eligible",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "buy_share_L5_dd10_status": {
+          "ko": "buy_share_L5_dd10_status",
+          "description": "ON=P>=80, OFF=valid P<80, UNKNOWN=published but invalid/missing; UNPUBLISHED=source flow unavailable; NO_NEW_SOURCE=entry without new mapped source. OUTSIDE_DD10 is price-context ineligibility."
+        },
+        "buy_share_L5_event5": {
+          "ko": "buy_share_L5_event5",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "buy_share_L5_event10": {
+          "ko": "buy_share_L5_event10",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "buy_share_L5_event20": {
+          "ko": "buy_share_L5_event20",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "buy_share_L5_transition": {
+          "ko": "buy_share_L5_transition",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "buy_share_L5_status_run_sessions": {
+          "ko": "buy_share_L5_status_run_sessions",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "buy_share_L5_on_streak_sessions": {
+          "ko": "buy_share_L5_on_streak_sessions",
+          "description": "Consecutive NYSE entry sessions with newly mapped valid ON. OFF/UNKNOWN/NO_NEW_SOURCE reset to0."
+        }
+      }
+    },
+    "monthly.csv": {
+      "columns": {
+        "month": {
+          "ko": "month",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "key": {
+          "ko": "key",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "source_sessions": {
+          "ko": "원거래일 수",
+          "description": "Count by US source month; differs from entry month counts."
+        },
+        "entry_sessions": {
+          "ko": "공개 후 관찰일 수",
+          "description": "Count by US entry month, including days without newly mapped source."
+        },
+        "source_on": {
+          "ko": "source_on",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "source_off": {
+          "ko": "source_off",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "source_unknown": {
+          "ko": "source_unknown",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "source_unpublished": {
+          "ko": "source_unpublished",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "source_shadowed_on": {
+          "ko": "source_shadowed_on",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "entry_latest_on": {
+          "ko": "entry_latest_on",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "entry_latest_off": {
+          "ko": "entry_latest_off",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "entry_unknown": {
+          "ko": "entry_unknown",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "entry_no_new_source": {
+          "ko": "entry_no_new_source",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "dd10_on": {
+          "ko": "dd10_on",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        },
+        "entry_on_price_pending": {
+          "ko": "entry_on_price_pending",
+          "description": "Recorded daily audit field; see signal and status definitions."
+        }
+      }
+    }
+  },
+  "basis": "Six fixed definitions; P80 unchanged. 2023 is warmup only. No new signal or threshold search.",
+  "shadowing_note": "Published earlier source rows remain real available data. Shadowing describes only the research model choosing the latest source for one entry session."
+}

@@ -1,0 +1,180 @@
+{
+  "created_at_kst": "2026-11-06T08:57:02.371766+09:00",
+  "input": "market.prices.csv",
+  "output": "market.prices.normalized.csv",
+  "basis": "2026-11-05 post-3:1 split: every price from one newly downloaded whole-history response. Three internally unadjusted November rows corrected using the official split ratio; previous frozen history used only to audit basis, never spliced.",
+  "split_ratio": 3,
+  "effective_date": "2026-11-05",
+  "already_adjusted_overlap_rows": 6363,
+  "unadjusted_overlap_rows": 3,
+  "other_ratio_rows": 0,
+  "correction_dates": [
+    "2026-11-02",
+    "2026-11-03",
+    "2026-11-04"
+  ],
+  "correction": {
+    "open_close_low_high_adjclose": "divide by3 on three dates",
+    "volume": "multiply by3 on same three dates; volume not used in signal evaluation"
+  },
+  "overlap_vs_yesterday_div3_max_relative_error": 1.9681208396349348e-07,
+  "latest_complete_session": "2026-11-05",
+  "latest_close": 131.89999389648438,
+  "latest_dd60_pct": -32.87645746146812,
+  "latest_daily_return_pct": -12.146715554235076,
+  "latest5_return_pct": -22.99459362093772,
+  "latest10_return_pct": -16.815580111911466,
+  "recent": [
+    {
+      "date": "2026-10-27",
+      "open": 166.6133270263672,
+      "close": 170.35333251953125,
+      "low": 166.11666870117188,
+      "high": 171.05332946777344,
+      "volume": 26054400,
+      "adjclose": 170.35333251953125
+    },
+    {
+      "date": "2026-10-28",
+      "open": 171.90333557128906,
+      "close": 173.97999572753906,
+      "low": 170.55332946777344,
+      "high": 174.64332580566406,
+      "volume": 25176600,
+      "adjclose": 173.97999572753906
+    },
+    {
+      "date": "2026-10-29",
+      "open": 170.67666625976562,
+      "close": 171.2866668701172,
+      "low": 168.8633270263672,
+      "high": 172.913330078125,
+      "volume": 19446000,
+      "adjclose": 171.2866668701172
+    },
+    {
+      "date": "2026-10-30",
+      "open": 159.7933349609375,
+      "close": 157.1699981689453,
+      "low": 153.36666870117188,
+      "high": 161.1300048828125,
+      "volume": 56419200,
+      "adjclose": 157.1699981689453
+    },
+    {
+      "date": "2026-11-02",
+      "open": 158.85999552408853,
+      "close": 151.21666463216147,
+      "low": 150.70000203450522,
+      "high": 159.97333780924478,
+      "volume": 32415900,
+      "adjclose": 151.21666463216147
+    },
+    {
+      "date": "2026-11-03",
+      "open": 155.336669921875,
+      "close": 155.0,
+      "low": 153.94332885742188,
+      "high": 157.5433349609375,
+      "volume": 39884400,
+      "adjclose": 155.0
+    },
+    {
+      "date": "2026-11-04",
+      "open": 152.75999959309897,
+      "close": 150.13666788736978,
+      "low": 147.22666422526044,
+      "high": 156.40666707356772,
+      "volume": 52693200,
+      "adjclose": 150.13666788736978
+    },
+    {
+      "date": "2026-11-05",
+      "open": 143.0800018310547,
+      "close": 131.89999389648438,
+      "low": 130.75,
+      "high": 143.72549438476562,
+      "volume": 65770030,
+      "adjclose": 131.89999389648438
+    }
+  ],
+  "official_latest_page": {
+    "as_of": "2026-11-04",
+    "close_usd": 150.14,
+    "fetched_at": "2026-11-06T08:56:13.844245+09:00",
+    "limitation": "Official iShares page has not advanced to11/5; fresh11/5 close131.90 is Yahoo-provider-only at this check."
+  },
+  "sha256": {
+    "market.yahoo_daily.json": "17a5a8039af051439a5e5c1f6132464a17d6f67ef97b6fed6a2210e0074c8649",
+    "market.prices.csv": "5328de4a01ef627b7c6322b293fcbae3918d26d3edd493100bd4638b211b8389",
+    "market.prices.normalized.csv": "798735d7617416b8dadcb4ccd8a0659374979449888e638bfa3bd3d13c8dbca9",
+    "market.ishares.html": "14a9f7b699dc4e96a9f51183dcfd75322526e87045b7963ef68d863e123282af"
+  },
+  "split_sources": {
+    "official_notice": "https://www.sec.gov/Archives/edgar/data/1100663/000119312526430480/d156277d497.htm",
+    "issuer_product": "https://www.ishares.com/us/products/239705/ishares-phlx-semiconductor-etf",
+    "fresh_yahoo_events": {
+      "1709821800": {
+        "date": 1709821800,
+        "numerator": 3.0,
+        "denominator": 1.0,
+        "splitRatio": "3:1"
+      },
+      "1793889000": {
+        "date": 1793889000,
+        "numerator": 3.0,
+        "denominator": 1.0,
+        "splitRatio": "3:1"
+      }
+    }
+  },
+  "overlap_audit": {
+    "open": {
+      "near1": 3,
+      "near1third": 6363,
+      "other": 0,
+      "normalized_vs_prior_div3_max_relative_error": 1.6926038126641174e-07
+    },
+    "close": {
+      "near1": 3,
+      "near1third": 6363,
+      "other": 0,
+      "normalized_vs_prior_div3_max_relative_error": 1.9681208396349348e-07
+    },
+    "low": {
+      "near1": 3,
+      "near1third": 6363,
+      "other": 0,
+      "normalized_vs_prior_div3_max_relative_error": 1.8570983395527207e-07
+    },
+    "high": {
+      "near1": 3,
+      "near1third": 6363,
+      "other": 0,
+      "normalized_vs_prior_div3_max_relative_error": 1.9036905951619332e-07
+    }
+  },
+  "adjclose_note": "Provider adjusted-close history also changed dividend adjustments relative to yesterday; it is preserved for traceability but never used by source/entry ledger, source drawdown or current price position. All calculations use split-adjusted dividend-unadjusted Close and Open.",
+  "ledger_overlap_same_basis_invariance": {
+    "dd60_pct": {
+      "rows_compared": 714,
+      "max_absolute_difference_pct": 1.4114442870083455e-05
+    },
+    "SOXX_daily_return_pct": {
+      "rows_compared": 714,
+      "max_absolute_difference_pct": 1.5635856787543645e-05
+    },
+    "entry_previous_dd60_pct": {
+      "rows_compared": 712,
+      "max_absolute_difference_pct": 1.4114442870083455e-05
+    }
+  },
+  "artifact_sha256": {
+    "raw_snapshot.json": "2b9d3e27a1f854ad4e32ae4ad32086fbdf7f37c7556e0deeb8ded75c2c884ef9",
+    "summary.json": "e8679a527566aee12ca3f0c710c5262c5ee1f60010416ef2a2166a5f76908a81",
+    "qa.json": "5b6f09518d8dd2fabfc2b9191eb9c7d86f13930e75f5bd66d7c869fb1f7551a8",
+    "market.prices.normalized.csv": "798735d7617416b8dadcb4ccd8a0659374979449888e638bfa3bd3d13c8dbca9",
+    "ledger/source_daily.csv": "f05c50f409bba5465c701e60a1ea2e29d0039a06c3b5077862001c1b59fee34b",
+    "ledger/entry_daily.csv": "dabd4928cb9141ba5ed224468517308b55b313df3fa7beb68ecf9d4be5e3735a"
+  }
+}
