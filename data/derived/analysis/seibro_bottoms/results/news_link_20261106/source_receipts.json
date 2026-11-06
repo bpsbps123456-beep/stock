@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "purpose": "2026-11-06 SOXS 신호와 뉴스 매매 기록 비교용 출처 확인 영수증. 기사 전문과 운영 원장을 저장하거나 갱신하지 않음.",
+  "verification_method": "Ego browser의 공개 페이지 본문과 표시 시각 직접 확인",
+  "primary_bank_reports_read": false,
+  "articles": [
+    {
+      "title": "Tech selloff wipes out hedge fund gains, prompting risk cuts and layoffs",
+      "publisher": "Reuters",
+      "syndicator": "MarketScreener India",
+      "authors": ["Summer Zhen", "Anirban Sen"],
+      "url": "https://in.marketscreener.com/news/tech-selloff-wipes-out-hedge-fund-gains-prompting-risk-cuts-and-layoffs-ce785fddde8aff27",
+      "published_display": "11/06/2026 12:24 pm IST",
+      "published_at": "2026-11-06T06:54:00Z",
+      "modified_display": "11/06/2026 12:33 pm IST",
+      "modified_at": "2026-11-06T07:03:00Z",
+      "checked_at": "2026-11-06T14:09:15.856Z",
+      "verification_level": "public_syndicated_article_body_key_passages_verified",
+      "access": "공개 본문 직접 확인. 쿠키 안내는 있었으나 유료 장벽 우회 없음.",
+      "event_window": "주로 2026-11-05 미국장. 일부 수치는 10월 또는 최근 몇 주.",
+      "family": "D",
+      "stance": "pressure",
+      "own_summary_ko": "기술주 롱숏 펀드 손실과 위험 축소가 이어졌다는 보도다. Goldman 추정으로 해당 펀드는 목요일 4% 넘게 하락했다. Walleye는 주식 롱숏 사업과 팀을 축소한다고 투자자 편지에 밝혔다. Goldman의 John Flood는 수요일 반등 때 산 하이퍼스케일러 포지션을 목요일 되팔았다고 설명했다.",
+      "measurement_notes": [
+        "4% 초과 하락은 기술주 롱숏 전략 수익률이며 순매도액이나 남은 보유 잔고가 아니다.",
+        "Goldman·JPM 추정과 여러 운용사 사례이며 전체 투자자 또는 SOXX/SOXL 전용 표본이 아니다.",
+        "Walleye 투자자 편지와 은행 원문 노트는 직접 읽지 않았고 Reuters의 인용을 확인했다."
+      ],
+      "counterevidence": "수요일 실제 추격 매수가 있었다는 반대 단서가 있으나, 보도는 그 포지션이 목요일 되팔렸다고 설명한다. 지속적인 매수 복귀 R의 확인으로 쓰기 어렵다.",
+      "inference_limit": "매도 지속의 근거이며 바닥 확률, 매도 소진율, 남은 재고를 산출할 수 없다.",
+      "source_group": "Reuters-HF-riskcuts-20261106"
+    },
+    {
+      "title": "Fast-Money Systematic Funds Stoked $2.3 Trillion Tech-Stock Rout",
+      "publisher": "Bloomberg",
+      "syndicator": "Yahoo Finance UK",
+      "authors": ["Natalia Kniazhevich"],
+      "url": "https://uk.finance.yahoo.com/news/fast-money-systematic-funds-stoked-103031992.html",
+      "published_display": "Fri, 6 November 2026 at 7:30 pm GMT+9",
+      "published_at": "2026-11-06T10:30:00Z",
+      "published_precision": "minute; URL의 숫자로 초를 추정하지 않음",
+      "checked_at": "2026-11-06T14:09:51.190Z",
+      "verification_level": "public_syndicated_article_partial_body_verified",
+      "access": "공개 전반 본문 확인. Story continues 이후는 알림 권한 팝업으로 Ego가 사용자 제어로 전환되어 미확인. 우회 없음.",
+      "event_window": "2026-11-05 미국장 및 그 이후 며칠의 모델 전망",
+      "family": "D",
+      "stance": "pressure",
+      "own_summary_ko": "기술적 가격선 이탈로 시스템 펀드가 매도를 증폭했다는 보도다. JPM 자료로 S&P500 선물의 현물장 첫 90분 순매도가 약 110억 달러였다. 변동성 타깃 포트폴리오의 향후 며칠 매각 필요액은 약 500억 달러로 추정했다. Barclays 모델은 주식 노출 약 30%포인트 축소를 제시했다.",
+      "measurement_notes": [
+        "110억 달러는 S&P500 선물의 특정 90분 순매도 추정이며 반도체 ETF 매도액이나 남은 잔고가 아니다.",
+        "500억 달러는 향후 매각 필요액의 모델 전망이며 이미 실행된 매도액이 아니다.",
+        "30%포인트는 Barclays 모델의 주식 노출 조정 폭이며 달러 흐름이 아니다.",
+        "CTA가 미국 주식 순매도로 돌아섰다는 설명은 JPM의 가능성 높은 추정이며 전수 보유 잔고 직접 관측으로 취급하지 않는다.",
+        "은행 원문 노트는 직접 읽지 않았다. Reuters와 은행 표본 및 동일 급락 사건이 겹칠 수 있어 독립 신호로 곱하지 않는다."
+      ],
+      "counterevidence": "검색에서 알려진 저가 매수 유입의 매도 상쇄 가능성은 후반 본문을 직접 확인하지 못했다. 기사에 반대 근거가 없다고 판단하지 않는다.",
+      "inference_limit": "확인된 전반은 D 위험 축소 근거다. 추가 매도 전망과 숏 포지션 가능성만으로 실제 매수 복귀·숏커버 R을 확인할 수 없다.",
+      "source_group": "Bloomberg-systematic-JPM-Barclays-20261106"
+    }
+  ],
+  "browser_cleanup": {
+    "task_space_id": 23,
+    "name": "news-link-20261106-2310",
+    "status": "handed_off_to_user_due_to_notification_permission_prompt",
+    "reason_not_finished": "Ego가 사용자 확인 후 takeOverTaskSpace로만 재개하라고 지시. 확인 없이 페이지 조작이나 finish를 호출하지 않음."
+  }
+}

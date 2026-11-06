@@ -1,0 +1,54 @@
+{
+  "source": "https://seibro.or.kr/websquare/control.jsp?w2xPath=/IPORTAL/user/ovsSec/BIP_CNTS10013V.xml&menuNo=921",
+  "endpoint": "https://seibro.or.kr/websquare/engine/proworks/callServletService.jsp",
+  "purpose": "Latest11/6four-list check only; original snapshots, ledgers and canonical raw are unchanged.",
+  "timezone": "Asia/Seoul",
+  "requests": [
+    {
+      "kind": "daily",
+      "dtype": "1",
+      "start": "2026-11-06",
+      "end": "2026-11-06",
+      "request_started_at": "2026-11-06T23:10:27+09:00",
+      "fetched_at": "2026-11-06T23:10:27+09:00",
+      "n": 0,
+      "rows": []
+    },
+    {
+      "kind": "daily",
+      "dtype": "2",
+      "start": "2026-11-06",
+      "end": "2026-11-06",
+      "request_started_at": "2026-11-06T23:10:27+09:00",
+      "fetched_at": "2026-11-06T23:10:28+09:00",
+      "n": 0,
+      "rows": []
+    },
+    {
+      "kind": "daily",
+      "dtype": "3",
+      "start": "2026-11-06",
+      "end": "2026-11-06",
+      "request_started_at": "2026-11-06T23:10:28+09:00",
+      "fetched_at": "2026-11-06T23:10:29+09:00",
+      "n": 0,
+      "rows": []
+    },
+    {
+      "kind": "daily",
+      "dtype": "4",
+      "start": "2026-11-06",
+      "end": "2026-11-06",
+      "request_started_at": "2026-11-06T23:10:29+09:00",
+      "fetched_at": "2026-11-06T23:10:30+09:00",
+      "n": 0,
+      "rows": []
+    }
+  ],
+  "all_four_empty": true,
+  "all_four_complete_nonempty": false,
+  "interpretation": "11/6 settlement tables remain unpublished, never zero flow. Latest prior published US source11/3 and its existing P1/P5 remain unchanged.",
+  "unchanged_prior_source_date": "2026-11-03",
+  "unchanged_prior_gross1_P": 13.157894736842104,
+  "unchanged_prior_gross5_P": 70.47413793103448
+}
