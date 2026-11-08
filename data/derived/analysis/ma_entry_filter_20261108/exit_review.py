@@ -22,18 +22,16 @@ def below_ma(close, average):
     return bool(np.isfinite(close) and np.isfinite(average) and close < average)
 
 
-def run_variant(book, signals, kind, length, averages=None):
-    average = (M.moving_average(signals, kind, length).reindex(book.cls.index)
-               if averages is None else averages)
+def make_exit_callback(book, averages, name, exits, unknown):
+    """Shared prior-close predicate for both the seven-stock and cross-stock studies."""
     closes = {key: book.cls[tk].to_numpy(float) for key, tk in book.ticker.items()}
-    means = {key: average[tk].to_numpy(float) for key, tk in book.ticker.items()}
-    entries, exits, unknown = [], [], []
+    means = {key: averages[tk].to_numpy(float) for key, tk in book.ticker.items()}
 
     def at_open(b, k, day, weights):
         requested = []
         for key, weight in weights.items():
             c, a = closes[key][k-1], means[key][k-1]
-            event = {'name': f'{kind}{length}', 'session': day, 'signal_date': b.days[k-1],
+            event = {'name': name, 'session': day, 'signal_date': b.days[k-1],
                      'key': key, 'ticker': b.ticker[key], 'close': float(c),
                      'ma': float(a) if np.isfinite(a) else None, 'weight': weight}
             if not (np.isfinite(c) and np.isfinite(a)):
@@ -42,6 +40,14 @@ def run_variant(book, signals, kind, length, averages=None):
                 requested.append(key)
                 exits.append({**event, 'open': S._price_at(b, key, k)})
         return requested
+    return at_open
+
+
+def run_variant(book, signals, kind, length, averages=None):
+    average = (M.moving_average(signals, kind, length).reindex(book.cls.index)
+               if averages is None else averages)
+    entries, exits, unknown = [], [], []
+    at_open = make_exit_callback(book, average, f'{kind}{length}', exits, unknown)
 
     with M.entry_gate(book, kind, length, entries, averages=average):
         path = S.run_model(book, exit_at_open=at_open)
