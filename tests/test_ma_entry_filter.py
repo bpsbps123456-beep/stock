@@ -15,6 +15,15 @@ SPEC = importlib.util.spec_from_file_location(
 M = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(M)
 
+GRID_SPEC = importlib.util.spec_from_file_location(
+    'ma_length_grid', ROOT / 'data/derived/analysis/ma_entry_filter_20261108/grid_review.py')
+G = importlib.util.module_from_spec(GRID_SPEC)
+GRID_SPEC.loader.exec_module(G)
+WARM_SPEC = importlib.util.spec_from_file_location(
+    'ma_warmup', ROOT / 'data/derived/analysis/ma_entry_filter_20261108/fetch_warmup.py')
+W = importlib.util.module_from_spec(WARM_SPEC)
+WARM_SPEC.loader.exec_module(W)
+
 
 class EntryFilterTests(unittest.TestCase):
     def test_sma_and_ema_full_history_and_manual_seed(self):
@@ -64,6 +73,57 @@ class EntryFilterTests(unittest.TestCase):
                     self.assertEqual(events[0]['ma'], 8.)
                     raise RuntimeError('research failure')
         self.assertIs(M.S.weekly_target, original)
+
+    def test_external_warmup_is_used_without_changing_trade_prices(self):
+        book = SimpleNamespace(cls=pd.DataFrame({'NEW': [10., 100.]}),
+                               ticker={'new': 'NEW'}, days=['2026-01-08', '2026-01-09'])
+        original_close = book.cls.copy()
+        averages = pd.DataFrame({'NEW': [8., 999.]})
+        decision = {'ranked': ['new'], 'selected': ['new'], 'target': {'new': .25}}
+        events = []
+        with patch.object(M.S, 'weekly_target', return_value=decision):
+            with M.entry_gate(book, 'SMA', 200, events, averages=averages):
+                result = M.S.weekly_target(book, 1, book.days[1], set())
+        self.assertEqual(result['target'], {'new': .25})
+        self.assertEqual(events[0]['close'], 10.)
+        self.assertEqual(events[0]['ma'], 8.)
+        pd.testing.assert_frame_equal(book.cls, original_close)
+
+
+class LengthGridTests(unittest.TestCase):
+    def test_full_request_endpoints_and_one_day_identity(self):
+        import json
+        protocol = json.loads((G.OUT/'protocol.json').read_text(encoding='utf-8'))
+        grid = G.candidate_grid(protocol)
+        self.assertEqual(len(set(grid)), 400)
+        for kind in ['SMA', 'EMA']:
+            self.assertEqual([n for k, n in grid if k == kind], list(range(1, 201)))
+            price = pd.Series([10., 8., np.nan, 12., 14.])
+            average = M.moving_average(price, kind, 1)
+            np.testing.assert_array_equal(average[price.notna()], price.dropna())
+            self.assertTrue(all(M.eligible(c, a) for c, a in zip(price, average) if np.isfinite(c)))
+
+    def test_front_only_selection_and_deterministic_ties(self):
+        rows = [{'name': 'baseline', 'kind': 'BASE', 'length': 0, 'front_return_pct': 1000., 'back_return_pct': 0.},
+                {'name': 'EMA51', 'kind': 'EMA', 'length': 51, 'front_return_pct': 10.+1e-10, 'back_return_pct': 999.},
+                {'name': 'SMA19', 'kind': 'SMA', 'length': 19, 'front_return_pct': 10., 'back_return_pct': 100.},
+                {'name': 'SMA18', 'kind': 'SMA', 'length': 18, 'front_return_pct': 10., 'back_return_pct': -999.}]
+        self.assertEqual(G.select_front(rows), 'SMA18')
+        self.assertEqual(G.select_front(rows, 'EMA'), 'EMA51')
+        changed = copy.deepcopy(rows)
+        for i, row in enumerate(changed):
+            row['back_return_pct'] = 1e90 * (-1)**i
+            row['back_mdd_pct'] = -1e90 * i
+        self.assertEqual(G.select_front(changed), 'SMA18')
+
+    def test_split_unit_alignment_requires_constant_overlap(self):
+        old = pd.Series([10., 20., 30., 40.])
+        aligned = W.align_overlap(old, old/2)
+        self.assertTrue(aligned['accepted'])
+        self.assertEqual(aligned['factor_old_per_new'], 2.)
+        self.assertEqual(aligned['max_relative_residual'], 0.)
+        self.assertFalse(W.align_overlap(old, pd.Series([5., 10., 15., 18.]))['accepted'])
+        self.assertFalse(W.align_overlap(old.iloc[:2], old.iloc[:2])['accepted'])
 
 
 class EntryFilterEngineTests(unittest.TestCase):

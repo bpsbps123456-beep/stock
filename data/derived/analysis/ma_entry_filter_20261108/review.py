@@ -43,9 +43,10 @@ def apply_gate(decision, current, values):
 
 
 @contextmanager
-def entry_gate(book, kind, length, events):
+def entry_gate(book, kind, length, events, averages=None):
     original = S.weekly_target
-    averages = moving_average(book.cls, kind, length)
+    if averages is None:
+        averages = moving_average(book.cls, kind, length)
     def weekly(b, k, session, current):
         decision = original(b,k,session,current)
         if not decision['ranked']:
