@@ -1,0 +1,17 @@
+{
+  "checked_date_kst": "2026-11-08",
+  "pine_version": 6,
+  "browser": "ego-browser, task space 6, agent-created TradingView chart tab",
+  "url": "https://www.tradingview.com/chart/",
+  "actions": ["Opened Pine Editor", "Pasted the actual local ma_entry_gate.pine file", "Clicked Add to chart"],
+  "result": "login_required",
+  "compiler_passed": null,
+  "chart_render_passed": null,
+  "daily_intraday_realtime_parity_verified": false,
+  "message": "TradingView requested login before adding the indicator. No authentication was attempted. Pine compilation and actual chart output remain unverified. The browser task was closed after recording this limitation.",
+  "python_validation": "py -m unittest: 425 tests passed on 2026-11-08; includes 5 entry-filter tests. This is not Pine compilation.",
+  "design_reference": [
+    "https://www.tradingview.com/pine-script-docs/concepts/other-timeframes-and-data/",
+    "https://www.tradingview.com/pine-script-docs/concepts/alerts/"
+  ]
+}
