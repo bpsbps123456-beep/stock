@@ -1,0 +1,73 @@
+{
+  "status": "passed",
+  "eligible_stock_count": 138,
+  "excluded": [
+    "CBRS",
+    "XE"
+  ],
+  "independent_raw_cash_quantity_paths": 2070,
+  "settings_per_stock": 15,
+  "scalar_sma_lengths_checked": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    132
+  ],
+  "scalar_sma_signal_cells": 378534,
+  "daily_primary_stock_curves_checked": 414,
+  "max_daily_stock_curve_error": 8.43769498715119e-15,
+  "all_signal_rows_checked": 4101,
+  "max_signal_value_error": 2.2737367544323206e-13,
+  "per_stock_period_rows_checked": 6210,
+  "aggregate_period_rows_checked": 360,
+  "sector_rows_checked": 708,
+  "leave_one_sector_out_rows_checked": 708,
+  "basket_curves_checked": 120,
+  "max_basket_curve_error": 1.7763568394002505e-15,
+  "numeric_metric_cells_checked": 82618,
+  "max_numeric_metric_error": 1.2505552149377763e-12,
+  "contribution_rows_checked": 603,
+  "max_contribution_error": 1.8207657603852567e-14,
+  "original_seven_stock_refactor_curve_errors": {
+    "baseline": 5.684341886080802e-14,
+    "SMA126": 5.684341886080802e-14,
+    "EMA65": 5.684341886080802e-14,
+    "SMA2": 2.842170943040401e-14
+  },
+  "group_counts": {
+    "jan2_all": 63,
+    "jan2_external": 47,
+    "jan2_overlap": 16,
+    "ai_all": 113,
+    "ai_external": 88,
+    "broad_all": 138,
+    "broad_external": 108,
+    "broad_overlap": 30
+  },
+  "front_back_carry_verified": true,
+  "equal_initial_capital_basket_verified": true,
+  "actual_open_nav_weighted_exposure_verified": true,
+  "fx_and_cash_currency_verified": true,
+  "five_and_ten_bp_weight_drag_verified": true,
+  "source_and_protocol_hashes_verified": true,
+  "matched_exposure_group_period_rows_checked": 24,
+  "limitations": [
+    "This is transport to new securities using already observed2026 prices, not a new untouched time holdout. CurrentAI membership, historical reconstruction, full-period data availability and within-year discovery exclusion remain retrospective conditions.",
+    "Stocks and the eight overlapping cohorts share market exposures; their improvement counts are descriptive and cannot be treated as138 independent trials.",
+    "The experiment gives each stock a separate initial dollar, removes seven-stock selection/caps and allows only weekly reentry; it does not estimate the original portfolio or immediate daily reentry.",
+    "Back-period baskets inherit all May-end stock NAV differences. Paired per-stock medians use equal stock weights and therefore differ from a basket return difference.",
+    "Contribution CSV values are USD full-period terminal-wealth percentage points per equal initial dollar. KRW terminal differences require multiplying by the shared final FX factor; these are not back-period timing contributions.",
+    "Five/ten-bp scenarios multiply sleeve wealth by traded-weight drag, including the initial trade; they are sensitivity approximations, not measured fills, FX conversion costs or tax/dividend simulations.",
+    "No significance test or after-the-fact selection of a better neighboring length is established by this arithmetic audit."
+  ],
+  "elapsed_seconds": 12.315892099984922
+}

@@ -1,0 +1,23 @@
+{
+  "verified_kst": "2026-11-09",
+  "unittest": {"command": "py -m unittest", "exit_code": 0, "tests": 447, "result": "OK"},
+  "independent_audit": {
+    "command": "py data/derived/analysis/ma_entry_filter_20261108/audit_cross_stock.py",
+    "result": "passed",
+    "cash_quantity_replays": 2070,
+    "note": "Independent raw cash/share simulation covers all138stocks×15settings, all stored metrics and diagnostics. See audit.json for exact errors and counts."
+  },
+  "operating_regression": {
+    "paths": ["baseline", "SMA126", "EMA65", "SMA2"],
+    "result": "same original seven-stock curves after extracting the shared exit callback",
+    "default_operating_engine_changed": false
+  },
+  "input_and_scope": {
+    "requested_stocks": 140,
+    "eligible_stocks": 138,
+    "excluded": ["CBRS", "XE"],
+    "evaluation": ["2026-01-05", "2026-11-04"],
+    "warmup": "2025 signal input only, no2025performance evaluation",
+    "live_desk_cache_changed": false
+  }
+}
