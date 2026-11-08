@@ -174,7 +174,7 @@ def write_report(result, rows):
     (OUT/'report.md').write_text('\n'.join(lines)+'\n', encoding='utf-8')
 
 
-def plot_grid(rows, selected):
+def plot_grid(rows, selected, title='New entries only | 400 settings | KRW, before spreads/tax'):
     import matplotlib
     matplotlib.use('Agg')
     import matplotlib.pyplot as plt
@@ -184,7 +184,7 @@ def plot_grid(rows, selected):
     panels = [('front_return_pct', 'Jan-May 2026: selection return (%)'),
               ('back_return_pct', 'Jun-Nov 4 2026: confirmation return (%)'),
               ('back_mdd_pct', 'Jun-Nov 4 2026: maximum drawdown (%)')]
-    for ax, (field, title) in zip(axes, panels):
+    for ax, (field, panel_title) in zip(axes, panels):
         for kind, color in [('SMA', '#167d9a'), ('EMA', '#bd6930')]:
             part = frame.loc[frame.kind == kind]
             ax.plot(part.length, part[field], label=kind, color=color, linewidth=1.5)
@@ -192,11 +192,11 @@ def plot_grid(rows, selected):
         chosen = frame.loc[frame.name == selected].iloc[0]
         ax.scatter([chosen.length], [chosen[field]], color='black', marker='*', s=110,
                    zorder=4, label='Selected using Jan-May only')
-        ax.set_title(title, loc='left', fontsize=11)
+        ax.set_title(panel_title, loc='left', fontsize=11)
         ax.grid(alpha=.18)
     axes[0].legend(loc='best', fontsize=9)
     axes[-1].set(xlabel='Moving-average length (sessions)', xlim=(1, 200))
-    fig.suptitle('New entries only | 400 settings | KRW, before spreads/tax', fontsize=14)
+    fig.suptitle(title, fontsize=14)
     fig.tight_layout()
     fig.savefig(OUT/'length_comparison.png', dpi=150)
     plt.close(fig)

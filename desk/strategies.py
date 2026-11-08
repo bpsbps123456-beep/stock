@@ -17,6 +17,7 @@ Capped-out weight is re-spread over the chosen names; what still does not fit st
 from __future__ import annotations
 
 from bisect import bisect_left
+from collections.abc import Callable, Iterable
 from dataclasses import dataclass, field
 from datetime import date
 
@@ -246,7 +247,7 @@ class Path:
     weights: list[dict]            # key -> weight after that open's trades
     events: list[dict]             # entries and exits
     rebalances: dict               # day -> target after that week's rebalance
-    selected: set                  # names chosen at the last rebalance (the buffer state)
+    selected: set                  # weekly buffer state, less any explicit open exits
     last: dict                     # the last rebalance decision
 
 
@@ -276,7 +277,16 @@ def _price_at(book: Book, key: str, k: int, frame="opn") -> float | None:
     return float(px[k])
 
 
-def run_model(book: Book, start: str = config.MODEL_START) -> Path:
+def run_model(book: Book, start: str = config.MODEL_START, *,
+              exit_at_open: Callable[[Book, int, str, dict[str, float]], Iterable[str]] | None = None) -> Path:
+    """Replay the weekly model; optional research exits execute after overnight drift.
+
+    The callback must use information known before this open. Exits raise cash without
+    rescaling other positions. They clear the corresponding buffer names, not the last
+    weekly decision, so reentry still waits for the regular weekly schedule. Operational
+    callers leave the callback unset. A requested exit without an executable open fails
+    explicitly rather than inventing a fill.
+    """
     days = [d for d in book.days if d >= start]
     k0 = book.days.index(days[0])
     value, close, weights, events, rebalances = [1.0], [], [], [], {}
@@ -288,6 +298,18 @@ def run_model(book: Book, start: str = config.MODEL_START) -> Path:
         if k > k0:
             w, gross = _drift(w, _open_returns(book, w, k))
             value.append(value[-1] * (1 + gross))
+        if exit_at_open is not None:
+            exits = set(exit_at_open(book, k, day, dict(w)))
+            if exits - set(w):
+                raise ValueError(f"Open exit requested for unheld keys: {sorted(exits - set(w))}")
+            prices = {key: _price_at(book, key, k) for key in exits}
+            if any(price is None or price <= 0 for price in prices.values()):
+                raise ValueError(f"Open exit has no executable price on {day}: {prices}")
+            for key in sorted(exits):
+                events.append({"date": day, "key": key, "side": "sell",
+                               "price": prices[key], "reason": "exit_rule"})
+                del w[key]
+                selected.discard(key)
         if not last or iso_week(day) != iso_week(book.days[k - 1]):
             decision = weekly_target(book, k, day, selected)
             if decision["ranked"]:

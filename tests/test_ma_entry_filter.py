@@ -23,6 +23,10 @@ WARM_SPEC = importlib.util.spec_from_file_location(
     'ma_warmup', ROOT / 'data/derived/analysis/ma_entry_filter_20261108/fetch_warmup.py')
 W = importlib.util.module_from_spec(WARM_SPEC)
 WARM_SPEC.loader.exec_module(W)
+EXIT_SPEC = importlib.util.spec_from_file_location(
+    'ma_daily_exits', ROOT / 'data/derived/analysis/ma_entry_filter_20261108/exit_review.py')
+E = importlib.util.module_from_spec(EXIT_SPEC)
+EXIT_SPEC.loader.exec_module(E)
 
 
 class EntryFilterTests(unittest.TestCase):
@@ -159,6 +163,46 @@ class EntryFilterEngineTests(unittest.TestCase):
         prior_targets = lambda path: {d: w for d, w in path.rebalances.items() if d <= cutoff}
         self.assertEqual(prior_targets(original_path), prior_targets(changed_path))
         self.assertEqual(M.validate(self.book, original_path, original_events), 'passed')
+
+
+class DailyExitSignalTests(unittest.TestCase):
+    def test_previous_close_strict_threshold_and_unknown_is_not_a_sale(self):
+        days = ['2025-12-31', '2026-01-02', '2026-01-05', '2026-01-06', '2026-01-07']
+        closes = pd.DataFrame({'AAA': [100., 100., 80., 1000., 1000.]}, index=days)
+        book = SimpleNamespace(days=days, cls=closes,
+                               opn=pd.DataFrame({'AAA': [100.]*5}, index=days), ticker={'a': 'AAA'})
+        target = {'ranked': ['a'], 'selected': ['a'], 'target': {'a': .25}}
+        averages = pd.DataFrame({'AAA': [100., 100., 90., 1000., 1000.]}, index=days)
+        with patch.object(E.S, 'weekly_target', return_value=target):
+            path, entries, exits, unknown = E.run_variant(book, closes, 'SMA', 2, averages)
+        self.assertEqual([(e['session'], e['signal_date'], e['close'], e['ma']) for e in exits],
+                         [('2026-01-06', '2026-01-05', 80., 90.)])
+        self.assertEqual(unknown, [])
+        self.assertIn('a', path.weights[1])  # equality on the signal day is allowed
+        self.assertNotIn('a', path.weights[2])  # Tuesday's 1000 close cannot prevent sale
+        averages.loc['2026-01-05', 'AAA'] = np.nan
+        with patch.object(E.S, 'weekly_target', return_value=target):
+            kept, entries, exits, unknown = E.run_variant(book, closes, 'SMA', 2, averages)
+        self.assertEqual(exits, [])
+        self.assertEqual([e['session'] for e in unknown], ['2026-01-06'])
+        self.assertIn('a', kept.weights[2])
+
+    def test_future_closes_cannot_change_exits_or_targets_through_that_open(self):
+        book = M.R.load_book(M.BASE/'inputs', M.END)
+        signals = G.signal_history(book)
+        changed = copy.copy(book)
+        changed.cls = book.cls.copy()
+        cutoff = '2026-07-01'
+        changed.cls.loc[changed.cls.index >= cutoff] *= .1
+        changed_signals = signals.copy()
+        changed_signals.loc[changed_signals.index >= cutoff] *= .1
+        original, entries, exits, _ = E.run_variant(book, signals, 'EMA', 18)
+        altered, e2, x2, _ = E.run_variant(changed, changed_signals, 'EMA', 18)
+        past = lambda events: [e for e in events if e['session'] <= cutoff]
+        self.assertEqual(past(entries), past(e2))
+        self.assertEqual(past(exits), past(x2))
+        targets = lambda path: {d: w for d, w in path.rebalances.items() if d <= cutoff}
+        self.assertEqual(targets(original), targets(altered))
 
 
 if __name__ == '__main__':
