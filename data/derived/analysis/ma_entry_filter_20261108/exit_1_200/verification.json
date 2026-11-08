@@ -1,0 +1,14 @@
+{
+  "verified_kst": "2026-11-09",
+  "commands": [
+    {"command": "py -m unittest", "exit_code": 0, "tests": 437, "result": "OK"},
+    {"command": "py -m desk validate", "exit_code": 0,
+     "codex_timing_rebalances_match": "39/39",
+     "reference_return_2026_01_02_to_09_23_pct": 216.4,
+     "pause_rule_mdd_pct": -30.3,
+     "pause_rule_worst_20_session_gap_pp": -8.1,
+     "result": "passed; default operational path unchanged"}
+  ],
+  "research_end_us": "2026-11-04",
+  "note": "desk validate uses the existing operating price cache through 2026-11-06 for its live-rule report. The research does not use those later prices; all400 candidates use the previous frozen inputs through2026-11-04. Independent numeric audit is recorded separately in audit.json."
+}

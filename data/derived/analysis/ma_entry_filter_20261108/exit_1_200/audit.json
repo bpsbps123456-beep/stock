@@ -1,0 +1,286 @@
+{
+  "status": "passed",
+  "grid_candidates": 400,
+  "stored_curve_count": 401,
+  "metric_cells_checked": 3208,
+  "monthly_metric_cells_checked": 8822,
+  "cost_return_cells_checked": 3208,
+  "max_metric_error": 8.526512829121202e-14,
+  "max_monthly_error": 4.973799150320701e-14,
+  "max_cost_error": 1.1368683772161603e-13,
+  "all_exit_rows_independent_ma_checked": 12792,
+  "all_entry_rows_independent_ma_checked": 30919,
+  "max_ledger_ma_error": 4.547473508864641e-13,
+  "entry_reason_counts": {
+    "allowed": 18359,
+    "below_ma": 12560
+  },
+  "unknown_held_signals_checked": 0,
+  "all_stored_turnover_rows_algebra_checked": 85012,
+  "source_sha_and_previous_warmup_unit_audit_verified": true,
+  "one_day_noop_and_frozen_baseline_verified": true,
+  "front_selection_verified": "EMA65",
+  "front_selection_unchanged_after_back_score_mutation": true,
+  "same_length_entry_only_deltas_verified": true,
+  "summary_counts_verified": {
+    "candidates": 400,
+    "back_return_better": 108,
+    "back_mdd_better": 83,
+    "back_return_and_mdd_better": 75,
+    "front_and_back_return_better": 4,
+    "back_both_better_than_entry_same_n": 78
+  },
+  "manual_replays": {
+    "baseline": {
+      "full_curve_max_error": 5.684341886080802e-14,
+      "entry_values_max_error": 0.0,
+      "exit_values_max_error": 0.0,
+      "unknown_values_max_error": 0.0,
+      "turnover_max_error": 4.440892098500626e-16,
+      "ma_exits": 0,
+      "new_entries": 27,
+      "full_exits": 20,
+      "weekly_target_caps_verified": true,
+      "weekly_only_buys_verified": true
+    },
+    "EMA65": {
+      "full_curve_max_error": 5.684341886080802e-14,
+      "entry_values_max_error": 2.2737367544323206e-13,
+      "exit_values_max_error": 2.2737367544323206e-13,
+      "unknown_values_max_error": 0.0,
+      "turnover_max_error": 4.440892098500626e-16,
+      "ma_exits": 39,
+      "new_entries": 51,
+      "full_exits": 49,
+      "weekly_target_caps_verified": true,
+      "weekly_only_buys_verified": true
+    },
+    "SMA81": {
+      "full_curve_max_error": 5.684341886080802e-14,
+      "entry_values_max_error": 5.684341886080802e-14,
+      "exit_values_max_error": 5.684341886080802e-14,
+      "unknown_values_max_error": 0.0,
+      "turnover_max_error": 2.42861286636753e-16,
+      "ma_exits": 32,
+      "new_entries": 45,
+      "full_exits": 42,
+      "weekly_target_caps_verified": true,
+      "weekly_only_buys_verified": true
+    },
+    "SMA2": {
+      "full_curve_max_error": 2.842170943040401e-14,
+      "entry_values_max_error": 4.547473508864641e-13,
+      "exit_values_max_error": 4.547473508864641e-13,
+      "unknown_values_max_error": 0.0,
+      "turnover_max_error": 3.0531133177191805e-16,
+      "ma_exits": 161,
+      "new_entries": 161,
+      "full_exits": 161,
+      "weekly_target_caps_verified": true,
+      "weekly_only_buys_verified": true
+    },
+    "SMA126": {
+      "full_curve_max_error": 5.684341886080802e-14,
+      "entry_values_max_error": 2.2737367544323206e-13,
+      "exit_values_max_error": 2.842170943040401e-14,
+      "unknown_values_max_error": 0.0,
+      "turnover_max_error": 4.440892098500626e-16,
+      "ma_exits": 15,
+      "new_entries": 31,
+      "full_exits": 25,
+      "weekly_target_caps_verified": true,
+      "weekly_only_buys_verified": true
+    },
+    "SMA125": {
+      "full_curve_max_error": 5.684341886080802e-14,
+      "entry_values_max_error": 5.684341886080802e-14,
+      "exit_values_max_error": 2.2737367544323206e-13,
+      "unknown_values_max_error": 0.0,
+      "turnover_max_error": 3.608224830031759e-16,
+      "ma_exits": 19,
+      "new_entries": 34,
+      "full_exits": 28,
+      "weekly_target_caps_verified": true,
+      "weekly_only_buys_verified": true
+    },
+    "SMA132": {
+      "full_curve_max_error": 5.684341886080802e-14,
+      "entry_values_max_error": 2.842170943040401e-14,
+      "exit_values_max_error": 2.842170943040401e-14,
+      "unknown_values_max_error": 0.0,
+      "turnover_max_error": 4.440892098500626e-16,
+      "ma_exits": 15,
+      "new_entries": 31,
+      "full_exits": 25,
+      "weekly_target_caps_verified": true,
+      "weekly_only_buys_verified": true
+    },
+    "SMA18": {
+      "full_curve_max_error": 5.684341886080802e-14,
+      "entry_values_max_error": 4.547473508864641e-13,
+      "exit_values_max_error": 4.547473508864641e-13,
+      "unknown_values_max_error": 0.0,
+      "turnover_max_error": 2.8449465006019636e-16,
+      "ma_exits": 71,
+      "new_entries": 73,
+      "full_exits": 73,
+      "weekly_target_caps_verified": true,
+      "weekly_only_buys_verified": true
+    },
+    "EMA51": {
+      "full_curve_max_error": 5.684341886080802e-14,
+      "entry_values_max_error": 2.2737367544323206e-13,
+      "exit_values_max_error": 5.684341886080802e-14,
+      "unknown_values_max_error": 0.0,
+      "turnover_max_error": 4.440892098500626e-16,
+      "ma_exits": 42,
+      "new_entries": 54,
+      "full_exits": 52,
+      "weekly_target_caps_verified": true,
+      "weekly_only_buys_verified": true
+    },
+    "SMA200": {
+      "full_curve_max_error": 5.684341886080802e-14,
+      "entry_values_max_error": 2.842170943040401e-14,
+      "exit_values_max_error": 2.0816681711721685e-17,
+      "unknown_values_max_error": 0.0,
+      "turnover_max_error": 4.440892098500626e-16,
+      "ma_exits": 1,
+      "new_entries": 27,
+      "full_exits": 20,
+      "weekly_target_caps_verified": true,
+      "weekly_only_buys_verified": true
+    },
+    "EMA200": {
+      "full_curve_max_error": 5.684341886080802e-14,
+      "entry_values_max_error": 2.842170943040401e-14,
+      "exit_values_max_error": 2.842170943040401e-14,
+      "unknown_values_max_error": 0.0,
+      "turnover_max_error": 4.440892098500626e-16,
+      "ma_exits": 3,
+      "new_entries": 27,
+      "full_exits": 20,
+      "weekly_target_caps_verified": true,
+      "weekly_only_buys_verified": true
+    },
+    "SMA1": {
+      "full_curve_max_error": 5.684341886080802e-14,
+      "entry_values_max_error": 2.842170943040401e-14,
+      "exit_values_max_error": 0.0,
+      "unknown_values_max_error": 0.0,
+      "turnover_max_error": 4.440892098500626e-16,
+      "ma_exits": 0,
+      "new_entries": 27,
+      "full_exits": 20,
+      "weekly_target_caps_verified": true,
+      "weekly_only_buys_verified": true
+    },
+    "EMA1": {
+      "full_curve_max_error": 5.684341886080802e-14,
+      "entry_values_max_error": 2.842170943040401e-14,
+      "exit_values_max_error": 0.0,
+      "unknown_values_max_error": 0.0,
+      "turnover_max_error": 4.440892098500626e-16,
+      "ma_exits": 0,
+      "new_entries": 27,
+      "full_exits": 20,
+      "weekly_target_caps_verified": true,
+      "weekly_only_buys_verified": true
+    }
+  },
+  "SMA125_vs_SMA126_first_weight_differences": [
+    {
+      "session": "2026-02-13",
+      "differing_post_open_weights": {
+        "FLNC": {
+          "SMA125": 0.0,
+          "SMA126": 0.07781891844799185
+        }
+      }
+    },
+    {
+      "session": "2026-02-17",
+      "differing_post_open_weights": {
+        "BE": {
+          "SMA125": 0.24213776853010893,
+          "SMA126": 0.24772923999020716
+        },
+        "CIEN": {
+          "SMA125": 0.11415750725279206,
+          "SMA126": 0.11679364471963492
+        },
+        "FLNC": {
+          "SMA125": 0.0,
+          "SMA126": 0.048309879851779966
+        },
+        "LITE": {
+          "SMA125": 0.08268162052839366,
+          "SMA126": 0.08459091342501873
+        },
+        "PL": {
+          "SMA125": 0.06102310368870538,
+          "SMA126": 0.062432255779076545
+        },
+        "SNDK": {
+          "SMA125": 0.2045510931768893,
+          "SMA126": 0.24999999999999997
+        },
+        "STX": {
+          "SMA125": 0.15943193959414687,
+          "SMA126": 0.0
+        },
+        "WDC": {
+          "SMA125": 0.13601696722896384,
+          "SMA126": 0.19014406623428273
+        }
+      }
+    },
+    {
+      "session": "2026-02-18",
+      "differing_post_open_weights": {
+        "BE": {
+          "SMA125": 0.25530391936474445,
+          "SMA126": 0.2608412942941427
+        },
+        "CIEN": {
+          "SMA125": 0.11275870653786489,
+          "SMA126": 0.11520436908863095
+        },
+        "FLNC": {
+          "SMA125": 0.0,
+          "SMA126": 0.04705148044793545
+        },
+        "LITE": {
+          "SMA125": 0.08994514302973722,
+          "SMA126": 0.09189599431816749
+        },
+        "PL": {
+          "SMA125": 0.060396142540303496,
+          "SMA126": 0.061706095346226716
+        },
+        "SNDK": {
+          "SMA125": 0.1892467492274164,
+          "SMA126": 0.2309780773454144
+        },
+        "STX": {
+          "SMA125": 0.15458503511416438,
+          "SMA126": 0.0
+        },
+        "WDC": {
+          "SMA125": 0.13776430418576913,
+          "SMA126": 0.19232268915948217
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "All-grid stored metrics, signals, row counts and turnover/cost algebra are checked; actual holdings, turnover and complete daily wealth are independently replayed only for the listed paths.",
+    "Reuses the canonical wealth and weekly allocation engine by design; separate execution-order tests cover overnight loss, cash, buffer removal, missing execution price and weekly reentry.",
+    "The 2026 period was already observed. Front selection is chronological arithmetic, not a new untouched holdout. All 800 entry/exit candidates share the model and highly overlapping trades.",
+    "SMA2 minimizes exposure and does not establish superior stock timing; cash and KRW translation can materially affect the comparison.",
+    "Five/ten-basis-point costs are multiplicative sensitivity on all changes in portfolio weight, including partial rebalances; they are not simulated broker cash flows or measured fills.",
+    "Signal is prior completed daily close below MA; execution is next regular open, after any overnight gap. Missing MA/close means hold existing and block entry, not a sale.",
+    "SMA125/SMA126 and nearby winners are ex-post sensitivity comparisons and cannot validate selecting the best full-year length."
+  ],
+  "elapsed_seconds": 22.135083300061524
+}
