@@ -1,0 +1,135 @@
+{
+  "pass": true,
+  "sessions": 211,
+  "independent_signal_rows": 701,
+  "independent_trade_rows": 2793,
+  "missing_trade_rows": [
+    {
+      "day": "2026-02-13",
+      "tf": "1m",
+      "threshold": 27,
+      "rule": "level",
+      "exit_hm": "16:30"
+    },
+    {
+      "day": "2026-02-13",
+      "tf": "1m",
+      "threshold": 27,
+      "rule": "level",
+      "exit_hm": "19:00"
+    },
+    {
+      "day": "2026-02-13",
+      "tf": "1m",
+      "threshold": 28,
+      "rule": "level",
+      "exit_hm": "16:30"
+    },
+    {
+      "day": "2026-02-13",
+      "tf": "1m",
+      "threshold": 28,
+      "rule": "level",
+      "exit_hm": "19:00"
+    },
+    {
+      "day": "2026-02-13",
+      "tf": "1m",
+      "threshold": 29,
+      "rule": "level",
+      "exit_hm": "16:30"
+    },
+    {
+      "day": "2026-02-13",
+      "tf": "1m",
+      "threshold": 29,
+      "rule": "level",
+      "exit_hm": "19:00"
+    },
+    {
+      "day": "2026-01-23",
+      "tf": "1m",
+      "threshold": 30,
+      "rule": "level",
+      "exit_hm": "18:00"
+    },
+    {
+      "day": "2026-02-13",
+      "tf": "1m",
+      "threshold": 30,
+      "rule": "level",
+      "exit_hm": "16:30"
+    },
+    {
+      "day": "2026-02-13",
+      "tf": "1m",
+      "threshold": 30,
+      "rule": "level",
+      "exit_hm": "19:00"
+    },
+    {
+      "day": "2026-02-13",
+      "tf": "1m",
+      "threshold": 30,
+      "rule": "rising",
+      "exit_hm": "16:30"
+    },
+    {
+      "day": "2026-02-13",
+      "tf": "1m",
+      "threshold": 30,
+      "rule": "rising",
+      "exit_hm": "19:00"
+    }
+  ],
+  "counts_at_display_levels": {
+    "1m": {
+      "30": {
+        "level": 64,
+        "rising": 23
+      },
+      "20": {
+        "level": 8,
+        "rising": 3
+      },
+      "10": {
+        "level": 0,
+        "rising": 0
+      }
+    },
+    "3m": {
+      "30": {
+        "level": 36,
+        "rising": 11
+      },
+      "20": {
+        "level": 3,
+        "rising": 0
+      },
+      "10": {
+        "level": 0,
+        "rising": 0
+      }
+    }
+  },
+  "all_first_signal_dates_and_times_match": true,
+  "max_rsi_absolute_error": 1.7763568394002505e-14,
+  "signal_rows_checked": 701,
+  "all_raw_entry_exit_prices_and_returns_match": true,
+  "trade_rows_checked": 2793,
+  "trade_rows_including_missing": 2804,
+  "max_price_return_absolute_error": 1.7763568394002505e-15,
+  "period_cells_checked": 1440,
+  "paired_period_cells_checked": 720,
+  "all_statistics_and_paired_differences_match": true,
+  "walk_forward_rows_checked": 60,
+  "baseline_H1_only_exit_selection_matches": true,
+  "H2_return_mutation_exit_selection_invariant": true,
+  "H2_return_mutation_H1_invariant": true,
+  "H2_return_mutation_affected_populated_rows": 25,
+  "inclusive_boundary_pass": true,
+  "equal_rsi_is_not_rising": true,
+  "cross_above_threshold_is_not_entry": true,
+  "positive_change_below_threshold_pass": true,
+  "future_rsi_event_mutation_invariant": true
+}
