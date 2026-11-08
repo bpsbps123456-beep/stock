@@ -1,0 +1,63 @@
+//@version=6
+// GBRC: entry eligibility only. A red state does not instruct a sale.
+// Daily default matches the research frequency; SMA20 is an example, not an optimum.
+indicator("이평선 신규매수 필터", shorttitle = "신규매수 필터", overlay = true)
+
+string basis = input.timeframe("D", "판정 기준봉", tooltip = "기본은 정규장 일봉입니다. 차트 주기 이상의 기준봉을 사용하세요.")
+string maType = input.string("SMA", "이평선 종류", options = ["SMA", "EMA"])
+int length = input.int(20, "이평선 기간 (기준봉 개수)", minval = 2, maxval = 500)
+bool showBackground = input.bool(true, "매수 보류 구간 배경")
+bool showChanges = input.bool(true, "보류·해제 전환 표시")
+bool showPanel = input.bool(true, "상태표")
+
+if not chart.is_standard
+    runtime.error("일반 시간봉 차트를 사용하세요. 렌코·하이킨아시 등 합성 가격은 지원하지 않습니다.")
+if timeframe.in_seconds() > timeframe.in_seconds(basis)
+    runtime.error("차트 주기를 판정 기준봉 이하로 설정하세요. 일봉 기준은 분봉·일봉에서 사용합니다.")
+
+calc() =>
+    float sma = ta.sma(close, length)
+    float ema = ta.ema(close, length)
+    float ma = maType == "SMA" ? sma : ema
+    bool enough = bar_index >= length - 1
+    float validClose = enough ? close : na
+    float validMa = enough ? ma : na
+    [validClose, validClose[1], validMa, validMa[1], time_close, time_close[1]]
+
+// Fetch current/previous regular-session candles together. lookahead_off supplies
+// no future historical close. On a live incomplete candle use the previous one.
+// Checking close time also lets after-hours charts use today's completed daily bar.
+string regularTicker = ticker.modify(syminfo.tickerid, session = session.regular, adjustment = adjustment.splits)
+[cNow, cPrev, mNow, mPrev, endNow, endPrev] = request.security(regularTicker, basis, calc(), gaps = barmerge.gaps_off, lookahead = barmerge.lookahead_off)
+bool completed = not na(endNow) and time_close >= endNow and (not barstate.isrealtime or timenow >= endNow)
+float confirmedClose = completed ? cNow : cPrev
+float confirmedMa = completed ? mNow : mPrev
+int confirmedEnd = completed ? endNow : endPrev
+bool ready = not na(confirmedClose) and not na(confirmedMa)
+bool allowed = ready and confirmedClose >= confirmedMa
+int state = ready ? (allowed ? 1 : -1) : 0
+bool hasPrevious = ready and ready[1]
+bool release = barstate.isconfirmed and hasPrevious and allowed and not allowed[1]
+bool block = barstate.isconfirmed and hasPrevious and not allowed and allowed[1]
+
+color stateColor = state == 1 ? color.teal : state == -1 ? color.red : color.gray
+plot(confirmedMa, "확정 이평선", color = stateColor, linewidth = 2)
+plot(state, "신규매수 상태 (1 통과 / -1 보류 / 0 이력부족)", display = display.data_window)
+bgcolor(showBackground and state == -1 ? color.new(color.red, 91) : na, title = "신규매수 보류 구간")
+plotshape(showChanges and block, title = "신규매수 보류 전환", text = "보류", style = shape.labeldown, location = location.abovebar, color = color.red, textcolor = color.white, size = size.tiny)
+plotshape(showChanges and release, title = "신규매수 보류 해제", text = "해제", style = shape.labelup, location = location.belowbar, color = color.teal, textcolor = color.white, size = size.tiny)
+
+var table panel = table.new(position.top_right, 1, 4, border_width = 1)
+if barstate.islast
+    if showPanel
+        string status = ready ? (allowed ? "신규매수 필터 통과" : "신규매수 보류") : "이평선 이력 부족"
+        string stamp = na(confirmedEnd) ? "—" : str.format_time(confirmedEnd, "yyyy-MM-dd HH:mm", syminfo.timezone)
+        table.cell(panel, 0, 0, maType + " " + str.tostring(length) + " · " + basis, bgcolor = color.new(color.black, 15), text_color = color.white)
+        table.cell(panel, 0, 1, status, bgcolor = stateColor, text_color = color.white)
+        table.cell(panel, 0, 2, "확정봉 마감: " + stamp, bgcolor = color.new(color.black, 15), text_color = color.white)
+        table.cell(panel, 0, 3, "기존 보유 매도 지시 아님", bgcolor = color.new(color.black, 15), text_color = color.white)
+    else
+        table.clear(panel, 0, 0, 0, 3)
+
+alertcondition(block, "신규매수 보류 전환", "{{ticker}}: 확정 기준봉 종가가 이평선 아래로 전환됐습니다. 신규매수 보류 상태입니다.")
+alertcondition(release, "신규매수 보류 해제", "{{ticker}}: 확정 기준봉 종가가 이평선 이상으로 회복했습니다. 필터 해제이며 매수 주문 지시가 아닙니다.")
