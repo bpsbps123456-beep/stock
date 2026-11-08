@@ -1,0 +1,250 @@
+{
+  "asof_kst": "2026-11-08T18:27:28.309200+09:00",
+  "completed_session": "2026-11-06",
+  "symbols": {
+    "SOXX": {
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/SOXX?range=6mo&interval=1d&events=splits",
+      "fetched_at_utc": "2026-11-08T09:27:28.309200+00:00",
+      "raw_response_sha256": "a96bc39466a436bd70777162a86f7572032a2bb4ce221638927345886c158356",
+      "start": "2026-05-07",
+      "end": "2026-11-06",
+      "rows": 128,
+      "latest": {
+        "symbol": "SOXX",
+        "date": "2026-11-06",
+        "open": 139.55999755859375,
+        "high": 140.2100067138672,
+        "low": 133.8000030517578,
+        "close": 136.52999877929688,
+        "volume": 59135600,
+        "adjclose": 136.52999877929688
+      },
+      "previous": {
+        "symbol": "SOXX",
+        "date": "2026-11-05",
+        "open": 143.0800018310547,
+        "high": 143.72999572753906,
+        "low": 130.75,
+        "close": 131.89999389648438,
+        "volume": 67658500,
+        "adjclose": 131.89999389648438
+      },
+      "close_change_pct": 3.5102388908722304,
+      "regular_open_to_close_pct": -2.171108363644636,
+      "close_location_in_day_range": 0.4258961260313364,
+      "high60_close": 196.50332641601562,
+      "high60_date": "2026-10-05",
+      "low_since_high60_close": 131.89999389648438,
+      "low_since_high60_date": "2026-11-05",
+      "drawdown60_pct": -30.520260766349416,
+      "rebound_from_low_close_pct": 3.5102388908722304,
+      "split_events": {
+        "1793889000": {
+          "date": 1793889000,
+          "numerator": 3.0,
+          "denominator": 1.0,
+          "splitRatio": "3:1"
+        }
+      },
+      "metadata_change_pct": 3.51,
+      "metadata_fullday_change_pct_not_used": 3.965,
+      "metadata_volume_not_used": 59071984
+    },
+    "^SOX": {
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/%5ESOX?range=6mo&interval=1d&events=splits",
+      "fetched_at_utc": "2026-11-08T09:27:28.309200+00:00",
+      "raw_response_sha256": "64c89ea39169f5ed52bcf2f409bc9b872142dcbba1faa0e38bbe1ce3b94a048e",
+      "start": "2026-05-07",
+      "end": "2026-11-06",
+      "rows": 128,
+      "latest": {
+        "symbol": "^SOX",
+        "date": "2026-11-06",
+        "open": 9495.2099609375,
+        "high": 9627.259765625,
+        "low": 9221.349609375,
+        "close": 9390.25,
+        "volume": 0,
+        "adjclose": 9390.25
+      },
+      "previous": {
+        "symbol": "^SOX",
+        "date": "2026-11-05",
+        "open": 9806.3095703125,
+        "high": 9838.1298828125,
+        "low": 8997.3896484375,
+        "close": 9011.1396484375,
+        "volume": 0,
+        "adjclose": 9011.1396484375
+      },
+      "close_change_pct": 4.207129912011043,
+      "regular_open_to_close_pct": -1.1053990524622082,
+      "close_location_in_day_range": 0.4161028937669012,
+      "high60_close": 13217.8203125,
+      "high60_date": "2026-10-06",
+      "low_since_high60_close": 9011.1396484375,
+      "low_since_high60_date": "2026-11-05",
+      "drawdown60_pct": -28.957651276892406,
+      "rebound_from_low_close_pct": 4.207129912011043,
+      "split_events": {},
+      "metadata_change_pct": 4.207,
+      "metadata_fullday_change_pct_not_used": 4.207,
+      "metadata_volume_not_used": 0
+    },
+    "QQQ": {
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/QQQ?range=6mo&interval=1d&events=splits",
+      "fetched_at_utc": "2026-11-08T09:27:28.309200+00:00",
+      "raw_response_sha256": "612a4a19e262bfdf501f8400de064c0e4f892764bca09edae578f20670de1d8a",
+      "start": "2026-05-07",
+      "end": "2026-11-06",
+      "rows": 128,
+      "latest": {
+        "symbol": "QQQ",
+        "date": "2026-11-06",
+        "open": 658.3499755859375,
+        "high": 664.52001953125,
+        "low": 653.989990234375,
+        "close": 656.0999755859375,
+        "volume": 70469100,
+        "adjclose": 656.0999755859375
+      },
+      "previous": {
+        "symbol": "QQQ",
+        "date": "2026-11-05",
+        "open": 683.1199951171875,
+        "high": 683.6500244140625,
+        "low": 647.0499877929688,
+        "close": 647.0499877929688,
+        "volume": 130677400,
+        "adjclose": 647.0499877929688
+      },
+      "close_change_pct": 1.3986535760301066,
+      "regular_open_to_close_pct": -0.3417635123320939,
+      "close_location_in_day_range": 0.20037791843453664,
+      "high60_close": 759.6599731445312,
+      "high60_date": "2026-10-06",
+      "low_since_high60_close": 647.0499877929688,
+      "low_since_high60_date": "2026-11-05",
+      "drawdown60_pct": -13.63241466177535,
+      "rebound_from_low_close_pct": 1.3986535760301066,
+      "split_events": {},
+      "metadata_change_pct": 1.399,
+      "metadata_fullday_change_pct_not_used": 1.615,
+      "metadata_volume_not_used": 70114544
+    }
+  },
+  "issuer_crosscheck": {
+    "source_url": "https://www.ishares.com/us/products/239705/ishares-phlx-semiconductor-etf",
+    "fetched_at_utc": "2026-11-08T09:27:30.385097+00:00",
+    "http_status": 200,
+    "verified_fields": {
+      "closing_price": 136.53,
+      "asof": "Nov 06, 2026"
+    },
+    "retrieval": "direct HTTP HTML body, not browser",
+    "raw_response_sha256": "0bbf14211e9f9ca682e8ccc22ec5ce3cc682dc8ea0f4e84e5a91dd6c4d597439",
+    "scope": "Closing price/date verified only; official OHLC and split announcement not independently verified."
+  },
+  "canonical_soxx_status": {
+    "kind": "falling",
+    "date": "2026-11-06",
+    "close": 136.52999877929688,
+    "high": 196.50332641601562,
+    "peak": "2026-10-05",
+    "low": 131.89999389648438,
+    "low_date": "2026-11-05",
+    "dd": -0.30520260766349416,
+    "up": 0.035102388908722304,
+    "band": 1,
+    "lines": [
+      {
+        "k": 0.07,
+        "price": 141.1329934692383,
+        "gap": 0.03371416341534039
+      },
+      {
+        "k": 0.08,
+        "price": 142.45199340820312,
+        "gap": 0.04337504344725929
+      },
+      {
+        "k": 0.1,
+        "price": 145.08999328613282,
+        "gap": 0.06269680351109752
+      }
+    ],
+    "dd_trigger": 176.85299377441407,
+    "dd_left": 19,
+    "signal": {
+      "date": "2026-10-27",
+      "close": 170.35333251953125,
+      "low": 158.56333923339844,
+      "low_date": "2026-10-22",
+      "high": 196.50332641601562,
+      "up": 0.0743551021511879,
+      "status": "broke",
+      "on": "2026-10-30",
+      "day": 3,
+      "worst": -0.22572695264789222,
+      "ret20": null,
+      "age": 8,
+      "current": true
+    }
+  },
+  "snapshot": {
+    "path": "data/derived/analysis/bottom_recheck_20261108/results/market_daily_snapshot.csv",
+    "sha256": "aa03087d2e672ca59d5974ada336e51c6c66bdd4f2e7fc4b7f2d538be0bf586b",
+    "source": "Yahoo Finance daily quote OHLCV, auto_adjust=False-equivalent raw split-adjusted chart quotes",
+    "same_fresh_response_series": true
+  },
+  "prior_snapshot_overlap_audit": {
+    "path": "data/derived/analysis/seibro_bottoms/results/soxs_position_20261106/fresh/market.prices.normalized.csv",
+    "sha256": "798735d7617416b8dadcb4ccd8a0659374979449888e638bfa3bd3d13c8dbca9",
+    "overlap_rows": 127,
+    "fields": {
+      "open": {
+        "max_abs_difference": 5.0862630303072365e-06,
+        "date": "2026-11-02",
+        "old": 158.85999552408853,
+        "new": 158.86000061035156,
+        "changed_rows_over_1e_4": 0
+      },
+      "high": {
+        "max_abs_difference": 0.0045013427734375,
+        "date": "2026-11-05",
+        "old": 143.72549438476562,
+        "new": 143.72999572753906,
+        "changed_rows_over_1e_4": 1
+      },
+      "low": {
+        "max_abs_difference": 5.0862630303072365e-06,
+        "date": "2026-11-02",
+        "old": 150.70000203450522,
+        "new": 150.6999969482422,
+        "changed_rows_over_1e_4": 0
+      },
+      "close": {
+        "max_abs_difference": 5.0862630303072365e-06,
+        "date": "2026-11-02",
+        "old": 151.21666463216147,
+        "new": 151.21665954589844,
+        "changed_rows_over_1e_4": 0
+      },
+      "volume": {
+        "max_abs_difference": 1888470.0,
+        "date": "2026-11-05",
+        "old": 65770030.0,
+        "new": 67658500.0,
+        "changed_rows_over_1e_4": 1
+      }
+    },
+    "conclusion": "Current Yahoo has fully adjusted pre-2026-11-05 SOXX history to the 3:1 split basis. Do not divide by 3 again. Small OHLC float revisions and final Nov5 volume/high corrections are disclosed."
+  },
+  "limitations": [
+    "No new strategy or threshold search. Existing canonical 60-session high / 7% rebound functions applied only to latest completed data.",
+    "OHLC and ^SOX/QQQ rely on Yahoo; SOXX 11/06 close independently matches issuer. No direct exchange execution audit.",
+    "Yahoo SOXX and QQQ metadata fulldayChangePercent differs from actual consecutive daily quote closes; reported changes recomputed from daily closes.",
+    "SOXX current price is split adjusted; 11/05 3:1 event is in Yahoo split events, but issuer split announcement not independently read this turn.",
+    "Price history is a new all-at-once 6-month response, not spliced together with the older mixed response. Canonical current state only, no full-history outcome recalibration."
+  ]
+}

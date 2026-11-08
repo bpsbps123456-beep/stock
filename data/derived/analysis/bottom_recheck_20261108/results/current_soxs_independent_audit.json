@@ -1,0 +1,204 @@
+{
+  "generated_at_utc": "2026-11-08T09:32:49.980679+00:00",
+  "method": "Independent raw-list identity/amount audit and explicit midrank calculation, without canonical feature/rank calls. No new conditions searched.",
+  "input_hashes": [
+    {
+      "path": "data\\derived\\analysis\\bottom_recheck_20261108\\results\\seibro_latest_check.json",
+      "sha256": "acf8693970e21ffb6a4f7e2b01c55bb74a4db344475b0fdc285eb9d3137ca869"
+    },
+    {
+      "path": "data\\derived\\analysis\\seibro_flows\\classes.csv",
+      "sha256": "eb1f02c99c8bfcab1dd81e696292a62d9e87f419e03d0d51b7b0720ebfffd6d4"
+    },
+    {
+      "path": "data\\derived\\analysis\\seibro_bottoms\\results\\soxs_position_20261106\\fresh\\ledger\\source_daily.csv",
+      "sha256": "f05c50f409bba5465c701e60a1ea2e29d0039a06c3b5077862001c1b59fee34b"
+    },
+    {
+      "path": "data\\derived\\analysis\\bottom_recheck_20261108\\results\\market_daily_snapshot.csv",
+      "sha256": "aa03087d2e672ca59d5974ada336e51c6c66bdd4f2e7fc4b7f2d538be0bf586b"
+    }
+  ],
+  "list_audit": [
+    {
+      "dtype": "1",
+      "rows": 50,
+      "matches": 1,
+      "matching_ranks": [
+        13
+      ]
+    },
+    {
+      "dtype": "2",
+      "rows": 50,
+      "matches": 1,
+      "matching_ranks": [
+        4
+      ]
+    },
+    {
+      "dtype": "3",
+      "rows": 50,
+      "matches": 1,
+      "matching_ranks": [
+        5
+      ]
+    },
+    {
+      "dtype": "4",
+      "rows": 50,
+      "matches": 0,
+      "matching_ranks": []
+    }
+  ],
+  "SOXS_ISINs": [
+    "US25460G1123",
+    "US25460G3368",
+    "US25461H2913",
+    "US25461H5726"
+  ],
+  "exact_current_amounts": {
+    "buy": 15894336.0,
+    "sell": 30483218.0,
+    "total": 46377554.0,
+    "net": -14588882.0
+  },
+  "current_flow_missing": false,
+  "current_zero_flow": false,
+  "source_trade_date": "2026-11-04",
+  "seibro_settlement_label": "2026-11-06",
+  "research_publication_convention": "2026-11-09 09:00 KST",
+  "first_observed_on_current_query": "2026-11-08T09:28:06.963065+00:00",
+  "timing_note": "11/09 is the conservative historical research convention, not an observed publication time. This file verifies that the11/06 table was already present on the11/08 query; earlier real posting time is unknown. No US11/05-06 zero-flow assumption.",
+  "percentile_checks": {
+    "2026-11-02": {
+      "L1": {
+        "value": 43723560.0,
+        "rank_n": 247,
+        "less_count": 235,
+        "tie_count": 1,
+        "P": 95.34412955465586,
+        "rank_window_first_source_session": "2025-11-04",
+        "rank_window_last_source_session": "2026-11-02"
+      },
+      "L5": {
+        "value": 110114979.0,
+        "rank_n": 231,
+        "less_count": 180,
+        "tie_count": 1,
+        "P": 78.13852813852814,
+        "rank_window_first_source_session": "2025-11-04",
+        "rank_window_last_source_session": "2026-11-02"
+      }
+    },
+    "2026-11-03": {
+      "L1": {
+        "value": 6127639.0,
+        "rank_n": 247,
+        "less_count": 32,
+        "tie_count": 1,
+        "P": 13.157894736842104,
+        "rank_window_first_source_session": "2025-11-05",
+        "rank_window_last_source_session": "2026-11-03"
+      },
+      "L5": {
+        "value": 97153757.0,
+        "rank_n": 232,
+        "less_count": 163,
+        "tie_count": 1,
+        "P": 70.47413793103448,
+        "rank_window_first_source_session": "2025-11-05",
+        "rank_window_last_source_session": "2026-11-03"
+      }
+    },
+    "2026-11-04": {
+      "L1": {
+        "value": 15894336.0,
+        "rank_n": 247,
+        "less_count": 132,
+        "tie_count": 1,
+        "P": 53.64372469635627,
+        "rank_window_first_source_session": "2025-11-06",
+        "rank_window_last_source_session": "2026-11-04"
+      },
+      "L5": {
+        "value": 87017909.0,
+        "rank_n": 233,
+        "less_count": 133,
+        "tie_count": 1,
+        "P": 57.2961373390558,
+        "rank_window_first_source_session": "2025-11-06",
+        "rank_window_last_source_session": "2026-11-04"
+      }
+    }
+  },
+  "last_five_source_buy_amounts": [
+    {
+      "source_date": "2026-10-29",
+      "buy_usd": 11752583.0
+    },
+    {
+      "source_date": "2026-10-30",
+      "buy_usd": 9519791.0
+    },
+    {
+      "source_date": "2026-11-02",
+      "buy_usd": 43723560.0
+    },
+    {
+      "source_date": "2026-11-03",
+      "buy_usd": 6127639.0
+    },
+    {
+      "source_date": "2026-11-04",
+      "buy_usd": 15894336.0
+    }
+  ],
+  "signal_flags_audited": {
+    "daily_P80_ON": false,
+    "L5_P80_ON": false,
+    "root_flags_consistent": true
+  },
+  "recent_ON_partial_paths": [
+    {
+      "source_trade_date": "2026-10-28",
+      "public_entry_under_research_convention": "2026-11-02",
+      "entry_open_usd": 158.860000610352,
+      "latest_completed_session": "2026-11-06",
+      "latest_close_usd": 136.529998779297,
+      "elapsed_sessions_entry_inclusive": 5,
+      "required_sessions": 10,
+      "expected_R10_end": "2026-11-13",
+      "R10_complete": false,
+      "partial_close_return_pct": -14.056402961891902,
+      "partial_min_close_return_pct": -16.97092195032458,
+      "note": "Partial path only; not graded as completed R10 success/failure. Entry at regular open is research convention."
+    },
+    {
+      "source_trade_date": "2026-11-02",
+      "public_entry_under_research_convention": "2026-11-05",
+      "entry_open_usd": 143.080001831055,
+      "latest_completed_session": "2026-11-06",
+      "latest_close_usd": 136.529998779297,
+      "elapsed_sessions_entry_inclusive": 2,
+      "required_sessions": 10,
+      "expected_R10_end": "2026-11-18",
+      "R10_complete": false,
+      "partial_close_return_pct": -4.577860614995011,
+      "partial_min_close_return_pct": -7.813815901241073,
+      "note": "Partial path only; not graded as completed R10 success/failure. Entry at regular open is research convention."
+    }
+  ],
+  "checks_passed": [
+    "4nonempty50-row lists with unique ranks/ISINs",
+    "catalog four-ISIN identity matches",
+    "SOXS3lists agree exactly; absent net-buy list consistent with net selling",
+    "current amounts add/subtract exactly",
+    "current1/5-day midrank and samplecount match root values",
+    "prior11/02-03 values and percentiles reproduced",
+    "last5-day sum87017909",
+    "recent observed sessions match XNYS calendar and10-day windows unfinished"
+  ],
+  "canonical_ledger_or_raw_overwritten": false,
+  "new_thresholds_or_combined_conditions": 0
+}

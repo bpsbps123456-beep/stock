@@ -1,0 +1,63 @@
+{
+  "checked_at_utc": "2026-11-08T09:32:06.775010+00:00",
+  "method": "Independent pandas regrouping of frozen existing CSV; canonical H2 boundary2026-07-01; same valid/completed eligibility, no new threshold or outcome search.",
+  "six_group_checks": [
+    {
+      "path": "dd10__gross_usd_L1",
+      "group": "ON",
+      "n": 8,
+      "rise_n": 6,
+      "mean_R10_pct": 4.270817946083493,
+      "worst_close_MAE10_pct": -13.689095127610209,
+      "matches": true
+    },
+    {
+      "path": "dd10__gross_usd_L1",
+      "group": "OFF",
+      "n": 50,
+      "rise_n": 23,
+      "mean_R10_pct": -0.46602790540159617,
+      "worst_close_MAE10_pct": -15.315967824656251,
+      "matches": true
+    },
+    {
+      "path": "dd10__gross_usd_L1",
+      "group": "EVENT10",
+      "n": 4,
+      "rise_n": 3,
+      "mean_R10_pct": 2.004249962217294,
+      "worst_close_MAE10_pct": -13.689095127610209,
+      "matches": true
+    },
+    {
+      "path": "dd10__gross_usd_L1_delay1",
+      "group": "ON",
+      "n": 8,
+      "rise_n": 5,
+      "mean_R10_pct": 3.6781417465081496,
+      "worst_close_MAE10_pct": -14.757103574702112,
+      "matches": true
+    },
+    {
+      "path": "dd10__gross_usd_L1_delay1",
+      "group": "OFF",
+      "n": 50,
+      "rise_n": 23,
+      "mean_R10_pct": -0.4723168135552418,
+      "worst_close_MAE10_pct": -15.315967824656251,
+      "matches": true
+    },
+    {
+      "path": "dd10__gross_usd_L1_delay1",
+      "group": "EVENT10",
+      "n": 4,
+      "rise_n": 2,
+      "mean_R10_pct": 1.0554748482977219,
+      "worst_close_MAE10_pct": -14.757103574702112,
+      "matches": true
+    }
+  ],
+  "all_match": true,
+  "new_thresholds_searched": 0,
+  "new_combinations_tested": 0
+}
