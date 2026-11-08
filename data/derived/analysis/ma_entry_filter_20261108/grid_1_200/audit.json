@@ -1,0 +1,182 @@
+{
+  "status": "passed",
+  "grid_candidates": 400,
+  "stored_curve_count": 401,
+  "metric_cells_checked": 3208,
+  "monthly_metric_cells_checked": 8822,
+  "max_stored_metric_error": 9.947598300641403e-14,
+  "one_day_noop_verified": true,
+  "frozen_baseline_verified": true,
+  "front_selection_verified": "SMA1",
+  "front_selection_unchanged_after_back_score_mutation": true,
+  "front_maximum_ties": {
+    "all": 319,
+    "SMA": 138,
+    "EMA": 181
+  },
+  "all_entry_rows_checked": 11444,
+  "all_entry_reason_counts": {
+    "allowed": 10596,
+    "below_ma": 848
+  },
+  "warmup": {
+    "cache_columns_independently_verified": 67,
+    "yahoo_columns_independently_redownloaded": 17,
+    "maximum_overlap_relative_residual": 2.220446049250313e-16,
+    "reference_only_calendar_differences": {
+      "456600.KS": {
+        "actual_us_signal_sessions": 233,
+        "raw_source_valid_rows_in_metadata": 237
+      },
+      "KRW=X": {
+        "actual_us_signal_sessions": 249,
+        "raw_source_valid_rows_in_metadata": 253
+      }
+    },
+    "below_200_pre2026": {
+      "CRCL": 145,
+      "SKHY": 0,
+      "SPCX": 0
+    }
+  },
+  "manual_replays": {
+    "SMA1": {
+      "manual_ma_max_error": 2.842170943040401e-14,
+      "full_curve_max_error": 5.684341886080802e-14,
+      "event_count": 27,
+      "rebalance_count": 44,
+      "entry_verdicts_match": true,
+      "target_caps_passed": true
+    },
+    "EMA1": {
+      "manual_ma_max_error": 2.842170943040401e-14,
+      "full_curve_max_error": 5.684341886080802e-14,
+      "event_count": 27,
+      "rebalance_count": 44,
+      "entry_verdicts_match": true,
+      "target_caps_passed": true
+    },
+    "SMA23": {
+      "manual_ma_max_error": 2.842170943040401e-14,
+      "full_curve_max_error": 5.684341886080802e-14,
+      "event_count": 32,
+      "rebalance_count": 44,
+      "entry_verdicts_match": true,
+      "target_caps_passed": true
+    },
+    "SMA18": {
+      "manual_ma_max_error": 2.842170943040401e-14,
+      "full_curve_max_error": 5.684341886080802e-14,
+      "event_count": 33,
+      "rebalance_count": 44,
+      "entry_verdicts_match": true,
+      "target_caps_passed": true
+    },
+    "EMA51": {
+      "manual_ma_max_error": 5.684341886080802e-14,
+      "full_curve_max_error": 5.684341886080802e-14,
+      "event_count": 29,
+      "rebalance_count": 44,
+      "entry_verdicts_match": true,
+      "target_caps_passed": true
+    },
+    "SMA200": {
+      "manual_ma_max_error": 2.842170943040401e-14,
+      "full_curve_max_error": 5.684341886080802e-14,
+      "event_count": 27,
+      "rebalance_count": 44,
+      "entry_verdicts_match": true,
+      "target_caps_passed": true
+    },
+    "EMA200": {
+      "manual_ma_max_error": 2.842170943040401e-14,
+      "full_curve_max_error": 5.684341886080802e-14,
+      "event_count": 27,
+      "rebalance_count": 44,
+      "entry_verdicts_match": true,
+      "target_caps_passed": true
+    }
+  },
+  "hindsight_best_changed_rebalance_intervals": [
+    {
+      "from_session_open": "2026-10-19",
+      "to_session_open": "2026-10-26",
+      "to_last_close_if_no_next_open": null,
+      "baseline_usd_interval_return_pct": 2.204490440662732,
+      "filtered_usd_interval_return_pct": -0.6361321409708576,
+      "local_usd_return_difference_pp": -2.8406225816335895,
+      "changed_targets": {
+        "CRWD": {
+          "baseline_weight": 0.07707979093149225,
+          "filtered_weight": 0.0
+        },
+        "DDOG": {
+          "baseline_weight": 0.07877469491289282,
+          "filtered_weight": 0.0
+        },
+        "OKTA": {
+          "baseline_weight": 0.07791988447598006,
+          "filtered_weight": 0.0
+        },
+        "PANW": {
+          "baseline_weight": 0.0752181695649279,
+          "filtered_weight": 0.0
+        }
+      }
+    },
+    {
+      "from_session_open": "2026-10-26",
+      "to_session_open": "2026-11-02",
+      "to_last_close_if_no_next_open": null,
+      "baseline_usd_interval_return_pct": -5.718384130374199,
+      "filtered_usd_interval_return_pct": -4.395528150214368,
+      "local_usd_return_difference_pp": 1.3228559801598312,
+      "changed_targets": {
+        "CRWD": {
+          "baseline_weight": 0.07790000602108009,
+          "filtered_weight": 0.07978513988525371
+        },
+        "DDOG": {
+          "baseline_weight": 0.08186767289132381,
+          "filtered_weight": 0.0
+        },
+        "DELL": {
+          "baseline_weight": 0.1914368132895686,
+          "filtered_weight": 0.1960694704357566
+        },
+        "OKTA": {
+          "baseline_weight": 0.07863010045106483,
+          "filtered_weight": 0.08053290216668425
+        },
+        "PANW": {
+          "baseline_weight": 0.07138255267239602,
+          "filtered_weight": 0.0
+        },
+        "SNOW": {
+          "baseline_weight": 0.2487828546745669,
+          "filtered_weight": 0.25
+        }
+      }
+    },
+    {
+      "from_session_open": "2026-11-02",
+      "to_session_open": null,
+      "to_last_close_if_no_next_open": "2026-11-04",
+      "baseline_usd_interval_return_pct": -6.577495464315342,
+      "filtered_usd_interval_return_pct": -5.0976090146360615,
+      "local_usd_return_difference_pp": 1.47988644967928,
+      "changed_targets": {
+        "NTAP": {
+          "baseline_weight": 0.14999999999999997,
+          "filtered_weight": 0.0
+        },
+        "PANW": {
+          "baseline_weight": 0.09620507305189105,
+          "filtered_weight": 0.0
+        }
+      }
+    }
+  ],
+  "weekly_attribution_note": "Each interval compares the actual target differences at the same opens, in USD. These local percentage-point differences do not add to the compounded KRW total. This explains the hindsight winner, not an ex-ante rule.",
+  "limit": "Manual MA and target-cap replay covers listed representative paths; all-grid arithmetic metrics and all entry reason/timing rows are checked."
+}
