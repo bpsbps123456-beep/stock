@@ -15,7 +15,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "results"
-FILE = "soxl-rsi-entry-window-c19d7a.html"
+FILE = "soxl-rsi-rebound-20261108-a6cf2e.html"
 FRAMES = {"1m": 1, "3m": 3}
 
 
@@ -26,12 +26,18 @@ def module(name, path):
     return mod
 
 
-def first_signal(day, tf, level, latest=958, point=False):
-    return next((t for t, r in zip(day["times"][tf], day["r"][tf], strict=True)
-                 if r is not None and 930 <= t <= latest and (not point or t == 930) and r <= level), None)
+def first_signal(day, tf, level, latest=958, point=False, rising=False):
+    values = day["r"][tf]
+    for i, (t, value) in enumerate(zip(day["times"][tf], values, strict=True)):
+        if value is None or not np.isfinite(value) or not 930 <= t <= latest or (point and t != 930):
+            continue
+        if value <= level and (not rising or (i > 0 and values[i - 1] is not None
+                                              and np.isfinite(values[i - 1]) and value > values[i - 1])):
+            return t
+    return None
 
 
-def main():
+def build_inputs():
     study = module("window_visual_study", ROOT / "code/study.py")
     independent = module("window_visual_independent", ROOT / "code/audit.py")
     full, _ = study.load_bars()
@@ -71,7 +77,8 @@ def main():
         # Quantization for a compact offline chart must never change a first signal.
         for tf in FRAMES:
             for level in range(1, 31):
-                assert first_signal(exact, tf, level) == first_signal(rounded | {"times": r_times}, tf, level)
+                for rising in (False, True):
+                    assert first_signal(exact, tf, level, rising=rising) == first_signal(rounded | {"times": r_times}, tf, level, rising=rising)
         exact_days.append(exact)
         days.append(rounded)
     assert len(days) == 211
@@ -83,6 +90,14 @@ def main():
             actual = d["r"][tf][d["times"][tf].index(930)]
             point_error = max(point_error, abs(actual - old_rsi))
     assert point_error < 1e-10
+    return {"study": study, "full": full, "days": days, "exact_days": exact_days,
+            "p_times": p_times, "r_times": r_times, "point_error": point_error, "error": error}
+
+
+def main():
+    inputs = build_inputs()
+    days, exact_days = inputs["days"], inputs["exact_days"]
+    p_times, r_times = inputs["p_times"], inputs["r_times"]
     summary = {"start": days[0]["date"], "end": days[-1]["date"], "sessions": len(days),
                "signal_rule": "first completed-bar RSI <= threshold from15:30 through15:58 ET",
                "entry_delay_minutes": 1, "last_entry": "15:59 ET", "max_trades_per_day": 1,
@@ -91,10 +106,12 @@ def main():
         summary["counts"][tf] = {
             str(level): {"point": sum(first_signal(d, tf, level, point=True) is not None for d in exact_days),
                          "window": sum(first_signal(d, tf, level) is not None for d in exact_days),
-                         "through_1559": sum(first_signal(d, tf, level, latest=959) is not None for d in exact_days)}
+                         "through_1559": sum(first_signal(d, tf, level, latest=959) is not None for d in exact_days),
+                         "rising": sum(first_signal(d, tf, level, rising=True) is not None for d in exact_days)}
             for level in range(1, 31)}
-    assert summary["counts"]["1m"]["30"] == {"point": 12, "window": 64, "through_1559": 66}
-    assert summary["counts"]["3m"]["30"] == {"point": 12, "window": 36, "through_1559": 36}
+    assert summary["counts"]["1m"]["30"] == {"point": 12, "window": 64, "through_1559": 66, "rising": 23}
+    assert summary["counts"]["3m"]["30"] == {"point": 12, "window": 36, "through_1559": 36, "rising": 11}
+    summary["rising_rule"] = "current completed RSI <= threshold AND current RSI > previous completed RSI"
     sample = next(d for d in exact_days if d["date"] == "2026-01-15")
     assert first_signal(sample, "1m", 30) == 932
     assert first_signal(sample, "3m", 30) == 939
@@ -103,6 +120,13 @@ def main():
              "decision_minute": first_signal(sample, tf, 30),
              "entry_minute": first_signal(sample, tf, 30) + 1}
         for tf in FRAMES}
+    for tf in FRAMES:
+        decision = first_signal(sample, tf, 30, rising=True)
+        pos = sample["times"][tf].index(decision)
+        summary["example_2026-01-15"][tf] |= {"rising_decision_minute": decision, "rising_entry_minute": decision + 1,
+                                            "rsi_before_rise": sample["r"][tf][pos - 1], "rsi_on_rise": sample["r"][tf][pos]}
+    assert summary["example_2026-01-15"]["1m"]["rising_decision_minute"] == 953
+    assert summary["example_2026-01-15"]["3m"]["rising_decision_minute"] == 954
     meta = {k: summary[k] for k in ("start", "end", "sessions")}
     data = {"meta": meta | {"default_day": "2026-01-15"}, "p_times": p_times, "r_times": r_times, "days": days}
     template = (ROOT / "code/strategy_visual_template.html").read_text(encoding="utf-8")
@@ -114,10 +138,11 @@ def main():
     if scratch:
         (Path(scratch) / FILE).write_text(html, encoding="utf-8")
     (OUT / "window_visual_summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
-    audit = {"pass": True, "regular_sessions": len(days), "max_rsi_error_independent_loop": error,
-             "prior_point_rsi_max_error": point_error, "rounding_first_signal_invariant": True,
+    audit = {"pass": True, "regular_sessions": len(days), "max_rsi_error_independent_loop": inputs["error"],
+             "prior_point_rsi_max_error": inputs["point_error"], "rounding_first_signal_invariant": True,
              "last_signal_1m": "15:58", "last_signal_3m": "15:57", "first_signal_state_inclusive": True,
              "sample_first_1m": "15:32", "sample_first_3m": "15:39", "html_bytes": len(html.encode("utf-8")),
+             "sample_rising_1m": "15:53", "sample_rising_3m": "15:54", "rising_requires_positive_completed_bar_change": True,
              "returns_calculated": False}
     (OUT / "window_visual_audit.json").write_text(json.dumps(audit, ensure_ascii=False, indent=2), encoding="utf-8")
     print(json.dumps({"audit": audit, "display_counts": {tf: {n: summary["counts"][tf][n] for n in ("30", "20", "10")} for tf in FRAMES},
