@@ -30,23 +30,28 @@ def moving_average(close, kind, length):
     raise ValueError(kind)
 
 
-def eligible(close, average):
-    return bool(np.isfinite(close) and np.isfinite(average) and close >= average)
+def eligible(close, average, *, comparison_rtol=0.):
+    """Roundoff-sized differences may be treated as equality when explicitly set."""
+    return bool(np.isfinite(close) and np.isfinite(average) and
+                close-average >= -comparison_rtol*max(abs(close), abs(average)))
 
 
-def apply_gate(decision, current, values):
+def apply_gate(decision, current, values, *, comparison_rtol=0.):
     """No replacement or redistribution. Held names are exempt, not sold by the gate."""
-    blocked = {key for key in decision['selected'] if key not in current and not eligible(*values[key])}
+    blocked = {key for key in decision['selected'] if key not in current and
+               not eligible(*values[key], comparison_rtol=comparison_rtol)}
     return {**decision,
             'selected': [key for key in decision['selected'] if key not in blocked],
             'target': {key:w for key,w in decision['target'].items() if key not in blocked}}, blocked
 
 
 @contextmanager
-def entry_gate(book, kind, length, events, averages=None):
+def entry_gate(book, kind, length, events, averages=None, *, comparison_rtol=0.):
     original = S.weekly_target
     if averages is None:
         averages = moving_average(book.cls, kind, length)
+    closes = {ticker: book.cls[ticker].to_numpy(float) for ticker in book.ticker.values()}
+    means = {ticker: averages[ticker].to_numpy(float) for ticker in book.ticker.values()}
     def weekly(b, k, session, current):
         decision = original(b,k,session,current)
         if not decision['ranked']:
@@ -54,8 +59,8 @@ def entry_gate(book, kind, length, events, averages=None):
         values = {}
         for key in decision['selected']:
             ticker = b.ticker[key]
-            values[key] = (float(b.cls[ticker].iloc[k-1]), float(averages[ticker].iloc[k-1]))
-        gated, blocked = apply_gate(decision, current, values)
+            values[key] = (float(closes[ticker][k-1]), float(means[ticker][k-1]))
+        gated, blocked = apply_gate(decision, current, values, comparison_rtol=comparison_rtol)
         for key in decision['selected']:
             if key not in current:
                 close, average = values[key]

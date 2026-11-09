@@ -18,11 +18,12 @@ spec.loader.exec_module(G)
 M, S = G.M, G.M.S
 
 
-def below_ma(close, average):
-    return bool(np.isfinite(close) and np.isfinite(average) and close < average)
+def below_ma(close, average, *, comparison_rtol=0.):
+    return bool(np.isfinite(close) and np.isfinite(average) and
+                not M.eligible(close, average, comparison_rtol=comparison_rtol))
 
 
-def make_exit_callback(book, averages, name, exits, unknown):
+def make_exit_callback(book, averages, name, exits, unknown, *, comparison_rtol=0.):
     """Shared prior-close predicate for both the seven-stock and cross-stock studies."""
     closes = {key: book.cls[tk].to_numpy(float) for key, tk in book.ticker.items()}
     means = {key: averages[tk].to_numpy(float) for key, tk in book.ticker.items()}
@@ -36,7 +37,7 @@ def make_exit_callback(book, averages, name, exits, unknown):
                      'ma': float(a) if np.isfinite(a) else None, 'weight': weight}
             if not (np.isfinite(c) and np.isfinite(a)):
                 unknown.append(event)
-            elif below_ma(c, a):
+            elif below_ma(c, a, comparison_rtol=comparison_rtol):
                 requested.append(key)
                 exits.append({**event, 'open': S._price_at(b, key, k)})
         return requested

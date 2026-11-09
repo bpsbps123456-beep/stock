@@ -6,6 +6,7 @@ desk engine. No 7-stock ranking or allocation is claimed for this sleeve experim
 from __future__ import annotations
 
 import copy
+from contextlib import contextmanager, nullcontext
 import hashlib
 import importlib.util
 import json
@@ -24,26 +25,46 @@ SPEC.loader.exec_module(E)
 M, S = E.M, E.S
 
 
-def run_sleeve(book, ticker, mode, length=126, averages=None, start='2026-01-05'):
+@contextmanager
+def cached_columns(book):
+    """Immutable research-book column access; leave all wealth math unchanged."""
+    original = S._col
+    frames = [(getattr(book, role), {}) for role in ('opn', 'cls', 'adj')]
+    for frame, columns in frames:
+        columns.update({t: frame[t].to_numpy(float) for t in book.ticker.values() if t in frame})
+
+    def column(b, frame, key):
+        for source, columns in frames:
+            if frame is source:
+                return columns.get(b.ticker[key])
+        return original(b, frame, key)
+
+    with patch.object(S, '_col', column):
+        yield
+
+
+def run_sleeve(book, ticker, mode, length=126, averages=None, start='2026-01-05', *,
+               kind='SMA', cache_columns=False, comparison_rtol=0.):
     """One security's capital; weekly eligibility only, daily exits when requested."""
     if mode not in {'buy_hold', 'entry_only', 'exit'}:
         raise ValueError(mode)
     b = copy.copy(book)
     b.ticker = {ticker: ticker}
     b.cls, b.opn = book.cls[[ticker]], book.opn[[ticker]]
-    average = (M.moving_average(b.cls, 'SMA', length) if averages is None else averages[[ticker]])
+    average = (M.moving_average(b.cls, kind, length) if averages is None else averages[[ticker]])
     entries, exits, unknown = [], [], []
 
     def single_stock_target(b, k, day, current):
         return {'pdf': 'fixed_cross_stock_universe', 'ranked': [{'key': ticker}],
                 'selected': [ticker], 'raw': {ticker: 1.}, 'target': {ticker: 1.}}
 
-    with patch.object(S, 'weekly_target', single_stock_target):
+    with patch.object(S, 'weekly_target', single_stock_target), (cached_columns(b) if cache_columns else nullcontext()):
         if mode == 'buy_hold':
             path = S.run_model(b, start=start)
         else:
-            callback = E.make_exit_callback(b, average, f'SMA{length}', exits, unknown) if mode == 'exit' else None
-            with M.entry_gate(b, 'SMA', length, entries, averages=average):
+            callback = E.make_exit_callback(b, average, f'{kind}{length}', exits, unknown,
+                          comparison_rtol=comparison_rtol) if mode == 'exit' else None
+            with M.entry_gate(b, kind, length, entries, averages=average, comparison_rtol=comparison_rtol):
                 path = S.run_model(b, start=start, exit_at_open=callback)
     holdings = dict(zip(path.days, path.weights))
     for weights in path.weights:
@@ -55,11 +76,12 @@ def run_sleeve(book, ticker, mode, length=126, averages=None, start='2026-01-05'
             assert event['date'] in path.rebalances
     for event in exits:
         assert event['signal_date'] < event['session']
-        assert E.below_ma(event['close'], event['ma'])
+        assert E.below_ma(event['close'], event['ma'], comparison_rtol=comparison_rtol)
         assert ticker not in holdings[event['session']]
     for event in entries:
         assert event['signal_date'] < event['session']
-        assert event['allowed'] == M.eligible(event['close'], event['ma'] if event['ma'] is not None else np.nan)
+        assert event['allowed'] == M.eligible(event['close'], event['ma'] if event['ma'] is not None else np.nan,
+                                             comparison_rtol=comparison_rtol)
     return path, entries, exits, unknown
 
 

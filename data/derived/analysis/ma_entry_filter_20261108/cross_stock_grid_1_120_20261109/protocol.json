@@ -1,0 +1,49 @@
+{
+  "registered_kst": "2026-11-09",
+  "request": "동일한 여러 종목에서 SMA·EMA 1~120일, 1일 간격 전수 비교",
+  "frozen_input_directory": "data\\derived\\analysis\\ma_entry_filter_20261108\\cross_stock_20261109\\inputs",
+  "frozen_input_meta_sha256": "1d1b128dd6dfca8ebc1c1e39d5acaa047dff8234306ac79cada094a51abbb3fd",
+  "universe": "이전 고정126 연구의 공통138종목 그대로. 이전7종목400설정 편입과 겹치지 않는 연초47을 주 선택군, 확대108 및 추가61을 별도 보고. 현재 AI목록은 사후선택 조건.",
+  "grid": {
+    "kinds": [
+      "SMA",
+      "EMA"
+    ],
+    "minimum": 1,
+    "maximum": 120,
+    "step": 1,
+    "candidates": 240,
+    "stocks": 138,
+    "candidate_paths": 33120,
+    "control_paths": 138
+  },
+  "periods": {
+    "front": [
+      "2026-01-05",
+      "2026-05-29"
+    ],
+    "back": [
+      "2026-06-01",
+      "2026-11-04"
+    ],
+    "full": [
+      "2026-01-05",
+      "2026-11-04"
+    ]
+  },
+  "primary_selector": "jan2_external 앞 구간 바스켓 원화수익 최대. 하나의 종류·기간을 모든 종목에 공통 적용. 동률1e-9%p내 SMA 우선, 짧은 기간 우선.",
+  "secondary_selector": "같은 앞 구간 최대낙폭이 매수보유보다 나쁘지 않은 후보 중 앞 구간 원화수익 최대. 동률은 주 선택과 동일.",
+  "support_selector": "broad_external 앞 구간 수익만으로 같은 방법 선택. 주 선택군을 포함하므로 독립검증으로 부르지 않음.",
+  "execution": "전일 확정 정규장 Close<MA면 다음 정규장 Open에 전량매도. 신규/재편입은 주간 첫 미국세션에만 전일Close>=MA. equality유지. USD현금. 시가갭 먼저 반영. SMA1/EMA1은 매수보유와 동일한 무필터 대조.",
+  "ma": "SMA는 N개 유효 관측. EMA는2025첫 유효Close를초기값으로 adjust=False,ignore_na=True,min_periods=N. 2025는예열만.",
+  "wealth": "종목별 동일초기자금, 종목간 자금이전 없음. desk.strategies.run_model과 기존 entry_gate/make_exit_callback 재사용. 종목별평균NAV이며 주간동일비중리밸런싱 아님. 6월초 재시작하지 않음.",
+  "fees": "사용자수수료0. 가격수익, 배당현금 미반영. 환전/세금/현금이자 제외. 5/10bp×편도합계회전율 비례차감 민감도도 보고.",
+  "exposure_control": "각 기간 실제 평균투자비중으로 매수보유 일별USD수익을 고정노출한 사후대조. 기간시작자금은 실제전략 직전종가NAV 가중. 미래평균비중을 아는 실행규칙으로 해석하지 않음.",
+  "report": "모든240개 front/back/full 수익·MDD·투자비중, 선택값과 동종류±5이웃, 뒤/전체 사후최고와 개선개수 별도표시. 성과 보고 다른선택조건 추가하지 않음.",
+  "limits": "이미관찰한2026 재탐색. 240개 선택편향, 종목간상관, 2026관측기간의선택, 현재목록/생존/가격공급자조건이 남음. 기존7종목모델 성과가 아님. 연구만, 실매매·Pine기본값 자동변경없음.",
+  "numerical_equality": {
+    "relative_equality_tolerance": 1e-12,
+    "predicate": "abs(Close-MA)<=1e-12*max(abs(Close),abs(MA))이면 수치상 동등한 값으로 처리",
+    "correction": "독립검산에서 ARM/SMA3의2026-02-11 수학적 동등값이1.42e-14USD 차이로 매도 처리된 것을 발견했다. 잠정값을 폐기하고 진입·매도 공통 반올림오차 처리로 전 후보를 다시 계산했다. 후보·선택기준·기간·입력은 유지한다."
+  }
+}
