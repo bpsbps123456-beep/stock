@@ -1,0 +1,34 @@
+{
+  "status": "unchanged",
+  "checked_at_utc": "2026-11-09T02:21:51.704594+00:00",
+  "strategy": "exit_SMA126",
+  "stocks": 138,
+  "comparison_rtol": [
+    0.0,
+    1e-12
+  ],
+  "signal_history": "Full frozen2025 signal history; no new download",
+  "period": [
+    "2026-01-05",
+    "2026-11-04"
+  ],
+  "unchanged_ticker_count": 138,
+  "changed_ticker_count": 0,
+  "max_close_error_usd_nav": 0.0,
+  "max_open_error_usd_nav": 0.0,
+  "checks": [
+    "close",
+    "open",
+    "events",
+    "weights",
+    "rebalances",
+    "selected",
+    "last",
+    "entry_ledger",
+    "exit_ledger",
+    "unknown_ledger"
+  ],
+  "changed": [],
+  "input_meta_sha256": "1d1b128dd6dfca8ebc1c1e39d5acaa047dff8234306ac79cada094a51abbb3fd",
+  "elapsed_seconds": 1.9242612000089139
+}

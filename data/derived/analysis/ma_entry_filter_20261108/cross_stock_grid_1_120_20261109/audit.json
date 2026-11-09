@@ -1,0 +1,341 @@
+{
+  "status": "passed",
+  "eligible_stock_count": 138,
+  "candidate_settings": 240,
+  "candidate_cash_quantity_paths": 33120,
+  "baseline_cash_quantity_paths": 138,
+  "scalar_ma_signal_cells": 6988320,
+  "per_stock_period_rows_checked": 99774,
+  "aggregate_period_rows_checked": 6507,
+  "stored_basket_curves_checked": 2178,
+  "numeric_cells_checked": 1261944,
+  "max_numeric_error": 1.5347723092418164e-12,
+  "max_basket_curve_error": 1.7763568394002505e-15,
+  "no_op_SMA1_EMA1_verified": true,
+  "comparison_relative_equality_tolerance": 1e-12,
+  "provisional_strict_float_roundoff_discrepancy": {
+    "signal": "ARM/SMA3/2026-02-11",
+    "close": 125.27999877929688,
+    "pandas_average": 125.27999877929689,
+    "direct_fsum_average": 125.27999877929688,
+    "resolution": "Explicit relative1e-12 equality for both entry and exit; provisional strict-float grid replaced, no metric-error tolerance widened."
+  },
+  "SMA120_prior_fixed_study_max_metric_error": 5.684341886080801e-13,
+  "front_only_selectors_verified": {
+    "primary": "exit_EMA6",
+    "secondary": "exit_EMA6",
+    "broad": "exit_SMA1"
+  },
+  "front_maximum_ties": {
+    "primary": 1,
+    "secondary": 1,
+    "broad": 2
+  },
+  "front_selection_unchanged_after_back_score_mutation": true,
+  "all_paired_improvement_counts_verified": true,
+  "hindsight_descriptive_counts_verified": true,
+  "selected_neighbor_rows_checked": 459,
+  "group_counts": {
+    "jan2_all": 63,
+    "jan2_external": 47,
+    "jan2_overlap": 16,
+    "ai_all": 113,
+    "ai_external": 88,
+    "broad_all": 138,
+    "broad_external": 108,
+    "broad_overlap": 30,
+    "additional_external": 61
+  },
+  "selected_group_period_results": [
+    {
+      "group": "jan2_external",
+      "strategy": "exit_SMA1",
+      "kind": "SMA",
+      "length": 1,
+      "period": "front",
+      "return_pct": 20.484448157828815,
+      "mdd_pct": -15.309600833643678,
+      "usd_return_pct": 16.322697242422237,
+      "mean_open_exposure_pct": 100.0
+    },
+    {
+      "group": "broad_external",
+      "strategy": "exit_SMA1",
+      "kind": "SMA",
+      "length": 1,
+      "period": "front",
+      "return_pct": 46.58144147523973,
+      "mdd_pct": -10.134603597047942,
+      "usd_return_pct": 41.518253175268605,
+      "mean_open_exposure_pct": 100.0
+    },
+    {
+      "group": "additional_external",
+      "strategy": "exit_SMA1",
+      "kind": "SMA",
+      "length": 1,
+      "period": "front",
+      "return_pct": 66.68896091652358,
+      "mdd_pct": -10.800666182906692,
+      "usd_return_pct": 60.931222500576524,
+      "mean_open_exposure_pct": 100.0
+    },
+    {
+      "group": "jan2_external",
+      "strategy": "exit_SMA1",
+      "kind": "SMA",
+      "length": 1,
+      "period": "back",
+      "return_pct": -31.197435581922107,
+      "mdd_pct": -34.82611543113461,
+      "usd_return_pct": -23.389837392253654,
+      "mean_open_exposure_pct": 100.0
+    },
+    {
+      "group": "broad_external",
+      "strategy": "exit_SMA1",
+      "kind": "SMA",
+      "length": 1,
+      "period": "back",
+      "return_pct": -32.97352769735353,
+      "mdd_pct": -38.12424890365851,
+      "usd_return_pct": -25.36747742530141,
+      "mean_open_exposure_pct": 100.0
+    },
+    {
+      "group": "additional_external",
+      "strategy": "exit_SMA1",
+      "kind": "SMA",
+      "length": 1,
+      "period": "back",
+      "return_pct": -33.962667465075135,
+      "mdd_pct": -40.41999885373413,
+      "usd_return_pct": -26.468863094394724,
+      "mean_open_exposure_pct": 100.0
+    },
+    {
+      "group": "jan2_external",
+      "strategy": "exit_SMA1",
+      "kind": "SMA",
+      "length": 1,
+      "period": "full",
+      "return_pct": -17.103609942444166,
+      "mdd_pct": -34.82611543113461,
+      "usd_return_pct": -10.884992492863855,
+      "mean_open_exposure_pct": 100.0
+    },
+    {
+      "group": "broad_external",
+      "strategy": "exit_SMA1",
+      "kind": "SMA",
+      "length": 1,
+      "period": "full",
+      "return_pct": -1.7516307287785082,
+      "mdd_pct": -38.12424890365851,
+      "usd_return_pct": 5.618642248351446,
+      "mean_open_exposure_pct": 100.0
+    },
+    {
+      "group": "additional_external",
+      "strategy": "exit_SMA1",
+      "kind": "SMA",
+      "length": 1,
+      "period": "full",
+      "return_pct": 10.07694341945562,
+      "mdd_pct": -40.41999885373413,
+      "usd_return_pct": 18.334557540763164,
+      "mean_open_exposure_pct": 100.0
+    },
+    {
+      "group": "jan2_external",
+      "strategy": "exit_EMA6",
+      "kind": "EMA",
+      "length": 6,
+      "period": "front",
+      "return_pct": 20.82253012582298,
+      "mdd_pct": -5.248037177080955,
+      "usd_return_pct": 16.6491012473158,
+      "mean_open_exposure_pct": 33.28230134316152
+    },
+    {
+      "group": "broad_external",
+      "strategy": "exit_EMA6",
+      "kind": "EMA",
+      "length": 6,
+      "period": "front",
+      "return_pct": 30.8957311021832,
+      "mdd_pct": -5.063721970800728,
+      "usd_return_pct": 26.374355629526992,
+      "mean_open_exposure_pct": 39.77738743878335
+    },
+    {
+      "group": "additional_external",
+      "strategy": "exit_EMA6",
+      "kind": "EMA",
+      "length": 6,
+      "period": "front",
+      "return_pct": 38.65704988724761,
+      "mdd_pct": -6.003477331322227,
+      "usd_return_pct": 33.86758441582085,
+      "mean_open_exposure_pct": 44.44553969799754
+    },
+    {
+      "group": "jan2_external",
+      "strategy": "exit_EMA6",
+      "kind": "EMA",
+      "length": 6,
+      "period": "back",
+      "return_pct": -18.995190881121015,
+      "mdd_pct": -22.044338259833296,
+      "usd_return_pct": -9.802902681107051,
+      "mean_open_exposure_pct": 27.92793818545281
+    },
+    {
+      "group": "broad_external",
+      "strategy": "exit_EMA6",
+      "kind": "EMA",
+      "length": 6,
+      "period": "back",
+      "return_pct": -15.144336811106152,
+      "mdd_pct": -19.350424579526404,
+      "usd_return_pct": -5.5150602296267675,
+      "mean_open_exposure_pct": 29.41924016058711
+    },
+    {
+      "group": "additional_external",
+      "strategy": "exit_EMA6",
+      "kind": "EMA",
+      "length": 6,
+      "period": "back",
+      "return_pct": -12.558917107451917,
+      "mdd_pct": -17.576604644005343,
+      "usd_return_pct": -2.636251487809327,
+      "mean_open_exposure_pct": 30.337687754031833
+    },
+    {
+      "group": "jan2_external",
+      "strategy": "exit_EMA6",
+      "kind": "EMA",
+      "length": 6,
+      "period": "full",
+      "return_pct": -2.1279400989770436,
+      "mdd_pct": -22.044338259833296,
+      "usd_return_pct": 5.214103373655399,
+      "mean_open_exposure_pct": 30.490927185114323
+    },
+    {
+      "group": "broad_external",
+      "strategy": "exit_EMA6",
+      "kind": "EMA",
+      "length": 6,
+      "period": "full",
+      "return_pct": 11.072440712708742,
+      "mdd_pct": -19.350424579526404,
+      "usd_return_pct": 19.404733801755846,
+      "mean_open_exposure_pct": 34.37740544541089
+    },
+    {
+      "group": "additional_external",
+      "strategy": "exit_EMA6",
+      "kind": "EMA",
+      "length": 6,
+      "period": "full",
+      "return_pct": 21.243225928269926,
+      "mdd_pct": -17.576604644005343,
+      "usd_return_pct": 30.338498229964372,
+      "mean_open_exposure_pct": 37.09073536702016
+    }
+  ],
+  "front_back_carry_verified": true,
+  "actual_open_nav_exposure_verified": true,
+  "all_five_ten_bp_sensitivities_verified": true,
+  "source_and_protocol_hashes_verified": true,
+  "comparison_source_hashes_verified": true,
+  "prior_seven_stock_portfolio_context": {
+    "scope": "Previously observed original seven-stock portfolio study, Jan2-Nov4; separate from the broad independent-sleeve experiment and not a new grid holdout.",
+    "source": "exit_1_200/summary.csv",
+    "length_range": [
+      2,
+      120
+    ],
+    "candidate_count": 238,
+    "full_return_better_than_baseline_count": 0,
+    "full_return_strictly_worse_than_baseline_count": 238,
+    "baseline_full_return_pct": 132.3296949719498,
+    "EMA6_full_return_pct": 43.83151748925931,
+    "EMA6_back_return_pct": -31.1376818586799,
+    "best_nonidentity_strategy_in_2_120": "EMA90",
+    "best_nonidentity_full_return_pct": 127.08770410142662
+  },
+  "prior_fixed126_sleeve_context": [
+    {
+      "group": "jan2_external",
+      "strategy": "buy_hold",
+      "period": "back",
+      "krw_return_pct": -31.197435581922107,
+      "krw_mdd_pct": -34.82611543113456
+    },
+    {
+      "group": "jan2_external",
+      "strategy": "buy_hold",
+      "period": "full",
+      "krw_return_pct": -17.10360994244413,
+      "krw_mdd_pct": -34.82611543113456
+    },
+    {
+      "group": "jan2_external",
+      "strategy": "exit_SMA126",
+      "period": "back",
+      "krw_return_pct": -21.688252204957248,
+      "krw_mdd_pct": -27.392936498357056
+    },
+    {
+      "group": "jan2_external",
+      "strategy": "exit_SMA126",
+      "period": "full",
+      "krw_return_pct": -10.739400813107814,
+      "krw_mdd_pct": -27.392936498357056
+    },
+    {
+      "group": "broad_external",
+      "strategy": "buy_hold",
+      "period": "back",
+      "krw_return_pct": -32.973527697353546,
+      "krw_mdd_pct": -38.12424890365853
+    },
+    {
+      "group": "broad_external",
+      "strategy": "buy_hold",
+      "period": "full",
+      "krw_return_pct": -1.7516307287785082,
+      "krw_mdd_pct": -38.12424890365853
+    },
+    {
+      "group": "broad_external",
+      "strategy": "exit_SMA126",
+      "period": "back",
+      "krw_return_pct": -24.322000442566072,
+      "krw_mdd_pct": -31.18919954472288
+    },
+    {
+      "group": "broad_external",
+      "strategy": "exit_SMA126",
+      "period": "full",
+      "krw_return_pct": 2.4870974547797298,
+      "krw_mdd_pct": -31.18919954472288
+    }
+  ],
+  "ma_seconds": {
+    "SMA": 20.596522900043055,
+    "EMA": 0.04830419993959367
+  },
+  "elapsed_seconds": 29.351808900013566,
+  "limitations": [
+    "The audit independently rebuilds every raw-price cash/share path and all retained metrics and baskets; no daily per-stock grid curve file is assumed.",
+    "Chronological front selection uses one common parameter for all stocks;2026 prices, currentAI membership and discovery/external conditioning were already observed, so this is not a new untouched holdout.",
+    "The primary and broad front pickers and the front-MDD-constrained secondary picker are separate prespecified procedures. None establishes a per-stock optimal MA.",
+    "The nine cohorts overlap and share market factors;33,120 paths and many adjacent lengths do not constitute independent trials.",
+    "SMA/EMA1 are no-op controls. Weekly-only reentry and daily prior-close exits are the tested timing; immediate daily reentry is not included.",
+    "Cost and matched-exposure diagnostics are proportional-drag and ex-post controls respectively, not observed fills or executable allocations."
+  ]
+}
