@@ -243,6 +243,7 @@ def exhaustion(src,cust,px,frame):
 
 
 def stage1(news_series=None):
+    (ROOT/'results').mkdir(parents=True,exist_ok=True)
     args=inputs(news_series)
     panel=assemble(*args)
     px=args[2].loc[:'2025-12-31']
@@ -275,6 +276,7 @@ def stage1(news_series=None):
 
 
 def stage2(news_series=None):
+    (ROOT/'results').mkdir(parents=True,exist_ok=True)
     freeze=ROOT/'freeze_A.json'
     rel=freeze.relative_to(ROOT.parents[3]).as_posix()
     committed=subprocess.check_output(['git','show','HEAD:'+rel])
