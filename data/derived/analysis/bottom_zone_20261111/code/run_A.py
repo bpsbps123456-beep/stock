@@ -202,7 +202,8 @@ def exhaustion(src,cust,px,frame):
     ev=json.loads((ROOT.parent/'seibro_bottoms/derived/events.json').read_text(encoding='utf-8'))
     rows=[];daily=[];crash=[];timing=[]
     buy5=src.SOXL_buy.reindex(px.index).rolling(5,min_periods=5).sum()
-    custody=cust.sort_values('custody_date').drop_duplicates('source_date',keep='last').set_index('source_date')
+    custody=(cust.dropna(subset=['source_date']).sort_values('custody_date')
+             .drop_duplicates('source_date',keep='last').set_index('source_date').sort_index())
     for item in ev['B10_events']:
         d=pd.Timestamp(item['bottom'])
         if d.year<2024:continue

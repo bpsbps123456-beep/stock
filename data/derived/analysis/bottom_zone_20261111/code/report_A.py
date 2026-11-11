@@ -26,12 +26,9 @@ def main():
         r=data[key]['daily']['2026']
         rows.append([key,rate(r['on']),rate(r['match']),rate(r['off']),
                      rate(r['matched_on']),pct(r['delta_match']),num(s['rawp'][key]),num(s['holm'][key])])
-    valid=[key for key in primary if data[key]['daily']['2026']['delta_match'] is not None]
-    positive=[key for key in valid if data[key]['daily']['2026']['delta_match']>0]
-    best=max(valid,key=lambda key:data[key]['daily']['2026']['delta_match']) if valid else None
-    lead=f'2026년 가격 짝보다 바닥 근처 진입(Z) 비율이 높은 주 칸은 {len(positive)}/7이다.'
-    if best:lead+=f' 가장 큰 차이는 {best}의 {pct(data[best]["daily"]["2026"]["delta_match"])}p다.'
-    lead+=' 소수 하락 구간의 과거 비교이며 매매 규칙으로 확정하지 않는다.'
+    kk=data['K3']['daily']['2026']
+    lead=f'대표 신호3개 이상을 결합해도 2026 바닥 근처 진입은 더 잘 고르지 못했다: K≥3은 {pct(kk["on"]["rate"])}({kk["on"]["scored"]}건), 가격 짝은 {pct(kk["match"]["rate"])}다.'
+    lead+=' 매수가 말랐다는 가설도 바닥10개의 공통 모습은 아니었다.'
     lines=['# 수급·필터 결합으로 바닥 근처 고르기 — 과제 A',
         '', '**'+lead+'**','',
         table(['시험 범위','개수'],[['하락 단일','19'],['하락 결합','8'],['고점 보조','7'],['합계','34'],['판정 밖 X1 민감도','30%·70% 두 칸']]),'',
@@ -40,10 +37,14 @@ def main():
         table(['신호','ON Z','가격 짝 Z','OFF Z','짝 있는 ON Z','짝 대비 차이','이동 p','Holm7'],rows),'',
         '원형 이동 p는 같은 해 전체 세션 신호를10,000회 이동한 단측 ON−OFF 차이의 참고값이다. 가격 짝의 p가 아니다. Holm은 이7칸만 보정한다. p 하나로 합격·탈락을 정하지 않는다.','',
         '## 근거와 해석','',
-        '- 계열 대표는2024~2025 결과만으로 골랐다. 선택 때 가격 결과도2025-12-31에 잘랐다. 선택된 대표는 '+', '.join(f'{k}={v}' for k,v in s['representatives'].items())+'다.',
-        '- ON과 OFF의 차이가 가격 짝에서 줄면, 직전 낙폭·5일 수익·1일 수익으로 설명되는 몫이 크다. 짝이 부족한 칸은 남은 ON 전체와 짝을 직접 비교하지 않는다.',
-        '- 일별 창은 서로 겹친다. 아래10세션 간격 사건에서도 방향과 건수를 확인한다. 서로 다른 사건이 같은 하락 국면일 수 있다.',
-        '- 2026은 앞선 연구에서 본 자료다. 이번 단계 분리와 freeze 커밋은 대표 선택의 추가 누출을 막지만 새 홀드아웃을 만들지는 않는다.','',
+        '- SOXS 매수 몫이 낮은 S1L은2026 일별37.8% 대 가격 짝32.4%, 사건50.0% 대30.0%다. 바닥 구역9/10에 켜졌지만 사건 정밀도는33.3%이고2025에는 가격 짝보다 낮았다.',
+        '- 전체 Top50 순매수5일 합이 음수인 X2는 일별53.8%(13건) 대 짝15.4%다. 그러나 사건5건에서는 양쪽40.0%로 같아 일별 반복과 구간 의존성이 크다.',
+        '- K≥3은28.6% 대 짝42.9%, 사건도25.0% 대50.0%다. K≥2의 작은 차이와 일부2건짜리 결합을 함께 보아도 강한 결합 우위라고 하기 어렵다.',
+        '- T5L의100%는1/1이다. 공포≤25·200일선 아래·R 뉴스 대표는2026 가격 짝보다 낮았다. Holm7은 모두1.0이지만 이것만으로 효과를0이라고 단정하지 않는다.',
+        '- SOXL5일 매수가 하락 중 최대의50% 이하이고 저가 근처인 X1은2026 Z가0/4다. 실제 바닥10개에서도 매수가 말랐던 경우는1개뿐이었다.',
+        '', '계열 대표는2024~2025 결과만으로 골랐다. 선택 때 가격 결과도2025-12-31에 잘랐다. 대표는 '+', '.join(f'{k}={v}' for k,v in s['representatives'].items())+'다.','',
+        '2026 결과 계산 전 freeze 커밋은 `9167123bfa91b8a1dc685ee57f0918f1e30a831a`다. 원응답5040개의 Git 보존은 `8ee41fde9280c9377cb51e1eb1133497cbc22a48`에서 완료했다. 동결 뒤 변경은 [기록](results/postfreeze_changes_A.json)에 적었다.','',
+        '일별 창은 서로 겹치고,10세션 간격 사건도 같은 하락 국면에 속할 수 있다. 가격 짝이 부족한 칸은 짝 있는 ON과 대조한다. 2026은 앞선 연구에서 본 자료여서 새 홀드아웃이 아니다.','',
         '## 시기별 방향 — 대표와 K3','']
     rows=[]
     for key in primary:
@@ -93,7 +94,7 @@ def main():
             [[r.bottom,r.buy5_peak,r.peak_to_bottom,pct(r.bottom_buy5_ratio),pct(r.bottom_day_buy_vs_max),f'{r.bottom_net:,.0f}'] for r in e.itertuples()]),'',
         '고점~바닥+10세션의 일별 SOXL 매수·순매수·누적 순매수·보관 좌수·전체 순매수·SOXS 몫은 [설명 원장](results/exhaustion_daily.csv)에 있다. 진행 중인10/05 하락도 포함한다. 하루 SOXX−3% 이하 날만 순서대로 비교한 순매수 변화는 [급락 반응 표](results/crash_response.csv)에 있다.','',
         '## 지금 상태','',
-        f'최신 관찰 설정: **{current["date"]}**, 직전 종가 DD60 **{pct(current["dd60"])}**, 하락 상태 **{current["down"]}**. 원거래일 **{current["source_date"]}**, 보관 날짜 **{current["custody_date"]}**. 다음 정규장 시가가 아직 없으면 결과는 미채점이다. K는 **{current["K"]}**이고, 결측을 고려한 켜짐 수 범위는 **{current["K_min"]}~{current["K_max"]}**다.','']
+        f'최신 관찰 설정: **{str(current["date"])[:10]}**, 직전 종가 DD60 **{pct(current["dd60"])}**, 하락 상태에 해당한다. 원거래일 **{str(current["source_date"])[:10]}**, 보관 날짜 **{str(current["custody_date"])[:10]}**. 다음 정규장 시가가 아직 없으면 결과는 미채점이다. 뉴스 대표가 결측이므로 K는 확정할 수 없고 켜짐 수 범위는 **{current["K_min"]}~{current["K_max"]}**다.','']
     val=current['values'];rows=[]
     for key,obj in current['signals'].items():
         if key.startswith('S'):value=val.get(key[:2]);rank=val.get(key[:2]+'_P')
@@ -121,6 +122,21 @@ def main():
         rows.append([key,rate(r['on']),rate(r['match']),pct(r['on']['Z3']),pct(r['on']['Z8']),pct(r['on']['R10']),pct(r['on']['R20']),pct(r['on']['min20'])])
     lines += [table(['19단일+8결합','2026 ON Z','짝 Z','−3% 지지','−8% 지지','10일 평균','20일 평균','최저종가 평균'],rows),'',
         '고점권7칸의 결과(+5% 넘게 더 오르지 않음·20일 수익)는 [고점 보조](results/high_aux_A.json), X1의30%·70%는 [민감도](results/sensitivity_A.json)다. 둘 다 대표 선택·주 판정에 쓰지 않는다. 6기간의 모든 일별·사건 통계는 [전체 요약](results/summary_A.json), 각 날짜는 [일별](results/daily_A.csv), [사건](results/events_A.csv), [가격 짝](results/matches_A.csv)에 있다.','',
+        '## 고점권7칸 — 보조','',
+        'H는 진입 포함20세션 최고 종가가 진입 시가의+5% 이하인 비율이다. 바닥 쪽 Z와 반대 방향의 질문이다.','']
+    high=json.loads((ROOT/'results/high_aux_A.json').read_text(encoding='utf-8'))
+    rows=[]
+    for key,tab in high.items():
+        r=tab['daily']['2026']
+        rows.append([key,rate(r['on']),rate(r['match']),rate(r['off']),pct(r['on']['R20'])])
+    lines += [table(['고점 신호','2026 ON H','가격 짝 H','OFF H','20일 평균'],rows),'',
+        '## X1 민감도 — 판정 밖','']
+    sensitivity=json.loads((ROOT/'results/sensitivity_A.json').read_text(encoding='utf-8'))
+    rows=[]
+    for key,tab in sensitivity.items():
+        r=tab['daily']['2026']
+        rows.append([key,rate(r['on']),rate(r['match']),rate(r['off'])])
+    lines += [table(['매수/진행 최대 문턱','2026 ON Z','가격 짝 Z','OFF Z'],rows),'',
         '## 자료·검증·한계','',
         f'- 새 SEIBRO 원응답 **{qa["requests"]}개**(빈 응답{qa["empty"]}개), 결제 날짜 {qa["first"]}~{qa["last"]}. 날짜별XML gzip을 보존했다. 새 단일 전체 가격 응답3개와 CNN 원응답을 보존했다. SOXX3:1 분할 기준은7/29·10/05·11/05 앵커로 검사했고 섞임이 없었다.',
         '- 빈 응답·Top50 미관측·새 공개 없는 날은0달러·OFF가 아니다. 분모는 Top50 근사이며 전체 한국인 자산/현금을 뜻하지 않는다. 매수 감소가 자금 고갈을 직접 측정하지는 않는다.',
