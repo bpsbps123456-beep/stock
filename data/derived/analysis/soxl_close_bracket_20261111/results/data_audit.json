@@ -1,0 +1,2028 @@
+{
+  "pass": true,
+  "symbol": "SOXL",
+  "start": "2026-01-02",
+  "end": "2026-11-10",
+  "sessions": 216,
+  "timezone": "America/New_York",
+  "feed": "sip",
+  "adjustment": "split",
+  "frozen_at_utc": "2026-11-11T10:48:24.593007+00:00",
+  "fetch": {
+    "daily_fetched_utc": "2026-11-11T10:48:10.840341+00:00",
+    "recent_fetched_utc": "2026-11-11T10:48:19.078382+00:00"
+  },
+  "daily_api_parameters": {
+    "timeframe": "1Day",
+    "start": "2026-01-01",
+    "end_exclusive": "2026-11-11",
+    "feed": "sip",
+    "adjustment": "split"
+  },
+  "minute_sources": [
+    {
+      "path": "sox_open_switch\\cache\\alp1m\\SOXL.parquet",
+      "sha256": "34ee276e88093417fd9f0873433901b6622b88f7ff055793b63662b96e87fb83",
+      "used_bars": 197836
+    },
+    {
+      "path": "sox_open_switch\\cache\\alp1m_recent\\SOXL.parquet",
+      "sha256": "b85897009b736bc877dcc2d3c900e3e0bc2c65d0644d7120636444b6145f2257",
+      "used_bars": 23020
+    },
+    {
+      "path": "soxl_close_bracket_20261111\\cache\\recent\\SOXL.parquet",
+      "sha256": "2e4837a1109d2edf8dceb5dcaf8fc6334fee484446c3d8dd271b5f40280f3ae4",
+      "used_bars": 5760
+    }
+  ],
+  "overlap_checks": [
+    {
+      "source_a": 0,
+      "source_b": 1,
+      "bars": 19180,
+      "max_relative_ohlc_error": 0.0
+    },
+    {
+      "source_a": 1,
+      "source_b": 2,
+      "bars": 960,
+      "max_relative_ohlc_error": 0.0
+    }
+  ],
+  "minute_output": {
+    "path": "cache/minute.parquet",
+    "sha256": "d951e94bb8ec6d3b61c6fbe47ca36584707e28c909ddfb4d484277c2c66d4c1d",
+    "bars": 206476,
+    "first": "2026-01-02T04:00:00-05:00",
+    "last": "2026-11-10T19:59:00-05:00"
+  },
+  "daily_output": {
+    "path": "cache/daily.parquet",
+    "sha256": "89330cf2aa11b56c352f9698b46b23ae0fb08a48e0a3afc707936696972fa9a7",
+    "bars": 216
+  },
+  "coverage": [
+    {
+      "day": "2026-01-02",
+      "open_et": "2026-01-02T09:30:00-05:00",
+      "close_et": "2026-01-02T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-01-05",
+      "open_et": "2026-01-05T09:30:00-05:00",
+      "close_et": "2026-01-05T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-01-06",
+      "open_et": "2026-01-06T09:30:00-05:00",
+      "close_et": "2026-01-06T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-01-07",
+      "open_et": "2026-01-07T09:30:00-05:00",
+      "close_et": "2026-01-07T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-01-08",
+      "open_et": "2026-01-08T09:30:00-05:00",
+      "close_et": "2026-01-08T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-01-09",
+      "open_et": "2026-01-09T09:30:00-05:00",
+      "close_et": "2026-01-09T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-01-12",
+      "open_et": "2026-01-12T09:30:00-05:00",
+      "close_et": "2026-01-12T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-01-13",
+      "open_et": "2026-01-13T09:30:00-05:00",
+      "close_et": "2026-01-13T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-01-14",
+      "open_et": "2026-01-14T09:30:00-05:00",
+      "close_et": "2026-01-14T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-01-15",
+      "open_et": "2026-01-15T09:30:00-05:00",
+      "close_et": "2026-01-15T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-01-16",
+      "open_et": "2026-01-16T09:30:00-05:00",
+      "close_et": "2026-01-16T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-01-20",
+      "open_et": "2026-01-20T09:30:00-05:00",
+      "close_et": "2026-01-20T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-01-21",
+      "open_et": "2026-01-21T09:30:00-05:00",
+      "close_et": "2026-01-21T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-01-22",
+      "open_et": "2026-01-22T09:30:00-05:00",
+      "close_et": "2026-01-22T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-01-23",
+      "open_et": "2026-01-23T09:30:00-05:00",
+      "close_et": "2026-01-23T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-01-26",
+      "open_et": "2026-01-26T09:30:00-05:00",
+      "close_et": "2026-01-26T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-01-27",
+      "open_et": "2026-01-27T09:30:00-05:00",
+      "close_et": "2026-01-27T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-01-28",
+      "open_et": "2026-01-28T09:30:00-05:00",
+      "close_et": "2026-01-28T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-01-29",
+      "open_et": "2026-01-29T09:30:00-05:00",
+      "close_et": "2026-01-29T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-01-30",
+      "open_et": "2026-01-30T09:30:00-05:00",
+      "close_et": "2026-01-30T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-02-02",
+      "open_et": "2026-02-02T09:30:00-05:00",
+      "close_et": "2026-02-02T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-02-03",
+      "open_et": "2026-02-03T09:30:00-05:00",
+      "close_et": "2026-02-03T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-02-04",
+      "open_et": "2026-02-04T09:30:00-05:00",
+      "close_et": "2026-02-04T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-02-05",
+      "open_et": "2026-02-05T09:30:00-05:00",
+      "close_et": "2026-02-05T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-02-06",
+      "open_et": "2026-02-06T09:30:00-05:00",
+      "close_et": "2026-02-06T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-02-09",
+      "open_et": "2026-02-09T09:30:00-05:00",
+      "close_et": "2026-02-09T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-02-10",
+      "open_et": "2026-02-10T09:30:00-05:00",
+      "close_et": "2026-02-10T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-02-11",
+      "open_et": "2026-02-11T09:30:00-05:00",
+      "close_et": "2026-02-11T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-02-12",
+      "open_et": "2026-02-12T09:30:00-05:00",
+      "close_et": "2026-02-12T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-02-13",
+      "open_et": "2026-02-13T09:30:00-05:00",
+      "close_et": "2026-02-13T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-02-17",
+      "open_et": "2026-02-17T09:30:00-05:00",
+      "close_et": "2026-02-17T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-02-18",
+      "open_et": "2026-02-18T09:30:00-05:00",
+      "close_et": "2026-02-18T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-02-19",
+      "open_et": "2026-02-19T09:30:00-05:00",
+      "close_et": "2026-02-19T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-02-20",
+      "open_et": "2026-02-20T09:30:00-05:00",
+      "close_et": "2026-02-20T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-02-23",
+      "open_et": "2026-02-23T09:30:00-05:00",
+      "close_et": "2026-02-23T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-02-24",
+      "open_et": "2026-02-24T09:30:00-05:00",
+      "close_et": "2026-02-24T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-02-25",
+      "open_et": "2026-02-25T09:30:00-05:00",
+      "close_et": "2026-02-25T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-02-26",
+      "open_et": "2026-02-26T09:30:00-05:00",
+      "close_et": "2026-02-26T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-02-27",
+      "open_et": "2026-02-27T09:30:00-05:00",
+      "close_et": "2026-02-27T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-03-02",
+      "open_et": "2026-03-02T09:30:00-05:00",
+      "close_et": "2026-03-02T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-03-03",
+      "open_et": "2026-03-03T09:30:00-05:00",
+      "close_et": "2026-03-03T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-03-04",
+      "open_et": "2026-03-04T09:30:00-05:00",
+      "close_et": "2026-03-04T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-03-05",
+      "open_et": "2026-03-05T09:30:00-05:00",
+      "close_et": "2026-03-05T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-03-06",
+      "open_et": "2026-03-06T09:30:00-05:00",
+      "close_et": "2026-03-06T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-03-09",
+      "open_et": "2026-03-09T09:30:00-04:00",
+      "close_et": "2026-03-09T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-03-10",
+      "open_et": "2026-03-10T09:30:00-04:00",
+      "close_et": "2026-03-10T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-03-11",
+      "open_et": "2026-03-11T09:30:00-04:00",
+      "close_et": "2026-03-11T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-03-12",
+      "open_et": "2026-03-12T09:30:00-04:00",
+      "close_et": "2026-03-12T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-03-13",
+      "open_et": "2026-03-13T09:30:00-04:00",
+      "close_et": "2026-03-13T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-03-16",
+      "open_et": "2026-03-16T09:30:00-04:00",
+      "close_et": "2026-03-16T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-03-17",
+      "open_et": "2026-03-17T09:30:00-04:00",
+      "close_et": "2026-03-17T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-03-18",
+      "open_et": "2026-03-18T09:30:00-04:00",
+      "close_et": "2026-03-18T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-03-19",
+      "open_et": "2026-03-19T09:30:00-04:00",
+      "close_et": "2026-03-19T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-03-20",
+      "open_et": "2026-03-20T09:30:00-04:00",
+      "close_et": "2026-03-20T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-03-23",
+      "open_et": "2026-03-23T09:30:00-04:00",
+      "close_et": "2026-03-23T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-03-24",
+      "open_et": "2026-03-24T09:30:00-04:00",
+      "close_et": "2026-03-24T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-03-25",
+      "open_et": "2026-03-25T09:30:00-04:00",
+      "close_et": "2026-03-25T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-03-26",
+      "open_et": "2026-03-26T09:30:00-04:00",
+      "close_et": "2026-03-26T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-03-27",
+      "open_et": "2026-03-27T09:30:00-04:00",
+      "close_et": "2026-03-27T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-03-30",
+      "open_et": "2026-03-30T09:30:00-04:00",
+      "close_et": "2026-03-30T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-03-31",
+      "open_et": "2026-03-31T09:30:00-04:00",
+      "close_et": "2026-03-31T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-04-01",
+      "open_et": "2026-04-01T09:30:00-04:00",
+      "close_et": "2026-04-01T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-04-02",
+      "open_et": "2026-04-02T09:30:00-04:00",
+      "close_et": "2026-04-02T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-04-06",
+      "open_et": "2026-04-06T09:30:00-04:00",
+      "close_et": "2026-04-06T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-04-07",
+      "open_et": "2026-04-07T09:30:00-04:00",
+      "close_et": "2026-04-07T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-04-08",
+      "open_et": "2026-04-08T09:30:00-04:00",
+      "close_et": "2026-04-08T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-04-09",
+      "open_et": "2026-04-09T09:30:00-04:00",
+      "close_et": "2026-04-09T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-04-10",
+      "open_et": "2026-04-10T09:30:00-04:00",
+      "close_et": "2026-04-10T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-04-13",
+      "open_et": "2026-04-13T09:30:00-04:00",
+      "close_et": "2026-04-13T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-04-14",
+      "open_et": "2026-04-14T09:30:00-04:00",
+      "close_et": "2026-04-14T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-04-15",
+      "open_et": "2026-04-15T09:30:00-04:00",
+      "close_et": "2026-04-15T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-04-16",
+      "open_et": "2026-04-16T09:30:00-04:00",
+      "close_et": "2026-04-16T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-04-17",
+      "open_et": "2026-04-17T09:30:00-04:00",
+      "close_et": "2026-04-17T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-04-20",
+      "open_et": "2026-04-20T09:30:00-04:00",
+      "close_et": "2026-04-20T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-04-21",
+      "open_et": "2026-04-21T09:30:00-04:00",
+      "close_et": "2026-04-21T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-04-22",
+      "open_et": "2026-04-22T09:30:00-04:00",
+      "close_et": "2026-04-22T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-04-23",
+      "open_et": "2026-04-23T09:30:00-04:00",
+      "close_et": "2026-04-23T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-04-24",
+      "open_et": "2026-04-24T09:30:00-04:00",
+      "close_et": "2026-04-24T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-04-27",
+      "open_et": "2026-04-27T09:30:00-04:00",
+      "close_et": "2026-04-27T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-04-28",
+      "open_et": "2026-04-28T09:30:00-04:00",
+      "close_et": "2026-04-28T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-04-29",
+      "open_et": "2026-04-29T09:30:00-04:00",
+      "close_et": "2026-04-29T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-04-30",
+      "open_et": "2026-04-30T09:30:00-04:00",
+      "close_et": "2026-04-30T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-05-01",
+      "open_et": "2026-05-01T09:30:00-04:00",
+      "close_et": "2026-05-01T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-05-04",
+      "open_et": "2026-05-04T09:30:00-04:00",
+      "close_et": "2026-05-04T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-05-05",
+      "open_et": "2026-05-05T09:30:00-04:00",
+      "close_et": "2026-05-05T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-05-06",
+      "open_et": "2026-05-06T09:30:00-04:00",
+      "close_et": "2026-05-06T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-05-07",
+      "open_et": "2026-05-07T09:30:00-04:00",
+      "close_et": "2026-05-07T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-05-08",
+      "open_et": "2026-05-08T09:30:00-04:00",
+      "close_et": "2026-05-08T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-05-11",
+      "open_et": "2026-05-11T09:30:00-04:00",
+      "close_et": "2026-05-11T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-05-12",
+      "open_et": "2026-05-12T09:30:00-04:00",
+      "close_et": "2026-05-12T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-05-13",
+      "open_et": "2026-05-13T09:30:00-04:00",
+      "close_et": "2026-05-13T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-05-14",
+      "open_et": "2026-05-14T09:30:00-04:00",
+      "close_et": "2026-05-14T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-05-15",
+      "open_et": "2026-05-15T09:30:00-04:00",
+      "close_et": "2026-05-15T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-05-18",
+      "open_et": "2026-05-18T09:30:00-04:00",
+      "close_et": "2026-05-18T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-05-19",
+      "open_et": "2026-05-19T09:30:00-04:00",
+      "close_et": "2026-05-19T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-05-20",
+      "open_et": "2026-05-20T09:30:00-04:00",
+      "close_et": "2026-05-20T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-05-21",
+      "open_et": "2026-05-21T09:30:00-04:00",
+      "close_et": "2026-05-21T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-05-22",
+      "open_et": "2026-05-22T09:30:00-04:00",
+      "close_et": "2026-05-22T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-05-26",
+      "open_et": "2026-05-26T09:30:00-04:00",
+      "close_et": "2026-05-26T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-05-27",
+      "open_et": "2026-05-27T09:30:00-04:00",
+      "close_et": "2026-05-27T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-05-28",
+      "open_et": "2026-05-28T09:30:00-04:00",
+      "close_et": "2026-05-28T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-05-29",
+      "open_et": "2026-05-29T09:30:00-04:00",
+      "close_et": "2026-05-29T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-06-01",
+      "open_et": "2026-06-01T09:30:00-04:00",
+      "close_et": "2026-06-01T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-06-02",
+      "open_et": "2026-06-02T09:30:00-04:00",
+      "close_et": "2026-06-02T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-06-03",
+      "open_et": "2026-06-03T09:30:00-04:00",
+      "close_et": "2026-06-03T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-06-04",
+      "open_et": "2026-06-04T09:30:00-04:00",
+      "close_et": "2026-06-04T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-06-05",
+      "open_et": "2026-06-05T09:30:00-04:00",
+      "close_et": "2026-06-05T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-06-08",
+      "open_et": "2026-06-08T09:30:00-04:00",
+      "close_et": "2026-06-08T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-06-09",
+      "open_et": "2026-06-09T09:30:00-04:00",
+      "close_et": "2026-06-09T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-06-10",
+      "open_et": "2026-06-10T09:30:00-04:00",
+      "close_et": "2026-06-10T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-06-11",
+      "open_et": "2026-06-11T09:30:00-04:00",
+      "close_et": "2026-06-11T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-06-12",
+      "open_et": "2026-06-12T09:30:00-04:00",
+      "close_et": "2026-06-12T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-06-15",
+      "open_et": "2026-06-15T09:30:00-04:00",
+      "close_et": "2026-06-15T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-06-16",
+      "open_et": "2026-06-16T09:30:00-04:00",
+      "close_et": "2026-06-16T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-06-17",
+      "open_et": "2026-06-17T09:30:00-04:00",
+      "close_et": "2026-06-17T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-06-18",
+      "open_et": "2026-06-18T09:30:00-04:00",
+      "close_et": "2026-06-18T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-06-22",
+      "open_et": "2026-06-22T09:30:00-04:00",
+      "close_et": "2026-06-22T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-06-23",
+      "open_et": "2026-06-23T09:30:00-04:00",
+      "close_et": "2026-06-23T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-06-24",
+      "open_et": "2026-06-24T09:30:00-04:00",
+      "close_et": "2026-06-24T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-06-25",
+      "open_et": "2026-06-25T09:30:00-04:00",
+      "close_et": "2026-06-25T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-06-26",
+      "open_et": "2026-06-26T09:30:00-04:00",
+      "close_et": "2026-06-26T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-06-29",
+      "open_et": "2026-06-29T09:30:00-04:00",
+      "close_et": "2026-06-29T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-06-30",
+      "open_et": "2026-06-30T09:30:00-04:00",
+      "close_et": "2026-06-30T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-07-01",
+      "open_et": "2026-07-01T09:30:00-04:00",
+      "close_et": "2026-07-01T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-07-02",
+      "open_et": "2026-07-02T09:30:00-04:00",
+      "close_et": "2026-07-02T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-07-06",
+      "open_et": "2026-07-06T09:30:00-04:00",
+      "close_et": "2026-07-06T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-07-07",
+      "open_et": "2026-07-07T09:30:00-04:00",
+      "close_et": "2026-07-07T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-07-08",
+      "open_et": "2026-07-08T09:30:00-04:00",
+      "close_et": "2026-07-08T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-07-09",
+      "open_et": "2026-07-09T09:30:00-04:00",
+      "close_et": "2026-07-09T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-07-10",
+      "open_et": "2026-07-10T09:30:00-04:00",
+      "close_et": "2026-07-10T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-07-13",
+      "open_et": "2026-07-13T09:30:00-04:00",
+      "close_et": "2026-07-13T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-07-14",
+      "open_et": "2026-07-14T09:30:00-04:00",
+      "close_et": "2026-07-14T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-07-15",
+      "open_et": "2026-07-15T09:30:00-04:00",
+      "close_et": "2026-07-15T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-07-16",
+      "open_et": "2026-07-16T09:30:00-04:00",
+      "close_et": "2026-07-16T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-07-17",
+      "open_et": "2026-07-17T09:30:00-04:00",
+      "close_et": "2026-07-17T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-07-20",
+      "open_et": "2026-07-20T09:30:00-04:00",
+      "close_et": "2026-07-20T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-07-21",
+      "open_et": "2026-07-21T09:30:00-04:00",
+      "close_et": "2026-07-21T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-07-22",
+      "open_et": "2026-07-22T09:30:00-04:00",
+      "close_et": "2026-07-22T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-07-23",
+      "open_et": "2026-07-23T09:30:00-04:00",
+      "close_et": "2026-07-23T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-07-24",
+      "open_et": "2026-07-24T09:30:00-04:00",
+      "close_et": "2026-07-24T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-07-27",
+      "open_et": "2026-07-27T09:30:00-04:00",
+      "close_et": "2026-07-27T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-07-28",
+      "open_et": "2026-07-28T09:30:00-04:00",
+      "close_et": "2026-07-28T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-07-29",
+      "open_et": "2026-07-29T09:30:00-04:00",
+      "close_et": "2026-07-29T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-07-30",
+      "open_et": "2026-07-30T09:30:00-04:00",
+      "close_et": "2026-07-30T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-07-31",
+      "open_et": "2026-07-31T09:30:00-04:00",
+      "close_et": "2026-07-31T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-08-03",
+      "open_et": "2026-08-03T09:30:00-04:00",
+      "close_et": "2026-08-03T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-08-04",
+      "open_et": "2026-08-04T09:30:00-04:00",
+      "close_et": "2026-08-04T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-08-05",
+      "open_et": "2026-08-05T09:30:00-04:00",
+      "close_et": "2026-08-05T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-08-06",
+      "open_et": "2026-08-06T09:30:00-04:00",
+      "close_et": "2026-08-06T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-08-07",
+      "open_et": "2026-08-07T09:30:00-04:00",
+      "close_et": "2026-08-07T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-08-10",
+      "open_et": "2026-08-10T09:30:00-04:00",
+      "close_et": "2026-08-10T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-08-11",
+      "open_et": "2026-08-11T09:30:00-04:00",
+      "close_et": "2026-08-11T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-08-12",
+      "open_et": "2026-08-12T09:30:00-04:00",
+      "close_et": "2026-08-12T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-08-13",
+      "open_et": "2026-08-13T09:30:00-04:00",
+      "close_et": "2026-08-13T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-08-14",
+      "open_et": "2026-08-14T09:30:00-04:00",
+      "close_et": "2026-08-14T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-08-17",
+      "open_et": "2026-08-17T09:30:00-04:00",
+      "close_et": "2026-08-17T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-08-18",
+      "open_et": "2026-08-18T09:30:00-04:00",
+      "close_et": "2026-08-18T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-08-19",
+      "open_et": "2026-08-19T09:30:00-04:00",
+      "close_et": "2026-08-19T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-08-20",
+      "open_et": "2026-08-20T09:30:00-04:00",
+      "close_et": "2026-08-20T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-08-21",
+      "open_et": "2026-08-21T09:30:00-04:00",
+      "close_et": "2026-08-21T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-08-24",
+      "open_et": "2026-08-24T09:30:00-04:00",
+      "close_et": "2026-08-24T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-08-25",
+      "open_et": "2026-08-25T09:30:00-04:00",
+      "close_et": "2026-08-25T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-08-26",
+      "open_et": "2026-08-26T09:30:00-04:00",
+      "close_et": "2026-08-26T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-08-27",
+      "open_et": "2026-08-27T09:30:00-04:00",
+      "close_et": "2026-08-27T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-08-28",
+      "open_et": "2026-08-28T09:30:00-04:00",
+      "close_et": "2026-08-28T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-08-31",
+      "open_et": "2026-08-31T09:30:00-04:00",
+      "close_et": "2026-08-31T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-09-01",
+      "open_et": "2026-09-01T09:30:00-04:00",
+      "close_et": "2026-09-01T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-09-02",
+      "open_et": "2026-09-02T09:30:00-04:00",
+      "close_et": "2026-09-02T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-09-03",
+      "open_et": "2026-09-03T09:30:00-04:00",
+      "close_et": "2026-09-03T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-09-04",
+      "open_et": "2026-09-04T09:30:00-04:00",
+      "close_et": "2026-09-04T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-09-08",
+      "open_et": "2026-09-08T09:30:00-04:00",
+      "close_et": "2026-09-08T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-09-09",
+      "open_et": "2026-09-09T09:30:00-04:00",
+      "close_et": "2026-09-09T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-09-10",
+      "open_et": "2026-09-10T09:30:00-04:00",
+      "close_et": "2026-09-10T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-09-11",
+      "open_et": "2026-09-11T09:30:00-04:00",
+      "close_et": "2026-09-11T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-09-14",
+      "open_et": "2026-09-14T09:30:00-04:00",
+      "close_et": "2026-09-14T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-09-15",
+      "open_et": "2026-09-15T09:30:00-04:00",
+      "close_et": "2026-09-15T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-09-16",
+      "open_et": "2026-09-16T09:30:00-04:00",
+      "close_et": "2026-09-16T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-09-17",
+      "open_et": "2026-09-17T09:30:00-04:00",
+      "close_et": "2026-09-17T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-09-18",
+      "open_et": "2026-09-18T09:30:00-04:00",
+      "close_et": "2026-09-18T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-09-21",
+      "open_et": "2026-09-21T09:30:00-04:00",
+      "close_et": "2026-09-21T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-09-22",
+      "open_et": "2026-09-22T09:30:00-04:00",
+      "close_et": "2026-09-22T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-09-23",
+      "open_et": "2026-09-23T09:30:00-04:00",
+      "close_et": "2026-09-23T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-09-24",
+      "open_et": "2026-09-24T09:30:00-04:00",
+      "close_et": "2026-09-24T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-09-25",
+      "open_et": "2026-09-25T09:30:00-04:00",
+      "close_et": "2026-09-25T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-09-28",
+      "open_et": "2026-09-28T09:30:00-04:00",
+      "close_et": "2026-09-28T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-09-29",
+      "open_et": "2026-09-29T09:30:00-04:00",
+      "close_et": "2026-09-29T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-09-30",
+      "open_et": "2026-09-30T09:30:00-04:00",
+      "close_et": "2026-09-30T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-10-01",
+      "open_et": "2026-10-01T09:30:00-04:00",
+      "close_et": "2026-10-01T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-10-02",
+      "open_et": "2026-10-02T09:30:00-04:00",
+      "close_et": "2026-10-02T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-10-05",
+      "open_et": "2026-10-05T09:30:00-04:00",
+      "close_et": "2026-10-05T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-10-06",
+      "open_et": "2026-10-06T09:30:00-04:00",
+      "close_et": "2026-10-06T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-10-07",
+      "open_et": "2026-10-07T09:30:00-04:00",
+      "close_et": "2026-10-07T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-10-08",
+      "open_et": "2026-10-08T09:30:00-04:00",
+      "close_et": "2026-10-08T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-10-09",
+      "open_et": "2026-10-09T09:30:00-04:00",
+      "close_et": "2026-10-09T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-10-12",
+      "open_et": "2026-10-12T09:30:00-04:00",
+      "close_et": "2026-10-12T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-10-13",
+      "open_et": "2026-10-13T09:30:00-04:00",
+      "close_et": "2026-10-13T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-10-14",
+      "open_et": "2026-10-14T09:30:00-04:00",
+      "close_et": "2026-10-14T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-10-15",
+      "open_et": "2026-10-15T09:30:00-04:00",
+      "close_et": "2026-10-15T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-10-16",
+      "open_et": "2026-10-16T09:30:00-04:00",
+      "close_et": "2026-10-16T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-10-19",
+      "open_et": "2026-10-19T09:30:00-04:00",
+      "close_et": "2026-10-19T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-10-20",
+      "open_et": "2026-10-20T09:30:00-04:00",
+      "close_et": "2026-10-20T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-10-21",
+      "open_et": "2026-10-21T09:30:00-04:00",
+      "close_et": "2026-10-21T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-10-22",
+      "open_et": "2026-10-22T09:30:00-04:00",
+      "close_et": "2026-10-22T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-10-23",
+      "open_et": "2026-10-23T09:30:00-04:00",
+      "close_et": "2026-10-23T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-10-26",
+      "open_et": "2026-10-26T09:30:00-04:00",
+      "close_et": "2026-10-26T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-10-27",
+      "open_et": "2026-10-27T09:30:00-04:00",
+      "close_et": "2026-10-27T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-10-28",
+      "open_et": "2026-10-28T09:30:00-04:00",
+      "close_et": "2026-10-28T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-10-29",
+      "open_et": "2026-10-29T09:30:00-04:00",
+      "close_et": "2026-10-29T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-10-30",
+      "open_et": "2026-10-30T09:30:00-04:00",
+      "close_et": "2026-10-30T16:00:00-04:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-11-02",
+      "open_et": "2026-11-02T09:30:00-05:00",
+      "close_et": "2026-11-02T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-11-03",
+      "open_et": "2026-11-03T09:30:00-05:00",
+      "close_et": "2026-11-03T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-11-04",
+      "open_et": "2026-11-04T09:30:00-05:00",
+      "close_et": "2026-11-04T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-11-05",
+      "open_et": "2026-11-05T09:30:00-05:00",
+      "close_et": "2026-11-05T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-11-06",
+      "open_et": "2026-11-06T09:30:00-05:00",
+      "close_et": "2026-11-06T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-11-09",
+      "open_et": "2026-11-09T09:30:00-05:00",
+      "close_et": "2026-11-09T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    },
+    {
+      "day": "2026-11-10",
+      "open_et": "2026-11-10T09:30:00-05:00",
+      "close_et": "2026-11-10T16:00:00-05:00",
+      "expected_rth_minutes": 390,
+      "observed_rth_minutes": 390,
+      "missing_rth_minutes": 0,
+      "close_timestamp_minute_available": true
+    }
+  ],
+  "close_comparison_bp": {
+    "last_rth_minus_daily_bp": {
+      "median_absolute_bp": 3.791560020563467,
+      "maximum_absolute_bp": 37.607378963619986
+    },
+    "atclose_minus_daily_bp": {
+      "median_absolute_bp": 0.0,
+      "maximum_absolute_bp": 41.74397031539989
+    }
+  },
+  "daily_close_interpretation": "Split-adjusted SIP 1Day Close; provider construction excludes extended-hours T-condition trades from daily OHLC. Treat as daily regular close benchmark, not guaranteed user's closing-auction fill.",
+  "minute_interpretation": "SIP split-adjusted trade OHLC for04:00<=ET<20:00. Missing extended-hour minutes are not interpolated; no20:00-04:00/ATS data.",
+  "official_docs": {
+    "historical_bars": "https://docs.alpaca.markets/reference/stockbars",
+    "bar_construction": "https://docs.alpaca.markets/docs/market-data-faq",
+    "minute_timestamps": "https://alpaca.markets/learn/stock-minute-bars"
+  }
+}

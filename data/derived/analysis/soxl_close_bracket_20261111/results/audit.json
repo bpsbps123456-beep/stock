@@ -1,0 +1,2022 @@
+{
+  "pass": true,
+  "independent_execution_and_cash_ledger": true,
+  "synthetic_checks": {
+    "gap_stop_worse_than_minus3": true,
+    "gap_target_open_improvement": true,
+    "gap_target_conservative_sensitivity": true,
+    "same_bar_both_priorities": true,
+    "inclusive_touches": true,
+    "no_hit_remains_open": true,
+    "separate_cost_debit": true,
+    "preentry_extrema_ignored": true,
+    "no_additions_while_held": true,
+    "unclosed_position_marked_without_exit_debit": true,
+    "liquidation_value_separate": true,
+    "unconfirmed_cutoff_bar_cannot_reenter_same_close": true,
+    "new_entry_closing_minute_excluded": true,
+    "terminal_postclose_excluded": true
+  },
+  "raw_price_consistency": {
+    "sessions": 216,
+    "all_regular_minutes_present": true,
+    "max_abs_daily_vs_last_minute_pct": 0.37466477362360084,
+    "max_abs_daily_vs_closing_minute_open_pct": 0.41570438799076737,
+    "worst_five_regular_open_gaps": [
+      {
+        "day": "2026-06-23",
+        "previous_daily_close": 300.77,
+        "regular_open": 236.0,
+        "gap_pct": -21.534727532666153
+      },
+      {
+        "day": "2026-10-30",
+        "previous_daily_close": 102.39,
+        "regular_open": 81.79,
+        "gap_pct": -20.11915226096298
+      },
+      {
+        "day": "2026-09-14",
+        "previous_daily_close": 121.82,
+        "regular_open": 101.46,
+        "gap_pct": -16.713183385322605
+      },
+      {
+        "day": "2026-07-07",
+        "previous_daily_close": 194.65,
+        "regular_open": 165.4,
+        "gap_pct": -15.026971487284868
+      },
+      {
+        "day": "2026-11-05",
+        "previous_daily_close": 66.68,
+        "regular_open": 56.86,
+        "gap_pct": -14.72705458908219
+      }
+    ],
+    "largest_five_regular_open_gaps": [
+      {
+        "day": "2026-11-06",
+        "previous_daily_close": 40.87,
+        "regular_open": 48.71,
+        "gap_pct": 19.18277465133351
+      },
+      {
+        "day": "2026-04-08",
+        "previous_daily_close": 56.55,
+        "regular_open": 66.27,
+        "gap_pct": 17.188328912466844
+      },
+      {
+        "day": "2026-06-25",
+        "previous_daily_close": 229.57,
+        "regular_open": 268.245,
+        "gap_pct": 16.846713420743132
+      },
+      {
+        "day": "2026-07-30",
+        "previous_daily_close": 91.99,
+        "regular_open": 107.34,
+        "gap_pct": 16.68659636917058
+      },
+      {
+        "day": "2026-06-08",
+        "previous_daily_close": 182.54,
+        "regular_open": 210.62,
+        "gap_pct": 15.38292976881781
+      }
+    ],
+    "daily_minute_comparisons": [
+      {
+        "day": "2026-01-02",
+        "daily_close": 47.24,
+        "last_regular_minute_close": 47.27,
+        "closing_minute_open": 47.24,
+        "last_minute_difference_pct": -0.06346519991538013,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-01-05",
+        "daily_close": 49.22,
+        "last_regular_minute_close": 49.24,
+        "closing_minute_open": 49.22,
+        "last_minute_difference_pct": -0.04061738424046002,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-01-06",
+        "daily_close": 54.01,
+        "last_regular_minute_close": 53.97,
+        "closing_minute_open": 54.01,
+        "last_minute_difference_pct": 0.07411524921252521,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-01-07",
+        "daily_close": 52.29,
+        "last_regular_minute_close": 52.2499,
+        "closing_minute_open": 52.29,
+        "last_minute_difference_pct": 0.07674655836662492,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-01-08",
+        "daily_close": 49.65,
+        "last_regular_minute_close": 49.645,
+        "closing_minute_open": 49.65,
+        "last_minute_difference_pct": 0.010071507704689786,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-01-09",
+        "daily_close": 53.95,
+        "last_regular_minute_close": 53.91,
+        "closing_minute_open": 53.88,
+        "last_minute_difference_pct": 0.07419773696903942,
+        "closing_minute_difference_pct": 0.1299183370452761
+      },
+      {
+        "day": "2026-01-12",
+        "daily_close": 54.65,
+        "last_regular_minute_close": 54.65,
+        "closing_minute_open": 54.65,
+        "last_minute_difference_pct": 0.0,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-01-13",
+        "daily_close": 56.07,
+        "last_regular_minute_close": 56.08,
+        "closing_minute_open": 56.07,
+        "last_minute_difference_pct": -0.01783166904422151,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-01-14",
+        "daily_close": 55.38,
+        "last_regular_minute_close": 55.41,
+        "closing_minute_open": 55.4,
+        "last_minute_difference_pct": -0.05414185165131258,
+        "closing_minute_difference_pct": -0.036101083032480386
+      },
+      {
+        "day": "2026-01-15",
+        "daily_close": 58.08,
+        "last_regular_minute_close": 58.12,
+        "closing_minute_open": 58.08,
+        "last_minute_difference_pct": -0.06882312456985007,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-01-16",
+        "daily_close": 60.75,
+        "last_regular_minute_close": 60.72,
+        "closing_minute_open": 60.75,
+        "last_minute_difference_pct": 0.049407114624511195,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-01-20",
+        "daily_close": 57.94,
+        "last_regular_minute_close": 58.0,
+        "closing_minute_open": 57.94,
+        "last_minute_difference_pct": -0.1034482758620725,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-01-21",
+        "daily_close": 63.48,
+        "last_regular_minute_close": 63.5,
+        "closing_minute_open": 63.48,
+        "last_minute_difference_pct": -0.03149606299213126,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-01-22",
+        "daily_close": 63.72,
+        "last_regular_minute_close": 63.75,
+        "closing_minute_open": 63.72,
+        "last_minute_difference_pct": -0.04705882352941115,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-01-23",
+        "daily_close": 61.6,
+        "last_regular_minute_close": 61.55,
+        "closing_minute_open": 61.6,
+        "last_minute_difference_pct": 0.08123476848092004,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-01-26",
+        "daily_close": 60.7,
+        "last_regular_minute_close": 60.68,
+        "closing_minute_open": 60.7,
+        "last_minute_difference_pct": 0.03295978905735186,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-01-27",
+        "daily_close": 64.96,
+        "last_regular_minute_close": 64.98,
+        "closing_minute_open": 64.96,
+        "last_minute_difference_pct": -0.03077870113882275,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-01-28",
+        "daily_close": 70.09,
+        "last_regular_minute_close": 70.099,
+        "closing_minute_open": 70.09,
+        "last_minute_difference_pct": -0.012838984864260716,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-01-29",
+        "daily_close": 70.47,
+        "last_regular_minute_close": 70.46,
+        "closing_minute_open": 70.47,
+        "last_minute_difference_pct": 0.014192449616801106,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-01-30",
+        "daily_close": 61.79,
+        "last_regular_minute_close": 61.785,
+        "closing_minute_open": 61.786,
+        "last_minute_difference_pct": 0.008092579104967967,
+        "closing_minute_difference_pct": 0.006473958501929111
+      },
+      {
+        "day": "2026-02-02",
+        "daily_close": 65.2,
+        "last_regular_minute_close": 65.21,
+        "closing_minute_open": 65.2,
+        "last_minute_difference_pct": -0.015335071308064663,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-02-03",
+        "daily_close": 61.2,
+        "last_regular_minute_close": 61.195,
+        "closing_minute_open": 61.2,
+        "last_minute_difference_pct": 0.008170602173374064,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-02-04",
+        "daily_close": 53.19,
+        "last_regular_minute_close": 53.185,
+        "closing_minute_open": 53.19,
+        "last_minute_difference_pct": 0.009401146939924665,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-02-05",
+        "daily_close": 53.25,
+        "last_regular_minute_close": 53.26,
+        "closing_minute_open": 53.25,
+        "last_minute_difference_pct": -0.018775816748028973,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-02-06",
+        "daily_close": 61.75,
+        "last_regular_minute_close": 61.76,
+        "closing_minute_open": 61.75,
+        "last_minute_difference_pct": -0.016191709844559643,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-02-09",
+        "daily_close": 64.03,
+        "last_regular_minute_close": 63.9999,
+        "closing_minute_open": 64.03,
+        "last_minute_difference_pct": 0.04703132348644612,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-02-10",
+        "daily_close": 63.34,
+        "last_regular_minute_close": 63.32,
+        "closing_minute_open": 63.34,
+        "last_minute_difference_pct": 0.031585596967786955,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-02-11",
+        "daily_close": 68.05,
+        "last_regular_minute_close": 67.99,
+        "closing_minute_open": 68.0,
+        "last_minute_difference_pct": 0.08824827180466954,
+        "closing_minute_difference_pct": 0.07352941176470562
+      },
+      {
+        "day": "2026-02-12",
+        "daily_close": 63.1,
+        "last_regular_minute_close": 63.03,
+        "closing_minute_open": 63.03,
+        "last_minute_difference_pct": 0.11105822624146722,
+        "closing_minute_difference_pct": 0.11105822624146722
+      },
+      {
+        "day": "2026-02-13",
+        "daily_close": 64.59,
+        "last_regular_minute_close": 64.5911,
+        "closing_minute_open": 64.59,
+        "last_minute_difference_pct": -0.001703021004428873,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-02-17",
+        "daily_close": 64.35,
+        "last_regular_minute_close": 64.345,
+        "closing_minute_open": 64.35,
+        "last_minute_difference_pct": 0.00777061154713099,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-02-18",
+        "daily_close": 66.29,
+        "last_regular_minute_close": 66.3522,
+        "closing_minute_open": 66.29,
+        "last_minute_difference_pct": -0.09374218187186978,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-02-19",
+        "daily_close": 65.23,
+        "last_regular_minute_close": 65.22,
+        "closing_minute_open": 65.23,
+        "last_minute_difference_pct": 0.015332720024541224,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-02-20",
+        "daily_close": 67.11,
+        "last_regular_minute_close": 67.11,
+        "closing_minute_open": 67.11,
+        "last_minute_difference_pct": 0.0,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-02-23",
+        "daily_close": 65.86,
+        "last_regular_minute_close": 65.81,
+        "closing_minute_open": 65.86,
+        "last_minute_difference_pct": 0.07597629539584094,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-02-24",
+        "daily_close": 68.53,
+        "last_regular_minute_close": 68.555,
+        "closing_minute_open": 68.53,
+        "last_minute_difference_pct": -0.036467070235590704,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-02-25",
+        "daily_close": 71.86,
+        "last_regular_minute_close": 71.8407,
+        "closing_minute_open": 71.86,
+        "last_minute_difference_pct": 0.026864994355579874,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-02-26",
+        "daily_close": 65.34,
+        "last_regular_minute_close": 65.34,
+        "closing_minute_open": 65.34,
+        "last_minute_difference_pct": 0.0,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-02-27",
+        "daily_close": 62.77,
+        "last_regular_minute_close": 62.765,
+        "closing_minute_open": 62.77,
+        "last_minute_difference_pct": 0.007966223213573542,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-03-02",
+        "daily_close": 62.76,
+        "last_regular_minute_close": 62.66,
+        "closing_minute_open": 62.76,
+        "last_minute_difference_pct": 0.15959144589849927,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-03-03",
+        "daily_close": 53.42,
+        "last_regular_minute_close": 53.42,
+        "closing_minute_open": 53.42,
+        "last_minute_difference_pct": 0.0,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-03-04",
+        "daily_close": 56.62,
+        "last_regular_minute_close": 56.63,
+        "closing_minute_open": 56.61,
+        "last_minute_difference_pct": -0.01765848490200561,
+        "closing_minute_difference_pct": 0.017664723547072825
+      },
+      {
+        "day": "2026-03-05",
+        "daily_close": 54.8,
+        "last_regular_minute_close": 54.7,
+        "closing_minute_open": 54.77,
+        "last_minute_difference_pct": 0.1828153564899404,
+        "closing_minute_difference_pct": 0.05477451159392466
+      },
+      {
+        "day": "2026-03-06",
+        "daily_close": 47.89,
+        "last_regular_minute_close": 47.88,
+        "closing_minute_open": 47.89,
+        "last_minute_difference_pct": 0.020885547201343613,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-03-09",
+        "daily_close": 53.32,
+        "last_regular_minute_close": 53.425,
+        "closing_minute_open": 53.42,
+        "last_minute_difference_pct": -0.19653720168459898,
+        "closing_minute_difference_pct": -0.18719580681393344
+      },
+      {
+        "day": "2026-03-10",
+        "daily_close": 54.59,
+        "last_regular_minute_close": 54.59,
+        "closing_minute_open": 54.59,
+        "last_minute_difference_pct": 0.0,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-03-11",
+        "daily_close": 56.09,
+        "last_regular_minute_close": 56.1,
+        "closing_minute_open": 56.12,
+        "last_minute_difference_pct": -0.017825311942953892,
+        "closing_minute_difference_pct": -0.05345687811830757
+      },
+      {
+        "day": "2026-03-12",
+        "daily_close": 50.28,
+        "last_regular_minute_close": 50.28,
+        "closing_minute_open": 50.28,
+        "last_minute_difference_pct": 0.0,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-03-13",
+        "daily_close": 50.72,
+        "last_regular_minute_close": 50.725,
+        "closing_minute_open": 50.73,
+        "last_minute_difference_pct": -0.009857072449492854,
+        "closing_minute_difference_pct": -0.019712201852939426
+      },
+      {
+        "day": "2026-03-16",
+        "daily_close": 53.69,
+        "last_regular_minute_close": 53.69,
+        "closing_minute_open": 53.7,
+        "last_minute_difference_pct": 0.0,
+        "closing_minute_difference_pct": -0.018621973929244806
+      },
+      {
+        "day": "2026-03-17",
+        "daily_close": 54.95,
+        "last_regular_minute_close": 54.92,
+        "closing_minute_open": 54.95,
+        "last_minute_difference_pct": 0.05462490895848937,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-03-18",
+        "daily_close": 54.02,
+        "last_regular_minute_close": 54.015,
+        "closing_minute_open": 54.02,
+        "last_minute_difference_pct": 0.009256687957059917,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-03-19",
+        "daily_close": 54.85,
+        "last_regular_minute_close": 54.86,
+        "closing_minute_open": 54.85,
+        "last_minute_difference_pct": -0.01822821728034718,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-03-20",
+        "daily_close": 51.14,
+        "last_regular_minute_close": 51.14,
+        "closing_minute_open": 51.14,
+        "last_minute_difference_pct": 0.0,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-03-23",
+        "daily_close": 53.03,
+        "last_regular_minute_close": 52.96,
+        "closing_minute_open": 52.94,
+        "last_minute_difference_pct": 0.13217522658610648,
+        "closing_minute_difference_pct": 0.17000377786173804
+      },
+      {
+        "day": "2026-03-24",
+        "daily_close": 54.96,
+        "last_regular_minute_close": 55.02,
+        "closing_minute_open": 55.02,
+        "last_minute_difference_pct": -0.10905125408942062,
+        "closing_minute_difference_pct": -0.10905125408942062
+      },
+      {
+        "day": "2026-03-25",
+        "daily_close": 57.04,
+        "last_regular_minute_close": 57.08,
+        "closing_minute_open": 57.04,
+        "last_minute_difference_pct": -0.07007708479327412,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-03-26",
+        "daily_close": 48.97,
+        "last_regular_minute_close": 48.965,
+        "closing_minute_open": 48.97,
+        "last_minute_difference_pct": 0.0102113754722577,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-03-27",
+        "daily_close": 46.61,
+        "last_regular_minute_close": 46.6001,
+        "closing_minute_open": 46.61,
+        "last_minute_difference_pct": 0.021244589603885977,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-03-30",
+        "daily_close": 40.62,
+        "last_regular_minute_close": 40.63,
+        "closing_minute_open": 40.62,
+        "last_minute_difference_pct": -0.02461235540242024,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-03-31",
+        "daily_close": 47.91,
+        "last_regular_minute_close": 47.94,
+        "closing_minute_open": 47.91,
+        "last_minute_difference_pct": -0.06257822277847547,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-04-01",
+        "daily_close": 52.26,
+        "last_regular_minute_close": 52.27,
+        "closing_minute_open": 52.26,
+        "last_minute_difference_pct": -0.019131432944341498,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-04-02",
+        "daily_close": 52.75,
+        "last_regular_minute_close": 52.74,
+        "closing_minute_open": 52.75,
+        "last_minute_difference_pct": 0.018960940462653397,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-04-06",
+        "daily_close": 54.81,
+        "last_regular_minute_close": 54.795,
+        "closing_minute_open": 54.81,
+        "last_minute_difference_pct": 0.027374760470855186,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-04-07",
+        "daily_close": 56.55,
+        "last_regular_minute_close": 56.535,
+        "closing_minute_open": 56.55,
+        "last_minute_difference_pct": 0.026532236667553555,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-04-08",
+        "daily_close": 67.5,
+        "last_regular_minute_close": 67.55,
+        "closing_minute_open": 67.5,
+        "last_minute_difference_pct": -0.07401924500369805,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-04-09",
+        "daily_close": 71.98,
+        "last_regular_minute_close": 71.98,
+        "closing_minute_open": 71.98,
+        "last_minute_difference_pct": 0.0,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-04-10",
+        "daily_close": 76.39,
+        "last_regular_minute_close": 76.38,
+        "closing_minute_open": 76.39,
+        "last_minute_difference_pct": 0.01309243257396897,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-04-13",
+        "daily_close": 80.56,
+        "last_regular_minute_close": 80.5,
+        "closing_minute_open": 80.49,
+        "last_minute_difference_pct": 0.07453416149068026,
+        "closing_minute_difference_pct": 0.08696732513355787
+      },
+      {
+        "day": "2026-04-14",
+        "daily_close": 85.31,
+        "last_regular_minute_close": 85.39,
+        "closing_minute_open": 85.31,
+        "last_minute_difference_pct": -0.09368778545496559,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-04-15",
+        "daily_close": 85.96,
+        "last_regular_minute_close": 85.88,
+        "closing_minute_open": 85.96,
+        "last_minute_difference_pct": 0.09315323707499434,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-04-16",
+        "daily_close": 88.37,
+        "last_regular_minute_close": 88.44,
+        "closing_minute_open": 88.44,
+        "last_minute_difference_pct": -0.07914970601536897,
+        "closing_minute_difference_pct": -0.07914970601536897
+      },
+      {
+        "day": "2026-04-17",
+        "daily_close": 94.68,
+        "last_regular_minute_close": 94.72,
+        "closing_minute_open": 94.68,
+        "last_minute_difference_pct": -0.04222972972972583,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-04-20",
+        "daily_close": 95.94,
+        "last_regular_minute_close": 95.94,
+        "closing_minute_open": 95.94,
+        "last_minute_difference_pct": 0.0,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-04-21",
+        "daily_close": 98.09,
+        "last_regular_minute_close": 98.08,
+        "closing_minute_open": 98.09,
+        "last_minute_difference_pct": 0.010195758564446322,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-04-22",
+        "daily_close": 105.64,
+        "last_regular_minute_close": 105.67,
+        "closing_minute_open": 105.64,
+        "last_minute_difference_pct": -0.02839027160026486,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-04-23",
+        "daily_close": 112.77,
+        "last_regular_minute_close": 112.69,
+        "closing_minute_open": 112.77,
+        "last_minute_difference_pct": 0.0709912148371572,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-04-24",
+        "daily_close": 128.32,
+        "last_regular_minute_close": 128.255,
+        "closing_minute_open": 128.32,
+        "last_minute_difference_pct": 0.050680285368986944,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-04-27",
+        "daily_close": 123.39,
+        "last_regular_minute_close": 123.37,
+        "closing_minute_open": 123.39,
+        "last_minute_difference_pct": 0.01621139661180937,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-04-28",
+        "daily_close": 109.56,
+        "last_regular_minute_close": 109.5901,
+        "closing_minute_open": 109.56,
+        "last_minute_difference_pct": -0.027465984609931215,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-04-29",
+        "daily_close": 117.97,
+        "last_regular_minute_close": 118.06,
+        "closing_minute_open": 118.05,
+        "last_minute_difference_pct": -0.07623242419109166,
+        "closing_minute_difference_pct": -0.06776789495975821
+      },
+      {
+        "day": "2026-04-30",
+        "daily_close": 126.98,
+        "last_regular_minute_close": 127.01,
+        "closing_minute_open": 127.01,
+        "last_minute_difference_pct": -0.023620187386819147,
+        "closing_minute_difference_pct": -0.023620187386819147
+      },
+      {
+        "day": "2026-05-01",
+        "daily_close": 130.4,
+        "last_regular_minute_close": 130.33,
+        "closing_minute_open": 130.4,
+        "last_minute_difference_pct": 0.053709813550217866,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-05-04",
+        "daily_close": 127.55,
+        "last_regular_minute_close": 127.55,
+        "closing_minute_open": 127.55,
+        "last_minute_difference_pct": 0.0,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-05-05",
+        "daily_close": 144.16,
+        "last_regular_minute_close": 144.275,
+        "closing_minute_open": 144.34,
+        "last_minute_difference_pct": -0.07970888927396613,
+        "closing_minute_difference_pct": -0.12470555632534408
+      },
+      {
+        "day": "2026-05-06",
+        "daily_close": 165.85,
+        "last_regular_minute_close": 165.76,
+        "closing_minute_open": 165.85,
+        "last_minute_difference_pct": 0.054295366795376054,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-05-07",
+        "daily_close": 152.1,
+        "last_regular_minute_close": 152.05,
+        "closing_minute_open": 152.24,
+        "last_minute_difference_pct": 0.03288391976321581,
+        "closing_minute_difference_pct": -0.09196006305833837
+      },
+      {
+        "day": "2026-05-08",
+        "daily_close": 176.94,
+        "last_regular_minute_close": 177.44,
+        "closing_minute_open": 176.94,
+        "last_minute_difference_pct": -0.28178539224527066,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-05-11",
+        "daily_close": 190.42,
+        "last_regular_minute_close": 190.4,
+        "closing_minute_open": 190.42,
+        "last_minute_difference_pct": 0.010504201680672232,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-05-12",
+        "daily_close": 172.52,
+        "last_regular_minute_close": 172.545,
+        "closing_minute_open": 172.5707,
+        "last_minute_difference_pct": -0.014488973890858237,
+        "closing_minute_difference_pct": -0.02937926310779826
+      },
+      {
+        "day": "2026-05-13",
+        "daily_close": 184.24,
+        "last_regular_minute_close": 184.385,
+        "closing_minute_open": 184.24,
+        "last_minute_difference_pct": -0.07863980258696612,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-05-14",
+        "daily_close": 186.19,
+        "last_regular_minute_close": 186.12,
+        "closing_minute_open": 186.19,
+        "last_minute_difference_pct": 0.037610143993127565,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-05-15",
+        "daily_close": 164.18,
+        "last_regular_minute_close": 164.23,
+        "closing_minute_open": 164.18,
+        "last_minute_difference_pct": -0.030445107471221977,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-05-18",
+        "daily_close": 151.75,
+        "last_regular_minute_close": 151.665,
+        "closing_minute_open": 151.78,
+        "last_minute_difference_pct": 0.05604457191836776,
+        "closing_minute_difference_pct": -0.01976544999341412
+      },
+      {
+        "day": "2026-05-19",
+        "daily_close": 151.89,
+        "last_regular_minute_close": 151.9299,
+        "closing_minute_open": 151.92,
+        "last_minute_difference_pct": -0.026262111671249144,
+        "closing_minute_difference_pct": -0.01974723538704648
+      },
+      {
+        "day": "2026-05-20",
+        "daily_close": 173.2,
+        "last_regular_minute_close": 173.345,
+        "closing_minute_open": 173.2,
+        "last_minute_difference_pct": -0.08364821598546568,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-05-21",
+        "daily_close": 178.39,
+        "last_regular_minute_close": 178.2315,
+        "closing_minute_open": 178.39,
+        "last_minute_difference_pct": 0.08892928578840831,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-05-22",
+        "daily_close": 190.56,
+        "last_regular_minute_close": 190.61,
+        "closing_minute_open": 190.56,
+        "last_minute_difference_pct": -0.026231572320445373,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-05-26",
+        "daily_close": 225.79,
+        "last_regular_minute_close": 225.7501,
+        "closing_minute_open": 225.79,
+        "last_minute_difference_pct": 0.017674410775447846,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-05-27",
+        "daily_close": 217.98,
+        "last_regular_minute_close": 217.9,
+        "closing_minute_open": 217.98,
+        "last_minute_difference_pct": 0.036714089031653074,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-05-28",
+        "daily_close": 224.63,
+        "last_regular_minute_close": 224.67,
+        "closing_minute_open": 224.62,
+        "last_minute_difference_pct": -0.017803890149992174,
+        "closing_minute_difference_pct": 0.004451963315821317
+      },
+      {
+        "day": "2026-05-29",
+        "daily_close": 224.34,
+        "last_regular_minute_close": 224.06,
+        "closing_minute_open": 224.34,
+        "last_minute_difference_pct": 0.124966526823167,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-06-01",
+        "daily_close": 227.03,
+        "last_regular_minute_close": 226.92,
+        "closing_minute_open": 227.03,
+        "last_minute_difference_pct": 0.04847523356250605,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-06-02",
+        "daily_close": 266.32,
+        "last_regular_minute_close": 266.37,
+        "closing_minute_open": 266.32,
+        "last_minute_difference_pct": -0.018770882606899963,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-06-03",
+        "daily_close": 280.54,
+        "last_regular_minute_close": 280.0,
+        "closing_minute_open": 280.18,
+        "last_minute_difference_pct": 0.19285714285715017,
+        "closing_minute_difference_pct": 0.12848882861018485
+      },
+      {
+        "day": "2026-06-04",
+        "daily_close": 262.7,
+        "last_regular_minute_close": 262.82,
+        "closing_minute_open": 262.7,
+        "last_minute_difference_pct": -0.045658625675371045,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-06-05",
+        "daily_close": 182.54,
+        "last_regular_minute_close": 182.1101,
+        "closing_minute_open": 182.54,
+        "last_minute_difference_pct": 0.23606598425898184,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-06-08",
+        "daily_close": 211.44,
+        "last_regular_minute_close": 211.18,
+        "closing_minute_open": 211.44,
+        "last_minute_difference_pct": 0.12311771948101402,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-06-09",
+        "daily_close": 201.68,
+        "last_regular_minute_close": 201.7813,
+        "closing_minute_open": 201.68,
+        "last_minute_difference_pct": -0.05020286815476949,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-06-10",
+        "daily_close": 180.65,
+        "last_regular_minute_close": 180.025,
+        "closing_minute_open": 180.03,
+        "last_minute_difference_pct": 0.34717400361061745,
+        "closing_minute_difference_pct": 0.34438704660335606
+      },
+      {
+        "day": "2026-06-11",
+        "daily_close": 223.99,
+        "last_regular_minute_close": 224.01,
+        "closing_minute_open": 223.99,
+        "last_minute_difference_pct": -0.008928172849420601,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-06-12",
+        "daily_close": 234.68,
+        "last_regular_minute_close": 234.485,
+        "closing_minute_open": 234.68,
+        "last_minute_difference_pct": 0.08316096978484566,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-06-15",
+        "daily_close": 272.5,
+        "last_regular_minute_close": 272.83,
+        "closing_minute_open": 272.68,
+        "last_minute_difference_pct": -0.12095444049406989,
+        "closing_minute_difference_pct": -0.06601144198328246
+      },
+      {
+        "day": "2026-06-16",
+        "daily_close": 226.19,
+        "last_regular_minute_close": 226.01,
+        "closing_minute_open": 226.19,
+        "last_minute_difference_pct": 0.07964249369496468,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-06-17",
+        "daily_close": 233.86,
+        "last_regular_minute_close": 233.67,
+        "closing_minute_open": 234.21,
+        "last_minute_difference_pct": 0.0813112509094216,
+        "closing_minute_difference_pct": -0.14943853806412832
+      },
+      {
+        "day": "2026-06-18",
+        "daily_close": 279.29,
+        "last_regular_minute_close": 279.47,
+        "closing_minute_open": 279.29,
+        "last_minute_difference_pct": -0.06440762872580441,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-06-22",
+        "daily_close": 300.77,
+        "last_regular_minute_close": 300.885,
+        "closing_minute_open": 300.77,
+        "last_minute_difference_pct": -0.03822058261462313,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-06-23",
+        "daily_close": 231.42,
+        "last_regular_minute_close": 230.81,
+        "closing_minute_open": 231.42,
+        "last_minute_difference_pct": 0.2642866426931123,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-06-24",
+        "daily_close": 229.57,
+        "last_regular_minute_close": 229.592,
+        "closing_minute_open": 229.555,
+        "last_minute_difference_pct": -0.00958221540821036,
+        "closing_minute_difference_pct": 0.0065343817385654646
+      },
+      {
+        "day": "2026-06-25",
+        "daily_close": 252.61,
+        "last_regular_minute_close": 253.56,
+        "closing_minute_open": 252.61,
+        "last_minute_difference_pct": -0.37466477362360084,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-06-26",
+        "daily_close": 215.6,
+        "last_regular_minute_close": 215.1,
+        "closing_minute_open": 216.5,
+        "last_minute_difference_pct": 0.23245002324501218,
+        "closing_minute_difference_pct": -0.41570438799076737
+      },
+      {
+        "day": "2026-06-29",
+        "daily_close": 236.52,
+        "last_regular_minute_close": 236.5101,
+        "closing_minute_open": 236.52,
+        "last_minute_difference_pct": 0.00418586774941776,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-06-30",
+        "daily_close": 266.71,
+        "last_regular_minute_close": 266.8,
+        "closing_minute_open": 266.73,
+        "last_minute_difference_pct": -0.0337331334333002,
+        "closing_minute_difference_pct": -0.0074982191729633385
+      },
+      {
+        "day": "2026-07-01",
+        "daily_close": 217.55,
+        "last_regular_minute_close": 217.57,
+        "closing_minute_open": 217.66,
+        "last_minute_difference_pct": -0.009192443811179007,
+        "closing_minute_difference_pct": -0.05053753560598784
+      },
+      {
+        "day": "2026-07-02",
+        "daily_close": 181.47,
+        "last_regular_minute_close": 181.0301,
+        "closing_minute_open": 181.47,
+        "last_minute_difference_pct": 0.2429982638246342,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-07-06",
+        "daily_close": 194.65,
+        "last_regular_minute_close": 194.77,
+        "closing_minute_open": 194.65,
+        "last_minute_difference_pct": -0.0616111310776879,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-07-07",
+        "daily_close": 165.28,
+        "last_regular_minute_close": 165.27,
+        "closing_minute_open": 165.28,
+        "last_minute_difference_pct": 0.0060507049071123475,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-07-08",
+        "daily_close": 174.82,
+        "last_regular_minute_close": 174.84,
+        "closing_minute_open": 174.82,
+        "last_minute_difference_pct": -0.011439029970261583,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-07-09",
+        "daily_close": 192.45,
+        "last_regular_minute_close": 192.44,
+        "closing_minute_open": 192.45,
+        "last_minute_difference_pct": 0.005196424859699178,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-07-10",
+        "daily_close": 192.26,
+        "last_regular_minute_close": 192.075,
+        "closing_minute_open": 192.26,
+        "last_minute_difference_pct": 0.09631654301704984,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-07-13",
+        "daily_close": 165.37,
+        "last_regular_minute_close": 165.24,
+        "closing_minute_open": 165.37,
+        "last_minute_difference_pct": 0.07867344468650561,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-07-14",
+        "daily_close": 176.66,
+        "last_regular_minute_close": 176.659,
+        "closing_minute_open": 176.66,
+        "last_minute_difference_pct": 0.000566062300810799,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-07-15",
+        "daily_close": 165.55,
+        "last_regular_minute_close": 165.51,
+        "closing_minute_open": 165.52,
+        "last_minute_difference_pct": 0.02416772400459788,
+        "closing_minute_difference_pct": 0.018124697921706456
+      },
+      {
+        "day": "2026-07-16",
+        "daily_close": 142.48,
+        "last_regular_minute_close": 142.51,
+        "closing_minute_open": 142.48,
+        "last_minute_difference_pct": -0.02105115430496296,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-07-17",
+        "daily_close": 135.47,
+        "last_regular_minute_close": 135.29,
+        "closing_minute_open": 135.34,
+        "last_minute_difference_pct": 0.1330475275334475,
+        "closing_minute_difference_pct": 0.09605438155755319
+      },
+      {
+        "day": "2026-07-20",
+        "daily_close": 136.81,
+        "last_regular_minute_close": 136.86,
+        "closing_minute_open": 136.81,
+        "last_minute_difference_pct": -0.03653368405670543,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-07-21",
+        "daily_close": 158.54,
+        "last_regular_minute_close": 158.41,
+        "closing_minute_open": 158.37,
+        "last_minute_difference_pct": 0.08206552616627505,
+        "closing_minute_difference_pct": 0.10734356254340494
+      },
+      {
+        "day": "2026-07-22",
+        "daily_close": 160.99,
+        "last_regular_minute_close": 160.95,
+        "closing_minute_open": 160.99,
+        "last_minute_difference_pct": 0.024852438645561747,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-07-23",
+        "daily_close": 157.5,
+        "last_regular_minute_close": 157.4,
+        "closing_minute_open": 157.4,
+        "last_minute_difference_pct": 0.06353240152476847,
+        "closing_minute_difference_pct": 0.06353240152476847
+      },
+      {
+        "day": "2026-07-24",
+        "daily_close": 136.81,
+        "last_regular_minute_close": 136.79,
+        "closing_minute_open": 136.81,
+        "last_minute_difference_pct": 0.014620951823962614,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-07-27",
+        "daily_close": 128.15,
+        "last_regular_minute_close": 128.09,
+        "closing_minute_open": 128.15,
+        "last_minute_difference_pct": 0.046842064173624465,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-07-28",
+        "daily_close": 109.54,
+        "last_regular_minute_close": 109.51,
+        "closing_minute_open": 109.54,
+        "last_minute_difference_pct": 0.027394758469556635,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-07-29",
+        "daily_close": 91.99,
+        "last_regular_minute_close": 92.0,
+        "closing_minute_open": 91.99,
+        "last_minute_difference_pct": -0.010869565217397348,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-07-30",
+        "daily_close": 114.72,
+        "last_regular_minute_close": 115.07,
+        "closing_minute_open": 114.72,
+        "last_minute_difference_pct": -0.3041626835838973,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-07-31",
+        "daily_close": 114.72,
+        "last_regular_minute_close": 114.61,
+        "closing_minute_open": 114.72,
+        "last_minute_difference_pct": 0.09597766338016456,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-08-03",
+        "daily_close": 116.71,
+        "last_regular_minute_close": 116.72,
+        "closing_minute_open": 116.71,
+        "last_minute_difference_pct": -0.008567511994517218,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-08-04",
+        "daily_close": 139.9,
+        "last_regular_minute_close": 140.15,
+        "closing_minute_open": 140.19,
+        "last_minute_difference_pct": -0.17838030681412986,
+        "closing_minute_difference_pct": -0.2068621157001127
+      },
+      {
+        "day": "2026-08-05",
+        "daily_close": 132.07,
+        "last_regular_minute_close": 131.74,
+        "closing_minute_open": 132.07,
+        "last_minute_difference_pct": 0.25049339608318455,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-08-06",
+        "daily_close": 132.33,
+        "last_regular_minute_close": 132.46,
+        "closing_minute_open": 132.33,
+        "last_minute_difference_pct": -0.09814283557300074,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-08-07",
+        "daily_close": 140.25,
+        "last_regular_minute_close": 140.26,
+        "closing_minute_open": 140.25,
+        "last_minute_difference_pct": -0.007129616426626573,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-08-10",
+        "daily_close": 130.0,
+        "last_regular_minute_close": 130.0,
+        "closing_minute_open": 130.0,
+        "last_minute_difference_pct": 0.0,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-08-11",
+        "daily_close": 133.0,
+        "last_regular_minute_close": 133.07,
+        "closing_minute_open": 133.06,
+        "last_minute_difference_pct": -0.05260389268805232,
+        "closing_minute_difference_pct": -0.045092439500982184
+      },
+      {
+        "day": "2026-08-12",
+        "daily_close": 142.16,
+        "last_regular_minute_close": 142.23,
+        "closing_minute_open": 142.16,
+        "last_minute_difference_pct": -0.04921605849679267,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-08-13",
+        "daily_close": 145.36,
+        "last_regular_minute_close": 145.49,
+        "closing_minute_open": 145.36,
+        "last_minute_difference_pct": -0.08935322015258818,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-08-14",
+        "daily_close": 144.95,
+        "last_regular_minute_close": 145.0,
+        "closing_minute_open": 145.0,
+        "last_minute_difference_pct": -0.03448275862070194,
+        "closing_minute_difference_pct": -0.03448275862070194
+      },
+      {
+        "day": "2026-08-17",
+        "daily_close": 151.53,
+        "last_regular_minute_close": 151.5665,
+        "closing_minute_open": 151.53,
+        "last_minute_difference_pct": -0.024081838664868904,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-08-18",
+        "daily_close": 129.1,
+        "last_regular_minute_close": 129.0,
+        "closing_minute_open": 128.97,
+        "last_minute_difference_pct": 0.07751937984494806,
+        "closing_minute_difference_pct": 0.10079863534155908
+      },
+      {
+        "day": "2026-08-19",
+        "daily_close": 120.74,
+        "last_regular_minute_close": 120.56,
+        "closing_minute_open": 120.74,
+        "last_minute_difference_pct": 0.14930325149302703,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-08-20",
+        "daily_close": 122.21,
+        "last_regular_minute_close": 122.2,
+        "closing_minute_open": 122.21,
+        "last_minute_difference_pct": 0.008183306055631334,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-08-21",
+        "daily_close": 120.6,
+        "last_regular_minute_close": 120.6,
+        "closing_minute_open": 120.6,
+        "last_minute_difference_pct": 0.0,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-08-24",
+        "daily_close": 111.16,
+        "last_regular_minute_close": 111.16,
+        "closing_minute_open": 111.16,
+        "last_minute_difference_pct": 0.0,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-08-25",
+        "daily_close": 115.67,
+        "last_regular_minute_close": 115.84,
+        "closing_minute_open": 115.67,
+        "last_minute_difference_pct": -0.14675414364641037,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-08-26",
+        "daily_close": 116.6,
+        "last_regular_minute_close": 116.665,
+        "closing_minute_open": 116.6,
+        "last_minute_difference_pct": -0.0557150816440366,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-08-27",
+        "daily_close": 123.05,
+        "last_regular_minute_close": 123.17,
+        "closing_minute_open": 123.05,
+        "last_minute_difference_pct": -0.09742632134448481,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-08-28",
+        "daily_close": 111.34,
+        "last_regular_minute_close": 111.37,
+        "closing_minute_open": 111.34,
+        "last_minute_difference_pct": -0.026937236239565898,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-08-31",
+        "daily_close": 112.79,
+        "last_regular_minute_close": 112.845,
+        "closing_minute_open": 112.829428,
+        "last_minute_difference_pct": -0.04873942133013509,
+        "closing_minute_difference_pct": -0.03494478408592183
+      },
+      {
+        "day": "2026-09-01",
+        "daily_close": 105.91,
+        "last_regular_minute_close": 105.745,
+        "closing_minute_open": 105.91,
+        "last_minute_difference_pct": 0.15603574637097495,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-09-02",
+        "daily_close": 106.35,
+        "last_regular_minute_close": 106.36,
+        "closing_minute_open": 106.35,
+        "last_minute_difference_pct": -0.009402030838667752,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-09-03",
+        "daily_close": 106.74,
+        "last_regular_minute_close": 106.73,
+        "closing_minute_open": 106.74,
+        "last_minute_difference_pct": 0.00936943689684444,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-09-04",
+        "daily_close": 117.28,
+        "last_regular_minute_close": 117.54,
+        "closing_minute_open": 117.28,
+        "last_minute_difference_pct": -0.22120129317679815,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-09-08",
+        "daily_close": 123.27,
+        "last_regular_minute_close": 123.36,
+        "closing_minute_open": 123.27,
+        "last_minute_difference_pct": -0.07295719844357951,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-09-09",
+        "daily_close": 125.87,
+        "last_regular_minute_close": 125.93,
+        "closing_minute_open": 125.92,
+        "last_minute_difference_pct": -0.047645517350913824,
+        "closing_minute_difference_pct": -0.03970775095298862
+      },
+      {
+        "day": "2026-09-10",
+        "daily_close": 115.76,
+        "last_regular_minute_close": 115.645,
+        "closing_minute_open": 115.68,
+        "last_minute_difference_pct": 0.09944225863636191,
+        "closing_minute_difference_pct": 0.06915629322268302
+      },
+      {
+        "day": "2026-09-11",
+        "daily_close": 121.82,
+        "last_regular_minute_close": 121.82,
+        "closing_minute_open": 121.82,
+        "last_minute_difference_pct": 0.0,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-09-14",
+        "daily_close": 101.13,
+        "last_regular_minute_close": 101.135,
+        "closing_minute_open": 101.13,
+        "last_minute_difference_pct": -0.004943886883879145,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-09-15",
+        "daily_close": 102.32,
+        "last_regular_minute_close": 102.335,
+        "closing_minute_open": 102.32,
+        "last_minute_difference_pct": -0.014657741730594864,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-09-16",
+        "daily_close": 103.97,
+        "last_regular_minute_close": 104.1001,
+        "closing_minute_open": 103.97,
+        "last_minute_difference_pct": -0.12497586457649312,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-09-17",
+        "daily_close": 114.82,
+        "last_regular_minute_close": 114.7,
+        "closing_minute_open": 114.82,
+        "last_minute_difference_pct": 0.10462074978203617,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-09-18",
+        "daily_close": 123.67,
+        "last_regular_minute_close": 123.77,
+        "closing_minute_open": 123.6819,
+        "last_minute_difference_pct": -0.08079502302658081,
+        "closing_minute_difference_pct": -0.00962145633273126
+      },
+      {
+        "day": "2026-09-21",
+        "daily_close": 141.93,
+        "last_regular_minute_close": 142.05,
+        "closing_minute_open": 141.93,
+        "last_minute_difference_pct": -0.08447729672650395,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-09-22",
+        "daily_close": 151.95,
+        "last_regular_minute_close": 151.96,
+        "closing_minute_open": 151.95,
+        "last_minute_difference_pct": -0.006580679126100275,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-09-23",
+        "daily_close": 146.25,
+        "last_regular_minute_close": 146.32,
+        "closing_minute_open": 146.25,
+        "last_minute_difference_pct": -0.04784034991798247,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-09-24",
+        "daily_close": 146.33,
+        "last_regular_minute_close": 146.24,
+        "closing_minute_open": 146.21,
+        "last_minute_difference_pct": 0.06154266958424692,
+        "closing_minute_difference_pct": 0.08207372956705594
+      },
+      {
+        "day": "2026-09-25",
+        "daily_close": 151.45,
+        "last_regular_minute_close": 151.35,
+        "closing_minute_open": 151.47,
+        "last_minute_difference_pct": 0.06607201850015176,
+        "closing_minute_difference_pct": -0.013203934772565429
+      },
+      {
+        "day": "2026-09-28",
+        "daily_close": 142.29,
+        "last_regular_minute_close": 142.28,
+        "closing_minute_open": 142.28,
+        "last_minute_difference_pct": 0.007028394714647668,
+        "closing_minute_difference_pct": 0.007028394714647668
+      },
+      {
+        "day": "2026-09-29",
+        "daily_close": 147.0,
+        "last_regular_minute_close": 147.05,
+        "closing_minute_open": 147.0,
+        "last_minute_difference_pct": -0.034002040122416144,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-09-30",
+        "daily_close": 147.86,
+        "last_regular_minute_close": 147.65,
+        "closing_minute_open": 147.86,
+        "last_minute_difference_pct": 0.1422282424653032,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-10-01",
+        "daily_close": 153.69,
+        "last_regular_minute_close": 153.77,
+        "closing_minute_open": 153.69,
+        "last_minute_difference_pct": -0.05202575274761978,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-10-02",
+        "daily_close": 163.71,
+        "last_regular_minute_close": 163.75,
+        "closing_minute_open": 163.71,
+        "last_minute_difference_pct": -0.02442748091602276,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-10-05",
+        "daily_close": 164.27,
+        "last_regular_minute_close": 164.3601,
+        "closing_minute_open": 164.279,
+        "last_minute_difference_pct": -0.054818657326183295,
+        "closing_minute_difference_pct": -0.005478484772847292
+      },
+      {
+        "day": "2026-10-06",
+        "daily_close": 164.26,
+        "last_regular_minute_close": 164.19,
+        "closing_minute_open": 164.26,
+        "last_minute_difference_pct": 0.042633534319991284,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-10-07",
+        "daily_close": 158.91,
+        "last_regular_minute_close": 158.75,
+        "closing_minute_open": 158.91,
+        "last_minute_difference_pct": 0.10078740157479782,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-10-08",
+        "daily_close": 142.52,
+        "last_regular_minute_close": 142.5,
+        "closing_minute_open": 142.5,
+        "last_minute_difference_pct": 0.014035087719310724,
+        "closing_minute_difference_pct": 0.014035087719310724
+      },
+      {
+        "day": "2026-10-09",
+        "daily_close": 139.76,
+        "last_regular_minute_close": 139.73,
+        "closing_minute_open": 139.7599,
+        "last_minute_difference_pct": 0.021469977814358998,
+        "closing_minute_difference_pct": 7.155128187719129e-05
+      },
+      {
+        "day": "2026-10-12",
+        "daily_close": 128.4,
+        "last_regular_minute_close": 128.35,
+        "closing_minute_open": 128.41,
+        "last_minute_difference_pct": 0.0389559797429051,
+        "closing_minute_difference_pct": -0.007787555486327147
+      },
+      {
+        "day": "2026-10-13",
+        "daily_close": 127.57,
+        "last_regular_minute_close": 127.63,
+        "closing_minute_open": 127.57,
+        "last_minute_difference_pct": -0.04701089085638044,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-10-14",
+        "daily_close": 110.54,
+        "last_regular_minute_close": 110.5393,
+        "closing_minute_open": 110.545,
+        "last_minute_difference_pct": 0.0006332589404856037,
+        "closing_minute_difference_pct": -0.004523044913828933
+      },
+      {
+        "day": "2026-10-15",
+        "daily_close": 107.35,
+        "last_regular_minute_close": 107.33,
+        "closing_minute_open": 107.35,
+        "last_minute_difference_pct": 0.018634119072014066,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-10-16",
+        "daily_close": 93.67,
+        "last_regular_minute_close": 93.6838,
+        "closing_minute_open": 93.67,
+        "last_minute_difference_pct": -0.014730401627605083,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-10-19",
+        "daily_close": 98.65,
+        "last_regular_minute_close": 98.675,
+        "closing_minute_open": 98.66,
+        "last_minute_difference_pct": -0.025335697998474238,
+        "closing_minute_difference_pct": -0.010135819987833194
+      },
+      {
+        "day": "2026-10-20",
+        "daily_close": 97.55,
+        "last_regular_minute_close": 97.69,
+        "closing_minute_open": 97.52,
+        "last_minute_difference_pct": -0.14331047190091484,
+        "closing_minute_difference_pct": 0.030762920426585794
+      },
+      {
+        "day": "2026-10-21",
+        "daily_close": 103.24,
+        "last_regular_minute_close": 103.28,
+        "closing_minute_open": 103.39,
+        "last_minute_difference_pct": -0.038729666924874895,
+        "closing_minute_difference_pct": -0.14508172937421904
+      },
+      {
+        "day": "2026-10-22",
+        "daily_close": 82.11,
+        "last_regular_minute_close": 82.11,
+        "closing_minute_open": 82.24,
+        "last_minute_difference_pct": 0.0,
+        "closing_minute_difference_pct": -0.15807392996108893
+      },
+      {
+        "day": "2026-10-23",
+        "daily_close": 83.56,
+        "last_regular_minute_close": 83.59,
+        "closing_minute_open": 83.56,
+        "last_minute_difference_pct": -0.035889460461779876,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-10-26",
+        "daily_close": 90.5,
+        "last_regular_minute_close": 90.71,
+        "closing_minute_open": 90.71,
+        "last_minute_difference_pct": -0.2315070003307218,
+        "closing_minute_difference_pct": -0.2315070003307218
+      },
+      {
+        "day": "2026-10-27",
+        "daily_close": 101.08,
+        "last_regular_minute_close": 101.0907,
+        "closing_minute_open": 101.23,
+        "last_minute_difference_pct": -0.010584554266612756,
+        "closing_minute_difference_pct": -0.14817741776154136
+      },
+      {
+        "day": "2026-10-28",
+        "daily_close": 107.35,
+        "last_regular_minute_close": 107.45,
+        "closing_minute_open": 107.45,
+        "last_minute_difference_pct": -0.09306654257794644,
+        "closing_minute_difference_pct": -0.09306654257794644
+      },
+      {
+        "day": "2026-10-29",
+        "daily_close": 102.39,
+        "last_regular_minute_close": 102.425,
+        "closing_minute_open": 102.42,
+        "last_minute_difference_pct": -0.0341713448865022,
+        "closing_minute_difference_pct": -0.029291154071475756
+      },
+      {
+        "day": "2026-10-30",
+        "daily_close": 77.05,
+        "last_regular_minute_close": 77.07,
+        "closing_minute_open": 77.04,
+        "last_minute_difference_pct": -0.025950434669774758,
+        "closing_minute_difference_pct": 0.012980269989593118
+      },
+      {
+        "day": "2026-11-02",
+        "daily_close": 68.17,
+        "last_regular_minute_close": 68.17,
+        "closing_minute_open": 68.18,
+        "last_minute_difference_pct": 0.0,
+        "closing_minute_difference_pct": -0.014667057788220195
+      },
+      {
+        "day": "2026-11-03",
+        "daily_close": 73.12,
+        "last_regular_minute_close": 73.24,
+        "closing_minute_open": 73.12,
+        "last_minute_difference_pct": -0.16384489350080855,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-11-04",
+        "daily_close": 66.68,
+        "last_regular_minute_close": 66.675,
+        "closing_minute_open": 66.68,
+        "last_minute_difference_pct": 0.007499062617188912,
+        "closing_minute_difference_pct": 0.0
+      },
+      {
+        "day": "2026-11-05",
+        "daily_close": 40.87,
+        "last_regular_minute_close": 40.9,
+        "closing_minute_open": 40.86,
+        "last_minute_difference_pct": -0.07334963325184019,
+        "closing_minute_difference_pct": 0.024473813020065016
+      },
+      {
+        "day": "2026-11-06",
+        "daily_close": 45.97,
+        "last_regular_minute_close": 45.94,
+        "closing_minute_open": 45.96,
+        "last_minute_difference_pct": 0.06530256856769334,
+        "closing_minute_difference_pct": 0.021758050478681845
+      },
+      {
+        "day": "2026-11-09",
+        "daily_close": 56.2,
+        "last_regular_minute_close": 56.24,
+        "closing_minute_open": 56.24,
+        "last_minute_difference_pct": -0.07112375533427917,
+        "closing_minute_difference_pct": -0.07112375533427917
+      },
+      {
+        "day": "2026-11-10",
+        "daily_close": 56.06,
+        "last_regular_minute_close": 55.88,
+        "closing_minute_open": 55.88,
+        "last_minute_difference_pct": 0.3221188260558394,
+        "closing_minute_difference_pct": 0.3221188260558394
+      }
+    ]
+  },
+  "models": [
+    {
+      "window": "RTH",
+      "policy": "stop_first",
+      "run_start": "2026-01-02",
+      "gap_tp": "open",
+      "closed_trade_rows_checked": 214,
+      "daily_equity_rows_checked": 216,
+      "periods_checked": 3,
+      "all_four_costs_match": true,
+      "return_10bp_pct": 4.722418280509211
+    },
+    {
+      "window": "RTH",
+      "policy": "stop_first",
+      "run_start": "2026-07-01",
+      "gap_tp": "open",
+      "closed_trade_rows_checked": 91,
+      "daily_equity_rows_checked": 93,
+      "periods_checked": 2,
+      "all_four_costs_match": true,
+      "return_10bp_pct": -38.90301328399003
+    },
+    {
+      "window": "RTH",
+      "policy": "stop_first",
+      "run_start": "2026-01-02",
+      "gap_tp": "target",
+      "closed_trade_rows_checked": 214,
+      "daily_equity_rows_checked": 216,
+      "periods_checked": 3,
+      "all_four_costs_match": true,
+      "return_10bp_pct": -98.12882592278525
+    },
+    {
+      "window": "RTH",
+      "policy": "stop_first",
+      "run_start": "2026-07-01",
+      "gap_tp": "target",
+      "closed_trade_rows_checked": 91,
+      "daily_equity_rows_checked": 93,
+      "periods_checked": 2,
+      "all_four_costs_match": true,
+      "return_10bp_pct": -90.17214279002613
+    },
+    {
+      "window": "RTH",
+      "policy": "target_first",
+      "run_start": "2026-01-02",
+      "gap_tp": "open",
+      "closed_trade_rows_checked": 214,
+      "daily_equity_rows_checked": 216,
+      "periods_checked": 3,
+      "all_four_costs_match": true,
+      "return_10bp_pct": 4.722418280509211
+    },
+    {
+      "window": "RTH",
+      "policy": "target_first",
+      "run_start": "2026-07-01",
+      "gap_tp": "open",
+      "closed_trade_rows_checked": 91,
+      "daily_equity_rows_checked": 93,
+      "periods_checked": 2,
+      "all_four_costs_match": true,
+      "return_10bp_pct": -38.90301328399003
+    },
+    {
+      "window": "RTH",
+      "policy": "target_first",
+      "run_start": "2026-01-02",
+      "gap_tp": "target",
+      "closed_trade_rows_checked": 214,
+      "daily_equity_rows_checked": 216,
+      "periods_checked": 3,
+      "all_four_costs_match": true,
+      "return_10bp_pct": -98.12882592278525
+    },
+    {
+      "window": "RTH",
+      "policy": "target_first",
+      "run_start": "2026-07-01",
+      "gap_tp": "target",
+      "closed_trade_rows_checked": 91,
+      "daily_equity_rows_checked": 93,
+      "periods_checked": 2,
+      "all_four_costs_match": true,
+      "return_10bp_pct": -90.17214279002613
+    },
+    {
+      "window": "EXT",
+      "policy": "stop_first",
+      "run_start": "2026-01-02",
+      "gap_tp": "open",
+      "closed_trade_rows_checked": 214,
+      "daily_equity_rows_checked": 216,
+      "periods_checked": 3,
+      "all_four_costs_match": true,
+      "return_10bp_pct": -47.98605706502946
+    },
+    {
+      "window": "EXT",
+      "policy": "stop_first",
+      "run_start": "2026-07-01",
+      "gap_tp": "open",
+      "closed_trade_rows_checked": 91,
+      "daily_equity_rows_checked": 93,
+      "periods_checked": 2,
+      "all_four_costs_match": true,
+      "return_10bp_pct": -25.049643720223415
+    },
+    {
+      "window": "EXT",
+      "policy": "stop_first",
+      "run_start": "2026-01-02",
+      "gap_tp": "target",
+      "closed_trade_rows_checked": 214,
+      "daily_equity_rows_checked": 216,
+      "periods_checked": 3,
+      "all_four_costs_match": true,
+      "return_10bp_pct": -77.32254389333127
+    },
+    {
+      "window": "EXT",
+      "policy": "stop_first",
+      "run_start": "2026-07-01",
+      "gap_tp": "target",
+      "closed_trade_rows_checked": 91,
+      "daily_equity_rows_checked": 93,
+      "periods_checked": 2,
+      "all_four_costs_match": true,
+      "return_10bp_pct": -55.18208540282892
+    },
+    {
+      "window": "EXT",
+      "policy": "target_first",
+      "run_start": "2026-01-02",
+      "gap_tp": "open",
+      "closed_trade_rows_checked": 214,
+      "daily_equity_rows_checked": 216,
+      "periods_checked": 3,
+      "all_four_costs_match": true,
+      "return_10bp_pct": -47.98605706502946
+    },
+    {
+      "window": "EXT",
+      "policy": "target_first",
+      "run_start": "2026-07-01",
+      "gap_tp": "open",
+      "closed_trade_rows_checked": 91,
+      "daily_equity_rows_checked": 93,
+      "periods_checked": 2,
+      "all_four_costs_match": true,
+      "return_10bp_pct": -25.049643720223415
+    },
+    {
+      "window": "EXT",
+      "policy": "target_first",
+      "run_start": "2026-01-02",
+      "gap_tp": "target",
+      "closed_trade_rows_checked": 214,
+      "daily_equity_rows_checked": 216,
+      "periods_checked": 3,
+      "all_four_costs_match": true,
+      "return_10bp_pct": -77.32254389333127
+    },
+    {
+      "window": "EXT",
+      "policy": "target_first",
+      "run_start": "2026-07-01",
+      "gap_tp": "target",
+      "closed_trade_rows_checked": 91,
+      "daily_equity_rows_checked": 93,
+      "periods_checked": 2,
+      "all_four_costs_match": true,
+      "return_10bp_pct": -55.18208540282892
+    }
+  ],
+  "future_price_mutation": {
+    "H1_all_outputs_unchanged": true,
+    "H2_outputs_changed": true,
+    "models": [
+      {
+        "window": "RTH",
+        "gap_tp": "open"
+      },
+      {
+        "window": "RTH",
+        "gap_tp": "target"
+      },
+      {
+        "window": "EXT",
+        "gap_tp": "open"
+      },
+      {
+        "window": "EXT",
+        "gap_tp": "target"
+      }
+    ]
+  },
+  "trade_rows_checked": 2440,
+  "daily_equity_rows_checked": 2472
+}

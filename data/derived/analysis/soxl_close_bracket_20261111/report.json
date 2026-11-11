@@ -1,0 +1,180 @@
+{
+  "kind": "saved-result presentation; no trading engine recalculation",
+  "protocol": {
+    "date": "2026-11-11",
+    "path": "Q",
+    "symbol": "SOXL",
+    "user_rule": "정규장 종가 매수, 매수가 대비 -3% 손절 또는 +2% 익절 중 먼저 도달",
+    "start": "2026-01-02",
+    "end": "2026-11-10",
+    "entry": "Alpaca SIP split-adjusted 1Day Close를 정규장 종가 체결의 근사로 사용. RSI 없음",
+    "reentry": "한 포지션, 추가 매수 없음. 마감 10분 전까지 완성된 분봉을 처리한 뒤 현금이면 그날 종가 주문을 미리 정한 것으로 가정. 이후 청산은 다음 날 종가부터 재진입 가능",
+    "cutoff_note": "실제 사용자 증권사 기능의 확인값이 아닌 보수적인 연구 구현. Alpaca CLS의 15:50 제한을 참고해 조기 폐장에도 close-10분 적용",
+    "holding": "익절 또는 손절까지 보유, 최대 보유일 제한 없음. 최종 종가에 미청산은 승패에서 제외하고 시가평가",
+    "barriers": {
+      "stop": -0.03,
+      "take_profit": 0.02,
+      "reference": "비용 별도인 종가 거래가격 P"
+    },
+    "windows": {
+      "RTH": "거래소 달력 정규장 및 마감 가격",
+      "EXT": "04:00~20:00 ET 관측 가능 분봉, 연구상 조건청산 감도. 신규 매수일 마감 시각 분봉은 빼고 1분 뒤부터"
+    },
+    "gap": "주 모형은 분봉 시가가 경계 밖이면 그 시가로 청산해 하락 갭 손실과 상승 갭 가격 개선을 함께 반영. 비교용 보수 모형은 익절 갭만 목표가격으로 제한",
+    "ambiguity": "시가가 두 경계 안인데 동일 분봉 고저가 양쪽에 닿으면 손절 우선. 익절 우선도 감도로 계산",
+    "costs_bp_per_side": [
+      0,
+      5,
+      10,
+      20
+    ],
+    "main_cost_bp": 10,
+    "cost_definition": "수수료는 사용자 조건상 0. 별도 가상 거래비용 c를 매수 P*(1+c), 매도 X*(1-c)로 자산에 차감. 관측 호가나 지정가를 비용만큼 낮춰 체결했다는 뜻이 아님. 가격 경계는 비용별로 바꾸지 않음",
+    "portfolio": "가상 자산지수100에서 한 번에 투자하고 청산 대금 재투자, 추가 입금 없음. 연구 단위이며 사용자 주문 수량 아님",
+    "valuation": "매일 정규장 종가 직후 진입비용까지 반영하고 그날 애프터 이전에 기록. 최종일 애프터는 제외. 미청산은 매도비용 없는 평가액이며 가상 즉시청산 평가액 별도",
+    "periods": "H1 1/2~6/30, H2 7/1~11/10. 연속 원장 기간수익과 7/1 현금 출발 비교를 구분. 익절/손절 수치는 사용자 고정, 최적화 없음",
+    "search": "손절/익절 한 쌍. 2관측시간 x 2동일봉 우선순위 x 2상승갭 체결=8실행경로, 비용4개는 감도. 이번 가격 경계 탐색1개, 이전 RSI 탐색732개와 구분",
+    "execution_revision": "최초 계산의 익절 갭 가격을 목표선으로 제한하면 상승 갭의 개선만 버리고 하락 갭 손실은 전부 반영하는 비대칭이 있다. 첫 결과 확인 뒤 주 실행모형을 경계 밖 첫 분봉 시가로 대칭 적용하도록 바로잡고 기존 제한 모형도 공개한다. 수익률로 익절/손절 수치를 바꾸는 최적화와 구분한다",
+    "limitations": "일봉 종가가 주거래소 단일 경매 체결과 완전히 같다고 보증하지 않음. 분봉 고저 터치 체결, 즉시 연동 주문, 사용자 증권사 예약 종가·애프터 스탑 가능 여부 미확인. 분할만 수정, 현금배당/세금/환율/금리/추가 시장충격 제외. 보이는 04~20시 밖 주간거래 없음. 기존2026자료를 재사용한 후속연구로 새 독립 검증 아님",
+    "sources": [
+      "https://docs.alpaca.markets/us/docs/market-data-faq",
+      "https://docs.alpaca.markets/us/docs/orders-at-alpaca",
+      "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-15"
+    ]
+  },
+  "source_inputs": [
+    "results/summary.json",
+    "results/trades.csv",
+    "results/equity.csv",
+    "results/daily_prices.csv"
+  ],
+  "descriptive_trade_aggregates": {
+    "RTH": {
+      "closed_trades": 214,
+      "average_win_net10bp_pct": 5.281803462951695,
+      "average_loss_net10bp_pct": -6.371182449461341,
+      "average_holding_calendar_hours": 28.596028037383178,
+      "maximum_holding_calendar_hours": 89.5,
+      "gap_stop_count": 60,
+      "gap_stop_worst_gross_pct": -21.534727532666157,
+      "worst_five": [
+        {
+          "entry_day": "2026-06-22",
+          "exit_day": "2026-06-23",
+          "entry_price": 300.77,
+          "exit_price": 236.0,
+          "reason": "stop_gap",
+          "gross_pct": -21.534727532666157,
+          "net10bp_pct": -21.69150130382964
+        },
+        {
+          "entry_day": "2026-10-29",
+          "exit_day": "2026-10-30",
+          "entry_price": 102.39,
+          "exit_price": 81.79,
+          "reason": "stop_gap",
+          "gross_pct": -20.11915226096298,
+          "net10bp_pct": -20.27875435434765
+        },
+        {
+          "entry_day": "2026-09-11",
+          "exit_day": "2026-09-14",
+          "entry_price": 121.82,
+          "exit_price": 101.46,
+          "reason": "stop_gap",
+          "gross_pct": -16.713183385322605,
+          "net10bp_pct": -16.879590611325956
+        },
+        {
+          "entry_day": "2026-07-06",
+          "exit_day": "2026-07-07",
+          "entry_price": 194.65,
+          "exit_price": 165.4,
+          "reason": "stop_gap",
+          "gross_pct": -15.026971487284868,
+          "net10bp_pct": -15.19674776802954
+        },
+        {
+          "entry_day": "2026-11-04",
+          "exit_day": "2026-11-05",
+          "entry_price": 66.68,
+          "exit_price": 56.86,
+          "reason": "stop_gap",
+          "gross_pct": -14.72705458908219,
+          "net10bp_pct": -14.89743010438871
+        }
+      ]
+    },
+    "EXT": {
+      "closed_trades": 214,
+      "average_win_net10bp_pct": 2.475034822467273,
+      "average_loss_net10bp_pct": -4.187895201014929,
+      "average_holding_calendar_hours": 18.758644859813085,
+      "maximum_holding_calendar_hours": 84.0,
+      "gap_stop_count": 26,
+      "gap_stop_worst_gross_pct": -14.369784220500703,
+      "worst_five": [
+        {
+          "entry_day": "2026-06-22",
+          "exit_day": "2026-06-23",
+          "entry_price": 300.77,
+          "exit_price": 257.55,
+          "reason": "stop_gap",
+          "gross_pct": -14.369784220500703,
+          "net10bp_pct": -14.54087356271746
+        },
+        {
+          "entry_day": "2026-09-11",
+          "exit_day": "2026-09-14",
+          "entry_price": 121.82,
+          "exit_price": 109.0,
+          "reason": "stop_gap",
+          "gross_pct": -10.523723526514528,
+          "net10bp_pct": -10.702497305682313
+        },
+        {
+          "entry_day": "2026-07-10",
+          "exit_day": "2026-07-13",
+          "entry_price": 192.26,
+          "exit_price": 173.2,
+          "reason": "stop_gap",
+          "gross_pct": -9.913658587329657,
+          "net10bp_pct": -10.093651277464854
+        },
+        {
+          "entry_day": "2026-03-02",
+          "exit_day": "2026-03-03",
+          "entry_price": 62.76,
+          "exit_price": 57.0,
+          "reason": "stop_gap",
+          "gross_pct": -9.17782026768642,
+          "net10bp_pct": -9.359283164254473
+        },
+        {
+          "entry_day": "2026-07-06",
+          "exit_day": "2026-07-07",
+          "entry_price": 194.65,
+          "exit_price": 178.44,
+          "reason": "stop_gap",
+          "gross_pct": -8.327767788338047,
+          "net10bp_pct": -8.51092909145823
+        }
+      ]
+    }
+  },
+  "html_scratch_filename": "soxl-close-bracket-20261111-5c9e72.html",
+  "official_close_note": "SIP1Day Close is a daily regular-close benchmark; single-primary-auction fill is not guaranteed.",
+  "execution_revision_disclosed": true,
+  "price_threshold_pairs_tested": 1,
+  "execution_paths": 8,
+  "cost_sensitivities": 4,
+  "start_dates": 2,
+  "independent_audit": {
+    "pass": true,
+    "path": "results/audit.json",
+    "models": 16,
+    "synthetic_checks": 14,
+    "trade_rows_checked": 2440,
+    "daily_equity_rows_checked": 2472
+  }
+}
