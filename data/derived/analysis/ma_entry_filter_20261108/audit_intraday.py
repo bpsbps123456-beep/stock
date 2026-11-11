@@ -545,6 +545,7 @@ def main():
              'scope': '2026 frozen original seven-stock model; not independent unseen validation',
              'limitations': ['Execution within each 30-minute source bar and actual spread are unobserved.',
                              'MDD uses regular-session daily close marks, not the deepest intraday loss.',
+                             'SIP signal closes and June-2025 EMA seeds differ from the prior daily-MA study.',
                              'Weekly targets reuse the canonical allocator; wealth and MA are independent.',
                              'Repeated searches of already-seen 2026 data retain selection bias.']}
     (OUT/'audit.json').write_text(json.dumps(audit, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
