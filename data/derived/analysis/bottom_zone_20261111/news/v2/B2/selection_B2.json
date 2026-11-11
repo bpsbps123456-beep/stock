@@ -1,0 +1,8 @@
+{
+  "registered_before_B2_outcome_analysis": true,
+  "sampling_unit": "B2 is a bounded article list, not a claim to all news published worldwide",
+  "primary_sources": ["Reuters", "AP/Associated Press", "Bloomberg", "CNBC", "Financial Times", "Wall Street Journal", "MarketWatch", "연합뉴스", "연합인포맥스", "뉴시스", "Federal Reserve"],
+  "uniform_rule": "Same source frame for every real/fake/current session; retain every query/result and rejection reason; all included primary-frame headlines will be manually reviewed in seeded shuffled order",
+  "reason": "Initial broad headline-rule QA exposed individual advice/domestic-price stories and heterogeneous content farms. Source frame set before reading B2 outcome counts; no tone-rate comparison used to choose sources.",
+  "limitations": ["Source-restricted public search sample", "Known anchor labels", "Headline versus body ambiguity", "Relative/unknown publication days are not fabricated", "No-news and search-missing remain different"]
+}

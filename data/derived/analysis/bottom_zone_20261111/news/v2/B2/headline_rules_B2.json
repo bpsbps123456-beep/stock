@@ -1,0 +1,31 @@
+{
+  "registered_at": "2026-11-11T13:04:07.752322+00:00",
+  "rules": {
+    "primary_sources": "reuters|ap news|apnews\\.com|associated press|bloomberg|cnbc|financial times|wall street journal|marketwatch|연합뉴스|연합인포맥스|뉴시스|federal reserve|federalreserve\\.gov",
+    "exclude_advice": "\\b(?:stocks? to buy|best stocks|top \\d+ stocks|buy this|should you buy|millionaire|millionaires|millionaire-maker|is .* a buy|stock forecast|price prediction|technical analysis|stock price today|share price today|historical data|live chart|how to invest|dividend stocks|stock picks|options trading)\\b|매수할 종목|추천주|주가 전망|종목 추천|주식 추천|고수익|종목픽|주가 예상|주가예측",
+    "exclude_non_equity": "bitcoin|cryptocurrency|dogecoin|ethereum|\\bcrypto\\b|비트코인|가상화폐|가상자산|암호화폐",
+    "relevance": "wall street|nasdaq|s&p|dow jones|dow |u\\.s\\. stocks|us stocks|u\\.s\\. equit|us equit|stock market|stocks (?:rise|fall|gain|slide|rally|tumble|drop|close|end|rebound|sink|slip|surge|jump)|equities|semiconductor|chip stocks|chip shares|chipmakers|nvidia|뉴욕증시|뉴욕 증시|나스닥|엔비디아|반도체|미국증시|미국 증시|미 증시|연준|federal reserve|\\bfed\\b",
+    "neg": "\\b(?:fall|falls|fell|falling|slide|slides|slid|sliding|tumble|tumbles|tumbled|drop|drops|dropped|sink|sinks|sank|slip|slips|slipped|plunge|plunges|plunged|selloff|sell-off|loss|losses|losing|lower|slump|slumps|crash|crashes|bear market|panic|recession|downgrade|downgrades|restrict|restriction|curbs|ban|bans|tariff|tariffs|hike|hikes|inflation|war|miss|misses|weak|weakness|disappoint|warning|fears|worry|worries|concerns)\\b|급락|폭락|하락|약세|투매|공포|침체|우려|경고|충격|매도|불안|부진|관세|규제|악재|하향|인상|긴축|하회|전쟁|붕괴",
+    "pos": "\\b(?:rise|rises|rose|rising|rally|rallies|rallied|gain|gains|gained|higher|rebound|rebounds|bounce|bounces|surge|surges|jump|jumps|jumped|advance|advances|record high|records|relief|truce|pause|easing|eases|ease|upgrade|upgrades|beat|beats|strong|strength|buying|optimism|optimistic|soar|soars|recover|recovery|hopes)\\b|급등|폭등|상승|강세|반등|회복|완화|휴전|유예|상향|호재|훈풍|안도|기대|낙관|최고치|사상 최고|매수세|상회",
+    "types": {
+      "regulation_geopolitics": "export|restriction|curbs|ban\\b|bans\\b|regulat|china|chinese|iran|israel|war\\b|mideast|middle east|수출|규제|중국|이란|이스라엘|전쟁|중동",
+      "macro_policy": "\\bfed\\b|federal reserve|interest|rates|yield|inflation|cpi|ppi|payroll|jobs|employment|economy|economic|gdp|tariff|trade (?:deal|war|truce)|trump|treasury|연준|금리|물가|고용|실업|관세|무역|트럼프|경기|경제|국채",
+      "earnings_fundamental": "earning|profit|revenue|sales|forecast|outlook|guidance|ai |artificial intelligence|demand|nvidia|chip|semiconductor|실적|이익|매출|엔비디아|반도체|수요|인공지능",
+      "flows_positioning": "flows|buying|hedge funds|retail|investors buy|positioning|자금|수급|개인|헤지펀드|매수세",
+      "strategist_call": "strategist|upgrade|downgrade|rating|target|goldman|morgan stanley|citigroup|\\bciti\\b|jpmorgan|\\bubs\\b|bofa|전략가|투자의견|목표치|목표주가|상향|하향|골드만|모건스탠리|씨티",
+      "capitulation_language": "capitulation|panic|bear market|correction|crash|투매|패닉|공포|약세장|붕괴|폭락",
+      "technical": "wall street|nasdaq|s&p|dow |stock|equities|뉴욕|나스닥|증시|주가|주식"
+    },
+    "price_direction": {
+      "neg": "\\b(?:fall|falls|fell|slide|slides|slid|tumble|tumbles|tumbled|drop|drops|dropped|sink|sinks|sank|slip|slips|slipped|plunge|plunges|selloff|sell-off|losses|lower|slump|crash)\\b|급락|폭락|하락|약세|투매",
+      "pos": "\\b(?:rise|rises|rose|rally|rallies|rallied|gain|gains|gained|higher|rebound|rebounds|bounce|bounces|surge|surges|jump|jumps|jumped|advance|advances|record high|soar|soars)\\b|급등|폭등|상승|강세|반등|최고치|사상 최고"
+    },
+    "catalyst_link": "\\b(?:as|on|after|amid|due to|driven by|thanks to|fueled by)\\b|힘입|덕분|영향|따라|소식|안도|기대|발표|유예|완화|휴전",
+    "pb_exclusion": "prime broker|prime brokerage|PB 자금|PB 노트",
+    "irrelevant_domestic": "호남 건설|건설주|부동산|코스피|코스닥|국내 증시|오늘의 증시|오늘의 투자전략|서울 증시|달러.?원|원.?달러|환율|증권가|한국 증시|국내증시|서학픽|중학개미",
+    "non_event_commentary": "\\b(?:could double|could triple|could soar|could be|here.s why|here are .* stocks|things to know|stocks to watch|top .* analyst calls|top wall street analyst|how .* stock|better buy|buy the .*dip|chartstopper|generated .* returns|how well|what .* means for|what to know|is .* worth|is .* time to|can .* stock|will .* stock)\\b|마감브리핑|프리미엄콘텐츠|데이터랩",
+    "general_individual_calls": "\\b(?:upgraded|downgraded|price target)\\b|목표주가",
+    "mixed": "mixed|혼조|혼재",
+    "note": "Rules fixed before B2 classification. Lead price direction overrides subordinate concern/hope language; simultaneous opposite price directions -> neutral. Otherwise explicit opposing beneficial/adverse material -> neutral. Manual overrides logged separately. Pure semiconductor/Nvidia price reporting without cause -> technical, not an earnings catalyst."
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "status": "locked before B2 real/fake tone comparison",
+  "manual_headline_decisions": 1458,
+  "manual_queues": [
+    1056,
+    231,
+    20,
+    151
+  ],
+  "body_read_unique": 14,
+  "source_date_repairs": "Exact date in AP index-close title or displayed article timestamp supersedes missing web date; richest summary retained. Feed-only dates remain flagged. Reuters 2025-11-21 corrected from resolved public URL.",
+  "wire_coverage": "181 unique requested days all have a wire close; 185 observable anchor-session rows, 2 future rows unobservable",
+  "turn_rule": "Positive causal material on 0/+1, one main policy/earnings/flows/strategist/none per episode; technical bounce or earnings preview is none. Market rebound is not inferred from later prices.",
+  "source_frame": "Uniform registered primary publishers and identifiable wire reprints; all eligible frame headlines manually reviewed; all other search results retained with rule-based exclusions",
+  "limitations": [
+    "Anchor real/fake labels known; dates shuffled, labels not blinded.",
+    "B2 source/date relevance parser amended during collection before outcomes.",
+    "Unarchived initial 4-query request repeated and registered; repeated results archived, initial response not locally preserved.",
+    "Most items headline/search-summary only. HTTP denial or site/login barrier not bypassed.",
+    "Feed date proxies and publication updates can move item across session; no exact intraday event chronology claimed.",
+    "Wire updates with different headlines can remain dependent.",
+    "B1 prices already available after separate B1 freeze; B2 inclusion did not use subsequent returns."
+  ]
+}

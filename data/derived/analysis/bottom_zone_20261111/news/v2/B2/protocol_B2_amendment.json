@@ -1,0 +1,76 @@
+{
+  "version": "B2 evidence 2",
+  "registered_at": "2026-11-11T12:27:13.758480+00:00",
+  "parent": "../../protocol_B_v2.json",
+  "current_anchor": "2026-11-05",
+  "current_anchor_reason": "B1 freeze c5edc8af followed by fresh SOXX price audit; provisional 11/02 superseded; no B2 tone/eligibility based on returns",
+  "recent10": [
+    "2026-10-28",
+    "2026-10-29",
+    "2026-10-30",
+    "2026-11-02",
+    "2026-11-03",
+    "2026-11-04",
+    "2026-11-05",
+    "2026-11-06",
+    "2026-11-09",
+    "2026-11-10"
+  ],
+  "templates": [
+    "{date} semiconductor chip stocks fall rally why",
+    "{date} Nasdaq Wall Street stocks close Reuters",
+    "{date} Nvidia earnings AI chips",
+    "{date} Fed interest rates tariffs export restrictions stocks",
+    "{date} strategist upgrade downgrade stocks",
+    "{date} bear market correction panic capitulation selloff",
+    "{date} hedge funds retail investors buying stocks -prime -brokerage",
+    "{date} 반도체주 급락",
+    "{date} 반도체주 반등",
+    "{date} 뉴욕증시 마감"
+  ],
+  "coding": {
+    "types": [
+      "macro_policy",
+      "earnings_fundamental",
+      "flows_positioning",
+      "strategist_call",
+      "regulation_geopolitics",
+      "capitulation_language",
+      "technical",
+      "other"
+    ],
+    "tone": {
+      "neg": "Explicit adverse news for US equities/chips: earnings miss/cut, restrictive rates, tariffs/export bans, downgrade, recession warning, panic selling; example: Chips slide on export curbs.",
+      "pos": "Explicit beneficial news: earnings beat/raise, easing/truce, upgrade, actual buying, rebound on relief; example: Stocks rally as tariff pause eases fears.",
+      "neutral": "Mixed positives/negatives without dominant broad-equity/chip implication, unchanged data, event previews, or no explicit directional implication. A price decline alone in a factual close story is neg but marked technical if no catalyst is reported."
+    },
+    "priority": "Use main headline/lead causal material rather than narrative subordinate details; conflicting main implications -> neutral; type chooses dominant causal content. Do not infer tone from future returns.",
+    "turn_catalyst": "Y only for contemporaneous reports on anchor or +1 session explicitly connecting a reversal to a reported event. Mere same-day occurrence insufficient. Otherwise N. Categories policy / earnings / flows / strategist / none derived from type; no proof of causation.",
+    "bins": [
+      [
+        -5,
+        -1
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        5
+      ]
+    ],
+    "comparison": "Counts neg/total and type counts by real/fake and bin; no conversion of 10 episodes to bottom prediction probability."
+  },
+  "date_note": "RSS UTC timestamp converted to America/New_York for candidate date, flagged feed-only; source publication day supersedes if verified; non-session maps next XNYS session; current future dates >11/10 unobservable",
+  "wire_requirement": "Reuters/AP close per window session; missing explicitly reported, never treated as no adverse news",
+  "uniform_wire_supplement": {
+    "registered_at": "2026-11-11T12:28:40.861310+00:00",
+    "templates": {
+      "11": "Wall Street stocks Nasdaq close (Reuters OR AP)",
+      "12": "뉴욕증시 마감"
+    },
+    "days": 181,
+    "reason": "ISO date literal produced sparse fixed-template results; uniform bounds-only wire/close supplement for EVERY date, before tone coding; no selective adverse/positive query"
+  }
+}
