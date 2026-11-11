@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "registered_at": "2026-11-11",
+  "task": "TASK_B at f4f3a30; public strategist opinion changes and bottom-window news",
+  "publication_window": ["2024-01-01", "2026-11-10"],
+  "houses": {"Citi":"씨티", "Goldman Sachs":"골드만삭스", "Morgan Stanley":"모건스탠리", "JPMorgan":"JP모건", "BofA":"뱅크오브아메리카", "UBS":"UBS", "HSBC":"HSBC", "Barclays":"바클레이스", "Deutsche Bank":"도이체방크", "Wells Fargo":"웰스파고", "BlackRock Investment Institute":"블랙록", "Evercore ISI":"에버코어", "Jefferies":"제프리스", "Oppenheimer":"오펜하이머"},
+  "additional_houses": [],
+  "search_B1": {
+    "engine": "Google News RSS (all returned results) plus web search and article opening for verification",
+    "grid": "14 houses x 12 calendar quarters x 3 templates = 504 initial queries. 2026Q4 ends 2026-11-11 exclusive. A result count of 100 requires recursive half-window queries with identical template. Errors are retryable; never call a failed query zero news.",
+    "templates": {
+      "en_allocation": "\"{house}\" (stocks OR equities OR technology OR semiconductors) (upgrade OR downgrade OR overweight OR underweight OR neutral)",
+      "en_target": "\"{house}\" (\"S&P 500\" OR Nasdaq) (raises OR cuts OR lifts OR lowers OR hikes) target",
+      "ko_changes": "{house_ko} (미국주식 OR 미국증시 OR 반도체 OR 기술주 OR S&P500) (상향 OR 하향 OR 중립 OR 비중확대 OR 비중축소 OR 목표)"
+    },
+    "supplement": "Follow-up queries may verify date, attribution, actual change, source, missing periods; every query/result is logged, including zero and excluded candidates. Institution alias queries and monthly splitting are allowed without price evidence.",
+    "logging": "Store full returned result inventory with title/date/URL/source and query id; source original URL may be added after opening. All appearances stay in log even when grouped. Pending review means incomplete work, not exclusion. Search count is actual requests, separately from planned requests.",
+    "exclusions": ["individual_stock", "no_change_or_reiteration", "PB_flow_note", "outside_window", "wrong_asset_or_geography", "not_target_house", "insufficient_attribution_or_date", "duplicate_source_group", "unrelated"]
+  },
+  "coding_B1": {
+    "unit": "One house x publicly reported distinct opinion change x asset scope. Multiple houses in one story create separate rows; joint target and allocation changes create separate rows. Republications grouped by explicit house/scope/from-to/date evidence, not merely calendar proximity.",
+    "actions": {"upgrade":1, "downgrade":-1, "target_raise":1, "target_cut":-1},
+    "scope": ["us_equity", "global_equity", "us_tech", "semis", "index_target"],
+    "ratings": "Only explicit old/new ratings or target values; otherwise blank, never invent an old rating from a new one. A change must be explicit in text/title.",
+    "after_selloff": "Y only when the source explicitly cites a selloff/correction/cheaper valuation as rationale. N means not explicitly stated; this is NOT the numerical DD60 state, which is calculated only after freeze.",
+    "rationale_tag": "Main explicit rationale: valuation / earnings / macro / positioning / policy / other. Missing rationale -> other with coding note.",
+    "verification": "원문 열람 = opened originating public article or house publication; 재보도 = read syndicated/secondary full text; 제목·요약만 = title/search snippet only. Note-read and news-article-read distinguished in notes. Block/login/notification -> record failure, never mark read.",
+    "quote": "Short excerpt <=25 English words per source across rows or Korean paraphrase prefixed [요약]. Unknown strategist stays blank.",
+    "time": "Only explicit timezone-qualified times become America/New_York published_at. Otherwise published_at blank, time_precision=date. RSS pubDate is indexing/feed time, not evidence of original clock time; preserve feed timestamp in log, validate calendar day where possible. Unverified feed-only dates flagged in coding_notes.",
+    "screen": "Every candidate must receive an explicit decision. Automated keyword screening is an aid, not definitive eligible coding; unresolved candidates remain separate and prevent full-census completion. No looking at subsequent prices during screening."
+  },
+  "search_B2": {
+    "anchors": {
+      "real": ["2024-04-19", "2024-08-07", "2024-09-06", "2024-11-15", "2025-04-08", "2025-11-20", "2026-03-30", "2026-06-05", "2026-07-29", "2026-09-14"],
+      "fake_completed": ["2024-07-19", "2024-08-28", "2025-02-27", "2026-03-06", "2026-07-02", "2026-08-19"],
+      "first_F_current_not_evaluated": "2026-10-14",
+      "current": "2026-11-02",
+      "current_note": "events.json latest date is 2026-11-03; anchor is provisional and must be checked against newly fetched data only after freeze. No current episode in real/fake outcome comparison."
+    },
+    "calendar": "XNYS sessions only, -5 through +5 inclusive; weekends retain next-session alignment with original published_date; daily closing wire article is requested for every session and missing is explicitly search_not_found/error, never zero negative news.",
+    "templates": ["{date} semiconductor chip stocks fall rally why", "{date} Nasdaq Wall Street stocks close Reuters", "{date} Nvidia earnings AI chips", "{date} Fed interest rates tariffs export restrictions stocks", "{date} strategist upgrade downgrade stocks", "{date} bear market correction panic capitulation selloff", "{date} hedge funds retail investors buying stocks -prime -brokerage", "{date} 반도체주 급락", "{date} 반도체주 반등", "{date} 뉴욕증시 마감"],
+    "coding_order": "Shuffle anchor list using random.Random(20261111), then shuffle article candidates with same seed. Labels remain known; this is not blind coding.",
+    "article_unit": "One original story per anchor x source_group, identical syndicated headlines deduplicated. Same story may appear in overlapping windows; report both row counts and unique groups. PB flow notes excluded as requested; general non-PB flows articles allowed."
+  },
+  "coding_B2": {
+    "types": ["macro_policy", "earnings_fundamental", "flows_positioning", "strategist_call", "regulation_geopolitics", "capitulation_language", "technical", "other"],
+    "tone": {"neg":"Explicit adverse news for US equities/chips: earnings miss/cut, restrictive rates, tariffs/export bans, downgrade, recession warning, panic selling; example: Chips slide on export curbs.", "pos":"Explicit beneficial news: earnings beat/raise, easing/truce, upgrade, actual buying, rebound on relief; example: Stocks rally as tariff pause eases fears.", "neutral":"Mixed positives/negatives without dominant broad-equity/chip implication, unchanged data, event previews, or no explicit directional implication. A price decline alone in a factual close story is neg but marked technical if no catalyst is reported."},
+    "priority": "Use main headline/lead causal material rather than narrative subordinate details; conflicting main implications -> neutral; type chooses dominant causal content. Do not infer tone from future returns.",
+    "turn_catalyst": "Y only for contemporaneous reports on anchor or +1 session explicitly connecting a reversal to a reported event. Mere same-day occurrence insufficient. Otherwise N. Categories policy / earnings / flows / strategist / none derived from type; no proof of causation.",
+    "bins": [[-5,-1],[0,0],[1,5]],
+    "comparison": "Counts neg/total and type counts by real/fake and bin; no conversion of 10 episodes to bottom prediction probability."
+  },
+  "freeze": "Commit SHA256 protocol, census, search logs and collected bottom_news before any price API access/joins/results. If resource limit binds, explicitly scoped B1-only freeze may hash B1 and report B2_not_started; it never certifies B2 completion. Later evidence is a new version/new freeze, never silently overwrite frozen input.",
+  "analysis_B1": {
+    "prices": "Fresh full-history SOXX primary and QQQ auxiliary; explicit split/event check for SOXX 2026-11-05 3:1; do not reuse another worker's cached series. Freeze first.",
+    "entry": "Date only -> following regular session open. Exact times before regular open -> same session open; during/after session -> following session open. Unknown day excluded. Outcome close on entry session is day 1; day5/10/20 are offsets 4/9/19.",
+    "selloff": "SOXX previous session close / highest close over trailing 60 sessions including previous session - 1 <= -0.10. All explanatory values known before entry.",
+    "main_outcome": "Complete 20-session min close / entry open -1 >= -0.05. Incomplete horizons -> missing, never success by default.",
+    "grid": "4 actions x 2 numeric selloff states = 8 cells per year; 2024,2025,2026 separate. 2026 primary.",
+    "controls": "All eligible sessions same calendar year and state; 1:1 nearest standardized Euclidean (DD60, lagged5return), standardized using that year eligible days. Deterministic date tie break, exclude same entry date; replacement allowed, report reused controls.",
+    "H_U": "Upgrade actions in selloff state; compare near-bottom count/total with same-state any-day and matched controls. Target raises separately, not included in H-U.",
+    "H_D": "Downgrade or target_cut cluster: >=2 distinct house x source_group cuts in trailing 5 trading sessions including known previous session. Trigger first entry day threshold reached, block additional triggers for 5 sessions; no optimized threshold. Report single cuts separately. Choices fixed here before data.",
+    "test": "2026 H-U and H-D two primary tests; year-within circular shifts of signal date vector 10000 draws seed20261111, preserve clusters, outcome contrast against same-state day base; condition shifted signals on pre-entry numeric state. Empty permutations omitted with valid count reported, p=(1+null>=observed)/(1+valid); Holm adjustment for two tests. Counts/effect size primary; p<.05 is not an automatic pass.",
+    "bottom_distance": "XNYS signed session distance publication day (non-session mapped next) minus nearest real B10 date. Count +/-10 sessions; before means negative; after delays on upgrades reported individually. Retrospective location only, not available predictive feature."
+  },
+  "limits": ["Public-media search census, not all private institutional notes", "Google indexing/language/query breadth and 100 result caps", "Retrospective dates and unblinded coding", "Search-not-found is not no-news", "Unverified feed publication dates", "Grouped simultaneous opinions are dependent", "Current episode incomplete", "No orders, weights, buy recommendation or operating ledger changes"]
+}
