@@ -20,6 +20,7 @@ aimap/dist/
 # 산출물(data/raw·data/state·data/derived)은 올린다(2026-10-26, 클라우드 세션용).
 # 다시 만들 수 있는 캐시·바이너리는 뺀다.
 data/**/cache/
+data/derived/analysis/ma_entry_filter_20261108/intraday_4_16h_20261111/parts/
 data/**/*.parquet
 data/**/*.npy
 data/**/*.npz
