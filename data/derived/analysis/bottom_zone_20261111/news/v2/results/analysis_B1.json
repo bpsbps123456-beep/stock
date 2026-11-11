@@ -1,0 +1,3904 @@
+{
+  "SOXX": {
+    "grid": [
+      {
+        "year": 2024,
+        "action": "upgrade",
+        "decline_state": false,
+        "signals": {
+          "n": 4,
+          "complete20": 4,
+          "near_count": 3,
+          "near_fraction": 0.75,
+          "returns": {
+            "5": {
+              "n": 4,
+              "mean": -0.02226104680211871
+            },
+            "10": {
+              "n": 4,
+              "mean": 0.0004683895408994776
+            },
+            "20": {
+              "n": 4,
+              "mean": -0.0086686757529503
+            }
+          }
+        },
+        "all_days": {
+          "n": 178,
+          "complete20": 178,
+          "near_count": 107,
+          "near_fraction": 0.601123595505618,
+          "returns": {
+            "5": {
+              "n": 178,
+              "mean": 0.0012400903973501486
+            },
+            "10": {
+              "n": 178,
+              "mean": 0.0034822174332835893
+            },
+            "20": {
+              "n": 178,
+              "mean": 0.007098145386702284
+            }
+          }
+        },
+        "matched": {
+          "n": 4,
+          "complete20": 4,
+          "near_count": 3,
+          "near_fraction": 0.75,
+          "returns": {
+            "5": {
+              "n": 4,
+              "mean": 0.024881047095878572
+            },
+            "10": {
+              "n": 4,
+              "mean": 0.02610112034501197
+            },
+            "20": {
+              "n": 4,
+              "mean": -0.03394953165169454
+            }
+          }
+        },
+        "matched_unique": 4,
+        "matched_reuses": 0
+      },
+      {
+        "year": 2024,
+        "action": "upgrade",
+        "decline_state": true,
+        "signals": {
+          "n": 2,
+          "complete20": 2,
+          "near_count": 2,
+          "near_fraction": 1.0,
+          "returns": {
+            "5": {
+              "n": 2,
+              "mean": 0.07602103179216657
+            },
+            "10": {
+              "n": 2,
+              "mean": 0.14537426916691665
+            },
+            "20": {
+              "n": 2,
+              "mean": 0.03689106390023955
+            }
+          }
+        },
+        "all_days": {
+          "n": 74,
+          "complete20": 74,
+          "near_count": 45,
+          "near_fraction": 0.6081081081081081,
+          "returns": {
+            "5": {
+              "n": 74,
+              "mean": 0.0073733270615468265
+            },
+            "10": {
+              "n": 74,
+              "mean": 0.01647663987367328
+            },
+            "20": {
+              "n": 74,
+              "mean": 0.0291393917471921
+            }
+          }
+        },
+        "matched": {
+          "n": 2,
+          "complete20": 2,
+          "near_count": 2,
+          "near_fraction": 1.0,
+          "returns": {
+            "5": {
+              "n": 2,
+              "mean": 0.03872018069301597
+            },
+            "10": {
+              "n": 2,
+              "mean": 0.14678626721977128
+            },
+            "20": {
+              "n": 2,
+              "mean": 0.0411585045108287
+            }
+          }
+        },
+        "matched_unique": 1,
+        "matched_reuses": 1
+      },
+      {
+        "year": 2024,
+        "action": "downgrade",
+        "decline_state": false,
+        "signals": {
+          "n": 2,
+          "complete20": 2,
+          "near_count": 1,
+          "near_fraction": 0.5,
+          "returns": {
+            "5": {
+              "n": 2,
+              "mean": 0.014679734885684914
+            },
+            "10": {
+              "n": 2,
+              "mean": 0.038242292837619485
+            },
+            "20": {
+              "n": 2,
+              "mean": -0.03913271730668211
+            }
+          }
+        },
+        "all_days": {
+          "n": 178,
+          "complete20": 178,
+          "near_count": 107,
+          "near_fraction": 0.601123595505618,
+          "returns": {
+            "5": {
+              "n": 178,
+              "mean": 0.0012400903973501486
+            },
+            "10": {
+              "n": 178,
+              "mean": 0.0034822174332835893
+            },
+            "20": {
+              "n": 178,
+              "mean": 0.007098145386702284
+            }
+          }
+        },
+        "matched": {
+          "n": 2,
+          "complete20": 2,
+          "near_count": 1,
+          "near_fraction": 0.5,
+          "returns": {
+            "5": {
+              "n": 2,
+              "mean": 0.012419869316994181
+            },
+            "10": {
+              "n": 2,
+              "mean": 0.0030498862889262734
+            },
+            "20": {
+              "n": 2,
+              "mean": -0.020564904309650356
+            }
+          }
+        },
+        "matched_unique": 2,
+        "matched_reuses": 0
+      },
+      {
+        "year": 2024,
+        "action": "downgrade",
+        "decline_state": true,
+        "signals": {
+          "n": 0,
+          "complete20": 0,
+          "near_count": 0,
+          "near_fraction": null,
+          "returns": {
+            "5": {
+              "n": 0,
+              "mean": null
+            },
+            "10": {
+              "n": 0,
+              "mean": null
+            },
+            "20": {
+              "n": 0,
+              "mean": null
+            }
+          }
+        },
+        "all_days": {
+          "n": 74,
+          "complete20": 74,
+          "near_count": 45,
+          "near_fraction": 0.6081081081081081,
+          "returns": {
+            "5": {
+              "n": 74,
+              "mean": 0.0073733270615468265
+            },
+            "10": {
+              "n": 74,
+              "mean": 0.01647663987367328
+            },
+            "20": {
+              "n": 74,
+              "mean": 0.0291393917471921
+            }
+          }
+        },
+        "matched": {
+          "n": 0,
+          "complete20": 0,
+          "near_count": 0,
+          "near_fraction": null,
+          "returns": {
+            "5": {
+              "n": 0,
+              "mean": null
+            },
+            "10": {
+              "n": 0,
+              "mean": null
+            },
+            "20": {
+              "n": 0,
+              "mean": null
+            }
+          }
+        },
+        "matched_unique": 0,
+        "matched_reuses": 0
+      },
+      {
+        "year": 2024,
+        "action": "target_raise",
+        "decline_state": false,
+        "signals": {
+          "n": 15,
+          "complete20": 15,
+          "near_count": 8,
+          "near_fraction": 0.5333333333333333,
+          "returns": {
+            "5": {
+              "n": 15,
+              "mean": -0.015447909315765451
+            },
+            "10": {
+              "n": 15,
+              "mean": -0.017247951177282315
+            },
+            "20": {
+              "n": 15,
+              "mean": -0.011836397148665941
+            }
+          }
+        },
+        "all_days": {
+          "n": 178,
+          "complete20": 178,
+          "near_count": 107,
+          "near_fraction": 0.601123595505618,
+          "returns": {
+            "5": {
+              "n": 178,
+              "mean": 0.0012400903973501486
+            },
+            "10": {
+              "n": 178,
+              "mean": 0.0034822174332835893
+            },
+            "20": {
+              "n": 178,
+              "mean": 0.007098145386702284
+            }
+          }
+        },
+        "matched": {
+          "n": 15,
+          "complete20": 15,
+          "near_count": 6,
+          "near_fraction": 0.4,
+          "returns": {
+            "5": {
+              "n": 15,
+              "mean": 0.005128564349340585
+            },
+            "10": {
+              "n": 15,
+              "mean": -0.018287873124810818
+            },
+            "20": {
+              "n": 15,
+              "mean": -0.0211201635801152
+            }
+          }
+        },
+        "matched_unique": 13,
+        "matched_reuses": 2
+      },
+      {
+        "year": 2024,
+        "action": "target_raise",
+        "decline_state": true,
+        "signals": {
+          "n": 5,
+          "complete20": 5,
+          "near_count": 3,
+          "near_fraction": 0.6,
+          "returns": {
+            "5": {
+              "n": 5,
+              "mean": 0.028498860061713205
+            },
+            "10": {
+              "n": 5,
+              "mean": 0.01632698797505223
+            },
+            "20": {
+              "n": 5,
+              "mean": -0.0025433498042302773
+            }
+          }
+        },
+        "all_days": {
+          "n": 74,
+          "complete20": 74,
+          "near_count": 45,
+          "near_fraction": 0.6081081081081081,
+          "returns": {
+            "5": {
+              "n": 74,
+              "mean": 0.0073733270615468265
+            },
+            "10": {
+              "n": 74,
+              "mean": 0.01647663987367328
+            },
+            "20": {
+              "n": 74,
+              "mean": 0.0291393917471921
+            }
+          }
+        },
+        "matched": {
+          "n": 5,
+          "complete20": 5,
+          "near_count": 4,
+          "near_fraction": 0.8,
+          "returns": {
+            "5": {
+              "n": 5,
+              "mean": 0.024349978442621278
+            },
+            "10": {
+              "n": 5,
+              "mean": 0.03468862997391877
+            },
+            "20": {
+              "n": 5,
+              "mean": 0.03693290641001708
+            }
+          }
+        },
+        "matched_unique": 4,
+        "matched_reuses": 1
+      },
+      {
+        "year": 2024,
+        "action": "target_cut",
+        "decline_state": false,
+        "signals": {
+          "n": 0,
+          "complete20": 0,
+          "near_count": 0,
+          "near_fraction": null,
+          "returns": {
+            "5": {
+              "n": 0,
+              "mean": null
+            },
+            "10": {
+              "n": 0,
+              "mean": null
+            },
+            "20": {
+              "n": 0,
+              "mean": null
+            }
+          }
+        },
+        "all_days": {
+          "n": 178,
+          "complete20": 178,
+          "near_count": 107,
+          "near_fraction": 0.601123595505618,
+          "returns": {
+            "5": {
+              "n": 178,
+              "mean": 0.0012400903973501486
+            },
+            "10": {
+              "n": 178,
+              "mean": 0.0034822174332835893
+            },
+            "20": {
+              "n": 178,
+              "mean": 0.007098145386702284
+            }
+          }
+        },
+        "matched": {
+          "n": 0,
+          "complete20": 0,
+          "near_count": 0,
+          "near_fraction": null,
+          "returns": {
+            "5": {
+              "n": 0,
+              "mean": null
+            },
+            "10": {
+              "n": 0,
+              "mean": null
+            },
+            "20": {
+              "n": 0,
+              "mean": null
+            }
+          }
+        },
+        "matched_unique": 0,
+        "matched_reuses": 0
+      },
+      {
+        "year": 2024,
+        "action": "target_cut",
+        "decline_state": true,
+        "signals": {
+          "n": 0,
+          "complete20": 0,
+          "near_count": 0,
+          "near_fraction": null,
+          "returns": {
+            "5": {
+              "n": 0,
+              "mean": null
+            },
+            "10": {
+              "n": 0,
+              "mean": null
+            },
+            "20": {
+              "n": 0,
+              "mean": null
+            }
+          }
+        },
+        "all_days": {
+          "n": 74,
+          "complete20": 74,
+          "near_count": 45,
+          "near_fraction": 0.6081081081081081,
+          "returns": {
+            "5": {
+              "n": 74,
+              "mean": 0.0073733270615468265
+            },
+            "10": {
+              "n": 74,
+              "mean": 0.01647663987367328
+            },
+            "20": {
+              "n": 74,
+              "mean": 0.0291393917471921
+            }
+          }
+        },
+        "matched": {
+          "n": 0,
+          "complete20": 0,
+          "near_count": 0,
+          "near_fraction": null,
+          "returns": {
+            "5": {
+              "n": 0,
+              "mean": null
+            },
+            "10": {
+              "n": 0,
+              "mean": null
+            },
+            "20": {
+              "n": 0,
+              "mean": null
+            }
+          }
+        },
+        "matched_unique": 0,
+        "matched_reuses": 0
+      },
+      {
+        "year": 2025,
+        "action": "upgrade",
+        "decline_state": false,
+        "signals": {
+          "n": 15,
+          "complete20": 15,
+          "near_count": 12,
+          "near_fraction": 0.8,
+          "returns": {
+            "5": {
+              "n": 15,
+              "mean": 0.009473637364401499
+            },
+            "10": {
+              "n": 15,
+              "mean": 0.05131764833076725
+            },
+            "20": {
+              "n": 15,
+              "mean": 0.08542271674844334
+            }
+          }
+        },
+        "all_days": {
+          "n": 196,
+          "complete20": 196,
+          "near_count": 135,
+          "near_fraction": 0.6887755102040817,
+          "returns": {
+            "5": {
+              "n": 196,
+              "mean": 0.00632688479485442
+            },
+            "10": {
+              "n": 196,
+              "mean": 0.015072595282319244
+            },
+            "20": {
+              "n": 196,
+              "mean": 0.03720442006386404
+            }
+          }
+        },
+        "matched": {
+          "n": 15,
+          "complete20": 15,
+          "near_count": 12,
+          "near_fraction": 0.8,
+          "returns": {
+            "5": {
+              "n": 15,
+              "mean": -0.007768879393846517
+            },
+            "10": {
+              "n": 15,
+              "mean": 0.02041315966824459
+            },
+            "20": {
+              "n": 15,
+              "mean": 0.04596272099858058
+            }
+          }
+        },
+        "matched_unique": 12,
+        "matched_reuses": 3
+      },
+      {
+        "year": 2025,
+        "action": "upgrade",
+        "decline_state": true,
+        "signals": {
+          "n": 3,
+          "complete20": 3,
+          "near_count": 1,
+          "near_fraction": 0.3333333333333333,
+          "returns": {
+            "5": {
+              "n": 3,
+              "mean": -0.040664720324408744
+            },
+            "10": {
+              "n": 3,
+              "mean": 0.0647773622095269
+            },
+            "20": {
+              "n": 3,
+              "mean": 0.14354793971075877
+            }
+          }
+        },
+        "all_days": {
+          "n": 54,
+          "complete20": 54,
+          "near_count": 24,
+          "near_fraction": 0.4444444444444444,
+          "returns": {
+            "5": {
+              "n": 54,
+              "mean": 0.012074463918534777
+            },
+            "10": {
+              "n": 54,
+              "mean": 0.023338119572729885
+            },
+            "20": {
+              "n": 54,
+              "mean": 0.036795022608246894
+            }
+          }
+        },
+        "matched": {
+          "n": 3,
+          "complete20": 3,
+          "near_count": 1,
+          "near_fraction": 0.3333333333333333,
+          "returns": {
+            "5": {
+              "n": 3,
+              "mean": 0.03711205852077667
+            },
+            "10": {
+              "n": 3,
+              "mean": 0.04768272384199612
+            },
+            "20": {
+              "n": 3,
+              "mean": 0.1846791758122878
+            }
+          }
+        },
+        "matched_unique": 3,
+        "matched_reuses": 0
+      },
+      {
+        "year": 2025,
+        "action": "downgrade",
+        "decline_state": false,
+        "signals": {
+          "n": 2,
+          "complete20": 2,
+          "near_count": 0,
+          "near_fraction": 0.0,
+          "returns": {
+            "5": {
+              "n": 2,
+              "mean": -0.029071603324938078
+            },
+            "10": {
+              "n": 2,
+              "mean": -0.026642630965544367
+            },
+            "20": {
+              "n": 2,
+              "mean": 0.04983640336988837
+            }
+          }
+        },
+        "all_days": {
+          "n": 196,
+          "complete20": 196,
+          "near_count": 135,
+          "near_fraction": 0.6887755102040817,
+          "returns": {
+            "5": {
+              "n": 196,
+              "mean": 0.00632688479485442
+            },
+            "10": {
+              "n": 196,
+              "mean": 0.015072595282319244
+            },
+            "20": {
+              "n": 196,
+              "mean": 0.03720442006386404
+            }
+          }
+        },
+        "matched": {
+          "n": 2,
+          "complete20": 2,
+          "near_count": 2,
+          "near_fraction": 1.0,
+          "returns": {
+            "5": {
+              "n": 2,
+              "mean": 0.0022249941376624727
+            },
+            "10": {
+              "n": 2,
+              "mean": 0.011731355525005094
+            },
+            "20": {
+              "n": 2,
+              "mean": 0.053381327685862456
+            }
+          }
+        },
+        "matched_unique": 2,
+        "matched_reuses": 0
+      },
+      {
+        "year": 2025,
+        "action": "downgrade",
+        "decline_state": true,
+        "signals": {
+          "n": 11,
+          "complete20": 11,
+          "near_count": 3,
+          "near_fraction": 0.2727272727272727,
+          "returns": {
+            "5": {
+              "n": 11,
+              "mean": 0.021355710653330327
+            },
+            "10": {
+              "n": 11,
+              "mean": 0.0413827088383514
+            },
+            "20": {
+              "n": 11,
+              "mean": 0.04927147551824294
+            }
+          }
+        },
+        "all_days": {
+          "n": 54,
+          "complete20": 54,
+          "near_count": 24,
+          "near_fraction": 0.4444444444444444,
+          "returns": {
+            "5": {
+              "n": 54,
+              "mean": 0.012074463918534777
+            },
+            "10": {
+              "n": 54,
+              "mean": 0.023338119572729885
+            },
+            "20": {
+              "n": 54,
+              "mean": 0.036795022608246894
+            }
+          }
+        },
+        "matched": {
+          "n": 11,
+          "complete20": 11,
+          "near_count": 3,
+          "near_fraction": 0.2727272727272727,
+          "returns": {
+            "5": {
+              "n": 11,
+              "mean": 0.004888517766997855
+            },
+            "10": {
+              "n": 11,
+              "mean": -0.00029476142628331365
+            },
+            "20": {
+              "n": 11,
+              "mean": 0.06229573398430264
+            }
+          }
+        },
+        "matched_unique": 6,
+        "matched_reuses": 5
+      },
+      {
+        "year": 2025,
+        "action": "target_raise",
+        "decline_state": false,
+        "signals": {
+          "n": 33,
+          "complete20": 33,
+          "near_count": 27,
+          "near_fraction": 0.8181818181818182,
+          "returns": {
+            "5": {
+              "n": 33,
+              "mean": 0.008132762317922307
+            },
+            "10": {
+              "n": 33,
+              "mean": 0.027496080732290148
+            },
+            "20": {
+              "n": 33,
+              "mean": 0.06521054477499837
+            }
+          }
+        },
+        "all_days": {
+          "n": 196,
+          "complete20": 196,
+          "near_count": 135,
+          "near_fraction": 0.6887755102040817,
+          "returns": {
+            "5": {
+              "n": 196,
+              "mean": 0.00632688479485442
+            },
+            "10": {
+              "n": 196,
+              "mean": 0.015072595282319244
+            },
+            "20": {
+              "n": 196,
+              "mean": 0.03720442006386404
+            }
+          }
+        },
+        "matched": {
+          "n": 33,
+          "complete20": 33,
+          "near_count": 30,
+          "near_fraction": 0.9090909090909091,
+          "returns": {
+            "5": {
+              "n": 33,
+              "mean": -0.003200529839365117
+            },
+            "10": {
+              "n": 33,
+              "mean": 0.01950669156339065
+            },
+            "20": {
+              "n": 33,
+              "mean": 0.04930589630274114
+            }
+          }
+        },
+        "matched_unique": 21,
+        "matched_reuses": 12
+      },
+      {
+        "year": 2025,
+        "action": "target_raise",
+        "decline_state": true,
+        "signals": {
+          "n": 0,
+          "complete20": 0,
+          "near_count": 0,
+          "near_fraction": null,
+          "returns": {
+            "5": {
+              "n": 0,
+              "mean": null
+            },
+            "10": {
+              "n": 0,
+              "mean": null
+            },
+            "20": {
+              "n": 0,
+              "mean": null
+            }
+          }
+        },
+        "all_days": {
+          "n": 54,
+          "complete20": 54,
+          "near_count": 24,
+          "near_fraction": 0.4444444444444444,
+          "returns": {
+            "5": {
+              "n": 54,
+              "mean": 0.012074463918534777
+            },
+            "10": {
+              "n": 54,
+              "mean": 0.023338119572729885
+            },
+            "20": {
+              "n": 54,
+              "mean": 0.036795022608246894
+            }
+          }
+        },
+        "matched": {
+          "n": 0,
+          "complete20": 0,
+          "near_count": 0,
+          "near_fraction": null,
+          "returns": {
+            "5": {
+              "n": 0,
+              "mean": null
+            },
+            "10": {
+              "n": 0,
+              "mean": null
+            },
+            "20": {
+              "n": 0,
+              "mean": null
+            }
+          }
+        },
+        "matched_unique": 0,
+        "matched_reuses": 0
+      },
+      {
+        "year": 2025,
+        "action": "target_cut",
+        "decline_state": false,
+        "signals": {
+          "n": 0,
+          "complete20": 0,
+          "near_count": 0,
+          "near_fraction": null,
+          "returns": {
+            "5": {
+              "n": 0,
+              "mean": null
+            },
+            "10": {
+              "n": 0,
+              "mean": null
+            },
+            "20": {
+              "n": 0,
+              "mean": null
+            }
+          }
+        },
+        "all_days": {
+          "n": 196,
+          "complete20": 196,
+          "near_count": 135,
+          "near_fraction": 0.6887755102040817,
+          "returns": {
+            "5": {
+              "n": 196,
+              "mean": 0.00632688479485442
+            },
+            "10": {
+              "n": 196,
+              "mean": 0.015072595282319244
+            },
+            "20": {
+              "n": 196,
+              "mean": 0.03720442006386404
+            }
+          }
+        },
+        "matched": {
+          "n": 0,
+          "complete20": 0,
+          "near_count": 0,
+          "near_fraction": null,
+          "returns": {
+            "5": {
+              "n": 0,
+              "mean": null
+            },
+            "10": {
+              "n": 0,
+              "mean": null
+            },
+            "20": {
+              "n": 0,
+              "mean": null
+            }
+          }
+        },
+        "matched_unique": 0,
+        "matched_reuses": 0
+      },
+      {
+        "year": 2025,
+        "action": "target_cut",
+        "decline_state": true,
+        "signals": {
+          "n": 10,
+          "complete20": 10,
+          "near_count": 3,
+          "near_fraction": 0.3,
+          "returns": {
+            "5": {
+              "n": 10,
+              "mean": 0.012469678340115864
+            },
+            "10": {
+              "n": 10,
+              "mean": 0.0010905864376493657
+            },
+            "20": {
+              "n": 10,
+              "mean": 0.0763955963986581
+            }
+          }
+        },
+        "all_days": {
+          "n": 54,
+          "complete20": 54,
+          "near_count": 24,
+          "near_fraction": 0.4444444444444444,
+          "returns": {
+            "5": {
+              "n": 54,
+              "mean": 0.012074463918534777
+            },
+            "10": {
+              "n": 54,
+              "mean": 0.023338119572729885
+            },
+            "20": {
+              "n": 54,
+              "mean": 0.036795022608246894
+            }
+          }
+        },
+        "matched": {
+          "n": 10,
+          "complete20": 10,
+          "near_count": 4,
+          "near_fraction": 0.4,
+          "returns": {
+            "5": {
+              "n": 10,
+              "mean": 0.0293234895445298
+            },
+            "10": {
+              "n": 10,
+              "mean": 0.022881974859782172
+            },
+            "20": {
+              "n": 10,
+              "mean": 0.05898249509519711
+            }
+          }
+        },
+        "matched_unique": 8,
+        "matched_reuses": 2
+      },
+      {
+        "year": 2026,
+        "action": "upgrade",
+        "decline_state": false,
+        "signals": {
+          "n": 12,
+          "complete20": 12,
+          "near_count": 5,
+          "near_fraction": 0.4166666666666667,
+          "returns": {
+            "5": {
+              "n": 12,
+              "mean": 0.016437508669672234
+            },
+            "10": {
+              "n": 12,
+              "mean": 0.023808041856587237
+            },
+            "20": {
+              "n": 12,
+              "mean": 0.05376685811583758
+            }
+          }
+        },
+        "all_days": {
+          "n": 131,
+          "complete20": 131,
+          "near_count": 56,
+          "near_fraction": 0.42748091603053434,
+          "returns": {
+            "5": {
+              "n": 131,
+              "mean": 0.013496380003298416
+            },
+            "10": {
+              "n": 131,
+              "mean": 0.02499147659074975
+            },
+            "20": {
+              "n": 131,
+              "mean": 0.050227509628362386
+            }
+          }
+        },
+        "matched": {
+          "n": 12,
+          "complete20": 12,
+          "near_count": 5,
+          "near_fraction": 0.4166666666666667,
+          "returns": {
+            "5": {
+              "n": 12,
+              "mean": -0.010198380539741111
+            },
+            "10": {
+              "n": 12,
+              "mean": 0.033199557964845534
+            },
+            "20": {
+              "n": 12,
+              "mean": 0.01999062404812847
+            }
+          }
+        },
+        "matched_unique": 10,
+        "matched_reuses": 2
+      },
+      {
+        "year": 2026,
+        "action": "upgrade",
+        "decline_state": true,
+        "signals": {
+          "n": 4,
+          "complete20": 2,
+          "near_count": 0,
+          "near_fraction": 0.0,
+          "returns": {
+            "5": {
+              "n": 3,
+              "mean": -0.10848182775077216
+            },
+            "10": {
+              "n": 2,
+              "mean": -0.052153957941466156
+            },
+            "20": {
+              "n": 2,
+              "mean": -0.050860847615593896
+            }
+          }
+        },
+        "all_days": {
+          "n": 66,
+          "complete20": 66,
+          "near_count": 27,
+          "near_fraction": 0.4090909090909091,
+          "returns": {
+            "5": {
+              "n": 66,
+              "mean": 0.007599649994196373
+            },
+            "10": {
+              "n": 66,
+              "mean": 0.02224588006253308
+            },
+            "20": {
+              "n": 66,
+              "mean": 0.033829602024737296
+            }
+          }
+        },
+        "matched": {
+          "n": 2,
+          "complete20": 2,
+          "near_count": 0,
+          "near_fraction": 0.0,
+          "returns": {
+            "5": {
+              "n": 2,
+              "mean": -0.02861171579899302
+            },
+            "10": {
+              "n": 2,
+              "mean": -0.0654745047378762
+            },
+            "20": {
+              "n": 2,
+              "mean": 0.00018172964777396494
+            }
+          }
+        },
+        "matched_unique": 2,
+        "matched_reuses": 0
+      },
+      {
+        "year": 2026,
+        "action": "downgrade",
+        "decline_state": false,
+        "signals": {
+          "n": 13,
+          "complete20": 13,
+          "near_count": 2,
+          "near_fraction": 0.15384615384615385,
+          "returns": {
+            "5": {
+              "n": 13,
+              "mean": -0.024166731566696523
+            },
+            "10": {
+              "n": 13,
+              "mean": -0.007519807545198158
+            },
+            "20": {
+              "n": 13,
+              "mean": -0.02204274541021976
+            }
+          }
+        },
+        "all_days": {
+          "n": 131,
+          "complete20": 131,
+          "near_count": 56,
+          "near_fraction": 0.42748091603053434,
+          "returns": {
+            "5": {
+              "n": 131,
+              "mean": 0.013496380003298416
+            },
+            "10": {
+              "n": 131,
+              "mean": 0.02499147659074975
+            },
+            "20": {
+              "n": 131,
+              "mean": 0.050227509628362386
+            }
+          }
+        },
+        "matched": {
+          "n": 13,
+          "complete20": 13,
+          "near_count": 4,
+          "near_fraction": 0.3076923076923077,
+          "returns": {
+            "5": {
+              "n": 13,
+              "mean": 0.007952357301940157
+            },
+            "10": {
+              "n": 13,
+              "mean": 0.016189227168585132
+            },
+            "20": {
+              "n": 13,
+              "mean": 0.025192218230145186
+            }
+          }
+        },
+        "matched_unique": 12,
+        "matched_reuses": 1
+      },
+      {
+        "year": 2026,
+        "action": "downgrade",
+        "decline_state": true,
+        "signals": {
+          "n": 13,
+          "complete20": 8,
+          "near_count": 3,
+          "near_fraction": 0.375,
+          "returns": {
+            "5": {
+              "n": 11,
+              "mean": 0.025497963483096884
+            },
+            "10": {
+              "n": 10,
+              "mean": 0.0901254163641811
+            },
+            "20": {
+              "n": 8,
+              "mean": 0.2437252849042443
+            }
+          }
+        },
+        "all_days": {
+          "n": 66,
+          "complete20": 66,
+          "near_count": 27,
+          "near_fraction": 0.4090909090909091,
+          "returns": {
+            "5": {
+              "n": 66,
+              "mean": 0.007599649994196373
+            },
+            "10": {
+              "n": 66,
+              "mean": 0.02224588006253308
+            },
+            "20": {
+              "n": 66,
+              "mean": 0.033829602024737296
+            }
+          }
+        },
+        "matched": {
+          "n": 8,
+          "complete20": 8,
+          "near_count": 2,
+          "near_fraction": 0.25,
+          "returns": {
+            "5": {
+              "n": 8,
+              "mean": -0.01185652500433336
+            },
+            "10": {
+              "n": 8,
+              "mean": 0.013515996117594326
+            },
+            "20": {
+              "n": 8,
+              "mean": 0.034076102184772555
+            }
+          }
+        },
+        "matched_unique": 6,
+        "matched_reuses": 2
+      },
+      {
+        "year": 2026,
+        "action": "target_raise",
+        "decline_state": false,
+        "signals": {
+          "n": 17,
+          "complete20": 17,
+          "near_count": 3,
+          "near_fraction": 0.17647058823529413,
+          "returns": {
+            "5": {
+              "n": 17,
+              "mean": -0.012175761214481344
+            },
+            "10": {
+              "n": 17,
+              "mean": -0.009108121474649919
+            },
+            "20": {
+              "n": 17,
+              "mean": -0.01607683910888899
+            }
+          }
+        },
+        "all_days": {
+          "n": 131,
+          "complete20": 131,
+          "near_count": 56,
+          "near_fraction": 0.42748091603053434,
+          "returns": {
+            "5": {
+              "n": 131,
+              "mean": 0.013496380003298416
+            },
+            "10": {
+              "n": 131,
+              "mean": 0.02499147659074975
+            },
+            "20": {
+              "n": 131,
+              "mean": 0.050227509628362386
+            }
+          }
+        },
+        "matched": {
+          "n": 17,
+          "complete20": 17,
+          "near_count": 12,
+          "near_fraction": 0.7058823529411765,
+          "returns": {
+            "5": {
+              "n": 17,
+              "mean": 0.03729829024342095
+            },
+            "10": {
+              "n": 17,
+              "mean": 0.0742513888481206
+            },
+            "20": {
+              "n": 17,
+              "mean": 0.13908520047661405
+            }
+          }
+        },
+        "matched_unique": 14,
+        "matched_reuses": 3
+      },
+      {
+        "year": 2026,
+        "action": "target_raise",
+        "decline_state": true,
+        "signals": {
+          "n": 11,
+          "complete20": 11,
+          "near_count": 5,
+          "near_fraction": 0.45454545454545453,
+          "returns": {
+            "5": {
+              "n": 11,
+              "mean": 0.0016160442813429271
+            },
+            "10": {
+              "n": 11,
+              "mean": 0.024507661298672476
+            },
+            "20": {
+              "n": 11,
+              "mean": 0.027834435022272685
+            }
+          }
+        },
+        "all_days": {
+          "n": 66,
+          "complete20": 66,
+          "near_count": 27,
+          "near_fraction": 0.4090909090909091,
+          "returns": {
+            "5": {
+              "n": 66,
+              "mean": 0.007599649994196373
+            },
+            "10": {
+              "n": 66,
+              "mean": 0.02224588006253308
+            },
+            "20": {
+              "n": 66,
+              "mean": 0.033829602024737296
+            }
+          }
+        },
+        "matched": {
+          "n": 11,
+          "complete20": 11,
+          "near_count": 5,
+          "near_fraction": 0.45454545454545453,
+          "returns": {
+            "5": {
+              "n": 11,
+              "mean": 0.02553904087381186
+            },
+            "10": {
+              "n": 11,
+              "mean": 0.024481587823194005
+            },
+            "20": {
+              "n": 11,
+              "mean": 0.07089212655810478
+            }
+          }
+        },
+        "matched_unique": 9,
+        "matched_reuses": 2
+      },
+      {
+        "year": 2026,
+        "action": "target_cut",
+        "decline_state": false,
+        "signals": {
+          "n": 2,
+          "complete20": 2,
+          "near_count": 1,
+          "near_fraction": 0.5,
+          "returns": {
+            "5": {
+              "n": 2,
+              "mean": 0.029341862189303625
+            },
+            "10": {
+              "n": 2,
+              "mean": 0.07162702329535875
+            },
+            "20": {
+              "n": 2,
+              "mean": 0.26793948630059294
+            }
+          }
+        },
+        "all_days": {
+          "n": 131,
+          "complete20": 131,
+          "near_count": 56,
+          "near_fraction": 0.42748091603053434,
+          "returns": {
+            "5": {
+              "n": 131,
+              "mean": 0.013496380003298416
+            },
+            "10": {
+              "n": 131,
+              "mean": 0.02499147659074975
+            },
+            "20": {
+              "n": 131,
+              "mean": 0.050227509628362386
+            }
+          }
+        },
+        "matched": {
+          "n": 2,
+          "complete20": 2,
+          "near_count": 1,
+          "near_fraction": 0.5,
+          "returns": {
+            "5": {
+              "n": 2,
+              "mean": 0.06494563186930341
+            },
+            "10": {
+              "n": 2,
+              "mean": 0.06057426827675921
+            },
+            "20": {
+              "n": 2,
+              "mean": 0.09831330757377638
+            }
+          }
+        },
+        "matched_unique": 2,
+        "matched_reuses": 0
+      },
+      {
+        "year": 2026,
+        "action": "target_cut",
+        "decline_state": true,
+        "signals": {
+          "n": 3,
+          "complete20": 3,
+          "near_count": 3,
+          "near_fraction": 1.0,
+          "returns": {
+            "5": {
+              "n": 3,
+              "mean": 0.11170457154278202
+            },
+            "10": {
+              "n": 3,
+              "mean": 0.1415192713596504
+            },
+            "20": {
+              "n": 3,
+              "mean": 0.14241230637252
+            }
+          }
+        },
+        "all_days": {
+          "n": 66,
+          "complete20": 66,
+          "near_count": 27,
+          "near_fraction": 0.4090909090909091,
+          "returns": {
+            "5": {
+              "n": 66,
+              "mean": 0.007599649994196373
+            },
+            "10": {
+              "n": 66,
+              "mean": 0.02224588006253308
+            },
+            "20": {
+              "n": 66,
+              "mean": 0.033829602024737296
+            }
+          }
+        },
+        "matched": {
+          "n": 3,
+          "complete20": 3,
+          "near_count": 2,
+          "near_fraction": 0.6666666666666666,
+          "returns": {
+            "5": {
+              "n": 3,
+              "mean": 0.02246611194188401
+            },
+            "10": {
+              "n": 3,
+              "mean": 0.081862826455942
+            },
+            "20": {
+              "n": 3,
+              "mean": 0.22085909046906624
+            }
+          }
+        },
+        "matched_unique": 3,
+        "matched_reuses": 0
+      }
+    ],
+    "hypotheses": [
+      {
+        "year": 2024,
+        "hypothesis": "H-U",
+        "signals": {
+          "n": 2,
+          "complete20": 2,
+          "near_count": 2,
+          "near_fraction": 1.0,
+          "returns": {
+            "5": {
+              "n": 2,
+              "mean": 0.07602103179216657
+            },
+            "10": {
+              "n": 2,
+              "mean": 0.14537426916691665
+            },
+            "20": {
+              "n": 2,
+              "mean": 0.03689106390023955
+            }
+          }
+        },
+        "matched": {
+          "n": 2,
+          "complete20": 2,
+          "near_count": 2,
+          "near_fraction": 1.0,
+          "returns": {
+            "5": {
+              "n": 2,
+              "mean": 0.03872018069301597
+            },
+            "10": {
+              "n": 2,
+              "mean": 0.14678626721977128
+            },
+            "20": {
+              "n": 2,
+              "mean": 0.0411585045108287
+            }
+          }
+        },
+        "dates": [
+          "2024-08-08",
+          "2024-08-08"
+        ]
+      },
+      {
+        "year": 2024,
+        "hypothesis": "H-D",
+        "signals": {
+          "n": 0,
+          "complete20": 0,
+          "near_count": 0,
+          "near_fraction": null,
+          "returns": {
+            "5": {
+              "n": 0,
+              "mean": null
+            },
+            "10": {
+              "n": 0,
+              "mean": null
+            },
+            "20": {
+              "n": 0,
+              "mean": null
+            }
+          }
+        },
+        "matched": {
+          "n": 0,
+          "complete20": 0,
+          "near_count": 0,
+          "near_fraction": null,
+          "returns": {
+            "5": {
+              "n": 0,
+              "mean": null
+            },
+            "10": {
+              "n": 0,
+              "mean": null
+            },
+            "20": {
+              "n": 0,
+              "mean": null
+            }
+          }
+        },
+        "dates": []
+      },
+      {
+        "year": 2025,
+        "hypothesis": "H-U",
+        "signals": {
+          "n": 3,
+          "complete20": 3,
+          "near_count": 1,
+          "near_fraction": 0.3333333333333333,
+          "returns": {
+            "5": {
+              "n": 3,
+              "mean": -0.040664720324408744
+            },
+            "10": {
+              "n": 3,
+              "mean": 0.0647773622095269
+            },
+            "20": {
+              "n": 3,
+              "mean": 0.14354793971075877
+            }
+          }
+        },
+        "matched": {
+          "n": 3,
+          "complete20": 3,
+          "near_count": 1,
+          "near_fraction": 0.3333333333333333,
+          "returns": {
+            "5": {
+              "n": 3,
+              "mean": 0.03711205852077667
+            },
+            "10": {
+              "n": 3,
+              "mean": 0.04768272384199612
+            },
+            "20": {
+              "n": 3,
+              "mean": 0.1846791758122878
+            }
+          }
+        },
+        "dates": [
+          "2025-04-10",
+          "2025-04-11",
+          "2025-04-14"
+        ]
+      },
+      {
+        "year": 2025,
+        "hypothesis": "H-D",
+        "signals": {
+          "n": 6,
+          "complete20": 6,
+          "near_count": 2,
+          "near_fraction": 0.3333333333333333,
+          "returns": {
+            "5": {
+              "n": 6,
+              "mean": 0.010595559950742498
+            },
+            "10": {
+              "n": 6,
+              "mean": 0.02717513246998456
+            },
+            "20": {
+              "n": 6,
+              "mean": 0.05740721556567554
+            }
+          }
+        },
+        "matched": {
+          "n": 6,
+          "complete20": 6,
+          "near_count": 2,
+          "near_fraction": 0.3333333333333333,
+          "returns": {
+            "5": {
+              "n": 6,
+              "mean": 0.02877008249152263
+            },
+            "10": {
+              "n": 6,
+              "mean": 0.002488828294947787
+            },
+            "20": {
+              "n": 6,
+              "mean": 0.09190427615818342
+            }
+          }
+        },
+        "dates": [
+          "2025-03-12",
+          "2025-03-19",
+          "2025-03-31",
+          "2025-04-07",
+          "2025-04-14",
+          "2025-04-22"
+        ]
+      },
+      {
+        "year": 2026,
+        "hypothesis": "H-U",
+        "signals": {
+          "n": 4,
+          "complete20": 2,
+          "near_count": 0,
+          "near_fraction": 0.0,
+          "returns": {
+            "5": {
+              "n": 3,
+              "mean": -0.10848182775077216
+            },
+            "10": {
+              "n": 2,
+              "mean": -0.052153957941466156
+            },
+            "20": {
+              "n": 2,
+              "mean": -0.050860847615593896
+            }
+          }
+        },
+        "matched": {
+          "n": 2,
+          "complete20": 2,
+          "near_count": 0,
+          "near_fraction": 0.0,
+          "returns": {
+            "5": {
+              "n": 2,
+              "mean": -0.02861171579899302
+            },
+            "10": {
+              "n": 2,
+              "mean": -0.0654745047378762
+            },
+            "20": {
+              "n": 2,
+              "mean": 0.00018172964777396494
+            }
+          }
+        },
+        "dates": [
+          "2026-07-14",
+          "2026-07-22",
+          "2026-11-02",
+          "2026-11-09"
+        ]
+      },
+      {
+        "year": 2026,
+        "hypothesis": "H-D",
+        "signals": {
+          "n": 5,
+          "complete20": 3,
+          "near_count": 2,
+          "near_fraction": 0.6666666666666666,
+          "returns": {
+            "5": {
+              "n": 5,
+              "mean": 0.015466439099464501
+            },
+            "10": {
+              "n": 4,
+              "mean": 0.051682700616205696
+            },
+            "20": {
+              "n": 3,
+              "mean": 0.1708187625595113
+            }
+          }
+        },
+        "matched": {
+          "n": 3,
+          "complete20": 3,
+          "near_count": 1,
+          "near_fraction": 0.3333333333333333,
+          "returns": {
+            "5": {
+              "n": 3,
+              "mean": -0.013336190204741563
+            },
+            "10": {
+              "n": 3,
+              "mean": 0.0539920218642691
+            },
+            "20": {
+              "n": 3,
+              "mean": 0.14551546708610497
+            }
+          }
+        },
+        "dates": [
+          "2026-03-13",
+          "2026-04-01",
+          "2026-09-17",
+          "2026-10-20",
+          "2026-11-02"
+        ]
+      }
+    ],
+    "H_U_2026": {
+      "n": 2,
+      "near_count": 0,
+      "base_count": 27,
+      "base_n": 66,
+      "effect": -0.4090909090909091,
+      "p_raw": 1.0,
+      "valid_permutations": 10000,
+      "distinct_shifts": 216,
+      "signal_days": 14,
+      "p_holm": 1
+    },
+    "H_D_2026": {
+      "n": 3,
+      "near_count": 2,
+      "base_count": 27,
+      "base_n": 66,
+      "effect": 0.2575757575757575,
+      "p_raw": 0.2209985315712188,
+      "valid_permutations": 9533,
+      "distinct_shifts": 216,
+      "signal_days": 9,
+      "p_holm": 0.4419970631424376
+    },
+    "cluster_dates": [
+      "2025-03-12",
+      "2025-03-19",
+      "2025-03-31",
+      "2025-04-07",
+      "2025-04-14",
+      "2025-04-22",
+      "2026-03-13",
+      "2026-03-25",
+      "2026-04-01",
+      "2026-04-14",
+      "2026-06-03",
+      "2026-09-17",
+      "2026-10-13",
+      "2026-10-20",
+      "2026-11-02"
+    ]
+  },
+  "QQQ": {
+    "grid": [
+      {
+        "year": 2024,
+        "action": "upgrade",
+        "decline_state": false,
+        "signals": {
+          "n": 4,
+          "complete20": 4,
+          "near_count": 4,
+          "near_fraction": 1.0,
+          "returns": {
+            "5": {
+              "n": 4,
+              "mean": -0.0021591899655417357
+            },
+            "10": {
+              "n": 4,
+              "mean": 0.0112399754252476
+            },
+            "20": {
+              "n": 4,
+              "mean": 0.010441660977874662
+            }
+          }
+        },
+        "all_days": {
+          "n": 178,
+          "complete20": 178,
+          "near_count": 143,
+          "near_fraction": 0.8033707865168539,
+          "returns": {
+            "5": {
+              "n": 178,
+              "mean": 0.003156941727827936
+            },
+            "10": {
+              "n": 178,
+              "mean": 0.0057178811101983255
+            },
+            "20": {
+              "n": 178,
+              "mean": 0.013253744517310253
+            }
+          }
+        },
+        "matched": {
+          "n": 4,
+          "complete20": 4,
+          "near_count": 3,
+          "near_fraction": 0.75,
+          "returns": {
+            "5": {
+              "n": 4,
+              "mean": 0.0020639507779560973
+            },
+            "10": {
+              "n": 4,
+              "mean": 0.0044821277080506206
+            },
+            "20": {
+              "n": 4,
+              "mean": -0.009694326531788588
+            }
+          }
+        },
+        "matched_unique": 4,
+        "matched_reuses": 0
+      },
+      {
+        "year": 2024,
+        "action": "upgrade",
+        "decline_state": true,
+        "signals": {
+          "n": 2,
+          "complete20": 2,
+          "near_count": 2,
+          "near_fraction": 1.0,
+          "returns": {
+            "5": {
+              "n": 2,
+              "mean": 0.049131627138584655
+            },
+            "10": {
+              "n": 2,
+              "mean": 0.09395527518615521
+            },
+            "20": {
+              "n": 2,
+              "mean": 0.045299958672066376
+            }
+          }
+        },
+        "all_days": {
+          "n": 74,
+          "complete20": 74,
+          "near_count": 55,
+          "near_fraction": 0.7432432432432432,
+          "returns": {
+            "5": {
+              "n": 74,
+              "mean": 0.007127117924499341
+            },
+            "10": {
+              "n": 74,
+              "mean": 0.017491045847548035
+            },
+            "20": {
+              "n": 74,
+              "mean": 0.031171895534704345
+            }
+          }
+        },
+        "matched": {
+          "n": 2,
+          "complete20": 2,
+          "near_count": 2,
+          "near_fraction": 1.0,
+          "returns": {
+            "5": {
+              "n": 2,
+              "mean": 0.03236267049013852
+            },
+            "10": {
+              "n": 2,
+              "mean": 0.10072488828015147
+            },
+            "20": {
+              "n": 2,
+              "mean": 0.056217452820899405
+            }
+          }
+        },
+        "matched_unique": 1,
+        "matched_reuses": 1
+      },
+      {
+        "year": 2024,
+        "action": "downgrade",
+        "decline_state": false,
+        "signals": {
+          "n": 2,
+          "complete20": 2,
+          "near_count": 2,
+          "near_fraction": 1.0,
+          "returns": {
+            "5": {
+              "n": 2,
+              "mean": 0.011480046451276982
+            },
+            "10": {
+              "n": 2,
+              "mean": 0.022731849887759337
+            },
+            "20": {
+              "n": 2,
+              "mean": -0.0009874943863862895
+            }
+          }
+        },
+        "all_days": {
+          "n": 178,
+          "complete20": 178,
+          "near_count": 143,
+          "near_fraction": 0.8033707865168539,
+          "returns": {
+            "5": {
+              "n": 178,
+              "mean": 0.003156941727827936
+            },
+            "10": {
+              "n": 178,
+              "mean": 0.0057178811101983255
+            },
+            "20": {
+              "n": 178,
+              "mean": 0.013253744517310253
+            }
+          }
+        },
+        "matched": {
+          "n": 2,
+          "complete20": 2,
+          "near_count": 1,
+          "near_fraction": 0.5,
+          "returns": {
+            "5": {
+              "n": 2,
+              "mean": -0.008205172385777282
+            },
+            "10": {
+              "n": 2,
+              "mean": -0.013503372122029178
+            },
+            "20": {
+              "n": 2,
+              "mean": -0.018060152049226286
+            }
+          }
+        },
+        "matched_unique": 2,
+        "matched_reuses": 0
+      },
+      {
+        "year": 2024,
+        "action": "downgrade",
+        "decline_state": true,
+        "signals": {
+          "n": 0,
+          "complete20": 0,
+          "near_count": 0,
+          "near_fraction": null,
+          "returns": {
+            "5": {
+              "n": 0,
+              "mean": null
+            },
+            "10": {
+              "n": 0,
+              "mean": null
+            },
+            "20": {
+              "n": 0,
+              "mean": null
+            }
+          }
+        },
+        "all_days": {
+          "n": 74,
+          "complete20": 74,
+          "near_count": 55,
+          "near_fraction": 0.7432432432432432,
+          "returns": {
+            "5": {
+              "n": 74,
+              "mean": 0.007127117924499341
+            },
+            "10": {
+              "n": 74,
+              "mean": 0.017491045847548035
+            },
+            "20": {
+              "n": 74,
+              "mean": 0.031171895534704345
+            }
+          }
+        },
+        "matched": {
+          "n": 0,
+          "complete20": 0,
+          "near_count": 0,
+          "near_fraction": null,
+          "returns": {
+            "5": {
+              "n": 0,
+              "mean": null
+            },
+            "10": {
+              "n": 0,
+              "mean": null
+            },
+            "20": {
+              "n": 0,
+              "mean": null
+            }
+          }
+        },
+        "matched_unique": 0,
+        "matched_reuses": 0
+      },
+      {
+        "year": 2024,
+        "action": "target_raise",
+        "decline_state": false,
+        "signals": {
+          "n": 15,
+          "complete20": 15,
+          "near_count": 11,
+          "near_fraction": 0.7333333333333333,
+          "returns": {
+            "5": {
+              "n": 15,
+              "mean": -0.005534968928269346
+            },
+            "10": {
+              "n": 15,
+              "mean": -0.004175299287045453
+            },
+            "20": {
+              "n": 15,
+              "mean": 0.008615013687677194
+            }
+          }
+        },
+        "all_days": {
+          "n": 178,
+          "complete20": 178,
+          "near_count": 143,
+          "near_fraction": 0.8033707865168539,
+          "returns": {
+            "5": {
+              "n": 178,
+              "mean": 0.003156941727827936
+            },
+            "10": {
+              "n": 178,
+              "mean": 0.0057178811101983255
+            },
+            "20": {
+              "n": 178,
+              "mean": 0.013253744517310253
+            }
+          }
+        },
+        "matched": {
+          "n": 15,
+          "complete20": 15,
+          "near_count": 11,
+          "near_fraction": 0.7333333333333333,
+          "returns": {
+            "5": {
+              "n": 15,
+              "mean": 0.0027906315358387983
+            },
+            "10": {
+              "n": 15,
+              "mean": -0.004775446883805682
+            },
+            "20": {
+              "n": 15,
+              "mean": -0.004326659514069853
+            }
+          }
+        },
+        "matched_unique": 13,
+        "matched_reuses": 2
+      },
+      {
+        "year": 2024,
+        "action": "target_raise",
+        "decline_state": true,
+        "signals": {
+          "n": 5,
+          "complete20": 5,
+          "near_count": 5,
+          "near_fraction": 1.0,
+          "returns": {
+            "5": {
+              "n": 5,
+              "mean": 0.017313844201005745
+            },
+            "10": {
+              "n": 5,
+              "mean": 0.020959576538767788
+            },
+            "20": {
+              "n": 5,
+              "mean": 0.01698257966404233
+            }
+          }
+        },
+        "all_days": {
+          "n": 74,
+          "complete20": 74,
+          "near_count": 55,
+          "near_fraction": 0.7432432432432432,
+          "returns": {
+            "5": {
+              "n": 74,
+              "mean": 0.007127117924499341
+            },
+            "10": {
+              "n": 74,
+              "mean": 0.017491045847548035
+            },
+            "20": {
+              "n": 74,
+              "mean": 0.031171895534704345
+            }
+          }
+        },
+        "matched": {
+          "n": 5,
+          "complete20": 5,
+          "near_count": 5,
+          "near_fraction": 1.0,
+          "returns": {
+            "5": {
+              "n": 5,
+              "mean": 0.023429997131332203
+            },
+            "10": {
+              "n": 5,
+              "mean": 0.029717920835086887
+            },
+            "20": {
+              "n": 5,
+              "mean": 0.029240000971072933
+            }
+          }
+        },
+        "matched_unique": 4,
+        "matched_reuses": 1
+      },
+      {
+        "year": 2024,
+        "action": "target_cut",
+        "decline_state": false,
+        "signals": {
+          "n": 0,
+          "complete20": 0,
+          "near_count": 0,
+          "near_fraction": null,
+          "returns": {
+            "5": {
+              "n": 0,
+              "mean": null
+            },
+            "10": {
+              "n": 0,
+              "mean": null
+            },
+            "20": {
+              "n": 0,
+              "mean": null
+            }
+          }
+        },
+        "all_days": {
+          "n": 178,
+          "complete20": 178,
+          "near_count": 143,
+          "near_fraction": 0.8033707865168539,
+          "returns": {
+            "5": {
+              "n": 178,
+              "mean": 0.003156941727827936
+            },
+            "10": {
+              "n": 178,
+              "mean": 0.0057178811101983255
+            },
+            "20": {
+              "n": 178,
+              "mean": 0.013253744517310253
+            }
+          }
+        },
+        "matched": {
+          "n": 0,
+          "complete20": 0,
+          "near_count": 0,
+          "near_fraction": null,
+          "returns": {
+            "5": {
+              "n": 0,
+              "mean": null
+            },
+            "10": {
+              "n": 0,
+              "mean": null
+            },
+            "20": {
+              "n": 0,
+              "mean": null
+            }
+          }
+        },
+        "matched_unique": 0,
+        "matched_reuses": 0
+      },
+      {
+        "year": 2024,
+        "action": "target_cut",
+        "decline_state": true,
+        "signals": {
+          "n": 0,
+          "complete20": 0,
+          "near_count": 0,
+          "near_fraction": null,
+          "returns": {
+            "5": {
+              "n": 0,
+              "mean": null
+            },
+            "10": {
+              "n": 0,
+              "mean": null
+            },
+            "20": {
+              "n": 0,
+              "mean": null
+            }
+          }
+        },
+        "all_days": {
+          "n": 74,
+          "complete20": 74,
+          "near_count": 55,
+          "near_fraction": 0.7432432432432432,
+          "returns": {
+            "5": {
+              "n": 74,
+              "mean": 0.007127117924499341
+            },
+            "10": {
+              "n": 74,
+              "mean": 0.017491045847548035
+            },
+            "20": {
+              "n": 74,
+              "mean": 0.031171895534704345
+            }
+          }
+        },
+        "matched": {
+          "n": 0,
+          "complete20": 0,
+          "near_count": 0,
+          "near_fraction": null,
+          "returns": {
+            "5": {
+              "n": 0,
+              "mean": null
+            },
+            "10": {
+              "n": 0,
+              "mean": null
+            },
+            "20": {
+              "n": 0,
+              "mean": null
+            }
+          }
+        },
+        "matched_unique": 0,
+        "matched_reuses": 0
+      },
+      {
+        "year": 2025,
+        "action": "upgrade",
+        "decline_state": false,
+        "signals": {
+          "n": 15,
+          "complete20": 15,
+          "near_count": 15,
+          "near_fraction": 1.0,
+          "returns": {
+            "5": {
+              "n": 15,
+              "mean": 0.005950203338297611
+            },
+            "10": {
+              "n": 15,
+              "mean": 0.01962386477036051
+            },
+            "20": {
+              "n": 15,
+              "mean": 0.03164026256552297
+            }
+          }
+        },
+        "all_days": {
+          "n": 196,
+          "complete20": 196,
+          "near_count": 166,
+          "near_fraction": 0.8469387755102041,
+          "returns": {
+            "5": {
+              "n": 196,
+              "mean": 0.0024081117785737633
+            },
+            "10": {
+              "n": 196,
+              "mean": 0.005804506308060058
+            },
+            "20": {
+              "n": 196,
+              "mean": 0.011254824341813293
+            }
+          }
+        },
+        "matched": {
+          "n": 15,
+          "complete20": 15,
+          "near_count": 14,
+          "near_fraction": 0.9333333333333333,
+          "returns": {
+            "5": {
+              "n": 15,
+              "mean": -0.0008627055417890662
+            },
+            "10": {
+              "n": 15,
+              "mean": 0.011430993063581878
+            },
+            "20": {
+              "n": 15,
+              "mean": 0.014282760055361539
+            }
+          }
+        },
+        "matched_unique": 12,
+        "matched_reuses": 3
+      },
+      {
+        "year": 2025,
+        "action": "upgrade",
+        "decline_state": true,
+        "signals": {
+          "n": 3,
+          "complete20": 3,
+          "near_count": 2,
+          "near_fraction": 0.6666666666666666,
+          "returns": {
+            "5": {
+              "n": 3,
+              "mean": -0.029805175570471132
+            },
+            "10": {
+              "n": 3,
+              "mean": 0.03676300741070171
+            },
+            "20": {
+              "n": 3,
+              "mean": 0.08913915883630019
+            }
+          }
+        },
+        "all_days": {
+          "n": 54,
+          "complete20": 54,
+          "near_count": 25,
+          "near_fraction": 0.46296296296296297,
+          "returns": {
+            "5": {
+              "n": 54,
+              "mean": 0.007599499608771995
+            },
+            "10": {
+              "n": 54,
+              "mean": 0.01599328747326432
+            },
+            "20": {
+              "n": 54,
+              "mean": 0.03327866794311097
+            }
+          }
+        },
+        "matched": {
+          "n": 3,
+          "complete20": 3,
+          "near_count": 1,
+          "near_fraction": 0.3333333333333333,
+          "returns": {
+            "5": {
+              "n": 3,
+              "mean": 0.022873336712020038
+            },
+            "10": {
+              "n": 3,
+              "mean": 0.04188557056614365
+            },
+            "20": {
+              "n": 3,
+              "mean": 0.12325052812562776
+            }
+          }
+        },
+        "matched_unique": 3,
+        "matched_reuses": 0
+      },
+      {
+        "year": 2025,
+        "action": "downgrade",
+        "decline_state": false,
+        "signals": {
+          "n": 2,
+          "complete20": 2,
+          "near_count": 2,
+          "near_fraction": 1.0,
+          "returns": {
+            "5": {
+              "n": 2,
+              "mean": -0.006621465396339954
+            },
+            "10": {
+              "n": 2,
+              "mean": -0.00033893768064408025
+            },
+            "20": {
+              "n": 2,
+              "mean": 0.016588201128540536
+            }
+          }
+        },
+        "all_days": {
+          "n": 196,
+          "complete20": 196,
+          "near_count": 166,
+          "near_fraction": 0.8469387755102041,
+          "returns": {
+            "5": {
+              "n": 196,
+              "mean": 0.0024081117785737633
+            },
+            "10": {
+              "n": 196,
+              "mean": 0.005804506308060058
+            },
+            "20": {
+              "n": 196,
+              "mean": 0.011254824341813293
+            }
+          }
+        },
+        "matched": {
+          "n": 2,
+          "complete20": 2,
+          "near_count": 2,
+          "near_fraction": 1.0,
+          "returns": {
+            "5": {
+              "n": 2,
+              "mean": -0.0009947530871749488
+            },
+            "10": {
+              "n": 2,
+              "mean": 0.009658489569925544
+            },
+            "20": {
+              "n": 2,
+              "mean": 0.03253594283740113
+            }
+          }
+        },
+        "matched_unique": 2,
+        "matched_reuses": 0
+      },
+      {
+        "year": 2025,
+        "action": "downgrade",
+        "decline_state": true,
+        "signals": {
+          "n": 11,
+          "complete20": 11,
+          "near_count": 5,
+          "near_fraction": 0.45454545454545453,
+          "returns": {
+            "5": {
+              "n": 11,
+              "mean": 0.011322117010808935
+            },
+            "10": {
+              "n": 11,
+              "mean": 0.022945409484005665
+            },
+            "20": {
+              "n": 11,
+              "mean": 0.040025426551216305
+            }
+          }
+        },
+        "all_days": {
+          "n": 54,
+          "complete20": 54,
+          "near_count": 25,
+          "near_fraction": 0.46296296296296297,
+          "returns": {
+            "5": {
+              "n": 54,
+              "mean": 0.007599499608771995
+            },
+            "10": {
+              "n": 54,
+              "mean": 0.01599328747326432
+            },
+            "20": {
+              "n": 54,
+              "mean": 0.03327866794311097
+            }
+          }
+        },
+        "matched": {
+          "n": 11,
+          "complete20": 11,
+          "near_count": 3,
+          "near_fraction": 0.2727272727272727,
+          "returns": {
+            "5": {
+              "n": 11,
+              "mean": 0.00651216736174495
+            },
+            "10": {
+              "n": 11,
+              "mean": 0.003983873471330668
+            },
+            "20": {
+              "n": 11,
+              "mean": 0.05668064867270268
+            }
+          }
+        },
+        "matched_unique": 6,
+        "matched_reuses": 5
+      },
+      {
+        "year": 2025,
+        "action": "target_raise",
+        "decline_state": false,
+        "signals": {
+          "n": 33,
+          "complete20": 33,
+          "near_count": 33,
+          "near_fraction": 1.0,
+          "returns": {
+            "5": {
+              "n": 33,
+              "mean": 0.00542581305911823
+            },
+            "10": {
+              "n": 33,
+              "mean": 0.01294116721975494
+            },
+            "20": {
+              "n": 33,
+              "mean": 0.028720067433540785
+            }
+          }
+        },
+        "all_days": {
+          "n": 196,
+          "complete20": 196,
+          "near_count": 166,
+          "near_fraction": 0.8469387755102041,
+          "returns": {
+            "5": {
+              "n": 196,
+              "mean": 0.0024081117785737633
+            },
+            "10": {
+              "n": 196,
+              "mean": 0.005804506308060058
+            },
+            "20": {
+              "n": 196,
+              "mean": 0.011254824341813293
+            }
+          }
+        },
+        "matched": {
+          "n": 33,
+          "complete20": 33,
+          "near_count": 31,
+          "near_fraction": 0.9393939393939394,
+          "returns": {
+            "5": {
+              "n": 33,
+              "mean": 4.015984614152138e-05
+            },
+            "10": {
+              "n": 33,
+              "mean": 0.012198486465001388
+            },
+            "20": {
+              "n": 33,
+              "mean": 0.025495928640046035
+            }
+          }
+        },
+        "matched_unique": 21,
+        "matched_reuses": 12
+      },
+      {
+        "year": 2025,
+        "action": "target_raise",
+        "decline_state": true,
+        "signals": {
+          "n": 0,
+          "complete20": 0,
+          "near_count": 0,
+          "near_fraction": null,
+          "returns": {
+            "5": {
+              "n": 0,
+              "mean": null
+            },
+            "10": {
+              "n": 0,
+              "mean": null
+            },
+            "20": {
+              "n": 0,
+              "mean": null
+            }
+          }
+        },
+        "all_days": {
+          "n": 54,
+          "complete20": 54,
+          "near_count": 25,
+          "near_fraction": 0.46296296296296297,
+          "returns": {
+            "5": {
+              "n": 54,
+              "mean": 0.007599499608771995
+            },
+            "10": {
+              "n": 54,
+              "mean": 0.01599328747326432
+            },
+            "20": {
+              "n": 54,
+              "mean": 0.03327866794311097
+            }
+          }
+        },
+        "matched": {
+          "n": 0,
+          "complete20": 0,
+          "near_count": 0,
+          "near_fraction": null,
+          "returns": {
+            "5": {
+              "n": 0,
+              "mean": null
+            },
+            "10": {
+              "n": 0,
+              "mean": null
+            },
+            "20": {
+              "n": 0,
+              "mean": null
+            }
+          }
+        },
+        "matched_unique": 0,
+        "matched_reuses": 0
+      },
+      {
+        "year": 2025,
+        "action": "target_cut",
+        "decline_state": false,
+        "signals": {
+          "n": 0,
+          "complete20": 0,
+          "near_count": 0,
+          "near_fraction": null,
+          "returns": {
+            "5": {
+              "n": 0,
+              "mean": null
+            },
+            "10": {
+              "n": 0,
+              "mean": null
+            },
+            "20": {
+              "n": 0,
+              "mean": null
+            }
+          }
+        },
+        "all_days": {
+          "n": 196,
+          "complete20": 196,
+          "near_count": 166,
+          "near_fraction": 0.8469387755102041,
+          "returns": {
+            "5": {
+              "n": 196,
+              "mean": 0.0024081117785737633
+            },
+            "10": {
+              "n": 196,
+              "mean": 0.005804506308060058
+            },
+            "20": {
+              "n": 196,
+              "mean": 0.011254824341813293
+            }
+          }
+        },
+        "matched": {
+          "n": 0,
+          "complete20": 0,
+          "near_count": 0,
+          "near_fraction": null,
+          "returns": {
+            "5": {
+              "n": 0,
+              "mean": null
+            },
+            "10": {
+              "n": 0,
+              "mean": null
+            },
+            "20": {
+              "n": 0,
+              "mean": null
+            }
+          }
+        },
+        "matched_unique": 0,
+        "matched_reuses": 0
+      },
+      {
+        "year": 2025,
+        "action": "target_cut",
+        "decline_state": true,
+        "signals": {
+          "n": 10,
+          "complete20": 10,
+          "near_count": 3,
+          "near_fraction": 0.3,
+          "returns": {
+            "5": {
+              "n": 10,
+              "mean": 0.019267556902755424
+            },
+            "10": {
+              "n": 10,
+              "mean": 0.015781980132869612
+            },
+            "20": {
+              "n": 10,
+              "mean": 0.07350885978112769
+            }
+          }
+        },
+        "all_days": {
+          "n": 54,
+          "complete20": 54,
+          "near_count": 25,
+          "near_fraction": 0.46296296296296297,
+          "returns": {
+            "5": {
+              "n": 54,
+              "mean": 0.007599499608771995
+            },
+            "10": {
+              "n": 54,
+              "mean": 0.01599328747326432
+            },
+            "20": {
+              "n": 54,
+              "mean": 0.03327866794311097
+            }
+          }
+        },
+        "matched": {
+          "n": 10,
+          "complete20": 10,
+          "near_count": 4,
+          "near_fraction": 0.4,
+          "returns": {
+            "5": {
+              "n": 10,
+              "mean": 0.02935915021211153
+            },
+            "10": {
+              "n": 10,
+              "mean": 0.031756177842594845
+            },
+            "20": {
+              "n": 10,
+              "mean": 0.06272182283901614
+            }
+          }
+        },
+        "matched_unique": 8,
+        "matched_reuses": 2
+      },
+      {
+        "year": 2026,
+        "action": "upgrade",
+        "decline_state": false,
+        "signals": {
+          "n": 12,
+          "complete20": 12,
+          "near_count": 7,
+          "near_fraction": 0.5833333333333334,
+          "returns": {
+            "5": {
+              "n": 12,
+              "mean": 0.009657039398084674
+            },
+            "10": {
+              "n": 12,
+              "mean": 0.009632728109117259
+            },
+            "20": {
+              "n": 12,
+              "mean": 0.015154254831956806
+            }
+          }
+        },
+        "all_days": {
+          "n": 131,
+          "complete20": 131,
+          "near_count": 90,
+          "near_fraction": 0.6870229007633588,
+          "returns": {
+            "5": {
+              "n": 131,
+              "mean": 0.0031136475495959492
+            },
+            "10": {
+              "n": 131,
+              "mean": 0.005439852231985195
+            },
+            "20": {
+              "n": 131,
+              "mean": 0.007400860563557989
+            }
+          }
+        },
+        "matched": {
+          "n": 12,
+          "complete20": 12,
+          "near_count": 8,
+          "near_fraction": 0.6666666666666666,
+          "returns": {
+            "5": {
+              "n": 12,
+              "mean": -0.0008800577735624445
+            },
+            "10": {
+              "n": 12,
+              "mean": 0.010113443230722127
+            },
+            "20": {
+              "n": 12,
+              "mean": -0.005050980430483197
+            }
+          }
+        },
+        "matched_unique": 10,
+        "matched_reuses": 2
+      },
+      {
+        "year": 2026,
+        "action": "upgrade",
+        "decline_state": true,
+        "signals": {
+          "n": 4,
+          "complete20": 2,
+          "near_count": 0,
+          "near_fraction": 0.0,
+          "returns": {
+            "5": {
+              "n": 3,
+              "mean": -0.04330996946500957
+            },
+            "10": {
+              "n": 2,
+              "mean": -0.012074558120504064
+            },
+            "20": {
+              "n": 2,
+              "mean": 0.010321685402982728
+            }
+          }
+        },
+        "all_days": {
+          "n": 66,
+          "complete20": 66,
+          "near_count": 52,
+          "near_fraction": 0.7878787878787878,
+          "returns": {
+            "5": {
+              "n": 66,
+              "mean": 0.004985151186456774
+            },
+            "10": {
+              "n": 66,
+              "mean": 0.01194216133232018
+            },
+            "20": {
+              "n": 66,
+              "mean": 0.02613732480334495
+            }
+          }
+        },
+        "matched": {
+          "n": 2,
+          "complete20": 2,
+          "near_count": 0,
+          "near_fraction": 0.0,
+          "returns": {
+            "5": {
+              "n": 2,
+              "mean": -0.024666382248480112
+            },
+            "10": {
+              "n": 2,
+              "mean": -0.020932847253291365
+            },
+            "20": {
+              "n": 2,
+              "mean": 0.01807960681953713
+            }
+          }
+        },
+        "matched_unique": 2,
+        "matched_reuses": 0
+      },
+      {
+        "year": 2026,
+        "action": "downgrade",
+        "decline_state": false,
+        "signals": {
+          "n": 13,
+          "complete20": 13,
+          "near_count": 5,
+          "near_fraction": 0.38461538461538464,
+          "returns": {
+            "5": {
+              "n": 13,
+              "mean": -0.011015583508901887
+            },
+            "10": {
+              "n": 13,
+              "mean": -0.008828685486764059
+            },
+            "20": {
+              "n": 13,
+              "mean": -0.02029608621920665
+            }
+          }
+        },
+        "all_days": {
+          "n": 131,
+          "complete20": 131,
+          "near_count": 90,
+          "near_fraction": 0.6870229007633588,
+          "returns": {
+            "5": {
+              "n": 131,
+              "mean": 0.0031136475495959492
+            },
+            "10": {
+              "n": 131,
+              "mean": 0.005439852231985195
+            },
+            "20": {
+              "n": 131,
+              "mean": 0.007400860563557989
+            }
+          }
+        },
+        "matched": {
+          "n": 13,
+          "complete20": 13,
+          "near_count": 6,
+          "near_fraction": 0.46153846153846156,
+          "returns": {
+            "5": {
+              "n": 13,
+              "mean": 0.004352196632774035
+            },
+            "10": {
+              "n": 13,
+              "mean": 0.003006612315345594
+            },
+            "20": {
+              "n": 13,
+              "mean": 0.0013030565707599767
+            }
+          }
+        },
+        "matched_unique": 12,
+        "matched_reuses": 1
+      },
+      {
+        "year": 2026,
+        "action": "downgrade",
+        "decline_state": true,
+        "signals": {
+          "n": 13,
+          "complete20": 8,
+          "near_count": 6,
+          "near_fraction": 0.75,
+          "returns": {
+            "5": {
+              "n": 11,
+              "mean": 0.011787335016610152
+            },
+            "10": {
+              "n": 10,
+              "mean": 0.032357454740834
+            },
+            "20": {
+              "n": 8,
+              "mean": 0.10153878860105295
+            }
+          }
+        },
+        "all_days": {
+          "n": 66,
+          "complete20": 66,
+          "near_count": 52,
+          "near_fraction": 0.7878787878787878,
+          "returns": {
+            "5": {
+              "n": 66,
+              "mean": 0.004985151186456774
+            },
+            "10": {
+              "n": 66,
+              "mean": 0.01194216133232018
+            },
+            "20": {
+              "n": 66,
+              "mean": 0.02613732480334495
+            }
+          }
+        },
+        "matched": {
+          "n": 8,
+          "complete20": 8,
+          "near_count": 3,
+          "near_fraction": 0.375,
+          "returns": {
+            "5": {
+              "n": 8,
+              "mean": -0.0016177979043574958
+            },
+            "10": {
+              "n": 8,
+              "mean": -0.0024277812715858132
+            },
+            "20": {
+              "n": 8,
+              "mean": 0.023518854354280444
+            }
+          }
+        },
+        "matched_unique": 6,
+        "matched_reuses": 2
+      },
+      {
+        "year": 2026,
+        "action": "target_raise",
+        "decline_state": false,
+        "signals": {
+          "n": 17,
+          "complete20": 17,
+          "near_count": 13,
+          "near_fraction": 0.7647058823529411,
+          "returns": {
+            "5": {
+              "n": 17,
+              "mean": 0.0035887307365284533
+            },
+            "10": {
+              "n": 17,
+              "mean": 0.0017449376230381068
+            },
+            "20": {
+              "n": 17,
+              "mean": -0.012032251377667162
+            }
+          }
+        },
+        "all_days": {
+          "n": 131,
+          "complete20": 131,
+          "near_count": 90,
+          "near_fraction": 0.6870229007633588,
+          "returns": {
+            "5": {
+              "n": 131,
+              "mean": 0.0031136475495959492
+            },
+            "10": {
+              "n": 131,
+              "mean": 0.005439852231985195
+            },
+            "20": {
+              "n": 131,
+              "mean": 0.007400860563557989
+            }
+          }
+        },
+        "matched": {
+          "n": 17,
+          "complete20": 17,
+          "near_count": 12,
+          "near_fraction": 0.7058823529411765,
+          "returns": {
+            "5": {
+              "n": 17,
+              "mean": 0.013504435246885153
+            },
+            "10": {
+              "n": 17,
+              "mean": 0.019074370233831503
+            },
+            "20": {
+              "n": 17,
+              "mean": 0.030686675036303474
+            }
+          }
+        },
+        "matched_unique": 14,
+        "matched_reuses": 3
+      },
+      {
+        "year": 2026,
+        "action": "target_raise",
+        "decline_state": true,
+        "signals": {
+          "n": 11,
+          "complete20": 11,
+          "near_count": 10,
+          "near_fraction": 0.9090909090909091,
+          "returns": {
+            "5": {
+              "n": 11,
+              "mean": 0.00298950435093453
+            },
+            "10": {
+              "n": 11,
+              "mean": 0.012611855541861899
+            },
+            "20": {
+              "n": 11,
+              "mean": 0.022578807049553676
+            }
+          }
+        },
+        "all_days": {
+          "n": 66,
+          "complete20": 66,
+          "near_count": 52,
+          "near_fraction": 0.7878787878787878,
+          "returns": {
+            "5": {
+              "n": 66,
+              "mean": 0.004985151186456774
+            },
+            "10": {
+              "n": 66,
+              "mean": 0.01194216133232018
+            },
+            "20": {
+              "n": 66,
+              "mean": 0.02613732480334495
+            }
+          }
+        },
+        "matched": {
+          "n": 11,
+          "complete20": 11,
+          "near_count": 10,
+          "near_fraction": 0.9090909090909091,
+          "returns": {
+            "5": {
+              "n": 11,
+              "mean": 0.007792929053903497
+            },
+            "10": {
+              "n": 11,
+              "mean": 0.013654488202729943
+            },
+            "20": {
+              "n": 11,
+              "mean": 0.0354287704043285
+            }
+          }
+        },
+        "matched_unique": 9,
+        "matched_reuses": 2
+      },
+      {
+        "year": 2026,
+        "action": "target_cut",
+        "decline_state": false,
+        "signals": {
+          "n": 2,
+          "complete20": 2,
+          "near_count": 1,
+          "near_fraction": 0.5,
+          "returns": {
+            "5": {
+              "n": 2,
+              "mean": 0.002340456296505977
+            },
+            "10": {
+              "n": 2,
+              "mean": 0.024739278145431753
+            },
+            "20": {
+              "n": 2,
+              "mean": 0.10945953055684288
+            }
+          }
+        },
+        "all_days": {
+          "n": 131,
+          "complete20": 131,
+          "near_count": 90,
+          "near_fraction": 0.6870229007633588,
+          "returns": {
+            "5": {
+              "n": 131,
+              "mean": 0.0031136475495959492
+            },
+            "10": {
+              "n": 131,
+              "mean": 0.005439852231985195
+            },
+            "20": {
+              "n": 131,
+              "mean": 0.007400860563557989
+            }
+          }
+        },
+        "matched": {
+          "n": 2,
+          "complete20": 2,
+          "near_count": 1,
+          "near_fraction": 0.5,
+          "returns": {
+            "5": {
+              "n": 2,
+              "mean": 0.007599134272285923
+            },
+            "10": {
+              "n": 2,
+              "mean": 0.03725539143414541
+            },
+            "20": {
+              "n": 2,
+              "mean": 0.04710794453691075
+            }
+          }
+        },
+        "matched_unique": 2,
+        "matched_reuses": 0
+      },
+      {
+        "year": 2026,
+        "action": "target_cut",
+        "decline_state": true,
+        "signals": {
+          "n": 3,
+          "complete20": 3,
+          "near_count": 3,
+          "near_fraction": 1.0,
+          "returns": {
+            "5": {
+              "n": 3,
+              "mean": 0.045172769631069386
+            },
+            "10": {
+              "n": 3,
+              "mean": 0.05795856051010628
+            },
+            "20": {
+              "n": 3,
+              "mean": 0.06942930906755218
+            }
+          }
+        },
+        "all_days": {
+          "n": 66,
+          "complete20": 66,
+          "near_count": 52,
+          "near_fraction": 0.7878787878787878,
+          "returns": {
+            "5": {
+              "n": 66,
+              "mean": 0.004985151186456774
+            },
+            "10": {
+              "n": 66,
+              "mean": 0.01194216133232018
+            },
+            "20": {
+              "n": 66,
+              "mean": 0.02613732480334495
+            }
+          }
+        },
+        "matched": {
+          "n": 3,
+          "complete20": 3,
+          "near_count": 3,
+          "near_fraction": 1.0,
+          "returns": {
+            "5": {
+              "n": 3,
+              "mean": 0.009383457659273842
+            },
+            "10": {
+              "n": 3,
+              "mean": 0.028851895345575123
+            },
+            "20": {
+              "n": 3,
+              "mean": 0.0840240171288918
+            }
+          }
+        },
+        "matched_unique": 3,
+        "matched_reuses": 0
+      }
+    ],
+    "hypotheses": [
+      {
+        "year": 2024,
+        "hypothesis": "H-U",
+        "signals": {
+          "n": 2,
+          "complete20": 2,
+          "near_count": 2,
+          "near_fraction": 1.0,
+          "returns": {
+            "5": {
+              "n": 2,
+              "mean": 0.049131627138584655
+            },
+            "10": {
+              "n": 2,
+              "mean": 0.09395527518615521
+            },
+            "20": {
+              "n": 2,
+              "mean": 0.045299958672066376
+            }
+          }
+        },
+        "matched": {
+          "n": 2,
+          "complete20": 2,
+          "near_count": 2,
+          "near_fraction": 1.0,
+          "returns": {
+            "5": {
+              "n": 2,
+              "mean": 0.03236267049013852
+            },
+            "10": {
+              "n": 2,
+              "mean": 0.10072488828015147
+            },
+            "20": {
+              "n": 2,
+              "mean": 0.056217452820899405
+            }
+          }
+        },
+        "dates": [
+          "2024-08-08",
+          "2024-08-08"
+        ]
+      },
+      {
+        "year": 2024,
+        "hypothesis": "H-D",
+        "signals": {
+          "n": 0,
+          "complete20": 0,
+          "near_count": 0,
+          "near_fraction": null,
+          "returns": {
+            "5": {
+              "n": 0,
+              "mean": null
+            },
+            "10": {
+              "n": 0,
+              "mean": null
+            },
+            "20": {
+              "n": 0,
+              "mean": null
+            }
+          }
+        },
+        "matched": {
+          "n": 0,
+          "complete20": 0,
+          "near_count": 0,
+          "near_fraction": null,
+          "returns": {
+            "5": {
+              "n": 0,
+              "mean": null
+            },
+            "10": {
+              "n": 0,
+              "mean": null
+            },
+            "20": {
+              "n": 0,
+              "mean": null
+            }
+          }
+        },
+        "dates": []
+      },
+      {
+        "year": 2025,
+        "hypothesis": "H-U",
+        "signals": {
+          "n": 3,
+          "complete20": 3,
+          "near_count": 2,
+          "near_fraction": 0.6666666666666666,
+          "returns": {
+            "5": {
+              "n": 3,
+              "mean": -0.029805175570471132
+            },
+            "10": {
+              "n": 3,
+              "mean": 0.03676300741070171
+            },
+            "20": {
+              "n": 3,
+              "mean": 0.08913915883630019
+            }
+          }
+        },
+        "matched": {
+          "n": 3,
+          "complete20": 3,
+          "near_count": 1,
+          "near_fraction": 0.3333333333333333,
+          "returns": {
+            "5": {
+              "n": 3,
+              "mean": 0.022873336712020038
+            },
+            "10": {
+              "n": 3,
+              "mean": 0.04188557056614365
+            },
+            "20": {
+              "n": 3,
+              "mean": 0.12325052812562776
+            }
+          }
+        },
+        "dates": [
+          "2025-04-10",
+          "2025-04-11",
+          "2025-04-14"
+        ]
+      },
+      {
+        "year": 2025,
+        "hypothesis": "H-D",
+        "signals": {
+          "n": 6,
+          "complete20": 6,
+          "near_count": 2,
+          "near_fraction": 0.3333333333333333,
+          "returns": {
+            "5": {
+              "n": 6,
+              "mean": 0.01047078232234703
+            },
+            "10": {
+              "n": 6,
+              "mean": 0.03204343913046639
+            },
+            "20": {
+              "n": 6,
+              "mean": 0.05439256041299071
+            }
+          }
+        },
+        "matched": {
+          "n": 6,
+          "complete20": 6,
+          "near_count": 2,
+          "near_fraction": 0.3333333333333333,
+          "returns": {
+            "5": {
+              "n": 6,
+              "mean": 0.029364350057705584
+            },
+            "10": {
+              "n": 6,
+              "mean": 0.01790937833040714
+            },
+            "20": {
+              "n": 6,
+              "mean": 0.08153523615775359
+            }
+          }
+        },
+        "dates": [
+          "2025-03-12",
+          "2025-03-19",
+          "2025-03-31",
+          "2025-04-07",
+          "2025-04-14",
+          "2025-04-22"
+        ]
+      },
+      {
+        "year": 2026,
+        "hypothesis": "H-U",
+        "signals": {
+          "n": 4,
+          "complete20": 2,
+          "near_count": 0,
+          "near_fraction": 0.0,
+          "returns": {
+            "5": {
+              "n": 3,
+              "mean": -0.04330996946500957
+            },
+            "10": {
+              "n": 2,
+              "mean": -0.012074558120504064
+            },
+            "20": {
+              "n": 2,
+              "mean": 0.010321685402982728
+            }
+          }
+        },
+        "matched": {
+          "n": 2,
+          "complete20": 2,
+          "near_count": 0,
+          "near_fraction": 0.0,
+          "returns": {
+            "5": {
+              "n": 2,
+              "mean": -0.024666382248480112
+            },
+            "10": {
+              "n": 2,
+              "mean": -0.020932847253291365
+            },
+            "20": {
+              "n": 2,
+              "mean": 0.01807960681953713
+            }
+          }
+        },
+        "dates": [
+          "2026-07-14",
+          "2026-07-22",
+          "2026-11-02",
+          "2026-11-09"
+        ]
+      },
+      {
+        "year": 2026,
+        "hypothesis": "H-D",
+        "signals": {
+          "n": 5,
+          "complete20": 3,
+          "near_count": 2,
+          "near_fraction": 0.6666666666666666,
+          "returns": {
+            "5": {
+              "n": 5,
+              "mean": 0.0013650689892226841
+            },
+            "10": {
+              "n": 4,
+              "mean": 0.01017742158462398
+            },
+            "20": {
+              "n": 3,
+              "mean": 0.05904889759626256
+            }
+          }
+        },
+        "matched": {
+          "n": 3,
+          "complete20": 3,
+          "near_count": 2,
+          "near_fraction": 0.6666666666666666,
+          "returns": {
+            "5": {
+              "n": 3,
+              "mean": 0.0046280249072624775
+            },
+            "10": {
+              "n": 3,
+              "mean": 0.014586132214188216
+            },
+            "20": {
+              "n": 3,
+              "mean": 0.06685582787626694
+            }
+          }
+        },
+        "dates": [
+          "2026-03-13",
+          "2026-04-01",
+          "2026-09-17",
+          "2026-10-20",
+          "2026-11-02"
+        ]
+      }
+    ],
+    "H_U_2026": {
+      "n": 2,
+      "near_count": 0,
+      "base_count": 52,
+      "base_n": 66,
+      "effect": -0.7878787878787878,
+      "p_raw": 1.0,
+      "valid_permutations": 10000,
+      "distinct_shifts": 216,
+      "signal_days": 14,
+      "p_holm": 1
+    },
+    "H_D_2026": {
+      "n": 3,
+      "near_count": 2,
+      "base_count": 52,
+      "base_n": 66,
+      "effect": -0.12121212121212122,
+      "p_raw": 0.7085168869309838,
+      "valid_permutations": 9533,
+      "distinct_shifts": 216,
+      "signal_days": 9,
+      "p_holm": 1
+    },
+    "cluster_dates": [
+      "2025-03-12",
+      "2025-03-19",
+      "2025-03-31",
+      "2025-04-07",
+      "2025-04-14",
+      "2025-04-22",
+      "2026-03-13",
+      "2026-03-25",
+      "2026-04-01",
+      "2026-04-14",
+      "2026-06-03",
+      "2026-09-17",
+      "2026-10-13",
+      "2026-10-20",
+      "2026-11-02"
+    ]
+  },
+  "freeze_commit": "c5edc8affe00b4126b152f7aed9fd0ec9b75e95d",
+  "undefined_dates": 3
+}

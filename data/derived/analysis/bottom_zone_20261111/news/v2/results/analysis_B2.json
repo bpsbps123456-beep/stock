@@ -1,0 +1,1917 @@
+{
+  "freeze_commit": "7c380ad6b842e95f901c823cc6bec271a85c6109",
+  "rows": 1138,
+  "unique_articles": 1119,
+  "candidate_count": 10138,
+  "adopted_candidates": 1211,
+  "grid": [
+    {
+      "year": "all",
+      "anchor_type": "real",
+      "period": "pre",
+      "episode_count": 10,
+      "episode_equal_negative_fraction": 0.5584285281282185,
+      "n": 290,
+      "neg": 161,
+      "pos": 82,
+      "neutral": 47,
+      "negative_fraction": 0.5551724137931034,
+      "types": {
+        "technical": 58,
+        "macro_policy": 103,
+        "capitulation_language": 9,
+        "regulation_geopolitics": 53,
+        "flows_positioning": 17,
+        "earnings_fundamental": 43,
+        "strategist_call": 7
+      }
+    },
+    {
+      "year": "all",
+      "anchor_type": "real",
+      "period": "zero",
+      "episode_count": 10,
+      "episode_equal_negative_fraction": 0.6535858585858586,
+      "n": 74,
+      "neg": 44,
+      "pos": 13,
+      "neutral": 17,
+      "negative_fraction": 0.5945945945945946,
+      "types": {
+        "regulation_geopolitics": 13,
+        "macro_policy": 24,
+        "technical": 17,
+        "flows_positioning": 6,
+        "earnings_fundamental": 13,
+        "strategist_call": 1
+      }
+    },
+    {
+      "year": "all",
+      "anchor_type": "real",
+      "period": "post",
+      "episode_count": 10,
+      "episode_equal_negative_fraction": 0.22273720876397646,
+      "n": 274,
+      "neg": 72,
+      "pos": 151,
+      "neutral": 51,
+      "negative_fraction": 0.26277372262773724,
+      "types": {
+        "macro_policy": 96,
+        "regulation_geopolitics": 50,
+        "technical": 55,
+        "strategist_call": 10,
+        "earnings_fundamental": 44,
+        "flows_positioning": 19
+      }
+    },
+    {
+      "year": "all",
+      "anchor_type": "fake",
+      "period": "pre",
+      "episode_count": 6,
+      "episode_equal_negative_fraction": 0.4441066923387075,
+      "n": 179,
+      "neg": 81,
+      "pos": 58,
+      "neutral": 40,
+      "negative_fraction": 0.45251396648044695,
+      "types": {
+        "technical": 47,
+        "earnings_fundamental": 26,
+        "macro_policy": 50,
+        "strategist_call": 6,
+        "flows_positioning": 14,
+        "regulation_geopolitics": 36
+      }
+    },
+    {
+      "year": "all",
+      "anchor_type": "fake",
+      "period": "zero",
+      "episode_count": 6,
+      "episode_equal_negative_fraction": 0.7484126984126984,
+      "n": 32,
+      "neg": 23,
+      "pos": 5,
+      "neutral": 4,
+      "negative_fraction": 0.71875,
+      "types": {
+        "earnings_fundamental": 7,
+        "macro_policy": 9,
+        "technical": 8,
+        "regulation_geopolitics": 6,
+        "flows_positioning": 1,
+        "strategist_call": 1
+      }
+    },
+    {
+      "year": "all",
+      "anchor_type": "fake",
+      "period": "post",
+      "episode_count": 6,
+      "episode_equal_negative_fraction": 0.4375046227081977,
+      "n": 184,
+      "neg": 72,
+      "pos": 59,
+      "neutral": 53,
+      "negative_fraction": 0.391304347826087,
+      "types": {
+        "macro_policy": 63,
+        "regulation_geopolitics": 30,
+        "earnings_fundamental": 31,
+        "strategist_call": 5,
+        "flows_positioning": 15,
+        "technical": 40
+      }
+    },
+    {
+      "year": 2024,
+      "anchor_type": "real",
+      "period": "pre",
+      "episode_count": 4,
+      "episode_equal_negative_fraction": 0.5215150432642692,
+      "n": 79,
+      "neg": 43,
+      "pos": 24,
+      "neutral": 12,
+      "negative_fraction": 0.5443037974683544,
+      "types": {
+        "macro_policy": 33,
+        "technical": 20,
+        "earnings_fundamental": 14,
+        "strategist_call": 1,
+        "regulation_geopolitics": 6,
+        "capitulation_language": 5
+      }
+    },
+    {
+      "year": 2024,
+      "anchor_type": "real",
+      "period": "zero",
+      "episode_count": 4,
+      "episode_equal_negative_fraction": 0.8125,
+      "n": 16,
+      "neg": 13,
+      "pos": 3,
+      "neutral": 0,
+      "negative_fraction": 0.8125,
+      "types": {
+        "macro_policy": 7,
+        "flows_positioning": 3,
+        "technical": 4,
+        "earnings_fundamental": 2
+      }
+    },
+    {
+      "year": 2024,
+      "anchor_type": "real",
+      "period": "post",
+      "episode_count": 4,
+      "episode_equal_negative_fraction": 0.1310166441745389,
+      "n": 64,
+      "neg": 8,
+      "pos": 39,
+      "neutral": 17,
+      "negative_fraction": 0.125,
+      "types": {
+        "macro_policy": 20,
+        "earnings_fundamental": 16,
+        "technical": 17,
+        "flows_positioning": 6,
+        "strategist_call": 2,
+        "regulation_geopolitics": 3
+      }
+    },
+    {
+      "year": 2024,
+      "anchor_type": "fake",
+      "period": "pre",
+      "episode_count": 2,
+      "episode_equal_negative_fraction": 0.36136363636363633,
+      "n": 31,
+      "neg": 12,
+      "pos": 11,
+      "neutral": 8,
+      "negative_fraction": 0.3870967741935484,
+      "types": {
+        "earnings_fundamental": 6,
+        "macro_policy": 10,
+        "technical": 5,
+        "strategist_call": 1,
+        "regulation_geopolitics": 7,
+        "flows_positioning": 2
+      }
+    },
+    {
+      "year": 2024,
+      "anchor_type": "fake",
+      "period": "zero",
+      "episode_count": 2,
+      "episode_equal_negative_fraction": 0.8333333333333333,
+      "n": 6,
+      "neg": 5,
+      "pos": 1,
+      "neutral": 0,
+      "negative_fraction": 0.8333333333333334,
+      "types": {
+        "earnings_fundamental": 2,
+        "technical": 4
+      }
+    },
+    {
+      "year": 2024,
+      "anchor_type": "fake",
+      "period": "post",
+      "episode_count": 2,
+      "episode_equal_negative_fraction": 0.40283400809716596,
+      "n": 32,
+      "neg": 13,
+      "pos": 11,
+      "neutral": 8,
+      "negative_fraction": 0.40625,
+      "types": {
+        "earnings_fundamental": 10,
+        "technical": 8,
+        "macro_policy": 12,
+        "regulation_geopolitics": 1,
+        "flows_positioning": 1
+      }
+    },
+    {
+      "year": 2025,
+      "anchor_type": "real",
+      "period": "pre",
+      "episode_count": 2,
+      "episode_equal_negative_fraction": 0.7386363636363636,
+      "n": 66,
+      "neg": 46,
+      "pos": 12,
+      "neutral": 8,
+      "negative_fraction": 0.696969696969697,
+      "types": {
+        "technical": 14,
+        "macro_policy": 31,
+        "capitulation_language": 2,
+        "regulation_geopolitics": 1,
+        "flows_positioning": 6,
+        "strategist_call": 2,
+        "earnings_fundamental": 10
+      }
+    },
+    {
+      "year": 2025,
+      "anchor_type": "real",
+      "period": "zero",
+      "episode_count": 2,
+      "episode_equal_negative_fraction": 0.5818181818181818,
+      "n": 16,
+      "neg": 8,
+      "pos": 4,
+      "neutral": 4,
+      "negative_fraction": 0.5,
+      "types": {
+        "regulation_geopolitics": 2,
+        "macro_policy": 3,
+        "technical": 3,
+        "flows_positioning": 1,
+        "earnings_fundamental": 7
+      }
+    },
+    {
+      "year": 2025,
+      "anchor_type": "real",
+      "period": "post",
+      "episode_count": 2,
+      "episode_equal_negative_fraction": 0.26282051282051283,
+      "n": 50,
+      "neg": 13,
+      "pos": 31,
+      "neutral": 6,
+      "negative_fraction": 0.26,
+      "types": {
+        "macro_policy": 26,
+        "regulation_geopolitics": 3,
+        "technical": 8,
+        "strategist_call": 3,
+        "earnings_fundamental": 8,
+        "flows_positioning": 2
+      }
+    },
+    {
+      "year": 2025,
+      "anchor_type": "fake",
+      "period": "pre",
+      "episode_count": 1,
+      "episode_equal_negative_fraction": 0.47368421052631576,
+      "n": 19,
+      "neg": 9,
+      "pos": 5,
+      "neutral": 5,
+      "negative_fraction": 0.47368421052631576,
+      "types": {
+        "technical": 6,
+        "earnings_fundamental": 6,
+        "macro_policy": 6,
+        "strategist_call": 1
+      }
+    },
+    {
+      "year": 2025,
+      "anchor_type": "fake",
+      "period": "zero",
+      "episode_count": 1,
+      "episode_equal_negative_fraction": 0.6666666666666666,
+      "n": 6,
+      "neg": 4,
+      "pos": 1,
+      "neutral": 1,
+      "negative_fraction": 0.6666666666666666,
+      "types": {
+        "earnings_fundamental": 4,
+        "macro_policy": 1,
+        "technical": 1
+      }
+    },
+    {
+      "year": 2025,
+      "anchor_type": "fake",
+      "period": "post",
+      "episode_count": 1,
+      "episode_equal_negative_fraction": 0.631578947368421,
+      "n": 19,
+      "neg": 12,
+      "pos": 4,
+      "neutral": 3,
+      "negative_fraction": 0.631578947368421,
+      "types": {
+        "macro_policy": 16,
+        "regulation_geopolitics": 2,
+        "earnings_fundamental": 1
+      }
+    },
+    {
+      "year": 2026,
+      "anchor_type": "real",
+      "period": "pre",
+      "episode_count": 4,
+      "episode_equal_negative_fraction": 0.5052380952380953,
+      "n": 145,
+      "neg": 72,
+      "pos": 46,
+      "neutral": 27,
+      "negative_fraction": 0.496551724137931,
+      "types": {
+        "regulation_geopolitics": 46,
+        "flows_positioning": 11,
+        "earnings_fundamental": 19,
+        "strategist_call": 4,
+        "macro_policy": 39,
+        "technical": 24,
+        "capitulation_language": 2
+      }
+    },
+    {
+      "year": 2026,
+      "anchor_type": "real",
+      "period": "zero",
+      "episode_count": 4,
+      "episode_equal_negative_fraction": 0.5305555555555556,
+      "n": 42,
+      "neg": 23,
+      "pos": 6,
+      "neutral": 13,
+      "negative_fraction": 0.5476190476190477,
+      "types": {
+        "regulation_geopolitics": 11,
+        "macro_policy": 14,
+        "flows_positioning": 2,
+        "technical": 10,
+        "earnings_fundamental": 4,
+        "strategist_call": 1
+      }
+    },
+    {
+      "year": 2026,
+      "anchor_type": "real",
+      "period": "post",
+      "episode_count": 4,
+      "episode_equal_negative_fraction": 0.29441612132514583,
+      "n": 160,
+      "neg": 51,
+      "pos": 81,
+      "neutral": 28,
+      "negative_fraction": 0.31875,
+      "types": {
+        "flows_positioning": 11,
+        "regulation_geopolitics": 44,
+        "technical": 30,
+        "earnings_fundamental": 20,
+        "strategist_call": 5,
+        "macro_policy": 50
+      }
+    },
+    {
+      "year": 2026,
+      "anchor_type": "fake",
+      "period": "pre",
+      "episode_count": 3,
+      "episode_equal_negative_fraction": 0.4894095569262188,
+      "n": 129,
+      "neg": 60,
+      "pos": 42,
+      "neutral": 27,
+      "negative_fraction": 0.46511627906976744,
+      "types": {
+        "macro_policy": 34,
+        "technical": 36,
+        "flows_positioning": 12,
+        "regulation_geopolitics": 29,
+        "earnings_fundamental": 14,
+        "strategist_call": 4
+      }
+    },
+    {
+      "year": 2026,
+      "anchor_type": "fake",
+      "period": "zero",
+      "episode_count": 3,
+      "episode_equal_negative_fraction": 0.719047619047619,
+      "n": 20,
+      "neg": 14,
+      "pos": 3,
+      "neutral": 3,
+      "negative_fraction": 0.7,
+      "types": {
+        "regulation_geopolitics": 6,
+        "macro_policy": 8,
+        "technical": 3,
+        "earnings_fundamental": 1,
+        "flows_positioning": 1,
+        "strategist_call": 1
+      }
+    },
+    {
+      "year": 2026,
+      "anchor_type": "fake",
+      "period": "post",
+      "episode_count": 3,
+      "episode_equal_negative_fraction": 0.39592692422881104,
+      "n": 133,
+      "neg": 47,
+      "pos": 44,
+      "neutral": 42,
+      "negative_fraction": 0.3533834586466165,
+      "types": {
+        "macro_policy": 35,
+        "strategist_call": 5,
+        "regulation_geopolitics": 27,
+        "earnings_fundamental": 20,
+        "flows_positioning": 14,
+        "technical": 32
+      }
+    }
+  ],
+  "episodes": [
+    {
+      "anchor_date": "2024-04-19",
+      "anchor_type": "real",
+      "year": 2024,
+      "period": "pre",
+      "n": 17,
+      "neg": 11,
+      "pos": 2,
+      "neutral": 4,
+      "negative_fraction": 0.6470588235294118,
+      "types": {
+        "regulation_geopolitics": 4,
+        "earnings_fundamental": 4,
+        "macro_policy": 6,
+        "technical": 3
+      }
+    },
+    {
+      "anchor_date": "2024-04-19",
+      "anchor_type": "real",
+      "year": 2024,
+      "period": "zero",
+      "n": 4,
+      "neg": 4,
+      "pos": 0,
+      "neutral": 0,
+      "negative_fraction": 1.0,
+      "types": {
+        "technical": 3,
+        "earnings_fundamental": 1
+      }
+    },
+    {
+      "anchor_date": "2024-04-19",
+      "anchor_type": "real",
+      "year": 2024,
+      "period": "post",
+      "n": 13,
+      "neg": 4,
+      "pos": 7,
+      "neutral": 2,
+      "negative_fraction": 0.3076923076923077,
+      "types": {
+        "technical": 3,
+        "strategist_call": 1,
+        "flows_positioning": 1,
+        "regulation_geopolitics": 1,
+        "earnings_fundamental": 5,
+        "macro_policy": 2
+      }
+    },
+    {
+      "anchor_date": "2024-07-19",
+      "anchor_type": "fake",
+      "year": 2024,
+      "period": "pre",
+      "n": 20,
+      "neg": 9,
+      "pos": 7,
+      "neutral": 4,
+      "negative_fraction": 0.45,
+      "types": {
+        "macro_policy": 5,
+        "regulation_geopolitics": 7,
+        "flows_positioning": 2,
+        "technical": 3,
+        "earnings_fundamental": 3
+      }
+    },
+    {
+      "anchor_date": "2024-07-19",
+      "anchor_type": "fake",
+      "year": 2024,
+      "period": "zero",
+      "n": 3,
+      "neg": 3,
+      "pos": 0,
+      "neutral": 0,
+      "negative_fraction": 1.0,
+      "types": {
+        "technical": 3
+      }
+    },
+    {
+      "anchor_date": "2024-07-19",
+      "anchor_type": "fake",
+      "year": 2024,
+      "period": "post",
+      "n": 13,
+      "neg": 5,
+      "pos": 5,
+      "neutral": 3,
+      "negative_fraction": 0.38461538461538464,
+      "types": {
+        "technical": 3,
+        "earnings_fundamental": 6,
+        "flows_positioning": 1,
+        "macro_policy": 3
+      }
+    },
+    {
+      "anchor_date": "2024-08-07",
+      "anchor_type": "real",
+      "year": 2024,
+      "period": "pre",
+      "n": 30,
+      "neg": 19,
+      "pos": 10,
+      "neutral": 1,
+      "negative_fraction": 0.6333333333333333,
+      "types": {
+        "technical": 8,
+        "macro_policy": 11,
+        "earnings_fundamental": 5,
+        "capitulation_language": 5,
+        "regulation_geopolitics": 1
+      }
+    },
+    {
+      "anchor_date": "2024-08-07",
+      "anchor_type": "real",
+      "year": 2024,
+      "period": "zero",
+      "n": 4,
+      "neg": 3,
+      "pos": 1,
+      "neutral": 0,
+      "negative_fraction": 0.75,
+      "types": {
+        "macro_policy": 1,
+        "flows_positioning": 1,
+        "earnings_fundamental": 1,
+        "technical": 1
+      }
+    },
+    {
+      "anchor_date": "2024-08-07",
+      "anchor_type": "real",
+      "year": 2024,
+      "period": "post",
+      "n": 14,
+      "neg": 0,
+      "pos": 11,
+      "neutral": 3,
+      "negative_fraction": 0.0,
+      "types": {
+        "macro_policy": 5,
+        "regulation_geopolitics": 1,
+        "technical": 4,
+        "flows_positioning": 4
+      }
+    },
+    {
+      "anchor_date": "2024-08-28",
+      "anchor_type": "fake",
+      "year": 2024,
+      "period": "pre",
+      "n": 11,
+      "neg": 3,
+      "pos": 4,
+      "neutral": 4,
+      "negative_fraction": 0.2727272727272727,
+      "types": {
+        "earnings_fundamental": 3,
+        "macro_policy": 5,
+        "technical": 2,
+        "strategist_call": 1
+      }
+    },
+    {
+      "anchor_date": "2024-08-28",
+      "anchor_type": "fake",
+      "year": 2024,
+      "period": "zero",
+      "n": 3,
+      "neg": 2,
+      "pos": 1,
+      "neutral": 0,
+      "negative_fraction": 0.6666666666666666,
+      "types": {
+        "earnings_fundamental": 2,
+        "technical": 1
+      }
+    },
+    {
+      "anchor_date": "2024-08-28",
+      "anchor_type": "fake",
+      "year": 2024,
+      "period": "post",
+      "n": 19,
+      "neg": 8,
+      "pos": 6,
+      "neutral": 5,
+      "negative_fraction": 0.42105263157894735,
+      "types": {
+        "earnings_fundamental": 4,
+        "technical": 5,
+        "macro_policy": 9,
+        "regulation_geopolitics": 1
+      }
+    },
+    {
+      "anchor_date": "2024-09-06",
+      "anchor_type": "real",
+      "year": 2024,
+      "period": "pre",
+      "n": 19,
+      "neg": 8,
+      "pos": 6,
+      "neutral": 5,
+      "negative_fraction": 0.42105263157894735,
+      "types": {
+        "earnings_fundamental": 4,
+        "technical": 5,
+        "macro_policy": 9,
+        "regulation_geopolitics": 1
+      }
+    },
+    {
+      "anchor_date": "2024-09-06",
+      "anchor_type": "real",
+      "year": 2024,
+      "period": "zero",
+      "n": 4,
+      "neg": 3,
+      "pos": 1,
+      "neutral": 0,
+      "negative_fraction": 0.75,
+      "types": {
+        "macro_policy": 3,
+        "flows_positioning": 1
+      }
+    },
+    {
+      "anchor_date": "2024-09-06",
+      "anchor_type": "real",
+      "year": 2024,
+      "period": "post",
+      "n": 18,
+      "neg": 2,
+      "pos": 13,
+      "neutral": 3,
+      "negative_fraction": 0.1111111111111111,
+      "types": {
+        "macro_policy": 11,
+        "technical": 4,
+        "earnings_fundamental": 2,
+        "regulation_geopolitics": 1
+      }
+    },
+    {
+      "anchor_date": "2024-11-15",
+      "anchor_type": "real",
+      "year": 2024,
+      "period": "pre",
+      "n": 13,
+      "neg": 5,
+      "pos": 6,
+      "neutral": 2,
+      "negative_fraction": 0.38461538461538464,
+      "types": {
+        "macro_policy": 7,
+        "technical": 4,
+        "earnings_fundamental": 1,
+        "strategist_call": 1
+      }
+    },
+    {
+      "anchor_date": "2024-11-15",
+      "anchor_type": "real",
+      "year": 2024,
+      "period": "zero",
+      "n": 4,
+      "neg": 3,
+      "pos": 1,
+      "neutral": 0,
+      "negative_fraction": 0.75,
+      "types": {
+        "macro_policy": 3,
+        "flows_positioning": 1
+      }
+    },
+    {
+      "anchor_date": "2024-11-15",
+      "anchor_type": "real",
+      "year": 2024,
+      "period": "post",
+      "n": 19,
+      "neg": 2,
+      "pos": 8,
+      "neutral": 9,
+      "negative_fraction": 0.10526315789473684,
+      "types": {
+        "macro_policy": 2,
+        "earnings_fundamental": 9,
+        "technical": 6,
+        "flows_positioning": 1,
+        "strategist_call": 1
+      }
+    },
+    {
+      "anchor_date": "2025-02-27",
+      "anchor_type": "fake",
+      "year": 2025,
+      "period": "pre",
+      "n": 19,
+      "neg": 9,
+      "pos": 5,
+      "neutral": 5,
+      "negative_fraction": 0.47368421052631576,
+      "types": {
+        "technical": 6,
+        "earnings_fundamental": 6,
+        "macro_policy": 6,
+        "strategist_call": 1
+      }
+    },
+    {
+      "anchor_date": "2025-02-27",
+      "anchor_type": "fake",
+      "year": 2025,
+      "period": "zero",
+      "n": 6,
+      "neg": 4,
+      "pos": 1,
+      "neutral": 1,
+      "negative_fraction": 0.6666666666666666,
+      "types": {
+        "earnings_fundamental": 4,
+        "macro_policy": 1,
+        "technical": 1
+      }
+    },
+    {
+      "anchor_date": "2025-02-27",
+      "anchor_type": "fake",
+      "year": 2025,
+      "period": "post",
+      "n": 19,
+      "neg": 12,
+      "pos": 4,
+      "neutral": 3,
+      "negative_fraction": 0.631578947368421,
+      "types": {
+        "macro_policy": 16,
+        "regulation_geopolitics": 2,
+        "earnings_fundamental": 1
+      }
+    },
+    {
+      "anchor_date": "2025-04-08",
+      "anchor_type": "real",
+      "year": 2025,
+      "period": "pre",
+      "n": 22,
+      "neg": 19,
+      "pos": 1,
+      "neutral": 2,
+      "negative_fraction": 0.8636363636363636,
+      "types": {
+        "technical": 3,
+        "macro_policy": 15,
+        "capitulation_language": 2,
+        "regulation_geopolitics": 1,
+        "flows_positioning": 1
+      }
+    },
+    {
+      "anchor_date": "2025-04-08",
+      "anchor_type": "real",
+      "year": 2025,
+      "period": "zero",
+      "n": 5,
+      "neg": 4,
+      "pos": 1,
+      "neutral": 0,
+      "negative_fraction": 0.8,
+      "types": {
+        "regulation_geopolitics": 1,
+        "macro_policy": 2,
+        "technical": 1,
+        "flows_positioning": 1
+      }
+    },
+    {
+      "anchor_date": "2025-04-08",
+      "anchor_type": "real",
+      "year": 2025,
+      "period": "post",
+      "n": 24,
+      "neg": 8,
+      "pos": 14,
+      "neutral": 2,
+      "negative_fraction": 0.3333333333333333,
+      "types": {
+        "macro_policy": 18,
+        "regulation_geopolitics": 2,
+        "technical": 1,
+        "strategist_call": 1,
+        "earnings_fundamental": 1,
+        "flows_positioning": 1
+      }
+    },
+    {
+      "anchor_date": "2025-11-20",
+      "anchor_type": "real",
+      "year": 2025,
+      "period": "pre",
+      "n": 44,
+      "neg": 27,
+      "pos": 11,
+      "neutral": 6,
+      "negative_fraction": 0.6136363636363636,
+      "types": {
+        "macro_policy": 16,
+        "strategist_call": 2,
+        "earnings_fundamental": 10,
+        "technical": 11,
+        "flows_positioning": 5
+      }
+    },
+    {
+      "anchor_date": "2025-11-20",
+      "anchor_type": "real",
+      "year": 2025,
+      "period": "zero",
+      "n": 11,
+      "neg": 4,
+      "pos": 3,
+      "neutral": 4,
+      "negative_fraction": 0.36363636363636365,
+      "types": {
+        "earnings_fundamental": 7,
+        "macro_policy": 1,
+        "regulation_geopolitics": 1,
+        "technical": 2
+      }
+    },
+    {
+      "anchor_date": "2025-11-20",
+      "anchor_type": "real",
+      "year": 2025,
+      "period": "post",
+      "n": 26,
+      "neg": 5,
+      "pos": 17,
+      "neutral": 4,
+      "negative_fraction": 0.19230769230769232,
+      "types": {
+        "macro_policy": 8,
+        "earnings_fundamental": 7,
+        "regulation_geopolitics": 1,
+        "technical": 7,
+        "flows_positioning": 1,
+        "strategist_call": 2
+      }
+    },
+    {
+      "anchor_date": "2026-03-06",
+      "anchor_type": "fake",
+      "year": 2026,
+      "period": "pre",
+      "n": 29,
+      "neg": 18,
+      "pos": 7,
+      "neutral": 4,
+      "negative_fraction": 0.6206896551724138,
+      "types": {
+        "technical": 4,
+        "earnings_fundamental": 3,
+        "regulation_geopolitics": 11,
+        "strategist_call": 3,
+        "flows_positioning": 4,
+        "macro_policy": 4
+      }
+    },
+    {
+      "anchor_date": "2026-03-06",
+      "anchor_type": "fake",
+      "year": 2026,
+      "period": "zero",
+      "n": 5,
+      "neg": 4,
+      "pos": 0,
+      "neutral": 1,
+      "negative_fraction": 0.8,
+      "types": {
+        "macro_policy": 3,
+        "regulation_geopolitics": 2
+      }
+    },
+    {
+      "anchor_date": "2026-03-06",
+      "anchor_type": "fake",
+      "year": 2026,
+      "period": "post",
+      "n": 24,
+      "neg": 14,
+      "pos": 3,
+      "neutral": 7,
+      "negative_fraction": 0.5833333333333334,
+      "types": {
+        "regulation_geopolitics": 12,
+        "flows_positioning": 2,
+        "macro_policy": 3,
+        "earnings_fundamental": 5,
+        "technical": 1,
+        "strategist_call": 1
+      }
+    },
+    {
+      "anchor_date": "2026-03-30",
+      "anchor_type": "real",
+      "year": 2026,
+      "period": "pre",
+      "n": 25,
+      "neg": 16,
+      "pos": 9,
+      "neutral": 0,
+      "negative_fraction": 0.64,
+      "types": {
+        "regulation_geopolitics": 20,
+        "flows_positioning": 1,
+        "earnings_fundamental": 2,
+        "strategist_call": 1,
+        "macro_policy": 1
+      }
+    },
+    {
+      "anchor_date": "2026-03-30",
+      "anchor_type": "real",
+      "year": 2026,
+      "period": "zero",
+      "n": 8,
+      "neg": 4,
+      "pos": 3,
+      "neutral": 1,
+      "negative_fraction": 0.5,
+      "types": {
+        "regulation_geopolitics": 7,
+        "macro_policy": 1
+      }
+    },
+    {
+      "anchor_date": "2026-03-30",
+      "anchor_type": "real",
+      "year": 2026,
+      "period": "post",
+      "n": 23,
+      "neg": 3,
+      "pos": 15,
+      "neutral": 5,
+      "negative_fraction": 0.13043478260869565,
+      "types": {
+        "flows_positioning": 4,
+        "regulation_geopolitics": 14,
+        "technical": 3,
+        "earnings_fundamental": 1,
+        "strategist_call": 1
+      }
+    },
+    {
+      "anchor_date": "2026-06-05",
+      "anchor_type": "real",
+      "year": 2026,
+      "period": "pre",
+      "n": 39,
+      "neg": 11,
+      "pos": 19,
+      "neutral": 9,
+      "negative_fraction": 0.28205128205128205,
+      "types": {
+        "regulation_geopolitics": 13,
+        "technical": 9,
+        "earnings_fundamental": 9,
+        "flows_positioning": 4,
+        "macro_policy": 4
+      }
+    },
+    {
+      "anchor_date": "2026-06-05",
+      "anchor_type": "real",
+      "year": 2026,
+      "period": "zero",
+      "n": 15,
+      "neg": 10,
+      "pos": 1,
+      "neutral": 4,
+      "negative_fraction": 0.6666666666666666,
+      "types": {
+        "macro_policy": 8,
+        "earnings_fundamental": 3,
+        "technical": 3,
+        "strategist_call": 1
+      }
+    },
+    {
+      "anchor_date": "2026-06-05",
+      "anchor_type": "real",
+      "year": 2026,
+      "period": "post",
+      "n": 37,
+      "neg": 13,
+      "pos": 16,
+      "neutral": 8,
+      "negative_fraction": 0.35135135135135137,
+      "types": {
+        "macro_policy": 5,
+        "technical": 10,
+        "strategist_call": 1,
+        "earnings_fundamental": 1,
+        "regulation_geopolitics": 17,
+        "flows_positioning": 3
+      }
+    },
+    {
+      "anchor_date": "2026-07-02",
+      "anchor_type": "fake",
+      "year": 2026,
+      "period": "pre",
+      "n": 51,
+      "neg": 12,
+      "pos": 23,
+      "neutral": 16,
+      "negative_fraction": 0.23529411764705882,
+      "types": {
+        "earnings_fundamental": 10,
+        "technical": 26,
+        "macro_policy": 5,
+        "flows_positioning": 4,
+        "regulation_geopolitics": 6
+      }
+    },
+    {
+      "anchor_date": "2026-07-02",
+      "anchor_type": "fake",
+      "year": 2026,
+      "period": "zero",
+      "n": 8,
+      "neg": 4,
+      "pos": 2,
+      "neutral": 2,
+      "negative_fraction": 0.5,
+      "types": {
+        "technical": 2,
+        "macro_policy": 3,
+        "earnings_fundamental": 1,
+        "flows_positioning": 1,
+        "strategist_call": 1
+      }
+    },
+    {
+      "anchor_date": "2026-07-02",
+      "anchor_type": "fake",
+      "year": 2026,
+      "period": "post",
+      "n": 56,
+      "neg": 18,
+      "pos": 20,
+      "neutral": 18,
+      "negative_fraction": 0.32142857142857145,
+      "types": {
+        "technical": 22,
+        "macro_policy": 10,
+        "flows_positioning": 7,
+        "earnings_fundamental": 5,
+        "strategist_call": 2,
+        "regulation_geopolitics": 10
+      }
+    },
+    {
+      "anchor_date": "2026-07-29",
+      "anchor_type": "real",
+      "year": 2026,
+      "period": "pre",
+      "n": 39,
+      "neg": 15,
+      "pos": 7,
+      "neutral": 17,
+      "negative_fraction": 0.38461538461538464,
+      "types": {
+        "earnings_fundamental": 6,
+        "technical": 13,
+        "regulation_geopolitics": 10,
+        "macro_policy": 4,
+        "strategist_call": 2,
+        "flows_positioning": 4
+      }
+    },
+    {
+      "anchor_date": "2026-07-29",
+      "anchor_type": "real",
+      "year": 2026,
+      "period": "zero",
+      "n": 10,
+      "neg": 4,
+      "pos": 0,
+      "neutral": 6,
+      "negative_fraction": 0.4,
+      "types": {
+        "technical": 4,
+        "macro_policy": 4,
+        "earnings_fundamental": 1,
+        "regulation_geopolitics": 1
+      }
+    },
+    {
+      "anchor_date": "2026-07-29",
+      "anchor_type": "real",
+      "year": 2026,
+      "period": "post",
+      "n": 49,
+      "neg": 12,
+      "pos": 30,
+      "neutral": 7,
+      "negative_fraction": 0.24489795918367346,
+      "types": {
+        "earnings_fundamental": 16,
+        "macro_policy": 12,
+        "technical": 8,
+        "flows_positioning": 2,
+        "regulation_geopolitics": 9,
+        "strategist_call": 2
+      }
+    },
+    {
+      "anchor_date": "2026-08-19",
+      "anchor_type": "fake",
+      "year": 2026,
+      "period": "pre",
+      "n": 49,
+      "neg": 30,
+      "pos": 12,
+      "neutral": 7,
+      "negative_fraction": 0.6122448979591837,
+      "types": {
+        "macro_policy": 25,
+        "technical": 6,
+        "flows_positioning": 4,
+        "regulation_geopolitics": 12,
+        "earnings_fundamental": 1,
+        "strategist_call": 1
+      }
+    },
+    {
+      "anchor_date": "2026-08-19",
+      "anchor_type": "fake",
+      "year": 2026,
+      "period": "zero",
+      "n": 7,
+      "neg": 6,
+      "pos": 1,
+      "neutral": 0,
+      "negative_fraction": 0.8571428571428571,
+      "types": {
+        "regulation_geopolitics": 4,
+        "macro_policy": 2,
+        "technical": 1
+      }
+    },
+    {
+      "anchor_date": "2026-08-19",
+      "anchor_type": "fake",
+      "year": 2026,
+      "period": "post",
+      "n": 53,
+      "neg": 15,
+      "pos": 21,
+      "neutral": 17,
+      "negative_fraction": 0.2830188679245283,
+      "types": {
+        "macro_policy": 22,
+        "strategist_call": 2,
+        "regulation_geopolitics": 5,
+        "earnings_fundamental": 10,
+        "flows_positioning": 5,
+        "technical": 9
+      }
+    },
+    {
+      "anchor_date": "2026-09-14",
+      "anchor_type": "real",
+      "year": 2026,
+      "period": "pre",
+      "n": 42,
+      "neg": 30,
+      "pos": 11,
+      "neutral": 1,
+      "negative_fraction": 0.7142857142857143,
+      "types": {
+        "technical": 2,
+        "macro_policy": 30,
+        "flows_positioning": 2,
+        "regulation_geopolitics": 3,
+        "earnings_fundamental": 2,
+        "capitulation_language": 2,
+        "strategist_call": 1
+      }
+    },
+    {
+      "anchor_date": "2026-09-14",
+      "anchor_type": "real",
+      "year": 2026,
+      "period": "zero",
+      "n": 9,
+      "neg": 5,
+      "pos": 2,
+      "neutral": 2,
+      "negative_fraction": 0.5555555555555556,
+      "types": {
+        "flows_positioning": 2,
+        "technical": 3,
+        "regulation_geopolitics": 3,
+        "macro_policy": 1
+      }
+    },
+    {
+      "anchor_date": "2026-09-14",
+      "anchor_type": "real",
+      "year": 2026,
+      "period": "post",
+      "n": 51,
+      "neg": 23,
+      "pos": 20,
+      "neutral": 8,
+      "negative_fraction": 0.45098039215686275,
+      "types": {
+        "regulation_geopolitics": 4,
+        "flows_positioning": 2,
+        "macro_policy": 33,
+        "technical": 9,
+        "earnings_fundamental": 2,
+        "strategist_call": 1
+      }
+    },
+    {
+      "anchor_date": "2026-11-05",
+      "anchor_type": "current",
+      "year": 2026,
+      "period": "pre",
+      "n": 50,
+      "neg": 22,
+      "pos": 16,
+      "neutral": 12,
+      "negative_fraction": 0.44,
+      "types": {
+        "earnings_fundamental": 12,
+        "macro_policy": 16,
+        "technical": 17,
+        "regulation_geopolitics": 1,
+        "flows_positioning": 1,
+        "capitulation_language": 1,
+        "strategist_call": 2
+      }
+    },
+    {
+      "anchor_date": "2026-11-05",
+      "anchor_type": "current",
+      "year": 2026,
+      "period": "zero",
+      "n": 10,
+      "neg": 8,
+      "pos": 0,
+      "neutral": 2,
+      "negative_fraction": 0.8,
+      "types": {
+        "technical": 4,
+        "capitulation_language": 3,
+        "regulation_geopolitics": 2,
+        "macro_policy": 1
+      }
+    },
+    {
+      "anchor_date": "2026-11-05",
+      "anchor_type": "current",
+      "year": 2026,
+      "period": "post",
+      "n": 45,
+      "neg": 21,
+      "pos": 13,
+      "neutral": 11,
+      "negative_fraction": 0.4666666666666667,
+      "types": {
+        "technical": 22,
+        "flows_positioning": 3,
+        "macro_policy": 11,
+        "regulation_geopolitics": 5,
+        "strategist_call": 2,
+        "earnings_fundamental": 2
+      }
+    }
+  ],
+  "wire_close_grid": [
+    {
+      "year": "all",
+      "anchor_type": "real",
+      "period": "pre",
+      "n": 75,
+      "neg": 42,
+      "pos": 21,
+      "neutral": 12,
+      "negative_fraction": 0.56,
+      "types": {
+        "technical": 20,
+        "macro_policy": 34,
+        "earnings_fundamental": 6,
+        "regulation_geopolitics": 13,
+        "capitulation_language": 1,
+        "strategist_call": 1
+      }
+    },
+    {
+      "year": "all",
+      "anchor_type": "real",
+      "period": "zero",
+      "n": 18,
+      "neg": 18,
+      "pos": 0,
+      "neutral": 0,
+      "negative_fraction": 1.0,
+      "types": {
+        "macro_policy": 10,
+        "technical": 5,
+        "regulation_geopolitics": 3
+      }
+    },
+    {
+      "year": "all",
+      "anchor_type": "real",
+      "period": "post",
+      "n": 77,
+      "neg": 10,
+      "pos": 56,
+      "neutral": 11,
+      "negative_fraction": 0.12987012987012986,
+      "types": {
+        "macro_policy": 31,
+        "technical": 25,
+        "strategist_call": 3,
+        "earnings_fundamental": 7,
+        "regulation_geopolitics": 10,
+        "flows_positioning": 1
+      }
+    },
+    {
+      "year": "all",
+      "anchor_type": "fake",
+      "period": "pre",
+      "n": 44,
+      "neg": 19,
+      "pos": 12,
+      "neutral": 13,
+      "negative_fraction": 0.4318181818181818,
+      "types": {
+        "earnings_fundamental": 5,
+        "macro_policy": 15,
+        "technical": 11,
+        "regulation_geopolitics": 12,
+        "flows_positioning": 1
+      }
+    },
+    {
+      "year": "all",
+      "anchor_type": "fake",
+      "period": "zero",
+      "n": 8,
+      "neg": 6,
+      "pos": 0,
+      "neutral": 2,
+      "negative_fraction": 0.75,
+      "types": {
+        "technical": 5,
+        "macro_policy": 3
+      }
+    },
+    {
+      "year": "all",
+      "anchor_type": "fake",
+      "period": "post",
+      "n": 37,
+      "neg": 16,
+      "pos": 15,
+      "neutral": 6,
+      "negative_fraction": 0.43243243243243246,
+      "types": {
+        "macro_policy": 14,
+        "strategist_call": 2,
+        "regulation_geopolitics": 7,
+        "technical": 10,
+        "earnings_fundamental": 3,
+        "flows_positioning": 1
+      }
+    },
+    {
+      "year": 2024,
+      "anchor_type": "real",
+      "period": "pre",
+      "n": 28,
+      "neg": 16,
+      "pos": 7,
+      "neutral": 5,
+      "negative_fraction": 0.5714285714285714,
+      "types": {
+        "technical": 9,
+        "macro_policy": 15,
+        "earnings_fundamental": 1,
+        "regulation_geopolitics": 2,
+        "capitulation_language": 1
+      }
+    },
+    {
+      "year": 2024,
+      "anchor_type": "real",
+      "period": "zero",
+      "n": 7,
+      "neg": 7,
+      "pos": 0,
+      "neutral": 0,
+      "negative_fraction": 1.0,
+      "types": {
+        "macro_policy": 4,
+        "technical": 3
+      }
+    },
+    {
+      "year": 2024,
+      "anchor_type": "real",
+      "period": "post",
+      "n": 32,
+      "neg": 2,
+      "pos": 24,
+      "neutral": 6,
+      "negative_fraction": 0.0625,
+      "types": {
+        "technical": 16,
+        "strategist_call": 1,
+        "macro_policy": 12,
+        "earnings_fundamental": 3
+      }
+    },
+    {
+      "year": 2024,
+      "anchor_type": "fake",
+      "period": "pre",
+      "n": 12,
+      "neg": 4,
+      "pos": 5,
+      "neutral": 3,
+      "negative_fraction": 0.3333333333333333,
+      "types": {
+        "earnings_fundamental": 1,
+        "macro_policy": 5,
+        "technical": 4,
+        "regulation_geopolitics": 1,
+        "flows_positioning": 1
+      }
+    },
+    {
+      "year": 2024,
+      "anchor_type": "fake",
+      "period": "zero",
+      "n": 3,
+      "neg": 3,
+      "pos": 0,
+      "neutral": 0,
+      "negative_fraction": 1.0,
+      "types": {
+        "technical": 3
+      }
+    },
+    {
+      "year": 2024,
+      "anchor_type": "fake",
+      "period": "post",
+      "n": 14,
+      "neg": 4,
+      "pos": 5,
+      "neutral": 5,
+      "negative_fraction": 0.2857142857142857,
+      "types": {
+        "technical": 6,
+        "macro_policy": 6,
+        "earnings_fundamental": 2
+      }
+    },
+    {
+      "year": 2025,
+      "anchor_type": "real",
+      "period": "pre",
+      "n": 17,
+      "neg": 13,
+      "pos": 2,
+      "neutral": 2,
+      "negative_fraction": 0.7647058823529411,
+      "types": {
+        "technical": 6,
+        "macro_policy": 10,
+        "earnings_fundamental": 1
+      }
+    },
+    {
+      "year": 2025,
+      "anchor_type": "real",
+      "period": "zero",
+      "n": 3,
+      "neg": 3,
+      "pos": 0,
+      "neutral": 0,
+      "negative_fraction": 1.0,
+      "types": {
+        "macro_policy": 1,
+        "technical": 2
+      }
+    },
+    {
+      "year": 2025,
+      "anchor_type": "real",
+      "period": "post",
+      "n": 16,
+      "neg": 2,
+      "pos": 14,
+      "neutral": 0,
+      "negative_fraction": 0.125,
+      "types": {
+        "macro_policy": 10,
+        "technical": 4,
+        "strategist_call": 2
+      }
+    },
+    {
+      "year": 2025,
+      "anchor_type": "fake",
+      "period": "pre",
+      "n": 7,
+      "neg": 3,
+      "pos": 0,
+      "neutral": 4,
+      "negative_fraction": 0.42857142857142855,
+      "types": {
+        "earnings_fundamental": 1,
+        "macro_policy": 4,
+        "technical": 2
+      }
+    },
+    {
+      "year": 2025,
+      "anchor_type": "fake",
+      "period": "zero",
+      "n": 1,
+      "neg": 1,
+      "pos": 0,
+      "neutral": 0,
+      "negative_fraction": 1.0,
+      "types": {
+        "technical": 1
+      }
+    },
+    {
+      "year": 2025,
+      "anchor_type": "fake",
+      "period": "post",
+      "n": 5,
+      "neg": 3,
+      "pos": 2,
+      "neutral": 0,
+      "negative_fraction": 0.6,
+      "types": {
+        "macro_policy": 5
+      }
+    },
+    {
+      "year": 2026,
+      "anchor_type": "real",
+      "period": "pre",
+      "n": 30,
+      "neg": 13,
+      "pos": 12,
+      "neutral": 5,
+      "negative_fraction": 0.43333333333333335,
+      "types": {
+        "regulation_geopolitics": 11,
+        "macro_policy": 9,
+        "strategist_call": 1,
+        "technical": 5,
+        "earnings_fundamental": 4
+      }
+    },
+    {
+      "year": 2026,
+      "anchor_type": "real",
+      "period": "zero",
+      "n": 8,
+      "neg": 8,
+      "pos": 0,
+      "neutral": 0,
+      "negative_fraction": 1.0,
+      "types": {
+        "regulation_geopolitics": 3,
+        "macro_policy": 5
+      }
+    },
+    {
+      "year": 2026,
+      "anchor_type": "real",
+      "period": "post",
+      "n": 29,
+      "neg": 6,
+      "pos": 18,
+      "neutral": 5,
+      "negative_fraction": 0.20689655172413793,
+      "types": {
+        "technical": 5,
+        "regulation_geopolitics": 10,
+        "macro_policy": 9,
+        "flows_positioning": 1,
+        "earnings_fundamental": 4
+      }
+    },
+    {
+      "year": 2026,
+      "anchor_type": "fake",
+      "period": "pre",
+      "n": 25,
+      "neg": 12,
+      "pos": 7,
+      "neutral": 6,
+      "negative_fraction": 0.48,
+      "types": {
+        "earnings_fundamental": 3,
+        "macro_policy": 6,
+        "regulation_geopolitics": 11,
+        "technical": 5
+      }
+    },
+    {
+      "year": 2026,
+      "anchor_type": "fake",
+      "period": "zero",
+      "n": 4,
+      "neg": 2,
+      "pos": 0,
+      "neutral": 2,
+      "negative_fraction": 0.5,
+      "types": {
+        "macro_policy": 3,
+        "technical": 1
+      }
+    },
+    {
+      "year": 2026,
+      "anchor_type": "fake",
+      "period": "post",
+      "n": 18,
+      "neg": 9,
+      "pos": 8,
+      "neutral": 1,
+      "negative_fraction": 0.5,
+      "types": {
+        "strategist_call": 2,
+        "macro_policy": 3,
+        "regulation_geopolitics": 7,
+        "technical": 4,
+        "flows_positioning": 1,
+        "earnings_fundamental": 1
+      }
+    }
+  ],
+  "turn_counts": {
+    "real": {
+      "none": 4,
+      "policy": 4,
+      "flows": 1,
+      "earnings": 1
+    },
+    "fake": {
+      "none": 3,
+      "policy": 2,
+      "flows": 1
+    },
+    "current": {
+      "flows": 1
+    }
+  },
+  "current10": [
+    {
+      "date": "2026-10-28",
+      "n": 10,
+      "neg": 1,
+      "pos": 9,
+      "neutral": 0,
+      "negative_fraction": 0.1,
+      "types": {
+        "technical": 2,
+        "flows_positioning": 3,
+        "macro_policy": 4,
+        "earnings_fundamental": 1
+      }
+    },
+    {
+      "date": "2026-10-29",
+      "n": 8,
+      "neg": 2,
+      "pos": 5,
+      "neutral": 1,
+      "negative_fraction": 0.25,
+      "types": {
+        "earnings_fundamental": 2,
+        "macro_policy": 5,
+        "technical": 1
+      }
+    },
+    {
+      "date": "2026-10-30",
+      "n": 9,
+      "neg": 9,
+      "pos": 0,
+      "neutral": 0,
+      "negative_fraction": 1.0,
+      "types": {
+        "technical": 1,
+        "earnings_fundamental": 8
+      }
+    },
+    {
+      "date": "2026-11-02",
+      "n": 11,
+      "neg": 7,
+      "pos": 1,
+      "neutral": 3,
+      "negative_fraction": 0.6363636363636364,
+      "types": {
+        "technical": 5,
+        "macro_policy": 2,
+        "flows_positioning": 1,
+        "earnings_fundamental": 2,
+        "regulation_geopolitics": 1
+      }
+    },
+    {
+      "date": "2026-11-03",
+      "n": 11,
+      "neg": 3,
+      "pos": 2,
+      "neutral": 6,
+      "negative_fraction": 0.2727272727272727,
+      "types": {
+        "technical": 9,
+        "capitulation_language": 1,
+        "macro_policy": 1
+      }
+    },
+    {
+      "date": "2026-11-04",
+      "n": 11,
+      "neg": 1,
+      "pos": 8,
+      "neutral": 2,
+      "negative_fraction": 0.09090909090909091,
+      "types": {
+        "macro_policy": 8,
+        "strategist_call": 2,
+        "technical": 1
+      }
+    },
+    {
+      "date": "2026-11-05",
+      "n": 10,
+      "neg": 8,
+      "pos": 0,
+      "neutral": 2,
+      "negative_fraction": 0.8,
+      "types": {
+        "capitulation_language": 3,
+        "technical": 4,
+        "regulation_geopolitics": 2,
+        "macro_policy": 1
+      }
+    },
+    {
+      "date": "2026-11-06",
+      "n": 17,
+      "neg": 2,
+      "pos": 9,
+      "neutral": 6,
+      "negative_fraction": 0.11764705882352941,
+      "types": {
+        "technical": 14,
+        "flows_positioning": 2,
+        "macro_policy": 1
+      }
+    },
+    {
+      "date": "2026-11-09",
+      "n": 14,
+      "neg": 8,
+      "pos": 2,
+      "neutral": 4,
+      "negative_fraction": 0.5714285714285714,
+      "types": {
+        "regulation_geopolitics": 3,
+        "technical": 6,
+        "strategist_call": 2,
+        "macro_policy": 2,
+        "earnings_fundamental": 1
+      }
+    },
+    {
+      "date": "2026-11-10",
+      "n": 14,
+      "neg": 11,
+      "pos": 2,
+      "neutral": 1,
+      "negative_fraction": 0.7857142857142857,
+      "types": {
+        "macro_policy": 8,
+        "regulation_geopolitics": 2,
+        "technical": 2,
+        "earnings_fundamental": 1,
+        "flows_positioning": 1
+      }
+    }
+  ],
+  "verification": {
+    "제목·요약만": 1038,
+    "재보도 본문 열람": 9,
+    "제목·요약만; 원문 못 읽음 (unread_http_403)": 114,
+    "제목·요약만; 원문 못 읽음 (unread_block_or_empty)": 13,
+    "제목·요약만; 원문 못 읽음 (unread_http_401)": 19,
+    "원문 열람": 5,
+    "제목·요약만; 원문 못 읽음 (unread_http_202)": 11,
+    "제목·요약만; 원문 못 읽음 (unread)": 1,
+    "제목·요약만; 원문 못 읽음 (unread_http_429)": 1
+  },
+  "original_read": 5,
+  "reprint_read": 9,
+  "article_read_fraction": 0.011560693641618497,
+  "wire_coverage_status": {
+    "found_headline": 185,
+    "future_unobservable": 2
+  }
+}

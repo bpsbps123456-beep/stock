@@ -1,60 +1,23 @@
-# 과제 B 사용량 제한 인계 — 2026-11-11
+# 과제 B 완료 — 2026-11-11
 
-**상태: B1 고정 검색 504개 완료, 임시 의견 55행, 미검토 후보 4,200개. B1 전수 검토·가격 분석·B2는 미완료다.** 과제서의 사용량 제한 순서에 따라 가격을 연결하지 않은 B1 수집 상태를 동결·커밋했다. 완료된 연구 결론으로 보고하지 않는다.
+B1 전수 판정·v2 동결·가격 분석, B2 수집·부호화·동결·비교, report_B.md 작성과 전체 테스트를 완료했다. 이번 재개 작업에서는 실제 사용량 한도 거부 오류가 없었다. 종전 미완료 인계는 현재 상태에 적용하지 않는다.
 
-## 수행한 것
-
-1. AGENTS.md, TASK_B.md, 데스크 §13~§13.5, 앞선 PB census 방식과 events.json의 날짜를 읽었다. PB 노트는 이번 대상에 합치지 않았다.
-2. protocol_B.json에 기관·분기·영한 검색어, 채택·제외·부호화, B2 창·톤·유형, H-U/H-D 군집과 검정 규칙을 먼저 고정했다. 사전 고정 커밋 **4452ced** 뒤 검색했다.
-3. 14기관 × 12분기 × 3틀 = 504개 고정 검색을 Google News RSS로 수행했다. 한 번 실패한 B1-0036은 실패 원자료를 prior_attempts에 남기고 재시도했다. 성공 결과 504개, 미해결 오류·100개 상한 도달은 없다.
-4. 웹 후속 검색어 15개와 그 모든 결과도 저장했다. 총 검색 횟수는 520회(RSS 505 + 웹 검색어 15)다. 여러 검색어가 묶인 첫 웹 요청은 결과를 검색어별로 허위 배분하지 않고 같은 요청으로 기록했다.
-5. 결과 출현 4,718개, URL 해시 기준 고유 후보 4,271개를 남겼다. 의견 표에는 임시 55행, 기사 후보로는 54개를 올렸다. 4,200개는 pending_review로 남았다. 부적격이 아니라 미검토다.
-6. 14개 페이지·PDF를 열었다. 채택 행 기준 기관 원문 6개와 원보도 3개, 재보도 3개를 읽었다. 나머지 43행은 제목·요약만 확인했다. MarketScreener 로그인 패널은 우회하지 않았다. DB 11/2 재보도는 10/31 동일 변경으로 묶었다.
-7. code/collect_B.py는 재개 가능한 B1 검색 수집기이고 code/assemble_B1.py는 가격을 읽지 않는 수동 검토 결과 조립기다. 동결 뒤 수집·조립이 기존 입력을 덮어쓰지 못하도록 막았다. 신규 테스트는 검색 결과·오류의 손실 없는 로그, 차단 표기, 계열과 의견의 연결, SHA-256·쓰기 방지를 검사한다.
-8. 가격 API를 호출하거나 다른 작업자의 가격 캐시를 읽거나 가격과 연결한 결과를 계산하지 않았다. freeze_B.json은 B1 부분 표본이라는 상태를 명시한다.
-
-## 파일과 정확한 상태
-
-| 파일 | 상태 |
+| 단계 | 완료 증거 |
 |---|---|
-| protocol_B.json | 사전 고정·커밋 4452ced |
-| calls_census.csv | 55행; 전부 provisional_partial_census |
-| search_log_B1.csv | 고정·추가 검색의 모든 결과, 0건·오류·재시도 포함 |
-| raw/B1/*.json | 504개 요청 결과; 실패 재시도 이력 포함 |
-| raw/web_B1_*.json | 웹 요청 13개, 검색어 15개와 전체 반환 결과 |
-| raw/read_B1_*.json | 페이지·PDF 14회 열람 결과 |
-| article_access_B1.csv / .json | 읽음·재보도·중복·로그인 실패 감사 기록 |
-| pending_review_B1.csv | 4,200개 미검토 후보; 최종 제외 목록 아님 |
-| coverage_B1.csv | 기관×분기 168칸의 검색 완료와 임시 채택 건수 |
-| reviewed_calls_B1.json | 수동 확인한 제목·본문 부호화 입력 |
-| candidates_B1.json | RSS 후보 3,981개의 최초 수집 인벤토리; 웹 포함 통합 후보는 검색 기록·pending 목록을 볼 것 |
-| news_series_B.csv | 55행; 잠정이라는 status 열 있음. 과제 A의 확정 입력으로 바로 사용 금지 |
-| results/collection_summary_B1.json | 위 통계와 price_access=false, H_U/H_D=null |
-| freeze_B.json | 가격 연결 전 B1 부분 동결; B2 완료 의미 없음 |
-| bottom_news.csv / search_log_B2.csv | **없음: B2 미착수. 빈 양식으로 완료를 흉내 내지 않았음** |
-| ../report_B.md | 부분 수집 보고서; 요구한 최종 가설 결과는 미계산으로 표시 |
-| unittest_output.txt | py -m unittest: 509 tests / 36.352s / OK / 종료 코드 0 |
-| tests/test_bottom_zone_news_B_checkpoint.py | 이번에 추가한 7개 감사 테스트 |
+| 최초 규칙·부분 동결 | protocol_B.json / freeze_B.json; 4452ced / dd65093c |
+| B1 전수 판정 | review_B1_v2.csv 4,200행; v2 추가 제목 판정 1,713행 |
+| B1 완성 표본 | v2/calls_census.csv 181행, 24기관; 178행 공개일 확인 |
+| B1 가격 전 동결 | freeze_B_v2.json; c5edc8affe00b4126b152f7aed9fd0ec9b75e95d |
+| B1 가격 분석 | v2/results/analysis_B1.json, calls_with_prices.csv, split_check.json |
+| B2 부호화 | bottom_news.csv 1,138행; 제목 수동 판정 1,458개 |
+| B2 비교 전 동결 | freeze_B2_v2.json; 7c380ad6b842e95f901c823cc6bec271a85c6109 |
+| B2 분석 | v2/results/analysis_B2.json, B2_period_counts.csv, B2_episode_counts.csv, B2_types.csv |
+| 과제 A 전달 | v2/news_series_B.csv 178행; 공개일 기준 U/DN/TU/TC·asset_scope |
+| 전체 검증 | v2/results/unittest_full_B.txt; py -m unittest, 520 tests, OK, exit 0 |
+| 최종 보고서 | ../report_B.md; 최종 커밋 해시는 전달 메시지에 기록 |
 
-## 현재 숫자
+최종 B1 정본은 v2/ 아래다. 루트 calls_census.csv·search_log_B1.csv·coverage_B1.csv·news_series_B.csv와 freeze_B.json은 첫 55행 부분 동결 당시의 불변 감사 자료로 보존했다. pending_review_B1.csv는 최초 큐의 역사적 파일이며 현재 미검토 상태를 뜻하지 않는다.
 
-- 기관별: Citi 9, Goldman Sachs 7, UBS 6, Wells Fargo 5, Barclays·Deutsche Bank·HSBC·Oppenheimer 각 4, Morgan Stanley·JPMorgan 각 3, BlackRock·Evercore 각 2, BofA·Jefferies 각 1.
-- 종류별: U 9, DN 9, TU 29, TC 8. 연도별: 2024년 10, 2025년 17, 2026년 28.
-- 원문/원보도 열람 9/55=16.4%, 재보도 포함 본문 열람 12/55=21.8%. 기관 자체 자료만 따로 세면 6/55=10.9%다.
-- H-U·H-D 2026, 진짜/가짜 바닥 부정 비율, 전환 재료 유형 빈도는 **미계산**이며 0 또는 기각이 아니다.
+2026 SOXX H-U는 완전 관측 2건 중 바닥 근처 0건, 대조 27/66건, Holm p=1이다. H-D는 3건 중 2건, 가격 짝 1/3건, Holm p=0.442다. 진짜 바닥 +1~+5 부정 기사는 전체 72/274건(26.3%), 가짜는 72/184건(39.1%); 2026은 51/160건(31.9%) 대 47/133건(35.3%)이다.
 
-## 이어받는 순서
-
-1. **B1 전체 후보 판정부터 끝낸다.** 검색은 끝났지만 전수 표본은 아직 아니다. 대다수 개별 종목·동명이인·PB·유사 기사·반복 전망 후보를 명시적으로 제외하고, 실제 의견 변경은 원문·통신사 본문으로 검증한다. 같은 의견의 RSS·원보도·재보도 URL을 source_group으로 합친다. 제목 날짜를 최초 공개일로 대체하고 목표 연도·전후 수치를 확인한다. 반복 등장하는 RBC·SocGen·Standard Chartered 등은 추가 대상인지 확인한 뒤 새 버전 protocol에 남겨 검색한다.
-2. **동결 파일을 조용히 덮어쓰지 않는다.** 현재 입력은 B1-only 부분 동결이다. 기존 스냅샷을 유지하고 같은 news/ 아래 명시적 새 evidence 버전·새 freeze를 만든다. 최신 확정 CSV를 루트에 둘 필요가 있다면 기존 동결 입력을 새 버전의 부모로 보존하고 해시·버전 관계를 기록한다. code/assemble_B1.py의 덮어쓰기 방지는 이를 위한 것이다. 새 표본을 커밋한 뒤에만 새 표본과 가격을 연결한다.
-3. **B1 분석**: SOXX·QQQ 전체 이력을 새로 받는다. 2026-11-05 SOXX 3:1 분할을 검사한다. 공개일만 알면 다음 정규장 시가 진입, 직전 60세션 고점 대비 -10% 상태, 20세션 최저 종가 -5% 방어, 5·10·20세션 수익을 낸다. 미완료 수익은 결측이다. 4의견×2상태=8칸을 연도별로 낸다. H-U와 5세션 안 서로 다른 2기관 이상 하향·목표하향 군집 H-D는 2026 주 판정, 원형 이동 10,000회·시드 20261111·Holm 2다. 같은 해·상태의 아무 날과 (DD60, 직전 5일 수익) 1:1 짝 대조도 필요하다.
-4. **B2**: 사전 고정된 진짜 10개, 완료 국면 첫 F 6개, 현재 첫 F 2026-10-14를 확인한다. 진행 중 국면은 판정 표본에서 제외하고 따로 표시하도록 정했다. 각 창 -5~+5 세션을 동일 10개 검색 틀로 수집한다. 날짜를 섞어 부호화하고 세션별 통신사 마감 기사 최소 1개, 검색 실패/못 찾음의 명시, 전체 검색 로그를 남긴다. 현재 최저일 11/02는 events.json의 최신일 11/03에 따른 임시값이라, 새 가격은 동결 뒤에 받아 최신 최저일을 재확인해야 한다.
-5. B2 입력도 새 freeze와 커밋 뒤 가격·바닥 구간과 연결한다. 세 구간의 neg/전체 건수, 유형, 0~+1 전환 재료, 바닥별 한 줄, 최근 10세션 프로필을 쓴다. 마지막에 report_B.md의 미계산 칸을 검증된 값으로 바꾸고 새 코드 전체 unittest를 통과시킨다.
-
-추가 확인할 구체적 후보: BlackRock 2026년 3월 중립 하향과 10/12 원문 공개일, DB 2026년 10월 이전 하향 시점, Citi Wealth 대 Citi Research 변경, 2025-04-14 Citi 등급·지수 목표 동시 변경, 2026-05-13 MS 연말 목표 대 12개월 목표의 구분, UBS 복수 부서 목표. Oppenheimer의 새 연도 첫 목표 설정을 기존 동일 연도 목표 상향으로 잘못 세지 않는다.
-
-## 재현과 동결
-
-동결 전 실행한 명령은 `py data/derived/analysis/bottom_zone_20261111/news/code/collect_B.py B1`, 이어서 `py data/derived/analysis/bottom_zone_20261111/news/code/assemble_B1.py assemble`이다. 현재는 freeze가 있으므로 둘 다 기존 산출물을 덮어쓰지 않고 종료하는 것이 정상이다. 입력 동일성은 freeze_B.json의 input_hashes로 확인한다. Git 줄바꿈 변환 때문에 SHA-256 입력은 CRLF→LF 정규화 바이트다. 테스트 출력·이 인계 문서는 변할 수 있으므로 입력 해시 목록에서 제외했다.
-
-사전 고정 이후 코드·원자료·임시 표·부분 freeze·보고서·신규 테스트만 경로 지정 커밋한다. 전체 `py -m unittest`는 **509 tests / 36.352s / OK / 종료 코드 0**으로 통과했다. A 작업자 파일과 다른 미커밋 데이터는 그대로 뒀다. 최종 커밋 해시는 `git log --oneline -- data/derived/analysis/bottom_zone_20261111/news/freeze_B.json`으로 확인한다. 푸시 거부 시 rebase 없이 로컬 커밋으로 인계한다.
+남은 연구 실행 단계는 없다. 원문 접근 제한·날짜 대용·비공개 표본 누락·소표본·업데이트 의존성·라벨 비맹검은 보고서에 공개한 자료 한계다. 확률이나 매수 추천으로 바꾸지 않았고, 허용 경로 밖 다른 작업자의 변경은 그대로 두었다.
