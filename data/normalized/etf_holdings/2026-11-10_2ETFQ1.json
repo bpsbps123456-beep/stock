@@ -1,0 +1,550 @@
+{
+  "schema_version": 2,
+  "fund_id": "2ETFQ1",
+  "etf_ticker": "2ETFQ1",
+  "etf_name": "KoAct 미국나스닥성장기업액티브",
+  "requested_date": "2026-11-10",
+  "as_of_date": "2026-11-10",
+  "date": "2026-11-10",
+  "actual_date": "2026-11-10",
+  "retrieved_at": "2026-11-11T19:41:28+09:00",
+  "source_url": "https://www.samsungactive.co.kr/api/v1/product/etf-pdf/2ETFQ1.do?gijunYMD=20261110",
+  "parser_version": "gbrc-etf-v2",
+  "source_sha256": "d003a04b5b2d60e48db4fccf9ea1eb4225373d21cf833dd1e3d3fea1544a1279",
+  "raw_sha256": "a5ffa4fd73e698d612edf6eced460fdfe43a3b0cb4d6cec25a48ffbb5309d523",
+  "holdings_count": 51,
+  "holdings": [
+    {
+      "code": "AMZN US EQUITY",
+      "name": "Amazon.com Inc",
+      "asset_type": "security",
+      "qty": 196.38,
+      "value_krw": 68596129,
+      "source_weight_pct": 10.05,
+      "nav_weight_pct": 9.60462873,
+      "weight": 9.60462873
+    },
+    {
+      "code": "MSFT US EQUITY",
+      "name": "MICROSOFT",
+      "asset_type": "security",
+      "qty": 65.74,
+      "value_krw": 46989948,
+      "source_weight_pct": 6.89,
+      "nav_weight_pct": 6.57939465,
+      "weight": 6.57939465
+    },
+    {
+      "code": "PLTR US EQUITY",
+      "name": "Palantir Technologies Inc -A",
+      "asset_type": "security",
+      "qty": 192.7,
+      "value_krw": 41632429,
+      "source_weight_pct": 6.1,
+      "nav_weight_pct": 5.82925056,
+      "weight": 5.82925056
+    },
+    {
+      "code": "",
+      "name": "Cash",
+      "asset_type": "cash",
+      "qty": 31886966,
+      "value_krw": 31886966,
+      "source_weight_pct": 4.46471943,
+      "nav_weight_pct": 4.46471943,
+      "weight": 4.46471943
+    },
+    {
+      "code": "SNOW US EQUITY",
+      "name": "Snowflake Inc   - CL A",
+      "asset_type": "security",
+      "qty": 78.39,
+      "value_krw": 29132698,
+      "source_weight_pct": 4.27,
+      "nav_weight_pct": 4.0790749,
+      "weight": 4.0790749
+    },
+    {
+      "code": "AMD US EQUITY",
+      "name": "ADVANCED MICRO DEVICES",
+      "asset_type": "security",
+      "qty": 46.36,
+      "value_krw": 28043246,
+      "source_weight_pct": 4.11,
+      "nav_weight_pct": 3.92653303,
+      "weight": 3.92653303
+    },
+    {
+      "code": "NVDA US EQUITY",
+      "name": "NVIDIA Corp",
+      "asset_type": "security",
+      "qty": 105.78,
+      "value_krw": 26595497,
+      "source_weight_pct": 3.9,
+      "nav_weight_pct": 3.72382346,
+      "weight": 3.72382346
+    },
+    {
+      "code": "NTAP US EQUITY",
+      "name": "NETAPP INC",
+      "asset_type": "security",
+      "qty": 88.11,
+      "value_krw": 20081665,
+      "source_weight_pct": 2.94,
+      "nav_weight_pct": 2.81177582,
+      "weight": 2.81177582
+    },
+    {
+      "code": "OKTA US EQUITY",
+      "name": "OKTA INC",
+      "asset_type": "security",
+      "qty": 86.95,
+      "value_krw": 19758717,
+      "source_weight_pct": 2.9,
+      "nav_weight_pct": 2.76655758,
+      "weight": 2.76655758
+    },
+    {
+      "code": "MSTR US EQUITY",
+      "name": "Strategy Inc",
+      "asset_type": "security",
+      "qty": 112.97,
+      "value_krw": 19620810,
+      "source_weight_pct": 2.88,
+      "nav_weight_pct": 2.74724825,
+      "weight": 2.74724825
+    },
+    {
+      "code": "GTLB US EQUITY",
+      "name": "Gitlab Inc",
+      "asset_type": "security",
+      "qty": 298.91,
+      "value_krw": 19363999,
+      "source_weight_pct": 2.84,
+      "nav_weight_pct": 2.71129033,
+      "weight": 2.71129033
+    },
+    {
+      "code": "ACN US EQUITY",
+      "name": "ACCENTURE PLC-CL A",
+      "asset_type": "security",
+      "qty": 52.79,
+      "value_krw": 18525043,
+      "source_weight_pct": 2.72,
+      "nav_weight_pct": 2.59382217,
+      "weight": 2.59382217
+    },
+    {
+      "code": "UNH US EQUITY",
+      "name": "UNITEDHEALTH GROUP INC",
+      "asset_type": "security",
+      "qty": 32.74,
+      "value_krw": 17383612,
+      "source_weight_pct": 2.55,
+      "nav_weight_pct": 2.43400235,
+      "weight": 2.43400235
+    },
+    {
+      "code": "LLY US EQUITY",
+      "name": "ELI LILLY & CO",
+      "asset_type": "security",
+      "qty": 9.5,
+      "value_krw": 17327747,
+      "source_weight_pct": 2.54,
+      "nav_weight_pct": 2.4261803,
+      "weight": 2.4261803
+    },
+    {
+      "code": "CRCL US EQUITY",
+      "name": "Circle Internet Group Inc",
+      "asset_type": "security",
+      "qty": 188.62,
+      "value_krw": 17247629,
+      "source_weight_pct": 2.53,
+      "nav_weight_pct": 2.41496241,
+      "weight": 2.41496241
+    },
+    {
+      "code": "TSLA US EQUITY",
+      "name": "TESLA MOTORS",
+      "asset_type": "security",
+      "qty": 34.63,
+      "value_krw": 16710989,
+      "source_weight_pct": 2.45,
+      "nav_weight_pct": 2.33982365,
+      "weight": 2.33982365
+    },
+    {
+      "code": "SPCX US EQUITY",
+      "name": "Space Exploration Technologies Corp",
+      "asset_type": "security",
+      "qty": 89.99,
+      "value_krw": 16276951,
+      "source_weight_pct": 2.39,
+      "nav_weight_pct": 2.27905092,
+      "weight": 2.27905092
+    },
+    {
+      "code": "BE US EQUITY",
+      "name": "BLOOM ENERGY CORPORATION",
+      "asset_type": "security",
+      "qty": 60.4,
+      "value_krw": 14095644,
+      "source_weight_pct": 2.07,
+      "nav_weight_pct": 1.97363072,
+      "weight": 1.97363072
+    },
+    {
+      "code": "NXT US EQUITY",
+      "name": "Nextpower Inc",
+      "asset_type": "security",
+      "qty": 95.13,
+      "value_krw": 13443536,
+      "source_weight_pct": 1.97,
+      "nav_weight_pct": 1.88232447,
+      "weight": 1.88232447
+    },
+    {
+      "code": "FSLR US EQUITY",
+      "name": "FIRST SOLAR INC",
+      "asset_type": "security",
+      "qty": 49.17,
+      "value_krw": 13322891,
+      "source_weight_pct": 1.95,
+      "nav_weight_pct": 1.86543211,
+      "weight": 1.86543211
+    },
+    {
+      "code": "TEM US EQUITY",
+      "name": "Tempus AI Inc",
+      "asset_type": "security",
+      "qty": 129.93,
+      "value_krw": 13310932,
+      "source_weight_pct": 1.95,
+      "nav_weight_pct": 1.86375765,
+      "weight": 1.86375765
+    },
+    {
+      "code": "DELL US EQUITY",
+      "name": "Dell Technologies Inc",
+      "asset_type": "security",
+      "qty": 28.52,
+      "value_krw": 12621890,
+      "source_weight_pct": 1.85,
+      "nav_weight_pct": 1.76728001,
+      "weight": 1.76728001
+    },
+    {
+      "code": "CRWD US EQUITY",
+      "name": "CROWDSTRIKE HOLDINGS INC - A",
+      "asset_type": "security",
+      "qty": 42.54,
+      "value_krw": 12429592,
+      "source_weight_pct": 1.82,
+      "nav_weight_pct": 1.740355,
+      "weight": 1.740355
+    },
+    {
+      "code": "AXTI US EQUITY",
+      "name": "AXT Inc",
+      "asset_type": "security",
+      "qty": 233.6,
+      "value_krw": 12234857,
+      "source_weight_pct": 1.79,
+      "nav_weight_pct": 1.71308878,
+      "weight": 1.71308878
+    },
+    {
+      "code": "META US EQUITY",
+      "name": "Meta Platforms Inc-CL A",
+      "asset_type": "security",
+      "qty": 14.8,
+      "value_krw": 12164609,
+      "source_weight_pct": 1.78,
+      "nav_weight_pct": 1.70325286,
+      "weight": 1.70325286
+    },
+    {
+      "code": "NXPI US EQUITY",
+      "name": "NXP SEMICONDUCTORS NV",
+      "asset_type": "security",
+      "qty": 34.21,
+      "value_krw": 11442268,
+      "source_weight_pct": 1.68,
+      "nav_weight_pct": 1.60211279,
+      "weight": 1.60211279
+    },
+    {
+      "code": "PANW US EQUITY",
+      "name": "PALO ALTO NETWORKS INC",
+      "asset_type": "security",
+      "qty": 26.76,
+      "value_krw": 11313428,
+      "source_weight_pct": 1.66,
+      "nav_weight_pct": 1.584073,
+      "weight": 1.584073
+    },
+    {
+      "code": "TXN US EQUITY",
+      "name": "TEXAS INSTRUMENTS",
+      "asset_type": "security",
+      "qty": 28.86,
+      "value_krw": 10783009,
+      "source_weight_pct": 1.58,
+      "nav_weight_pct": 1.50980528,
+      "weight": 1.50980528
+    },
+    {
+      "code": "DDOG US EQUITY",
+      "name": "DATADOG INC - CLASS A",
+      "asset_type": "security",
+      "qty": 44.13,
+      "value_krw": 10643484,
+      "source_weight_pct": 1.56,
+      "nav_weight_pct": 1.4902694,
+      "weight": 1.4902694
+    },
+    {
+      "code": "MDB US EQUITY",
+      "name": "MONGODB INC",
+      "asset_type": "security",
+      "qty": 24.54,
+      "value_krw": 10341482,
+      "source_weight_pct": 1.52,
+      "nav_weight_pct": 1.44798397,
+      "weight": 1.44798397
+    },
+    {
+      "code": "VICR US EQUITY",
+      "name": "Vicor Corp",
+      "asset_type": "security",
+      "qty": 47.56,
+      "value_krw": 9410319,
+      "source_weight_pct": 1.38,
+      "nav_weight_pct": 1.31760526,
+      "weight": 1.31760526
+    },
+    {
+      "code": "KO US EQUITY",
+      "name": "COCA-COLA CO/THE",
+      "asset_type": "security",
+      "qty": 70.68,
+      "value_krw": 9109030,
+      "source_weight_pct": 1.34,
+      "nav_weight_pct": 1.27541966,
+      "weight": 1.27541966
+    },
+    {
+      "code": "FTNT US EQUITY",
+      "name": "FORTINET INC",
+      "asset_type": "security",
+      "qty": 53.76,
+      "value_krw": 8606404,
+      "source_weight_pct": 1.26,
+      "nav_weight_pct": 1.20504344,
+      "weight": 1.20504344
+    },
+    {
+      "code": "NET US EQUITY",
+      "name": "Cloudflare Inc",
+      "asset_type": "security",
+      "qty": 21.63,
+      "value_krw": 7830776,
+      "source_weight_pct": 1.15,
+      "nav_weight_pct": 1.09644228,
+      "weight": 1.09644228
+    },
+    {
+      "code": "NTRA US EQUITY",
+      "name": "Natera Inc",
+      "asset_type": "security",
+      "qty": 16.96,
+      "value_krw": 7097820,
+      "source_weight_pct": 1.04,
+      "nav_weight_pct": 0.99381593,
+      "weight": 0.99381593
+    },
+    {
+      "code": "MU US EQUITY",
+      "name": "MICRON TECH",
+      "asset_type": "security",
+      "qty": 7.09,
+      "value_krw": 6590147,
+      "source_weight_pct": 0.97,
+      "nav_weight_pct": 0.92273305,
+      "weight": 0.92273305
+    },
+    {
+      "code": "NOW US EQUITY",
+      "name": "SERVICENOW INC",
+      "asset_type": "security",
+      "qty": 40.67,
+      "value_krw": 5586585,
+      "source_weight_pct": 0.82,
+      "nav_weight_pct": 0.78221724,
+      "weight": 0.78221724
+    },
+    {
+      "code": "ILMN US EQUITY",
+      "name": "ILLUMINA INC",
+      "asset_type": "security",
+      "qty": 18.95,
+      "value_krw": 5440685,
+      "source_weight_pct": 0.8,
+      "nav_weight_pct": 0.76178875,
+      "weight": 0.76178875
+    },
+    {
+      "code": "SNDK US EQUITY",
+      "name": "Sandisk Corp/DE",
+      "asset_type": "security",
+      "qty": 4.79,
+      "value_krw": 5388315,
+      "source_weight_pct": 0.79,
+      "nav_weight_pct": 0.75445606,
+      "weight": 0.75445606
+    },
+    {
+      "code": "GH US EQUITY",
+      "name": "Guardant Health Inc",
+      "asset_type": "security",
+      "qty": 20.93,
+      "value_krw": 4253749,
+      "source_weight_pct": 0.62,
+      "nav_weight_pct": 0.59559745,
+      "weight": 0.59559745
+    },
+    {
+      "code": "STX US EQUITY",
+      "name": "SEAGATE TECHNOLOGY",
+      "asset_type": "security",
+      "qty": 6.64,
+      "value_krw": 4123437,
+      "source_weight_pct": 0.6,
+      "nav_weight_pct": 0.57735155,
+      "weight": 0.57735155
+    },
+    {
+      "code": "AKAM US EQUITY",
+      "name": "Akamai Technologies Inc",
+      "asset_type": "security",
+      "qty": 35.61,
+      "value_krw": 3985846,
+      "source_weight_pct": 0.58,
+      "nav_weight_pct": 0.55808646,
+      "weight": 0.55808646
+    },
+    {
+      "code": "DT US EQUITY",
+      "name": "DYNATRACE INC",
+      "asset_type": "security",
+      "qty": 67.1,
+      "value_krw": 3926559,
+      "source_weight_pct": 0.58,
+      "nav_weight_pct": 0.54978527,
+      "weight": 0.54978527
+    },
+    {
+      "code": "AMAT US EQUITY",
+      "name": "APPLIED MATERIALS INC",
+      "asset_type": "security",
+      "qty": 8.08,
+      "value_krw": 3621459,
+      "source_weight_pct": 0.53,
+      "nav_weight_pct": 0.50706606,
+      "weight": 0.50706606
+    },
+    {
+      "code": "SKHY US EQUITY",
+      "name": "SK hynix Inc",
+      "asset_type": "security",
+      "qty": 20.45,
+      "value_krw": 3507987,
+      "source_weight_pct": 0.51,
+      "nav_weight_pct": 0.49117805,
+      "weight": 0.49117805
+    },
+    {
+      "code": "WDC US EQUITY",
+      "name": "WESTERN DIGITAL",
+      "asset_type": "security",
+      "qty": 8.36,
+      "value_krw": 2970625,
+      "source_weight_pct": 0.44,
+      "nav_weight_pct": 0.4159382,
+      "weight": 0.4159382
+    },
+    {
+      "code": "TER US EQUITY",
+      "name": "TERADYNE INC",
+      "asset_type": "security",
+      "qty": 9.39,
+      "value_krw": 2760260,
+      "source_weight_pct": 0.4,
+      "nav_weight_pct": 0.38648351,
+      "weight": 0.38648351
+    },
+    {
+      "code": "INTC US EQUITY",
+      "name": "INTEL Corp",
+      "asset_type": "security",
+      "qty": 33.13,
+      "value_krw": 2511743,
+      "source_weight_pct": 0.37,
+      "nav_weight_pct": 0.35168689,
+      "weight": 0.35168689
+    },
+    {
+      "code": "LRCX US EQUITY",
+      "name": "LAM RESEARCH",
+      "asset_type": "security",
+      "qty": 8.75,
+      "value_krw": 2362611,
+      "source_weight_pct": 0.35,
+      "nav_weight_pct": 0.33080586,
+      "weight": 0.33080586
+    },
+    {
+      "code": "LITE US EQUITY",
+      "name": "Lumentum Holdings Inc",
+      "asset_type": "security",
+      "qty": 1.86,
+      "value_krw": 1349494,
+      "source_weight_pct": 0.2,
+      "nav_weight_pct": 0.18895219,
+      "weight": 0.18895219
+    },
+    {
+      "code": "AVGO US EQUITY",
+      "name": "BROADCOM LTD",
+      "asset_type": "security",
+      "qty": 1.12,
+      "value_krw": 443105,
+      "source_weight_pct": 0.06,
+      "nav_weight_pct": 0.06204226,
+      "weight": 0.06204226
+    }
+  ],
+  "metrics": {
+    "nav_weight_sum_pct": 100.0,
+    "cash_weight_pct": 4.46471943,
+    "invested_nav_weight_pct": 95.53528057,
+    "gross_exposure_pct": 95.53528057,
+    "source_non_cash_weight_sum_pct": 100.03
+  },
+  "quality": {
+    "status": "valid",
+    "requested_date_differs": false,
+    "checks": [
+      "schema",
+      "identity",
+      "dates",
+      "holdings_count",
+      "unique_codes",
+      "cash_count",
+      "finite_nonnegative_values",
+      "nav_weight_sum"
+    ]
+  },
+  "content_sha256": "7a7e369a4763b425818bc128a45fd326b7c69d241e1d2ff9dc99eff26de0959b"
+}
