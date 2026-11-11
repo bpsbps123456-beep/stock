@@ -254,7 +254,11 @@ def inputs(news_series=None):
     err = {k:float(abs(px.loc[k,'close']-v)) for k,v in anchors.items()}
     if max(err.values())>.02: raise ValueError(f'SOXX split basis mismatch {err}')
     if (px.close.pct_change(fill_method=None).abs()>.45).any(): raise ValueError('Unexpected split discontinuity')
+    if ((px.open/px.close.shift(1)-1).abs()>.45).any():raise ValueError('Mixed-basis opening prices')
+    envelope=(px.low>px[['open','close']].min(axis=1)+1e-4)|(px.high<px[['open','close']].max(axis=1)-1e-4)
+    if envelope.any():raise ValueError('Invalid OHLC envelope')
     dump(ROOT/'data/split_check.json',dict(anchors=anchors,abs_error=err,passed=True,
+        max_abs_open_gap=float((px.open/px.close.shift(1)-1).abs().max()),ohlc_envelope_errors=int(envelope.sum()),
         method='Single fresh Yahoo response; anchors already at 3:1 basis; no redivision or splice'))
     hist = json.loads((ROOT/'data/cnn.json').read_text())['fear_and_greed_historical']['data']
     # CNN daily historical x is the UTC-midnight DATE LABEL, not a US-close instant.
@@ -263,6 +267,11 @@ def inputs(news_series=None):
     notes = pd.read_csv(path)
     if 'date' not in notes: notes['date'] = notes.published_at.str[:10]
     notes = notes[['date','family']].drop_duplicates()
+    # B's four replacement slots: downgrade, upgrade, target-cut, target-up.
+    if news_series and set(notes.family.dropna()).issubset({'U','DN','TU','TC'}):
+        notes['family']=notes.family.map({'U':'R','DN':'D','TU':'T','TC':'S'})
+    if not set(notes.family.dropna()).issubset(set('DRSTN')):
+        raise ValueError('Unsupported news families; use D/R/S/T or B U/DN/TU/TC')
     return src,cust,px,cnn,notes
 
 
