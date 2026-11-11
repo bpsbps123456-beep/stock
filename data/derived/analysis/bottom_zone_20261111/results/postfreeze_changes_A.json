@@ -1,0 +1,25 @@
+{
+  "freeze_commit": "9167123bfa91b8a1dc685ee57f0918f1e30a831a",
+  "raw_archive_commit": "8ee41fde9280c9377cb51e1eb1133497cbc22a48",
+  "changes_after_freeze": [
+    {
+      "file": "code/run_A.py",
+      "scope": "exhaustion descriptive custody alignment only",
+      "change": "Drop unmapped source_date NaT rows and sort the custody source index before descriptive alignment.",
+      "primary_signals_or_outcomes_changed": false,
+      "reason": "Initial evaluate completed primary outputs but stopped on a descriptive custody index error; the fixed evaluator was rerun and independently verified."
+    },
+    {
+      "file": "code/report_A.py",
+      "scope": "report text, displayed tables, audit links only",
+      "primary_signals_or_outcomes_changed": false
+    },
+    {
+      "file": ".gitignore",
+      "scope": "preserve the already-fingerprinted raw XML gzip responses in Git",
+      "primary_signals_or_outcomes_changed": false
+    }
+  ],
+  "representatives_or_thresholds_changed": false,
+  "independent_verification": "results/verify_A.json"
+}
