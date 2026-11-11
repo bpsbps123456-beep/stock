@@ -1,0 +1,37 @@
+{
+  "periods": {
+    "front": [
+      "2026-01-02",
+      "2026-05-29"
+    ],
+    "back": [
+      "2026-06-01",
+      "2026-11-04"
+    ],
+    "full": [
+      "2026-01-02",
+      "2026-11-04"
+    ]
+  },
+  "selected_front_only": {
+    "regular_awake": "regular_awake_7h_EMA65",
+    "regular_awake_risk_floor": "regular_awake_7h_EMA65",
+    "regular_unrestricted": "regular_unrestricted_7h_EMA65",
+    "regular_unrestricted_risk_floor": "regular_unrestricted_7h_EMA65",
+    "extended_awake": "extended_awake_16h_EMA85",
+    "extended_awake_risk_floor": "extended_awake_16h_EMA85",
+    "extended_unrestricted": "extended_unrestricted_16h_EMA85",
+    "extended_unrestricted_risk_floor": "extended_unrestricted_16h_EMA85"
+  },
+  "selected_front_pooled": {
+    "awake": "regular_awake_7h_EMA65",
+    "awake_risk_floor": "regular_awake_7h_EMA65",
+    "unrestricted": "regular_unrestricted_7h_EMA65",
+    "unrestricted_risk_floor": "regular_unrestricted_7h_EMA65"
+  },
+  "unique_candidates_per_execution_policy": 4080,
+  "nominal_candidates_per_execution_policy": 6240,
+  "protocol_sha256": "f138ea7e5c200f4bf9f5076075a5b180d1318fcf158b026e052122430a21dbb9",
+  "input_metadata_sha256": "b39fa9a33841a7f58d133e4e009cb8876824beb812dacd1bb872af2af6f31605",
+  "baseline_expansion_check": "four expanded daily-close curves match frozen original within 1e-8 index point"
+}

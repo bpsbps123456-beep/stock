@@ -1,0 +1,309 @@
+{
+  "status": "passed",
+  "elapsed_seconds": 37.97369320015423,
+  "source_audit_sha256": "e3a94c3c6e6d97bd722404cdcc603138d6362c2204e1950fa271e765f32ab17e",
+  "runner_sha256": "ceed55e5b8634e897a60429feaea09b053646eb963044c658b4bb121df78ede3",
+  "results_sha256": "148e95ba507ffe389edea7a72e0592001cb4cf6ccb54951ff75d5e4547b7247f",
+  "summary_sha256": "3343be2aa83dc177160019177a0b1ce7b099fc50783a08ea6e5f007eb904d3d2",
+  "protocol_sha256": "f138ea7e5c200f4bf9f5076075a5b180d1318fcf158b026e052122430a21dbb9",
+  "raw_files_hashed": 83,
+  "prior_daily_study_shared_input_hashes_unchanged": 208,
+  "nominal_candidates_per_policy": 6240,
+  "timeframe_deduplicated_candidates_per_policy": 4080,
+  "summary_rows_checked": 8164,
+  "all_curve_period_metric_fields": 48984,
+  "all_actual_bar_time_unit_fields": 32640,
+  "independent_raw_aggregation_values": 1133448,
+  "cash_share_paths_checked": 32,
+  "ledger_rows_checked": 2386,
+  "ledger_files_checked": 24,
+  "front_only_selection_and_future_mutation": {
+    "regular_awake": "regular_awake_7h_EMA65",
+    "regular_awake_risk_floor": "regular_awake_7h_EMA65",
+    "regular_unrestricted": "regular_unrestricted_7h_EMA65",
+    "regular_unrestricted_risk_floor": "regular_unrestricted_7h_EMA65",
+    "extended_awake": "extended_awake_16h_EMA85",
+    "extended_awake_risk_floor": "extended_awake_16h_EMA85",
+    "extended_unrestricted": "extended_unrestricted_16h_EMA85",
+    "extended_unrestricted_risk_floor": "extended_unrestricted_16h_EMA85"
+  },
+  "pooled_front_only_selection_and_future_mutation": {
+    "awake": "regular_awake_7h_EMA65",
+    "awake_risk_floor": "regular_awake_7h_EMA65",
+    "unrestricted": "regular_unrestricted_7h_EMA65",
+    "unrestricted_risk_floor": "regular_unrestricted_7h_EMA65"
+  },
+  "N1_all_modes_and_policies_equal_frozen_original": true,
+  "errors": {
+    "all_curve_period_metrics": 7.704705673461376e-08,
+    "selected_curve_index": 4.9997737505691475e-08,
+    "selected_metrics": 3.296918293926865e-12,
+    "all_actual_bar_time_units": 1.1368683772161603e-13
+  },
+  "paths": [
+    {
+      "name": "extended_awake_16h_EMA120",
+      "max_curve_error": 4.985514578947914e-08,
+      "ma_exits": 18,
+      "entry_decisions": 43,
+      "full_return_pct": 111.06537082093845,
+      "full_turnover": 11.299878579063922
+    },
+    {
+      "name": "extended_awake_16h_EMA85",
+      "max_curve_error": 4.966744882040075e-08,
+      "ma_exits": 33,
+      "entry_decisions": 68,
+      "full_return_pct": 123.09716723478617,
+      "full_turnover": 13.7133988200428
+    },
+    {
+      "name": "extended_awake_16h_SMA120",
+      "max_curve_error": 4.999660063731426e-08,
+      "ma_exits": 22,
+      "entry_decisions": 46,
+      "full_return_pct": 107.9823157198192,
+      "full_turnover": 12.04102355587613
+    },
+    {
+      "name": "extended_awake_4h_EMA120",
+      "max_curve_error": 4.9994241635431536e-08,
+      "ma_exits": 68,
+      "entry_decisions": 149,
+      "full_return_pct": 44.836226372526646,
+      "full_turnover": 21.46579884159863
+    },
+    {
+      "name": "extended_awake_4h_SMA1",
+      "max_curve_error": 4.9961727199843153e-08,
+      "ma_exits": 0,
+      "entry_decisions": 27,
+      "full_return_pct": 132.32969497195018,
+      "full_turnover": 9.177646992455522
+    },
+    {
+      "name": "extended_awake_4h_SMA120",
+      "max_curve_error": 4.995922608941328e-08,
+      "ma_exits": 69,
+      "entry_decisions": 151,
+      "full_return_pct": 40.141919776715305,
+      "full_turnover": 22.20666774659182
+    },
+    {
+      "name": "extended_awake_7h_SMA2",
+      "max_curve_error": 4.983360213373089e-08,
+      "ma_exits": 150,
+      "entry_decisions": 308,
+      "full_return_pct": 22.33265369277739,
+      "full_turnover": 42.09220170731456
+    },
+    {
+      "name": "extended_awake_baseline",
+      "max_curve_error": 4.9961727199843153e-08,
+      "ma_exits": 0,
+      "entry_decisions": 0,
+      "full_return_pct": 132.32969497195018,
+      "full_turnover": 9.177646992455522
+    },
+    {
+      "name": "extended_unrestricted_16h_EMA120",
+      "max_curve_error": 4.985514578947914e-08,
+      "ma_exits": 18,
+      "entry_decisions": 43,
+      "full_return_pct": 111.06537082093845,
+      "full_turnover": 11.299878579063922
+    },
+    {
+      "name": "extended_unrestricted_16h_EMA85",
+      "max_curve_error": 4.966744882040075e-08,
+      "ma_exits": 33,
+      "entry_decisions": 68,
+      "full_return_pct": 123.09716723478617,
+      "full_turnover": 13.7133988200428
+    },
+    {
+      "name": "extended_unrestricted_16h_SMA120",
+      "max_curve_error": 4.999660063731426e-08,
+      "ma_exits": 22,
+      "entry_decisions": 46,
+      "full_return_pct": 107.9823157198192,
+      "full_turnover": 12.04102355587613
+    },
+    {
+      "name": "extended_unrestricted_4h_EMA120",
+      "max_curve_error": 4.907587936031632e-08,
+      "ma_exits": 70,
+      "entry_decisions": 150,
+      "full_return_pct": 43.496314887822706,
+      "full_turnover": 21.746583838211535
+    },
+    {
+      "name": "extended_unrestricted_4h_SMA1",
+      "max_curve_error": 4.9961727199843153e-08,
+      "ma_exits": 0,
+      "entry_decisions": 27,
+      "full_return_pct": 132.32969497195018,
+      "full_turnover": 9.177646992455522
+    },
+    {
+      "name": "extended_unrestricted_4h_SMA120",
+      "max_curve_error": 4.991167656953621e-08,
+      "ma_exits": 70,
+      "entry_decisions": 151,
+      "full_return_pct": 43.35228619301121,
+      "full_turnover": 22.2885354640858
+    },
+    {
+      "name": "extended_unrestricted_7h_SMA2",
+      "max_curve_error": 4.9174559535458684e-08,
+      "ma_exits": 150,
+      "entry_decisions": 308,
+      "full_return_pct": 21.266064939829434,
+      "full_turnover": 42.098245136739536
+    },
+    {
+      "name": "extended_unrestricted_baseline",
+      "max_curve_error": 4.9961727199843153e-08,
+      "ma_exits": 0,
+      "entry_decisions": 0,
+      "full_return_pct": 132.32969497195018,
+      "full_turnover": 9.177646992455522
+    },
+    {
+      "name": "regular_awake_4h_EMA120",
+      "max_curve_error": 4.974609169039468e-08,
+      "ma_exits": 40,
+      "entry_decisions": 91,
+      "full_return_pct": 104.1651404479091,
+      "full_turnover": 15.485926215518287
+    },
+    {
+      "name": "regular_awake_4h_SMA1",
+      "max_curve_error": 4.9961727199843153e-08,
+      "ma_exits": 0,
+      "entry_decisions": 27,
+      "full_return_pct": 132.32969497195018,
+      "full_turnover": 9.177646992455522
+    },
+    {
+      "name": "regular_awake_4h_SMA120",
+      "max_curve_error": 4.983752432963229e-08,
+      "ma_exits": 30,
+      "entry_decisions": 95,
+      "full_return_pct": 93.46296784112302,
+      "full_turnover": 13.85831135292624
+    },
+    {
+      "name": "regular_awake_6h_SMA5",
+      "max_curve_error": 4.943609610563726e-08,
+      "ma_exits": 150,
+      "entry_decisions": 292,
+      "full_return_pct": 40.409215371008344,
+      "full_turnover": 40.540064427389254
+    },
+    {
+      "name": "regular_awake_7h_EMA120",
+      "max_curve_error": 4.986077328794636e-08,
+      "ma_exits": 19,
+      "entry_decisions": 42,
+      "full_return_pct": 111.61373370219616,
+      "full_turnover": 11.296924696438172
+    },
+    {
+      "name": "regular_awake_7h_EMA65",
+      "max_curve_error": 4.950965148964315e-08,
+      "ma_exits": 39,
+      "entry_decisions": 88,
+      "full_return_pct": 106.49267002662897,
+      "full_turnover": 15.077077451798822
+    },
+    {
+      "name": "regular_awake_7h_SMA120",
+      "max_curve_error": 4.965957600688853e-08,
+      "ma_exits": 22,
+      "entry_decisions": 46,
+      "full_return_pct": 107.47413713384204,
+      "full_turnover": 11.965476238489837
+    },
+    {
+      "name": "regular_awake_baseline",
+      "max_curve_error": 4.9961727199843153e-08,
+      "ma_exits": 0,
+      "entry_decisions": 0,
+      "full_return_pct": 132.32969497195018,
+      "full_turnover": 9.177646992455522
+    },
+    {
+      "name": "regular_unrestricted_4h_EMA120",
+      "max_curve_error": 4.9545462843525456e-08,
+      "ma_exits": 42,
+      "entry_decisions": 93,
+      "full_return_pct": 103.84462663187111,
+      "full_turnover": 15.779843240050862
+    },
+    {
+      "name": "regular_unrestricted_4h_SMA1",
+      "max_curve_error": 4.9961727199843153e-08,
+      "ma_exits": 0,
+      "entry_decisions": 27,
+      "full_return_pct": 132.32969497195018,
+      "full_turnover": 9.177646992455522
+    },
+    {
+      "name": "regular_unrestricted_4h_SMA120",
+      "max_curve_error": 4.9897778353624744e-08,
+      "ma_exits": 30,
+      "entry_decisions": 95,
+      "full_return_pct": 95.85197878841845,
+      "full_turnover": 13.86569321974617
+    },
+    {
+      "name": "regular_unrestricted_5h_SMA3",
+      "max_curve_error": 4.9997737505691475e-08,
+      "ma_exits": 157,
+      "entry_decisions": 307,
+      "full_return_pct": -18.763279720718838,
+      "full_turnover": 43.09755584051399
+    },
+    {
+      "name": "regular_unrestricted_7h_EMA120",
+      "max_curve_error": 4.986077328794636e-08,
+      "ma_exits": 19,
+      "entry_decisions": 42,
+      "full_return_pct": 111.61373370219616,
+      "full_turnover": 11.296924696438172
+    },
+    {
+      "name": "regular_unrestricted_7h_EMA65",
+      "max_curve_error": 4.950965148964315e-08,
+      "ma_exits": 39,
+      "entry_decisions": 88,
+      "full_return_pct": 106.49267002662897,
+      "full_turnover": 15.077077451798822
+    },
+    {
+      "name": "regular_unrestricted_7h_SMA120",
+      "max_curve_error": 4.965957600688853e-08,
+      "ma_exits": 22,
+      "entry_decisions": 46,
+      "full_return_pct": 107.47413713384204,
+      "full_turnover": 11.965476238489837
+    },
+    {
+      "name": "regular_unrestricted_baseline",
+      "max_curve_error": 4.9961727199843153e-08,
+      "ma_exits": 0,
+      "entry_decisions": 0,
+      "full_return_pct": 132.32969497195018,
+      "full_turnover": 9.177646992455522
+    }
+  ],
+  "scope": "2026 frozen original seven-stock model; not independent unseen validation",
+  "limitations": [
+    "Execution within each 30-minute source bar and actual spread are unobserved.",
+    "MDD uses regular-session daily close marks, not the deepest intraday loss.",
+    "SIP signal closes and June-2025 EMA seeds differ from the prior daily-MA study.",
+    "Weekly targets reuse the canonical allocator; wealth and MA are independent.",
+    "Repeated searches of already-seen 2026 data retain selection bias."
+  ]
+}
