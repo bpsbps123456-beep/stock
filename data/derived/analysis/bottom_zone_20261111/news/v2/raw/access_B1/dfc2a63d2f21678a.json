@@ -1,0 +1,41 @@
+{
+  "query_id": "B1-0137",
+  "request_id": "B1-0137-attempt1",
+  "queries_in_request": "1",
+  "engine": "Google News RSS",
+  "house": "JPMorgan",
+  "quarter": "2026Q2",
+  "template": "en_target",
+  "query": "\"JPMorgan\" (\"S&P 500\" OR Nasdaq) (raises OR cuts OR lifts OR lowers OR hikes) target after:2026-04-01 before:2026-07-01",
+  "fetched_at": "2026-11-11T11:09:21.014542+00:00",
+  "rank": "6",
+  "candidate_id": "dfc2a63d2f21678a",
+  "title": "JPMorgan raises S&P 500 target as Mythos model bolsters AI trade - CNBC",
+  "published_date": "2026-04-21",
+  "feed_timestamp": "Tue, 21 Apr 2026 07:00:00 GMT",
+  "publication_label": "Tue, 21 Apr 2026 07:00:00 GMT",
+  "raw_file": "raw/B1/B1-0137.json",
+  "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOR2ZjN0VabWk4emF5WkhCTUFuNmJLcEduNFgxYkNCa0RfLWExS3pwNzRhVWxWTVJQUWVFdDJlRUV3RC1GM0hQZld0RUQyUTdTdGx2T2E1NmZTN04wTC1lalJNdHpUcUNwLWtsVlNaX01CVVl0bFV3VjNISlIxY09ycUtiYlg0RkJHbUhRdmNnNUs2V2wtUC0zS1M2WFE4ZTFxcUE?oc=5",
+  "source": "CNBC",
+  "source_home": "https://www.cnbc.com",
+  "decision": "adopt_provisional",
+  "reason": "reviewed_call:BC0038",
+  "error": "",
+  "v1_call": "BC0038",
+  "retrieved_at": "2026-11-11T12:16:35.787410+00:00",
+  "access": "retrieved_html_pending_read",
+  "text": "Skip Navigation Markets Business Investing Tech Politics & Policy Video Watchlist Investing Club PRO Livestream Menu The artificial intelligence trade will drive the S & P 500 to new heights after the unveiling of the Mythos AI model, according to JPMorgan. Strategist Dubravko Lakos-Bujas raised his year-end target on the S & P 500 to 7,600 from 7,200, implying upside of about 7% from Monday's close. That forecast is just below the 7,654 average from Wall Street strategists polled in the 2026 Market Strategist Survey . AI-linked stocks struggled during the sell-off sparked by the start of the U.S.-Iran war. Nvidia , for example, fell more than 6% between Feb. 27 and March 30. NVDA YTD bar Nvidia shares in 2026 But the dominant maker of AI chips has soared 22% since then. Other stocks tied to AI — such as Alphabet , Amazon and Meta Platforms — are also up more than 20% over the same time. Sure, traders continue betting there will be a resolution to the U.S.-Iran war, bolstering the broader market. Further driving gains, however, is the unveiling of Anthropic's Mythos Preview AI model, which Lakos-Bujas sees as a turning point for the market. \"We believe the Anthropic Mythos headline was the key catalyst, with 66% of S & P 500 AI names outperforming since April 7th — evidence of rapidly improving models and AI services, as Anthropic's revenue run rate has tripled YTD and the upcoming OpenAI's Spud release is expected to demonstrate significant improvement as well,\" he wrote. \"Even the risk of AI induced job displacement in some of the most sensitive areas (i.e., software engineering) is being put to rest for now as hiring is resuming,\" he added. \"Looking ahead, we expect a more favorable 1Q reporting season than last quarter, when investors were AI-fatigued and weary of higher Capex and R & D spending.\" Wednesday's big stock stories: What’s likely to move the market in the next trading session Jason Gewirtz Market spooked because now the Fed may need a supersized hike in December Fred Imbert Tuesday's big stock stories: What’s likely to move the market in the next trading session Jason Gewirtz Read More",
+  "resolver": {
+    "success": true,
+    "decoded_url": "https://www.cnbc.com/2026/04/21/jpmorgan-raises-sp-500-target-as-mythos-model-bolsters-ai-trade.html"
+  },
+  "resolved_url": "https://www.cnbc.com/2026/04/21/jpmorgan-raises-sp-500-target-as-mythos-model-bolsters-ai-trade.html",
+  "http_status": 200,
+  "final_url": "https://www.cnbc.com/2026/04/21/jpmorgan-raises-sp-500-target-as-mythos-model-bolsters-ai-trade.html",
+  "metadata": [
+    "2026-04-21T13:14:44+0000"
+  ],
+  "jsonld": [
+    "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"description\":\"AI-linked stocks struggled during the sell-off sparked by the U.S.-Iran war. But they're doing well now.\",\"speakable\":{\"@type\":\"SpeakableSpecification\",\"xpath\":[\"/html/head/title\",\"/html/head/meta[@name=\\\"description\\\"]/@content\"],\"cssSelector\":[\".xyz-data\"]},\"mainEntityOfPage\":\"https://www.cnbc.com/2026/04/21/jpmorgan-raises-sp-500-target-as-mythos-model-bolsters-ai-trade.html\",\"url\":\"https://www.cnbc.com/2026/04/21/jpmorgan-raises-sp-500-target-as-mythos-model-bolsters-ai-trade.html\",\"headline\":\"JPMorgan raises S&P 500 target as Mythos model bolsters AI trade\",\"dateCreated\":\"2026-04-21T13:14:44+0000\",\"datePublished\":\"2026-04-21T13:14:44+0000\",\"dateModified\":\"2026-04-21T13:14:44+0000\",\"author\":[{\"@type\":\"Person\",\"name\":\"Fred Imbert\",\"url\":\"https://www.cnbc.com/fred-imbert/\"}],\"publisher\":{\"@type\":\"NewsMediaOrganization\",\"name\":\"CNBC\",\"url\":\"https://www.cnbc.com/\",\"foundingDate\":\"1989-04-17\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://sc.cnbcfm.com/applications/cnbc.com/staticcontent/img/cnbc-hdr-logo2.png\",\"width\":378,\"height\":98},\"sameAs\":[\"https://www.facebook.com/cnbc\",\"https://www.instagram.com/cnbc\",\"https://www.linkedin.com/company/cnbc\",\"https://twitter.com/cnbc\",\"https://en.wikipedia.org/wiki/CNBC\",\"https://www.youtube.com/cnbc\"]},\"articleSection\":\"PRO Home\",\"keywords\":[\"cnbc\",\"Premium\",\"Articles\",\"Investment strategy\",\"Stock markets\",\"NVIDIA Corp\",\"Amazon.com Inc\",\"Alphabet Class A\",\"Meta Platforms Inc\",\"JPMorgan Chase & Co\",\"Investing\",\"stocks\",\"Pro: Market forecasts\",\"PRO Home\",\"CNBC Pro\",\"PRO: Playbooks\",\"source:tagname:CNBC US Source\"],\"image\":[{\"@type\":\"ImageObject\",\"url\":\"https://image.cnbcfm.com/api/v1/image/108287976-1775572440840-gettyimages-2269656245-AFP_A6YJ9YG.jpeg?v=1776775849&w=1200&h=675\",\"width\":1200,\"height\":675},{\"@type\":\"ImageObject\",\"url\":\"https://image.cnbcfm.com/api/v1/image/108287976-1775572440840-gettyimages-2269656245-AFP_A6YJ9YG.jpeg?v=1776775849&w=1200&h=1200\",\"width\":1200,\"height\":1200}],\"isAccessibleForFree\":false,\"hasPart\":{\"isAccessibleForFree\":false,\"@type\":\"WebPageElement\",\"cssSelector\":\".xyz-data\"}}"
+  ]
+}

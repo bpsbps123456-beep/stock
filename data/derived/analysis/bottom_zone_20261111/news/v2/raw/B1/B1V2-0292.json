@@ -1,0 +1,51 @@
+{
+  "id": "B1V2-0292",
+  "house": "BofA",
+  "alias": "Bank of America",
+  "quarter": "2024Q2",
+  "template": "en_target",
+  "start": "2024-04-01",
+  "end": "2024-07-01",
+  "query": "\"Bank of America\" (\"S&P 500\" OR Nasdaq) (raises OR cuts OR lifts OR lowers OR hikes) target after:2024-04-01 before:2024-07-01",
+  "fetched_at": "2026-11-11T11:46:22.008070+00:00",
+  "results": [
+    {
+      "candidate_id": "3b01d3a59bd05d20",
+      "title": "Bank of America wins upgrade on business lending, healthier balance sheet - MarketWatch",
+      "published_date": "2024-06-14",
+      "feed_timestamp": "Fri, 14 Jun 2024 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPLVAwSEFqVzBReFFfOGhZMEplaGtRXzZkeFF0NTlzNTV0M2E3Wk5iVDR6cjFrTzV1ZkRTUFVFMmpXVnk4UmF5aDlRY1ZUZEhZLXJDWGwtVVE5M0hYNzlDZ1RmcHFjbnVpU2VjX3FPVUJSYlR2bDI1blJ0akczLXlzZ2VFUFBLX3JxM01oSmd5WTJoeF9GaUNOT1dmNFlIRWE2NlBNbEN6Zl9zX1Z6X2lOLW16dw?oc=5",
+      "source": "MarketWatch",
+      "source_home": "https://www.marketwatch.com"
+    },
+    {
+      "candidate_id": "b187b10eb4512405",
+      "title": "Bank of America data shows today marks beginning of the S&P 500’s ‘strongest’ average 10-day period of the year…over 96 years - Fortune",
+      "published_date": "2024-07-01",
+      "feed_timestamp": "Mon, 01 Jul 2024 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1FbFhzenpXb3g4TjlvV3l5SUtFTV9nZFp3OExjT3h1QlBOSUFpejZvY1hQWndKU1FUZXNZcXd3Z2pYOUQ4cWI3N3BCR2hFWFg4QWtVUlFtWnAxLTdqSU5RNjhJc3hDdjVJTVhZdTd4YU4zd2xIY1R6VVp4TDk?oc=5",
+      "source": "Fortune",
+      "source_home": "https://fortune.com"
+    },
+    {
+      "candidate_id": "1e4f6fb1648474be",
+      "title": "Why the Stock Market Rally May Have Even Further to Go - Bloomberg.com",
+      "published_date": "2024-04-04",
+      "feed_timestamp": "Thu, 04 Apr 2024 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxObWNCNHQ1c3h3b0ZJVzlvdHlnY0ZVNnpZNUd0bTVrbjBVUE1UY2tCb1AzNHp1OTIyckNab1FhWGpuZG9Ubkx5MlpISzVNNVpnY0pOU2V4b0NpODRFaXhXTUNfSGp1eXE3RnluQmRXRzkxQmpoV3o5c25uQ0hSY1JHckZudFlOemVqQ0htSjUwalk5WHNWUEtXb3B3N0lNZ0lzUDFMNjRqQU0?oc=5",
+      "source": "Bloomberg.com",
+      "source_home": "https://www.bloomberg.com"
+    },
+    {
+      "candidate_id": "262275cac381cc63",
+      "title": "Why Wall Street is so happy to see the job market slowing down - markets.businessinsider.com",
+      "published_date": "2024-05-03",
+      "feed_timestamp": "Fri, 03 May 2024 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQSTR2aVk2ellzb3QtanU0THctUUtOc3RfckdpdmtyTlJNQ1l6ZHVYUnd2aXBtOHl4TGZiRnVuUEtoMkIzaDF5UGxFenZlS1pLdVg3RXdNVnN4dkVubVdHUzAyOXJWRTZpMENuQXhmV29rRDdud3RpdFJwelRUR21fUlFsemlQU1dwbHRNTkdjTXlRMDQ4dUFpNlViS3RmTko2MW9wZDFNWDVOVFoyVXd0X0dWSTRIUmFGc1E?oc=5",
+      "source": "markets.businessinsider.com",
+      "source_home": "https://markets.businessinsider.com"
+    }
+  ],
+  "request_url": "https://news.google.com/rss/search?q=%22Bank+of+America%22+%28%22S%26P+500%22+OR+Nasdaq%29+%28raises+OR+cuts+OR+lifts+OR+lowers+OR+hikes%29+target+after%3A2024-04-01+before%3A2024-07-01&hl=en-US&gl=US&ceid=US%3Aen",
+  "truncated": false
+}

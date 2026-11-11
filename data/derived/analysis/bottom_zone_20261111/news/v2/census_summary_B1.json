@@ -1,0 +1,52 @@
+{
+  "calls": 181,
+  "dated": 178,
+  "by_house": {
+    "Goldman Sachs": 16,
+    "UBS": 20,
+    "BofA": 4,
+    "Oppenheimer": 4,
+    "Wells Fargo": 12,
+    "Morgan Stanley": 11,
+    "Citi": 25,
+    "Evercore ISI": 4,
+    "Truist": 3,
+    "Barclays": 9,
+    "Deutsche Bank": 6,
+    "BMO Capital Markets": 3,
+    "Yardeni Research": 8,
+    "BlackRock Investment Institute": 10,
+    "BNP Paribas": 10,
+    "HSBC": 8,
+    "RBC Capital Markets": 8,
+    "Standard Chartered": 5,
+    "JPMorgan": 8,
+    "Jefferies": 1,
+    "Stifel": 2,
+    "Fundstrat": 1,
+    "Societe Generale": 1,
+    "CFRA": 2
+  },
+  "by_action": {
+    "target_raise": 81,
+    "upgrade": 41,
+    "downgrade": 44,
+    "target_cut": 15
+  },
+  "verification": {
+    "제목·요약만": 51,
+    "원문 열람": 80,
+    "재보도": 50
+  },
+  "title_reviews": 5913,
+  "body_reviews": 954,
+  "result_appearances": 7221,
+  "unique_results": 6265,
+  "rss_planned": 912,
+  "web_supplement_queries": 44,
+  "limitations": [
+    "전수는 고정 공개 검색의 모든 결과에 대한 판정; 비공개 기관 노트 전수가 아님",
+    "본문 차단 및 날짜 미확인 행 존재",
+    "최초 목표/유지와 신규 변경을 구별; 별도 신규 변경이 확정되지 않은 제목 후보는 미채택"
+  ]
+}

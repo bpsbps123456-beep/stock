@@ -1,0 +1,33 @@
+{
+  "id": "B1V2-0338",
+  "house": "BNP Paribas",
+  "alias": "BNP Paribas",
+  "quarter": "2024Q1",
+  "template": "en_target",
+  "start": "2024-01-01",
+  "end": "2024-04-01",
+  "query": "\"BNP Paribas\" (\"S&P 500\" OR Nasdaq) (raises OR cuts OR lifts OR lowers OR hikes) target after:2024-01-01 before:2024-04-01",
+  "fetched_at": "2026-11-11T12:00:51.935765+00:00",
+  "results": [
+    {
+      "candidate_id": "f8ac9a43f0c68530",
+      "title": "Wells Fargo downgraded after Q4 earnings, Adobe slashed: 4 big analyst cuts - Yahoo Finance",
+      "published_date": "2024-01-17",
+      "feed_timestamp": "Wed, 17 Jan 2024 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOY3Nkcjg5b3hUS3pIY2t6aUQ0bTVGWGVJRGNUZXZ6ZjZMU3RfeDVXLVM5OXhWelVmTC1xS1d3cTdPM0ItbFZsLXZycTlsZ3ZObG1EdFVSSXNMdjlIQ2NrTHBLdzh2QzNVYTdSYWpNc3dnSVRWTHBEQUQ0TUlMSjdCeDAtOER3eUU?oc=5",
+      "source": "Yahoo Finance",
+      "source_home": "https://finance.yahoo.com"
+    },
+    {
+      "candidate_id": "64825cefd18055ff",
+      "title": "Deutsche Bank Unveils Job Cuts, Plans Big Payout Boost - WSJ",
+      "published_date": "2024-02-01",
+      "feed_timestamp": "Thu, 01 Feb 2024 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQdGtuY3AxRlZpaEg2YWtHZnJ0aTZEZkZTWnVUb3ZfRk1hVFpCOFRhZjNfZVlrQ0NBcld0U0x0QTEzOHRTbzN2SlhmUUE0Q19BZHpPa0pieXJvWEVnaE1RdUNYRnRYOHZXYk0wOENmTG5tU2JudmF0Ukh1Y0t0QklmSHRQZjd3LV9ZbWFlNFg0Wnc5bE9x?oc=5",
+      "source": "WSJ",
+      "source_home": "https://www.wsj.com"
+    }
+  ],
+  "request_url": "https://news.google.com/rss/search?q=%22BNP+Paribas%22+%28%22S%26P+500%22+OR+Nasdaq%29+%28raises+OR+cuts+OR+lifts+OR+lowers+OR+hikes%29+target+after%3A2024-01-01+before%3A2024-04-01&hl=en-US&gl=US&ceid=US%3Aen",
+  "truncated": false
+}

@@ -1,0 +1,24 @@
+{
+  "id": "B1V2-0050",
+  "house": "Societe Generale",
+  "alias": "Societe Generale",
+  "quarter": "2025Q1",
+  "template": "en_target",
+  "start": "2025-01-01",
+  "end": "2025-04-01",
+  "query": "\"Societe Generale\" (\"S&P 500\" OR Nasdaq) (raises OR cuts OR lifts OR lowers OR hikes) target after:2025-01-01 before:2025-04-01",
+  "fetched_at": "2026-11-11T11:45:34.736750+00:00",
+  "results": [
+    {
+      "candidate_id": "099b2f2ced2acdef",
+      "title": "The S&P 500, Explained - Business Insider",
+      "published_date": "2025-03-27",
+      "feed_timestamp": "Thu, 27 Mar 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQcktyZmFYX3Y5U2ZhdG5yLU82cVFDX2ZnWkQwVjBJanpoMmRveWtGbnJKa1IwR3BYa0xDNTllbkJoMXhlZW44d04zdlMzZFd6UVJhWmwxZ3Nwbkdkc0tLWUYxNTVmMkE5a09hSzBkVEsySHlqM0hNZVNTRmU3NHBERlR4MA?oc=5",
+      "source": "Business Insider",
+      "source_home": "https://www.businessinsider.com"
+    }
+  ],
+  "request_url": "https://news.google.com/rss/search?q=%22Societe+Generale%22+%28%22S%26P+500%22+OR+Nasdaq%29+%28raises+OR+cuts+OR+lifts+OR+lowers+OR+hikes%29+target+after%3A2025-01-01+before%3A2025-04-01&hl=en-US&gl=US&ceid=US%3Aen",
+  "truncated": false
+}

@@ -28,7 +28,9 @@
     "Fundstrat": "펀드스트랫",
     "BMO Capital Markets": "BMO",
     "Truist": "트루이스트",
-    "Stifel": "스티펠"
+    "Stifel": "스티펠",
+    "BNP Paribas": "BNP파리바",
+    "CFRA": "CFRA"
   },
   "additional_houses": [
     {
@@ -62,6 +64,14 @@
     {
       "house": "Stifel",
       "reason": "원래 기관 검색 결과에서 지수 목표 또는 광역 주식 의견이 반복 등장; 가격 연결 전 같은 12분기×3틀로 확장"
+    },
+    {
+      "house": "BNP Paribas",
+      "reason": "본문 검토에서 미국·세계 주식의 복수 의견 변경이 반복 발견됨; 가격 연결 전 동일 12분기×3틀 추가"
+    },
+    {
+      "house": "CFRA",
+      "reason": "2026년 5월과 8월의 별도 지수 목표 상향이 반복 확인됨; 가격 연결 전 동일 고정 틀로 확장"
     }
   ],
   "search_B1": {

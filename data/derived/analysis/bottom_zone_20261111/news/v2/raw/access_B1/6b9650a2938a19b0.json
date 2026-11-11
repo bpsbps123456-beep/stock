@@ -1,0 +1,39 @@
+{
+  "query_id": "B1-0209",
+  "request_id": "B1-0209-attempt1",
+  "queries_in_request": "1",
+  "engine": "Google News RSS",
+  "house": "UBS",
+  "quarter": "2026Q2",
+  "template": "en_target",
+  "query": "\"UBS\" (\"S&P 500\" OR Nasdaq) (raises OR cuts OR lifts OR lowers OR hikes) target after:2026-04-01 before:2026-07-01",
+  "fetched_at": "2026-11-11T11:09:39.015753+00:00",
+  "rank": "2",
+  "candidate_id": "6b9650a2938a19b0",
+  "title": "UBS lifts S&P 500 annual forecast on robust consumer spending, AI demand - Yahoo Finance",
+  "published_date": "2026-05-22",
+  "feed_timestamp": "Fri, 22 May 2026 07:00:00 GMT",
+  "publication_label": "Fri, 22 May 2026 07:00:00 GMT",
+  "raw_file": "raw/B1/B1-0209.json",
+  "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOUXdPd0xSd3NoZUdIbDR5Z3JQbmtIYkxMSGJNNGY0YWFxTHJHdGFSSzRlY2psb3A3WDRjUXNfbFh1czMyY2ZKSFBKM3lQRHMxM204VzVIMmRHOGpJQVdhMWpqYjZQeWFmTVRLcEJCbWNhUFlTV1hFNmRkcEoyR1owTkZ5UXBRME5HQTZLSjRtVGw5bkhkcHRmYTBMbERZbUhk?oc=5",
+  "source": "Yahoo Finance",
+  "source_home": "https://finance.yahoo.com",
+  "decision": "adopt_provisional",
+  "reason": "reviewed_call:BC0041",
+  "error": "",
+  "v1_call": "BC0041",
+  "retrieved_at": "2026-11-11T12:16:36.547704+00:00",
+  "access": "retrieved_html_pending_read",
+  "text": "UBS lifts S&P 500 annual forecast on robust consumer spending, AI demand A view of the New York Stock Exchange (NYSE) in New York City · Reuters Reuters May 22, 2026 ^GSPC -0.38% CL=F +1.32% May 22 (Reuters) - UBS Global Wealth Management has raised its 2026 year-end forecast for the S&P 500 to 7,900 ‌from 7,500, citing resilient consumer spending and strong demand ‌for data center infrastructure. A growing number of brokerages have lifted their S&P 500 ​targets in recent weeks, with Morgan Stanley forecasting 8,000 by the end of 2026 on strong AI-driven investments and earnings optimism, largely overlooking inflation risks from higher oil prices tied to the Middle ‌East conflict. The wealth manager's ⁠current target implies about a 6% upside to the index's last close of 7445.72 points. It also introduced ⁠a June 2027 target of 8,200 for the index, while retaining its \"attractive\" view on U.S. equities, and raised its 2026 earnings-per-share estimate ​to $335 from $310. \"We ​continue to believe the bull ​market drivers remain intact: resilient ‌economic and profit growth, a supportive Federal Reserve, and the AI rollout,\" UBS strategists said in a note on Thursday. The increase in profit estimates is concentrated, with about half driven by semiconductor demand, especially memory chip pricing, and another quarter from higher energy ‌sector profits alongside rising data center ​investment, they said. First-quarter S&P 500 earnings ​were on track to ​climb almost 29% year over year, with much of ‌that fueled by Wall Street's ​AI-related heavyweights, according ​to LSEG data as of May 15. However, UBS said the lack of a resolution around the Strait of Hormuz could ​begin to undermine ‌these bullish drivers, with recent increases in oil prices ​and interest rates pressuring some sectors. (Reporting by Akriti Shah in ​Bengaluru; Editing by Pooja Desai) Terms and Privacy Policy Privacy Dashboard More Info",
+  "resolver": {
+    "success": true,
+    "decoded_url": "https://finance.yahoo.com/markets/stocks/articles/ubs-global-wealth-management-lifts-081012815.html"
+  },
+  "resolved_url": "https://finance.yahoo.com/markets/stocks/articles/ubs-global-wealth-management-lifts-081012815.html",
+  "http_status": 200,
+  "final_url": "https://finance.yahoo.com/markets/stocks/articles/ubs-global-wealth-management-lifts-081012815.html",
+  "metadata": [],
+  "jsonld": [
+    "{\"@context\":\"http://schema.org\",\"@type\":\"NewsArticle\",\"articleSection\":\"Stocks\",\"headline\":\"UBS lifts S&P 500 annual forecast on robust consumer spending, AI demand\",\"datePublished\":\"2026-05-22T08:10:12Z\",\"dateModified\":\"2026-05-22T08:10:12Z\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://finance.yahoo.com/markets/stocks/articles/ubs-global-wealth-management-lifts-081012815.html\"},\"description\":\"UBS Global Wealth Management has raised its 2026 year-end forecast for the S&P 500 to 7,900 ‌from 7,500, citing resilient consumer spending and strong demand...\",\"publisher\":{\"@type\":\"Organization\",\"name\":\"Yahoo! Finance\",\"alternateName\":\"Yahoo Finance\",\"url\":\"https://finance.yahoo.com/\",\"logo\":{\"url\":\"https://s.yimg.com/rz/p/yahoo_finance_en-US_h_p_finance_2.png\",\"width\":354,\"height\":50,\"@type\":\"ImageObject\"}},\"author\":{\"@type\":\"Organization\",\"name\":\"Reuters\",\"url\":\"http://www.reuters.com/\",\"logo\":{\"url\":\"https://s.yimg.com/os/creatr-uploaded-images/2020-11/62e21440-2fbd-11eb-95ff-5673fa3d2f9f\",\"width\":428,\"height\":100,\"@type\":\"ImageObject\"}},\"creator\":{\"@type\":\"Organization\",\"name\":\"Reuters\",\"url\":\"http://www.reuters.com/\",\"logo\":{\"url\":\"https://s.yimg.com/os/creatr-uploaded-images/2020-11/62e21440-2fbd-11eb-95ff-5673fa3d2f9f\",\"width\":428,\"height\":100,\"@type\":\"ImageObject\"}},\"provider\":{\"@type\":\"Organization\",\"name\":\"Reuters\",\"url\":\"http://www.reuters.com/\",\"logo\":{\"url\":\"https://s.yimg.com/os/creatr-uploaded-images/2020-11/62e21440-2fbd-11eb-95ff-5673fa3d2f9f\",\"width\":428,\"height\":100,\"@type\":\"ImageObject\"}},\"image\":{\"url\":\"https://media.zenfs.com/en/reuters-finance.com/b2ce36e96c0e874f5dd105b4ede9c647\",\"width\":800,\"height\":533,\"@type\":\"ImageObject\"},\"thumbnailUrl\":\"https://media.zenfs.com/en/reuters-finance.com/b2ce36e96c0e874f5dd105b4ede9c647\"}"
+  ]
+}

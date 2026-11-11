@@ -1,0 +1,24 @@
+{
+  "id": "B1V2-0158",
+  "house": "Fundstrat",
+  "alias": "Fundstrat",
+  "quarter": "2025Q1",
+  "template": "en_target",
+  "start": "2025-01-01",
+  "end": "2025-04-01",
+  "query": "\"Fundstrat\" (\"S&P 500\" OR Nasdaq) (raises OR cuts OR lifts OR lowers OR hikes) target after:2025-01-01 before:2025-04-01",
+  "fetched_at": "2026-11-11T11:45:54.992641+00:00",
+  "results": [
+    {
+      "candidate_id": "187a0903a98ef670",
+      "title": "Every major Wall Street analyst's S&P 500 forecast for 2025 - TheStreet",
+      "published_date": "2025-01-21",
+      "feed_timestamp": "Tue, 21 Jan 2025 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOQ2FJV0lueDhyNlh1Ti14WVBEYldEWXRzbnN4MDBoazVEdTBqWjdhRnFCdld3ZGZua2Rhc09XTElzcjRPSHAyQ0tsV24zNnFpTFNLUzVzVXVWQnNHb3BxSmNxY1Q0MkV5XzE2VlNOWW1XeElGZU43aEQxQnh3M3VXRW9PTGFmU3M0NDFBNWh2c2ljX2tyX1JRQXh0YlFvb3BTNGRn?oc=5",
+      "source": "TheStreet",
+      "source_home": "https://www.thestreet.com"
+    }
+  ],
+  "request_url": "https://news.google.com/rss/search?q=%22Fundstrat%22+%28%22S%26P+500%22+OR+Nasdaq%29+%28raises+OR+cuts+OR+lifts+OR+lowers+OR+hikes%29+target+after%3A2025-01-01+before%3A2025-04-01&hl=en-US&gl=US&ceid=US%3Aen",
+  "truncated": false
+}

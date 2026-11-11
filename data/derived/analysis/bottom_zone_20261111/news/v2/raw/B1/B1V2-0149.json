@@ -1,0 +1,33 @@
+{
+  "id": "B1V2-0149",
+  "house": "Fundstrat",
+  "alias": "Fundstrat",
+  "quarter": "2024Q2",
+  "template": "en_target",
+  "start": "2024-04-01",
+  "end": "2024-07-01",
+  "query": "\"Fundstrat\" (\"S&P 500\" OR Nasdaq) (raises OR cuts OR lifts OR lowers OR hikes) target after:2024-04-01 before:2024-07-01",
+  "fetched_at": "2026-11-11T11:45:53.008510+00:00",
+  "results": [
+    {
+      "candidate_id": "7ede834112d08150",
+      "title": "Fundstrat's Tom Lee is about to raise his year-end forecast for the S&P 500 - CNBC",
+      "published_date": "2024-06-24",
+      "feed_timestamp": "Mon, 24 Jun 2024 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQM1ByRkN3bTFkaldtQjBvaEp3MjQtbE5MaW1VY1Z4RlUtSkFpcUkxTjVRaXBJLTY4VzNienY5SUFkRW5MbjRNN2NLQWR3bkE0RTN0ZkI0M3FsTHBhZENRd2ZMOHFnV01vQTg0SDRucjV4OUdEM21WTDgzN214cjl5a0k1X3VET01hVWRjYnFaUi0yUXd3T3VEZ2YzWVNWTVJoMVpWUDhkOXV2bFh2UmN3?oc=5",
+      "source": "CNBC",
+      "source_home": "https://www.cnbc.com"
+    },
+    {
+      "candidate_id": "523af1de7cffd5a3",
+      "title": "Fundstrat’s Tom Lee on Analyzing Stocks, Tech and Bitcoin - Bloomberg.com",
+      "published_date": "2024-06-24",
+      "feed_timestamp": "Mon, 24 Jun 2024 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQQnNzYmo2S19kY1psWGVvdGxvVTFETVNxV3dOU1J6Q2E4YWZWbWxJbmJ5V1RucGlaMzVqd3dIcmdEay1SWGdJSnBrWkM2VTZtaFBUdTMzSG9DeVFjVlNCT3d5UGZiN0E0TkljTzVpcTNvVkM2RjJJanEyX2JkTU55RWlOWGpUdFBQdVlqeXFxcjJjN3M4N25ZVy1Wbk1NcGJPV1pXRlJ6c2JkN1E?oc=5",
+      "source": "Bloomberg.com",
+      "source_home": "https://www.bloomberg.com"
+    }
+  ],
+  "request_url": "https://news.google.com/rss/search?q=%22Fundstrat%22+%28%22S%26P+500%22+OR+Nasdaq%29+%28raises+OR+cuts+OR+lifts+OR+lowers+OR+hikes%29+target+after%3A2024-04-01+before%3A2024-07-01&hl=en-US&gl=US&ceid=US%3Aen",
+  "truncated": false
+}

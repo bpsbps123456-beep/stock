@@ -1,0 +1,33 @@
+{
+  "id": "B1V2-0326",
+  "house": "BlackRock Investment Institute",
+  "alias": "BlackRock",
+  "quarter": "2025Q3",
+  "template": "en_target",
+  "start": "2025-07-01",
+  "end": "2025-10-01",
+  "query": "\"BlackRock\" (\"S&P 500\" OR Nasdaq) (raises OR cuts OR lifts OR lowers OR hikes) target after:2025-07-01 before:2025-10-01",
+  "fetched_at": "2026-11-11T11:46:29.051089+00:00",
+  "results": [
+    {
+      "candidate_id": "ee0a97314f97c0f2",
+      "title": "Fed Rate Cuts & Potential Portfolio Implications - BlackRock",
+      "published_date": "2025-09-19",
+      "feed_timestamp": "Fri, 19 Sep 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNRDdBMy1MUlhrclFkUng5cGlKaXJEREdaaGZNVjQxVmFVeW9XSW9xSFpDX0Z3ZUdLOERlYm5qejJXN2dEeVVVWXNVbFBtRXZ1aTMtZHNQQjlpR0lFM1UzM3JvN0NYYTllWGVKWW9seVE1djRvLU1kQ0pmLS1vT3lIZnNtQ1hoNFFvR0c0UVFWOWNQVDVpZlZ0d1ZsejRXMWVqcjhUc1hVQjh1bHFoMlktVjNB?oc=5",
+      "source": "BlackRock",
+      "source_home": "https://www.blackrock.com"
+    },
+    {
+      "candidate_id": "8c0bf02262509d08",
+      "title": "Crypto exchange Bullish raises IPO size, seeks nearly $5 billion valuation - CNBC",
+      "published_date": "2025-08-11",
+      "feed_timestamp": "Mon, 11 Aug 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOelVWMmVRMHA2MjBEdTk1NEp1NVBhd0dxLS1IYldLdDRxX2N1MTZuVXBOenI2V1VrNDdQMjdPUTBKeFRxaEpucmtmbEV4OWVibWxnTlRTYlNHYkEzRS1RWXU4bmxoTVNjem80VDBNMXA0Q05zOGFOMTlwQ1hSa2dUbWZCclhVMlBxWkpmamlwM1cycWxocll5Q0FESEZwMVlvSTVHZUZ1bWpYUzNmS0HSAbMBQVVfeXFMTnEzODdnem84Xy1IZFhVbk9WaUlZSkFKeU9iSENJSnpETXFqUFZKS0loa2hlM3dmbEFfUXVUdWRkUjV1V3hGZmE1S0pZaE1qcnhzeGIyaHo5VXZsUmpqQUVadVFobWpjNW5ROURSRUprQ21tN2pxeVN6dHFLcWRfRHIxb0hOLWcxOVFqTlZKbUNrSWwtaDExZVE0M2stbnNYSVRRaHVKLXdnR0Y2Z0pVZ0VzejA?oc=5",
+      "source": "CNBC",
+      "source_home": "https://www.cnbc.com"
+    }
+  ],
+  "request_url": "https://news.google.com/rss/search?q=%22BlackRock%22+%28%22S%26P+500%22+OR+Nasdaq%29+%28raises+OR+cuts+OR+lifts+OR+lowers+OR+hikes%29+target+after%3A2025-07-01+before%3A2025-10-01&hl=en-US&gl=US&ceid=US%3Aen",
+  "truncated": false
+}

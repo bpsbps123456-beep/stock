@@ -1,0 +1,51 @@
+{
+  "id": "B1V2-0298",
+  "house": "BofA",
+  "alias": "Bank of America",
+  "quarter": "2025Q1",
+  "template": "en_target",
+  "start": "2025-01-01",
+  "end": "2025-04-01",
+  "query": "\"Bank of America\" (\"S&P 500\" OR Nasdaq) (raises OR cuts OR lifts OR lowers OR hikes) target after:2025-01-01 before:2025-04-01",
+  "fetched_at": "2026-11-11T11:46:23.135461+00:00",
+  "results": [
+    {
+      "candidate_id": "47dc1219d68447cb",
+      "title": "BofA raises DoorDash target on Home Depot partnership - Yahoo Finance",
+      "published_date": "2025-01-23",
+      "feed_timestamp": "Thu, 23 Jan 2025 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOV1pvUlZXbmdKQmhyWkY3RWRIVFRFajBiT25UVkJGRmExNHhBaGo4bTBLOExXWkFSUFFPU1RUUC1IMVJvWXJJakYyQU1sNnNHVTJaendwejFTTVBrZjMzdFBKdUYwSWtpUWhRbUZYOWt1bnpjc1RxUkN5N3lfc3laTHA3Z3c?oc=5",
+      "source": "Yahoo Finance",
+      "source_home": "https://finance.yahoo.com"
+    },
+    {
+      "candidate_id": "c53de9f2c7f16116",
+      "title": "Goldman Sachs slashed its S&P 500 target again, with tariffs set to hit stock returns and economic growth - Business Insider",
+      "published_date": "2025-03-31",
+      "feed_timestamp": "Mon, 31 Mar 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxObDVHelNoWGtLRE5velJIMngxR1kxTGhTamVsN24zYmxkdnVYbDJvOThYT2M5dDRlS0ZjMlA5eDgtQUdrLVpGNlU2RTNvTzkzOGJlcGl5ckFaRldfVU5Ib0QwakJCOFhIVFBfSEpvUlRzNFp6MGpsM0M4Nzhidjc1NldTMU5nM2hFQjVnUlhRVHpvZ09YWFNIdFJELTJ2NjhBdTZ6M1VDbU5tek5qcUJDRjh6UE4?oc=5",
+      "source": "Business Insider",
+      "source_home": "https://www.businessinsider.com"
+    },
+    {
+      "candidate_id": "17384597045d0f5c",
+      "title": "Charted: The Pyramid of S&P 500 Returns (1874-2024) - Visual Capitalist",
+      "published_date": "2025-01-03",
+      "feed_timestamp": "Fri, 03 Jan 2025 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE81QjV5TkFtcFlndDh5TmdxdGxsM0dON0VXblhFT3lGanV1Vlc5aWxyZE5kY3JTUEVEd3FIN2M2X2d5R0s5UVJweTdhek9oU2lDNTJkZ2tEeW5remtQcjhfUXpKZk5oR2ZKWm95d3RJM2RIWmpF?oc=5",
+      "source": "Visual Capitalist",
+      "source_home": "https://www.visualcapitalist.com"
+    },
+    {
+      "candidate_id": "bb966aa6acd04a11",
+      "title": "Bank of America cracks down on a disturbing workplace trend - TheStreet",
+      "published_date": "2025-03-17",
+      "feed_timestamp": "Mon, 17 Mar 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPQ21aNkotOThzN3JZSHFNLXl4dVRJeFZLQ2dkZkRZZ2ttUDNPcjNGLXg1ZmZneVVYTWxZa1ZCdlBDU3dOTkxXQWNWVlFrNE1JU2tHWEh3dk53bHVKMXo2LXlWallSeWNHSHdOVEtiSjNINlZ3cTliWVBCbkhlRGFvcDloR0d3X0xXNVQ4RlJkbWY4RWJTQVpibGNYai0?oc=5",
+      "source": "TheStreet",
+      "source_home": "https://www.thestreet.com"
+    }
+  ],
+  "request_url": "https://news.google.com/rss/search?q=%22Bank+of+America%22+%28%22S%26P+500%22+OR+Nasdaq%29+%28raises+OR+cuts+OR+lifts+OR+lowers+OR+hikes%29+target+after%3A2025-01-01+before%3A2025-04-01&hl=en-US&gl=US&ceid=US%3Aen",
+  "truncated": false
+}

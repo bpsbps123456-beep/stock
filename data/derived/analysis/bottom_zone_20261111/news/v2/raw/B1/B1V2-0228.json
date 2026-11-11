@@ -1,0 +1,57 @@
+{
+  "id": "B1V2-0228",
+  "house": "Truist",
+  "alias": "Truist",
+  "quarter": "2024Q4",
+  "template": "ko_changes",
+  "start": "2024-10-01",
+  "end": "2025-01-01",
+  "query": "트루이스트 (미국주식 OR 미국증시 OR 반도체 OR 기술주 OR S&P500) (상향 OR 하향 OR 중립 OR 비중확대 OR 비중축소 OR 목표) after:2024-10-01 before:2025-01-01",
+  "fetched_at": "2026-11-11T11:47:03.677035+00:00",
+  "results": [
+    {
+      "candidate_id": "77bda89d46e273b0",
+      "title": "“미국에서 잘 나가” 맥도날드, 월가 목표가 줄상향 (영상) - 마켓인",
+      "published_date": "2024-10-16",
+      "feed_timestamp": "Wed, 16 Oct 2024 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE0yb01WSGpTUDZNYmtNT1lMRm14bFM3cU5aVU1HNlVGUlcxajZnSEM0ZXduR1RRQ0JNd3pnTmVmY0toZndKWDk4Vlo0TTN0VllhVC1wVkplaGFWSTQtY2V1OS10Z0tzcnVBdF9lcVZzb0U0ejA?oc=5",
+      "source": "마켓인",
+      "source_home": "https://marketin.edaily.co.kr"
+    },
+    {
+      "candidate_id": "da51540ee7eb4879",
+      "title": "'제2의 엔비디아' 브로드컴…\"지금 들어가도 안 늦는다\" - 마켓인",
+      "published_date": "2024-12-21",
+      "feed_timestamp": "Sat, 21 Dec 2024 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBVUk5vdG56em56RkZ2UHZ0emFHdTZ3MlJmaHpSaHppRHQ1Smlvbm5YLVVrQ2lyTVMzWWpPRFlvUHZmZUR0TU11d3BMeDNuQURweHRqMmkxQ2VPS3RmMkpuVGNtbnI5ejk2emhSb0dKc2hjLXM?oc=5",
+      "source": "마켓인",
+      "source_home": "https://marketin.edaily.co.kr"
+    },
+    {
+      "candidate_id": "899a686ca98ec9ae",
+      "title": "고공행진 브로드컴vs 조정돌입 엔비디아…엇갈린 주가 왜? - 이데일리",
+      "published_date": "2024-12-17",
+      "feed_timestamp": "Tue, 17 Dec 2024 08:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOR2xfcVB4U0tpMGhnRElrZlNteG9ydElPUzBnVU45TlgzeWZOVUtaNTd5cFEySXJmUTg5MTdaTUpWQzJBYlFmQWR4RGdlLUtDdWpvLWpGaC1QT2N6SThFQl9WX2tVWWQza3NmRWRFeFNPejFzeVM1c0xIeVJDTXhnbQ?oc=5",
+      "source": "이데일리",
+      "source_home": "https://www.edaily.co.kr"
+    }
+  ],
+  "prior_attempts": [
+    {
+      "id": "B1V2-0228",
+      "house": "Truist",
+      "alias": "Truist",
+      "quarter": "2024Q4",
+      "template": "ko_changes",
+      "start": "2024-10-01",
+      "end": "2025-01-01",
+      "query": "트루이스트 (미국주식 OR 미국증시 OR 반도체 OR 기술주 OR S&P500) (상향 OR 하향 OR 중립 OR 비중확대 OR 비중축소 OR 목표) after:2024-10-01 before:2025-01-01",
+      "fetched_at": "2026-11-11T11:46:08.977576+00:00",
+      "results": [],
+      "error": "ConnectionError: HTTPSConnectionPool(host='news.google.com', port=443): Max retries exceeded with url: /rss/search?q=%ED%8A%B8%EB%A3%A8%EC%9D%B4%EC%8A%A4%ED%8A%B8+%28%EB%AF%B8%EA%B5%AD%EC%A3%BC%EC%8B%9D+OR+%EB%AF%B8%EA%B5%AD%EC%A6%9D%EC%8B%9C+OR+%EB%B0%98%EB%8F%84%EC%B2%B4+OR+%EA%B8%B0%EC%88%A0%EC%A3%BC+OR+S%26P500%29+%28%EC%83%81%ED%96%A5+OR+%ED%95%98%ED%96%A5+OR+%EC%A4%91%EB%A6%BD+OR+%EB%B9%84%EC%A4%91%ED%99%95%EB%8C%80+OR+%EB%B9%84%EC%A4%91%EC%B6%95%EC%86%8C+OR+%EB%AA%A9%ED%91%9C%29+after%3A2024-10-01+before%3A2025-01-01&hl=ko&gl=KR&ceid=KR%3Ako (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001F46B8E7ED0>: Failed to establish a new connection: [WinError 10051] 연결할 수 없는 네트워크에서 소켓 작업을 시도했습니다'))"
+    }
+  ],
+  "request_url": "https://news.google.com/rss/search?q=%ED%8A%B8%EB%A3%A8%EC%9D%B4%EC%8A%A4%ED%8A%B8+%28%EB%AF%B8%EA%B5%AD%EC%A3%BC%EC%8B%9D+OR+%EB%AF%B8%EA%B5%AD%EC%A6%9D%EC%8B%9C+OR+%EB%B0%98%EB%8F%84%EC%B2%B4+OR+%EA%B8%B0%EC%88%A0%EC%A3%BC+OR+S%26P500%29+%28%EC%83%81%ED%96%A5+OR+%ED%95%98%ED%96%A5+OR+%EC%A4%91%EB%A6%BD+OR+%EB%B9%84%EC%A4%91%ED%99%95%EB%8C%80+OR+%EB%B9%84%EC%A4%91%EC%B6%95%EC%86%8C+OR+%EB%AA%A9%ED%91%9C%29+after%3A2024-10-01+before%3A2025-01-01&hl=ko&gl=KR&ceid=KR%3Ako",
+  "truncated": false
+}

@@ -1,0 +1,24 @@
+{
+  "id": "B1V2-0151",
+  "house": "Fundstrat",
+  "alias": "Fundstrat",
+  "quarter": "2024Q3",
+  "template": "en_allocation",
+  "start": "2024-07-01",
+  "end": "2024-10-01",
+  "query": "\"Fundstrat\" (stocks OR equities OR technology OR semiconductors) (upgrade OR downgrade OR overweight OR underweight OR neutral) after:2024-07-01 before:2024-10-01",
+  "fetched_at": "2026-11-11T11:45:53.624812+00:00",
+  "results": [
+    {
+      "candidate_id": "9867850fade8619b",
+      "title": "Breakouts in Materials, Discretionary are bullish; Healthcare is being lowered to Neutral, technically - Fundstrat Direct",
+      "published_date": "2024-09-26",
+      "feed_timestamp": "Thu, 26 Sep 2024 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxORlhhLXVkUklQaEdOd2VjRG1iUFBER3VPZkQ3V1BpNDBQZmpDNmQ2bmNfNXlUV01aM3c2d3gzd25DRkdXbmd5VXZJUWRZOG83aUpISFZmQzlodElNdjNHYjN3MVpVUUZTQ3ZHSlRjcXViQjlhRE53bjVWX3J5OE1JUEpwdFM3ZUV4cFlyVF9yaVA2TFJYc3U4TWRvdDdsRnotMkNnZEtfLVlyRVZ6b2VEbGprNFpSdFhOWXNXV0ItNHE3OUpZeWZPenFEZ3dHbTRHX0ZNOG9DWjRSZFhDZ2RmYW9DTDdvTHprbHBjOEp1VVg?oc=5",
+      "source": "Fundstrat Direct",
+      "source_home": "https://fundstratdirect.com"
+    }
+  ],
+  "request_url": "https://news.google.com/rss/search?q=%22Fundstrat%22+%28stocks+OR+equities+OR+technology+OR+semiconductors%29+%28upgrade+OR+downgrade+OR+overweight+OR+underweight+OR+neutral%29+after%3A2024-07-01+before%3A2024-10-01&hl=en-US&gl=US&ceid=US%3Aen",
+  "truncated": false
+}

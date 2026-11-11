@@ -1,0 +1,24 @@
+{
+  "id": "B1V2-0230",
+  "house": "Truist",
+  "alias": "Truist",
+  "quarter": "2025Q1",
+  "template": "en_target",
+  "start": "2025-01-01",
+  "end": "2025-04-01",
+  "query": "\"Truist\" (\"S&P 500\" OR Nasdaq) (raises OR cuts OR lifts OR lowers OR hikes) target after:2025-01-01 before:2025-04-01",
+  "fetched_at": "2026-11-11T11:46:09.623178+00:00",
+  "results": [
+    {
+      "candidate_id": "da478c847db81c71",
+      "title": "Truist Financial price target lowered to $50 from $52 at Wells Fargo - Yahoo Finance",
+      "published_date": "2025-03-29",
+      "feed_timestamp": "Sat, 29 Mar 2025 07:00:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPQ09tRk1VeDJmcVlJQXNMSXk5Q0tKZEwwbFFwcHNVNm44QVlHb3NRbjFzRHcxcm15WVhyNFBEQWxKNGFHaWRuQ2tFbVhGZVIwVVQyYURQRXlveGF6bW42anhORXVCT2tXUVltbC1pTTRMLTJfZWhySXJ0NXVNX1RVR0pMLXYxdjhzWlA0?oc=5",
+      "source": "Yahoo Finance",
+      "source_home": "https://finance.yahoo.com"
+    }
+  ],
+  "request_url": "https://news.google.com/rss/search?q=%22Truist%22+%28%22S%26P+500%22+OR+Nasdaq%29+%28raises+OR+cuts+OR+lifts+OR+lowers+OR+hikes%29+target+after%3A2025-01-01+before%3A2025-04-01&hl=en-US&gl=US&ceid=US%3Aen",
+  "truncated": false
+}

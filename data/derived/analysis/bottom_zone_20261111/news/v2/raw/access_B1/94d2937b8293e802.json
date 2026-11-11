@@ -1,0 +1,41 @@
+{
+  "query_id": "B1-0026",
+  "request_id": "B1-0026-attempt1",
+  "queries_in_request": "1",
+  "engine": "Google News RSS",
+  "house": "Citi",
+  "quarter": "2026Q1",
+  "template": "en_target",
+  "query": "\"Citi\" (\"S&P 500\" OR Nasdaq) (raises OR cuts OR lifts OR lowers OR hikes) target after:2026-01-01 before:2026-04-01",
+  "fetched_at": "2026-11-11T11:08:55.866858+00:00",
+  "rank": "2",
+  "candidate_id": "94d2937b8293e802",
+  "title": "Citi cuts U.S. stocks exposure. Firm is worried there's no 'quick end' to war - CNBC",
+  "published_date": "2026-03-27",
+  "feed_timestamp": "Fri, 27 Mar 2026 07:00:00 GMT",
+  "publication_label": "Fri, 27 Mar 2026 07:00:00 GMT",
+  "raw_file": "raw/B1/B1-0026.json",
+  "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxONkZTU2NHdTFEb3Mzelp3bnlXMmFhUUtCX3djUWFNX1FEX25BQ2ZXa1RhSWF5OWlLS2FGMUJaQlp0Y3ppVW92LTBTdDdyY21Ga242T1pjdU9XUEpLWkF3SmF4ZHVab1Bxc3BPX0hIX0tIZk54Qmtyb3VPN3RoMkFtQVJsTU1yY0xPWElxcmZ3UWVTdks0UXFRWHNEd29FOU1KN05Hd2RabGJ6a09s?oc=5",
+  "source": "CNBC",
+  "source_home": "https://www.cnbc.com",
+  "decision": "adopt_provisional",
+  "reason": "reviewed_call:BC0032",
+  "error": "",
+  "v1_call": "BC0032",
+  "retrieved_at": "2026-11-11T12:16:33.546518+00:00",
+  "access": "retrieved_html_pending_read",
+  "text": "Skip Navigation Markets Business Investing Tech Politics & Policy Video Watchlist Investing Club PRO Livestream Menu Citigroup strategists are dialing back their exposure to U.S. equities, warning that fading hopes for a swift resolution to the U.S.-Iran conflict are increasing downside risks for markets already rattled by an oil-driven shock. Strategists said they brought their U.S. small-cap overweight \"back to zero\" as part of a broader effort to cut equity exposure. The bank also reduced its overall equity allocation to neutral, citing a broad set of negative macro signals now flashing caution. \"With most of our negative equity macro risk signals triggering, we continue to cut equity exposure, taking our allocation to neutral,\" Citi strategists wrote in a note to clients. \"The incentives for both Iran and Israel do not necessarily align with a quick end.\" Small caps, which tend to be more exposed to economic cycles and financing conditions, are particularly vulnerable in an environment of higher energy prices and tightening liquidity. Citi said the escalation in oil markets coupled with a lack of progress toward a ceasefire has shifted the risk-reward balance against maintaining a bullish stance on these stocks. The escalation has put major pressure on U.S. stocks. The Nasdaq Composite fell into a correction Thursday, down more than 10% from a record set in October. The blue-chip Dow and the small-cap Russell 2000 are also nearing correction territory, each down about 9% from its all-time high. The S & P 500 is around 7% below its record. The Trump administration is seeking an end to the U.S.-Iran war, a conflict that has resulted in surging oil prices that's already hurting voters at the pump and could cost Republicans their seats in the midterm elections. President Donald Trump extended a deadline to attack Iran's energy infrastructure and said he would extend a pause to attack Iran's energy facilities to April 6. \"That resolution proposals have been exchanged between the US and Iran is a positive start, continued deadline extensions by the US are overall net negative for a resolution,\" Citi said. Despite the mounting geopolitical risks, Citi noted that equity markets have yet to show signs of panic, a dynamic that leaves room for further downside if tensions intensify. Within equities, Citi maintained an overweight to U.S. stocks relative to Japan, where it shifted to an underweight stance. Wall Street's official 2026 stock market outlook: The latest CNBC Market Strategist Survey Michael Bloom Barclays raises S&P 500 year-end target, citing 'standout' earnings driven by AI Deena Zaidi Citi hikes S&P 500 target to 8,100 because of AI-driven earnings strength Davis Giangiulio Read More",
+  "resolver": {
+    "success": true,
+    "decoded_url": "https://www.cnbc.com/2026/03/27/citi-cuts-us-stocks-exposure-firm-is-worried-theres-no-quick-end-to-war.html"
+  },
+  "resolved_url": "https://www.cnbc.com/2026/03/27/citi-cuts-us-stocks-exposure-firm-is-worried-theres-no-quick-end-to-war.html",
+  "http_status": 200,
+  "final_url": "https://www.cnbc.com/2026/03/27/citi-cuts-us-stocks-exposure-firm-is-worried-theres-no-quick-end-to-war.html",
+  "metadata": [
+    "2026-03-27T14:00:43+0000"
+  ],
+  "jsonld": [
+    "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"description\":\"Citi strategists said they brought their U.S. small-cap overweight 'back to zero' as part of a broader effort to cut equity exposure.\",\"speakable\":{\"@type\":\"SpeakableSpecification\",\"xpath\":[\"/html/head/title\",\"/html/head/meta[@name=\\\"description\\\"]/@content\"],\"cssSelector\":[\".xyz-data\"]},\"mainEntityOfPage\":\"https://www.cnbc.com/2026/03/27/citi-cuts-us-stocks-exposure-firm-is-worried-theres-no-quick-end-to-war.html\",\"url\":\"https://www.cnbc.com/2026/03/27/citi-cuts-us-stocks-exposure-firm-is-worried-theres-no-quick-end-to-war.html\",\"headline\":\"Citi cuts U.S. stocks exposure. Firm is worried there's no 'quick end' to war\",\"dateCreated\":\"2026-03-27T14:00:43+0000\",\"datePublished\":\"2026-03-27T14:00:43+0000\",\"dateModified\":\"2026-03-27T14:00:43+0000\",\"author\":[{\"@type\":\"Person\",\"name\":\"Yun Li\",\"url\":\"https://www.cnbc.com/yun-li/\"}],\"publisher\":{\"@type\":\"NewsMediaOrganization\",\"name\":\"CNBC\",\"url\":\"https://www.cnbc.com/\",\"foundingDate\":\"1989-04-17\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://sc.cnbcfm.com/applications/cnbc.com/staticcontent/img/cnbc-hdr-logo2.png\",\"width\":378,\"height\":98},\"sameAs\":[\"https://www.facebook.com/cnbc\",\"https://www.instagram.com/cnbc\",\"https://www.linkedin.com/company/cnbc\",\"https://twitter.com/cnbc\",\"https://en.wikipedia.org/wiki/CNBC\",\"https://www.youtube.com/cnbc\"]},\"articleSection\":\"PRO Home\",\"keywords\":[\"cnbc\",\"Premium\",\"Articles\",\"Investment strategy\",\"Stock markets\",\"NASDAQ Composite\",\"Dow Jones Industrial Average\",\"Russell 2000 Index\",\"S&P 500 Index\",\"United States\",\"Iran\",\"@LCO26K\",\"Donald Trump\",\"Fidelity NASDAQ Composite Index Track\",\"Arrow Dow Jones Global Yield ETF\",\"United States Oil Fund, LP\",\"Invesco DB Oil Fund\",\"iShares Russell 2000 ETF\",\"iShares MSCI Japan ETF\",\"Citigroup Inc\",\"stocks\",\"Investing\",\"PRO Home\",\"CNBC Pro\",\"Pro: Investing Insight\",\"Pro: Macro Insights for Investing\",\"Pro: Market forecasts\",\"source:tagname:CNBC US Source\"],\"image\":[{\"@type\":\"ImageObject\",\"url\":\"https://image.cnbcfm.com/api/v1/image/108282931-1774455394269-Traders-Photo-20260325-KK-PRESS-006.jpg?v=1774455483&w=1200&h=675\",\"width\":1200,\"height\":675},{\"@type\":\"ImageObject\",\"url\":\"https://image.cnbcfm.com/api/v1/image/108282931-1774455394269-Traders-Photo-20260325-KK-PRESS-006.jpg?v=1774455483&w=1200&h=1200\",\"width\":1200,\"height\":1200}],\"isAccessibleForFree\":false,\"hasPart\":{\"isAccessibleForFree\":false,\"@type\":\"WebPageElement\",\"cssSelector\":\".xyz-data\"}}"
+  ]
+}
