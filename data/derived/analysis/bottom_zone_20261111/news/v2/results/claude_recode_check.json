@@ -1,0 +1,27 @@
+{
+ "date": "2026-11-11",
+ "by": "claude",
+ "seed": 20261111,
+ "B1_exclusion_sample": {
+  "n": 150,
+  "clear_false_exclusions": 0,
+  "uncertain": 1,
+  "uncertain_title": "Goldman Drops a Major Warning on the S&P 500 - Yahoo Finance",
+  "note": "제외 3,542건 중 무작위 150건의 제목을 독립 재판정. 지수 목표·자산배분 의견 변경으로 볼 제목은 0건, 제목만으로 불명확 1건"
+ },
+ "B2_tone_sample": {
+  "n": 100,
+  "agree": 0.87,
+  "kappa": 0.7896440129449838,
+  "neg_vs_rest_agree": 0.93,
+  "note": "Codex 부호를 가린 채 제목만 보고 neg/pos/neutral 재판정"
+ },
+ "recomputed": {
+  "post_neg_share_real_all": "72/274",
+  "post_neg_share_fake_all": "72/184",
+  "post_neg_share_real_2026": "51/160",
+  "post_neg_share_fake_2026": "47/133",
+  "H_U_2026": "하락 상태 진입 7/14(-19.9%)·7/22(-13.7%) 완료 0/2, 11/2 진입은 7세션에 -17.0%로 이미 기준 이탈, 11/9 진행 중",
+  "match": true
+ }
+}
