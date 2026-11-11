@@ -1,0 +1,19 @@
+{
+  "definition": "Access audit of every opened article. Original public news article is distinct from an institutional research note.",
+  "reads": [
+    {"file":"read_B1_001.json", "access":"institutional_original_read", "decision":"adopt", "notes":"Citi GIC official PDF; US large-cap allocation upgrade."},
+    {"file":"read_B1_002.json", "access":"institutional_original_read", "decision":"adopt", "notes":"BlackRock official weekly PDF; US equity upgrade."},
+    {"file":"read_B1_003.json", "access":"syndicated_article_read", "decision":"adopt", "notes":"Reuters article republished by Investing.com; Deutsche Bank US technology upgrade."},
+    {"file":"read_B1_004.json", "access":"syndicated_article_read", "decision":"adopt", "notes":"Reuters article republished by Investing.com; Citi US equities upgrade."},
+    {"file":"read_B1_005.json", "access":"syndicated_article_read", "decision":"duplicate_source_group", "same_call_as":"read_B1_006.json", "notes":"November 2 republication of same DB note first found public on October 31; not a second call."},
+    {"file":"read_B1_006.json", "access":"originating_news_article_read", "decision":"adopt", "notes":"Investing.com originating article, not a private institutional note."},
+    {"file":"read_B1_007.json", "access":"syndicated_article_read", "decision":"adopt", "notes":"October 13 Reuters republication of BlackRock downgrade. October 12 original publication still requires verification."},
+    {"file":"read_B1_008.json", "access":"blocked_login_not_read", "decision":"title_only", "notes":"MarketScreener login panel encountered; no bypass, do not treat body as read."},
+    {"file":"read_B1_009.json", "access":"institutional_original_read", "decision":"adopt", "notes":"Oppenheimer official March 25 2024 weekly note."},
+    {"file":"read_B1_010.json", "access":"institutional_original_read", "decision":"adopt", "notes":"Oppenheimer official July 8 2024 weekly note."},
+    {"file":"read_B1_011.json", "access":"institutional_original_read", "decision":"adopt", "notes":"Oppenheimer official November 11 2024 weekly note."},
+    {"file":"read_B1_012.json", "access":"institutional_original_read", "decision":"adopt", "notes":"Oppenheimer official April 7 2025 weekly note."},
+    {"file":"read_B1_013.json", "access":"originating_news_article_read", "decision":"adopt", "notes":"Investing.com original report of Evercore June 17 2024 target raise, not institutional note."},
+    {"file":"read_B1_014.json", "access":"originating_news_article_read", "decision":"adopt", "notes":"Investing.com original report of Evercore April 6 2025 target cut, not institutional note."}
+  ]
+}
