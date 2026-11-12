@@ -60,7 +60,8 @@ def records():
     return out
 
 
-def raw_panel():
+def raw_panel(source_end='2026-11-11'):
+    """source_end: 원거래일(미국) 마지막 날. 기본값은 1차 동결 신호판과 같다."""
     recs = records()
     names = {r['isin']:r['name'] for x in recs for r in x['rows']}
     seen = pd.DataFrame(dict(isin=list(names),first='',last='',n_dates=0,lists='',tot_sum=0))
@@ -68,7 +69,7 @@ def raw_panel():
     products = dict(zip(cls['isin'],cls['product']))
     nyse,ksd = b.nyse_sessions(),b.ksd_sessions()
     _,settle = b.cm.calendars()
-    source_days = nyse[(nyse >= '2023-01-03') & (nyse <= '2026-11-11')]
+    source_days = nyse[(nyse >= '2023-01-03') & (nyse <= source_end)]
     mapping = {t:pd.Timestamp(b.cm.seibro_of(t.date(),settle)) for t in source_days}
     counts = pd.Series(mapping).value_counts()
     drec = {(pd.Timestamp(x['start']),str(x['dtype'])):x for x in recs if x['kind']=='daily'}

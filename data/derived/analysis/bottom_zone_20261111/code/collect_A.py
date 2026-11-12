@@ -53,7 +53,8 @@ def fetch(job):
     raise RuntimeError(f'{tag}: {error}')
 
 
-def market():
+def market(end='2026-11-12'):
+    """end: Yahoo period2(UTC 날짜, 그날 미포함). 기본값은 1차 동결 수집과 같다."""
     folder = ROOT/'data'
     folder.mkdir(parents=True, exist_ok=True)
     headers = {'User-Agent':c.UA, 'Origin':'https://edition.cnn.com', 'Referer':'https://edition.cnn.com/'}
@@ -65,7 +66,7 @@ def market():
     for ticker in ['SOXX','SOXL','SOXS']:
         r = cr.get(f'https://query1.finance.yahoo.com/v8/finance/chart/{ticker}',
                    params={'period1':int(pd.Timestamp('2022-06-01', tz='UTC').timestamp()),
-                           'period2':int(pd.Timestamp('2026-11-12', tz='UTC').timestamp()),
+                           'period2':int(pd.Timestamp(end, tz='UTC').timestamp()),
                            'interval':'1d','events':'splits,div'}, impersonate='chrome', timeout=60)
         r.raise_for_status()
         (folder/f'yahoo_{ticker}.json').write_bytes(r.content)

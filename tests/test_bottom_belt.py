@@ -60,6 +60,21 @@ class BottomBeltTests(unittest.TestCase):
         changed = self.bs.build_atoms(panel, wide, cnn, news)
         pd.testing.assert_frame_equal(self.atoms.loc[:cut], changed.loc[:cut])
 
+    def test_bb1_registry_values(self):
+        spec = importlib.util.spec_from_file_location("belt_now_under_test", CODE / "now_update.py")
+        now = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(now)
+        self.assertEqual(now.MAIN, ("낙폭20", "SOXL비중상위20"))
+        self.assertEqual([now.bucket(n) for n in (0, 1, 2, 3, 5, 6, 10, 11, 54)],
+                         ["0", "1-2", "1-2", "3-5", "3-5", "6-10", "6-10", "11+", "11+"])
+        bb1 = now.history_rates()["BB-1"]
+        self.assertEqual((bb1["days"], round(bb1["belt10"] * bb1["days"]), bb1["lows"]), (36, 31, 6))
+
+    def test_frozen_collectors_keep_their_dates(self):
+        zone = CODE.parents[1] / "code"
+        self.assertIn("def market(end='2026-11-12'):", (zone / "collect_A.py").read_text(encoding="utf-8"))
+        self.assertIn("def raw_panel(source_end='2026-11-11'):", (zone / "panel_A.py").read_text(encoding="utf-8"))
+
     def test_closest_combination_counts(self):
         full = pd.concat([self.panel[["down"]], self.lab, self.atoms], axis=1)
         on = full[(full.index >= "2024-01-02") & (full["down"] == True)  # noqa: E712
