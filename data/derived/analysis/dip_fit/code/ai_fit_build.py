@@ -42,20 +42,31 @@ def dead_times(d):
     return np.where(kst < t8, t8.as_unit("ns").asi8, (t8 + pd.Timedelta(days=1)).as_unit("ns").asi8)
 
 
-def sim(d, dead_of, hot, gap=0.02, x=70.0):
-    """build.sim과 같다. 반환: (매수 봉, 매도 봉, 매수가, 매도가, 이유). 끝까지 안 팔린 거래는 돌려주지 않는다."""
+def sim(d, dead_of, hot, gap=0.02, x=70.0, *, exit_allowed=None, mark_end=False):
+    """기본값은 build.sim과 같다. gap·x 배열은 매수 봉 값으로 고정한다.
+
+    exit_allowed가 있으면 먼저 발생한 청산 사유를 주문 가능한 첫 봉까지 보관한다.
+    mark_end=True면 끝에 보유 중인 거래를 마지막 종가로 평가해 '평가'로 표시한다.
+    """
     o, l, r, ema, tk = d.o.values, d.l.values, d.r.values, d.ema.values, d.index.as_unit("ns").asi8
+    gaps = np.broadcast_to(gap, (len(d),))
+    exits = np.broadcast_to(x, (len(d),))
     out, hold, ent, ei, dead = [], False, 0.0, 0, 0
+    why = None
     for i in range(61, len(d)):
         if hold:
-            why = "RSI" if (i - 1 >= ei and r[i - 1] > x) else ("8시" if tk[i] >= dead else None)
-            if why:
+            if why is None:
+                why = "RSI" if r[i - 1] > exits[ei] else ("8시" if tk[i] >= dead else None)
+            if why and (exit_allowed is None or exit_allowed[i]):
                 out.append((ei, i, ent, o[i], why))
                 hold = False
+                why = None
         elif not hot[i]:
-            lvl = ema[i - 1] * (1 - gap)
+            lvl = ema[i - 1] * (1 - gaps[i])
             if l[i] <= lvl:
                 ent, ei, hold, dead = min(o[i], lvl), i, True, dead_of[i]
+    if hold and mark_end:
+        out.append((ei, len(d) - 1, ent, d.c.iat[-1], "평가"))
     return out
 
 
