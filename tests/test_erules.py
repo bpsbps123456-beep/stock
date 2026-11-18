@@ -130,6 +130,37 @@ class StatsTests(unittest.TestCase):
         self.assertEqual(erules.rule_stats(evs, "X2")["state"], "holding")
 
 
+class CalendarTests(unittest.TestCase):
+    @mock.patch.object(erules.requests, "get")
+    def test_valid_calendar_and_empty_holiday(self, get):
+        response = get.return_value
+        data = {"asOf": "Wed, Nov 4, 2026", "rows": [{"symbol": " abc ", "time": "time-after-hours"}]}
+        response.json.return_value = {"status": {"rCode": 200}, "data": data}
+        self.assertEqual(erules.fetch_calendar("2026-11-04"), [
+            {"symbol": "ABC", "time": "time-after-hours", "name": ""}])
+        data["rows"] = None
+        self.assertEqual(erules.fetch_calendar("2026-11-04"), [])
+
+    @mock.patch.object(erules.requests, "get")
+    def test_failed_or_wrong_day_keeps_previous_calendar(self, get):
+        day = "2026-11-04"
+        previous = [{"symbol": "ABC", "time": "time-after-hours"}]
+        state = {"calendar": {day: previous}}
+        response = get.return_value
+        with mock.patch.object(erules.pd, "bdate_range", return_value=[pd.Timestamp(day)]):
+            for data in [None, {"asOf": "Thu, Nov 5, 2026", "rows": []}]:
+                response.json.return_value = {"status": {"rCode": 200}, "data": data}
+                warnings = []
+                erules.refresh_calendar(state, {}, day, warnings)
+                self.assertEqual(state["calendar"][day], previous)
+                self.assertEqual(len(warnings), 1)
+            response.raise_for_status.side_effect = erules.requests.HTTPError("403")
+            warnings = []
+            erules.refresh_calendar(state, {}, day, warnings)
+            self.assertEqual(state["calendar"][day], previous)
+            self.assertEqual(len(warnings), 1)
+
+
 class ReactionDayTests(unittest.TestCase):
     cal = market_calendar()
 

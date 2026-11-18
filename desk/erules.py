@@ -23,6 +23,7 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+import requests
 
 import watchlist
 
@@ -267,7 +268,15 @@ def _get(url: str, headers: dict, timeout: int = 30) -> bytes:
 
 
 def fetch_calendar(day: str) -> list[dict]:
-    rows = (json.loads(_get(NASDAQ_CAL.format(day=day), NASDAQ_HEADERS)).get("data") or {}).get("rows") or []
+    response = requests.get(NASDAQ_CAL.format(day=day), headers=NASDAQ_HEADERS, timeout=30)
+    response.raise_for_status()
+    payload = response.json()
+    data = payload.get("data") or {}
+    if (payload.get("status") or {}).get("rCode") != 200 or "rows" not in data:
+        raise ValueError("나스닥 실적 달력 응답 누락")
+    if pd.Timestamp(data.get("asOf")).date() != date.fromisoformat(day):
+        raise ValueError("나스닥 실적 달력 응답 날짜 불일치")
+    rows = data["rows"] or []
     return [{"symbol": (x.get("symbol") or "").strip().upper(), "name": x.get("name") or "", "time": x.get("time") or ""}
             for x in rows if x.get("symbol")]
 
@@ -343,7 +352,7 @@ def refresh_calendar(state: dict, universe: dict, today: str, warnings: list[str
             continue
         try:
             rows = fetch_calendar(day)
-        except (urllib.error.URLError, TimeoutError, ValueError) as exc:
+        except (requests.RequestException, ValueError) as exc:
             warnings.append(f"나스닥 달력 {day} 실패: {type(exc).__name__}")
             continue
         seen, keep = set(), []
