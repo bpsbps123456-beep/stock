@@ -1,0 +1,269 @@
+{
+  "as_of_last_complete_us_session": "2026-11-17",
+  "time_zone": "America/New_York",
+  "feed": "sip",
+  "adjustment": "split",
+  "retrieved_utc": {
+    "daily_SOXL_SOXX": "2026-11-18T14:59:39.053201+00:00",
+    "extension": "2026-11-18T14:59:41.602194+00:00"
+  },
+  "alpaca_end_exclusive": "2026-11-18",
+  "source_docs": {
+    "historical_bars": "https://docs.alpaca.markets/reference/stockbars",
+    "bar_construction": "https://docs.alpaca.markets/docs/market-data-faq",
+    "minute_timestamps": "https://alpaca.markets/learn/stock-minute-bars"
+  },
+  "minute_sources": [
+    {
+      "path": "soxl_close_bracket_20261111/cache/minute.parquet",
+      "sha256": "d951e94bb8ec6d3b61c6fbe47ca36584707e28c909ddfb4d484277c2c66d4c1d"
+    },
+    {
+      "path": "soxl_close_bracket_20261111/filters_20261118/cache/extension/SOXL.parquet",
+      "sha256": "79c0788201295a30da8db5d2dfe6f42e10705f3f8e1f76c2968e45aea36762f0"
+    },
+    {
+      "path": "sox_open_switch/cache/alp1m/SOXL.parquet",
+      "sha256": "34ee276e88093417fd9f0873433901b6622b88f7ff055793b63662b96e87fb83"
+    }
+  ],
+  "daily_sources": [
+    {
+      "path": "soxl_close_bracket_20261111/filters_20261118/cache/SOXL_warm_daily.parquet",
+      "sha256": "6ce593b74435e3d8fdcfc97f212c6e37041e4b7d84cf104d67560917a8c2d0b5"
+    },
+    {
+      "path": "soxl_close_bracket_20261111/filters_20261118/cache/SOXX_warm_daily.parquet",
+      "sha256": "7d0ee0d1268c9a573ac42b30b0e8099c48cc775286f798339ac68c9cee5b30ba"
+    }
+  ],
+  "overlap_bars": 960,
+  "overlap_all_fields_max_relative_error": 0.0,
+  "previous_daily_ohlc_max_relative_error": 0.0,
+  "daily_output": {
+    "path": "soxl_close_bracket_20261111/filters_20261118/cache/daily.parquet",
+    "sha256": "3b069e346476a1d0123136357e38df78f5af923a76b09929089d7845b4cabbed"
+  },
+  "minute_output": {
+    "path": "soxl_close_bracket_20261111/filters_20261118/cache/minute.parquet",
+    "sha256": "6e1f8a29f85d423746fccf2a3de117735d3c87cb40ec6ab017117ea179dea7d8"
+  },
+  "minute_rows": 211276,
+  "minute_first": "2026-01-02T04:00:00-05:00",
+  "minute_last": "2026-11-17T19:59:00-05:00",
+  "sessions": 221,
+  "warmup_only": [
+    "2025-12-01",
+    "2025-12-31"
+  ],
+  "pass": true,
+  "feature_output": {
+    "path": "soxl_close_bracket_20261111/filters_20261118/results/features.csv",
+    "sha256": "fe9efd4b2cfb09a9dd86fafd653b11665e589bad71d1a647bf5e0b53d9c08060"
+  },
+  "regular_minutes_including_warmup": 94590,
+  "earlier_cutoff_output": {
+    "path": "soxl_close_bracket_20261111/filters_20261118/results/earlier_cutoff_features.csv",
+    "sha256": "c22467d9c258cf43e6ab9e2d4abc73864cac9cfa3dde32bbe92146fb9a6b75d6"
+  },
+  "earlier_cutoff": {
+    "decision_minutes_before_close": 15,
+    "latest_regular_bar_normal_day": "15:44",
+    "selection_use": false,
+    "signals": {
+      "above_vwap": 118,
+      "late_up": 122,
+      "rsi_turn": 16,
+      "down5": 57
+    }
+  },
+  "rsi_prior_study_overlap": {
+    "source": {
+      "path": "soxl_close_rsi/results/rebound_signals.csv",
+      "sha256": "76fcf68279a40285c34054d1333f5a0887bd83c5a09e5a4909f9fcd464851cd7"
+    },
+    "through": "2026-11-03",
+    "sessions": 211,
+    "matched_first_signal_timestamps": 18
+  },
+  "asof": {
+    "sector_sma20": "SOXX through previous regular day, 20 inclusive closes",
+    "above_vwap": "RTH from open through cutoff - 1 minute (last completed bar)",
+    "late_up": "SOXL 15:49 minute close > 15:19 minute close (normal close)",
+    "rsi_turn": "RTH-only continuous Wilder RSI14, any completed bar from 15:30 through 15:50 inclusive whose RSI <=30 and > prior bar",
+    "down5": "last completed SOXL minute close <= 95% of preceding regular daily close",
+    "bb1": "registered cutoff-safe BB-1 only; separate post-hoc comparison"
+  },
+  "bb1": {
+    "sources": [
+      {
+        "path": "bottom_zone_20261111/belt/results/daily_belt.csv",
+        "git_blob": "02a7072bff0705a2d717d84b845a6989b07dc87a",
+        "sha256_lf": "8bedb5455bc66dda0143a20b5d0cdafc9d8a49b0b7d5701c217991f26725497a"
+      },
+      {
+        "path": "bottom_zone_20261111/data/signal_panel.csv",
+        "git_blob": "782af73ab0c49b9d6793b748204287523664bf81",
+        "sha256_lf": "40535d997d9899364c56a6cdaff44fa02460edff002c8307c54c7d1d45d6b4ea"
+      },
+      {
+        "path": "bottom_zone_20261111/belt/now/now_table.csv",
+        "git_blob": "42eddc3c1a920f1695dc94ae9e4a002327d6844a",
+        "sha256_lf": "8843394afd6f512a9e9bcdac69922a7e4f601a1337d51631bf570ff5afeb9d80"
+      }
+    ],
+    "latest_source_observation": "2026-11-12",
+    "update_published_et": "2026-11-12T00:48:00-05:00",
+    "overlap_verified": 7,
+    "later_official_statement_checks": {
+      "source": "https://seibro.or.kr/websquare/control.jsp?w2xPath=/IPORTAL/user/ovsSec/BIP_CNTS10013V.xml&menuNo=921",
+      "after_the_fact_only": true,
+      "checks": [
+        {
+          "settlement_statement_day": "2026-11-12",
+          "rank_lists": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "rows": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "retrieval_times_utc": [
+            "2026-11-18T15:02:55.351804+00:00",
+            "2026-11-18T15:02:55.340244+00:00",
+            "2026-11-18T15:02:55.345811+00:00",
+            "2026-11-18T15:02:56.209618+00:00"
+          ],
+          "raw_xml_gzip_sha256": [
+            "c53535fbb574ab3351ca19c7b2a7619f89d8f9ccafabc38494d84d4ab348ece7",
+            "60b00927af5aa91480750be6d3b6dd1f39348598cb08372928be62e0e990b11d",
+            "10ff4c59ba37d767a131f5bef8c3bb26bef46d11252659c17920398e69b44c21",
+            "8611360d7b509b9c7712e5e4557cf947e96ea23e174c6d3e4258a61ed6b940c7"
+          ]
+        },
+        {
+          "settlement_statement_day": "2026-11-13",
+          "rank_lists": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "rows": [
+            50,
+            50,
+            50,
+            50
+          ],
+          "retrieval_times_utc": [
+            "2026-11-18T15:02:56.634872+00:00",
+            "2026-11-18T15:02:56.635555+00:00",
+            "2026-11-18T15:02:57.505335+00:00",
+            "2026-11-18T15:02:57.938506+00:00"
+          ],
+          "raw_xml_gzip_sha256": [
+            "c78b1d78b12f7a36c5d7ee16cbaef11806040ded712656f4f99269b4edec9a54",
+            "bcc7688d802c0c36e183c687a055d81e8457fe0f92aea29a3dfc57c313a34fa4",
+            "63b8ae8b96dba245e3230acb19daf47978a9a9c202fd9e85fe96b00a4bcf0031",
+            "864f0debcc08ea3a29ce677f73b3dd1f4b7ab58135223141a436d5b3d56a450d"
+          ]
+        },
+        {
+          "settlement_statement_day": "2026-11-16",
+          "rank_lists": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "rows": [
+            50,
+            50,
+            50,
+            50
+          ],
+          "retrieval_times_utc": [
+            "2026-11-18T15:02:57.767595+00:00",
+            "2026-11-18T15:02:58.605744+00:00",
+            "2026-11-18T15:02:58.872381+00:00",
+            "2026-11-18T15:02:59.046577+00:00"
+          ],
+          "raw_xml_gzip_sha256": [
+            "ba1b95c89ed7ad091cf5b7408628b9c36c42f66f553fcc3de31909e7c8f821f5",
+            "55b131c86c66f650c678c79043cd48bd2220a7752ab50dfabe89c76fe2998cad",
+            "97aaf1e4ab60a791703877bd3ea96c1e8ea1837a7c94c4f05b4f6a4b7b1a55ef",
+            "b3c398e385bff492858255c2dbaa7879c9da1c90a38776df0a306ebce1a8f789"
+          ]
+        }
+      ],
+      "interpretation": "These dated official responses are available at the recorded retrieval times. Their content contains no independently verified first-publication or revision timestamp on the decision date. They do not fill the primary flags."
+    },
+    "late_missing_days": {
+      "2026-11-13": {
+        "bb1_prior_soxx_drawdown60": -0.21124681933842238,
+        "bb1_availability": "no_new_source"
+      },
+      "2026-11-16": {
+        "bb1_prior_soxx_drawdown60": -0.24020356234096685,
+        "bb1_availability": "no_contemporaneous_snapshot"
+      },
+      "2026-11-17": {
+        "bb1_prior_soxx_drawdown60": -0.28132315521628504,
+        "bb1_availability": "no_contemporaneous_snapshot"
+      }
+    },
+    "late_missing_drawdown_source": "SIP SOXX last completed daily close relative to highest close in its trailing 60 sessions. The three November 13/16/17 price legs all pass -20%. November 13 has no new source under the registered KSD calendar. The Nov 16 and Nov 17 flow dates reflect the registered publication-lag convention; they lack a contemporaneous observation.",
+    "logic": "dd60 <= -0.20 and published T5_P >= 80 on the registered observation date. No flow carried forward, no outcome labels read. Missing flow or snapshot -> unknown; skipped."
+  },
+  "bb1_availability_counts": {
+    "frozen_historical_panel": 198,
+    "no_new_source": 20,
+    "no_contemporaneous_snapshot": 2,
+    "registered_snapshot": 1
+  },
+  "known_rows": {
+    "sector_sma20": 221,
+    "above_vwap": 221,
+    "late_up": 221,
+    "rsi_turn": 221,
+    "down5": 221,
+    "bb1": 199
+  },
+  "signal_rows": {
+    "sector_sma20": 127,
+    "above_vwap": 125,
+    "late_up": 119,
+    "rsi_turn": 18,
+    "down5": 55,
+    "bb1": 22
+  },
+  "unknown_bb1_dates": [
+    "2026-01-05",
+    "2026-01-21",
+    "2026-02-17",
+    "2026-02-18",
+    "2026-03-02",
+    "2026-04-07",
+    "2026-05-01",
+    "2026-05-05",
+    "2026-05-27",
+    "2026-06-03",
+    "2026-06-23",
+    "2026-07-07",
+    "2026-08-17",
+    "2026-09-09",
+    "2026-09-24",
+    "2026-09-25",
+    "2026-10-05",
+    "2026-10-09",
+    "2026-10-14",
+    "2026-11-13",
+    "2026-11-16",
+    "2026-11-17"
+  ]
+}
