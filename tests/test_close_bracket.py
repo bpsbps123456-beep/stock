@@ -56,6 +56,25 @@ class CloseBracketTests(unittest.TestCase):
         self.assertEqual(int(e.iloc[-1].position), 0)
         self.assertEqual(extra["late_exit_reentry_deferred_days"], 1)
 
+    def test_entry_filter_only_gates_new_positions(self):
+        f, c, s = self.data()
+        f.loc[pd.Timestamp("2026-01-05 09:30", tz=STUDY.ET), "Low"] = 96
+        t, e, _ = STUDY.simulate(f, c, s, entry_days={"2026-01-02"})
+        self.assertEqual(t[["entry_day", "exit_day", "reason"]].values.tolist(),
+                         [["2026-01-02", "2026-01-05", "stop"]])
+        self.assertEqual(e.position.tolist(), [1, 0])
+        empty, cash, _ = STUDY.simulate(f, c, s, entry_days=set(), run_end="2026-01-02")
+        self.assertTrue(empty.empty)
+        self.assertEqual(cash.nav_10bp.tolist(), [100.])
+
+    def test_submission_buffer_also_moves_cash_decision(self):
+        f, c, s = self.data()
+        f.loc[pd.Timestamp("2026-01-05 15:46", tz=STUDY.ET), "Low"] = 96
+        _, earlier, _ = STUDY.simulate(f, c, s, cutoff_minutes=15)
+        _, later, _ = STUDY.simulate(f, c, s, cutoff_minutes=10)
+        self.assertEqual(earlier.position.tolist(), [1, 0])
+        self.assertEqual(later.position.tolist(), [1, 1])
+
     def test_entry_closing_minute_and_terminal_afterhours_are_excluded(self):
         f, c, s = self.data()
         for ts in ("2026-01-02 16:00", "2026-01-05 16:01"):

@@ -61,11 +61,12 @@ def first_exit(frame, entry_price, policy="stop_first", gap_tp="open"):
             "ambiguity": both, "gap_stop": reason == "stop_gap", "exit_clock": "minute_start_label"}
 
 
-def simulate(minute, close, schedule, window="RTH", policy="stop_first", run_start=START, gap_tp="open"):
+def simulate(minute, close, schedule, window="RTH", policy="stop_first", run_start=START, gap_tp="open",
+             *, run_end=END, entry_days=None, cutoff_minutes=10):
     """One position, preset closing-order eligibility, sequential cash ledger."""
     assert window in ("RTH", "EXT") and policy in ("stop_first", "target_first")
     assert gap_tp in ("open", "target")
-    schedule = schedule.loc[run_start:END]
+    schedule = schedule.loc[run_start:run_end]
     last_day = str(schedule.index[-1].date())
     groups = {k: v for k, v in minute.groupby(minute.index.strftime("%Y-%m-%d"))}
     day_num = {d: i for i, d in enumerate(schedule.index.strftime("%Y-%m-%d"))}
@@ -110,7 +111,7 @@ def simulate(minute, close, schedule, window="RTH", policy="stop_first", run_sta
             active = regular
         else:
             active = frame[(frame.index.hour >= 4) & (frame.index.hour < 20)]
-        cutoff = cl - pd.Timedelta(minutes=10)
+        cutoff = cl - pd.Timedelta(minutes=cutoff_minutes)
         check(active[active.index < cutoff], day)
         eligible = position is None
         check(active[(active.index >= cutoff) & (active.index < cl)], day)
@@ -125,7 +126,7 @@ def simulate(minute, close, schedule, window="RTH", policy="stop_first", run_sta
                 sell(hit, day)
         if position is None and not eligible:
             n_cutoff_blocked += 1
-        new_entry = position is None and eligible
+        new_entry = position is None and eligible and (entry_days is None or day in entry_days)
         if new_entry:
             tid = len(trades) + 1
             position = {"window": window, "policy": policy, "gap_tp": gap_tp, "run_start": run_start, "trade_id": tid,
