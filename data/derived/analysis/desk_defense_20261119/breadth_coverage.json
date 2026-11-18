@@ -1,0 +1,21 @@
+{
+  "first_close": "2025-12-31",
+  "last_close": "2026-11-17",
+  "sessions": 222,
+  "tickers": 233,
+  "eligible_min": 227,
+  "eligible_max": 233,
+  "not_60_bars_on_initial_date": [
+    "0100.HK",
+    "2513.HK",
+    "388210.KQ",
+    "490470.KQ",
+    "CBRS",
+    "XE"
+  ],
+  "threshold_pct": 19.0,
+  "signal_calibration": "2026-02~09",
+  "timing": "Latest local close on/before US close date; holidays carry last local close. Trade next US open.",
+  "universe": "Current static AI_SUBSECTOR map. Includes later listings only after 60 bars.",
+  "checks": "Canonical function matches independent searchsorted as-of denominator and numerator at every close."
+}
