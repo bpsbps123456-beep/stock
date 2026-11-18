@@ -55,6 +55,37 @@ def main_on(row) -> bool:
     return bool(all(bool(row[k]) for k in MAIN))
 
 
+def signal_state(conditions, source):
+    published = source["source_published"]
+    if pd.isna(published) or not published or pd.isna(source["dd60"]) or pd.isna(source["T5_P"]):
+        return None
+    return main_on(conditions)
+
+
+def calendar_rows(panel, atoms, now_ny, previous, fresh):
+    """Keep actual same-day readings; identify days filled from later releases."""
+    today = now_ny.date().isoformat()
+    observed = {r["day"]: r for r in previous if r.get("observed_at_et") and r["on"] is not None}
+    available = panel.loc[:today]
+    if available.empty:
+        return []
+    rows = []
+    for d, p in available.loc[str(available.index[-1].year):].iterrows():
+        day = d.date().isoformat()
+        current = fresh and day == today
+        on = signal_state(atoms.loc[d], p)
+        if day in observed and (not current or on is None):
+            rows.append(observed[day])
+            continue
+        basis = "observed" if current else "reconstructed"
+        rows.append(dict(day=day, on=on,
+                         dd60=None if pd.isna(p.dd60) else float(p.dd60),
+                         percentile=None if pd.isna(p.T5_P) else float(p.T5_P),
+                         basis="unavailable" if on is None else basis,
+                         observed_at_et=now_ny.isoformat(timespec="seconds") if current else None))
+    return rows
+
+
 def strong_count(row, combos: list[str]) -> int:
     return sum(all(bool(row[p]) for p in c.split(" + ")) for c in combos)
 
@@ -152,7 +183,7 @@ def report(panel, wide, atoms, got, now_kst, now_ny):
             낙폭60=round(float(p["dd60"]), 4), SOXL비중백분위=None if pd.isna(p["T5_P"]) else round(float(p["T5_P"]), 1),
             공포탐욕=None if pd.isna(p["G"]) else round(float(p["G"]), 1),
             수급원거래일=str(p["source_date"])[:10], 수급공개=bool(p["source_published"] == True),  # noqa: E712
-            BB1=main_on(r), 강한조합겹침=n, 겹침구간=bucket(n), 구간과거벨트10=rates[bucket(n)]["belt10"]))
+            BB1=signal_state(r, p), 강한조합겹침=n, 겹침구간=bucket(n), 구간과거벨트10=rates[bucket(n)]["belt10"]))
     low = float(det["low"]) if det.get("low") is not None else np.nan
     status = dict(
         checked_at_kst=now_kst.strftime("%Y-%m-%d %H:%M"), checked_at_ny=now_ny.strftime("%Y-%m-%d %H:%M"),
@@ -164,9 +195,16 @@ def report(panel, wide, atoms, got, now_kst, now_ny):
     )
     (NOW / "now_status.json").write_text(json.dumps(status, ensure_ascii=False, indent=1, default=str), encoding="utf-8")
     pd.DataFrame(rows).to_csv(NOW / "now_table.csv", index=False, encoding="utf-8-sig")
+    ledger = NOW / "bb1_calendar.json"
+    previous = json.loads(ledger.read_text(encoding="utf-8")) if ledger.exists() else []
+    calendar = calendar_rows(panel, atoms, now_ny, previous, fresh=bool(got))
+    ledger.write_text(json.dumps(calendar, ensure_ascii=False, indent=1, allow_nan=False), encoding="utf-8")
+    renderer = module("bb1_calendar_view", HERE / "signal_calendar.py")
+    (NOW / "bb1_calendar.html").write_text(renderer.render(calendar, status["checked_at_kst"]+" KST"), encoding="utf-8")
     last = rows[-1]
+    state = {True: "켜짐", False: "꺼짐", None: "수급 미확인"}[last["BB1"]]
     print(f"점검 {status['checked_at_kst']} KST (뉴욕 {status['checked_at_ny']}), 완료 종가 {status['last_close']['date']} {status['last_close']['close']:.2f}")
-    print(f"BB-1 {'켜짐' if last['BB1'] else '꺼짐'} (관찰일 {last['관찰일']}, 낙폭 {last['낙폭60']:.1%}, SOXL 비중 백분위 {last['SOXL비중백분위']}, 수급 원거래일 {last['수급원거래일']})")
+    print(f"BB-1 {state} (관찰일 {last['관찰일']}, 낙폭 {last['낙폭60']:.1%}, SOXL 비중 백분위 {last['SOXL비중백분위']}, 수급 원거래일 {last['수급원거래일']})")
     print(f"강한 조합 겹침 {last['강한조합겹침']}개 → 과거 같은 구간 벨트10 {rates[last['겹침구간']]['belt10']:.0%}")
     print(f"바닥 감지기 {det.get('kind')}, 저점 {det.get('low_date')} {low:.2f}, 저점 대비 {det.get('up', float('nan')):+.1%}, 벨트10 선 {low * 1.10:.2f}")
     print(pd.DataFrame(rows).to_string(index=False))

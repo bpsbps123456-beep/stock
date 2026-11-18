@@ -2,7 +2,9 @@
 import importlib.util
 import json
 import unittest
+from datetime import datetime
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 import pandas as pd
 
@@ -74,6 +76,25 @@ class BottomBeltTests(unittest.TestCase):
         zone = CODE.parents[1] / "code"
         self.assertIn("def market(end='2026-11-12'):", (zone / "collect_A.py").read_text(encoding="utf-8"))
         self.assertIn("def raw_panel(source_end='2026-11-11'):", (zone / "panel_A.py").read_text(encoding="utf-8"))
+
+    def test_indicator_distinguishes_missing_and_keeps_observed_values(self):
+        spec = importlib.util.spec_from_file_location("belt_indicator_under_test", CODE / "now_update.py")
+        now = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(now)
+        dates = pd.to_datetime(["2026-11-12", "2026-11-13", "2026-11-16", "2026-11-17"])
+        panel = pd.DataFrame(dict(dd60=[-.25]*4, T5_P=[81., None, 84., 90.],
+                                  source_published=[True, pd.NA, True, True]), index=dates)
+        atoms = pd.DataFrame({now.MAIN[0]: True, now.MAIN[1]: panel.T5_P.ge(80)}, index=dates)
+        stamp = datetime(2026, 11, 16, 10, tzinfo=ZoneInfo("America/New_York"))
+        rows = now.calendar_rows(panel, atoms, stamp, [], True)
+        self.assertEqual([row["on"] for row in rows], [True, None, True])
+        self.assertEqual([row["basis"] for row in rows], ["reconstructed", "unavailable", "observed"])
+        panel.loc[dates[2], "T5_P"] = 77.
+        atoms.loc[dates[2], now.MAIN[1]] = False
+        tomorrow = stamp.replace(day=17)
+        rebuilt = now.calendar_rows(panel, atoms, tomorrow, rows, False)
+        self.assertEqual(rebuilt[2], rows[2])
+        self.assertEqual(rebuilt[-1]["basis"], "reconstructed")
 
     def test_closest_combination_counts(self):
         full = pd.concat([self.panel[["down"]], self.lab, self.atoms], axis=1)
