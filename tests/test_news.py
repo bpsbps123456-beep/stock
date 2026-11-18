@@ -212,6 +212,14 @@ class NewsFamilyTests(unittest.TestCase):
         self.assertEqual((item["in_dd"], item["hold20"]), (True, 1))
         self.assertEqual((result["gs"]["n"], result["all"]["held"]), (1, 1))
 
+    def test_forward_r_waits_for_recording_and_counts_one_source(self):
+        prompt = note("first", "R", "2026-11-16T16:00:00Z")
+        prompt["recorded_at"] = "2026-11-16T22:00:00Z"
+        duplicate = dict(prompt, id="second", recorded_at="2026-11-17T11:00:00Z")
+        prices = {"2026-11-16": 100, "2026-11-17": 105}
+        result = news.forward_r([duplicate, prompt], prices, news.stamp("2026-11-17T22:00:00Z"))
+        self.assertEqual([(x["id"], x["anchor"]) for x in result["items"]], [("first", "2026-11-17")])
+
 
 class NewsHttpTests(unittest.TestCase):
     def test_endpoint_filters_dates_and_rejects_naive_timestamp(self):

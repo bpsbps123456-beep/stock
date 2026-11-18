@@ -1,6 +1,6 @@
 "use strict";
 /* Source evidence is reviewed by the researcher; this UI never changes orders. */
-const NW = { data: null, episode: null, basis: "public", day: "", request: 0 };
+const NW = { data: null, episode: null, basis: "public", day: "", query: null, request: 0 };
 const nwTime = s => s ? new Date(s).toLocaleString("ko-KR", {timeZone: "Asia/Seoul", hour12: false}) + " KST" : "미확인";
 const nwPct = v => v == null ? "—" : pct(v, 2);
 
@@ -8,21 +8,26 @@ async function nwLoad(refresh = false) {
   const seq = ++NW.request;
   const params = new URLSearchParams({basis: NW.basis});
   if (NW.day) params.set("as_of", NW.day + "T23:59:59+09:00");
+  const query = params.toString();
   if (refresh) params.set("refresh", "1");
+  if (query !== NW.query) {
+    mount($("#nw-body"), nwControls(), h("p", {id: "nw-status", class: "nw-meta", role: "status"}));
+  }
   const status = $("#nw-status");
   if (status) status.textContent = refresh ? "가격 갱신 중…" : "저장된 뉴스 읽는 중…";
   try {
     const data = await api("/api/news?" + params);
     if (seq !== NW.request) return;
     NW.data = data;
+    NW.query = query;
     if (!NW.episode) NW.episode = data.episodes.at(-1)?.id;
     nwRender();
   } catch (error) {
     if (seq !== NW.request) return;
     const errorBox = h("div", {class: "nw-error", role: "alert"}, error.message,
       h("button", {class: "btn", onclick: () => nwLoad()}, "다시 불러오기"));
-    if (NW.data) { nwRender(); $("#nw-status").append(errorBox); }
-    else mount($("#nw-body"), errorBox);
+    if (NW.data && NW.query === query) nwRender();
+    mount($("#nw-status"), errorBox);
   }
 }
 
@@ -47,18 +52,32 @@ function nwArticle(event, data) {
       h("p", {class: "nw-meta"}, event.time_note)));
 }
 
-function nwRender() {
-  const data = NW.data, root = $("#nw-body");  // #bd-view(바닥 감지기, bottom.js) 아래
-  const ep = data.episodes.find(e => e.id === NW.episode) || data.episodes[0];
-  const controls = h("div", {class: "nw-controls"},
-    h("label", {}, "비교 국면", h("select", {id: "nw-episode", onchange: e => { NW.episode = e.target.value; nwRender(); }},
-      data.episodes.map(e => h("option", {value: e.id, selected: e.id === ep?.id}, e.label)))),
+function nwSetDay(day) {
+  NW.day = day;
+  const detector = $("#bd-view"), wasHidden = detector.hidden;
+  detector.hidden = Boolean(day);
+  if (wasHidden && !detector.hidden) {
+    if (BD.data) bdRender();
+    bdLoad();
+  }
+  nwLoad();
+}
+
+function nwControls(episodes = [], ep = null) {
+  return h("div", {class: "nw-controls"},
+    h("label", {}, "비교 국면", h("select", {id: "nw-episode", disabled: !episodes.length, onchange: e => { NW.episode = e.target.value; nwRender(); }},
+      episodes.map(e => h("option", {value: e.id, selected: e.id === ep?.id}, e.label)))),
     h("label", {}, "자료 기준", h("select", {id: "nw-basis", onchange: e => { NW.basis = e.target.value; nwLoad(); }},
       [["public", "기사 공개 기준 복습"], ["recorded", "실제 기록 기준"]].map(([v,t]) => h("option", {value:v, selected:NW.basis===v},t)))),
     h("label", {}, "그날까지 보기 · 한국시간", h("input", {id: "nw-day", type: "date", value: NW.day,
-      onchange: e => { NW.day = e.target.value; nwLoad(); }})),
-    h("button", {class:"btn", onclick: () => { NW.day = ""; nwLoad(); }}, "현재 기록"),
-    h("button", {class:"btn", onclick: () => nwLoad(true)}, "가격 갱신"));
+      onchange: e => nwSetDay(e.target.value)})),
+    h("button", {class:"btn", onclick: () => nwSetDay("")}, "현재 기록"),
+    h("button", {class:"btn", onclick: () => nwLoad(true)}, "기사 반응 가격 갱신"));
+}
+
+function nwRender() {
+  const data = NW.data, root = $("#nw-body");
+  const ep = data.episodes.find(e => e.id === NW.episode) || data.episodes[0];
   const review = ep?.assessment;
   const sourceTitle = id => ep.events.find(e => e.id === id)?.title || id;
   const reviewCard = h("section", {class: "nw-review card"},
@@ -89,7 +108,7 @@ function nwRender() {
       h("tbody", {}, compareRows))));
   const fr = data.forward_r, frRate = (s) => s.dd_n ? `${s.held}/${s.dd_n}` : "—";
   const forward = h("section", {class:"card nw-comparison"}, h("h2", {}, "매수 복귀(R) 기사 전방 채점"),
-    h("p", {class:"sub"}, `공개 뒤 ${fr.lag_h}시간 안에 기록한 R 기사만 셉니다(2026-10-28부터). 사후에 찾은 후보(GS의 R 10일 초과 +1.9~2.1%p, R 뒤 SOXX 한 달 저점 유지 12/13)를 새 기사로 확인하는 표이며 매매 규칙이 아닙니다.`),
+    h("p", {class:"sub"}, `2026-10-28부터 공개 뒤 ${fr.lag_h}시간 안에 기록한 기사로 채점합니다. 같은 원자료는 한 번만 세고, 실제 기록 뒤 첫 종가부터 가격 변화를 잽니다.`),
     h("p", {}, `전체 ${fr.all.n}건 · 10일 평균 ${nwPct(fr.all.mean10)}(${fr.all.n10}건) · 하락 국면 저점 20일 유지 ${frRate(fr.all)}`,
       ` · GS ${fr.gs.n}건 · 10일 평균 ${nwPct(fr.gs.mean10)} · 같은 해 아무 날 10일 평균 ${nwPct(fr.base10)}`),
     fr.items.length ? h("div", {class:"scroll"}, h("table", {},
@@ -100,9 +119,10 @@ function nwRender() {
         h("td", {}, !i.in_dd ? "하락 국면 아님" : i.hold20 == null ? "관찰 중" : i.hold20 ? "유지" : "이탈"))))))
       : h("p", {class:"nw-meta"}, "아직 전방으로 기록한 R 기사가 없습니다."));
   mount(root,
-    h("section", {class:"page-heading"}, h("div", {}, h("div", {class:"eyebrow"}, "중요 뉴스와 가격의 반응을 함께 추적"),
-      h("h1", {}, "바닥을 찾는 뉴스 근거"), h("p", {}, "매도 압력 → 매물 소화 단서 → 가격이 버티는지 확인"))),
-    controls,
+    h("section", {class:"page-heading"}, h("div", {},
+      h(NW.day ? "h1" : "h2", {}, NW.day ? NW.day + "까지의 뉴스 기록" : "기사 기록과 가격 반응"),
+      NW.day && h("p", {}, "현재 바닥 전망은 ‘현재 기록’에서 볼 수 있습니다."))),
+    nwControls(data.episodes, ep),
     h("div", {id:"nw-status", class:"nw-meta", role:"status"}, "기사 첫 기록 최신: ", nwTime(data.last_recorded_at),
       " · 조회 기준: ", nwTime(data.as_of), " · 새 기사 추가는 ‘뉴스 근거 업데이트’로 요청하세요."),
     data.warning && h("p", {class:"nw-error",role:"alert"}, data.warning),
@@ -116,7 +136,7 @@ function nwRender() {
       (ep?.events || []).slice().reverse().map(e => nwArticle(e,data)),
       !ep?.events.length && h("p", {}, "해당 시각까지 확인된 기사가 없습니다.")),
     h("footer", {class:"nw-meta"}, data.method, " · 가격: ", data.price_source || "미수집", " · 수집 시각: ", nwTime(data.prices_fetched_at),
-      h("p", {}, "현재는 2026년 7월·10월 두 국면을 기록한 관찰판입니다. 근거 개수는 바닥 확률 점수가 아닙니다.")));
+      h("p", {}, `비교 국면 ${data.episodes.length}개 · 같은 원자료를 인용한 기사는 묶어 셉니다.`)));
 }
 
 window.addEventListener("desk:tab", e => {

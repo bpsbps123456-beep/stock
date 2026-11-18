@@ -6,8 +6,29 @@
 .bd .card { padding: 22px; }
 .bd h3 { font-size: 15px; margin: 0 0 6px; }
 .bd p { margin: 8px 0; line-height: 1.75; }
+.bd .bd-outlook { border-top: 3px solid var(--accent); }
+.bd-outlook h1 { margin: 15px 0 4px; font-size: clamp(19px, 2vw, 26px); letter-spacing: -.025em; }
+.bd-outlook .bd-range { margin: 0; color: var(--ink); font: 600 clamp(25px, 4.5vw, 52px)/1.3 var(--mono); letter-spacing: -.045em; }
+.bd-range span { color: var(--muted); }
+.bd-target { color: var(--ink-2); }
+.bd-outlook .bd-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(135px, 1fr)); gap: 14px; border-top: 1px solid var(--line); margin: 18px 0 0; padding-top: 16px; }
+.bd-metrics dt { font-size: 12px; color: var(--ink-2); }
+.bd-metrics dd { margin: 4px 0 0; font: 600 17px/1.4 var(--mono); }
+.bd-missing { font-size: 16px; }
+.bd-validation, .bd-audit details { border-top: 1px solid var(--line); padding-top: 10px; }
+.bd-validation p { color: var(--ink-2); }
+.bd .section-nav { position: static; box-shadow: none; }
+#bd-audit, #bd-confirmation, #nw-body { scroll-margin-top: calc(var(--bar-height) + 14px); }
+.bd-audit .scroll { margin: 12px 0; }
+.bd-audit td:first-child, .bd-audit th:first-child { min-width: 9rem; }
+.bd-audit td small { margin: 3px 0 0; }
+.bd-audit td .bd-early-break { color: var(--serious); }
+.bd .bd-notes { margin-top: 0; }
+.bd-notes .bd-grid { margin-top: 12px; }
 .bd-card { border-top: 4px solid var(--context); }
 .bd-card.bd-falling { border-top-color: var(--serious); }
+.bd-card.bd-failed-confirmation { border-top-color: var(--serious); }
+.bd-failed-confirmation .bd-title { color: var(--serious); }
 .bd-card.bd-confirmed { border-top-color: var(--accent); }
 .bd-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
 .bd-title { font-size: clamp(22px, 2.6vw, 30px); margin: 10px 0 4px; letter-spacing: -0.01em; }

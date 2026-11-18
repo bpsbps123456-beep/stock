@@ -27,11 +27,14 @@ import numpy as np
 import pandas as pd
 
 from . import config, marketdata
+from .bottom_outlook import build_outlook
+from .bottom_paper import latest_completed, record_and_score
 from .news import market_calendar, write_atomic
+from .news_bottom_audit import evidence_audit
 from .state import clean
 
 # 계산 방식이 바뀌면 올린다. 캐시의 방식이 다르면 30분 안이어도 다시 계산한다.
-SPEC = "2026-10-28 SOXX 하락 10%·반등 7%·20거래일·새 고점이면 새 신호"
+SPEC = "2026-11-19 SOXX 10거래일 예상 최저 종가·근거별 20거래일 검증"
 CACHE_PATH = config.CACHE / "bottom.json"
 MAX_AGE_MIN = 30
 SYMBOL, LONG_SYMBOL = "SOXX", "^SOX"
@@ -63,6 +66,10 @@ _LIVE: dict = {}
 
 
 class BottomError(RuntimeError):
+    pass
+
+
+class PriceUnavailable(BottomError):
     pass
 
 
@@ -204,9 +211,12 @@ def check_split(close: pd.Series, symbol: str) -> None:
 def fetch(symbol: str, start: str) -> pd.Series:
     import yfinance as yf
 
-    frame_ = yf.download(symbol, start=start, auto_adjust=False, progress=False, threads=False)
+    try:
+        frame_ = yf.download(symbol, start=start, auto_adjust=False, progress=False, threads=False)
+    except Exception as exc:
+        raise PriceUnavailable(f"{symbol} 일봉 조회 실패 ({type(exc).__name__})") from exc
     if frame_ is None or frame_.empty:
-        raise BottomError(f"{symbol} 일봉을 받지 못했습니다")
+        raise PriceUnavailable(f"{symbol} 일봉을 받지 못했습니다")
     close = frame_["Close"]
     if isinstance(close, pd.DataFrame):
         close = close[symbol] if symbol in close.columns else close.iloc[:, 0]
@@ -228,6 +238,17 @@ def compute(now: datetime | None = None) -> dict:
     st = status(fr, sigs)
     tables = {k: None for k, *_ in PERIODS}
     warnings = []
+    outlook = build_outlook(close)
+    try:
+        outlook["paper"] = record_and_score(outlook, close, now or datetime.now(timezone.utc))
+    except (OSError, ValueError, KeyError) as exc:
+        outlook["paper"] = None
+        warnings.append(f"실제 발행 기록을 읽거나 저장할 수 없습니다 ({type(exc).__name__})")
+    try:
+        audit = evidence_audit(fr)
+    except (OSError, ValueError, KeyError) as exc:
+        audit = None
+        warnings.append(f"뉴스 근거 검증 자료를 불러올 수 없습니다 ({type(exc).__name__})")
     lfr = None
     try:
         long_close = completed(fetch(LONG_SYMBOL, LONG_START), now)
@@ -247,6 +268,7 @@ def compute(now: datetime | None = None) -> dict:
              "line": [v * (1 + CONFIRM) if v is not None and m else None
                       for v, m in zip(_series(fr, "low", CHART_DAYS), in_dd)]}
     return {"symbol": SYMBOL, "status": st, "signals": sigs, "tables": tables,
+            "outlook": outlook, "signal_audit": audit,
             "periods": [{"key": k, "label": name} for k, name, *_ in PERIODS],
             "bands": [{"lo": lo, "hi": hi} for lo, hi in BANDS], "chart": chart,
             "tail": {"dates": [d.date().isoformat() for d in close.index[-TAIL:]],
@@ -295,11 +317,15 @@ def _fresh(cached: dict) -> bool:
 
 def _daily(force: bool) -> dict:
     with _LOCK:
-        if not force and CACHE_PATH.exists():
-            cached = json.loads(CACHE_PATH.read_text(encoding="utf-8"))
-            if _fresh(cached):
-                return cached
-        data = clean(compute())
+        cached = json.loads(CACHE_PATH.read_text(encoding="utf-8")) if CACHE_PATH.exists() else {}
+        if not force and _fresh(cached) and cached["status"]["date"] == latest_completed(datetime.now(timezone.utc)):
+            return cached
+        try:
+            data = clean(compute())
+        except PriceUnavailable as exc:
+            if cached.get("_spec") != SPEC:
+                raise
+            return {**cached, "warnings": [*cached.get("warnings", []), f"{exc}. 마지막 저장 결과입니다."]}
         data["_epoch"], data["_spec"] = _time.time(), SPEC
         write_atomic(CACHE_PATH, data)
         return data
@@ -308,14 +334,15 @@ def _daily(force: bool) -> dict:
 def payload(force: bool = False, with_live: bool = True) -> dict:
     """일봉 계산은 MAX_AGE_MIN 동안 캐시, 실시간 잠정 상태는 요청마다 붙인다(디스크에 저장하지 않음)."""
     data = _daily(force)
-    prov, warn = live(data) if with_live else (None, None)
+    last = latest_completed(datetime.now(timezone.utc))
+    prov, warn = live(data) if with_live and data["status"]["date"] == last else (None, None)
     if warn == "MISMATCH" and _time.time() - data.get("_epoch", 0) > 60:
         data = _daily(True)        # 캐시가 분할 전 값이면 일봉을 다시 받아 맞춘다
         prov, warn = live(data)
     if warn == "MISMATCH":
         prov, warn = None, "실시간 값이 마지막 종가와 크게 달라(분할 반영 차이 의심) 잠정 계산을 생략했습니다"
     today = datetime.now(config.KST).date().isoformat()
-    return {**{k: v for k, v in data.items() if k != "tail"}, "live": prov,
+    return {**{k: v for k, v in data.items() if k != "tail"}, "live": prov, "latest_completed": last,
             "warnings": data.get("warnings", []) + ([warn] if warn else []),
             "notices": [text for until, text in NOTICES if today <= until], "rules": rules()}
 
@@ -345,6 +372,10 @@ def summary_lines(data: dict) -> list[str]:
     pct = lambda v: "—" if v is None else f"{v * 100:+.1f}%"
     lines = [f"[바닥 감지기] {data['symbol']} {st['date']} 종가 {st['close']:.2f} — {label[st['kind']]}",
              f"60일 고점 {st['high']:.2f}({st['peak']}) 대비 {pct(st['dd'])} · 저점 {st['low']:.2f}({st['low_date']}) 대비 {pct(st['up'])}"]
+    outlook = data.get("outlook") or {}
+    if outlook.get("available"):
+        lines.insert(0, f"[{outlook['as_of']} 기준] 다음 {outlook['horizon']}거래일 SOXX 예상 최저 종가 "
+                        f"${outlook['lower']:.2f} ~ ${outlook['upper']:.2f} (중앙 ${outlook['center']:.2f})")
     if st["kind"] != "calm":
         lines.append("반등 선: " + " · ".join(f"{int(x['k'] * 100)}% {x['price']:.2f}" for x in st["lines"]))
     sig = st.get("signal")

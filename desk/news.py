@@ -265,6 +265,16 @@ def prior_t(events: list[dict], row: dict) -> dict:
     return {"found": bool(ids), "ids": ids, "sessions": PRIOR_T_SESSIONS, "from": first}
 
 
+def forward_r_anchor(event: dict, cutoff: datetime):
+    """48시간 안에 제때 기록한 R 원자료를 실제로 알게 된 뒤의 첫 종가."""
+    if event.get("family") != "R" or event["time_precision"] != "exact":
+        return None
+    recorded, available = stamp(event["recorded_at"]), stamp(event["available_at"])
+    if recorded > cutoff or not 0 <= (recorded - available).total_seconds() <= 3600 * FORWARD_LAG_H:
+        return None
+    return anchor_session({**event, "available_at": event["recorded_at"]})
+
+
 def forward_r(events: list[dict], series: dict, cutoff: datetime) -> dict:
     """R 전방 채점: 공개 뒤 FORWARD_LAG_H 안에 기록한 R 기사의 1~20거래일 종가 변화와 SOXX 하락 저점의 20거래일 유지.
 
@@ -276,16 +286,21 @@ def forward_r(events: list[dict], series: dict, cutoff: datetime) -> dict:
     from .bottom import frame
     rows = completed_prices(series, cutoff)
     prices = {r[0]: r[1] for r in rows}
-    fr = frame(pd.Series([r[1] for r in rows], index=pd.DatetimeIndex([r[0] for r in rows]))) if len(rows) > 60 else None
     calendar, items = market_calendar(), []
-    for e in events:
-        lag_h = (stamp(e["recorded_at"]) - stamp(e["available_at"])).total_seconds() / 3600
-        if e.get("family") != "R" or lag_h > FORWARD_LAG_H:
+    close = pd.Series(prices, dtype=float)
+    close.index = pd.DatetimeIndex(close.index)
+    if len(close):
+        close = close.reindex(calendar.sessions_in_range(close.index[0], close.index[-1]))
+    fr = frame(close) if len(close) >= 60 else None
+    seen = set()
+    for e in sorted(events, key=lambda event: stamp(event["recorded_at"])):
+        anchor = forward_r_anchor(e, cutoff)
+        if anchor is None or e["source_group"] in seen:
             continue
+        seen.add(e["source_group"])
         item = {"id": e["id"], "title": e["title"], "url": e["url"], "bank": e.get("bank"), "available_at": e["available_at"],
                 "anchor": None, "returns": {str(n): None for n in R_HORIZONS}, "in_dd": None, "low": None, "hold20": None}
-        anchor = anchor_session(e)
-        days = [s.strftime("%Y-%m-%d") for s in calendar.sessions_window(anchor, max(R_HORIZONS) + 1)] if anchor is not None else []
+        days = [s.strftime("%Y-%m-%d") for s in calendar.sessions_window(anchor, max(R_HORIZONS) + 1)]
         if days and days[0] in prices:
             base = prices[days[0]]
             item["anchor"] = days[0]
@@ -305,9 +320,9 @@ def forward_r(events: list[dict], series: dict, cutoff: datetime) -> dict:
     base10 = None  # 아무 날 대조: 첫 R 기준일이 든 해 1월부터 조회 시각까지 모든 장의 10거래일 변화 평균
     anchors = sorted(i["anchor"] for i in items if i["anchor"])
     if anchors:
-        seq = [r[1] for r in rows if r[0] >= anchors[0][:4] + "-01-01"]
-        moves = [seq[k + 10] / seq[k] - 1 for k in range(len(seq) - 10)]
-        base10 = sum(moves) / len(moves) if moves else None
+        seq = close.loc[anchors[0][:4] + "-01-01":]
+        moves = (seq.shift(-10) / seq - 1).dropna()
+        base10 = float(moves.mean()) if len(moves) else None
     return {"items": items, "all": summary(items), "gs": summary([i for i in items if i["bank"] == "GS"]),
             "base10": base10, "lag_h": FORWARD_LAG_H, "horizons": [str(n) for n in R_HORIZONS]}
 
