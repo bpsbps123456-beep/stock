@@ -1,0 +1,59 @@
+{
+  "first_close": "2025-12-31",
+  "last_close": "2026-11-17",
+  "requested": 567,
+  "downloaded": 567,
+  "absent": [],
+  "end_before_cutoff": {
+    "AVB": "2026-08-14",
+    "CTRA": "2026-05-06",
+    "DAY": "2026-02-03",
+    "EA": "2026-08-04",
+    "HOLX": "2026-04-06",
+    "KVUE": "2026-10-30",
+    "WBD": "2026-10-05"
+  },
+  "technical": "SMA20>SMA50, Close>SMA50, Close>SMA200, Wilder RSI14>40, then-as-traded price>$10, prior 63 sessions' mean volume>500000 shares in signal-date units and daily volume/mean>1. Completed US regular closes. 63 prior sessions approximates three months; intraday ordering can differ.",
+  "source": "https://query1.finance.yahoo.com/v8/finance/chart/",
+  "definitions": "https://finviz.com/help/screener",
+  "sip": {
+    "endpoint": "https://docs.alpaca.markets/us/reference/stockbars",
+    "symbols": {
+      "CTRA": "2026-05-06",
+      "HOLX": "2026-04-06",
+      "DAY": "2026-02-03",
+      "SNDK": "2026-11-17",
+      "AVB": "2026-08-14",
+      "EA": "2026-08-04",
+      "KVUE": "2026-10-30",
+      "WBD": "2026-10-05"
+    }
+  },
+  "renamed_equivalent_shares": {
+    "MMC": "MRSH",
+    "BK": "BNY",
+    "SATS": "ECHO",
+    "PSKY": "SKYD",
+    "EQR": "VMRK"
+  },
+  "corporate_action_limitations": [
+    "HOLX unlisted contingent right, future payment up to $3, is unmarked; $76 guaranteed cash only.",
+    "PSKY/SKYD October warrants and ordinary dividends/spin distributions are not separately credited.",
+    "AVB delivery uses 2.793 times same continuing EQR quote August 17 under VMRK adjusted history.",
+    "Forced cash/stock consideration is treated as available at the first conversion open."
+  ],
+  "data": "2025-01-01 through 2026-11-18 included for split events; price signals stop at Nov 17.",
+  "files": {
+    "open.csv": "c24bc0d7297fc56123c47cd1fdf9a4625a22eaf74183c9a29adf276a3d0a3f18",
+    "close.csv": "cbe5217ddd55c3fcc8f1d64c6f4d1f0fd32c0eda4d94977ff18c6ce69cfa6906",
+    "price.csv": "7eeb56a93900ac8097da9aa6750f8d321ea313fd7125be3b1c8fe69ee8933f3f",
+    "ma_pass.csv": "42c6bcdb72cd34ed65147b653cf96e45abd9b63e368d5ddf4328bff0f9ebfc5d",
+    "non_ma_pass.csv": "855db12fb32daedd478d7103503a0e12cd9e9339ad8579d8fbce7dccc930a36f",
+    "technical_pass.csv": "edacd1ae5086a8375fcfe755bada5beb7ed9bde16355ac552e17885f82ed231e",
+    "relvol.csv": "e26008e8d0b54819f60f3f1baa9639d94c9fb47b4878cb2803176110e4d995fe",
+    "split_mult.csv": "0ef673791c0877f31a8563a3fd94b4286ad7206746b71bfe1d044794f997539e",
+    "tradable.csv": "382673c5ae717e43e8c5fc8c62a5c6c924a44c9bb2d7edc8c37004bd62cd9faa",
+    "split_events.csv": "24f9384ed18c20e60d8c90a448bbc6017d34e40dbf6552e4cc3b46ce0fd88f8e",
+    "terminal_events.csv": "2ec9ae44a82addd31180147bfc85df686d5ec0d25ec1557444cfa552a0cb04c5"
+  }
+}

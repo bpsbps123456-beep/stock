@@ -1,0 +1,34 @@
+{
+  "observations": {
+    "price": 124451,
+    "country_known": 121253,
+    "us": 115664,
+    "recent": 120010,
+    "ratio_known": 102948,
+    "debt_known": 94013,
+    "cap_known": 109021,
+    "all_known": 71470,
+    "pass": 38419
+  },
+  "unit": "ticker x signal close. All quotes include SPY and Dec31 warmup; each individual field coverage count requires linked issuer. Missing fails.",
+  "help_vs_reported_debt_different_cells": 12186,
+  "independent_scalar_checks": 420,
+  "sample": [
+    "AAPL",
+    "NVDA",
+    "PLTR",
+    "MSFT",
+    "AMZN",
+    "WMT",
+    "SPGI",
+    "IBM",
+    "MU",
+    "LRCX",
+    "TSM",
+    "META",
+    "JPM",
+    "SNDK",
+    "INTC"
+  ],
+  "audit_dates": "Every eighth available close, including warmup."
+}

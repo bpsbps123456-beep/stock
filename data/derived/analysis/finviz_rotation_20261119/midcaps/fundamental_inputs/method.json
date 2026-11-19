@@ -1,0 +1,27 @@
+{
+  "sources": [
+    "https://www.sec.gov/edgar/sec-api-documentation",
+    "https://www.sec.gov/data-research/sec-markets-data/financial-statement-data-sets",
+    "https://finviz.com/help/screener",
+    "https://finviz.com/stock?t=AAPL"
+  ],
+  "ciks_from": "Dec 2025 fixed midcaps/membership.csv, 12 former ticker links verified by issuer in 2025q3/2025q4 SEC per-filing SUB tables, otherwise SEC company_tickers.json (current lookup). Unmatched CADE has no US GAAP issuer matched here.",
+  "filing_rule": "strictly earlier filing calendar date; signal as-of close; max 170 days after reported balance sheet",
+  "country_rule": "Last disclosed business-address country from SEC 2025Q3..2026Q3 periodic filing archive; carry until next change. Q4 2026 location changes unobservable.",
+  "debt_rule": "positive US GAAP parent equity; reconstruct reported short/long borrowings + finance lease when separate. If debt unavailable, use total liabilities as conservative upper bound only if below equity. Lease/debt tags and vendor's adjustments may diverge.",
+  "vendor_check": "AAPL Finviz 2026-11-18 current ratio 1.02 and debt/equity 0.77. SEC Sep-26 2026 10-K current assets 173857m,current liabilities 169915m,equity 112093m. Help formula yields 1.516, opposite eligibility from displayed 0.77. Alternative literal documented gate accessible with definition='help'.",
+  "market_cap": "as-traded close \u00d7 latest public common share count, split-adjusted since count date. Class-price differences, buybacks, new issuance after disclosure introduce uncertainty. Share-class-specific DEI tags may be absent.",
+  "missing": "Unknown facts fail. Banks without classified balance sheets, non-US GAAP reports and negative parent equity fail.",
+  "institutional": "This gate excludes ownership. Any 13F study proxy is separate.",
+  "symbols": 401,
+  "ciks_found": 399,
+  "statements": 2316,
+  "countries_n_symbols": 394,
+  "no_ticker_mapping": [
+    "CADE"
+  ],
+  "no_statement_symbols": [
+    "CADE",
+    "OZK"
+  ]
+}

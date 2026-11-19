@@ -1,0 +1,34 @@
+{
+  "observations": {
+    "price": 87159,
+    "country_known": 85765,
+    "us": 83421,
+    "recent": 85124,
+    "ratio_known": 66699,
+    "debt_known": 67236,
+    "cap_known": 77844,
+    "all_known": 50799,
+    "pass": 29132
+  },
+  "unit": "Fixed December midcap cohort, ticker x signal close incl Dec31 warmup. Each count requires linked issuer; missing fails.",
+  "help_vs_reported_debt_different_cells": 11212,
+  "independent_scalar_checks": 420,
+  "sample": [
+    "AA",
+    "AAL",
+    "AGCO",
+    "ASGN",
+    "BLD",
+    "CIVI",
+    "CADE",
+    "GTLS",
+    "JHG",
+    "MASI",
+    "NSA",
+    "PCH",
+    "SNV",
+    "TMHC",
+    "WBS"
+  ],
+  "audit_dates": "Every eighth available close, including warmup."
+}

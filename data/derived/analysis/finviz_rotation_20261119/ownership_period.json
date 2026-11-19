@@ -1,0 +1,41 @@
+{
+  "unit": "fraction of point-in-time shares outstanding",
+  "first_signal_close": "2025-12-31",
+  "archives": [
+    [
+      "2025-09-30",
+      "2025-11-30",
+      "2025q3",
+      "01sep2025-30nov2025"
+    ],
+    [
+      "2025-12-31",
+      "2026-02-28",
+      "2025q4",
+      "01dec2025-28feb2026"
+    ],
+    [
+      "2026-03-31",
+      "2026-05-31",
+      "2026q1",
+      "01mar2026-31may2026"
+    ],
+    [
+      "2026-06-30",
+      "2026-08-31",
+      "2026q2",
+      "01jun2026-31aug2026"
+    ]
+  ],
+  "usable_by_quarter": {
+    "2025-09-30": 457,
+    "2025-12-31": 458,
+    "2026-03-31": 461,
+    "2026-06-30": 459
+  },
+  "source_13f": "https://www.sec.gov/data-research/sec-markets-data/form-13f-data-sets",
+  "source_nport": "https://www.sec.gov/data-research/sec-markets-data/form-n-port-data-sets",
+  "denominator": "Latest public share observation at or before quarter end, no older than 180 days, with filing date no later than cutoff. Split-adjusted to the same quarter end. Counts can be stale and shares by class may be unavailable.",
+  "filters": "Keep positions priced within +/-25% of the same CUSIP median reported per-share value. Exclude unresolved total >125%, unresolved cross-manager threshold crossings, known multi-class denominators. Missing means unverified and fails the research gate.",
+  "method": "Quarter-end SEC 13F original/restatement plus incremental holdings, filed through end of second month after reference quarter; next calendar date for closing signal. Q2 held through Nov17. Common equity CUSIP only, shares only, options excluded. SEC N-PORT separate source quarter, ticker/CUSIP votes 85%+ and three filings minimum. Aggregate lower estimate removes overlapping explicitly named other reporting managers, unresolved overlaps are possible. If overlap ambiguity straddles 40%, report missing. No exact Finviz data."
+}
