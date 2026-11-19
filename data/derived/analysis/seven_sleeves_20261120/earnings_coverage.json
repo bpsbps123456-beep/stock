@@ -1,0 +1,72 @@
+{
+  "requested_symbols": 918,
+  "issuers_in_source": 907,
+  "mapped_symbols": 916,
+  "missing_source_symbols": [
+    "CADE",
+    "OZK"
+  ],
+  "events": 5249,
+  "events_by_status": {
+    "eligible": 3121,
+    "unavailable_operating_income": 1044,
+    "nonpositive_growth": 527,
+    "unavailable_comparables": 305,
+    "nonpositive_operating_income": 241,
+    "invalid_sales": 11
+  },
+  "calendar_first": "2025-12-31",
+  "calendar_last": "2026-11-17",
+  "calendar_closes": 222,
+  "score_available_ticker_closes_before_universe_and_price_filters": 120390,
+  "min_and_max_scored_names_before_roster_per_day": [
+    518,
+    567
+  ],
+  "Q4_sample": {
+    "cik": 320193,
+    "filed": "2026-11-03",
+    "period": "2026-09-26",
+    "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+    "current_start": "2026-06-28",
+    "current_end": "2026-09-26",
+    "current_sales": 114477000000.0,
+    "current_method": "ytd_difference",
+    "current_sources": "0000320193-26-000026/0000320193-26-000020",
+    "year_ago_start": "2025-06-29",
+    "year_ago_end": "2025-09-27",
+    "year_ago_sales": 102466000000.0,
+    "year_ago_method": "ytd_difference",
+    "year_ago_sources": "0000320193-26-000026/0000320193-26-000020",
+    "previous_start": "2026-03-29",
+    "previous_end": "2026-06-27",
+    "previous_sales": 109417000000.0,
+    "previous_method": "reported",
+    "previous_sources": "0000320193-26-000020",
+    "previous_year_start": "2025-03-30",
+    "previous_year_end": "2025-06-28",
+    "previous_year_sales": 94036000000.0,
+    "previous_year_method": "reported",
+    "previous_year_sources": "0000320193-26-000020",
+    "operating_income": 35631000000.0,
+    "operating_method": "ytd_difference",
+    "operating_sources": "0000320193-26-000026/0000320193-26-000020",
+    "sales_yoy": 0.1172193703277184,
+    "previous_yoy": 0.1635650176528138,
+    "acceleration": -0.0463456473250953,
+    "raw_score": 0.0940465466651707,
+    "score": 0.0940465466651707,
+    "status": "eligible"
+  },
+  "verified_accession_cutoffs": 27817,
+  "freshness": "strict filing calendar date < signal close date; period age <=180 days. Score evaluated at next open.",
+  "universe": "Raw historical S&P500 monthly/401-starting-midcap input labels. Fund arrays reconcile aliases and corporate actions. Rank within then-active pool.",
+  "formula": "require current standalone sales YoY >0, previous/current year-ago denominators >0, current and prior-quarter sales >=0, and current standalone operating income >0. Score = current sales YoY + 0.5*(current YoY - previous quarter YoY). Filed operating income used as gate only. No earnings beat, adjusted EPS, valuation or price signal.",
+  "quarter": "USD US GAAP quarterly sales/OperatingIncomeLoss. Single 80\u2013100-day periods preferred; same-start cumulative 6m\u22123m, 9m\u22126m, FY\u22129m fallback (80\u2013100 days difference). Consecutive quarter boundaries must touch; YoY start and end 354\u2013376 days apart and durations within 8 days.",
+  "timing": "Companyfacts per-accession originals and later revisions enter state only on their file date; no first-vintage facts overwritten backwards. Current SEC issuer directory needed only to reproduce prior roster mapping.",
+  "limitations": "No comparable USD US GAAP business-revenue tag or operating income means unknown, especially banks and non-US filers. Recognized revenue may exclude other income. Large sales growth may include acquisitions, small denominators and 53-week fiscal years.",
+  "sources": [
+    "https://www.sec.gov/edgar/sec-api-documentation",
+    "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320193.json"
+  ]
+}
