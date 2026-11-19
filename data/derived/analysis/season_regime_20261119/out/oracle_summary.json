@@ -1,0 +1,102 @@
+{
+ "unlevered": [
+  {
+   "penalty": 0.01,
+   "seasons": 113,
+   "median_len": 2.0,
+   "min_len": 1,
+   "oracle_usd": 283.0498766351267,
+   "winners": "CASH/EW/MOM/NONSEMI/PULL/REV/SOXX"
+  },
+  {
+   "penalty": 0.02,
+   "seasons": 74,
+   "median_len": 2.0,
+   "min_len": 1,
+   "oracle_usd": 165.15143614431977,
+   "winners": "CASH/MOM/NONSEMI/PULL/REV/SOXX"
+  },
+  {
+   "penalty": 0.03,
+   "seasons": 49,
+   "median_len": 4.0,
+   "min_len": 1,
+   "oracle_usd": 89.56698406927224,
+   "winners": "CASH/MOM/NONSEMI/PULL/REV/SOXX"
+  },
+  {
+   "penalty": 0.05,
+   "seasons": 30,
+   "median_len": 5.5,
+   "min_len": 1,
+   "oracle_usd": 41.27078179531661,
+   "winners": "CASH/MOM/NONSEMI/PULL/REV/SOXX"
+  },
+  {
+   "penalty": 0.08,
+   "seasons": 14,
+   "median_len": 11.5,
+   "min_len": 2,
+   "oracle_usd": 15.556973900849226,
+   "winners": "CASH/MOM/NONSEMI/PULL/REV/SOXX"
+  },
+  {
+   "penalty": 0.12,
+   "seasons": 6,
+   "median_len": 34.0,
+   "min_len": 7,
+   "oracle_usd": 6.799572639498964,
+   "winners": "CASH/MOM/PULL/REV/SOXX"
+  }
+ ],
+ "with_etf": [
+  {
+   "penalty": 0.01,
+   "seasons": 123,
+   "median_len": 1.0,
+   "min_len": 1,
+   "oracle_usd": 10422068.077169586,
+   "winners": "EW/MOM/NONSEMI/PSQ/PULL/REV/SOXL/SOXS"
+  },
+  {
+   "penalty": 0.02,
+   "seasons": 101,
+   "median_len": 2.0,
+   "min_len": 1,
+   "oracle_usd": 7591583.824008283,
+   "winners": "MOM/NONSEMI/PULL/REV/SOXL/SOXS"
+  },
+  {
+   "penalty": 0.03,
+   "seasons": 83,
+   "median_len": 2.0,
+   "min_len": 1,
+   "oracle_usd": 4836339.811458863,
+   "winners": "MOM/NONSEMI/PULL/REV/SOXL/SOXS"
+  },
+  {
+   "penalty": 0.05,
+   "seasons": 73,
+   "median_len": 2.0,
+   "min_len": 1,
+   "oracle_usd": 3259256.9888776997,
+   "winners": "MOM/NONSEMI/PULL/SOXL/SOXS"
+  },
+  {
+   "penalty": 0.08,
+   "seasons": 49,
+   "median_len": 3.0,
+   "min_len": 1,
+   "oracle_usd": 680921.3040348807,
+   "winners": "MOM/NONSEMI/PULL/SOXL/SOXS"
+  },
+  {
+   "penalty": 0.12,
+   "seasons": 34,
+   "median_len": 4.5,
+   "min_len": 1,
+   "oracle_usd": 159154.48797152986,
+   "winners": "MOM/SOXL/SOXS"
+  }
+ ]
+}
