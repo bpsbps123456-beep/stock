@@ -28,6 +28,10 @@ START, END = "2025-01-02", "2025-12-31"
 
 def load():
     px = {f: pd.read_csv(LAB / f"prices_{f}.csv", index_col=0) for f in ("open", "close", "adj_close")}
+    # The holdout files carry rows on US holidays (QQQ blank); keep US sessions only so that lookbacks count
+    # trading days and nothing is filled at a carried-forward price.
+    us = px["close"]["QQQ"].notna()
+    px = {f: frame.loc[us] for f, frame in px.items()}
     soxx = pd.read_parquet(GRADE / "SOXX.parquet").Close
     soxx.index = soxx.index.strftime("%Y-%m-%d")
     pdfs = []
@@ -39,7 +43,8 @@ def load():
     return px, soxx, pdfs
 
 
-def main():
+def build():
+    """2025 book, plans, momentum IC and gates as SimpleNamespace (shared with other checks)."""
     px, soxx, pdfs = load()
     allday = list(px["adj_close"].index)
     days = [d for d in allday if START <= d <= END]
@@ -124,14 +129,24 @@ def main():
     def ledger(targets, gate=always):
         return study.replay(days, opn, close, ones, targets, gate)
 
-    def stats(curve):
-        res = {}
-        for w, (a, b) in {"y2025": (START, END), "h1": ("2025-01-01", "2025-06-30"), "h2": ("2025-07-01", END)}.items():
-            ix = np.flatnonzero((curve.index >= a) & (curve.index <= b))
-            v = np.r_[curve.usd.iloc[ix[0] - 1] if ix[0] else 1.0, curve.usd.to_numpy()[ix]]
-            res[f"{w}_usd"], res[f"{w}_mdd"] = v[-1] / v[0] - 1, (v / np.maximum.accumulate(v) - 1).min()
-        res["expo"] = float(curve.exposure.mean())
-        return res
+    return SimpleNamespace(days=days, opn=opn, close=close, plans=plans, gates=gates, ic_raw=ic_raw,
+                           ledger=ledger, tickers=tickers, rankings=rankings, px=px, soxx=soxx)
+
+
+def stats(curve):
+    res = {}
+    for w, (a, b) in {"y2025": (START, END), "h1": ("2025-01-01", "2025-06-30"), "h2": ("2025-07-01", END)}.items():
+        ix = np.flatnonzero((curve.index >= a) & (curve.index <= b))
+        v = np.r_[curve.usd.iloc[ix[0] - 1] if ix[0] else 1.0, curve.usd.to_numpy()[ix]]
+        res[f"{w}_usd"], res[f"{w}_mdd"] = v[-1] / v[0] - 1, (v / np.maximum.accumulate(v) - 1).min()
+    res["expo"] = float(curve.exposure.mean())
+    return res
+
+
+def main():
+    aux = build()
+    days, opn, plans, gates, ic_raw, ledger = aux.days, aux.opn, aux.plans, aux.gates, aux.ic_raw, aux.ledger
+    tickers, rankings = aux.tickers, aux.rankings
 
     rows = {"MOM": stats(ledger(plans["MOM"])), "REV": stats(ledger(plans["REV"])),
             "HALF": stats(ledger(plans["HALF"]))}
