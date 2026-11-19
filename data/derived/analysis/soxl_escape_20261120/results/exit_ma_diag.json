@@ -1,0 +1,128 @@
+{
+ "slope1_equals_cross_3m": true,
+ "ema60_cross_3m_TRAIN": {
+  "n_raw_cross(no dedup)": 85,
+  "feat_at_cross_median": {
+   "rsi": 46.3987,
+   "K": 43.0314,
+   "dlo20": 0.0103,
+   "dhi20": -0.0219
+  },
+  "feat_all_bars_median": {
+   "rsi": 48.4635,
+   "K": 50.4404,
+   "dlo20": 0.0128,
+   "dhi20": -0.0169
+  },
+  "pct_rsi_below35_at_cross": 2.4,
+  "pct_rsi_below35_all": 12.5,
+  "pct_K_below20_at_cross": 22.4,
+  "pct_K_below20_all": 25.6,
+  "fwd_mean%(price after exit; +=rebound=bad exit)": {
+   "r15": 0.071,
+   "r30": 0.028,
+   "r60": 0.11
+  },
+  "fwd_xdm_mean%": {
+   "r15": 0.166,
+   "r30": 0.203,
+   "r60": 0.282
+  },
+  "by_rsi_at_cross": {
+   "rsi<35": {
+    "n": 2,
+    "r15_mean%": -0.13,
+    "r30_mean%": -1.716,
+    "r60_mean%": -1.012,
+    "r15_xdm%": 0.721,
+    "r30_xdm%": -0.595,
+    "r60_xdm%": -0.217
+   },
+   "35<=rsi<45": {
+    "n": 32,
+    "r15_mean%": 0.124,
+    "r30_mean%": 0.195,
+    "r60_mean%": 0.841,
+    "r15_xdm%": 0.289,
+    "r30_xdm%": 0.303,
+    "r60_xdm%": 0.496
+   },
+   "rsi>=45": {
+    "n": 51,
+    "r15_mean%": 0.045,
+    "r30_mean%": -0.008,
+    "r60_mean%": -0.306,
+    "r15_xdm%": 0.067,
+    "r30_xdm%": 0.171,
+    "r60_xdm%": 0.168
+   }
+  }
+ },
+ "slope1_equals_cross_1m": true,
+ "ema60_cross_1m_TRAIN": {
+  "n_raw_cross(no dedup)": 245,
+  "feat_at_cross_median": {
+   "rsi": 46.4577,
+   "K": 39.6303,
+   "dlo20": 0.0061,
+   "dhi20": -0.0105
+  },
+  "feat_all_bars_median": {
+   "rsi": 48.7307,
+   "K": 48.9669,
+   "dlo20": 0.0075,
+   "dhi20": -0.0087
+  },
+  "pct_rsi_below35_at_cross": 2.0,
+  "pct_rsi_below35_all": 12.4,
+  "pct_K_below20_at_cross": 29.8,
+  "pct_K_below20_all": 25.4,
+  "fwd_mean%(price after exit; +=rebound=bad exit)": {
+   "r15": 0.037,
+   "r30": 0.147,
+   "r60": 0.06
+  },
+  "fwd_xdm_mean%": {
+   "r15": 0.037,
+   "r30": 0.203,
+   "r60": 0.13
+  },
+  "by_rsi_at_cross": {
+   "rsi<35": {
+    "n": 5,
+    "r15_mean%": -0.211,
+    "r30_mean%": -0.458,
+    "r60_mean%": -0.922,
+    "r15_xdm%": 0.218,
+    "r30_xdm%": 0.547,
+    "r60_xdm%": 0.31
+   },
+   "35<=rsi<45": {
+    "n": 87,
+    "r15_mean%": 0.054,
+    "r30_mean%": 0.209,
+    "r60_mean%": 0.236,
+    "r15_xdm%": 0.12,
+    "r30_xdm%": 0.343,
+    "r60_xdm%": 0.287
+   },
+   "rsi>=45": {
+    "n": 153,
+    "r15_mean%": 0.035,
+    "r30_mean%": 0.132,
+    "r60_mean%": -0.008,
+    "r15_xdm%": -0.016,
+    "r30_xdm%": 0.113,
+    "r60_xdm%": 0.035
+   }
+  }
+ },
+ "TRAIN_mean_reversion_check": {
+  "desc": "정규장 1분봉, 직전 15분 수익 5분위별 다음 봉 시가 체결 기준 30분 수익 평균%(1=가장 많이 빠진 분위)",
+  "q1": -0.135,
+  "q2": -0.042,
+  "q3": -0.073,
+  "q4": -0.044,
+  "q5": -0.072
+ }
+}
