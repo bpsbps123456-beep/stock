@@ -37,7 +37,7 @@ py -m unittest tests.test_desk tests.test_desk_launch tests.test_desk_robustness
   - 실적 뒤 흐름 원장 `erules.json`, 예측 원장 `data/forecast/ledger.json`, `forecast_market.json`은 아직 실제 경로에 쓴다. 테스트 서버에서는 그 두 탭을 갱신하지 않는다.
 - 데스크 캐시(2026-11-21 사용자 결정): `data/derived/desk/`의 다시 만들 수 있는 캐시 15개는 Git에서 뺀다. 가격 CSV 3개와 `prices_meta.json`, `bottom`·`dip`·`dip_universe`·`giant`·`value`·`trend`·`trend_chart`·`trend_earnings`·`forecast_prices`·`forecast_estimates`·`news_prices` JSON이다. 없거나 깨지면 각 탭이 다시 계산하거나 받는다(클라우드 세션은 첫 요청 때 yfinance로 받는다). 계속 추적하는 기록은 `finviz_observations/`, `season_paper.json`, `erules.json`(원장), `forecast_market.json`(발표 전 베타 1회 고정)이다. 종이 기록 `season_paper.json`은 원자적으로 쓰고, 읽을 수 없으면 덮어쓰지 않고 오류를 낸다.
 - 공용 코드: JSON 변환·원자적 쓰기·한 번만 쓰기·캐시 읽기는 `desk/common.py` 하나에 있다. 미국 장 달력은 `config.market_calendar`(exchange_calendars XNYS, 3년 앞까지) 하나다. 손으로 적은 휴장일 목록은 2026-11-21에 지웠고, 2026~2027 판정이 같다는 것을 `tests/test_desk_robustness.py`가 확인한다.
-- 화면 경고(`/api/state`): 가격을 받지 못한 종목(순위·계산에서 빠지고 5분 뒤 다시 받음), 계좌 평가에서 종가가 빠진 날을 직전 가격으로 채운 종목·일수(§5), 펀드 자료 갱신 실행 중.
+- 화면 경고(`/api/state`): 가격을 받지 못한 종목(순위·계산에서 빠지고 5분 뒤 한 번 다시 받음. 그래도 없으면 상장 폐지·티커 변경일 수 있어 보통 30분 캐시 주기로만 다시 묻는다), 계좌 평가에서 종가가 빠진 날을 직전 가격으로 채운 종목·일수(§5), 펀드 자료 갱신 실행 중.
 - 매매 기록 입력: 수량·단가·수수료·금액·허용 오차는 유한한 숫자만 받는다. NaN·inf·글자·참거짓 값은 400으로 거부한다(설정 저장도 같다).
 
 ### 2.1 화면 구성 (2026-10-07)
