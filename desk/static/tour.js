@@ -12,9 +12,9 @@ const TR = { data: null, idx: null, loading: null, stop: null, zone: null, focus
              axis: "all", lens: "time", ledgerAxis: "all", ledgerKind: "all", visited: new Set() };
 const TR_AXES = [["all", "전체"], ["openai", "OpenAI"], ["anthropic", "Anthropic"], ["both", "양쪽 모두"]];
 const TR_LENSES = [["time", "TIME"], ["koact", "KoAct"], ["seven", "7종목"], ["mine", "내 보유"],
-                   ["momentum", "수익률 상위 15"], ["none", "표시 끄기"]];
+                   ["momentum", "모멘텀 상위 15"], ["none", "표시 끄기"]];
 const TR_LENS_KO = { time: "TIME 비중", koact: "KoAct 비중", seven: "7종목 목표 비중", mine: "내 계좌 비중",
-                     momentum: "120일 수익률 상위 15종목", none: "" };
+                     momentum: "잔차 모멘텀(60일) 상위 15종목", none: "" };
 const TR_AX = { openai: { ko: "OpenAI", cls: "oa" }, anthropic: { ko: "Anthropic", cls: "an" } };
 const TR_STATUS = { 확정: "확정", 의향: "의향서(LOI)", 보도: "언론 보도", 확대: "▲ 확대", 축소: "▼ 축소", 종료: "종료" };
 const TR_KINDS = ["투자", "클라우드", "칩", "메모리", "서버", "네트워크", "데이터센터", "전력", "유통"];
@@ -299,7 +299,7 @@ function trRenderFlow() {
     if (s.id === "labs") t(NW / 2, -8, "AI 모델 완성", "tag product", "middle");
   }
   const lensNote = TR.lens === "none" ? "보유 표시 꺼짐" : TR.lens === "momentum"
-    ? "오른쪽 아래 숫자·노란 막대 = 수익률 상위 15종목 중 해당 단계의 종목 수"
+    ? "오른쪽 아래 숫자·노란 막대 = 잔차 모멘텀(60일) 상위 15종목 중 해당 단계의 종목 수"
     : `오른쪽 아래 숫자·노란 막대 = 해당 단계의 ${TR_LENS_KO[TR.lens]} 합계`;
   mount($("#tr-flow"),
     h("header", null,
@@ -483,7 +483,7 @@ function trCard(mem, z, i) {
     h("footer", null,
       hv("TIME", w("TIME"), "time"), hv("KoAct", w("KoAct"), "koact"),
       hv("7종목", seven, "seven"), hv("내 보유", mine, "mine"),
-      rank ? h("span", { class: "h" + (TR.lens === "momentum" ? " lamp" : "") }, "120일 수익률 ", h("b", null, `${rank.rank}위`)) : null,
+      rank ? h("span", { class: "h" + (TR.lens === "momentum" ? " lamp" : "") }, "모멘텀 순위 ", h("b", null, `${rank.rank}위`)) : null,
       uv && uv.V != null ? h("span", { class: "h", title: "최근 30일 다음 회계연도 EPS 컨센서스 변화와 주가 변화. 선행 PER 변화 = (1+주가)/(1+전망) − 1" },
         "30일 전망 ", h("b", null, trPct(uv.R)), " · 주가 ", h("b", null, trPct(uv.P)), " · PER ", h("b", null, trPct(uv.V)))
         : uv && uv.skip === "loss" ? h("span", null, "적자 — PER로 판단 안 함") : null,
@@ -807,7 +807,7 @@ function trRenderNotes() {
     "각 기업은 주요 역할을 맡는 방문지에 배치하고, 다른 역할은 기업 소개의 ‘다른 단계에서의 역할’로 연결합니다. ",
     "‘병목’은 공급이 수요를 따라가기 어려운 분야, ‘독점·선두·추격’은 경쟁 구도에서의 위치입니다. ★는 분야별 대표 기업이며, 주가 강세를 나타내는 거인의 어깨의 ◆와 구분합니다.", h("br"),
     h("b", null, "자료 출처"), ` — 공급망 배치와 계약·투자 관계는 회사 발표와 주요 언론 보도를 정리한 것입니다. 각 항목의 ‘출처’에서 확인할 수 있습니다. ‘의향서(LOI)’와 ‘언론 보도’는 계약 확정을 뜻하지 않습니다. 지도 기준일 ${m.as_of}. `,
-    `보유 비중은 검증한 펀드 PDF(${["TIME", "KoAct"].filter((k) => d.funds[k]).map((k) => `${k} ${d.funds[k].date}`).join(" · ")})를 사용합니다. 7종목·내 보유·수익률 순위는 ‘내 계좌·주문’과 같은 자료입니다. 보유 표시는 매수 추천이 아닙니다.`,
+    `보유 비중은 검증한 펀드 PDF(${["TIME", "KoAct"].filter((k) => d.funds[k]).map((k) => `${k} ${d.funds[k].date}`).join(" · ")})를 사용합니다. 7종목·내 보유·모멘텀 순위(60일 잔차)는 ‘내 계좌·주문’과 같은 자료입니다. 보유 표시는 매수 추천이 아닙니다.`,
     h("br"), trValueNote());
 }
 function trValueNote() {

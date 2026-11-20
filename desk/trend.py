@@ -10,9 +10,7 @@
 
 from __future__ import annotations
 
-import json
 import logging
-import os
 import threading
 import time as _time
 from concurrent.futures import ThreadPoolExecutor
@@ -28,7 +26,7 @@ from gbrc.etf.market import company_key, is_cash_holding, listing_market, yahoo_
 from gbrc.etf.storage import NORMALIZED_HOLDINGS_DIR, load_normalized_snapshot
 
 from . import config, strategies
-from .state import clean
+from .common import clean, read_cache, write_atomic
 
 # 계산 방식이 바뀌면 올린다. 캐시의 방식이 다르면 60분 안이어도 다시 계산한다(설명란과 데이터가 어긋나지 않게).
 SPEC = "2026-10-12 미국 기준 순위·당일 점수·주간 등급·실적 일정"
@@ -420,13 +418,9 @@ def _earnings_of(sym: str) -> list[str]:
 def earnings(symbols: list[str], force: bool = False) -> dict[str, list[str]]:
     """종목별 실적 발표일(지난 것과 예정된 것). EARN_MAX_AGE_H 동안 저장해 둔다. 받지 못하면 빈 목록."""
     cached = {}
-    if not force and EARN_PATH.exists():
-        try:
-            data = json.loads(EARN_PATH.read_text(encoding="utf-8"))
-        except ValueError:
-            data = {}
-        if _time.time() - data.get("_epoch", 0) < EARN_MAX_AGE_H * 3600:
-            cached = data.get("dates", {})
+    data = None if force else read_cache(EARN_PATH)
+    if data is not None and _time.time() - data.get("_epoch", 0) < EARN_MAX_AGE_H * 3600:
+        cached = data.get("dates", {})
     todo = [s for s in symbols if s not in cached]
     if todo:
         log = logging.getLogger("yfinance")
@@ -437,7 +431,6 @@ def earnings(symbols: list[str], force: bool = False) -> dict[str, list[str]]:
                 cached.update(zip(todo, pool.map(_earnings_of, todo)))
         finally:
             log.setLevel(level)
-        config.CACHE.mkdir(parents=True, exist_ok=True)
         _write(EARN_PATH, {"_epoch": _time.time(), "dates": cached})
     return {s: cached.get(s, []) for s in symbols}
 
@@ -557,15 +550,14 @@ def compute(now: datetime | None = None) -> dict:
 def payload(force: bool = False) -> dict:
     """캐시가 MAX_AGE_MIN보다 새로우면 그대로 쓰고, 아니면 다시 계산한다(10~20초)."""
     with _LOCK:
-        if not force and CACHE_PATH.exists() and CHART_PATH.exists():
-            cached = json.loads(CACHE_PATH.read_text(encoding="utf-8"))
+        cached = None if force or not CHART_PATH.exists() else read_cache(CACHE_PATH)  # broken -> recompute
+        if cached is not None:
             if cached.get("_spec") == SPEC and _time.time() - cached.get("_epoch", 0) < MAX_AGE_MIN * 60:
                 cached.update(rules=rules(), check=CHECK)  # 규칙·검증 문구는 캐시가 아니라 지금 코드에서
                 return cached
         data, charts = compute()
         data = clean(data)
         data["_epoch"], data["_spec"] = _time.time(), SPEC
-        config.CACHE.mkdir(parents=True, exist_ok=True)
         _write(CHART_PATH, clean(charts))  # 차트를 먼저: 새 등급이 보이면 그 차트도 있다
         _write(CACHE_PATH, data)
         return data
@@ -604,22 +596,20 @@ class TrendError(ValueError):
 
 
 def _write(path: Path, data) -> None:
-    """임시 파일에 다 쓴 뒤 바꿔 끼운다. 차트를 읽는 요청이 반쯤 쓰인 파일을 보지 않는다."""
-    tmp = path.with_suffix(path.suffix + ".tmp")
-    tmp.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
-    os.replace(tmp, path)
+    """임시 파일에 다 쓴 뒤 바꿔 끼운다(common.write_atomic). 차트를 읽는 요청이 반쯤 쓰인 파일을 보지 않는다."""
+    write_atomic(path, data, indent=None, allow_nan=True)
 
 
 def chart(symbol: str) -> dict:
     """한 종목 차트(종가·20·50·200일선·날짜별 등급). 등급 계산 때 함께 저장한 캐시에서 읽는다."""
     if not symbol:
         raise TrendError("종목 코드가 비었습니다")
-    if not CHART_PATH.exists():
-        payload()
-    charts = json.loads(CHART_PATH.read_text(encoding="utf-8"))
+    charts = read_cache(CHART_PATH)
+    if charts is None:  # missing or broken: rebuild grades and charts together
+        payload(force=True)
+        charts = read_cache(CHART_PATH) or {}
     if symbol in charts:
         return charts[symbol]
-    held = CACHE_PATH.exists() and any(s.get("symbol") == symbol for s in
-                                       json.loads(CACHE_PATH.read_text(encoding="utf-8")).get("stocks", []))
+    held = any(s.get("symbol") == symbol for s in (read_cache(CACHE_PATH) or {}).get("stocks", []))
     raise TrendError(f"{symbol}은(는) 시세를 받지 못해 차트가 없습니다" if held
                      else f"{symbol}은(는) 두 펀드 보유 종목이 아닙니다")

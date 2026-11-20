@@ -4,18 +4,12 @@ from __future__ import annotations
 
 import argparse
 import json
-from pathlib import Path
 from typing import Sequence
 
 from .config import resolve_fund
-from .data_quality import audit_all
 from .etf.engine import BriefingEngine
-from .etf.migration import (
-    migrate_legacy_snapshots,
-    validate_normalized_directory,
-)
+from .etf.storage import validate_normalized_directory
 from .etf.workflow import backfill_range, manifest_as_text, run_daily_etf_workflow
-from .system import create_baseline_manifest
 
 
 def _add_daily_flags(parser: argparse.ArgumentParser) -> None:
@@ -45,7 +39,6 @@ def build_parser() -> argparse.ArgumentParser:
     etf_commands = etf.add_subparsers(dest="etf_command", required=True)
     daily = etf_commands.add_parser("daily", help="fetch, validate, and report both funds")
     _add_daily_flags(daily)
-    etf_commands.add_parser("migrate", help="migrate v1 snapshots non-destructively")
     etf_commands.add_parser("validate", help="validate all normalized snapshots")
     trades = etf_commands.add_parser(
         "trades",
@@ -74,35 +67,11 @@ def build_parser() -> argparse.ArgumentParser:
     cumulative.add_argument("--start", help="start date (default: previous common snapshot)")
     cumulative.add_argument("--end", help="end date (default: latest common snapshot)")
     cumulative.add_argument("--out-dir", help="output folder (default: data/derived/briefings)")
-
-    system = commands.add_parser("system", help="system maintenance commands")
-    system_commands = system.add_subparsers(dest="system_command", required=True)
-    system_commands.add_parser("baseline", help="record a non-destructive baseline manifest")
-    system_commands.add_parser(
-        "audit",
-        help="audit legacy option and earnings logs without modifying them",
-    )
     return parser
 
 
 def main(argv: Sequence[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
-
-    if args.command == "system" and args.system_command == "baseline":
-        path, payload = create_baseline_manifest()
-        print(f"baseline: {path}")
-        print(json.dumps(payload["worktree_status_counts"], ensure_ascii=False))
-        return 0
-
-    if args.command == "system" and args.system_command == "audit":
-        summary = audit_all(Path(__file__).resolve().parents[1])
-        print(json.dumps(summary, ensure_ascii=False, indent=2))
-        return 2 if summary["needs_migration"] else 0
-
-    if args.command == "etf" and args.etf_command == "migrate":
-        summary = migrate_legacy_snapshots()
-        print(json.dumps(summary, ensure_ascii=False, indent=2))
-        return 0 if summary["failed"] == 0 else 2
 
     if args.command == "etf" and args.etf_command == "validate":
         summary = validate_normalized_directory()

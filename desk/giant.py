@@ -15,7 +15,6 @@
 
 from __future__ import annotations
 
-import json
 import threading
 import time as _time
 from collections import Counter
@@ -30,7 +29,7 @@ import ai_ath_gap
 import watchlist
 
 from . import config
-from .state import clean
+from .common import clean, read_cache, write_atomic
 
 CACHE_PATH = config.CACHE / "giant.json"
 MAX_AGE_MIN = 60
@@ -598,12 +597,10 @@ def compute() -> dict:
 def payload(force: bool = False) -> dict:
     """캐시가 MAX_AGE_MIN보다 새로우면 그대로 쓰고, 아니면 다시 계산한다(첫 계산 30~60초)."""
     with _LOCK:  # 탭 열기와 다시 계산이 겹쳐도 한 번만 계산한다
-        if not force and CACHE_PATH.exists():
-            cached = json.loads(CACHE_PATH.read_text(encoding="utf-8"))
-            if _time.time() - cached.get("_epoch", 0) < MAX_AGE_MIN * 60:
-                return clean(add_comparison_views(cached))
+        cached = None if force else read_cache(CACHE_PATH)  # a broken cache is recomputed
+        if cached is not None and _time.time() - cached.get("_epoch", 0) < MAX_AGE_MIN * 60:
+            return clean(add_comparison_views(cached))
         data = clean(add_comparison_views(compute()))
         data["_epoch"] = _time.time()
-        config.CACHE.mkdir(parents=True, exist_ok=True)
-        CACHE_PATH.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+        write_atomic(CACHE_PATH, data, indent=None)
         return data

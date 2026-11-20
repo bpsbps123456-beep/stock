@@ -41,6 +41,7 @@ function bdOutlook(d) {
     valid ? [
       h("p", {class: "bd-range"}, usd(o.lower), h("span", {}, " – "), usd(o.upper)),
       h("p", {class: "bd-target"}, `미국 정규장 종가 중 최저값의 예상 범위입니다. 종가가 ${usd(o.lower)} 아래로 내려가면 하단을 이탈합니다.`),
+      o.caveat && h("p", {class: "bd-warn", role: "note"}, (o.in_dd_now ? "지금은 하락 국면입니다. " : "") + o.caveat),
       h("dl", {class: "bd-metrics"},
         metric("예상 저점 중앙값", usd(o.center)),
         metric("기준 종가", usd(o.close)),

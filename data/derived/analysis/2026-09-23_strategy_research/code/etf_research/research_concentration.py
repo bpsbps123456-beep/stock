@@ -1,6 +1,6 @@
 """Predeclared concentration and mixed-signal research; no live orders.
 
-Run: py -m gbrc.etf.research_concentration [--reuse] [--threads 8]
+Run: py -m etf_research.research_concentration [--reuse] [--threads 8]
 """
 from __future__ import annotations
 import argparse
@@ -17,7 +17,7 @@ from .research_strategy_comparison import disclosure_indices, our_signals, momen
 from .research_engine import price_features
 from .research_validation import _batch_metrics, _one_metrics
 from .research_us_only import _hash
-from .storage import atomic_write_json, atomic_write_text
+from gbrc.etf.storage import atomic_write_json, atomic_write_text
 
 DEST=OUT/'concentration_research'
 STATS=('max_stocks','mean_stocks','max_stock_weight','max_detail_weight','max_semiconductor_plus_unknown_weight',

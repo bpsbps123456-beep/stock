@@ -7,7 +7,7 @@ import json
 import os
 import tempfile
 import unittest
-from contextlib import redirect_stdout
+from contextlib import redirect_stderr, redirect_stdout
 from pathlib import Path
 from typing import Any
 from unittest import mock
@@ -525,7 +525,6 @@ class CliParserTests(unittest.TestCase):
                     "json": False,
                 },
             ),
-            (["etf", "migrate"], {"command": "etf", "etf_command": "migrate"}),
             (["etf", "validate"], {"command": "etf", "etf_command": "validate"}),
             (
                 ["etf", "trades", "--fund", "koact", "--end", "2026-09-23", "--top", "5"],
@@ -555,14 +554,6 @@ class CliParserTests(unittest.TestCase):
                 ["etf", "cumulative", "--start", "2026-09-04"],
                 {"command": "etf", "etf_command": "cumulative", "start": "2026-09-04",
                  "end": None, "out_dir": None},
-            ),
-            (
-                ["system", "baseline"],
-                {"command": "system", "system_command": "baseline"},
-            ),
-            (
-                ["system", "audit"],
-                {"command": "system", "system_command": "audit"},
             ),
         ]
 
@@ -594,23 +585,12 @@ class CliParserTests(unittest.TestCase):
         run.assert_called_once_with(requested_date=None, fetch=False)
         self.assertEqual(json.loads(output.getvalue())["status"], "partial_success")
 
-    def test_system_audit_needs_migration_prints_json_and_exits_two(self) -> None:
-        summary = {
-            "status": "needs_migration",
-            "needs_migration": True,
-            "options": {"needs_migration": True},
-            "earnings": {"needs_migration": False},
-        }
-
-        with (
-            mock.patch.object(cli, "audit_all", return_value=summary) as audit,
-            redirect_stdout(io.StringIO()) as output,
-        ):
-            exit_code = cli.main(["system", "audit"])
-
-        self.assertEqual(exit_code, 2)
-        self.assertEqual(json.loads(output.getvalue()), summary)
-        audit.assert_called_once_with(Path(cli.__file__).resolve().parents[1])
+    def test_retired_maintenance_commands_are_rejected(self) -> None:
+        # system audit·baseline과 etf migrate는 2026-11-21에 지웠다(이력으로 복원).
+        for argv in (["system", "audit"], ["system", "baseline"], ["etf", "migrate"]):
+            with self.subTest(argv=argv), redirect_stderr(io.StringIO()):
+                with self.assertRaises(SystemExit):
+                    cli.main(argv)
 
 
 class ExistingNoFetchReportTests(unittest.TestCase):

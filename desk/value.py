@@ -16,7 +16,6 @@ PER·전망 상향만으로는 2026년 두 달 검증에서 앞서지 못했다(
 
 from __future__ import annotations
 
-import json
 import threading
 import time as _time
 from concurrent.futures import ThreadPoolExecutor
@@ -28,7 +27,7 @@ import pandas as pd
 import ai_ath_gap
 
 from . import config, tour
-from .state import clean
+from .common import clean, read_cache, write_atomic
 
 CACHE_PATH = config.CACHE / "value.json"
 MAX_AGE_MIN = 360        # 컨센서스는 하루 한두 번 바뀐다
@@ -215,12 +214,10 @@ def _rules(data: dict) -> dict:
 def payload(force: bool = False, max_age_min: int = MAX_AGE_MIN) -> dict:
     """캐시가 max_age_min보다 새로우면 그대로 쓰고, 아니면 다시 계산한다(첫 계산 20~40초)."""
     with _LOCK:
-        if not force and CACHE_PATH.exists():
-            cached = json.loads(CACHE_PATH.read_text(encoding="utf-8"))
-            if _time.time() - cached.get("_epoch", 0) < max_age_min * 60:
-                return _rules(cached)
+        cached = None if force else read_cache(CACHE_PATH)  # a broken cache is recomputed
+        if cached is not None and _time.time() - cached.get("_epoch", 0) < max_age_min * 60:
+            return _rules(cached)
         data = clean(compute())
         data["_epoch"] = _time.time()
-        config.CACHE.mkdir(parents=True, exist_ok=True)
-        CACHE_PATH.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+        write_atomic(CACHE_PATH, data, indent=None)
         return _rules(data)

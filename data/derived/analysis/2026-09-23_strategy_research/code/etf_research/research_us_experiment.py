@@ -1,6 +1,6 @@
 """Repeat the fixed ETF research grid on US listings and actual US sessions.
 
-    py -m gbrc.etf.research_us_experiment [--reuse-grid] [--threads 8]
+    py -m etf_research.research_us_experiment [--reuse-grid] [--threads 8]
 
 The original global experiment remains unchanged.  This is additional adaptive
 research after its results were seen, not a new independent holdout.  Reuse of
@@ -26,7 +26,7 @@ from .research_engine import (
 )
 from .research_us_only import _filter_us, _hash
 from .research_validation import _one_metrics
-from .storage import atomic_write_json, atomic_write_text
+from gbrc.etf.storage import atomic_write_json, atomic_write_text
 
 
 STATUS = (

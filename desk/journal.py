@@ -7,14 +7,13 @@ from __future__ import annotations
 
 import json
 import math
-import os
-import tempfile
 import uuid
 from datetime import date, datetime
 
 import numpy as np
 
 from . import config
+from .common import write_atomic
 
 TYPES = {"buy": "매수", "sell": "매도", "deposit": "입금", "withdraw": "출금"}
 
@@ -26,11 +25,25 @@ def _read(path, default):
 
 
 def _write(path, payload) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    fd, tmp = tempfile.mkstemp(dir=path.parent, suffix=".tmp")
-    with os.fdopen(fd, "w", encoding="utf-8") as fh:
-        json.dump(payload, fh, ensure_ascii=False, indent=1)
-    os.replace(tmp, path)
+    write_atomic(path, payload, indent=1)  # NaN is refused here too (allow_nan=False)
+
+
+def _number(payload: dict, key: str, label: str, blank_ok: bool = True) -> float:
+    """A finite number from user input; blanks count as 0 unless blank_ok is False. Anything else is a 400."""
+    raw = payload.get(key)
+    if raw is None or raw == "":
+        if not blank_ok:
+            raise JournalError(f"{label}을(를) 입력하세요.")
+        return 0.0
+    if isinstance(raw, bool):
+        raise JournalError(f"{label}에는 숫자를 입력하세요.")
+    try:
+        value = float(raw)
+    except (TypeError, ValueError) as exc:
+        raise JournalError(f"{label}에는 숫자를 입력하세요.") from exc
+    if not math.isfinite(value):
+        raise JournalError(f"{label}에는 유한한 숫자를 입력하세요.")
+    return value
 
 
 def load_entries() -> list[dict]:
@@ -49,7 +62,7 @@ def load_settings() -> dict:
 def save_settings(changes: dict) -> dict:
     current = load_settings()
     if "tolerance" in changes:
-        current["tolerance"] = min(0.2, max(0.0, float(changes["tolerance"])))
+        current["tolerance"] = min(0.2, max(0.0, _number(changes, "tolerance", "허용 오차", blank_ok=False)))
     if "finviz_orders" in changes:
         if type(changes["finviz_orders"]) is not bool:
             raise JournalError("주문 초안 기준을 다시 선택하세요.")
@@ -75,13 +88,13 @@ def add_entry(payload: dict) -> dict:
              "created_at": datetime.now(config.KST).isoformat(timespec="seconds")}
     if kind in ("buy", "sell"):
         ticker = str(payload.get("ticker", "")).strip().upper()
-        qty, price = float(payload.get("qty") or 0), float(payload.get("price") or 0)
-        fee = float(payload.get("fee") or 0)
+        qty, price = _number(payload, "qty", "수량"), _number(payload, "price", "단가")
+        fee = _number(payload, "fee", "수수료")
         if not ticker or qty <= 0 or price <= 0 or fee < 0:
             raise JournalError("종목 코드를 입력하고, 수량과 단가가 0보다 큰지 확인하세요.")
         entry.update({"ticker": ticker, "qty": qty, "price": price, "fee": fee})
     else:
-        amount = float(payload.get("amount") or 0)
+        amount = _number(payload, "amount", "금액")
         if amount <= 0:
             raise JournalError("입금·출금 금액은 0보다 커야 합니다.")
         entry["amount"] = amount
@@ -169,13 +182,19 @@ def history(entries: list[dict], closes, days: list[str], fx: np.ndarray) -> dic
     `twr` is a time-weighted index: deposits and withdrawals count at the start of their
     day, so moving money never shows up as a gain or a drawdown. It is NaN from the first
     day the money base is unknown (a buy before any deposit).
+
+    A held name without that day's close (a missing bar, or no price column at all) is valued
+    at its last known price: the latest earlier close or, before any close, its own trade price.
+    Valuing it at 0 would zero the index and switch off the §5 account drawdown check. Every
+    such day is listed in `filled` so the page can warn.
     """
     if not entries:
-        return {"dates": [], "usd": [], "krw": [], "twr": []}
+        return {"dates": [], "usd": [], "krw": [], "twr": [], "filled": []}
     ordered = _ordered(entries)
     first = ordered[0]["date"]
-    out_d, out_u, out_k, out_t = [], [], [], []
+    out_d, out_u, out_k, out_t, filled = [], [], [], [], []
     qty: dict[str, float] = {}
+    last_px: dict[str, tuple[float, str]] = {}  # ticker -> (price, "close" | "trade")
     cash, i = 0.0, 0
     prev, index = 0.0, 1.0
     for k, day in enumerate(days):
@@ -193,16 +212,26 @@ def history(entries: list[dict], closes, days: list[str], fx: np.ndarray) -> dic
             elif e["type"] == "buy":
                 qty[e["ticker"]] = qty.get(e["ticker"], 0.0) + e["qty"]
                 cash -= e["qty"] * e["price"] + e.get("fee", 0.0)
+                last_px[e["ticker"]] = (e["price"], "trade")
             elif e["type"] == "sell":
                 qty[e["ticker"]] = qty.get(e["ticker"], 0.0) - e["qty"]
                 cash += e["qty"] * e["price"] - e.get("fee", 0.0)
+                last_px[e["ticker"]] = (e["price"], "trade")
             i += 1
         value = cash
         for ticker, q in qty.items():
             if abs(q) < 1e-9:
                 continue
-            px = closes[ticker].iloc[k] if ticker in closes.columns else np.nan
-            value += q * px if np.isfinite(px) else 0.0
+            px = float(closes[ticker].iloc[k]) if ticker in closes.columns else math.nan
+            if math.isfinite(px) and px > 0:
+                last_px[ticker] = (px, "close")
+            elif ticker in last_px:
+                px, basis = last_px[ticker]
+                filled.append({"date": day, "ticker": ticker, "price": px,
+                               "basis": "직전 종가" if basis == "close" else "체결가"})
+            else:  # cannot happen for a held name (its buy sets a price); keep the old behaviour
+                px = 0.0
+            value += q * px
         base = prev + flow
         index = index * value / base if base > 0 and math.isfinite(index) else math.nan
         prev = value
@@ -210,4 +239,4 @@ def history(entries: list[dict], closes, days: list[str], fx: np.ndarray) -> dic
         out_u.append(value)
         out_k.append(value * fx[k] if np.isfinite(fx[k]) else math.nan)
         out_t.append(index)
-    return {"dates": out_d, "usd": out_u, "krw": out_k, "twr": out_t}
+    return {"dates": out_d, "usd": out_u, "krw": out_k, "twr": out_t, "filled": filled}

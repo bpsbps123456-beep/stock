@@ -1,7 +1,8 @@
 """Unadjusted close history, close-to-close returns, and the KRX session calendar.
 
-Call `prices.load_close_history` through the module (not a from-import) so tests can
-replace the network download in one place.
+`load_close_history` is the only Yahoo close download in gbrc: briefing, performance,
+`etf trades` and `etf cumulative` all go through it. Call it through the module (not a
+from-import) so tests can replace the network download in one place.
 """
 
 from __future__ import annotations
@@ -19,7 +20,10 @@ from .storage import NORMALIZED_HOLDINGS_DIR, snapshot_dates
 def load_close_history(tickers, start_date: str, end_date: str) -> dict[str, Any]:
     """{ticker: pandas Series of unadjusted closes} — the NAV's close-to-close basis.
 
-    A failed download yields {} (cells then read N/A), never a guessed price.
+    ``end_date`` is exclusive (yfinance). A failed download yields {} and a ticker
+    Yahoo does not return (expired futures month, delisted name) is left out, so
+    cells read N/A — never a guessed price. Callers that cannot work without a
+    ticker check for it themselves.
     """
     try:
         import yfinance as yf
@@ -53,6 +57,14 @@ def load_close_history(tickers, start_date: str, end_date: str) -> dict[str, Any
         if not series.empty:
             history[tickers[0]] = series
     return history
+
+
+def download_closes(tickers, start_date: str, end_date: str) -> dict[str, dict[str, float]]:
+    """{ticker: {YYYY-MM-DD: close}} — `load_close_history` as plain JSON-ready dicts."""
+    return {
+        ticker: {idx.strftime("%Y-%m-%d"): float(value) for idx, value in series.items()}
+        for ticker, series in load_close_history(tickers, start_date, end_date).items()
+    }
 
 
 def close_point_on_or_before(series, date_str: str | None):

@@ -15,11 +15,13 @@ import hashlib
 import json
 from datetime import date, datetime, time, timedelta
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 from gbrc.config import FundConfig, load_fund_configs
 
 from . import flows as qty_flows
 from . import market, providers, storage
+from . import prices as price_history
 from .digest import fund_label
 from .market import is_cash_holding
 from .report import (
@@ -69,29 +71,35 @@ def load_corpus(end, root=NORMALIZED_HOLDINGS_DIR):
     return corpus, entry_maps, input_hashes
 
 
-def load_prices(corpus, end, cache_path):
-    """가격은 캐시 우선. 캐시가 없으면 yfinance로 받고 원본 종가를 저장한다."""
-    if cache_path.exists():
-        return json.loads(cache_path.read_text(encoding="utf-8"))["close"]
+def load_prices(corpus, end, cache_path, now=None):
+    """가격은 확정 종가 캐시 우선. 없거나 잠정 캐시면 다시 받아 원본 종가를 저장한다.
 
-    tickers = {fund.listing_ticker for fund in _funds().values()}
+    END 정규장 마감 전(15:40 KST 이전)에 받은 값은 장중 가격이라 provisional로 표시해
+    저장하고, 다음 실행에서 다시 받는다(2026-11-21 수정: 예전에는 잠정 종가를 계속 재사용).
+    """
+    if cache_path.exists():
+        cached = json.loads(cache_path.read_text(encoding="utf-8"))
+        if not cache_is_provisional(cached, end):
+            return cached["close"]
+
+    funds = _funds()
+    listing = {fund.listing_ticker for fund in funds.values()}
+    tickers = set(listing)
     for snaps in corpus.values():
         for holding in snaps[end]["holdings"]:
             tickers.update(market.yahoo_ticker_candidates(holding.get("code"), end))
 
-    import yfinance as yf
-
     stop = (date.fromisoformat(end) + timedelta(days=1)).isoformat()
-    frame = yf.download(sorted(tickers), start=PRICE_HISTORY_START, end=stop,
-                        auto_adjust=False, progress=False)["Close"]
-    prices = {
-        ticker: {str(idx.date()): float(v) for idx, v in frame[ticker].dropna().items()}
-        for ticker in sorted(tickers) if ticker in frame.columns
-    }
+    prices = price_history.download_closes(sorted(tickers), PRICE_HISTORY_START, stop)
+    missing = sorted(listing - set(prices))
+    if missing:
+        raise SystemExit(f"가격 다운로드 실패: {', '.join(missing)} 종가를 받지 못했습니다")
+    retrieved_at = (now or datetime.now(KST)).astimezone(KST)
     cache_path.write_text(json.dumps({
         "provider": "Yahoo Finance via yfinance",
         "auto_adjust": False,
-        "retrieved_at": datetime.now().astimezone().isoformat(),
+        "retrieved_at": retrieved_at.isoformat(),
+        "provisional": retrieved_at < settled_at(end),
         "close": prices,
     }, ensure_ascii=False, indent=2), encoding="utf-8")
     return prices
@@ -101,12 +109,31 @@ def load_prices(corpus, end, cache_path):
 # 기준일 확정
 # --------------------------------------------------------------------------
 
+KST = ZoneInfo("Asia/Seoul")
 KRX_CLOSE_SETTLED = time(15, 40)
 
 
-def intraday_price_warning(end):
+def settled_at(end):
+    """END의 KRX 종가가 확정되는 시각(정규장 15:30 마감 + 여유 10분)."""
+    return datetime.combine(date.fromisoformat(end), KRX_CLOSE_SETTLED, tzinfo=KST)
+
+
+def cache_is_provisional(cached, end):
+    """잠정 표시가 있거나, 받은 시각이 없거나 END 확정 시각 전이면 다시 받는다."""
+    if cached.get("provisional"):
+        return True
+    try:
+        retrieved = datetime.fromisoformat(str(cached["retrieved_at"]))
+    except (KeyError, ValueError):
+        return True
+    if retrieved.tzinfo is None:
+        retrieved = retrieved.replace(tzinfo=KST)
+    return retrieved < settled_at(end)
+
+
+def intraday_price_warning(end, now=None):
     """END가 오늘이고 KRX 정규장이 끝나기 전이면 종가가 미확정이다."""
-    now = datetime.now().astimezone()
+    now = (now or datetime.now(KST)).astimezone(KST)
     if date.fromisoformat(end) != now.date() or now.time() >= KRX_CLOSE_SETTLED:
         return None
     return (f"{end} 종가는 아직 확정되지 않았습니다. 조회 시각 "

@@ -1,6 +1,6 @@
 """Frozen-rule US-listing restriction diagnostic; never reselects candidates.
 
-Run: py -m gbrc.etf.research_us_only
+Run: py -m etf_research.research_us_only
 
 Reads the original global experiment without changing it, retains its 189-date
 calendar and full-fund quantity-flow normalization, filters the security axis to
@@ -21,7 +21,7 @@ import numpy as np
 
 from .research import OUT, benchmarks, metrics
 from .research_engine import build_rankings, config_grid, simulate_detail
-from .storage import atomic_write_json, atomic_write_text
+from gbrc.etf.storage import atomic_write_json, atomic_write_text
 
 
 FIXED = {
@@ -347,7 +347,7 @@ def _report(result: dict) -> str:
          row['config']['weighting'], row['config']['risk_rule']] for row in result['candidates'].values()]))
     text += ['모두 주간 교체이며 가격 필터는 없다. trend_cash는 교체일에 하락 신호일 때 현금 전환을 '
              '목표로 하고, always는 유효 종목이 있으면 주식 노출을 유지한다.\n',
-             '## 재실행과 원자료\n', '`py -m gbrc.etf.research_us_only`\n',
+             '## 재실행과 원자료\n', '`py -m etf_research.research_us_only`\n',
              '- [전체 결과와 글로벌 비교](results.json)\n- [실행 전 고정 규약](protocol.json)\n'
              '- [검증 결과](validation.json)\n- [같은 날짜 축의 자산곡선](equity_curves.json)\n',
              '### ✅ 자기검증 (Self-Check)\n',

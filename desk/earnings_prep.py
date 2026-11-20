@@ -23,7 +23,7 @@ import numpy as np
 import pandas as pd
 
 from . import config, zones
-from .news import market_calendar
+from .config import market_calendar
 
 # 2026 reaction-day returns ÷ s_hist (mean |r| of the previous 8 reports), 4,701 reports of 1,629 US stocks
 # (data/derived/analysis/earnings_trend/results/events_wide.csv). Picked from 2026-01~06 the 80% band

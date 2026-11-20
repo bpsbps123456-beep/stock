@@ -1,6 +1,6 @@
 """Reproduce secondary parameter-stratum diagnostics from the saved research grid.
 
-    py -m gbrc.etf.research_subgroups [--out EXISTING_EXPERIMENT_DIRECTORY]
+    py -m etf_research.research_subgroups [--out EXISTING_EXPERIMENT_DIRECTORY]
 
 These strata were examined after the primary analysis.  Their train/validation
 selection does not create a newly untouched holdout or a corrected significance
@@ -21,7 +21,7 @@ from typing import Any
 import numpy as np
 
 from . import research_validation as validation
-from .storage import PROJECT_ROOT, atomic_write_json
+from gbrc.etf.storage import PROJECT_ROOT, atomic_write_json
 
 
 DEFAULT_OUT = PROJECT_ROOT / "data/derived/analysis/2026-09-23_strategy_research"

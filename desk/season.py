@@ -5,6 +5,8 @@
 
 - 모멘텀 성적 ic_h[j]: 세션 j 개장 때 아는 120일 모멘텀 순위(7종목 규칙과 같은 후보)와 j-1 종가 → j-1+h 종가
   수익의 순위 상관. j-1+h 종가가 지나야 확정된다. 확정된 값만 최근 K개 평균한다(known_ic).
+  다이얼은 이 120일 성적으로만 고른다(정의 고정). 보조 줄 ic_res: 같은 방식으로 데스크 실제 순위 점수
+  (순위 행 r["score"], 2026-11-21부터 60일 잔차 모멘텀)의 성적을 h20·K20/h10·K10으로 함께 보인다(관찰용, 선택에 안 씀).
 - SOXX 20일선: 직전 확정 종가가 그날 포함 20일 단순평균 이상이면 위.
 - 바구니: MOM = 데스크 7종목 모델 경로(2026-11-21부터 60일 잔차 모멘텀 규칙), REV = TIME 미국 보유 중 직전 5거래일 수익 최하위 7종목 같은 비중(상한 적용),
   둘 다 ISO 주 첫 세션 개장에 교체. CASH = 달러.
@@ -16,7 +18,6 @@
 from __future__ import annotations
 
 import json
-import os
 import threading
 import time
 from datetime import date, datetime, timedelta
@@ -26,10 +27,10 @@ import pandas as pd
 
 from . import config
 from . import strategies as S
-from .state import clean
+from .common import clean, write_atomic
 
-# 테스트 서버(DESK_JOURNAL_DIR 지정)는 실제 종이 기록을 건드리지 않게 그 임시 폴더에 쓴다(§2).
-PAPER = (config.JOURNAL_DIR if os.environ.get("DESK_JOURNAL_DIR") else config.CACHE) / "season_paper.json"
+# 테스트 서버(DESK_JOURNAL_DIR 지정)는 실제 종이 기록을 건드리지 않게 그 임시 폴더에 쓴다(§2, config.record_dir).
+PAPER = config.record_dir(config.CACHE / "season_paper.json")
 CACHE_SEC = 3600
 DIALS = {"dial1": {"name": "성격 다이얼", "h": 20, "K": 20, "gate": False},
          "dial2": {"name": "두 다이얼", "h": 10, "K": 10, "gate": True}}
@@ -158,7 +159,10 @@ def rev_path(book: S.Book, days: list[str], rankings: list[list[dict]]):
     return np.array(value), np.array(close), weights
 
 
-def momentum_ic(book: S.Book, days: list[str], rankings: list[list[dict]], horizon: int) -> np.ndarray:
+def momentum_ic(book: S.Book, days: list[str], rankings: list[list[dict]], horizon: int,
+                field: str = "mom120") -> np.ndarray:
+    """Rank correlation of a ranking field with the next `horizon` returns. field="mom120" is the
+    dial definition (§11.2, fixed); field="score" is the desk's live rule score (observation only)."""
     k0 = book.days.index(days[0])
     out = np.full(len(days), np.nan)
     for j, ranked in enumerate(rankings):
@@ -168,12 +172,12 @@ def momentum_ic(book: S.Book, days: list[str], rankings: list[list[dict]], horiz
         fwd, mom = [], []
         for r in ranked:
             px = S._col(book, book.adj, r["key"])
-            if px is None or r.get("mom120") is None:  # 성적은 120일 수익률로 잰다(§11.2 정의 고정)
+            if px is None or r.get(field) is None:  # 다이얼 성적은 120일 수익률로 잰다(§11.2 정의 고정)
                 continue
             a, b = px[k - 1], px[k - 1 + horizon]
             if np.isfinite(a) and np.isfinite(b) and a > 0:
                 fwd.append(b / a - 1)
-                mom.append(r["mom120"])
+                mom.append(r[field])
         if len(fwd) >= 8:
             out[j] = pd.Series(mom).rank().corr(pd.Series(fwd).rank())
     return out
@@ -186,7 +190,9 @@ def compute(book: S.Book, path: S.Path) -> dict:
     session = session_after(book.days[-1])
     rankings = [S.momentum_ranking(book, k0 + j, day)[1] for j, day in enumerate(days)]
     nxt_rank = S.momentum_ranking(book, n, session)[1]
-    ic = {h: momentum_ic(book, days, rankings, h) for h in sorted({d["h"] for d in DIALS.values()})}
+    horizons = sorted({d["h"] for d in DIALS.values()})
+    ic = {h: momentum_ic(book, days, rankings, h) for h in horizons}
+    ic_score = {h: momentum_ic(book, days, rankings, h, field="score") for h in horizons}
     if "SOXX" not in book.cls.columns:
         raise SeasonError("SOXX 일봉이 없습니다(데스크는 Desk.ensure에서 SOXX를 함께 받습니다).")
     soxx = book.cls["SOXX"].to_numpy(float)
@@ -199,10 +205,12 @@ def compute(book: S.Book, path: S.Path) -> dict:
     qf = (book.adj["QQQ"] / book.cls["QQQ"] * book.opn["QQQ"]).to_numpy(float)[k0:k0 + T]
     opn = {"MOM": path.value, "REV": rv, "QQQ": qf / qf[0]}
     cls = {"MOM": path.close, "REV": rc, "QQQ": qa / qf[0]}
-    dials, known_now = {}, {}
+    dials, known_now, known_res = {}, {}, {}
     for name, d in DIALS.items():
         kn = known_ic(np.r_[ic[d["h"]], np.nan], d["h"], d["K"])  # length T+1; last = the next session
         known_now[name] = float(kn[-1]) if np.isfinite(kn[-1]) else None
+        kr = known_ic(np.r_[ic_score[d["h"]], np.nan], d["h"], d["K"])
+        known_res[name] = float(kr[-1]) if np.isfinite(kr[-1]) else None
         ch = [choose(kn[j], up[j], d["gate"]) for j in range(T + 1)]
         dials[name] = {**d, "pick": ch[T], "history": ch[:T], "close": chain(ch[:T], opn, cls),
                        "switches": [{"date": days[j], "to": ch[j]} for j in range(1, T) if ch[j] != ch[j - 1]]}
@@ -211,7 +219,8 @@ def compute(book: S.Book, path: S.Path) -> dict:
     else:
         rev_now, _ = S._drift(rw[-1], S._intraday(book, rw[-1], n - 1))
     mom_now = S.next_target(book, path, session)["target"]
-    return {"days": days, "session": session, "ic": ic, "known_now": known_now, "soxx_up_next": up[-1],
+    return {"days": days, "session": session, "ic": ic, "ic_score": ic_score, "known_now": known_now,
+            "known_res": known_res, "soxx_up_next": up[-1],
             "soxx_last": float(soxx[n - 1]), "soxx_sma": float(sma[n - 1]), "dials": dials, "opn": opn, "cls": cls,
             "rev_now": {book.ticker[k]: w for k, w in rev_now.items()},
             "mom_now": {book.ticker[k]: w for k, w in mom_now.items()}}
@@ -229,8 +238,15 @@ def season_label(ic20, ic10, soxx_up) -> tuple[str, str]:
 
 
 def _load_paper() -> dict:
+    """The paper ledger. A file that cannot be read is an error, never silently replaced (it cannot be rebuilt)."""
     if PAPER.exists():
-        return json.loads(PAPER.read_text(encoding="utf-8"))
+        try:
+            ledger = json.loads(PAPER.read_text(encoding="utf-8"))
+        except (OSError, UnicodeDecodeError, ValueError) as exc:
+            raise SeasonError(f"시즌 종이 기록을 읽지 못했습니다({PAPER.name}). 파일을 고치기 전에는 새 줄을 쓰지 않습니다: {exc}") from exc
+        if not isinstance(ledger, dict) or not isinstance(ledger.get("records", []), list):
+            raise SeasonError(f"시즌 종이 기록 형식이 다릅니다({PAPER.name}). 새 줄을 쓰지 않습니다.")
+        return ledger
     return {"schema": 1, "note": "시즌 계기판 종이 기록(docs/desk_system.md §11.2). 세션마다 처음 계산한 선택을 잠근다. "
                                  "수량·비중·개인 계좌 정보 없음.", "records": []}
 
@@ -257,12 +273,13 @@ def payload(desk, force: bool = False) -> dict:
         ledger = _load_paper()
         rec = {"session": session, "recorded_at": now_kst.isoformat(timespec="seconds"), "after_open": after_open,
                "basis_close": book.days[-1], "ic_h20_k20": ic20, "ic_h10_k10": ic10,
+               # 관찰용 보조 성적(데스크 실제 점수 r["score"]). 다이얼 선택에는 쓰지 않는다(2026-11-21 추가).
+               "ic_res": {"h20_k20": res["known_res"]["dial1"], "h10_k10": res["known_res"]["dial2"]},
                "soxx_close": res["soxx_last"], "soxx_sma20": res["soxx_sma"], "soxx_up": res["soxx_up_next"],
                "dial1": res["dials"]["dial1"]["pick"], "dial2": res["dials"]["dial2"]["pick"], "season": label,
                "mom_basket": sorted(res["mom_now"]), "rev_basket": sorted(res["rev_now"])}
         if append_record(ledger, clean(rec)):
-            PAPER.parent.mkdir(parents=True, exist_ok=True)
-            PAPER.write_text(json.dumps(clean(ledger), ensure_ascii=False, indent=1), encoding="utf-8")
+            write_atomic(PAPER, clean(ledger), indent=1)
         days = res["days"]
         jul = next(j for j, d in enumerate(days) if d >= "2026-07-01")
         hist = []
@@ -278,6 +295,8 @@ def payload(desk, force: bool = False) -> dict:
             "after_open": after_open,
             "season": {"label": label, "why": why},
             "ic": {"h20_k20": ic20, "h10_k10": ic10},
+            "ic_res": {"h20_k20": res["known_res"]["dial1"], "h10_k10": res["known_res"]["dial2"],
+                       "label": "60일 잔차 모멘텀(데스크 실제 순위 점수)"},
             "soxx": {"close": res["soxx_last"], "sma20": res["soxx_sma"], "up": res["soxx_up_next"]},
             "picks": {n: {"name": d["name"], "pick": d["pick"],
                           "rule": ("SOXX 20일선 아래면 현금, 위면 " if d["gate"] else "")
@@ -285,13 +304,17 @@ def payload(desk, force: bool = False) -> dict:
                           "switches": d["switches"][-6:]} for n, d in res["dials"].items()},
             "baskets": {"MOM": res["mom_now"], "REV": res["rev_now"]},
             "chart": {"days": days[-tail:], "ic20": known_ic(res["ic"][20], 20, 20)[-tail:],
-                      "ic10": known_ic(res["ic"][10], 10, 10)[-tail:]},
+                      "ic10": known_ic(res["ic"][10], 10, 10)[-tail:],
+                      "ic20_res": known_ic(res["ic_score"][20], 20, 20)[-tail:],
+                      "ic10_res": known_ic(res["ic_score"][10], 10, 10)[-tail:]},
             "history": hist,
             "paper": paper_score(ledger["records"], days, res["opn"], res["cls"]),
             "notes": [
                 "관찰용 계기판입니다. 7종목 규칙과 주문 초안은 바꾸지 않습니다(사용자 결정 2026-11-20, 규칙 정본 §3·§3.1).",
                 "모멘텀 성적은 120일 모멘텀 순위와 그 뒤 h거래일 수익의 순위 상관입니다. h거래일이 지나야 확정되므로 확정된 값만 씁니다"
                 "(성격 다이얼 h20·K20, 두 다이얼 h10·K10).",
+                "보조 줄 '잔차 모멘텀 성적'은 같은 방식으로 데스크가 지금 순위를 매기는 점수(60일 잔차 모멘텀, 2026-11-21부터)를 잰 값입니다. "
+                "다이얼 선택에는 쓰지 않는 관찰용이며, 다이얼을 이 값으로 다시 고르려면 종이 기록이 쌓인 뒤 따로 판단합니다.",
                 "2026 성적표는 지금 규칙을 2026 처음부터 다시 돌린 사후 재생입니다. 이 설정들은 2026 자료로 고른 것이라 실제 기대보다 "
                 "좋게 나온 쪽입니다. 2025에는 성격 다이얼 +8.3%(모멘텀 단독 +14.5%), 두 다이얼 −53.9%였습니다(season_regime_20261119).",
                 "종이 기록은 마지막 확정 종가 다음 세션의 선택을 처음 계산한 순간 잠그고 고치지 않습니다. 개장 뒤에 처음 잠근 줄은 "

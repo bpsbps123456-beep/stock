@@ -95,6 +95,37 @@ def is_us_listed(code: Any) -> bool:
     return listing_market(code) == "US"
 
 
+# 직접 살 수 있는 개별 증권 종목군(데스크 7종목·연구 공통). 2026-09-23 연구에서 옮겨 왔다.
+CURRENCY = {"KR": "KRW", "US": "USD", "JP": "JPY", "HK": "HKD", "CN": "CNY"}
+# 발행사가 확인한 같은 증권의 티커 변경. 옛 코드를 새 코드로 이어 붙인다.
+CORPORATE_ALIASES = {"SATS US EQUITY": "ECHO US EQUITY"}
+CORPORATE_ALIAS_SOURCES = [{
+    "old": "SATS US EQUITY", "new": "ECHO US EQUITY", "effective_date": "2026-06-24",
+    "source": "https://ir.echostar.com/node/33601/pdf",
+    "reason": "Issuer-confirmed ticker rename of the same security; Yahoo ECHO includes prior history",
+}]
+# Explicit product-name rules, rather than a blacklist selected on performance.
+PRODUCT_NAME = re.compile(
+    r"\b(?:ETF|ETN|FUND|ISHARES|PROSHARES|DIREXION|LEVERAGED|ULTRAPRO|"
+    r"ULTRASHORT|[23]X|INDEX)\b|(?:^TIME\s|^KoAct\s|^KODEX\s|^TIGER\s)|"
+    r"레버리지|인버스|액티브|상장지수|투자신탁", re.IGNORECASE)
+
+
+def exclusion_reason(holding: Mapping[str, Any]) -> str | None:
+    """Why a holding is outside the directly investable single-security universe."""
+    if is_cash_holding(holding):
+        return "cash: tracked separately at actual NAV fraction"
+    if listing_market(holding.get("code")) == "FUT":
+        return "futures: direct unlevered securities universe only"
+    if holding.get("asset_type") in {"fund", "etf", "etn", "derivative"}:
+        return "fund/derivative asset_type"
+    if PRODUCT_NAME.search(str(holding.get("name", ""))):
+        return "fund/ETF/leveraged product: explicit name rule"
+    if listing_market(holding.get("code")) not in CURRENCY:
+        return "unsupported listing identity: cannot map an executable security"
+    return None
+
+
 US_CODE_RE = re.compile(r"^([A-Z0-9./-]+)\s+US\s+EQUITY$")
 
 

@@ -1,6 +1,6 @@
 """US-only fixed-grid research with explicit trading-cost deductions set to zero.
 
-Run: py -m gbrc.etf.research_zero_cost [--reuse-grid] [--threads 8]
+Run: py -m etf_research.research_zero_cost [--reuse-grid] [--threads 8]
 Reads the existing US experiment; writes only its zero_cost/ child directory.
 """
 from __future__ import annotations
@@ -17,7 +17,7 @@ from .research_robust import select_robust
 from .research_us_only import _hash
 from .research_us_experiment import _rule_ko
 from .research_validation import evaluate_candidates, _batch_metrics, _metric_row, _one_metrics
-from .storage import atomic_write_json, atomic_write_text
+from gbrc.etf.storage import atomic_write_json, atomic_write_text
 
 STATUS = 'Additional adaptive research after earlier results; August-September is reused historical evaluation, not independent validation.'
 SOURCE_FILES = ('bundle.npz', 'metadata.json', 'raw_prices.json', 'protocol.json',

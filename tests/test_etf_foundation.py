@@ -6,7 +6,6 @@ The fixtures are deliberately small and synthetic.  Every filesystem test uses
 
 from __future__ import annotations
 
-import json
 import os
 import tempfile
 import unittest
@@ -15,7 +14,6 @@ from pathlib import Path
 from unittest import mock
 
 from gbrc.config import load_fund_configs, resolve_fund
-from gbrc.etf.migration import migrate_legacy_snapshots
 from gbrc.etf.snapshot import (
     SnapshotValidationError,
     canonical_filename,
@@ -27,6 +25,7 @@ from gbrc.etf.storage import (
     atomic_write_json,
     load_normalized_snapshot,
     save_normalized_snapshot,
+    validate_normalized_directory,
 )
 
 
@@ -233,65 +232,33 @@ class FundConfigurationTests(unittest.TestCase):
         self.assertEqual(resolve_fund("2ETFQ1"), funds["koact"])
 
 
-class LegacyMigrationTests(unittest.TestCase):
-    def test_migration_is_non_destructive_and_idempotent(self) -> None:
-        raw = koact_legacy_snapshot()
-        source_json = json.dumps(
-            raw, ensure_ascii=False, indent=2, sort_keys=True
-        ).encode("utf-8") + b"\n"
+class NormalizedDirectoryValidationTests(unittest.TestCase):
+    """`py gbrc.py etf validate` 계약: 스키마·파일 이름·펀드/날짜 중복을 모두 다시 본다."""
+
+    def test_valid_fallback_snapshot_and_detected_failures(self) -> None:
+        normalized = normalize_snapshot(koact_legacy_snapshot())  # 일요일 요청 → 금요일 기준
 
         with tempfile.TemporaryDirectory() as temp_dir:
-            base = Path(temp_dir)
-            source = base / "legacy"
-            destination = base / "normalized"
-            quarantine = base / "quarantine"
-            source.mkdir()
-            source_path = source / "2026-07-05_2ETFQ1.json"
-            source_path.write_bytes(source_json)
-            original_mtime_ns = source_path.stat().st_mtime_ns
+            root = Path(temp_dir)
+            path, status = save_normalized_snapshot(normalized, root)
+            self.assertEqual((path.name, status), ("2026-07-03_2ETFQ1.json", "created"))
 
-            first = migrate_legacy_snapshots(
-                source=source,
-                destination=destination,
-                quarantine=quarantine,
-            )
+            summary = validate_normalized_directory(root)
+            self.assertEqual((summary["files"], summary["valid"], summary["invalid"]), (1, 1, 0))
+            self.assertEqual(summary["funds"]["2ETFQ1"], {
+                "files": 1, "min_date": "2026-07-03", "max_date": "2026-07-03",
+            })
 
-            self.assertEqual(first["expected"], 1)
-            self.assertEqual(first["created"], 1)
-            self.assertEqual(first["unchanged"], 0)
-            self.assertEqual(first["failed"], 0)
-            self.assertEqual(len(first["fallback_dates"]), 1)
-            self.assertEqual(
-                first["fallback_dates"][0]["normalized_file"],
-                "2026-07-03_2ETFQ1.json",
-            )
-
-            canonical_path = destination / "2026-07-03_2ETFQ1.json"
-            self.assertTrue(canonical_path.is_file())
-            canonical_bytes = canonical_path.read_bytes()
-            migrated = load_normalized_snapshot(canonical_path)
-            self.assertEqual(migrated["requested_date"], "2026-07-05")
-            self.assertEqual(migrated["as_of_date"], "2026-07-03")
-
-            self.assertTrue(source_path.is_file())
-            self.assertEqual(source_path.read_bytes(), source_json)
-            self.assertEqual(source_path.stat().st_mtime_ns, original_mtime_ns)
-            self.assertFalse(quarantine.exists())
-
-            second = migrate_legacy_snapshots(
-                source=source,
-                destination=destination,
-                quarantine=quarantine,
-            )
-
-            self.assertEqual(second["expected"], 1)
-            self.assertEqual(second["created"], 0)
-            self.assertEqual(second["unchanged"], 1)
-            self.assertEqual(second["failed"], 0)
-            self.assertEqual(source_path.read_bytes(), source_json)
-            self.assertEqual(source_path.stat().st_mtime_ns, original_mtime_ns)
-            self.assertEqual(canonical_path.read_bytes(), canonical_bytes)
-            self.assertFalse(quarantine.exists())
+            # 이름이 as_of_date와 다른 사본, 그리고 깨진 JSON은 실패로 센다.
+            (root / "2026-07-06_2ETFQ1.json").write_bytes(path.read_bytes())
+            (root / "2026-07-07_2ETFQ1.json").write_text("{", encoding="utf-8")
+            summary = validate_normalized_directory(root)
+            self.assertEqual((summary["files"], summary["valid"], summary["invalid"]), (3, 1, 2))
+            errors = {Path(item["file"]).name: item["error_type"] for item in summary["failures"]}
+            self.assertEqual(errors, {
+                "2026-07-06_2ETFQ1.json": "ValueError",
+                "2026-07-07_2ETFQ1.json": "JSONDecodeError",
+            })
 
 
 if __name__ == "__main__":

@@ -15,7 +15,7 @@ from gbrc.etf import market
 from gbrc.etf.flows import flows_between, format_flow_label
 
 from . import alerts, config, strategies as S
-from .state import _label
+from .state import _label, last_completed_session
 
 KOACT_FUND = "2ETFQ1"
 HOLD_LINE = config.RULE["n"] + config.RULE["buffer"]  # 12: last week's names stay inside it
@@ -56,7 +56,7 @@ def briefing_block(engine=None) -> list[str]:
     if engine is None:
         from gbrc.etf.engine import BriefingEngine  # the validated snapshots the briefing uses
         engine = BriefingEngine()
-    book = S.load_book()
+    book = S.load_book(through=last_completed_session())  # completed closes only, like the desk (state.ensure)
     path = S.run_model(book)
     session, _ = config.next_us_session()
     tg = S.next_target(book, path, session)

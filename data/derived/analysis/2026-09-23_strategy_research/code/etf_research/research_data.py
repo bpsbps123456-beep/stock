@@ -23,16 +23,18 @@ import json
 import math
 import os
 from pathlib import Path
-import re
 import tempfile
 from typing import Any, Mapping
 import warnings
 
 import numpy as np
 
-from .flows import quantity_flows
-from .market import canonical_code, company_key, is_cash_holding, listing_market, yahoo_ticker
-from .storage import NORMALIZED_HOLDINGS_DIR, atomic_write_json, load_normalized_snapshot
+from gbrc.etf.flows import quantity_flows
+from gbrc.etf.market import (
+    CORPORATE_ALIAS_SOURCES, CORPORATE_ALIASES, CURRENCY, canonical_code, company_key,
+    exclusion_reason, is_cash_holding, listing_market, yahoo_ticker,
+)
+from gbrc.etf.storage import NORMALIZED_HOLDINGS_DIR, atomic_write_json, load_normalized_snapshot
 
 VERSION = 1
 FUNDS = ('time', 'koact')
@@ -40,33 +42,9 @@ FUND_IDS = ('456600', '2ETFQ1')
 LOOKBACKS = (1, 3, 5, 10, 20, 40)
 BENCHMARKS = ('456600.KS', '0015B0.KS', 'QQQ')
 FX_TICKERS = ('KRW=X', 'JPYKRW=X', 'HKDKRW=X', 'CNY=X')
-CURRENCY = {'KR': 'KRW', 'US': 'USD', 'JP': 'JPY', 'HK': 'HKD', 'CN': 'CNY'}
 KIND = {'편출': -2, '매도': -1, '유지': 0, '매수': 1, '신규': 2}
-CORPORATE_ALIASES = {'SATS US EQUITY': 'ECHO US EQUITY'}
-CORPORATE_ALIAS_SOURCES = [{
-    'old': 'SATS US EQUITY', 'new': 'ECHO US EQUITY', 'effective_date': '2026-06-24',
-    'source': 'https://ir.echostar.com/node/33601/pdf',
-    'reason': 'Issuer-confirmed ticker rename of the same security; Yahoo ECHO includes prior history',
-}]
-# Explicit product-name rules, rather than a blacklist selected on performance.
-PRODUCT_NAME = re.compile(
-    r'\b(?:ETF|ETN|FUND|ISHARES|PROSHARES|DIREXION|LEVERAGED|ULTRAPRO|'
-    r'ULTRASHORT|[23]X|INDEX)\b|(?:^TIME\s|^KoAct\s|^KODEX\s|^TIGER\s)|'
-    r'레버리지|인버스|액티브|상장지수|투자신탁', re.IGNORECASE)
-
-
-def exclusion_reason(holding: Mapping[str, Any]) -> str | None:
-    if is_cash_holding(holding):
-        return 'cash: tracked separately at actual NAV fraction'
-    if listing_market(holding.get('code')) == 'FUT':
-        return 'futures: direct unlevered securities universe only'
-    if holding.get('asset_type') in {'fund', 'etf', 'etn', 'derivative'}:
-        return 'fund/derivative asset_type'
-    if PRODUCT_NAME.search(str(holding.get('name', ''))):
-        return 'fund/ETF/leveraged product: explicit name rule'
-    if listing_market(holding.get('code')) not in CURRENCY:
-        return 'unsupported listing identity: cannot map an executable security'
-    return None
+# 종목군 규칙(CURRENCY·CORPORATE_ALIASES·PRODUCT_NAME·exclusion_reason)의 정본은
+# gbrc/etf/market.py다(데스크 7종목과 공유).
 
 
 def _hash(path: Path) -> str:

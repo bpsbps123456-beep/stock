@@ -2,10 +2,14 @@
 
 from __future__ import annotations
 
+import json
 import unittest
 from datetime import date, timedelta
+from unittest import mock
 
-from gbrc.etf import market, trades
+import pandas as pd
+
+from gbrc.etf import market, prices, trades
 
 NAMES = ["A", "B", "C", "D", "E", "F"]
 FX = 1000.0
@@ -110,6 +114,61 @@ class TradeAnalysisTests(unittest.TestCase):
             self.assertIn(heading, report)
         self.assertIn("주문표가 아닙니다", report)
         self.assertEqual(summary["missing_segments"], 0)
+        self.assertIn("추종 중앙값", report)
+        self.assertIn("가장 최근 분기 2026Q3", report)
+        self.assertEqual(summary["latest_quarter"], "2026Q3")
+        self.assertEqual(len(summary["events"]), summary["event_count"])
+        json.dumps(summary, ensure_ascii=False)  # 이벤트 목록까지 JSON으로 저장 가능
+
+
+class EventStatsTests(unittest.TestCase):
+    """평균은 급등주에 끌려가므로 중앙값·종목 단위 적중·분기별 분해를 함께 낸다."""
+
+    @staticmethod
+    def event(day: str, key: str, kind: str, fol20: float) -> dict:
+        return {"date": day, "key": key, "kind": kind, "fol20_excess": fol20}
+
+    def test_median_name_level_hit_and_quarters(self) -> None:
+        events = [
+            self.event("2026-02-03", "A", "매수", -0.01),
+            self.event("2026-02-04", "A", "매수", -0.02),
+            self.event("2026-02-05", "A", "매수", -0.01),
+            self.event("2026-03-02", "B", "매수", 0.60),   # 급등주 한 건
+            self.event("2026-10-01", "C", "신규", 0.02),
+            self.event("2026-10-02", "D", "매도", 0.03),   # 판 뒤 오름 → 매도 적중 아님
+        ]
+        rows = {(r["side"], r["window"]): r for r in trades.event_stats(events)}
+        buy = rows[("매수·신규", 20)]
+        self.assertEqual((buy["period"], buy["fol_count"], buy["fol_names"]), ("전체", 5, 3))
+        self.assertAlmostEqual(buy["fol_mean_pct"], 11.6)
+        self.assertAlmostEqual(buy["fol_median_pct"], -1.0)
+        self.assertAlmostEqual(buy["fol_hit_pct"], 40.0)
+        self.assertAlmostEqual(buy["fol_name_hit_pct"], 2 / 3 * 100)  # A 1회·B·C
+        self.assertEqual(rows[("매도·편출", 20)]["fol_hit_pct"], 0.0)
+        self.assertIsNone(buy["mgr_median_pct"])
+
+        quarterly = trades.quarterly_event_stats(events)
+        self.assertEqual(sorted({r["period"] for r in quarterly}), ["2026Q1", "2026Q4"])
+        q4 = {(r["side"], r["window"]): r for r in quarterly if r["period"] == "2026Q4"}
+        self.assertEqual(q4[("매수·신규", 20)]["fol_count"], 1)
+        self.assertEqual(q4[("매도·편출", 20)]["fol_count"], 1)
+
+
+class PriceDownloadTests(unittest.TestCase):
+    """trades·cumulative·브리핑은 prices.load_close_history 하나로 종가를 받는다."""
+
+    def test_download_prices_uses_shared_loader_and_drops_missing_names(self) -> None:
+        history = {"QQQ": pd.Series([400.0], index=pd.to_datetime(["2026-09-01"])),
+                   "KRW=X": pd.Series([1400.0], index=pd.to_datetime(["2026-09-01"]))}
+        with mock.patch.object(prices, "load_close_history", return_value=history) as load:
+            result = trades.download_prices(["QQQ", "KRW=X", "GONE"], "2026-08-01", "2026-09-02")
+        load.assert_called_once_with(["QQQ", "KRW=X", "GONE"], "2026-08-01", "2026-09-02")
+        self.assertEqual(result, {"QQQ": {"2026-09-01": 400.0}, "KRW=X": {"2026-09-01": 1400.0}})
+
+    def test_download_failure_without_benchmark_raises(self) -> None:
+        with mock.patch.object(prices, "load_close_history", return_value={}):
+            with self.assertRaises(RuntimeError):
+                trades.download_prices(["QQQ", "KRW=X"], "2026-08-01", "2026-09-02")
 
 
 if __name__ == "__main__":

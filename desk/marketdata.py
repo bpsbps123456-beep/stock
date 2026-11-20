@@ -6,7 +6,6 @@ include pre- and post-market minutes so the evening KST view shows a current pri
 
 from __future__ import annotations
 
-import json
 import os
 import time as _time
 from datetime import date, datetime, time, timedelta
@@ -15,35 +14,73 @@ import numpy as np
 import pandas as pd
 
 from . import config
+from .common import read_cache, replacing, write_atomic
 
 FIELDS = ("Adj Close", "Close", "Open")
+MISSING_RETRY_MIN = 5   # a ticker Yahoo did not return is asked for again after this long
 
 
 def _path(field: str):
     return config.CACHE / f"prices_{field.replace(' ', '_').lower()}.csv"
 
 
+def _meta_path():
+    return config.CACHE / "prices_meta.json"
+
+
+def missing_tickers() -> list[str]:
+    """Tickers the last download asked for but Yahoo did not return (they drop out of the ranking)."""
+    meta = read_cache(_meta_path()) or {}
+    return list(meta.get("missing", []))
+
+
+def retry_due() -> bool:
+    """True when the last download lost tickers, has not retried them yet and MISSING_RETRY_MIN passed.
+
+    Each lost set is asked for again once; if Yahoo still does not return it (delisted, renamed),
+    the cache then lives its normal PRICE_MAX_AGE_MIN instead of re-downloading every few minutes."""
+    meta = read_cache(_meta_path()) or {}
+    if not meta.get("missing") or meta.get("retried"):
+        return False
+    return _time.time() - meta.get("fetched_epoch", 0) >= MISSING_RETRY_MIN * 60
+
+
 def history(tickers: list[str], force: bool = False) -> dict[str, pd.DataFrame]:
-    """Daily bars from PRICE_START through today, reusing a fresh enough cache."""
+    """Daily bars from PRICE_START through today, reusing a fresh enough cache.
+
+    The cache meta records the tickers actually received (all three fields), not the ones asked
+    for: a partial download must not pass the freshness check for the names it lost. Those are
+    kept in meta["missing"] and asked for again after MISSING_RETRY_MIN minutes."""
     config.CACHE.mkdir(parents=True, exist_ok=True)
-    meta_path = config.CACHE / "prices_meta.json"
+    meta_path = _meta_path()
     wanted = sorted(set(tickers))
-    if not force and meta_path.exists() and all(_path(f).exists() for f in FIELDS):
-        meta = json.loads(meta_path.read_text(encoding="utf-8"))
-        fresh = _time.time() - meta.get("fetched_epoch", 0) < config.PRICE_MAX_AGE_MIN * 60
-        if fresh and set(wanted) <= set(meta.get("tickers", [])):
-            return {f: pd.read_csv(_path(f), index_col=0, parse_dates=True) for f in FIELDS}
+    meta = None if force or not all(_path(f).exists() for f in FIELDS) else read_cache(meta_path)
+    if meta is not None:
+        age = _time.time() - meta.get("fetched_epoch", 0)
+        have, lost = set(meta.get("tickers", [])), set(meta.get("missing", []))
+        fresh = age < config.PRICE_MAX_AGE_MIN * 60
+        waited = age < MISSING_RETRY_MIN * 60 or bool(meta.get("retried"))  # each lost set is retried once
+        if fresh and (set(wanted) <= have or (set(wanted) <= have | lost and waited)):
+            try:
+                return {f: pd.read_csv(_path(f), index_col=0, parse_dates=True) for f in FIELDS}
+            except (OSError, ValueError):
+                pass  # a broken cache file is downloaded again
     import yfinance as yf
 
     end = (date.today() + timedelta(days=1)).isoformat()
     frame = yf.download(wanted, start=config.PRICE_START, end=end, auto_adjust=False,
                         progress=False, threads=True)
     out = {f: frame[f].dropna(axis=1, how="all") for f in FIELDS}
+    got = sorted(set.intersection(*(set(map(str, df.columns)) for df in out.values()))) if out else []
+    still = set(wanted) - set(got)
+    prev_lost = set((meta or {}).get("missing", []))
     for f, df in out.items():
-        df.to_csv(_path(f))
-    meta_path.write_text(json.dumps({"fetched_epoch": _time.time(), "tickers": wanted,
-                                     "fetched_at": datetime.now(config.KST).isoformat(timespec="seconds")}),
-                         encoding="utf-8")
+        with replacing(_path(f)) as temp:
+            df.to_csv(temp)
+    write_atomic(meta_path, {"fetched_epoch": _time.time(), "tickers": got,
+                             "missing": sorted(still),
+                             "retried": bool(still) and still <= prev_lost,
+                             "fetched_at": datetime.now(config.KST).isoformat(timespec="seconds")}, indent=None)
     return out
 
 
@@ -137,7 +174,7 @@ def repair_basket_bars(book, basket: dict | None, completed: str, *, now=None) -
     Yahoo endpoint must agree with that basis. A data outage leaves blanks for a retry.
     """
     import requests
-    from .news import market_calendar
+    from .config import market_calendar
     if not basket or not completed:
         return {}
     first = basket["effective_date"]

@@ -16,11 +16,12 @@ from __future__ import annotations
 from dataclasses import dataclass
 from datetime import date, timedelta
 from pathlib import Path
-from statistics import mean
+from statistics import mean, median
 from typing import Any, Callable, Mapping, Sequence
 
 from . import flows as qty_flows
 from . import market
+from . import prices as price_history
 from .storage import (  # load_fund_snapshots: desk/ imports it from here too
     PROJECT_ROOT,
     atomic_write_json,
@@ -52,19 +53,15 @@ def required_tickers(snapshots: Mapping[str, Mapping[str, Any]], listing_ticker:
 
 
 def download_prices(tickers: Sequence[str], start: str, end: str) -> dict[str, dict[str, float]]:
-    """Unadjusted closes, the same basis the NAV uses."""
-    import yfinance as yf
+    """Unadjusted closes, the same basis the NAV uses (gbrc's one Yahoo download).
 
-    frame = yf.download(sorted(tickers), start=start, end=end, auto_adjust=False,
-                        progress=False)["Close"]
-    prices: dict[str, dict[str, float]] = {}
-    for ticker in sorted(tickers):
-        if ticker not in frame.columns:
-            continue
-        series = frame[ticker].dropna()
-        if series.empty:  # 만기 지난 선물 월물 등 Yahoo가 지운 종목
-            continue
-        prices[ticker] = {idx.strftime("%Y-%m-%d"): float(value) for idx, value in series.items()}
+    Yahoo가 지운 종목(만기 지난 선물 월물 등)은 빠진다. 기준 지수·환율이 없으면 표 전체가
+    무의미하므로 빈 숫자 대신 오류로 멈춘다.
+    """
+    prices = price_history.download_closes(tickers, start, end)
+    missing = [t for t in (BENCHMARK, FX_USD) if t in tickers and t not in prices]
+    if missing:
+        raise RuntimeError(f"가격 다운로드 실패: {', '.join(missing)} 종가를 받지 못했습니다")
     return prices
 
 
@@ -259,21 +256,52 @@ def collect_events(snapshots: Mapping[str, Mapping[str, Any]], prices: Prices,
     return events
 
 
-def event_stats(events: Sequence[Mapping[str, Any]]) -> list[dict[str, Any]]:
+def _is_hit(value: float, kinds: Sequence[str]) -> bool:
+    return value > 0 if kinds == BUY_KINDS else value < 0
+
+
+def event_stats(events: Sequence[Mapping[str, Any]], period: str = "전체") -> list[dict[str, Any]]:
+    """Per side × window: count, mean, median and hit rate after real trades.
+
+    The windows of the same name on nearby dates overlap (INTC bought 25 times), so
+    ``*_name_hit_pct`` also scores each name once, on its average excess return.
+    The mean is pulled by a few large movers; the median shows the typical trade.
+    """
     rows = []
     for side, kinds in (("매수·신규", BUY_KINDS), ("매도·편출", SELL_KINDS)):
         chosen = [e for e in events if e["kind"] in kinds]
         for n in FORWARD_WINDOWS:
-            row: dict[str, Any] = {"side": side, "window": n}
+            row: dict[str, Any] = {"period": period, "side": side, "window": n}
             for basis in ("mgr", "fol"):
-                values = [e[f"{basis}{n}_excess"] for e in chosen
-                          if e.get(f"{basis}{n}_excess") is not None]
-                hits = [v for v in values if (v > 0 if kinds == BUY_KINDS else v < 0)]
+                field = f"{basis}{n}_excess"
+                pairs = [(e["key"], e[field]) for e in chosen if e.get(field) is not None]
+                values = [value for _, value in pairs]
+                by_name: dict[str, list[float]] = {}
+                for key, value in pairs:
+                    by_name.setdefault(key, []).append(value)
+                name_means = [mean(v) for v in by_name.values()]
                 row[f"{basis}_count"] = len(values)
                 row[f"{basis}_mean_pct"] = mean(values) * 100 if values else None
-                row[f"{basis}_hit_pct"] = len(hits) / len(values) * 100 if values else None
+                row[f"{basis}_median_pct"] = median(values) * 100 if values else None
+                row[f"{basis}_hit_pct"] = (sum(_is_hit(v, kinds) for v in values) / len(values)
+                                           * 100 if values else None)
+                row[f"{basis}_names"] = len(name_means)
+                row[f"{basis}_name_hit_pct"] = (
+                    sum(_is_hit(v, kinds) for v in name_means) / len(name_means) * 100
+                    if name_means else None)
             rows.append(row)
     return rows
+
+
+def quarter_of(day: str) -> str:
+    return f"{day[:4]}Q{(int(day[5:7]) - 1) // 3 + 1}"
+
+
+def quarterly_event_stats(events: Sequence[Mapping[str, Any]]) -> list[dict[str, Any]]:
+    """`event_stats` per calendar quarter of the PDF date, oldest first."""
+    quarters = sorted({quarter_of(e["date"]) for e in events})
+    return [row for q in quarters
+            for row in event_stats([e for e in events if quarter_of(e["date"]) == q], q)]
 
 
 # --------------------------------------------------------------------------
@@ -377,6 +405,10 @@ def _pct(value: float | None, digits: int = 1) -> str:
     return "N/A" if value is None else f"{value:+.{digits}f}%"
 
 
+def _hit(value: float | None) -> str:
+    return "N/A" if value is None else f"{value:.0f}%"
+
+
 def _short(key: str) -> str:
     return key.replace(" US EQUITY", "")
 
@@ -403,6 +435,8 @@ def analyze(fund_id: str, display_name: str, listing_ticker: str, end_date: str 
     months = monthly_breakdown(snapshots, segments, prices, sessions)
     events = collect_events(snapshots, prices, sessions)
     stats = event_stats(events)
+    quarterly = quarterly_event_stats(events)
+    latest_quarter = quarterly[-1]["period"] if quarterly else None
     references = reference_returns(snapshots, prices, listing_ticker, end_date)
     backtests = []
     for every, label in ((20, "월 1회"), (5, "주 1회"), (1, "매일")):
@@ -452,12 +486,38 @@ def analyze(fund_id: str, display_name: str, listing_ticker: str, end_date: str 
               "매니저 기준은 PDF 평가 종가에서, 추종 기준은 PDF 날짜 이후 첫 미국 종가(저녁 브리핑을 보고 "
               "살 수 있는 시점)에서 셉니다. 적중은 매수 뒤 초과수익 > 0, 매도 뒤 < 0입니다.",
               "",
-              "| 구분 | 기간 | 매니저 건수 | 매니저 평균 | 매니저 적중 | 추종 평균 | 추종 적중 |",
-              "| --- | --- | --- | --- | --- | --- | --- |"]
+              "| 구분 | 기간 | 건수(종목) | 매니저 평균 | 매니저 중앙값 | 매니저 적중 | 추종 평균 | "
+              "추종 중앙값 | 추종 적중 | 추종 종목 단위 적중 |",
+              "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |"]
     for row in stats:
-        lines.append(f"| {row['side']} | +{row['window']}거래일 | {row['mgr_count']} | "
-                     f"{_pct(row['mgr_mean_pct'], 2)} | {_pct(row['mgr_hit_pct'], 0).lstrip('+')} | "
-                     f"{_pct(row['fol_mean_pct'], 2)} | {_pct(row['fol_hit_pct'], 0).lstrip('+')} |")
+        lines.append(f"| {row['side']} | +{row['window']}거래일 | "
+                     f"{row['mgr_count']}({row['mgr_names']}) | "
+                     f"{_pct(row['mgr_mean_pct'], 2)} | {_pct(row['mgr_median_pct'], 2)} | "
+                     f"{_hit(row['mgr_hit_pct'])} | {_pct(row['fol_mean_pct'], 2)} | "
+                     f"{_pct(row['fol_median_pct'], 2)} | {_hit(row['fol_hit_pct'])} | "
+                     f"{_hit(row['fol_name_hit_pct'])} |")
+    lines += ["",
+              "같은 종목을 가까운 날짜에 여러 번 사고팔면 수익 창이 겹쳐 같은 움직임이 여러 번 셉니다. "
+              "종목 단위 적중은 종목마다 평균 초과수익 하나로 묶어 센 값입니다. 평균은 소수 급등주에 "
+              "끌려가므로 중앙값과 적중률을 함께 읽습니다. 한 기간 전체를 사후 집계한 연구용 숫자입니다.",
+              "",
+              "분기별 추종 기준(PDF 날짜 분기):",
+              "",
+              "| 분기 | 구분 | 기간 | 건수(종목) | 추종 평균 | 추종 중앙값 | 추종 적중 | 종목 단위 적중 |",
+              "| --- | --- | --- | --- | --- | --- | --- | --- |"]
+    for row in quarterly:
+        lines.append(f"| {row['period']} | {row['side']} | +{row['window']}거래일 | "
+                     f"{row['fol_count']}({row['fol_names']}) | {_pct(row['fol_mean_pct'], 2)} | "
+                     f"{_pct(row['fol_median_pct'], 2)} | {_hit(row['fol_hit_pct'])} | "
+                     f"{_hit(row['fol_name_hit_pct'])} |")
+    latest = [row for row in quarterly if row["period"] == latest_quarter]
+    if latest:
+        rendered = "; ".join(
+            f"{row['side']} +{row['window']}거래일 평균 {_pct(row['fol_mean_pct'], 2)}·"
+            f"중앙값 {_pct(row['fol_median_pct'], 2)}·적중 {_hit(row['fol_hit_pct'])}"
+            f"({row['fol_count']}건)" for row in latest if row["fol_count"])
+        lines += ["", f"가장 최근 분기 {latest_quarter}(추종 기준, 수익 창이 덜 찬 이벤트는 빠짐): "
+                  + (rendered or "수익 창이 찬 이벤트 없음")]
 
     lines += ["", "## 3. 종목별 누적 기여 (관측 기간, NAV %p)", ""]
     ranked = sorted(totals.items(), key=lambda item: -item[1])
@@ -501,7 +561,8 @@ def analyze(fund_id: str, display_name: str, listing_ticker: str, end_date: str 
         "fund_id": fund_id, "start": dates[0], "end": end_date, "snapshots": len(dates),
         "holding_based_pct": holding_based, "trade_effect_sum_pp": trade_effect_sum,
         "missing_segments": missing, "monthly": months, "event_stats": stats,
-        "event_count": len(events), "contributions_pp": dict(ranked),
+        "event_stats_quarterly": quarterly, "latest_quarter": latest_quarter,
+        "event_count": len(events), "events": events, "contributions_pp": dict(ranked),
         "backtests": backtests, "references": references,
     }
     return "\n".join(lines) + "\n", summary

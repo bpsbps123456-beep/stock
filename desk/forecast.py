@@ -25,7 +25,9 @@ from pathlib import Path
 import pandas as pd
 
 from . import config
-from .news import market_calendar, now_iso, stamp, write_atomic
+from .common import now_iso, read_cache, write_atomic
+from .config import market_calendar
+from .news import stamp
 
 LEDGER = config.ROOT / "data" / "forecast" / "ledger.json"
 PRICES = config.CACHE / "forecast_prices.json"
@@ -740,7 +742,7 @@ def payload(force: bool = False, data: dict | None = None, prices: dict | None =
     validate(data)
     warning = None
     if data["forecasts"] and prices is None:
-        prices = _read(PRICES)
+        prices = read_cache(PRICES)  # regenerable: a broken file is refetched below (_stale(None))
         market = _read(MARKET) if market is None else market
         if force or _stale(prices, PRICE_MAX_AGE_SEC) or _missed_close(prices, now or datetime.now(timezone.utc)):
             try:
@@ -752,7 +754,7 @@ def payload(force: bool = False, data: dict | None = None, prices: dict | None =
                     market = refresh_market(data)
                 except Exception as exc:
                     warning = (warning + " · " if warning else "") + f"시장 몫 계산 실패: {type(exc).__name__}"
-        estimates = _read(ESTIMATES) if estimates is None else estimates
+        estimates = read_cache(ESTIMATES) if estimates is None else estimates
         if force or _stale(estimates, ESTIMATE_MAX_AGE_SEC):
             try:
                 estimates = refresh_estimates(data)

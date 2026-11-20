@@ -11,13 +11,13 @@ import json
 import math
 import os
 import re
-import tempfile
 from datetime import datetime, timezone
-from functools import lru_cache
 from pathlib import Path
 from urllib.parse import urlparse
 
 from . import config
+from .common import now_iso, read_cache, write_atomic  # noqa: F401  (now_iso·write_atomic re-exported for older imports)
+from .config import market_calendar  # noqa: F401  (re-exported for older imports)
 
 LEDGER = config.ROOT / "data" / "news_evidence" / "ledger.json"
 PRICES = config.CACHE / "news_prices.json"
@@ -43,10 +43,6 @@ def stamp(value: str) -> datetime:
         return result
     except (ValueError, TypeError, AttributeError) as exc:
         raise NewsError("시각은 시간대가 있는 ISO 형식이어야 합니다") from exc
-
-
-def now_iso() -> str:
-    return datetime.now(timezone.utc).isoformat(timespec="seconds")
 
 
 def validate(data: dict) -> None:
@@ -136,19 +132,6 @@ def read_ledger(path: Path = LEDGER) -> dict:
     return data
 
 
-def write_atomic(path: Path, data: dict) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    fd, temp = tempfile.mkstemp(dir=path.parent, suffix=".tmp")
-    try:
-        with os.fdopen(fd, "w", encoding="utf-8", newline="\n") as stream:
-            json.dump(data, stream, ensure_ascii=False, indent=2, allow_nan=False)
-            stream.write("\n")
-        os.replace(temp, path)
-    finally:
-        if os.path.exists(temp):
-            os.unlink(temp)
-
-
 def import_records(incoming: dict, path: Path = LEDGER) -> int:
     """Append reviewed records. First recording is stamped here, never backdated."""
     if not isinstance(incoming, dict) or set(incoming) - {"episodes", "events", "assessments", "version"}:
@@ -207,13 +190,15 @@ def visible_events(data: dict, cutoff: datetime, basis: str) -> list[dict]:
     return sorted((r for r in rows if r["id"] not in replaced), key=lambda r: stamp(r["available_at"]))
 
 
-def refresh_prices(path: Path = PRICES) -> dict:
+def refresh_prices(path: Path = PRICES, download: bool = True) -> dict:
+    """Rewrite the benchmark close snapshot. download=False reuses the shared desk price cache while
+    it is fresh (marketdata.PRICE_MAX_AGE_MIN) and downloads only when it is not."""
     from . import marketdata
     tickers = {e["benchmark"] for e in read_ledger()["episodes"]}
     meta = config.CACHE / "prices_meta.json"
     if meta.exists():  # Preserve the shared desk cache's ticker coverage.
         tickers.update(json.loads(meta.read_text(encoding="utf-8")).get("tickers", []))
-    close = marketdata.history(sorted(tickers), force=True)["Close"]
+    close = marketdata.history(sorted(tickers), force=download)["Close"]
     wanted = {e["benchmark"] for e in read_ledger()["episodes"]}
     snapshot = {"source": "Yahoo Finance / desk.marketdata.history · 분할 반영 종가", "fetched_at": now_iso(),
                 "series": {t: {d.strftime("%Y-%m-%d"): float(v) for d, v in close[t].dropna().items()}
@@ -222,12 +207,6 @@ def refresh_prices(path: Path = PRICES) -> dict:
         raise NewsError("비교 종목 가격이 누락되어 기존 캐시를 유지합니다")
     write_atomic(path, snapshot)
     return snapshot
-
-
-@lru_cache(maxsize=1)
-def market_calendar():
-    import exchange_calendars
-    return exchange_calendars.get_calendar("XNYS")
 
 
 def completed_prices(series: dict, cutoff: datetime) -> list[tuple[str, float, datetime]]:
@@ -343,10 +322,42 @@ def reaction(event: dict, rows: list) -> dict:
             "reason": "공개 뒤 첫 종가 기준 · 체결 수익률 아님"}
 
 
+PRICE_RETRY_SEC = 1800   # an automatic refresh that did not bring the latest close waits this long
+_LAST_AUTO = {"at": None}
+
+
+def prices_stale(prices: dict, now: datetime) -> bool:
+    """True when some benchmark lacks the last completed US close (or the snapshot is empty)."""
+    from .bottom_paper import latest_completed
+    series = [s for s in (prices.get("series") or {}).values()]
+    if not series or not all(series):
+        return True
+    done = latest_completed(now)
+    return min(max(s) for s in series) < done
+
+
+def _auto_prices(now: datetime) -> tuple[dict, str | None]:
+    """Stored snapshot, refreshed first when it misses the last completed close (at most every
+    PRICE_RETRY_SEC). A failed refresh keeps the stored snapshot and says so."""
+    import time as _time
+    stored = read_cache(PRICES) or {"series": {}}
+    if not prices_stale(stored, now):
+        return stored, None
+    last = _LAST_AUTO["at"]
+    if last is not None and _time.monotonic() - last < PRICE_RETRY_SEC:
+        return stored, None
+    _LAST_AUTO["at"] = _time.monotonic()
+    try:
+        return refresh_prices(download=False), None
+    except Exception as exc:
+        return stored, f"가격 자동 갱신 실패 · 저장 자료 사용: {type(exc).__name__}: {exc}"
+
+
 def payload(as_of: str | None = None, basis: str = "public", force: bool = False,
             data: dict | None = None, prices: dict | None = None) -> dict:
-    cutoff = stamp(as_of) if as_of else datetime.now(timezone.utc)
-    if cutoff > datetime.now(timezone.utc):
+    now = datetime.now(timezone.utc)
+    cutoff = stamp(as_of) if as_of else now
+    if cutoff > now:
         raise NewsError("미래 시각으로 조회할 수 없습니다")
     data = data if data is not None else read_ledger()
     validate(data)
@@ -356,8 +367,10 @@ def payload(as_of: str | None = None, basis: str = "public", force: bool = False
             prices = refresh_prices()
         except Exception as exc:
             warning = f"가격 갱신 실패 · 저장 자료 사용: {type(exc).__name__}: {exc}"
+    if prices is None and as_of is None and not force:  # the live view refreshes a snapshot that misses the last close
+        prices, warning = _auto_prices(now)
     if prices is None:
-        prices = json.loads(PRICES.read_text(encoding="utf-8")) if PRICES.exists() else {"series": {}}
+        prices = read_cache(PRICES) or {"series": {}}
     events = visible_events(data, cutoff, basis)
     episodes = []
     for ep in data["episodes"]:

@@ -19,26 +19,9 @@ from gbrc.etf.storage import NORMALIZED_HOLDINGS_DIR
 
 from . import alerts, config, finviz_basket, finviz_switch, finviz_trend, journal, marketdata, strategies as S
 from .bottom_paper import latest_completed
+from .common import clean  # noqa: F401  (server and older imports use state.clean)
 
 WEEKDAY = "월화수목금토일"
-
-
-def clean(obj):
-    """JSON-safe copy: NaN/inf -> None, numpy scalars -> Python."""
-    if isinstance(obj, dict):
-        return {str(k): clean(v) for k, v in obj.items()}
-    if isinstance(obj, np.ndarray):
-        return clean(obj.tolist())
-    if isinstance(obj, (list, tuple)):
-        return [clean(v) for v in obj]
-    if isinstance(obj, (np.floating, float)):
-        v = float(obj)
-        return v if math.isfinite(v) else None
-    if isinstance(obj, np.integer):
-        return int(obj)
-    if isinstance(obj, np.bool_):
-        return bool(obj)
-    return obj
 
 
 def _label(day: str) -> str:
@@ -78,6 +61,7 @@ class Desk:
         self.quotes: dict = {}
         self.quotes_at = 0.0
         self.busy = None
+        self.briefing_lock = threading.Lock()  # one briefing at a time; never held with self.lock
         self.capture_attempt = None
         self.capture_issue = None
         self.basket = None
@@ -119,7 +103,8 @@ class Desk:
             key = self._data_key(), tuple(sorted(extra))
             completed = last_completed_session(now)
             stale_close = self.book is not None and self.book.days[-1] < completed
-            if force or self.book is None or key != self.key or stale_close:
+            retry = self.book is not None and marketdata.retry_due()  # lost tickers are asked for once more
+            if force or self.book is None or key != self.key or stale_close or retry:
                 book = S.load_book(force_prices=force or stale_close, extra=sorted(extra), through=completed)
                 path = S.run_model(book)
                 self.book, self.path, self.key = book, path, key
@@ -142,18 +127,23 @@ class Desk:
 
     # -- actions --------------------------------------------------------------
     def run_briefing(self) -> dict:
-        """Run the canonical daily collection (py gbrc.py briefing) and reload."""
-        with self.lock:
-            self.busy = "브리핑 실행 중"
-            try:
-                proc = subprocess.run([sys.executable, str(config.ROOT / "gbrc.py"), "briefing"],
-                                      cwd=config.ROOT, capture_output=True, text=True,
-                                      encoding="utf-8", errors="replace", timeout=900)
-                tail = (proc.stdout + proc.stderr).strip().splitlines()[-6:]
-                self.ensure(force=True)
-                return {"ok": proc.returncode == 0, "log": tail}
-            finally:
-                self.busy = None
+        """Run the canonical daily collection (py gbrc.py briefing) and reload.
+
+        The subprocess (up to 15 minutes) runs outside the desk lock, so /api/state and the other tabs
+        keep answering and show `busy`; only the reload afterwards takes the lock."""
+        if not self.briefing_lock.acquire(blocking=False):
+            return {"ok": False, "log": ["이미 자료 갱신(브리핑)이 실행 중입니다. 끝난 뒤 화면이 새로 고쳐집니다."]}
+        try:
+            self.busy = "펀드 자료 갱신(브리핑) 실행 중"
+            proc = subprocess.run([sys.executable, str(config.ROOT / "gbrc.py"), "briefing"],
+                                  cwd=config.ROOT, capture_output=True, text=True,
+                                  encoding="utf-8", errors="replace", timeout=900)
+            tail = (proc.stdout + proc.stderr).strip().splitlines()[-6:]
+            self.ensure(force=True)
+            return {"ok": proc.returncode == 0, "log": tail}
+        finally:
+            self.busy = None
+            self.briefing_lock.release()
 
     def _decision(self):
         with self.lock:
@@ -182,8 +172,8 @@ class Desk:
         session, _ = config.next_us_session(now)
         filename = session + ".json"
         if not all((folder / filename).exists() for folder in
-                   (config.CACHE / "finviz_observations", finviz_trend.observation_dir())):
-            if last_completed_session(now) == finviz_switch.market_calendar().previous_session(session).date().isoformat():
+                   (finviz_switch.observation_dir(), finviz_trend.observation_dir())):
+            if last_completed_session(now) == config.market_calendar().previous_session(session).date().isoformat():
                 self._decision()
 
     # -- state ------------------------------------------------------------------
@@ -307,10 +297,21 @@ class Desk:
             warnings.append("현재 시세를 불러오지 못해 전일 종가로 계산했습니다.")
         if acct["positions"] and not acct["funded"]:
             warnings.append("입금 기록이 없어 계좌의 현금을 확인할 수 없습니다. 달러 예수금을 ‘입금’으로 먼저 기록하세요.")
+        if self.busy:
+            warnings.append(f"{self.busy}입니다. 끝나면 새 자료로 다시 계산합니다.")
+        lost = sorted(set(marketdata.missing_tickers()) & (set(book.ticker.values()) | relevant))
+        if lost:
+            warnings.append("가격을 받지 못한 종목이 있어 순위·계산에서 빠졌습니다(몇 분 뒤 다시 받습니다): " + ", ".join(lost))
 
         ctx = {"account_drawdown": None, "model_drawdown": dd_now,
                "model_vs_etf_20d": ms["vs_etf_20d"], "model_vs_etf_120d": ms["vs_etf_long"]}
         acct_hist = journal.history(entries, book.cls, book.days, book.fx)
+        if acct_hist["filled"]:
+            gaps = {}
+            for f in acct_hist["filled"]:
+                gaps.setdefault(f["ticker"], []).append(f["date"])
+            warnings.append("계좌 평가에서 종가가 빠진 날을 직전 가격으로 채웠습니다: "
+                            + ", ".join(f"{tk} {len(d)}일(최근 {d[-1]})" for tk, d in sorted(gaps.items())))
         twr = np.array(acct_hist["twr"], float)
         if acct["funded"] and len(twr) and np.all(np.isfinite(twr) & (twr > 0)):
             ctx["account_drawdown"] = _drawdown(twr)[1]

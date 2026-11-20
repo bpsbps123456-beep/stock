@@ -288,7 +288,7 @@ def print_report(data: dict) -> None:
     print(f"  수집 시각: {data['collected_at']}")
     print("=" * 80)
 
-    print(f"\n[기본 정보]")
+    print("\n[기본 정보]")
     print(f"  섹터/산업      : {data['sector']} / {data['industry']}")
     print(f"  현재가         : {fmt_money(data['price'])}")
     print(f"  시가총액       : {fmt_money(data['market_cap'])}  [{data['market_cap_tier']}]")
@@ -300,30 +300,30 @@ def print_report(data: dict) -> None:
     else:
         print("  실적 발표일    : N/A")
 
-    print(f"\n[밸류에이션 — 황금률 #1 필수]")
+    print("\n[밸류에이션 — 황금률 #1 필수]")
     print(f"  Trailing EPS   : ${data['trailing_eps']}")
     print(f"  Forward EPS    : ${data['forward_eps']}")
     print(f"  Trailing PER   : {data['trailing_pe']}")
     print(f"  Forward PER    : {data['forward_pe']}")
 
-    print(f"\n[마진 — 황금률 #7 필수]")
+    print("\n[마진 — 황금률 #7 필수]")
     print(f"  Gross Margin   : {fmt_pct(data['gross_margin'])}")
     print(f"  Op Margin      : {fmt_pct(data['operating_margin'])}")
     print(f"  Net Margin     : {fmt_pct(data['net_margin'])}")
     print(f"  FCF Margin     : {fmt_pct(data['fcf_margin'])}")
 
-    print(f"\n[성장 — 황금률 #3 필수]")
+    print("\n[성장 — 황금률 #3 필수]")
     print(f"  Revenue YoY    : {fmt_pct(data['revenue_growth_yoy'])}")
     print(f"  Earnings YoY   : {fmt_pct(data['earnings_growth_yoy'])}")
     print(f"  Rule of 40     : {data['rule_of_40_estimate']:.1f}" if data['rule_of_40_estimate'] is not None else "  Rule of 40     : N/A")
 
-    print(f"\n[재무건전성 — S&N ⑤번 필수]")
+    print("\n[재무건전성 — S&N ⑤번 필수]")
     print(f"  Total Debt     : {fmt_money(data['total_debt'])}")
     print(f"  Total Cash     : {fmt_money(data['total_cash'])}")
     print(f"  Net Debt       : {fmt_money(data['net_debt'])}")
     print(f"  ND/EBITDA      : {data['net_debt_to_ebitda']:.2f}x" if data['net_debt_to_ebitda'] is not None else "  ND/EBITDA      : N/A")
 
-    print(f"\n[애널리스트 컨센서스]")
+    print("\n[애널리스트 컨센서스]")
     print(f"  Target Mean    : {fmt_money(data['analyst_target_mean'])}")
     print(f"  Target High    : {fmt_money(data['analyst_target_high'])}")
     print(f"  Target Low     : {fmt_money(data['analyst_target_low'])}")
@@ -341,12 +341,12 @@ def print_report(data: dict) -> None:
         print("  N/A")
 
     if data['quarterly_financials']:
-        print(f"\n[최근 분기별 매출 (Revenue)]")
+        print("\n[최근 분기별 매출 (Revenue)]")
         for k, v in data['quarterly_financials'].get('revenue', {}).items():
             print(f"  {k} : {fmt_money(v)}")
 
     if data['annual_financials']:
-        print(f"\n[연간 매출]")
+        print("\n[연간 매출]")
         for k, v in data['annual_financials'].get('revenue', {}).items():
             print(f"  {k} : {fmt_money(v)}")
 

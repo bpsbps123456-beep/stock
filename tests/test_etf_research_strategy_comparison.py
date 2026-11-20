@@ -1,6 +1,17 @@
 """Causal open accounting tests, independent of research output returns."""
 import numpy as np
-from gbrc.etf.research_strategy_comparison import (
+import sys
+import unittest
+from importlib.util import find_spec
+from pathlib import Path
+
+# 2026-09-23 연구 코드는 연구 폴더 패키지(etf_research)에 있다. numba는 [research] 추가 의존성.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]
+                       / "data/derived/analysis/2026-09-23_strategy_research/code"))
+if find_spec("numba") is None:
+    raise unittest.SkipTest("numba 미설치: pip install -e .[research]")
+
+from etf_research.research_strategy_comparison import (
     simulate_open, disclosure_indices, momentum120, claude_signals,
 )
 

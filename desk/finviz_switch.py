@@ -2,14 +2,18 @@
 from __future__ import annotations
 
 import json
-import os
 from pathlib import Path
-from tempfile import TemporaryDirectory
 
 import numpy as np
 
 from . import config
-from .news import market_calendar
+from .common import write_once
+from .config import market_calendar
+
+
+def observation_dir() -> Path:
+    """Pre-open first-signal records (§3.1). A test server writes them under its scratch folder."""
+    return config.record_dir(config.CACHE / "finviz_observations")
 
 
 def decision(book, weekly, session, completed, basket, basket_issue=None):
@@ -78,28 +82,18 @@ def record_decision(signal, weekly_targets, session, now, directory=None):
     """Keep the first available pre-open observation independent of personal account settings."""
     if signal["mode"] == "blocked" or now >= market_calendar().session_open(session):
         return
-    folder = Path(directory) if directory is not None else config.CACHE / "finviz_observations"
+    folder = Path(directory) if directory is not None else observation_dir()
     dest = folder / (session + ".json")
     if dest.exists():
         return
-    folder.mkdir(parents=True, exist_ok=True)
     observation = {k: v for k, v in signal.items() if k != "applied"}
     observation.update(execution_session=session, observed_at=now.isoformat(timespec="seconds"),
                        weekly_targets=weekly_targets)
-    with TemporaryDirectory(dir=folder) as tmp:
-        draft = Path(tmp) / "observation.json"
-        draft.write_text(json.dumps(observation, ensure_ascii=False, indent=2, allow_nan=False)+"\n", encoding="utf-8")
-        try:
-            if os.name == "nt":
-                draft.rename(dest)
-            else:
-                os.link(draft, dest)
-        except FileExistsError:
-            pass
+    write_once(dest, observation)  # two servers at once keep the first lock
 
 
 def research_comparison():
-    path = config.ROOT / "data/derived/analysis/desk_etf_validation_20261120/metrics.json"
+    path = config.ROOT / "data/derived/analysis/desk_etf_validation_20261121/results/metrics.json"  # 2026-11-21 잔차 규칙 재측정
     if not path.is_file():
         return None
     with path.open(encoding="utf-8") as stream:

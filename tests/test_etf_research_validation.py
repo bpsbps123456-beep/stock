@@ -8,7 +8,14 @@ import unittest
 
 import numpy as np
 
-from gbrc.etf import research_validation as validation
+import sys
+from pathlib import Path
+
+# 2026-09-23 연구 코드는 연구 폴더 패키지(etf_research)에 있다.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]
+                       / "data/derived/analysis/2026-09-23_strategy_research/code"))
+
+from etf_research import research_validation as validation
 
 
 def weekdays(start: str, end: str) -> list[str]:

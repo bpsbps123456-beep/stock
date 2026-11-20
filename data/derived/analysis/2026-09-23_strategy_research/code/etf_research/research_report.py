@@ -14,7 +14,7 @@ from pathlib import Path
 import re
 from typing import Any
 
-from .storage import atomic_write_text
+from gbrc.etf.storage import atomic_write_text
 
 
 FAMILIES = {

@@ -33,7 +33,7 @@ class ResearchParityTests(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        p = pd.read_csv(ROOT / "research/news_turning_points_20261025/prices.csv", header=[0, 1], index_col=0)
+        p = pd.read_csv(ROOT / "data/derived/analysis/news_turning_points_20261025/prices.csv", header=[0, 1], index_col=0)
         p.index = pd.to_datetime(p.index, errors="coerce")
         p = p[p.index.notna()].dropna().sort_index()
         u = pd.read_csv(ROOT / "data/derived/analysis/leverage_flood/results/us_prices_close.csv",

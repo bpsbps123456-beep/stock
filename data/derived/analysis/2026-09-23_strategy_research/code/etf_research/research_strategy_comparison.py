@@ -1,6 +1,6 @@
 """Fixed strategies, common US open execution / same-day close marks. No search.
 
-Run: py -m gbrc.etf.research_strategy_comparison
+Run: py -m etf_research.research_strategy_comparison
 Only writes strategy_comparison/ beside the existing US experiment.
 """
 from __future__ import annotations
@@ -14,7 +14,7 @@ from .research import OUT
 from .research_engine import percentile, price_features, build_rankings, config_grid
 from .research_us_only import _hash
 from .research_validation import _one_metrics
-from .storage import atomic_write_json, atomic_write_text
+from gbrc.etf.storage import atomic_write_json, atomic_write_text
 
 IDS = (201609, 246798, 201608, 201610, 239120, 240024)
 

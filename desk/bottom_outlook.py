@@ -5,7 +5,7 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 
-from .news import market_calendar
+from .config import market_calendar
 
 START = pd.Timestamp("2026-01-02")
 CHECK_FROM = pd.Timestamp("2026-07-01")
@@ -84,6 +84,19 @@ def _metrics(rows: list[dict], method: str) -> dict:
                 mean_width_pct=float((hi - lo).mean() * 100), interval_score=float(score.mean() * 100))
 
 
+def drawdown_caveat(dd: dict) -> str | None:
+    """Observation text only (the method is unchanged): how the band missed in drawdown-start windows.
+
+    The training windows mix every 2026 regime, so in a §13.6 drawdown the lower bound sat too high
+    (news_bottom_outlook_20261119: all 2026 H2 misses, 4/4, broke the lower bound)."""
+    miss = dd.get("below", 0) + dd.get("above", 0)
+    if not dd.get("n") or not dd.get("below"):
+        return None
+    return (f"주의: 2026 하반기 하락 국면에서 시작한 예측 {dd['n']}회 중 범위를 벗어난 {miss}회 가운데 "
+            f"{dd['below']}회({dd['below']}/{miss})가 하단 이탈이었습니다. 학습 구간이 상승장을 함께 써서 하락 국면에서는 "
+            "하단이 높게 잡히는 쪽입니다. 관찰 문구이며 계산 방식은 바꾸지 않았습니다.")
+
+
 def replay_outlook(close: pd.Series) -> tuple[dict, list[dict]]:
     """Return a JSON-ready outlook and individual verification cases for research."""
     panel = _panel(close)
@@ -114,7 +127,8 @@ def replay_outlook(close: pd.Series) -> tuple[dict, list[dict]]:
                       observed_low_mae_pct=float(np.mean(past_low_errors) * 100) if past_low_errors else None,
                       drawdown=_metrics([r for r in checks if r["in_dd"]], method))
     n_train, bands = _bands(panel, len(panel) - 1)
-    out.update(validation=validation, method=method, selection=calibration, n_train=n_train)
+    out.update(validation=validation, method=method, selection=calibration, n_train=n_train,
+               in_dd_now=bool(panel["in_dd"].iat[-1]), caveat=drawdown_caveat(validation["drawdown"]))
     if not bands or out["close"] is None:
         out["reason"] = "최근 20거래일 종가 또는 학습에 필요한 완료 가격창이 부족합니다."
         return out, checks

@@ -3,18 +3,19 @@ from __future__ import annotations
 
 from datetime import date, datetime, time, timedelta
 import json
-import os
 from pathlib import Path
 import re
-from tempfile import NamedTemporaryFile
 from urllib.parse import parse_qs, urlsplit
 
 import requests
 
 from . import config
-from .news import market_calendar
+from .common import write_once
+from .config import market_calendar
 
-DIRECTORY = config.ROOT / "data" / "normalized" / "desk_finviz"
+# A test server (DESK_JOURNAL_DIR) captures into its scratch folder and reads frozen months from the
+# real one (config.record_dir / real_record): it never locks a month basket in the real folder.
+DIRECTORY = config.record_dir(config.ROOT / "data" / "normalized" / "desk_finviz")
 SCREEN_URL = ("https://finviz.com/screener?v=111&f=cap_midover%2Cfa_curratio_o1.5%2Cfa_debteq_u0.5"
               "%2Cgeo_usa%2Csh_avgvol_o500%2Csh_instown_o40%2Csh_price_o10%2Csh_relvol_o1"
               "%2Cta_rsi_nos40%2Cta_sma20_sa50%2Cta_sma200_pa%2Cta_sma50_pa&ft=4&ta=0&o=-relativevolume")
@@ -70,6 +71,8 @@ def load_basket(execution_day: str | date, directory: Path | None = None, *,
     path = (directory or DIRECTORY) / (effective[:7] + ".json")
     if day.isoformat() < effective:
         return None
+    if not path.exists() and config.real_record(path).exists():
+        path = config.real_record(path)  # test server: an already frozen real month, read only
     try:
         data = json.loads(path.read_text(encoding="utf-8"))
     except FileNotFoundError:
@@ -162,27 +165,14 @@ def _freeze(record: dict, directory: Path, *,
     signal, effective = month_dates(record["effective_date"])
     _check(record, signal, effective, screen_url, live_source)
     path = directory / (effective[:7] + ".json")
-    temp = None
     try:
-        directory.mkdir(parents=True, exist_ok=True)
-        with NamedTemporaryFile("w", encoding="utf-8", dir=directory, delete=False) as file:
-            temp = Path(file.name)
-            json.dump(record, file, ensure_ascii=False, indent=2)
-            file.write("\n")
-            file.flush()
-            os.fsync(file.fileno())
-        try:
-            # Publish the entire file once. A concurrent desk process can finish
-            # the same capture first; subsequent refreshes keep that exact record.
-            os.link(temp, path)
-        except FileExistsError:
+        # Publish the entire file once. A concurrent desk process can finish
+        # the same capture first; subsequent refreshes keep that exact record.
+        if not write_once(path, record):
             return load_basket(effective, directory, screen_url=screen_url, live_source=live_source)
         return record
-    except OSError as exc:
+    except (OSError, ValueError) as exc:
         raise BasketError("FINVIZ 월초 명단을 저장하지 못했습니다") from exc
-    finally:
-        if temp:
-            temp.unlink(missing_ok=True)
 
 
 def capture_due(now: datetime | None = None, directory: Path | None = None, *,

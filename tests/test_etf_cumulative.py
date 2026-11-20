@@ -5,8 +5,9 @@ from __future__ import annotations
 import json
 import tempfile
 import unittest
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 from pathlib import Path
+from unittest import mock
 
 from gbrc.etf import cumulative
 from gbrc.etf.snapshot import normalize_snapshot
@@ -43,7 +44,9 @@ def seed(root: Path, out_dir: Path) -> None:
              ["456600.KS", "0015B0.KS", "009150.KS", *NAMES]}
     out_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / f"{END}_cumulative_prices.json").write_text(
-        json.dumps({"provider": "fixture", "auto_adjust": False, "close": close}), encoding="utf-8")
+        json.dumps({"provider": "fixture", "auto_adjust": False,
+                    "retrieved_at": f"{END}T18:00:00+09:00", "close": close}),
+        encoding="utf-8")
 
 
 class CumulativeBriefingTests(unittest.TestCase):
@@ -85,6 +88,73 @@ class CumulativeBriefingTests(unittest.TestCase):
         expected = ((100.0 + 25) / (100.0 + 24) - 1) * 100
         self.assertAlmostEqual(d1["time_return"], expected)
         self.assertEqual(d1["winner"], "동률")
+
+
+
+class PriceCacheTests(unittest.TestCase):
+    """장중에 받은 잠정 종가는 캐시를 다시 쓰지 않고 확정 뒤 새로 받는다(2026-11-21 버그 수정)."""
+
+    def setUp(self) -> None:
+        self.temp = tempfile.TemporaryDirectory()
+        base = Path(self.temp.name)
+        self.root, self.out = base / "normalized", base / "briefings"
+        seed(self.root, self.out)
+        self.cache = self.out / f"{END}_cumulative_prices.json"
+        self.corpus, _, _ = cumulative.load_corpus(END, self.root)
+
+    def tearDown(self) -> None:
+        self.temp.cleanup()
+
+    def fake_download(self, value: float):
+        close = {t: {END: value} for t in ["456600.KS", "0015B0.KS", "009150.KS", *NAMES]}
+        return mock.patch.object(cumulative.price_history, "download_closes", return_value=close)
+
+    def test_confirmed_cache_is_reused_without_download(self) -> None:
+        with self.fake_download(1.0) as download:
+            prices = cumulative.load_prices(self.corpus, END, self.cache)
+        download.assert_not_called()
+        self.assertEqual(prices["456600.KS"][END], 125.0)
+
+    def test_intraday_download_is_marked_provisional_and_refetched_after_close(self) -> None:
+        self.cache.unlink()
+        intraday = datetime.fromisoformat(f"{END}T11:00:00+09:00")
+        with self.fake_download(1.0):
+            cumulative.load_prices(self.corpus, END, self.cache, now=intraday)
+        self.assertTrue(json.loads(self.cache.read_text(encoding="utf-8"))["provisional"])
+
+        evening = datetime.fromisoformat(f"{END}T18:00:00+09:00")
+        with self.fake_download(2.0) as download:
+            prices = cumulative.load_prices(self.corpus, END, self.cache, now=evening)
+        download.assert_called_once()
+        self.assertEqual(prices["456600.KS"][END], 2.0)
+        saved = json.loads(self.cache.read_text(encoding="utf-8"))
+        self.assertFalse(saved["provisional"])
+
+        with self.fake_download(3.0) as download:  # 확정 캐시는 그대로 쓴다
+            self.assertEqual(cumulative.load_prices(self.corpus, END, self.cache)["456600.KS"][END], 2.0)
+        download.assert_not_called()
+
+    def test_legacy_cache_fetched_before_settlement_is_refetched(self) -> None:
+        payload = json.loads(self.cache.read_text(encoding="utf-8"))
+        payload["retrieved_at"] = f"{END}T14:05:00+09:00"  # 예전 형식(표시 없음), 장중에 받음
+        self.cache.write_text(json.dumps(payload), encoding="utf-8")
+        with self.fake_download(2.0) as download:
+            cumulative.load_prices(self.corpus, END, self.cache,
+                                   now=datetime.fromisoformat(f"{END}T20:00:00+09:00"))
+        download.assert_called_once()
+
+    def test_failed_download_stops_without_writing_cache(self) -> None:
+        self.cache.unlink()
+        with mock.patch.object(cumulative.price_history, "download_closes", return_value={}):
+            with self.assertRaises(SystemExit):
+                cumulative.load_prices(self.corpus, END, self.cache)
+        self.assertFalse(self.cache.exists())
+
+    def test_intraday_warning_uses_korea_time(self) -> None:
+        self.assertIsNotNone(cumulative.intraday_price_warning(
+            END, now=datetime.fromisoformat(f"{END}T02:00:00+00:00")))  # 11:00 KST
+        self.assertIsNone(cumulative.intraday_price_warning(
+            END, now=datetime.fromisoformat(f"{END}T07:00:00+00:00")))  # 16:00 KST
 
 
 if __name__ == "__main__":

@@ -28,7 +28,8 @@ import requests
 import watchlist
 
 from . import config
-from .news import market_calendar, now_iso, write_atomic
+from .common import now_iso, write_atomic
+from .config import market_calendar
 
 STATE = config.CACHE / "erules.json"
 LIVE_START = "2026-10-01"          # 연구 확인 구간(2026-07~09) 다음 날부터 실전으로 센다

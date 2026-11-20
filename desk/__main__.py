@@ -1,4 +1,4 @@
-"""py -m desk [serve|open|validate|digest|ant|news|bottom|forecast|erules]   (open = 야간데스크.cmd: reuse or start, then show the page)"""
+"""py -m desk [serve|open|validate [--skip-774]|digest|ant|news|bottom|forecast|erules]   (open = 야간데스크.cmd: reuse or start, then show the page)"""
 
 import sys
 
@@ -7,7 +7,7 @@ def main() -> int:
     command = sys.argv[1] if len(sys.argv) > 1 else "serve"
     if command == "validate":
         from .validate import main as run
-        return run()
+        return run(sys.argv[2:])
     if command == "serve":
         from .server import main as run
         return run()

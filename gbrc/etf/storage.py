@@ -12,12 +12,10 @@ from .snapshot import canonical_filename, validate_snapshot
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-LEGACY_HOLDINGS_DIR = PROJECT_ROOT / "data" / "etf_holdings"
 NORMALIZED_HOLDINGS_DIR = PROJECT_ROOT / "data" / "normalized" / "etf_holdings"
 RAW_HOLDINGS_DIR = PROJECT_ROOT / "data" / "raw" / "etf_holdings"
 DERIVED_BRIEFINGS_DIR = PROJECT_ROOT / "data" / "derived" / "briefings"
 STATE_RUNS_DIR = PROJECT_ROOT / "data" / "state" / "runs"
-QUARANTINE_DIR = PROJECT_ROOT / "data" / "quarantine"
 
 
 class SnapshotConflictError(RuntimeError):
@@ -171,3 +169,49 @@ def load_fund_snapshots(
         for as_of in snapshot_dates(fund_id, root)
         if as_of <= through_date
     }
+
+
+def validate_normalized_directory(
+    root: Path = NORMALIZED_HOLDINGS_DIR,
+) -> dict[str, Any]:
+    """Re-validate every stored snapshot: schema, file name, one file per fund/date."""
+    files = sorted(root.glob("????-??-??_*.json"))
+    summary: dict[str, Any] = {
+        "root": str(root),
+        "files": len(files),
+        "valid": 0,
+        "invalid": 0,
+        "funds": {},
+        "failures": [],
+    }
+    seen_keys: set[tuple[str, str]] = set()
+
+    for path in files:
+        try:
+            snapshot = load_normalized_snapshot(path)
+            expected_name = f"{snapshot['as_of_date']}_{snapshot['fund_id']}.json"
+            if path.name != expected_name:
+                raise ValueError(
+                    f"filename mismatch: expected {expected_name}, got {path.name}"
+                )
+            key = (snapshot["fund_id"], snapshot["as_of_date"])
+            if key in seen_keys:
+                raise ValueError(f"duplicate fund/as_of_date: {key}")
+            seen_keys.add(key)
+            summary["valid"] += 1
+            fund = summary["funds"].setdefault(snapshot["fund_id"], {
+                "files": 0,
+                "min_date": snapshot["as_of_date"],
+                "max_date": snapshot["as_of_date"],
+            })
+            fund["files"] += 1
+            fund["min_date"] = min(fund["min_date"], snapshot["as_of_date"])
+            fund["max_date"] = max(fund["max_date"], snapshot["as_of_date"])
+        except (OSError, json.JSONDecodeError, ValueError) as exc:
+            summary["invalid"] += 1
+            summary["failures"].append({
+                "file": str(path),
+                "error_type": type(exc).__name__,
+                "error": str(exc),
+            })
+    return summary

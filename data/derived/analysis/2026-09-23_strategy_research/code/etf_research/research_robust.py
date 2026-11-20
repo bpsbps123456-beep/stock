@@ -22,7 +22,7 @@ from .research_validation import (
     BENCHMARK_NAMES, TRAIN_END, VALIDATION_END, HOLDOUT_END,
     _batch_metrics, _metric_row, _one_metrics,
 )
-from .storage import atomic_write_json
+from gbrc.etf.storage import atomic_write_json
 
 STATUS = (
     'Adaptive exploration designed after the initial August-September holdout was viewed. '

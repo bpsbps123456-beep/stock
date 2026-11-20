@@ -9,7 +9,7 @@ from types import SimpleNamespace
 
 import requests
 
-from . import config, finviz_basket as basket_store, finviz_switch, marketdata
+from . import finviz_basket as basket_store, finviz_switch, marketdata
 
 SCREEN_URL = ("https://finviz.com/screener?v=161&f=cap_midover%2Cfa_curratio_o1.5%2Cfa_debteq_u1"
               "%2Cgeo_usa%2Csh_avgvol_o500%2Csh_instown_o40%2Csh_price_o10%2Csh_relvol_o1"
@@ -21,7 +21,7 @@ SHORT, MEDIUM, LONG = 30, 40, 175
 
 
 def observation_dir():
-    return config.CACHE / "finviz_observations" / VARIANT
+    return finviz_switch.observation_dir() / VARIANT
 
 
 def _trend_passes(bars, sessions):

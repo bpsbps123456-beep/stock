@@ -6,7 +6,7 @@ from pathlib import Path
 import numpy as np
 from .research_engine import build_rankings, config_grid, simulation_inputs, simulate_detail
 from .research import OUT, metrics
-from .storage import atomic_write_json
+from gbrc.etf.storage import atomic_write_json
 
 
 def run(out=OUT):

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import os
 from datetime import date, datetime, time, timedelta
+from functools import lru_cache
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -14,6 +15,34 @@ JOURNAL_DIR = Path(os.environ.get("DESK_JOURNAL_DIR") or ROOT / "data" / "journa
 TRADES = JOURNAL_DIR / "trades.json"
 SETTINGS = JOURNAL_DIR / "settings.json"
 STATIC = Path(__file__).resolve().parent / "static"
+# One-time records (pre-open observations, month baskets, published outlooks, season paper) are
+# locked once and never rewritten. A test server (DESK_JOURNAL_DIR set, docs/desk_system.md §2) must
+# not lock them in the real folders, so it writes them under <DESK_JOURNAL_DIR>/records/.
+RECORDS_SCRATCH = JOURNAL_DIR / "records" if os.environ.get("DESK_JOURNAL_DIR") else None
+
+
+def record_dir(real: Path) -> Path:
+    """Where a one-time record is written: `real`, or its mirror under the test server's scratch folder."""
+    if RECORDS_SCRATCH is None:
+        return real
+    real = Path(real)
+    try:
+        return RECORDS_SCRATCH / real.resolve().relative_to(ROOT)
+    except ValueError:
+        return RECORDS_SCRATCH / real.name
+
+
+def real_record(path: Path) -> Path:
+    """The real location of a scratch record path (read-only fallback for immutable inputs such as
+    an already frozen month basket); other paths are returned unchanged."""
+    path = Path(path)
+    if RECORDS_SCRATCH is not None:
+        try:
+            return ROOT / path.relative_to(RECORDS_SCRATCH)
+        except ValueError:
+            pass
+    return path
+
 
 # Windows (Hyper-V/WSL) reserves shifting port ranges; the server tries these in order.
 HOST, PORTS = "127.0.0.1", (8321, 7421, 5731, 0)
@@ -40,17 +69,26 @@ KST = ZoneInfo("Asia/Seoul")
 NY = ZoneInfo("America/New_York")
 REFERENCES = ["QQQ", "KRW=X", "456600.KS"]
 
-# NYSE full-day closures (future sessions only; past sessions come from QQQ prices).
-NYSE_HOLIDAYS = {
-    "2026-01-01", "2026-01-19", "2026-02-16", "2026-04-03", "2026-05-25", "2026-06-19",
-    "2026-07-03", "2026-09-07", "2026-11-26", "2026-12-25",
-    "2027-01-01", "2027-01-18", "2027-02-15", "2027-03-26", "2027-05-31", "2027-06-18",
-    "2027-07-05", "2027-09-06", "2027-11-25", "2027-12-24",
-}
+CALENDAR_YEARS_AHEAD = 3   # exchange_calendars stops about a year ahead by default
+
+
+@lru_cache(maxsize=1)
+def market_calendar():
+    """The one US market calendar (exchange_calendars XNYS) for every desk module.
+
+    Holidays come from XNYS's rules, so they never run out (the hand list used before ended in 2027)."""
+    import exchange_calendars
+    end = date.today().replace(month=12, day=31)
+    return exchange_calendars.get_calendar("XNYS", end=end.replace(year=end.year + CALENDAR_YEARS_AHEAD).isoformat())
 
 
 def is_us_session(day: date) -> bool:
-    return day.weekday() < 5 and day.isoformat() not in NYSE_HOLIDAYS
+    """Regular NYSE session (full or early close). Past the calendar's end only weekdays count."""
+    cal = market_calendar()
+    stamp = day.isoformat()
+    if cal.first_session.date() <= day <= cal.last_session.date():
+        return bool(cal.is_session(stamp))
+    return day.weekday() < 5
 
 
 def next_us_session(now: datetime | None = None) -> tuple[str, datetime]:

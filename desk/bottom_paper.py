@@ -1,19 +1,19 @@
 """다음 정규장 전에 발행한 SOXX 예상 구간을 날짜별로 한 번만 보존하고 채점한다."""
 
 import json
-import os
 from datetime import datetime
 from pathlib import Path
-from tempfile import TemporaryDirectory
 
 import numpy as np
 import pandas as pd
 
 from . import config
-from .news import market_calendar
+from .common import write_once
+from .config import market_calendar
 
 
-PAPER_DIR = config.ROOT / "data" / "news_evidence" / "bottom_outlooks"
+# A test server (DESK_JOURNAL_DIR) locks its outlooks under its scratch folder (config.record_dir).
+PAPER_DIR = config.record_dir(config.ROOT / "data" / "news_evidence" / "bottom_outlooks")
 
 
 def latest_completed(now: datetime) -> str:
@@ -29,20 +29,10 @@ def _lock_forecast(folder: Path, outlook: dict, now: datetime) -> None:
     path = folder / f"{day}.json"
     if path.exists():
         return
-    folder.mkdir(parents=True, exist_ok=True)
     row = {k: outlook[k] for k in ("as_of", "close", "horizon", "lower", "center", "upper", "method")}
     row["recorded_at"] = now.isoformat(timespec="seconds")
     # Only publish a complete file. Two servers refreshing at once keep the first lock.
-    with TemporaryDirectory(dir=folder) as temp:
-        draft = Path(temp) / "forecast.json"
-        draft.write_text(json.dumps(row, ensure_ascii=False, indent=2, allow_nan=False) + "\n", encoding="utf-8")
-        try:
-            if os.name == "nt":
-                draft.rename(path)  # Windows rename is atomic and refuses an existing target.
-            else:
-                os.link(draft, path)
-        except FileExistsError:
-            pass
+    write_once(path, row)
 
 
 def record_and_score(outlook: dict, close: pd.Series, now: datetime, folder: Path = PAPER_DIR) -> dict:

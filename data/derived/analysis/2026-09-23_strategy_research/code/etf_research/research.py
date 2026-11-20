@@ -1,6 +1,6 @@
 """Reproducible 252,720-configuration ETF disclosure strategy experiment.
 
-Run: py -m gbrc.etf.research
+Run: py -m etf_research.research
 This writes research artifacts only, never orders or automated trading rules.
 """
 from __future__ import annotations
@@ -16,7 +16,7 @@ from numba import set_num_threads
 
 from .research_data import prepare_bundle
 from .research_engine import build_rankings, config_grid, simulate_grid, simulation_inputs, simulate_detail
-from .storage import PROJECT_ROOT, atomic_write_json
+from gbrc.etf.storage import PROJECT_ROOT, atomic_write_json
 
 OUT = PROJECT_ROOT / 'data/derived/analysis/2026-09-23_strategy_research'
 

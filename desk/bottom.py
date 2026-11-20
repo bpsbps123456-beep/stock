@@ -18,10 +18,9 @@ code/bc_lib.py(BRIEF 2026-10-26, 결과 전 고정)와 같고, tests/test_bottom
 
 from __future__ import annotations
 
-import json
 import threading
 import time as _time
-from datetime import date, datetime, timezone
+from datetime import datetime, timezone
 
 import numpy as np
 import pandas as pd
@@ -29,12 +28,12 @@ import pandas as pd
 from . import config, marketdata
 from .bottom_outlook import build_outlook
 from .bottom_paper import latest_completed, record_and_score
-from .news import market_calendar, write_atomic
+from .common import clean, read_cache, write_atomic
+from .config import market_calendar
 from .news_bottom_audit import evidence_audit
-from .state import clean
 
 # 계산 방식이 바뀌면 올린다. 캐시의 방식이 다르면 30분 안이어도 다시 계산한다.
-SPEC = "2026-11-19 SOXX 10거래일 예상 최저 종가·근거별 20거래일 검증"
+SPEC = "2026-11-21 SOXX 10거래일 예상 최저 종가·근거별 20거래일 검증·하락 국면 하단 이탈 공개"
 CACHE_PATH = config.CACHE / "bottom.json"
 MAX_AGE_MIN = 30
 SYMBOL, LONG_SYMBOL = "SOXX", "^SOX"
@@ -317,7 +316,7 @@ def _fresh(cached: dict) -> bool:
 
 def _daily(force: bool) -> dict:
     with _LOCK:
-        cached = json.loads(CACHE_PATH.read_text(encoding="utf-8")) if CACHE_PATH.exists() else {}
+        cached = read_cache(CACHE_PATH) or {}  # a broken cache is recomputed, not a 500
         if not force and _fresh(cached) and cached["status"]["date"] == latest_completed(datetime.now(timezone.utc)):
             return cached
         try:

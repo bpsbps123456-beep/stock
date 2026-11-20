@@ -27,7 +27,7 @@ import numpy as np
 import pandas as pd
 
 from gbrc.etf.market import company_key, is_cash_holding, listing_market, yahoo_ticker
-from gbrc.etf.research_data import CORPORATE_ALIASES, exclusion_reason
+from gbrc.etf.market import CORPORATE_ALIASES, exclusion_reason
 from gbrc.etf.trades import load_fund_snapshots
 from watchlist import resolve_sector, resolve_subsector
 

@@ -18,7 +18,8 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import parse_qs, urlparse
 
 from . import bottom, config, dip, erules, forecast, giant, journal, news, season, tour, trend, value
-from .state import Desk, clean
+from .common import clean
+from .state import Desk
 
 DESK = Desk()
 APP = "night-desk"

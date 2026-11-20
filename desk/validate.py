@@ -11,6 +11,9 @@
   must still describe that path through 2026-09-25; an engine change that moves them fails.
 - The live rule (config.RULE, semiconductor budget 50% since 2026-10-10) is then reported
   with the same measures for comparison; it does not fail the check.
+- The #774 replay needs Codex's representative_paths.npz. Without it the check FAILS (a clone or
+  cloud session would otherwise pass §6 unchecked); `py -m desk validate --skip-774` skips it on
+  purpose and the result line then says 미검증.
 """
 
 from __future__ import annotations
@@ -112,41 +115,60 @@ class codex_caps:
             self.book.sector = self.saved_sector
 
 
-def main() -> int:
-    book = S.load_book()
+NPZ = CODEX / "representative_paths.npz"
+
+
+def check_774(book, path, skip: bool = False) -> tuple[bool, str]:
+    """#774 target-weight replay. Returns (ok, status) with status "ok" | "FAIL" | "미검증"."""
+    if skip:
+        print("7종목 #774 재현: 미검증 (--skip-774로 건너뜀)")
+        return True, "미검증"
+    if not NPZ.exists():
+        print(f"7종목 #774 재현: FAIL — 입력 {NPZ.relative_to(config.ROOT).as_posix()} 이(가) 없습니다. "
+              "원본 연구 폴더에서 받아 오거나, 의도적으로 건너뛰려면 --skip-774를 붙이세요(결과에 '미검증' 표시).")
+        return False, "FAIL"
+    expected, codex_total = codex_targets()
+    original = S.latest_before
+    S.latest_before = codex_timing(book)
+    try:
+        with codex_caps(book):
+            replay = _weekly(book, S.run_model(book))
+    finally:
+        S.latest_before = original
+    days = sorted(set(expected) | set(replay))
+    bad = [(d, expected.get(d, {}), replay.get(d, {})) for d in days
+           if _diff(expected.get(d, {}), replay.get(d, {})) > 1e-6]
+    print(f"7종목 (Codex timing): {len(days) - len(bad)}/{len(days)} rebalance days match #774 target weights")
+    for day, want, got in bad[:10]:
+        print(f"  {day}: codex {_fmt(want)} | desk {_fmt(got)}")
+    desk = _weekly(book, path)
+    newer = [d for d in sorted(desk) if _diff(desk[d], expected.get(d, {})) > 1e-6]
+    print(f"desk timing: {len(desk) - len(newer)}/{len(desk)} identical; newer PDF after US holidays on "
+          + (", ".join(newer) or "none"))
+    model = S.model_index(book, path)
+    print(f"model #774 caps 2026-01-02..{CODEX_END}: KRW {model[path.days.index(CODEX_END)] / 100 - 1:+.1%} "
+          f"(Codex {codex_total:+.1%}; FX timing and cash currency differ)")
+    return not bad, "ok" if not bad else "FAIL"
+
+
+def main(argv: list[str] | None = None) -> int:
+    args = list(argv or [])
+    unknown = [a for a in args if a != "--skip-774"]
+    if unknown:
+        print(f"알 수 없는 옵션: {' '.join(unknown)} (사용: py -m desk validate [--skip-774])")
+        return 2
+    from .state import last_completed_session
+    book = S.load_book(through=last_completed_session())
     with codex_caps(book):
         path = S.run_model(book)
     live = S.run_model(book)
-    ok = True
-    if (CODEX / "representative_paths.npz").exists():
-        expected, codex_total = codex_targets()
-        original = S.latest_before
-        S.latest_before = codex_timing(book)
-        try:
-            with codex_caps(book):
-                replay = _weekly(book, S.run_model(book))
-        finally:
-            S.latest_before = original
-        days = sorted(set(expected) | set(replay))
-        bad = [(d, expected.get(d, {}), replay.get(d, {})) for d in days
-               if _diff(expected.get(d, {}), replay.get(d, {})) > 1e-6]
-        print(f"7종목 (Codex timing): {len(days) - len(bad)}/{len(days)} rebalance days match #774 target weights")
-        for day, want, got in bad[:10]:
-            print(f"  {day}: codex {_fmt(want)} | desk {_fmt(got)}")
-        ok &= not bad
-        desk = _weekly(book, path)
-        newer = [d for d in sorted(desk) if _diff(desk[d], expected.get(d, {})) > 1e-6]
-        print(f"desk timing: {len(desk) - len(newer)}/{len(desk)} identical; newer PDF after US holidays on "
-              + (", ".join(newer) or "none"))
-        model = S.model_index(book, path)
-        print(f"model #774 caps 2026-01-02..{CODEX_END}: KRW {model[path.days.index(CODEX_END)] / 100 - 1:+.1%} "
-              f"(Codex {codex_total:+.1%}; FX timing and cash currency differ)")
-    else:
-        print("Codex #774 paths not found; skipped")
-    ok &= pause_evidence(book, path)
+    ok, status = check_774(book, path, skip="--skip-774" in args)
+    pause_ok = pause_evidence(book, path)
+    ok &= pause_ok
     lm = S.model_index(book, live)
     mdd, gap20 = pause_measures(book, live)
     print(f"live rule (semiconductors {config.RULE['semis_cap']:.0%}) 2026-01-02..{CODEX_END}: KRW "
           f"{lm[live.days.index(CODEX_END)] / 100 - 1:+.1%}, through {FROZEN_END}: worst drawdown {mdd:.1%}, "
           f"worst 20-session gap {gap20:+.1%}; through {live.days[-1]}: KRW {lm[-1] / 100 - 1:+.1%} (reported, not checked)")
+    print(f"validate: {'ok' if ok else 'FAIL'} · #774 재현 {status} · 멈춤 근거 {'ok' if pause_ok else 'CHANGED'}")
     return 0 if ok else 1

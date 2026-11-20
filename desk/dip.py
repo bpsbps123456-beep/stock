@@ -13,7 +13,6 @@
 
 from __future__ import annotations
 
-import json
 import re
 import threading
 import time as _time
@@ -23,7 +22,7 @@ import numpy as np
 import pandas as pd
 
 from . import config
-from .state import clean
+from .common import clean, read_cache, write_atomic
 
 CACHE_PATH = config.CACHE / "dip.json"
 UNIVERSE_PATH = config.CACHE / "dip_universe.json"
@@ -441,10 +440,9 @@ def _headers() -> dict:
 
 def universe(force: bool = False) -> dict:
     """{기호: {name, cap, sector, industry}} — 시총 10억 달러 이상 미국 상장 보통주. 하루 캐시."""
-    if not force and UNIVERSE_PATH.exists():
-        cached = json.loads(UNIVERSE_PATH.read_text(encoding="utf-8"))
-        if _time.time() - cached.get("_epoch", 0) < UNIVERSE_MAX_AGE_H * 3600:
-            return cached["symbols"]
+    cached = None if force else read_cache(UNIVERSE_PATH)  # a broken cache is fetched again
+    if cached is not None and "symbols" in cached and _time.time() - cached.get("_epoch", 0) < UNIVERSE_MAX_AGE_H * 3600:
+        return cached["symbols"]
     import requests
 
     rows = requests.get(NASDAQ_LIST, headers=_headers(), timeout=60).json()["data"]["rows"]
@@ -457,8 +455,7 @@ def universe(force: bool = False) -> dict:
             continue
         if re.fullmatch(r"[A-Z]{1,5}", sym) and cap >= MIN_CAP and not NOT_COMMON.search(r.get("name") or ""):
             out[sym] = {"name": r.get("name"), "cap": cap, "sector": r.get("sector"), "industry": r.get("industry")}
-    config.CACHE.mkdir(parents=True, exist_ok=True)
-    UNIVERSE_PATH.write_text(json.dumps({"_epoch": _time.time(), "symbols": out}, ensure_ascii=False), encoding="utf-8")
+    write_atomic(UNIVERSE_PATH, {"_epoch": _time.time(), "symbols": out}, indent=None)
     return out
 
 
@@ -561,15 +558,13 @@ def research() -> dict:
 def payload(force: bool = False) -> dict:
     """급락 목록은 SCAN_MAX_AGE_SEC 동안 캐시한다(장 중에는 2분마다 새로 고쳐도 3~15초)."""
     with _LOCK:
-        if not force and CACHE_PATH.exists():
-            cached = json.loads(CACHE_PATH.read_text(encoding="utf-8"))
-            if _time.time() - cached.get("_epoch", 0) < SCAN_MAX_AGE_SEC:
-                cached["research"] = research()
-                return cached
+        cached = None if force else read_cache(CACHE_PATH)  # a broken cache is recomputed
+        if cached is not None and _time.time() - cached.get("_epoch", 0) < SCAN_MAX_AGE_SEC:
+            cached["research"] = research()
+            return cached
         data = clean(compute())
         data["_epoch"] = _time.time()
-        config.CACHE.mkdir(parents=True, exist_ok=True)
-        CACHE_PATH.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+        write_atomic(CACHE_PATH, data, indent=None)
         return data
 
 

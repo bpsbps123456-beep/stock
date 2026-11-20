@@ -9,7 +9,7 @@ import pandas as pd
 
 from . import config, news
 
-PB = config.ROOT / "research/pb_flow_census_20261026/census.csv"
+PB = config.ROOT / "data/derived/analysis/pb_flow_census_20261026/census.csv"
 CALLS = config.ROOT / "data/derived/analysis/bottom_zone_20261111/news/v2/calls_census.csv"
 H1, H2, END = map(pd.Timestamp, ("2026-01-01", "2026-07-01", "2026-12-31"))
 LABELS = {
@@ -28,7 +28,7 @@ LABELS = {
 
 def _after_date(value: str) -> pd.Timestamp:
     """공개일의 시각을 모르면 다음 달력 날짜 이후 첫 정규장 종가에서 평가."""
-    return news.market_calendar().date_to_session(pd.Timestamp(value) + pd.Timedelta(days=1), direction="next")
+    return config.market_calendar().date_to_session(pd.Timestamp(value) + pd.Timedelta(days=1), direction="next")
 
 
 def _archive_dates(path: Path, category: str, day: str, precision: str) -> dict:
@@ -48,7 +48,7 @@ def _ledger_dates(ledger: dict, cutoff: pd.Timestamp) -> set:
     """원장 전방 R은 실제 기록 후 맞는 첫 장에서 평가. 알려진 정정과 재보도는 한 번만."""
     dates = set()
     seen = set()
-    calendar = news.market_calendar()
+    calendar = config.market_calendar()
     episodes = {ep["id"] for ep in ledger["episodes"] if ep["benchmark"] == "SOXX"}
     for row in sorted(ledger["events"], key=lambda r: news.stamp(r["recorded_at"])):
         if row["episode"] not in episodes:
@@ -73,7 +73,7 @@ def _counts(fr, dates, start, end, cutoff, cooldown: bool) -> dict:
     hits = n = pending = missing = 0
     early_breaks = []
     next_date = start
-    calendar = news.market_calendar()
+    calendar = config.market_calendar()
     for day in dates:
         if day not in fr.index or not fr.at[day, "in_dd"] or (cooldown and day < next_date):
             continue
@@ -100,7 +100,7 @@ def _ledger_review(ledger: dict, fr: pd.DataFrame, latest: pd.Timestamp) -> str:
     """화면 원장의 실제 SOXX 기사별 당시 저점을, 기사 공개일 기준으로 사후 복기."""
     labels = {"pressure": "매도 압력", "relief": "매물 소화", "squeeze": "숏 쏠림", "fundamental": "사업·신용 위험"}
     episodes = {ep["id"] for ep in ledger["episodes"] if ep["benchmark"] == "SOXX"}
-    cutoff = news.market_calendar().session_close(latest)
+    cutoff = config.market_calendar().session_close(latest)
     observed = set()
     dates = defaultdict(set)
     unknown = 0
@@ -127,7 +127,7 @@ def evidence_audit(fr: pd.DataFrame) -> dict:
     """완료 종가로 만든 bottom.frame. 상반기 컷 뒤 재조정 없이 같은 정의로 하반기를 평가한다."""
     from .bottom import signals
 
-    calendar = news.market_calendar()
+    calendar = config.market_calendar()
     latest = fr.index[-1]
     last_2026 = min(END, latest)
     dates = _archive_dates(PB, "family", "published_at", "time_precision")
