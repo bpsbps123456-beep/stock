@@ -1,0 +1,29 @@
+sample,code,feature,outcome,kind,H1,H2,n_H1,n_H2,pass
+보유 당시,M1,kr_buy_share_pre,d20_x,ic,-0.019,0.08,116,66,False
+보유 당시,M1,kr_buy_share_pre,r0_x,ic,0.123,-0.056,116,116,False
+보유 당시,M2,kr_ever_before,d20_x,bool,0.075,-0.491,116,76,False
+보유 당시,M2,kr_ever_before,r0_x,bool,-8.14,-0.636,116,116,False
+보유 당시,M3,occ_call_ab,d20_x,ic,0.332,-0.007,116,64,False
+보유 당시,M3,occ_call_ab,r0_x,ic,0.007,0.079,116,114,False
+보유 당시,M4,px_vsurge5,d20_x,ic,0.251,-0.152,116,66,False
+보유 당시,M4,px_vsurge5,r0_x,ic,-0.015,-0.024,116,116,False
+보유 당시,M5,px_pre20_x,d20_x,ic,0.232,-0.037,116,65,False
+보유 당시,M5,px_pre20_x,r0_x,ic,0.118,0.009,116,115,False
+보유 당시,M6,a_h01_wiki,d20_x,ic,0.174,-0.25,66,33,False
+보유 당시,M6,a_h01_wiki,r0_x,ic,-0.056,0.039,66,61,False
+보유 당시,대조,obv_eps_surprise,d20_x,ic,-0.007,-0.181,116,66,
+보유 당시,대조,obv_eps_surprise,r0_x,ic,0.269,0.174,116,116,
+2026 보유 전체,M1,kr_buy_share_pre,d20_x,ic,0.022,0.035,306,172,False
+2026 보유 전체,M1,kr_buy_share_pre,r0_x,ic,-0.071,-0.018,306,290,False
+2026 보유 전체,M2,kr_ever_before,d20_x,bool,0.012,3.344,306,172,False
+2026 보유 전체,M2,kr_ever_before,r0_x,bool,-5.303,-2.129,306,290,False
+2026 보유 전체,M3,occ_call_ab,d20_x,ic,0.215,-0.087,295,167,False
+2026 보유 전체,M3,occ_call_ab,r0_x,ic,0.058,0.037,295,284,False
+2026 보유 전체,M4,px_vsurge5,d20_x,ic,0.176,-0.104,306,172,False
+2026 보유 전체,M4,px_vsurge5,r0_x,ic,-0.045,0.045,306,290,False
+2026 보유 전체,M5,px_pre20_x,d20_x,ic,0.14,-0.069,306,171,False
+2026 보유 전체,M5,px_pre20_x,r0_x,ic,0.089,-0.053,306,288,False
+2026 보유 전체,M6,a_h01_wiki,d20_x,ic,0.071,0.02,169,88,False
+2026 보유 전체,M6,a_h01_wiki,r0_x,ic,-0.115,-0.072,169,166,False
+2026 보유 전체,대조,obv_eps_surprise,d20_x,ic,-0.055,0.003,306,171,
+2026 보유 전체,대조,obv_eps_surprise,r0_x,ic,0.249,0.116,306,288,
