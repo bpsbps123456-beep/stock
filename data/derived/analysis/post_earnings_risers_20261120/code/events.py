@@ -44,6 +44,12 @@ def timing(row, sec_by_tk):
             a = near.iloc[(near.acc.dt.normalize() - day).abs().argmin()].acc
             hm = a.hour * 60 + a.minute
             return pd.Timestamp(a.date()), "amc" if hm >= 16 * 60 else ("bmo" if hm < 9 * 60 + 30 else "mid"), "sec"
+    # yfinance가 시각 없이 날짜만 줄 때는 UTC 00:00으로 온다(뉴욕 시각으로는 전날 19~20시로 보인다).
+    # 그 날짜를 발표일로 쓰고, 해외 상장사는 공시 관행으로 시각을 정한다(Astra가 ARM 공시로 확인, 2026-11-20).
+    if ts.tzinfo and ts.tz_convert("UTC").hour == 0 and ts.tz_convert("UTC").minute == 0:
+        day = pd.Timestamp(ts.tz_convert("UTC").date())
+        conv = {"ARM": "amc", "SAP": "amc", "ASML": "bmo", "TSM": "bmo", "SKHY": "bmo"}
+        return day, conv.get(row.ticker, "unk"), "yf_dateonly"
     hm = d.hour * 60 + d.minute
     if hm == 0:
         return day, "unk", "yf"
