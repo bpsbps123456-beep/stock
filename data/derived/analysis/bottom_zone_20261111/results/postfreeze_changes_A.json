@@ -18,6 +18,13 @@
       "file": ".gitignore",
       "scope": "preserve the already-fingerprinted raw XML gzip responses in Git",
       "primary_signals_or_outcomes_changed": false
+    },
+    {
+      "file": "code/panel_A.py, code/run_A.py, TASK_A.md, TASK_B.md, belt/code/now_update.py",
+      "scope": "input path only (2026-11-21 repository cleanup)",
+      "change": "The frozen news census moved from research/pb_flow_census_20261026/census.csv to data/derived/analysis/pb_flow_census_20261026/census.csv with identical bytes (sha256 2d0d40c0...). Only the default path strings changed. TASK_A.md also points the 2026-11-08 recheck report to its new folder data/derived/analysis/seibro_bottoms/recheck_20261108/.",
+      "primary_signals_or_outcomes_changed": false,
+      "reason": "Research storage rule: results and code live under data/derived/analysis/<topic>/."
     }
   ],
   "representatives_or_thresholds_changed": false,
