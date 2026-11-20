@@ -2,8 +2,10 @@
 // SOXL 경고선·재매수선 — 2026-11-20
 // 연구: data/derived/analysis/soxl_escape_20261120/lines/report.md (Claude + Codex gpt-6.2-astra 공동)
 // 생각: 정확한 바닥은 못 맞히니, 경고선 아래로 내려가면 대피하고 재매수선 위로 올라타면 그때 다시 산다. 두 선 사이에서는 직전 상태를 유지한다.
-// 규칙(기본 = 느린 선)
-//   느린 선: 일봉 EMA10·20 중 낮은 쪽이 경고선, 높은 쪽이 재매수선. 일봉 종가로 판정하고 다음 정규장 시가(겨울 한국 23:30)에 실행하는 것으로 검증했다.
+// 규칙(기본 = 보통 선, 2026-11-20 사용자 요청 "더 기민하게")
+//   보통 선: 일봉 EMA3·15 중 낮은 쪽이 경고선, 높은 쪽이 재매수선. 전날 확정된 경고선에 정규장 중 닿으면 대피(미리 걸어 두는 손절 주문 자리),
+//            일봉 종가가 재매수선 위면 다음 정규장 시가(겨울 한국 23:30)에 재매수. 느린 선보다 1.7배 자주 움직인다.
+//   느린 선: 일봉 EMA10·20 두 줄, 일봉 종가로 대피·재매수. 한 달에 두어 번 움직인다.
 //   빠른 선: 연장시간 5분봉 EMA200의 −2%가 경고선, +2%가 재매수선. 신호 뒤 바로(프리장·애프터 포함) 실행해야 통했다. 정규장까지 미루면 무너졌다.
 // 판정은 기준 봉의 완성된 값으로만 한다(미래 정보 없음). 기준 봉 이하의 분봉 차트(연장시간 켬)에서 쓴다.
 //   '종가 확인': 기준 봉 종가가 경고선 아래면 대피.   '닿으면': 직전 기준 봉의 경고선에 가격이 닿는 순간 대피(스탑 주문 자리, 일봉이면 정규장만).
@@ -12,24 +14,27 @@
 indicator("SOXL 경고선·재매수선", shorttitle = "경고·재매수", overlay = true)
 
 // ── 입력 ──────────────────────────────────────────────
-const string P_SLOW = "느린 선: 일봉 EMA10·20"
-const string P_FAST = "빠른 선: 5분 EMA200 ±2%"
+const string P_MID  = "보통 선: 일봉 EMA3·15 (닿으면 대피)"
+const string P_SLOW = "느린 선: 일봉 EMA10·20 (종가 대피)"
+const string P_FAST = "빠른 선: 5분 EMA200 ±2% (종가 대피)"
 const string P_OWN  = "직접 설정"
-preset   = input.string(P_SLOW, "규칙", options = [P_SLOW, P_FAST, P_OWN], display = display.none)
-stopMode = input.string("종가 확인", "대피 방식", options = ["종가 확인", "닿으면"], display = display.none) == "닿으면"
+preset   = input.string(P_MID, "규칙", options = [P_MID, P_SLOW, P_FAST, P_OWN], display = display.none)
+showBg   = input.bool(true, "대피 구간 배경색", display = display.none)
 const string G1 = "직접 설정일 때"
 ownTf    = input.timeframe("D", "기준 봉", group = G1, display = display.none)
 ownA     = input.int(10, "이평선 1 (EMA 길이)", minval = 2, group = G1, display = display.none)
 ownB     = input.int(20, "이평선 2 (EMA 길이)", minval = 2, group = G1, display = display.none)
 ownBand  = input.float(0.0, "띠 % (경고선 = 낮은 선 −띠, 재매수선 = 높은 선 +띠)", minval = 0.0, step = 0.5, group = G1, display = display.none)
-showBg   = input.bool(true, "대피 구간 배경색", display = display.none)
+ownStop  = input.string("종가 확인", "대피 방식", options = ["종가 확인", "닿으면"], group = G1, display = display.none) == "닿으면"
 
-bool   isFast = preset == P_FAST
-bool   isOwn  = preset == P_OWN
-string baseTf = isOwn ? ownTf : isFast ? "5" : "D"
-int    lenA   = isOwn ? ownA : isFast ? 200 : 10
-int    lenB   = isOwn ? ownB : isFast ? 200 : 20
-float  band   = (isOwn ? ownBand : isFast ? 2.0 : 0.0) / 100
+bool   isMid    = preset == P_MID
+bool   isFast   = preset == P_FAST
+bool   isOwn    = preset == P_OWN
+string baseTf   = isOwn ? ownTf : isFast ? "5" : "D"
+int    lenA     = isOwn ? ownA : isFast ? 200 : isMid ? 3 : 10
+int    lenB     = isOwn ? ownB : isFast ? 200 : isMid ? 15 : 20
+float  band     = (isOwn ? ownBand : isFast ? 2.0 : 0.0) / 100
+bool   stopMode = isOwn ? ownStop : isMid          // 보통 선은 닿으면 대피, 느린·빠른 선은 종가 확인
 
 if timeframe.in_seconds() > timeframe.in_seconds(baseTf)
     runtime.error("차트 봉이 기준 봉보다 큽니다. 기준 봉 이하의 차트에서 쓰세요")
@@ -96,7 +101,7 @@ if barstate.islast
     if not na(wLine)
         float  tgt   = holding ? wLine : rLine
         float  dist  = (tgt / close - 1) * 100
-        string when  = na(chgT) ? "" : dayBase ? str.format_time(chgT, "M/d", "America/New_York") + " 종가" : str.format_time(chgT, "M/d HH:mm", "Asia/Seoul")
-        string since = stopped ? " (지금 닿음)" : when == "" ? "" : " (" + when + " 신호)"
+        string when  = na(chgT) ? "" : dayBase ? str.format_time(chgT, "M/d", "America/New_York") + (not holding and stopMode ? " 닿음" : " 종가 신호") : str.format_time(chgT, "M/d HH:mm", "Asia/Seoul") + " 신호"
+        string since = stopped ? " (지금 닿음)" : when == "" ? "" : " (" + when + ")"
         txt := (holding ? "보유 중" : "대피 중") + since + "\n" + (holding ? "경고선 " : "재매수선 ") + str.tostring(tgt, format.mintick) + " (" + (dist >= 0 ? "+" : "") + str.tostring(dist, "0.0") + "%)"
     st := label.new(bar_index + 3, close, txt, xloc = xloc.bar_index, style = label.style_label_left, color = na(wLine) ? color.gray : holding ? color.new(color.green, 15) : color.new(color.red, 15), textcolor = color.white, size = size.normal)
