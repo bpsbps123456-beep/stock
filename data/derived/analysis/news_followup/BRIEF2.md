@@ -15,8 +15,8 @@
 
 ## 자료·시점
 
-- 노트: `research/pb_flow_census_20261026/census.csv`. 진입은 `code/n4h14_run.py`의 규칙 그대로다(공개일만, exact 09:30 ET 전이면 당일 시가, 아니면 다음 정규장 시가).
-- 가격: `research/news_turning_points_20261025/prices.csv`(Codex 10/25 스냅샷, yfinance 분할 반영·배당 미포함 OHLC, SOXX·QQQ·SPY와 ^TNX 종가, 2023-12-01~2026-10-23). 클라우드 세션에서 Yahoo 접속이 막혀 새로 받지 않는다. 재현 점검으로 `results/n4h14_signals.csv`의 SOXX r5·r10·r20·대조 A와 일치해야 한다.
+- 노트: `data/derived/analysis/pb_flow_census_20261026/census.csv`. 진입은 `code/n4h14_run.py`의 규칙 그대로다(공개일만, exact 09:30 ET 전이면 당일 시가, 아니면 다음 정규장 시가).
+- 가격: `data/derived/analysis/news_turning_points_20261025/prices.csv`(Codex 10/25 스냅샷, yfinance 분할 반영·배당 미포함 OHLC, SOXX·QQQ·SPY와 ^TNX 종가, 2023-12-01~2026-10-23). 클라우드 세션에서 Yahoo 접속이 막혀 새로 받지 않는다. 재현 점검으로 `results/n4h14_signals.csv`의 SOXX r5·r10·r20·대조 A와 일치해야 한다.
 - 평가 창: 진입 2024-01-02~2026-10-23(10/25 연구와 같은 706거래일). 2023 노트는 시가 자료가 없어 뺀다(앞선 조건 계산에는 쓴다). 기존 n4h14 r20으로 설명용 한 줄만 낸다.
 - 거래 조건(`docs/desk_system.md` §1): 수수료 0. 주문 가능 한국시간 08~24시. 미국 정규장 시가는 그 안이고 종가는 밖이다.
 

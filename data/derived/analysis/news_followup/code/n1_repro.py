@@ -13,7 +13,7 @@ HERE = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(HERE / "code"))
 from n1_lib import attach_controls, conditions, daily_table, onsets, summarize  # noqa: E402
 
-CODEX = HERE.parents[3] / "research" / "news_turning_points_20261025"
+CODEX = HERE.parent / "news_turning_points_20261025"
 cm = json.loads((CODEX / "metrics.json").read_text(encoding="utf-8"))["macro"]
 
 cal = xcals.get_calendar("XNYS", start="1994-01-01", end="2026-12-31")

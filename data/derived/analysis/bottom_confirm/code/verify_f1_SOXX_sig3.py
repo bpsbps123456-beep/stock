@@ -52,7 +52,7 @@ def say(*a) -> None:
 
 # =========================================================================== raw data
 def load_raw():
-    p = pd.read_csv(ROOT / "research/news_turning_points_20261025/prices.csv", header=[0, 1], index_col=0)
+    p = pd.read_csv(ROOT / "data/derived/analysis/news_turning_points_20261025/prices.csv", header=[0, 1], index_col=0)
     p.index = pd.to_datetime(p.index, errors="coerce")
     p = p[p.index.notna()].sort_index()
     sx = pd.DataFrame({k: pd.to_numeric(p[(k, "SOXX")], errors="coerce") for k in ("open", "high", "low", "close")})

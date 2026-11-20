@@ -12,10 +12,11 @@ sys.dont_write_bytecode = True
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[4]
 sys.path.insert(0, str(REPO))
+sys.path.insert(0, str(HERE.parent / 'code'))
 
 import numpy as np
 from scipy.optimize import linprog
-from gbrc.etf import research_concentration as engine
+from etf_research import research_concentration as engine
 
 
 def allocation_checks():

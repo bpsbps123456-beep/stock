@@ -18,8 +18,8 @@
 | 수집기·달력·백분위 | `data/derived/analysis/seibro_flows/code/collect.py`, `data/derived/analysis/seibro_bottoms/code/build.py`(`pct_rank`), `soxs_ledger.py`, `soxs_focus.py`, `soxs_position.py` |
 | 자료판·사건 | `data/derived/analysis/seibro_bottoms/derived/`(`PANEL.md`, `measures_daily.parquet`, `custody_daily.parquet`, `events.json`의 B10·F·episodes) |
 | 바닥 정의 | `data/derived/analysis/bottom_confirm/code/bc_lib.py`, `desk/bottom.py` |
-| 뉴스 전수 표본(동결) | `research/pb_flow_census_20261026/census.csv`(family D·R·S·T, `published_at`) |
-| 최신 재검토 | `data/derived/analysis/bottom_recheck_20261108/report.md`, `seibro_bottoms/report4.md` |
+| 뉴스 전수 표본(동결) | `data/derived/analysis/pb_flow_census_20261026/census.csv`(family D·R·S·T, `published_at`) |
+| 최신 재검토 | `data/derived/analysis/seibro_bottoms/recheck_20261108/report.md`, `seibro_bottoms/report4.md` |
 
 앞선 결론의 핵심은 "바닥 날 한국인 매매의 공통점은 모두 가격 메아리였다"이다. 이번 과제는 그 결론을 다시 확인하는 것이 아니라, 아래 **새 정의(매수 소진·비중·외부 필터 결합·바닥 근처 결과)**를 시험한다.
 

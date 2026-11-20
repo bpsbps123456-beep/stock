@@ -71,3 +71,7 @@
 ## 다음 후보 (미시험)
 
 이 생각을 쓰려면 반전을 확정하는 시점에, 그때 알 수 있는 값으로 '남은 구간 길이' 또는 '추세 장세인지 V자 장세인지'를 맞혀야 한다. 후보는 시장 폭, 거래량, 뉴스 사건 종류(`docs/desk_system.md` §13 뉴스 근거)다. 이 시험은 사전 등록부터 새로 해야 한다.
+
+## 추적하지 않는 결과 (2026-11-21)
+
+행 단위 CSV 9개(`results/` critic_exec_rows·capture_detect_stock·capture_detect_segments·c2trade_actual·capture_confirm_null_reps·struct_zz_stats·critic_inverse_rows·struct_per_symbol·struct_pivots_real, 31.6MB)는 이 결과를 코드로 다시 만든다(추적 안 함): `code/critic_exec.py`·`capture_detect.py`·`c2trade_run.py`·`capture_confirm.py`·`struct_run.py`·`critic_inverse.py`. 요약 CSV와 BRIEF는 계속 추적한다.

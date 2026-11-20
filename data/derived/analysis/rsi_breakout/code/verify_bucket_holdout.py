@@ -5,7 +5,7 @@
   B. 시점·가격 정렬·분할 점검(3개 날짜 + 공휴일 주 + 알려진 분할일)
   C. 보고서 13장 재현(실험실 타이밍 '시가 +0/+1일', 배당 반영 시가, 원화) — 엔진·자료 일치 확인
   D. 입력 결함: TIME PDF의 ISIN 표기 3종목(SMCI·ANET·BZFD)이 desk us_weights에서 빠짐
-     (strategy_comparison_audit/holdout_isin_audit.md가 2026-09-27에 이미 지적). 복원 민감도.
+     (strategy_lab/audit_isin/holdout_isin_audit.md가 2026-09-27에 이미 지적). 복원 민감도.
   E. 강건성: 시점 3종(앞선 PDF / 당일 PDF / 공시 +1세션) x 복원 여부 x PLTR 제외, 연도·급락 구간, 낙폭 구간.
 쓰기: results/bucket/verify_holdout.json 만. desk/gbrc/docs/watchlist·기존 연구 파일은 읽기만.
 실행: PYTHONIOENCODING=utf-8 py data/derived/analysis/rsi_breakout/code/verify_bucket_holdout.py
@@ -31,7 +31,7 @@ from gbrc.etf.market import yahoo_ticker  # noqa: E402
 
 LAB = os.path.join(ROOT, "data", "derived", "analysis", "strategy_lab")
 HOLD = os.path.join(LAB, "holdout")
-AUDIT = os.path.join(ROOT, "data", "derived", "analysis", "strategy_comparison_audit")
+AUDIT = os.path.join(ROOT, "data", "derived", "analysis", "strategy_lab", "audit_isin")
 BUILDER_JSON = os.path.join(HERE, "..", "results", "bucket", "holdout.json")
 OUT = os.path.join(HERE, "..", "results", "bucket", "verify_holdout.json")
 

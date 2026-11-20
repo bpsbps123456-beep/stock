@@ -244,3 +244,7 @@ B1 v2 동결 커밋은 `c5edc8affe00b4126b152f7aed9fd0ec9b75e95d`, B2 동결 커
 전체 검증: `py -m unittest` → 520 tests / 23.508s / OK (exit 0). [전체 출력](news/v2/results/unittest_full_B.txt). 새 테스트는 정보 시점·20세션 검열·다른 기관 조건·분할·동결 불변·뉴스 창 완전성·전환 재료 조건을 검사한다.
 
 최종 분석·보고서 커밋은 이 보고서를 포함한 `research: 바닥 뉴스 전략가 의견 전수 표본과 바닥 창 대조 (codex)`이며 정확한 해시는 최종 전달 메시지에 기록한다. 허용 경로만 커밋했고 과제 A 및 다른 작업자의 변경은 건드리지 않았다.
+
+## 추적하지 않는 결과 (2026-11-21)
+
+검색 원응답 `news/v2/raw/`(B1·B2·web_B1_v2_*·BNP 링크 목록)과 B2 중간 후보(`news/v2/B2/` all_candidates·coded_candidates·candidates·review·web_inventory·manual_review_queue), 검색 로그 `news/search_log_B2.csv`·`news/v2/search_log_B1*.csv`는 Git에서 추적하지 않는다(작업 트리 파일은 그대로). 동결 커밋 8ee41fde·c5edc8af·7c380ad6에 남아 있어 `git show <커밋>:<경로>`로 되살린다. 기사 본문 `news/v2/B2/body/`와 열람 기록 `news/v2/raw/access_B1/`, 테스트가 읽는 `news/raw/B1/`·`news/search_log_B1.csv`는 계속 추적한다.

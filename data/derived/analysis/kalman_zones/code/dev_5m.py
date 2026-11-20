@@ -3,7 +3,9 @@
 import numpy as np, pandas as pd
 from osc import rsi
 SYMS = ["AMD", "ARM", "DELL", "INTC", "SNDK", "STX", "WDC"]
-P = r"C:/Users/geunt/AppData/Local/Temp/claude/C--Users-geunt-OneDrive-Desktop---/e846c1a2-c78d-40ed-885f-777d23bba52f/scratchpad/kalman/data"
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[5]  # 저장소 루트(파일 위치 기준)
+P = str(_REPO / "data/derived/analysis/cache/scratch/e846c1a2/scratchpad/kalman/data")
 
 
 def prep(s, L, rl):

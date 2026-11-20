@@ -123,3 +123,7 @@ py -m unittest
 `--offline`은 이 PC의 Git 제외 호가 캐시를 사용한다. 다른 환경은 기존 fetch_alpaca.one으로 SOXL2025-01-01~2026-11-03(끝2026-11-04) 봉을 두 입력 폴더에 준비하고, quotes.py를--offline 없이 실행해야 한다. 키는 Git 제외.env에 둔다. 원시 봉과 호가는 올리지 않으며 출처 파일 해시는summary.json에 기록했다.
 
 출처: [Alpaca 분봉 생성·시작 시각](https://alpaca.markets/learn/stock-minute-bars), [Historical bars API](https://docs.alpaca.markets/us/reference/stockbars), [Wilder RSI 설명](https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/relative-strength-index-rsi).
+
+## 추적하지 않는 결과 (2026-11-21)
+
+`results/trades.csv`·`results/rebound_summary.json`(9.1MB)은 이 결과를 코드로 다시 만든다(추적 안 함): `code/study.py`, `code/rebound_study.py`. 다른 연구가 읽는 `results/rebound_signals.csv`는 계속 추적한다.

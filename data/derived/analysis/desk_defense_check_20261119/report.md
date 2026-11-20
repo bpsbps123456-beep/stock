@@ -386,3 +386,7 @@ py data/derived/analysis/season_regime_20261119/verify_independent.py --compare 
 ```
 
 결과는 `../season_regime_20261119/out/`(시즌 표 `seasons_unlevered_p12.csv`·`p08`, 포착 `detection_*.csv`, 후보 `meta_candidates.csv`, 반박 `robust_*.csv`, 2025 `aux2025.csv`)에 있다. 일별 원장은 `../season_regime_20261119/cache/`(Git 제외)에 다시 만들어진다.
+
+## 추적하지 않는 결과 (2026-11-21)
+
+`out/merged_stats.csv`(6.6MB)는 이 결과를 코드로 다시 만든다(추적 안 함): `py merge.py`가 갈래별 candidates CSV로 다시 쓴다. 보고서 숫자는 추적되는 selection.csv·walkforward.csv·recent_quarter.json·codex_soxx100.json에서 나온다.

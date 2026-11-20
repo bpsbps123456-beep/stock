@@ -25,7 +25,7 @@ HERE = pathlib.Path(__file__).resolve().parents[1]
 ROOT = pathlib.Path(__file__).resolve().parents[5]
 RES = HERE / "results"
 OUT = RES / "verify_f2_SOXX_ema1020x.txt"
-P_PRICES = ROOT / "research/news_turning_points_20261025/prices.csv"
+P_PRICES = ROOT / "data/derived/analysis/news_turning_points_20261025/prices.csv"
 P_CLOSE = ROOT / "data/derived/analysis/leverage_flood/results/us_prices_close.csv"
 
 RULE, KIND, FAMILY = "ema1020x", "SOXX", "f2"

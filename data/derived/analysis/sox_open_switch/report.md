@@ -144,3 +144,7 @@ py t2_check.py                      # T2 확인 → results/t2_check.json
 ```
 
 `lib.py`는 conf·2025를 잠근다. `confirm.py`와 `audit_F1-A.py`만 스크립트 안에서 `SOS_UNLOCK=frozen`을 켠다. 코드 해시는 `results/confirm.json`의 `code_sha256_16`에 있다.
+
+## 추적하지 않는 결과 (2026-11-21)
+
+사건·칸 덤프 `results/c1_cells.csv`·`events_sel.json`·`events_sel_events.csv`(11.8MB)는 이 결과를 코드로 다시 만든다(추적 안 함): `code/c1_cells.py`, `code/events_sel.py`.

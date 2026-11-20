@@ -29,7 +29,9 @@ AN = os.path.normpath(os.path.join(ROOT, ".."))
 sys.path.insert(0, os.path.join(AN, "kalman_zones", "code"))
 from osc import rsi_state
 
-SP = r"C:/Users/geunt/AppData/Local/Temp/claude/C--Users-geunt-OneDrive-Desktop---/6a57b230-3ac1-4ae6-9d34-b1d8a1c2ce1b/scratchpad"
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[5]  # 저장소 루트(파일 위치 기준)
+SP = str(_REPO / "data/derived/analysis/cache/scratch/6a57b230/scratchpad")
 X_MIN, W = 0.10, 10
 ENTRY = ["M0", "M1", "F382", "F50", "F618", "EMA10", "EMA20", "REV", "RSI50"] + [f"D{d}" for d in range(1, W + 1)]
 EXIT = ["H5", "H10", "H20", "TGT"]

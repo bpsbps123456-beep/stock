@@ -31,7 +31,9 @@ from events import bars, prep
 from fetch import universe, user_universe
 from rules import hot_days
 
-RAW = r"C:/Users/geunt/AppData/Local/Temp/claude/C--Users-geunt-OneDrive-Desktop---/4e686c73-74be-4337-8ccc-2f6136beaf7d/scratchpad/dip/raw"
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[5]  # 저장소 루트(파일 위치 기준)
+RAW = str(_REPO / "data/derived/analysis/cache/scratch/4e686c73/scratchpad/dip/raw")
 CACHE = os.path.join(os.path.dirname(RAW), "stop_lab_{}")
 PERIODS = {"early": (5, 36, 9, date(2026, 7, 14), date(2026, 9, 8)),
            "late": (3, 60, 14, date(2026, 9, 10), date(2026, 10, 6))}

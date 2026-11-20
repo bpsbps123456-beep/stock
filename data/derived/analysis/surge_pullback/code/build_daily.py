@@ -13,7 +13,9 @@ import numpy as np, pandas as pd
 HERE = os.path.dirname(os.path.abspath(__file__))
 AN = os.path.normpath(os.path.join(HERE, "..", ".."))
 B1H = os.path.join(AN, "premarket_shock", "bars")
-SP = r"C:/Users/geunt/AppData/Local/Temp/claude/C--Users-geunt-OneDrive-Desktop---/6a57b230-3ac1-4ae6-9d34-b1d8a1c2ce1b/scratchpad"
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[5]  # 저장소 루트(파일 위치 기준)
+SP = str(_REPO / "data/derived/analysis/cache/scratch/6a57b230/scratchpad")
 LAST = pd.Timestamp("2026-10-07").date()
 
 

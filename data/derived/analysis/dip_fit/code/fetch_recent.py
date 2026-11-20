@@ -9,7 +9,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.join(HERE, "../../dip_reason/code"))
 from fetch import download, universe, user_universe, ETF
 
-SP = r"C:/Users/geunt/AppData/Local/Temp/claude/C--Users-geunt-OneDrive-Desktop---/4e686c73-74be-4337-8ccc-2f6136beaf7d/scratchpad/dip"
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[5]  # 저장소 루트(파일 위치 기준)
+SP = str(_REPO / "data/derived/analysis/cache/scratch/4e686c73/scratchpad/dip")
 if __name__ == "__main__":
     NEW = os.path.join(SP, sys.argv[1] if len(sys.argv) > 1 else "raw_1009")
     OLD = os.path.join(SP, sys.argv[2] if len(sys.argv) > 2 else "raw")

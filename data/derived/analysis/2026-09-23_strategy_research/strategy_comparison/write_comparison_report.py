@@ -6,7 +6,7 @@ import numpy as np
 HERE = Path(__file__).resolve().parent
 data = json.loads((HERE / 'results.json').read_text(encoding='utf-8'))
 audit = json.loads((HERE / 'validation.json').read_text(encoding='utf-8'))
-historical = json.loads((HERE.parent.parent / 'strategy_comparison_audit' / 'holdout_isin_audit.json').read_text(encoding='utf-8'))
+historical = json.loads((HERE.parent.parent / 'strategy_lab' / 'audit_isin' / 'holdout_isin_audit.json').read_text(encoding='utf-8'))
 bundle = np.load(HERE.parent / 'us_only_experiment' / 'bundle.npz', allow_pickle=False)
 time_nav = bundle['benchmarks'][:, 0]
 calendar_time_return = (time_nav[-1] / time_nav[0] - 1) * 100
@@ -77,7 +77,7 @@ lines += ['',
     '## 4. 2023~2025 검증에서 정정한 부분', '',
     '과거 TIME 주간 스냅샷 137개 중 81개에서 ISIN 형식의 SMCI·ANET·BZFD 보유 행 98개가 미국 종목 필터에서 빠졌다. 회사명과 식별자를 연결해 별도 복사본에서 보완했고, 기존 데이터는 수정하지 않았다.', '',
     f'원 모형의 H6e·시가·1일 지연·비용 0 단일 조건은 +{historical["original"]["total"]*100:.2f}%에서 **+{historical["isin_corrected"]["total"]*100:.2f}%**로 바뀌었다. 같은 원래 ETF 참조는 **+{historical["same_original_etf_benchmark_total"]*100:.2f}%**, H6e 최대 낙폭은 **{historical["isin_corrected"]["mdd"]*100:.2f}%**다. 이 조건의 ETF 하회는 유지되지만 원 보고서의 +193%·0.8배를 정밀한 값으로 재인용하지 않는다.', '',
-    '이는 식별자 누락 3개만 수정한 진단이며 원 과거 모형의 다른 체결·환율·시간 정렬 가정까지 인증한 것은 아니다. 전체 8조건은 다시 계산하지 않았다. 제 KoAct 혼합 후보는 같은 과거 기간을 검증하지 않았으므로 이 결과를 근거로 제 후보가 장기적으로 더 낫다고 주장할 수도 없다. [상세 감사](../../strategy_comparison_audit/holdout_isin_audit.md)', '',
+    '이는 식별자 누락 3개만 수정한 진단이며 원 과거 모형의 다른 체결·환율·시간 정렬 가정까지 인증한 것은 아니다. 전체 8조건은 다시 계산하지 않았다. 제 KoAct 혼합 후보는 같은 과거 기간을 검증하지 않았으므로 이 결과를 근거로 제 후보가 장기적으로 더 낫다고 주장할 수도 없다. [상세 감사](../../strategy_lab/audit_isin/holdout_isin_audit.md)', '',
     '## 5. 원 수치와 이번 수치가 다른 이유', '',
     '사용자가 붙여 넣은 Claude 수치는 원 코드로 재현됐다. H6e +209.848/+204.497/+166.633%, H6 +260.883/+237.156/+242.148%다. 이번 비교는 그 숫자를 그대로 고친 것이 아니라 아래 차이를 명시해 별도로 계산한 실험이다.', '',
     '| 항목 | Claude 원 계산 | 이번 공통 계산 |',

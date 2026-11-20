@@ -41,8 +41,9 @@ sys.path.insert(0, HERE)
 import ai_fit_build as B  # sim·tail_flag·dead_times·bars·prep·hot_days (같은 규칙 재사용, 파일은 고치지 않는다)
 
 RES = os.path.join(HERE, "../results")
-RAW = sys.argv[1] if len(sys.argv) > 1 else ("C:/Users/geunt/AppData/Local/Temp/claude/C--Users-geunt-OneDrive-Desktop---/"
-                                              "4b7d1886-4bb9-4d2c-b134-8841c35220ef/scratchpad/dip/raw_1023")
+RAW = sys.argv[1] if len(sys.argv) > 1 else os.path.join(  # 저장소 루트(파일 위치 기준)의 로컬 캐시
+    os.path.abspath(os.path.join(HERE, "..", "..", "..", "..", "..")),
+    "data", "derived", "analysis", "cache", "scratch", "4b7d1886", "scratchpad", "dip", "raw_1023")
 RNG = np.random.default_rng(20261023)
 NPERM_RHO, NPERM_SS, NSIM = 5000, 2000, 400
 SIGMAS = [0.0, 0.0025, 0.005, 0.0075, 0.01, 0.015, 0.02]

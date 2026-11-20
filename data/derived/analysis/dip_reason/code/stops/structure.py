@@ -155,8 +155,10 @@ def name(kind, conf, buf, scope):
 # ---------------------------------------------------------------- 실행·기록
 RES = {}      # 이름 → compare DataFrame
 ORDER = []
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[6]  # 저장소 루트(파일 위치 기준)
 # 중간에 끊겨도 다시 계산하지 않게 scratchpad에 규칙별 compare 표를 쌓아 둔다(결과에는 영향 없음; 지우면 처음부터 계산)
-CACHE_CSV = r"C:/Users/geunt/AppData/Local/Temp/claude/C--Users-geunt-OneDrive-Desktop---/4e686c73-74be-4337-8ccc-2f6136beaf7d/scratchpad/structure_cache.csv"
+CACHE_CSV = str(_REPO / "data/derived/analysis/cache/scratch/4e686c73/scratchpad/structure_cache.csv")
 _CACHE = {}
 if os.path.exists(CACHE_CSV):
     for k, g in pd.read_csv(CACHE_CSV, encoding="utf-8").groupby("규칙", sort=False):

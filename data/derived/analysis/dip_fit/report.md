@@ -152,3 +152,7 @@
 - 21거래일이고, 정규장 거래만 보면 종목당 건수가 적다.
 - 꼬리 체결이 실제 지정가로 체결됐을지는 데이터로 가릴 수 없다. 프리장 연구(`../premarket_shock`) 관례대로, 1분짜리 튀는 체결은 데이터 오류일 수 있다고 본다.
 - 트레이딩뷰 연장시간 차트에도 같은 꼬리 체결이 찍힐 수 있다. 지표 라벨의 프리·애프터 성적은 정규장보다 좋게 보일 수 있다.
+
+## 추적하지 않는 결과 (2026-11-21)
+
+거래·사건 원장 7개(`results/` ai_fit_trades·fr_hold_events·fr_reclaim_events·pat_levels_trades·pat_peers_trades·pat_shape_feats·pat_spike_events, 10.6MB)는 이 결과를 코드로 다시 만든다(추적 안 함): 같은 이름의 `code/*.py`(ai_fit_build·fr_hold·fr_reclaim·pat_levels·pat_peers·pat_shape·pat_spike). 원본은 git 이력 7c28f39b에 있다.

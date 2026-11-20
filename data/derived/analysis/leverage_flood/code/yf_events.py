@@ -6,7 +6,9 @@ import os
 import pandas as pd
 import yfinance as yf
 
-RESULTS = r"C:\Users\geunt\OneDrive\Desktop\주식\data\derived\analysis\leverage_flood\results"
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[5]  # 저장소 루트(파일 위치 기준)
+RESULTS = str(_REPO / "data/derived/analysis/leverage_flood/results")
 
 WINDOWS = {
     "2015_china": (["000001.SS"], "2015-04-01", "2015-09-30"),

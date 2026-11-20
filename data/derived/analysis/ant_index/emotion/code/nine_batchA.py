@@ -16,7 +16,9 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics import cohen_kappa_score
 
-EMO = Path(r"C:/Users/geunt/OneDrive/Desktop/주식/data/derived/analysis/ant_index/emotion")
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[6]  # 저장소 루트(파일 위치 기준)
+EMO = Path(str(_REPO / "data/derived/analysis/ant_index/emotion"))
 L4 = EMO / "labels4"
 SEED = 20261017
 N_BOOT = 2000

@@ -25,7 +25,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[5]
 RES = HERE / "results"
 OUT = RES / "verify_f2_SOXX_ma20x2.txt"
 
-PRICES = ROOT / "research/news_turning_points_20261025/prices.csv"
+PRICES = ROOT / "data/derived/analysis/news_turning_points_20261025/prices.csv"
 CLOSE23 = ROOT / "data/derived/analysis/leverage_flood/results/us_prices_close.csv"
 
 LAST = pd.Timestamp("2026-10-23")

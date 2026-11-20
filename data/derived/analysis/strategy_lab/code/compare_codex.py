@@ -18,7 +18,8 @@ import data as D
 import engine as E
 
 sys.path.insert(0, str(D.REPO))
-from gbrc.etf.research_engine import build_rankings, config_grid, simulate_detail  # noqa: E402
+sys.path.insert(0, str(D.REPO / "data/derived/analysis/2026-09-23_strategy_research/code"))
+from etf_research.research_engine import build_rankings, config_grid, simulate_detail  # noqa: E402
 
 SRC = D.REPO / "data" / "derived" / "analysis" / "2026-09-23_strategy_research" / "us_only_experiment"
 CODEX = {"239120": "Codex 주 후보(신규편입 1종목·매일)", "240024": "Codex 강건 선택(반복매수 2종목·주1회)",

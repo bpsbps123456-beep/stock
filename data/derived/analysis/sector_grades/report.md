@@ -1,6 +1,6 @@
 # AI 섹터 회복 등급과 FY27·28 이익 증가율 (2026-10-06)
 
-코드는 `analyze.py`, 원자료는 `result.json`이다. 대상과 회복률 정의는 `../recovery_factors`·`../leader_resilience`와 같다(급락 코호트 186종목, 해외 113).
+코드는 `analyze.py`, 원자료는 `result.json`이다. 대상과 회복률 정의는 `../recovery_factors`·`../recovery_factors/leader_resilience`와 같다(급락 코호트 186종목, 해외 113).
 
 ## 등급 (해외 종목만, 소분류에 코호트 3종목 이상)
 

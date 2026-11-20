@@ -29,7 +29,9 @@ from datetime import datetime
 import pandas as pd
 import requests
 
-RESULTS = r"C:\Users\geunt\OneDrive\Desktop\주식\data\derived\analysis\leverage_flood\results"
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[5]  # 저장소 루트(파일 위치 기준)
+RESULTS = str(_REPO / "data/derived/analysis/leverage_flood/results")
 MOBILE_H = {
     "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1",
     "Referer": "https://m.stock.naver.com/",

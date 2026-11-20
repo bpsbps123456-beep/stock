@@ -1,7 +1,7 @@
 """N3 — Codex 기사 31건 다시 보기(설명용, 통과 판정 없음). BRIEF.md §N3.
 
 py code/n3_analyze.py
-입력(읽기만): research/news_turning_points_20261025/{prices.csv, events.json, event_outcomes.csv, metrics.json}
+입력(읽기만): data/derived/analysis/news_turning_points_20261025/{prices.csv, events.json, event_outcomes.csv, metrics.json}
             cache/n3_raw.parquet(code/n3_fetch.py, 지그재그용 긴 이력)
             swing_trend/code/swing.py 의 atr·zigzag(그대로 가져다 쓴다)
 출력: results/n3_*.csv, results/n3_summary.json
@@ -27,7 +27,7 @@ import pandas as pd
 
 HERE = pathlib.Path(__file__).resolve().parent.parent
 ROOT = HERE.parents[3]
-CODEX = ROOT / "research" / "news_turning_points_20261025"
+CODEX = ROOT / "data/derived/analysis/news_turning_points_20261025"
 SWING = HERE.parent / "swing_trend" / "code"
 RES = HERE / "results"
 RES.mkdir(exist_ok=True)

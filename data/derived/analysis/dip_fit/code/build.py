@@ -25,7 +25,9 @@ from rules import hot_days
 from fetch import universe, user_universe, TV_AI, ETF
 import stop_lab
 
-SP = r"C:/Users/geunt/AppData/Local/Temp/claude/C--Users-geunt-OneDrive-Desktop---/4e686c73-74be-4337-8ccc-2f6136beaf7d/scratchpad/dip"
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[5]  # 저장소 루트(파일 위치 기준)
+SP = str(_REPO / "data/derived/analysis/cache/scratch/4e686c73/scratchpad/dip")
 RAW = os.path.join(SP, "raw_1009")
 OUT = os.path.join(HERE, "../results")
 LO, MID, HI = date(2026, 9, 10), date(2026, 9, 24), date(2026, 10, 8)

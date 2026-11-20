@@ -17,11 +17,13 @@ import os, sys, time
 import numpy as np, pandas as pd
 from numba import njit
 
-CODE = r"C:\Users\geunt\OneDrive\Desktop\주식\data\derived\analysis\dip_reason\code"
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[5]  # 저장소 루트(파일 위치 기준)
+CODE = str(_REPO / "data/derived/analysis/dip_reason/code")
 sys.path.insert(0, CODE)
 from fetch import universe, user_universe  # noqa: E402
 
-SCR = r"C:/Users/geunt/AppData/Local/Temp/claude/C--Users-geunt-OneDrive-Desktop---/4e686c73-74be-4337-8ccc-2f6136beaf7d/scratchpad"
+SCR = str(_REPO / "data/derived/analysis/cache/scratch/4e686c73/scratchpad")
 RAW = SCR + "/dip/raw"
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(os.path.dirname(HERE), "results", "verify_intra_C.txt")

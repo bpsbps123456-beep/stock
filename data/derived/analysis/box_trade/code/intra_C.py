@@ -26,12 +26,14 @@ import os, sys, time
 from datetime import date
 import numpy as np, pandas as pd
 
-CODE = r"C:\Users\geunt\OneDrive\Desktop\주식\data\derived\analysis\dip_reason\code"
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[5]  # 저장소 루트(파일 위치 기준)
+CODE = str(_REPO / "data/derived/analysis/dip_reason/code")
 sys.path.insert(0, CODE)
 from fetch import universe, user_universe   # noqa: E402
 from events import rsi                       # noqa: E402  (osc.rsi, Pine과 같은 RSI)
 
-SCR = r"C:/Users/geunt/AppData/Local/Temp/claude/C--Users-geunt-OneDrive-Desktop---/4e686c73-74be-4337-8ccc-2f6136beaf7d/scratchpad"
+SCR = str(_REPO / "data/derived/analysis/cache/scratch/4e686c73/scratchpad")
 RAW = SCR + "/dip/raw"
 DAILY = SCR + "/box/daily"
 CACHE = SCR + "/box/intra_C_cache"

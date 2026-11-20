@@ -5,7 +5,9 @@ import sys
 import numpy as np
 import pandas as pd
 
-BASE = "C:/Users/geunt/OneDrive/Desktop/주식/data/derived/analysis/hatta_bar"
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[6]  # 저장소 루트(파일 위치 기준)
+BASE = str(_REPO / "data/derived/analysis/hatta_bar")
 sys.path.insert(0, f"{BASE}/code")
 sys.path.insert(0, f"{BASE}/audit/claude_skeptic")
 import engine as E   # system under test

@@ -18,9 +18,10 @@ REPO = HERE.parents[5]
 SRC = HERE.parent.parent / 'us_only_experiment'
 LAB = REPO / 'data/derived/analysis/strategy_lab'
 sys.path.insert(0, str(REPO))
+sys.path.insert(0, str(REPO / 'data/derived/analysis/2026-09-23_strategy_research/code'))
 
 import numpy as np
-from gbrc.etf.research_engine import build_rankings, config_grid, simulate_detail
+from etf_research.research_engine import build_rankings, config_grid, simulate_detail
 
 
 def read(path):
@@ -82,7 +83,7 @@ def holding_runs(dates, returns, post_close_names):
 def main():
     inputs = [SRC / 'bundle.npz', SRC / 'raw_prices.json', SRC / 'configurations.json',
               SRC / 'zero_cost/results.json', LAB / 'code/compare_codex.py', LAB / 'logs/compare_codex.txt',
-              LAB / '2026-09-23_strategy_lab.md', REPO / 'gbrc/etf/research_engine.py']
+              LAB / '2026-09-23_strategy_lab.md', REPO / 'data/derived/analysis/2026-09-23_strategy_research/code/etf_research/research_engine.py']
     before = {str(p.relative_to(REPO)): sha(p) for p in inputs}
     arrays = dict(np.load(SRC / 'bundle.npz', allow_pickle=False))
     dates = arrays['dates'].astype(str)

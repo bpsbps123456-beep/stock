@@ -1,6 +1,8 @@
 """감사 보조: 사건·가짜 창의 지운 글 몫(missing_rate) 비교(소급 창, 오프셋 0·+1, 양측 Mann–Whitney). 출력만 한다."""
 import sys, json
-sys.path.insert(0, r"C:/Users/geunt/OneDrive/Desktop/주식/data/derived/analysis/ant_index/events/code")
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[6]  # 저장소 루트(파일 위치 기준)
+sys.path.insert(0, str(_REPO / "data/derived/analysis/ant_index/events/code"))
 sys.dont_write_bytecode = True
 import numpy as np, pandas as pd
 import event_study as es

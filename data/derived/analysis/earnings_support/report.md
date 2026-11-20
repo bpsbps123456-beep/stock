@@ -69,3 +69,7 @@
 `BRIEF.md`(사전 등록), `code/fetch.py`(→`cache/`, Git 제외), `lib.py`(1시간봉 읽기·사건·s, 구역은 `desk/zones.py`), `events.py`, `sim.py`·`backtest.py`(→`results/summary_all.csv`·`null_n2.csv`), `tables.py`(→`main_table*.csv`·`robust_table*.csv`), `exact160.py`, `live_zones.py`·`calib.py`(조기 자료).
 
 다시 만들기: `fetch.py --set priority --kind both` → `fetch.py --set rest --kind both` → `events.py` → `calib.py` → `backtest.py` → `tables.py <all|amc|bmo|cap>=10B|cap>=50B|ai>` → `exact160.py`.
+
+## 추적하지 않는 결과 (2026-11-21)
+
+귀무·전체 요약 `results/null_n2.csv`·`events_index.csv`·`summary_all.csv`(11.1MB)는 이 결과를 코드로 다시 만든다(추적 안 함): `code/events.py` → `code/backtest.py`·`code/tables.py`. 데스크가 근거로 드는 `results/touch_calibration.csv`는 계속 추적한다. 원본은 git 이력 7c28f39b에 있다.

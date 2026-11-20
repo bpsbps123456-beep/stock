@@ -2,7 +2,9 @@
 import sys
 import numpy as np, pandas as pd
 from osc import rsi
-D1 = sys.argv[1] if len(sys.argv) > 1 and __name__ == "__main__" else r"C:/Users/geunt/AppData/Local/Temp/claude/C--Users-geunt-OneDrive-Desktop---/e846c1a2-c78d-40ed-885f-777d23bba52f/scratchpad/kalman/data1m"
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[5]  # 저장소 루트(파일 위치 기준)
+D1 = sys.argv[1] if len(sys.argv) > 1 and __name__ == "__main__" else str(_REPO / "data/derived/analysis/cache/scratch/e846c1a2/scratchpad/kalman/data1m")
 
 
 def bars3(s):

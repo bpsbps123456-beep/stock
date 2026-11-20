@@ -5,7 +5,9 @@ import os
 import re
 import sys
 
-SCRATCH = r"C:\Users\geunt\AppData\Local\Temp\claude\C--Users-geunt-OneDrive-Desktop---\f45f5967-1c45-4296-b547-ebda57ff1943\scratchpad"
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[5]  # 저장소 루트(파일 위치 기준)
+SCRATCH = str(_REPO / "data/derived/analysis/cache/scratch/f45f5967/scratchpad")
 
 
 def main():

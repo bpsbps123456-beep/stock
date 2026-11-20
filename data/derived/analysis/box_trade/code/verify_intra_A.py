@@ -18,8 +18,10 @@ from datetime import date
 import numpy as np, pandas as pd
 from numpy.lib.stride_tricks import sliding_window_view as swv
 
-RAW = r"C:/Users/geunt/AppData/Local/Temp/claude/C--Users-geunt-OneDrive-Desktop---/4e686c73-74be-4337-8ccc-2f6136beaf7d/scratchpad/dip/raw"
-sys.path.insert(0, r"C:\Users\geunt\OneDrive\Desktop\주식\data\derived\analysis\dip_reason\code")
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[5]  # 저장소 루트(파일 위치 기준)
+RAW = str(_REPO / "data/derived/analysis/cache/scratch/4e686c73/scratchpad/dip/raw")
+sys.path.insert(0, str(_REPO / "data/derived/analysis/dip_reason/code"))
 from fetch import user_universe, universe  # noqa: E402
 
 HERE = os.path.dirname(os.path.abspath(__file__))

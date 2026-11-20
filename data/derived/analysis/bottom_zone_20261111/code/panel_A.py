@@ -264,7 +264,7 @@ def inputs(news_series=None):
     hist = json.loads((ROOT/'data/cnn.json').read_text())['fear_and_greed_historical']['data']
     # CNN daily historical x is the UTC-midnight DATE LABEL, not a US-close instant.
     cnn = pd.Series({pd.Timestamp(x['x'],unit='ms',tz='UTC').tz_localize(None).normalize():x['y'] for x in hist})
-    path = Path(news_series) if news_series else ROOT.parents[3]/'research/pb_flow_census_20261026/census.csv'
+    path = Path(news_series) if news_series else ROOT.parent/'pb_flow_census_20261026/census.csv'
     notes = pd.read_csv(path)
     if 'date' not in notes: notes['date'] = notes.published_at.str[:10]
     notes = notes[['date','family']].drop_duplicates()

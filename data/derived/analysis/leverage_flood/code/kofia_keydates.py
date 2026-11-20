@@ -10,7 +10,9 @@ import os
 
 import pandas as pd
 
-RESULTS = r"C:\Users\geunt\OneDrive\Desktop\주식\data\derived\analysis\leverage_flood\results"
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[5]  # 저장소 루트(파일 위치 기준)
+RESULTS = str(_REPO / "data/derived/analysis/leverage_flood/results")
 KEY = ["2026-03-03", "2026-03-04", "2026-06-05", "2026-06-08", "2026-06-19", "2026-06-22", "2026-06-23", "2026-06-24",
        "2026-07-07", "2026-07-13", "2026-07-27", "2026-07-28", "2026-07-29", "2026-07-30", "2026-07-31", "2026-08-03",
        "2026-09-23", "2026-10-02", "2026-10-06", "2026-10-07", "2026-10-08", "2026-10-12", "2026-10-13"]

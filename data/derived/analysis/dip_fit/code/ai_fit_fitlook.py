@@ -2,7 +2,9 @@
 # '잘 맞아 보임'(선 닿고 RSI로 튀어 오름) 지표: RSI 매도 비율·승률 — NBIS·IREN과 유니버스 지속성
 import pandas as pd, numpy as np
 from scipy import stats
-P = "C:/Users/geunt/OneDrive/Desktop/주식/data/derived/analysis/dip_fit/results/ai_fit_trades.csv"
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[5]  # 저장소 루트(파일 위치 기준)
+P = str(_REPO / "data/derived/analysis/dip_fit/results/ai_fit_trades.csv")
 T = pd.read_csv(P, encoding="utf-8-sig"); T = T[T.ret.notna()].copy()
 T["rsi"] = (T.why=="RSI").astype(float); T["win"] = (T.ret>0).astype(float)
 T["e"] = T.ret - T.groupby(["day","ses"]).ret.transform("mean")

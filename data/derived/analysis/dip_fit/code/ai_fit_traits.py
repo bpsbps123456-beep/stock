@@ -51,7 +51,9 @@ sys.path.insert(0, os.path.join(HERE, "../../../../.."))
 from events import bars, prep
 import watchlist as w
 
-RAW = r"C:/Users/geunt/AppData/Local/Temp/claude/C--Users-geunt-OneDrive-Desktop---/4b7d1886-4bb9-4d2c-b134-8841c35220ef/scratchpad/dip/raw_1023"
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[5]  # 저장소 루트(파일 위치 기준)
+RAW = str(_REPO / "data/derived/analysis/cache/scratch/4b7d1886/scratchpad/dip/raw_1023")
 BASE = {"P0": date(2026, 7, 31), "P1": date(2026, 9, 9), "P2": date(2026, 10, 8)}
 PREV = {"P1": "P0", "P2": "P1"}
 TRAITS = ["vol20", "beta60", "corr60", "ma50", "adv20", "gap60", "ac1", "vr12", "depth", "rsi_exit", "btc60"]

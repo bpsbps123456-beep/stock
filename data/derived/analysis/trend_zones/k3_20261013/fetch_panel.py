@@ -1,5 +1,7 @@
 import yfinance as yf, pandas as pd
-src = pd.read_parquet(r"C:/Users/geunt/OneDrive/Desktop/주식/data/derived/analysis/rsi_breakout/cache/1d_long.parquet")
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[5]  # 저장소 루트(파일 위치 기준)
+src = pd.read_parquet(str(_REPO / "data/derived/analysis/rsi_breakout/cache/1d_long.parquet"))
 syms = sorted(set(src.sym) - {"QQQ"})
 etfs = ["EWY","KORU","SOXX","SOXL","QQQ","SPY","SMH","IWM","EWJ","EWT","EEM","TQQQ"]
 allsyms = syms + [e for e in etfs if e not in syms]

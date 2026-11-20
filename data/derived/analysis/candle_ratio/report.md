@@ -188,3 +188,7 @@
 - 별도 창에 비율 선, 가격 차트에 ▲매수·▼매도를 표시한다. 알림 2개, 입력은 상태 줄에 안 뜬다.
 - pynescript 구문 검사를 통과했다. 파이썬 재현과 MU 40분봉 4,224칸 신호 불일치는 0이다.
 - 이 환경에서는 컴파일할 수 없다. 트레이딩뷰 대조용 신호 목록은 `results/pine_signals_MU_40m.csv`다.
+
+## 추적하지 않는 결과 (2026-11-21)
+
+종목별 단면 결과 `results/xsec/`·`results/awake/`(1,296개)는 이 결과를 코드로 다시 만든다(추적 안 함): `code/xsec_analyze.py`·`code/awake_analyze.py`(cache 필요). 판정 숫자는 위 단계 요약 CSV/JSON과 이 보고서에 있고, 원본은 git 이력 7c28f39b에 있다.

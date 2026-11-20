@@ -27,7 +27,9 @@ from zoneinfo import ZoneInfo
 import numpy as np
 import pandas as pd
 
-ROOT = "C:/Users/geunt/OneDrive/Desktop/주식/data/derived/analysis/sox_open_switch"
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[5]  # 저장소 루트(파일 위치 기준)
+ROOT = str(_REPO / "data/derived/analysis/sox_open_switch")
 CONF_START, CONF_END = "2026-07-01", "2026-10-28"
 ET = ZoneInfo("America/New_York")
 KST = ZoneInfo("Asia/Seoul")

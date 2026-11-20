@@ -2,7 +2,9 @@
 # 최종 점검 보충: 날마다 '그 전날까지' 성적으로 종목을 고르고 그날 거래로 확인(전진 검증)
 import pandas as pd, numpy as np, sys
 from scipy import stats
-P = "C:/Users/geunt/OneDrive/Desktop/주식/data/derived/analysis/dip_fit/results/ai_fit_trades.csv"
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[5]  # 저장소 루트(파일 위치 기준)
+P = str(_REPO / "data/derived/analysis/dip_fit/results/ai_fit_trades.csv")
 T = pd.read_csv(P, encoding="utf-8-sig")
 T = T[T.ret.notna()].copy()
 T["day"] = pd.to_datetime(T.day)

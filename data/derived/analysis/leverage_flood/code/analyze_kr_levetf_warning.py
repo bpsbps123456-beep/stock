@@ -23,7 +23,9 @@ import os
 
 import pandas as pd
 
-RESULTS = r"C:\Users\geunt\OneDrive\Desktop\주식\data\derived\analysis\leverage_flood\results"
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[5]  # 저장소 루트(파일 위치 기준)
+RESULTS = str(_REPO / "data/derived/analysis/leverage_flood/results")
 COL = "single_lev_to_underlying_value_ratio"
 MIN_PRIOR = 10
 PCT_THRESH = 0.95

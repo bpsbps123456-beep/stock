@@ -4,9 +4,9 @@ import json
 import os
 import random
 
-ROOT = r"C:\Users\geunt\OneDrive\Desktop\주식"
-W = os.path.join(ROOT, r"data\derived\analysis\pb_flow_census_20261026\claude_work")
-R = os.path.join(ROOT, r"research\pb_flow_census_20261026")
+# 파일 위치 기준(2026-11-21 research/ 폴더를 data/derived/analysis로 합침)
+W = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # claude_work
+R = os.path.dirname(W)  # pb_flow_census_20261026
 OUT = os.path.dirname(os.path.abspath(__file__))
 SEED = 20261026
 

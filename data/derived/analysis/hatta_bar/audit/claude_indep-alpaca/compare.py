@@ -1,6 +1,8 @@
 import json, os
 import numpy as np, pandas as pd
-BASE = r'C:/Users/geunt/OneDrive/Desktop/주식/data/derived/analysis/hatta_bar'
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[6]  # 저장소 루트(파일 위치 기준)
+BASE = str(_REPO / "data/derived/analysis/hatta_bar")
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'out')
 prim = json.load(open(os.path.join(BASE, 'results', 'primary.json')))
 mine = json.load(open(os.path.join(OUT, 'summary.json')))

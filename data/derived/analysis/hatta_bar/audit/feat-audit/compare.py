@@ -4,7 +4,9 @@ import sys
 import numpy as np
 import pandas as pd
 
-OUT = 'C:/Users/geunt/OneDrive/Desktop/주식/data/derived/analysis/hatta_bar/audit/feat-audit'
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[6]  # 저장소 루트(파일 위치 기준)
+OUT = str(_REPO / "data/derived/analysis/hatta_bar/audit/feat-audit")
 RTOL, ATOL = 1e-6, 1e-12
 
 

@@ -15,7 +15,7 @@
 |---|---|
 | 운영 규칙·연구 보고 규칙 | `AGENTS.md` |
 | 앞선 뉴스 연구 결론 | `docs/desk_system.md` §13, §13.2 ~ §13.5 |
-| 앞선 전수 표본의 방식(검색 기록·부호화·동결) | `research/pb_flow_census_20261026/`(`TASK.md`, `protocol.json`, `README.md`) |
+| 앞선 전수 표본의 방식(검색 기록·부호화·동결) | `data/derived/analysis/pb_flow_census_20261026/`(`TASK.md`, `protocol.json`, `README.md`) |
 | 바닥·가짜 바닥 날짜 | `data/derived/analysis/seibro_bottoms/derived/events.json`(B10, `episodes[].F`, `current`) |
 
 앞선 연구는 **헤지펀드 PB 자금 흐름 노트**(D·R·S·T)만 다뤘다. 이번에는 그 밖의 뉴스를 본다. PB 노트를 다시 모으지 않는다.

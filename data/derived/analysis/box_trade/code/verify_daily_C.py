@@ -12,8 +12,10 @@ best_rule.definition 문장만 보고 종목별 pandas 루프로 다시 만든�
 import os, sys
 import numpy as np, pandas as pd
 
-ROOT = r"C:\Users\geunt\OneDrive\Desktop\주식"
-DD = r"C:/Users/geunt/AppData/Local/Temp/claude/C--Users-geunt-OneDrive-Desktop---/4e686c73-74be-4337-8ccc-2f6136beaf7d/scratchpad/box/daily"
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[5]  # 저장소 루트(파일 위치 기준)
+ROOT = str(_REPO)
+DD = str(_REPO / "data/derived/analysis/cache/scratch/4e686c73/scratchpad/box/daily")
 OUT = os.path.join(ROOT, r"data\derived\analysis\box_trade\results\verify_daily_C.txt")
 sys.path.insert(0, os.path.join(ROOT, r"data\derived\analysis\dip_reason\code"))
 from fetch import user_universe  # noqa: E402

@@ -30,7 +30,9 @@ from datetime import date, datetime, timedelta
 import pandas as pd
 import requests
 
-RESULTS = r"C:\Users\geunt\OneDrive\Desktop\주식\data\derived\analysis\leverage_flood\results"
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[5]  # 저장소 루트(파일 위치 기준)
+RESULTS = str(_REPO / "data/derived/analysis/leverage_flood/results")
 H = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"}
 TODAY = date.today()
 START = "2023-01-01"

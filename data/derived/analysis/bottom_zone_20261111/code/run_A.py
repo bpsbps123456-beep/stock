@@ -265,7 +265,7 @@ def stage1(news_series=None):
         selection[fam]=candidates
     paths=[ROOT/'BRIEF_A.md',ROOT/'TASK_A.md',ROOT/'data/source_flows.csv',ROOT/'data/custody.csv',
            ROOT/'data/prices.csv',ROOT/'data/cnn.json']+sorted((ROOT/'code').glob('*.py'))
-    news=Path(news_series) if news_series else ROOT.parents[3]/'research/pb_flow_census_20261026/census.csv'
+    news=Path(news_series) if news_series else ROOT.parent/'pb_flow_census_20261026/census.csv'
     paths.append(news)
     dump(ROOT/'freeze_A.json',dict(stage='selected_using_outcomes_through_2025_only',
         created_utc=pd.Timestamp.now(tz='UTC'),cutoff='2025-12-31',representatives=reps,

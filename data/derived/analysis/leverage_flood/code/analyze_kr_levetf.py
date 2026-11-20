@@ -10,7 +10,9 @@ import os
 
 import pandas as pd
 
-RESULTS = r"C:\Users\geunt\OneDrive\Desktop\주식\data\derived\analysis\leverage_flood\results"
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[5]  # 저장소 루트(파일 위치 기준)
+RESULTS = str(_REPO / "data/derived/analysis/leverage_flood/results")
 EVENTS = {"6/23 급락(6/22 고점)": "20260623", "7/28 급락(-10.84%)": "20260728", "7/29 2차": "20260729",
           "10/6 시작": "20261006", "10/13 -5.5%": "20261013"}
 KEYS = ["20260619", "20260622", "20260623", "20260624", "20260727", "20260728", "20260729", "20260730",

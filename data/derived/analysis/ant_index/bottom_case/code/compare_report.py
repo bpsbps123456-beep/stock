@@ -340,7 +340,7 @@ def main() -> int:
     # ---- 5. 파일
     a("## 5. 파일")
     a("")
-    a("`C:/Users/geunt/OneDrive/Desktop/주식/data/derived/analysis/ant_index/bottom_case/` 안:")
+    a("`data/derived/analysis/ant_index/bottom_case/` 안:")
     a("")
     a("- `results/daily_labels.parquet`: 라벨 51일 날짜 표(감정 몫·평균 세기·세기 ≥ 1 평균, 중립·섞임, P̄·예측 몫·강한 하락, 단위 그대로판 `_u`, 흔한 조합)")
     a("- `results/daily_topic.parquet`: SEMI·MEM 작성자 몫, TILT(139일)")

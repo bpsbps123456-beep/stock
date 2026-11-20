@@ -12,7 +12,9 @@ import numba as nb
 import numpy as np
 import pandas as pd
 
-BASE = r'C:/Users/geunt/OneDrive/Desktop/주식/data/derived/analysis/hatta_bar'
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[6]  # 저장소 루트(파일 위치 기준)
+BASE = str(_REPO / "data/derived/analysis/hatta_bar")
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'out')
 os.makedirs(OUT, exist_ok=True)
 
@@ -316,7 +318,7 @@ def universe():
     files = sorted(glob.glob(os.path.join(BASE, 'cache', 'alp1m', '*.parquet')))
     syms = sorted(os.path.basename(f)[:-8] for f in files)
     syms = [s for s in syms if s not in ('SPY', 'QQQ')]
-    sys.path.insert(0, r'C:/Users/geunt/OneDrive/Desktop/주식')
+    sys.path.insert(0, str(_REPO))
     import watchlist
     wl = sorted(t for t in watchlist.AI_SUBSECTOR if '.' not in t)
     assert wl == syms, (set(wl) ^ set(syms))

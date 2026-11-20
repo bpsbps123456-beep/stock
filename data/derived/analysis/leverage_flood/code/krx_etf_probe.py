@@ -9,7 +9,9 @@ import sys
 import pandas as pd
 import requests
 
-RESULTS = r"C:\Users\geunt\OneDrive\Desktop\주식\data\derived\analysis\leverage_flood\results"
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[5]  # 저장소 루트(파일 위치 기준)
+RESULTS = str(_REPO / "data/derived/analysis/leverage_flood/results")
 URL = "https://data.krx.co.kr/comm/bldAttendant/getJsonData.cmd"
 HEADERS = {
     "User-Agent": "Mozilla/5.0",

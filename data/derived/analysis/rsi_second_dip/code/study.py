@@ -43,7 +43,9 @@ AN = os.path.normpath(os.path.join(ROOT, ".."))
 sys.path.insert(0, os.path.join(AN, "kalman_zones", "code"))
 from osc import rsi_state                                           # Pine ta.rsi와 같은 RMA(SMA로 시작)
 
-SP = r"C:/Users/geunt/AppData/Local/Temp/claude/C--Users-geunt-OneDrive-Desktop---/6a57b230-3ac1-4ae6-9d34-b1d8a1c2ce1b/scratchpad"
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[5]  # 저장소 루트(파일 위치 기준)
+SP = str(_REPO / "data/derived/analysis/cache/scratch/6a57b230/scratchpad")
 B1H = os.path.join(AN, "premarket_shock", "bars")
 B5M = os.path.join(SP, "raw5m_rsi2")
 B5M_AI = os.path.join(SP, "raw_1010")

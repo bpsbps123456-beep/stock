@@ -13,7 +13,9 @@ import json
 import numpy as np
 import pandas as pd
 
-RESULTS = r"C:\Users\geunt\OneDrive\Desktop\주식\data\derived\analysis\leverage_flood\results"
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[5]  # 저장소 루트(파일 위치 기준)
+RESULTS = str(_REPO / "data/derived/analysis/leverage_flood/results")
 EVENTS = {  # 라벨: (급락일, T-1 = 직전 거래일)
     "3/4 미·이란": ("2026-03-04", "2026-03-03"),
     "6/23 삼성·하이닉스 -12% 서킷": ("2026-06-23", "2026-06-22"),

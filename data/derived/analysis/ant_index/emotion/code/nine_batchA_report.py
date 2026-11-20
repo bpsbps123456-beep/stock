@@ -2,7 +2,9 @@
 import json
 from pathlib import Path
 
-EMO = Path(r"C:/Users/geunt/OneDrive/Desktop/주식/data/derived/analysis/ant_index/emotion")
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[6]  # 저장소 루트(파일 위치 기준)
+EMO = Path(str(_REPO / "data/derived/analysis/ant_index/emotion"))
 d = json.loads((EMO / "nine_batchA.json").read_text("utf-8"))
 E9 = ["HYPE", "JOY", "MOCK", "DESP", "ANGER", "FEAR", "HOPE", "REGRET", "ENVY"]
 KO = {"HYPE": "들뜸·자랑", "JOY": "기쁨·안도", "MOCK": "조롱·비꼼", "DESP": "우울·절망", "ANGER": "분노·욕",

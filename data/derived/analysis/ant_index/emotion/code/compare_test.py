@@ -1,5 +1,7 @@
 import json, glob, os, math, collections
-E = r'C:/Users/geunt/OneDrive/Desktop/주식/data/derived/analysis/ant_index/emotion'
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[6]  # 저장소 루트(파일 위치 기준)
+E = str(_REPO / "data/derived/analysis/ant_index/emotion")
 test = json.load(open(E + '/review_test117.json', encoding='utf-8'))
 tid = [t['id'] for t in test]
 ai = {r['id']: r for r in json.load(open(E + '/labels5/test117_final.json', encoding='utf-8'))}

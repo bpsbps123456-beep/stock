@@ -3,8 +3,8 @@
 py code/n4h14_run.py
 
 입력(읽기만)
-  research/pb_flow_census_20261026/{census.csv, coverage.csv, legacy_crosswalk.csv}
-  research/news_turning_points_20261025/{event_outcomes.csv, metrics.json}  (Codex 31건 비교용)
+  data/derived/analysis/pb_flow_census_20261026/{census.csv, coverage.csv, legacy_crosswalk.csv}
+  data/derived/analysis/news_turning_points_20261025/{event_outcomes.csv, metrics.json}  (Codex 31건 비교용)
   cache/n1_raw.parquet  (yfinance 일봉, 분할 반영·배당 미포함 = Codex와 같은 기준)
 출력: results/n4h14_*.csv / .json / .txt
 
@@ -41,8 +41,8 @@ warnings.filterwarnings("ignore", "Mean of empty slice")
 T0 = time.time()
 HERE = pathlib.Path(__file__).resolve().parent.parent
 ROOT = HERE.parents[3]
-CENSUS = ROOT / "research" / "pb_flow_census_20261026"
-CODEX = ROOT / "research" / "news_turning_points_20261025"
+CENSUS = ROOT / "data/derived/analysis/pb_flow_census_20261026"
+CODEX = ROOT / "data/derived/analysis/news_turning_points_20261025"
 RES = HERE / "results"
 RES.mkdir(exist_ok=True)
 

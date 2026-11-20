@@ -2,6 +2,8 @@
 
 코드는 `analyze.py`, 원자료는 `report.json`이다. 가격·실적·보유는 yfinance, 국내 수급은 네이버, 펀드는 `gbrc/etf/flows.py`에서 왔다.
 
+후속(같은 정의): 섹터 대장(★·시총·주가 1위)의 회복률 차이 없음 — [leader_resilience/report.md](leader_resilience/report.md)(2026-11-21 이 폴더 아래로 옮김).
+
 ## 대상
 
 - AI 유니버스 206종목 중 '급락 코호트' 164종목이 대상이다. 조건은 두 가지다.

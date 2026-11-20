@@ -34,7 +34,9 @@ from stop_lab import ALL
 import watchlist as w
 
 warnings.filterwarnings("ignore", category=RuntimeWarning)
-SP = r"C:/Users/geunt/AppData/Local/Temp/claude/C--Users-geunt-OneDrive-Desktop---/4e686c73-74be-4337-8ccc-2f6136beaf7d/scratchpad/dip"
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[5]  # 저장소 루트(파일 위치 기준)
+SP = str(_REPO / "data/derived/analysis/cache/scratch/4e686c73/scratchpad/dip")
 RAW_E, RAW_L = SP + "/raw", SP + "/raw_1009"
 SYMS = [s for s in ALL if s not in ("GOOG", "SOXX")]
 PER = {"앞": (RAW_E, 5, date(2026, 7, 14), date(2026, 9, 8)),

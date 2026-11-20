@@ -12,6 +12,7 @@
 // 1분봉 + 연장 시간 차트에서 쓴다.
 // ①★ = ① 중 종가가 당일 VWAP(뉴욕 날짜 첫 봉부터 누적, 고+저+종/3 근사)보다 3% 넘게 아래. 3차 사전 등록 확인(report3.md):
 //   처음 보는 2026 1~6월 810건, 30분 안 +1% 62~66%, 실측 호가 거래당 +0.15%(작음, 일부 종목·날짜에 몰림, 2026 7~10월은 0 근처).
+//   최근 구간 손해: 2026 7~9월 ①★는 실측 호가 거래당 −0.09%(466건, 도달 52%). 기본값 3%는 그대로 두었다(끌지는 사용자 결정).
 //@version=6
 indicator("하따봉", shorttitle = "하따봉", overlay = true, max_lines_count = 500, max_bars_back = 500)
 
@@ -45,7 +46,7 @@ recMd   = input.string(R_WICK, "회복 기준", options = [R_WICK, R_CPOS], grou
 recMin  = input.float(0.5, "회복 비율", minval = 0.0, maxval = 1.0, step = 0.05, group = G3, display = display.none)
 rngMin  = input.float(0.0, "봉 길이 ≥ ATR14 × (0 = 끔)", minval = 0.0, step = 0.5, group = G3, display = display.none)
 needAb  = input.bool(false, "지지선 위에서 마감", group = G3, display = display.none)
-vwapStar = input.float(3.0, "①★: 당일 VWAP보다 % 넘게 아래 (0 = 끔)", minval = 0.0, step = 0.5, group = G3, tooltip = "3차 확인에서 유일하게 통과한 조건(2026 1~6월 실측 호가 거래당 +0.15%). 효과는 작다", display = display.none)
+vwapStar = input.float(3.0, "①★: 당일 VWAP보다 % 넘게 아래 (0 = 끔)", minval = 0.0, step = 0.5, group = G3, tooltip = "3차 확인에서 유일하게 통과한 조건(2026 1~6월 실측 호가 거래당 +0.15%). 효과는 작고, 2026 7~9월은 −0.09%(466건, 최근 구간 손해)", display = display.none)
 colStar = input.color(#6A1B9A, "①★ 색", group = G3, display = display.none)
 
 const string G4 = "② 장악 양봉"

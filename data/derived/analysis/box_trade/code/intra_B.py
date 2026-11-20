@@ -44,7 +44,9 @@ from datetime import date
 import numpy as np, pandas as pd
 from numba import njit
 
-ROOT = r"C:\Users\geunt\OneDrive\Desktop\주식\data\derived\analysis"
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[5]  # 저장소 루트(파일 위치 기준)
+ROOT = str(_REPO / "data/derived/analysis")
 DIPC = os.path.join(ROOT, "dip_reason", "code")
 sys.path.insert(0, DIPC)
 sys.path.insert(0, os.path.join(DIPC, "support"))
@@ -55,7 +57,7 @@ from events import bars as ev_bars, prep as ev_prep                   # noqa: E4
 OUT = os.path.join(ROOT, "box_trade", "results", "intra_B.txt")
 GRID_CSV = OUT.replace(".txt", "_grid.csv")
 EARN_CSV = os.path.join(ROOT, "box_trade", "results", "earnings_cache.csv")
-SCR = r"C:/Users/geunt/AppData/Local/Temp/claude/C--Users-geunt-OneDrive-Desktop---/4e686c73-74be-4337-8ccc-2f6136beaf7d/scratchpad/intra_B"
+SCR = str(_REPO / "data/derived/analysis/cache/scratch/4e686c73/scratchpad/intra_B")
 
 PER = {"early": (date(2026, 7, 14), date(2026, 9, 8)), "late": (date(2026, 9, 10), date(2026, 10, 7))}
 PLAB = {"early": "앞(고르기) 7/14~9/8 5분봉", "late": "뒤(확인) 9/10~10/6 3분봉"}

@@ -15,8 +15,10 @@ import os, sys, warnings
 import numpy as np, pandas as pd
 warnings.filterwarnings("ignore", "Mean of empty slice")
 
-ROOT = r"C:\Users\geunt\OneDrive\Desktop\주식"
-DD = r"C:/Users/geunt/AppData/Local/Temp/claude/C--Users-geunt-OneDrive-Desktop---/4e686c73-74be-4337-8ccc-2f6136beaf7d/scratchpad/box/daily"
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[5]  # 저장소 루트(파일 위치 기준)
+ROOT = str(_REPO)
+DD = str(_REPO / "data/derived/analysis/cache/scratch/4e686c73/scratchpad/box/daily")
 OUT = os.path.join(ROOT, r"data\derived\analysis\box_trade\results\daily_C.txt")
 EARN = os.path.join(ROOT, r"data\derived\analysis\box_trade\results\earnings_cache.csv")
 sys.path.insert(0, os.path.join(ROOT, r"data\derived\analysis\dip_reason\code"))

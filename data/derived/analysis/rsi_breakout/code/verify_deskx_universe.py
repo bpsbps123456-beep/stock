@@ -20,7 +20,7 @@ sys.path.insert(0, ROOT)
 sys.path.insert(0, HERE)
 from gbrc.etf.trades import load_fund_snapshots                     # noqa: E402
 from gbrc.etf.market import company_key, is_cash_holding, listing_market, yahoo_ticker   # noqa: E402
-from gbrc.etf.research_data import CORPORATE_ALIASES, exclusion_reason                   # noqa: E402
+from gbrc.etf.market import CORPORATE_ALIASES, exclusion_reason                   # noqa: E402
 from watchlist import resolve_sector                                                       # noqa: E402
 
 FROZEN = os.path.join(HERE, "..", "cache", "deskx_prices")

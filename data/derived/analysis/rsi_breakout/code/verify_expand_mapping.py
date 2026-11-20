@@ -27,7 +27,7 @@ from desk import config  # noqa: E402
 from desk.strategies import run_model, research_key, iso_week  # noqa: E402
 from gbrc.etf.trades import load_fund_snapshots  # noqa: E402
 from gbrc.etf.market import is_cash_holding, listing_market, yahoo_ticker  # noqa: E402
-from gbrc.etf.research_data import exclusion_reason  # noqa: E402
+from gbrc.etf.market import exclusion_reason  # noqa: E402
 from watchlist import AI_UNIVERSE  # noqa: E402
 
 OUT = os.path.join(HERE, "../results/deskx/verify_expand_mapping.json")

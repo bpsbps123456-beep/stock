@@ -67,7 +67,7 @@ def sessions(a, b) -> pd.DatetimeIndex:
 
 
 def read_soxx():
-    raw = pd.read_csv(ROOT / "research/news_turning_points_20261025/prices.csv", header=[0, 1], index_col=0)
+    raw = pd.read_csv(ROOT / "data/derived/analysis/news_turning_points_20261025/prices.csv", header=[0, 1], index_col=0)
     raw.index = pd.to_datetime(raw.index, errors="coerce")
     raw = raw[raw.index.notna()].sort_index()
     us = pd.read_csv(ROOT / "data/derived/analysis/leverage_flood/results/us_prices_close.csv",

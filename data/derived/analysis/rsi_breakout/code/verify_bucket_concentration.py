@@ -27,7 +27,9 @@ from desk import config  # noqa: E402
 from desk.strategies import in_semis_budget, UNKNOWN, run_model, iso_week as _iso_week  # noqa: E402
 import watchlist  # noqa: E402
 
-SCRATCH = r"C:\Users\geunt\AppData\Local\Temp\claude\C--Users-geunt-OneDrive-Desktop---\a98bfc76-8181-4d46-afbf-2585bc00e0fc\scratchpad"
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[5]  # 저장소 루트(파일 위치 기준)
+SCRATCH = str(_REPO / "data/derived/analysis/cache/scratch/a98bfc76/scratchpad")
 OUT = os.path.join(SCRATCH, "verify_bucket_concentration.json")
 MONTHS = [f"2026-{m:02d}" for m in range(1, 11)]
 PER = (("front", "2026-01-02", "2026-05-29"), ("back", "2026-06-01", "2026-10-09"),

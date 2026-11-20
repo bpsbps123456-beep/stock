@@ -14,7 +14,9 @@ import pandas as pd
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 PANEL = os.path.abspath(os.path.join(HERE, "..", "panel_1d_20261012.parquet"))
-ZCODE = "C:/Users/geunt/OneDrive/Desktop/주식/data/derived/analysis/trend_zones/code"
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[6]  # 저장소 루트(파일 위치 기준)
+ZCODE = str(_REPO / "data/derived/analysis/trend_zones/code")
 sys.path.insert(0, ZCODE)
 import zones as ZM  # noqa: E402  (Ind, Fwd, period_rows, evaluate)
 

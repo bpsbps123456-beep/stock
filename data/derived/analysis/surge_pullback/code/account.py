@@ -49,7 +49,9 @@ from numba import njit
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.normpath(os.path.join(HERE, ".."))
-SP = r"C:/Users/geunt/AppData/Local/Temp/claude/C--Users-geunt-OneDrive-Desktop---/6a57b230-3ac1-4ae6-9d34-b1d8a1c2ce1b/scratchpad"
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[5]  # 저장소 루트(파일 위치 기준)
+SP = str(_REPO / "data/derived/analysis/cache/scratch/6a57b230/scratchpad")
 DS = [f"D{d}" for d in range(1, 11)]
 H10E = ["F50", "F618", "EMA10", "M0", "M1"] + DS
 LIMIT = ("F50", "F618", "EMA10")

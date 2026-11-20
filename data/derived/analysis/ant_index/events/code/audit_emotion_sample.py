@@ -1,6 +1,8 @@
 """감사 보조: 감정 층 표본 중 바닥 사례(가격 사건 둘레 51일) 재사용 단위가 든 K창과 사건·가짜 창의 몫. 출력만 한다."""
 import sys, json
-sys.path.insert(0, r"C:/Users/geunt/OneDrive/Desktop/주식/data/derived/analysis/ant_index/events/code")
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[6]  # 저장소 루트(파일 위치 기준)
+sys.path.insert(0, str(_REPO / "data/derived/analysis/ant_index/events/code"))
 sys.dont_write_bytecode = True
 import numpy as np, pandas as pd
 import event_study as es

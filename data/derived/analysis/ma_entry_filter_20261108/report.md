@@ -37,3 +37,7 @@ results.json의 USD 동일 평균노출 대조는 현금을 더 들고 있어 �
 Pine 구현 기준: [확정 봉·다른 시간대](https://www.tradingview.com/pine-script-docs/concepts/other-timeframes-and-data/) · [알림](https://www.tradingview.com/pine-script-docs/concepts/alerts/)
 
 재현: `py data/derived/analysis/ma_entry_filter_20261108/review.py`
+
+## 추적하지 않는 결과 (2026-11-21)
+
+큰 곡선·종목별 결과 21개(65.8MB: cross_stock_grid_1_120 per_stock_*·basket_curves_*, intraday_4_16h curves_*, exit_1_200 entry_decisions·turnover·exits·curves_krw, grid_1_200 entry_decisions·curves_krw, cross_stock per_stock·primary_stock_curves)는 이 결과를 코드로 다시 만든다(추적 안 함): `review.py`·`grid_review.py`·`exit_review.py`·`cross_stock_review.py`·`cross_stock_grid.py`·`intraday_review.py`(동결 입력 `cross_stock_20261109/inputs/`는 추적). summary_unique.csv·audit·input_metadata는 계속 추적한다.

@@ -5,7 +5,7 @@
 모든 갈래가 이 파일의 결과 정의·기준선·통계·판정을 그대로 쓴다. 갈래 코드는 신호(날짜 × 종목 bool)만 만든다.
 
 자료(읽기만, 클라우드 세션에서 Yahoo 차단이라 저장소 자료만 쓴다)
-  SOXX OHLC  research/news_turning_points_20261025/prices.csv (2023-12-01~2026-10-23, Codex 10/25 스냅샷)
+  SOXX OHLC  data/derived/analysis/news_turning_points_20261025/prices.csv (2023-12-01~2026-10-23, Codex 10/25 스냅샷)
              + 2023 종가 data/derived/analysis/leverage_flood/results/us_prices_close.csv (같은 yfinance 값, 겹치는 날 오차 0)
   시장 지표   us_prices_close.csv(^VIX·^VIX3M·^VXN·^SKEW·^SOX 등, ~2026-10-13), us_daily_panel.csv(풋콜·레버리지 ETF 자금, 2023-06~2026-10-13)
   종목       data/derived/desk/prices_open.csv·prices_close.csv(미국 82종목, QQQ·한국·환율 제외, 2025-06-02~2026-10-23)
@@ -67,7 +67,7 @@ def xnys(a, b) -> pd.DatetimeIndex:
 # ---------------------------------------------------------------- 자료
 def load_soxx() -> pd.DataFrame:
     """SOXX 일봉: 2023-01-03~2026-10-23. O·H·L 은 2023-12-01 부터."""
-    p = pd.read_csv(ROOT / "research/news_turning_points_20261025/prices.csv", header=[0, 1], index_col=0)
+    p = pd.read_csv(ROOT / "data/derived/analysis/news_turning_points_20261025/prices.csv", header=[0, 1], index_col=0)
     p.index = pd.to_datetime(p.index, errors="coerce")
     p = p[p.index.notna()].dropna().sort_index()
     u = pd.read_csv(ROOT / "data/derived/analysis/leverage_flood/results/us_prices_close.csv",
@@ -92,7 +92,7 @@ def load_market() -> pd.DataFrame:
                     encoding="utf-8-sig", index_col=0, parse_dates=True)
     pnl = pd.read_csv(ROOT / "data/derived/analysis/leverage_flood/results/us_daily_panel.csv",
                       encoding="utf-8-sig", index_col=0, parse_dates=True)
-    p = pd.read_csv(ROOT / "research/news_turning_points_20261025/prices.csv", header=[0, 1], index_col=0)
+    p = pd.read_csv(ROOT / "data/derived/analysis/news_turning_points_20261025/prices.csv", header=[0, 1], index_col=0)
     p.index = pd.to_datetime(p.index, errors="coerce")
     p = p[p.index.notna()].dropna()
     m = pd.DataFrame(index=cal)

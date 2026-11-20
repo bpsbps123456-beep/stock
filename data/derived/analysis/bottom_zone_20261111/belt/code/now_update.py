@@ -130,7 +130,7 @@ def build(source_end: pd.Timestamp) -> pd.DataFrame:
     pa.load = load
     pa.ROOT = NOW
     pa.raw_panel(source_end=str(source_end.date()))
-    census = REPO / "research" / "pb_flow_census_20261026" / "census.csv"
+    census = ANALYSIS / "pb_flow_census_20261026" / "census.csv"
     panel = pa.assemble(*pa.inputs(str(census)))
     panel.to_csv(NOW / "data" / "signal_panel.csv", index_label="date")
     return panel

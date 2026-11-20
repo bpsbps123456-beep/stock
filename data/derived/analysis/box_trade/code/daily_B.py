@@ -10,7 +10,9 @@ import numpy as np, pandas as pd
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 RES = os.path.join(HERE, "../results")
-DD = sys.argv[1] if len(sys.argv) > 1 else r"C:/Users/geunt/AppData/Local/Temp/claude/C--Users-geunt-OneDrive-Desktop---/4e686c73-74be-4337-8ccc-2f6136beaf7d/scratchpad/box/daily"
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[5]  # 저장소 루트(파일 위치 기준)
+DD = sys.argv[1] if len(sys.argv) > 1 else str(_REPO / "data/derived/analysis/cache/scratch/4e686c73/scratchpad/box/daily")
 sys.path.insert(0, os.path.join(HERE, "../../dip_reason/code"))
 from fetch import user_universe  # noqa: E402
 

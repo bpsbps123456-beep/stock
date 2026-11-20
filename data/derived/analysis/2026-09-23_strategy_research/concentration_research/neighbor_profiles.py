@@ -10,11 +10,12 @@ import numpy as np
 HERE=Path(__file__).resolve().parent
 REPO=HERE.parents[4]
 sys.path.insert(0,str(REPO))
-from gbrc.etf.research_concentration import (
+sys.path.insert(0,str(HERE.parent/'code'))
+from etf_research.research_concentration import (
     candidate_grid, load_inputs, _simulate_one, exposure_matched, segment_metrics, STATS,
 )
-from gbrc.etf.research_validation import _one_metrics
-from gbrc.etf.research_us_only import _hash
+from etf_research.research_validation import _one_metrics
+from etf_research.research_us_only import _hash
 
 
 def load(path): return json.loads(path.read_text(encoding='utf-8'))
@@ -36,7 +37,7 @@ def pack(detail,dates):
 
 
 def run():
-    engine=REPO/'gbrc/etf/research_concentration.py'
+    engine=HERE.parent/'code/etf_research/research_concentration.py'
     protected=[engine,HERE/'protocol.json',HERE/'selection.json',HERE/'configurations.json',
                HERE/'results.json',HERE/'summary.json',HERE/'validation.json',HERE/'candidate_metrics.json',
                *[HERE/f'publication_lag{lag}_{kind}.npy' for lag in range(3) for kind in ('returns','stats')]]

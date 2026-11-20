@@ -40,7 +40,7 @@ from desk.strategies import (project_caps, run_model, latest_before, research_ke
                              UNKNOWN)
 from gbrc.etf.trades import load_fund_snapshots  # noqa: E402
 from gbrc.etf.market import is_cash_holding, listing_market, yahoo_ticker  # noqa: E402
-from gbrc.etf.research_data import exclusion_reason  # noqa: E402
+from gbrc.etf.market import exclusion_reason  # noqa: E402
 from watchlist import AI_UNIVERSE, resolve_subsector  # noqa: E402
 
 OUT = os.path.join(HERE, "../results/deskx/expand.json")

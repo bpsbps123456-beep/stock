@@ -78,3 +78,7 @@ py data/derived/analysis/finviz_trends_20261120/gate_evidence.py
 py data/derived/analysis/finviz_trends_20261120/mark_next.py
 py data/derived/analysis/finviz_trends_20261120/plot_results.py
 ```
+
+## 추적하지 않는 결과 (2026-11-21)
+
+`market_grid/*.csv`(13개, 17.6MB)는 이 결과를 코드로 다시 만든다(추적 안 함): `py data/derived/analysis/finviz_trends_20261120/experiment.py`. §3.2 근거인 finalists·selected_results·gate_results·paired_short와 features·screen_results는 계속 추적한다.

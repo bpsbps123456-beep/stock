@@ -1,6 +1,8 @@
 """이격매수매도 AI 궁합 4부 보충(2026-10-23, 마지막 점검 단계에서 만든 것을 옮김). 입력 ../results/ai_fit_trades.csv, 출력은 표준출력 → ../results/ai_fit_walk_jk.txt"""
 import pandas as pd, numpy as np
-P = "C:/Users/geunt/OneDrive/Desktop/주식/data/derived/analysis/dip_fit/results/ai_fit_trades.csv"
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[5]  # 저장소 루트(파일 위치 기준)
+P = str(_REPO / "data/derived/analysis/dip_fit/results/ai_fit_trades.csv")
 T = pd.read_csv(P, encoding="utf-8-sig"); T = T[T.ret.notna()&(T.ses=="정규")].copy(); T["day"]=pd.to_datetime(T.day)
 T["e"] = T.ret - T.groupby("day").ret.transform("mean")
 for start in ["2026-08-03","2026-09-10"]:

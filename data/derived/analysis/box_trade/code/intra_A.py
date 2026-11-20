@@ -42,7 +42,9 @@ from datetime import date
 import numpy as np, pandas as pd
 from numba import njit
 
-DIP = r"C:\Users\geunt\OneDrive\Desktop\주식\data\derived\analysis\dip_reason\code"
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[5]  # 저장소 루트(파일 위치 기준)
+DIP = str(_REPO / "data/derived/analysis/dip_reason/code")
 sys.path.insert(0, DIP)
 from stop_lab import load, sim as base_sim, UNIV  # noqa: E402
 

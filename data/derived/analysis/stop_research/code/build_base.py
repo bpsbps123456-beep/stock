@@ -19,7 +19,7 @@ ROOT = HERE.parents[4]
 sys.path.insert(0, str(ROOT))
 from desk import config, marketdata, strategies as S                     # noqa: E402
 from gbrc.etf.market import is_cash_holding, listing_market, yahoo_ticker  # noqa: E402
-from gbrc.etf.research_data import exclusion_reason                      # noqa: E402
+from gbrc.etf.market import exclusion_reason                      # noqa: E402
 
 CACHE = HERE.parent / "cache"
 FROZEN = ROOT / "data/derived/analysis/rsi_breakout/cache/deskx_prices"

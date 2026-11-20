@@ -39,8 +39,10 @@ from zone40 import cluster, N, KEEP
 
 OUT = os.path.normpath(os.path.join(CODE, "../results/support/defer_zone.txt"))
 RAW_OLD = SL.RAW
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[6]  # 저장소 루트(파일 위치 기준)
 RAW_NEW = sys.argv[1] if len(sys.argv) > 1 else os.path.join(
-    r"C:/Users/geunt/AppData/Local/Temp/claude/C--Users-geunt-OneDrive-Desktop---/6a57b230-3ac1-4ae6-9d34-b1d8a1c2ce1b/scratchpad", "raw_1010")
+    str(_REPO / "data/derived/analysis/cache/scratch/6a57b230/scratchpad"), "raw_1010")
 TMP = os.path.dirname(RAW_NEW)
 WIN = {"early": (date(2026, 7, 21), date(2026, 9, 8)), "late": (date(2026, 9, 10), date(2026, 10, 6)),
        "oos": (date(2026, 10, 7), date(2026, 10, 9))}

@@ -44,7 +44,9 @@ from events import bars, prep
 import stop_lab
 from build import SYMS as _SYMS
 
-SP = r"C:/Users/geunt/AppData/Local/Temp/claude/C--Users-geunt-OneDrive-Desktop---/4e686c73-74be-4337-8ccc-2f6136beaf7d/scratchpad/dip"
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[5]  # 저장소 루트(파일 위치 기준)
+SP = str(_REPO / "data/derived/analysis/cache/scratch/4e686c73/scratchpad/dip")
 RAW, RAW_E = os.path.join(SP, "raw_1010"), os.path.join(SP, "raw")
 OUT = os.path.join(HERE, "../results")
 SYMS = [s for s in _SYMS if s not in ("GOOG", "SOXX")]

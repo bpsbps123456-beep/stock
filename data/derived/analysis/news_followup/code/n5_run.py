@@ -3,8 +3,8 @@
 py code/n5_run.py   → results/n5_signals.csv · n5_cells.csv · n5_g5.csv · n5_audit.csv · n5_verdict.json · n5_tables.txt
 
 입력(읽기만)
-  research/pb_flow_census_20261026/census.csv        노트(n4h14 진입 규칙: 공개일만, exact 09:30 ET 전이면 당일 시가)
-  research/news_turning_points_20261025/prices.csv   Codex 10/25 가격(yfinance 분할 반영·배당 미포함, 2023-12-01~2026-10-23)
+  data/derived/analysis/pb_flow_census_20261026/census.csv        노트(n4h14 진입 규칙: 공개일만, exact 09:30 ET 전이면 당일 시가)
+  data/derived/analysis/news_turning_points_20261025/prices.csv   Codex 10/25 가격(yfinance 분할 반영·배당 미포함, 2023-12-01~2026-10-23)
   results/n4h14_signals.csv                          재현 점검(진입일·r5·r10·r20·대조 A), 2023 노트(앞선 D·T 조건, 보조 줄)
   results/n4h14_cells.csv                            2023 보조 줄의 같은 해 모든 날 평균(대조 Y)
   results/n4h5_soxx_events.csv                       G5 SOXX 실시간 반전 확인일(ZZA3)·확인일 종가까지 R 공개 표지
@@ -29,7 +29,7 @@ import pandas as pd
 T0 = time.time()
 HERE = pathlib.Path(__file__).resolve().parent.parent
 ROOT = HERE.parents[3]
-CODEX = ROOT / "research" / "news_turning_points_20261025"
+CODEX = ROOT / "data/derived/analysis/news_turning_points_20261025"
 RES = HERE / "results"
 sys.dont_write_bytecode = True
 _spec = importlib.util.spec_from_file_location("n4h14_run", HERE / "code" / "n4h14_run.py")

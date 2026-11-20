@@ -3,8 +3,8 @@
 py code/n4h5_run.py   → results/n4h5_*.csv · n4h5_verdict.json · n4h5_run.log(표준출력)
 
 입력(읽기만)
-- research/pb_flow_census_20261026/census.csv (원 노트 252그룹; census_unverified.csv 는 쓰지 않는다)
-- research/pb_flow_census_20261026/coverage.csv (주별 포착)
+- data/derived/analysis/pb_flow_census_20261026/census.csv (원 노트 252그룹; census_unverified.csv 는 쓰지 않는다)
+- data/derived/analysis/pb_flow_census_20261026/coverage.csv (주별 포착)
 - cache/n3_raw.parquet (SOXX 일봉 2001~2026-10-23, auto_adjust=False — N3 와 같은 자료)
 - ../swing_trend/results/events_ZZA3.parquet (주식 133종목 사건, 2023-06~2026-10-22)
 - swing_trend/code/swing.py 의 atr·zigzag, code/n3_analyze.py 의 zz_runs·classify(N3 정의 그대로)
@@ -48,7 +48,7 @@ import pandas as pd
 
 HERE = pathlib.Path(__file__).resolve().parent.parent
 ROOT = HERE.parents[3]
-CENSUS = ROOT / "research" / "pb_flow_census_20261026"
+CENSUS = ROOT / "data/derived/analysis/pb_flow_census_20261026"
 SWINGR = HERE.parent / "swing_trend" / "results"
 RES = HERE / "results"
 RES.mkdir(exist_ok=True)

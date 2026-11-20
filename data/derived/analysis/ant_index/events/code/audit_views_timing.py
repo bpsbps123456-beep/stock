@@ -1,7 +1,9 @@
 """감사 보조: 확정 사건·가짜 대표의 오프셋 0·+1 창 글이 D+1 08:00 전에 처음 받혔는지(조회 수치 측정 시점) → results/audit_views_timing.csv"""
 import sys, json
 from pathlib import Path
-sys.path.insert(0, r"C:/Users/geunt/OneDrive/Desktop/주식/data/derived/analysis/ant_index/events/code")
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[6]  # 저장소 루트(파일 위치 기준)
+sys.path.insert(0, str(_REPO / "data/derived/analysis/ant_index/events/code"))
 sys.dont_write_bytecode = True
 import numpy as np, pandas as pd
 import event_study as es
