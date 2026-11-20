@@ -1,0 +1,4 @@
+rule,spec,H1_hit,H1_n,Q1_hit,Q1_n,Q2_hit,Q2_n,H2_hit,H2_n,H2_mean,early_n,early_lag,H2_tickers,astra_H1,astra_H2,match
+E1_down1,"{""a"": ""px_pre20_x"", ""b"": ""intraday20"", ""sign"": 1, ""score_op"": ""le"", ""score_cut"": 0.3338360655737705, ""gate"": ""px_vol0"", ""gate_op"": ""le"", ""gate_cut"": 2.1910978341277025}",29,36,10,12,19,24,20,26,-1.19,11,1.0,26,29/36,20/26,True
+E1_down3,"{""a"": ""a_h09_si_ch"", ""b"": ""efficiency20"", ""sign"": 1, ""score_op"": ""le"", ""score_cut"": 0.4081866580100634, ""gate"": ""px_vol0"", ""gate_op"": ""le"", ""gate_cut"": 2.1910978341277025}",28,35,15,19,13,16,30,41,-2.91,15,0.733,41,28/35,30/41,True
+E6_down1,"{""a"": ""px_dvol_m"", ""b"": ""a_h08_dtc"", ""sign"": 1, ""score_op"": ""le"", ""score_cut"": 0.4379733724630203, ""gate"": ""px_vol0"", ""gate_op"": ""le"", ""gate_cut"": 2.193237683173366}",24,30,10,12,14,18,13,16,-7.74,5,0.8,16,24/30,13/16,True
