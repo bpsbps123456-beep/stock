@@ -246,7 +246,7 @@ class Desk:
         for key, wv in sorted(target.items(), key=lambda x: -x[1]):
             tk = tickers[key]
             sector, r = (S.sector_of(key, tk), None) if alt else (book.sector.get(key, S.UNKNOWN), rank.get(key))
-            reasons = ([f"120거래일 수익률 {r['mom120']:+.0%} · {r['rank']}위 · TIME 비중 {r['time_weight']:.1%}"]
+            reasons = ([f"60일 잔차 모멘텀 {r.get('score', 0.0):+.0%} · {r['rank']}위 · TIME 비중 {r['time_weight']:.1%}"]
                        if r else ["수익률 순위에 없음 · 다음 재조정일에 다시 판단합니다"])
             note = _cap_note(wv, tg["raw"].get(key), sector)
             if note:
@@ -362,7 +362,7 @@ class Desk:
             "targets": rows,
             "cash_target": cash_target,
             "actions": actions,
-            "rankings": [{"ticker": r["ticker"], "rank": r["rank"], "mom120": r["mom120"],
+            "rankings": [{"ticker": r["ticker"], "rank": r["rank"], "mom120": r["mom120"], "score": r.get("score"),
                           "time_weight": r["time_weight"], "sector": r["sector"],
                           "detail": S.subsector_of(r["key"], r["ticker"]),
                           "semis": S.in_semis_budget(r["sector"]), "in_target": r["key"] in tg["target"]}

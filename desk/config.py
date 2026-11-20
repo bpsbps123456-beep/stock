@@ -25,8 +25,10 @@ QUOTE_MAX_AGE_SEC = 90
 # The one strategy (docs/desk_system.md §3): Codex concentration study #774, chosen by
 # the user on 2026-09-27. The semiconductor budget was lowered from #774's 60% to 50% on
 # 2026-10-10 (user decision; evidence in docs/operations_changelog.md).
-STRATEGY_NAME = "7종목 · 120일 수익률 · TIME 비중 · 주간 조정"
-RULE = {"lookback": 120, "n": 7, "buffer": 5, "stock_cap": 0.25, "sector_cap": 0.60, "semis_cap": 0.50}
+STRATEGY_NAME = "7종목 · 60일 잔차 모멘텀 · TIME 비중 · 주간 조정"
+# score "res": 60거래일 잔차 모멘텀(종목 일간 로그수익 합 - 베타 x QQQ 합). 2026-11-21 사용자 결정으로 120일 수익률("ret")에서
+# 바꿈(docs/desk_system.md §3, data/derived/analysis/momentum_variants_20261120/report.md). CODEX_774_RULE은 score 없이 120일 수익률.
+RULE = {"score": "res", "lookback": 60, "n": 7, "buffer": 5, "stock_cap": 0.25, "sector_cap": 0.60, "semis_cap": 0.50}
 # #774 exactly as Codex tested it (a literal, so later RULE edits cannot drift it);
 # `desk validate` replays the engine with these caps.
 CODEX_774_RULE = {"lookback": 120, "n": 7, "buffer": 5, "stock_cap": 0.25, "sector_cap": 0.60, "semis_cap": 0.60}

@@ -6,7 +6,7 @@
 - 모멘텀 성적 ic_h[j]: 세션 j 개장 때 아는 120일 모멘텀 순위(7종목 규칙과 같은 후보)와 j-1 종가 → j-1+h 종가
   수익의 순위 상관. j-1+h 종가가 지나야 확정된다. 확정된 값만 최근 K개 평균한다(known_ic).
 - SOXX 20일선: 직전 확정 종가가 그날 포함 20일 단순평균 이상이면 위.
-- 바구니: MOM = 데스크 7종목 모델 경로, REV = TIME 미국 보유 중 직전 5거래일 수익 최하위 7종목 같은 비중(상한 적용),
+- 바구니: MOM = 데스크 7종목 모델 경로(2026-11-21부터 60일 잔차 모멘텀 규칙), REV = TIME 미국 보유 중 직전 5거래일 수익 최하위 7종목 같은 비중(상한 적용),
   둘 다 ISO 주 첫 세션 개장에 교체. CASH = 달러.
 - 성격 다이얼(h20·K20): 모멘텀 성적 ≥ 0(또는 미확정)이면 MOM, 아니면 REV.
 - 두 다이얼(SOXX 20일선 · h10·K10): SOXX 20일선 아래면 CASH, 위면 성격 다이얼(h10·K10).
@@ -168,7 +168,7 @@ def momentum_ic(book: S.Book, days: list[str], rankings: list[list[dict]], horiz
         fwd, mom = [], []
         for r in ranked:
             px = S._col(book, book.adj, r["key"])
-            if px is None:
+            if px is None or r.get("mom120") is None:  # 성적은 120일 수익률로 잰다(§11.2 정의 고정)
                 continue
             a, b = px[k - 1], px[k - 1 + horizon]
             if np.isfinite(a) and np.isfinite(b) and a > 0:

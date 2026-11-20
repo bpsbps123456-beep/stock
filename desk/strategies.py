@@ -7,7 +7,9 @@ marked at each close and converted to KRW with KRW=X. The TIME ETF trades in Seo
 US session t is compared with the first KRX close after it (the one that prices day t).
 
 Rule (docs/desk_system.md §3): on the first US session of each ISO week rank TIME's US
-holdings by 120-session adjusted-close return, keep last week's names while they stay in
+holdings by 60-session residual momentum (sum of daily log returns minus beta x QQQ's, beta from
+the same window; the 120-session return until 2026-11-21, still used for the #774 replay), keep
+last week's names while they stay in
 the top 12 and fill to 7 from the top, weight them by TIME's NAV weights, then cap each
 name at 25%, each watchlist sector at 60% and known semiconductors + unclassified at 50%
 (#774's 60% until 2026-10-10; the caps live in config.RULE).
@@ -150,12 +152,41 @@ def _col(book: Book, frame: pd.DataFrame, key: str) -> np.ndarray | None:
 # the rule (decision for the session at index k; k == len(days) means the next session)
 # ---------------------------------------------------------------------------
 
+def residual_momentum(px: np.ndarray, bench: np.ndarray, k: int, lookback: int) -> float:
+    """Sum of stock log returns minus beta x sum of benchmark log returns over the `lookback`
+    daily returns ending at close k-1.
+
+    beta = cov/var over the same window (population moments on the stock's valid days); at least
+    90% of the window must be valid. Same definition as the research score residual(e, 60)."""
+    if k - 1 - lookback < 0:
+        return float("nan")
+    seg, b = px[k - 1 - lookback:k], bench[k - 1 - lookback:k]
+    with np.errstate(divide="ignore", invalid="ignore"):
+        x, y = np.log(seg[1:] / seg[:-1]), np.log(b[1:] / b[:-1])
+    ok = np.isfinite(x) & np.isfinite(y)
+    n = int(ok.sum())
+    if n < int(lookback * 0.9):
+        return float("nan")
+    x, y = x[ok], y[ok]
+    mx, my = x.mean(), y.mean()
+    var = (y * y).mean() - my * my
+    if not var > 0:
+        return float("nan")
+    beta = ((x * y).mean() - mx * my) / var
+    return float((mx - beta * my) * n)
+
+
 def momentum_ranking(book: Book, k: int, session: str) -> tuple[str | None, list[dict]]:
-    lookback = config.RULE["lookback"]
+    """Rows sorted by the rule score (config.RULE["score"]: "res" residual, else plain return).
+
+    Each row also carries mom120 (120-session return, None without the history) for display."""
+    rule = config.RULE
+    lookback, kind = rule["lookback"], rule.get("score", "ret")
     pdf = latest_before(book.pdfs, session)
     if pdf is None or k - 1 - lookback < 0:
         return pdf, []
     w = book.weights(pdf)
+    bench = book.adj["QQQ"].to_numpy(float) if kind == "res" else None
     rows = []
     for key in sorted(w):
         if w[key] <= 0:
@@ -163,12 +194,19 @@ def momentum_ranking(book: Book, k: int, session: str) -> tuple[str | None, list
         px = _col(book, book.adj, key)
         if px is None:
             continue
-        p1, p0 = px[k - 1], px[k - 1 - lookback]
-        if not (np.isfinite(p1) and np.isfinite(p0) and p0 > 0):
+        p1 = px[k - 1]
+        p120 = px[k - 1 - 120] if k - 1 - 120 >= 0 else np.nan
+        mom120 = float(p1 / p120 - 1) if np.isfinite(p1) and np.isfinite(p120) and p120 > 0 else None
+        if kind == "res":
+            score = residual_momentum(px, bench, k, lookback)
+        else:
+            p0 = px[k - 1 - lookback]
+            score = float(p1 / p0 - 1) if np.isfinite(p1) and np.isfinite(p0) and p0 > 0 else float("nan")
+        if not np.isfinite(score):
             continue
-        rows.append({"key": key, "ticker": book.ticker[key], "mom120": p1 / p0 - 1,
+        rows.append({"key": key, "ticker": book.ticker[key], "score": score, "mom120": mom120,
                      "time_weight": w[key], "sector": book.sector[key]})
-    rows.sort(key=lambda r: -r["mom120"])  # stable: equal momentum keeps key order
+    rows.sort(key=lambda r: -r["score"])  # stable: equal scores keep key order
     for rank, r in enumerate(rows, 1):
         r["rank"] = rank
     return pdf, rows
