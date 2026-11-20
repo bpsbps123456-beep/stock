@@ -46,8 +46,8 @@ def load():
 
 def conditions(d: pd.DataFrame, h1: np.ndarray, entry: str):
     feats = [c for c in d.columns if c not in DROP and not c.startswith("post_") and c != "e6_x"]
-    if entry == "e1":
-        feats = [c for c in feats if c != "d5_x"]
+    if entry == "e1":  # 반응일 다음 날 조회수는 E1 진입(다음 날 시가) 때 아직 다 집계되지 않는다(Astra 지적, 2026-11-20)
+        feats = [c for c in feats if c not in ("d5_x", "a_h07_wiki_post")]
     names, masks = [], []
     for c in feats:
         s = d[c]
