@@ -1,6 +1,6 @@
 # 성장기반 리서치 센터(GBRC) 운영 라우터
 
-> 활성 기준일: **2026-10-08**  
+> 활성 기준일: **2026-11-21**  
 > Codex와 Claude가 함께 따르는 유일한 운영 규칙이다. Codex는 이 파일을 직접 읽고, Claude는 `CLAUDE.md`가 이 파일을 불러와 읽는다.  
 > 이 파일은 트리거·라우팅·공동 작업 규칙만 관리한다. 계산·출력·검증 세부 규칙은 각 도메인 문서를 정본(SSoT)으로 삼는다.
 
@@ -8,8 +8,8 @@
 
 - 매일 기본 업무는 TIME 글로벌AI인공지능액티브 `456600`과 KoAct 미국나스닥성장기업액티브 `2ETFQ1`의 펀드 추종뿐이다.
 - Path-B와 Path-F는 ETF-only다. 옵션, 옵션 순위, 옵션×ETF 등급, 개별 종목 밸류에이션/PER를 섞지 않는다.
-- Path-B와 Path-F에서는 `options_scanner.py`, `options_tracker.py`, PER 검색·계산을 실행하지 않는다.
-- 옵션은 Path-O 또는 사용자의 명시적 옵션 요청, 실적은 Path-E/V/S/I, 뉴스는 Path-N, 애널리스트 추적은 Path-A에서만 수행한다.
+- Path-B와 Path-F에서는 PER 검색·계산을 실행하지 않는다.
+- 옵션은 Path-O 또는 사용자의 명시적 옵션 요청에서만 다룬다(옵션 도구는 보관 상태, Gate B Path-O). 실적은 Path-E/V/S/I, 뉴스는 Path-N, 애널리스트 추적은 Path-A에서만 수행한다.
 - 섹터·종목 분류의 코드 정본은 `watchlist.py`다. 문서에 워치리스트를 중복 기재하지 않는다.
 - TradingView MCP는 대화 중 조회(Path-E/V/Q)에만 쓴다. 스크립트, `automation/` 프롬프트, 옵션 스코어 입력에 연결하지 않는다(약관 3조 display-only·25조 비자동화 개인 용도). 사용 규칙은 `docs/earnings_framework.md`를 따른다.
 
@@ -20,14 +20,15 @@
 | 트리거·라우팅·공동 작업 규칙·자기검증 | `AGENTS.md` |
 | 애널리스트 신호 수집·기록·채점·행동 규칙 | `docs/analyst_system.md` |
 | 두 펀드 수집·비교·성과·출력·저장 | `docs/etf_system.md` |
-| 옵션 스코어·복기·돌발 재료 검증 | `docs/options_system.md` |
+| 옵션 스코어·복기·돌발 재료 검증 | 보관(2026-11-21 삭제, git 이력으로 복원) |
 | 실적 분석·검증·성적표·개선 루프 | `docs/earnings_framework.md` |
 | 섹터·종목 매핑 | `watchlist.py` |
 | 운영 규칙 변경 이력 | `docs/operations_changelog.md` |
 | 투자 브리핑 전달·활용 | `docs/investment_briefing_playbook.md` |
-| 사용자 매매 조건, 야간 데스크(7종목 규칙·주문 계산·매매 기록·멈춤 규칙), AI 탐방·거인의 어깨·급락 후 담기·추세 등급·예측 점검 탭, AI 산업 지도 휴대폰 설명 사이트(Vercel) | `docs/desk_system.md` |
+| 사용자 매매 조건, 야간 데스크(7종목 규칙·주문 계산·매매 기록·멈춤 규칙), AI 산업 지도·거인의 어깨·급락 후 담기·추세 등급·뉴스 근거·예측 점검·실적 뒤 흐름 탭, AI 산업 지도 휴대폰 설명 사이트(Vercel) | `docs/desk_system.md` |
+| 데스크·펀드 연구의 판정·위치 색인(채택 안 한 연구 요약) | `docs/research_index.md` |
 
-규칙이 부딪히면 ① 사용자의 현재 요청 ② 이 파일 ③ 해당 Path 정본 ④ `docs/operations_changelog.md`의 과거 이력 순으로 따른다. `docs/archive/`는 명시적으로 요청받지 않으면 활성 규칙으로 쓰지 않는다.
+규칙이 부딪히면 ① 사용자의 현재 요청 ② 이 파일 ③ 해당 Path 정본 ④ `docs/operations_changelog.md`의 과거 이력 순으로 따른다. 지운 문서(옛 `docs/archive/`, `docs/options_system.md`)는 git 이력에만 있고, 명시적으로 요청받지 않으면 되살려 활성 규칙으로 쓰지 않는다.
 
 ## Gate A. 트리거 식별
 
@@ -38,7 +39,7 @@
 | 브리핑 / 오늘 브리핑 / 장 브리핑 / 누적 브리핑 | **Path-B** |
 | 실적 분석 / 어닝 분석 / `<티커> 실적` / 실적 자료 첨부 | **Path-E** |
 | 실적 복기 / `<티커> 복기` / 실적 검증 | **Path-V** |
-| 옵션 복기 / 어제 복기 | **Path-O** |
+| 옵션 복기 / 어제 복기 | **Path-O**(보관) |
 | 실적 성적표 | **Path-S** |
 | 실적 프롬프트 개선 | **Path-I** |
 | 뉴스 검색해줘 / 뉴스 찾아줘 | **Path-N** |
@@ -55,15 +56,15 @@
 
 | Path | 선행 문서 | 필수 작업 |
 |---|---|---|
-| **Path-B / Path-F** | `docs/etf_system.md` | `py gbrc.py briefing` 단일 명령으로 건너뛴 평일 채우기→TIME·KoAct 수집→검증→비교→내 7종목 점검·실매매 합의·관찰군 요약→가격 성과 비교를 수행하고 ETF-only 보고서를 출력한다. 누적 브리핑 요청이면 이어서 `py gbrc.py etf cumulative`로 마지막 전달 브리핑 이후 구간을 한 보고서로 묶는다. 실매매·매매 타이밍·수익 구간 분석 요청이면 `py gbrc.py etf trades --fund <time\|koact>`를 실행한다. 매매는 비중이 아니라 수량 기준 실매매로만 말한다. 세부 순서와 전 항목은 ETF 정본을 따른다. 야간 데스크 요청이면 `docs/desk_system.md`도 읽고, 데스크 코드만 고칠 때는 briefing 대신 그 §6 검증을 통과시킨다. |
+| **Path-B / Path-F** | `docs/etf_system.md` | `py gbrc.py briefing` 단일 명령으로 건너뛴 평일 채우기→TIME·KoAct 수집→검증→비교→내 7종목 점검·실매매 합의·관찰군 요약→가격 성과 비교를 수행하고 ETF-only 보고서를 출력한다. 누적 브리핑 요청이면 이어서 `py gbrc.py etf cumulative`로 마지막 전달 브리핑 이후 구간을 한 보고서로 묶는다. 실매매·매매 타이밍·수익 구간 분석 요청이면 `py gbrc.py etf trades --fund <time\|koact>`를 실행한다. 매매는 비중이 아니라 수량 기준 실매매로만 말한다. 세부 순서와 전 항목은 ETF 정본을 따른다. 야간 데스크 요청이면 `docs/desk_system.md`도 읽고, 데스크 코드만 고칠 때는 briefing 대신 그 §6 검증(`py -m desk validate`)을 통과시킨다. `--skip-774`로 낸 '미검증' 결과는 §6 통과가 아니다. |
 | **Path-E** | `docs/earnings_framework.md` | `py earnings_prefill.py <TICKER>` → 누락값을 정본의 데이터 소스 순서대로 보완 → 6단계 분석 → `data/earnings_log/YYYY-MM-DD_<TICKER>.json` 저장. 시총·컨센서스·전년값을 가정으로 채운 채 분석하지 않는다. |
 | **Path-V** | `docs/earnings_framework.md` | 해당 로그 로드 → yfinance D+1/D+5/D+30 수익률 → 오차가 큰 종목의 돌발 재료 WebSearch → `verification` 갱신. 검색 없이 분석 실패로 단정하지 않는다. |
-| **Path-O** | `docs/options_system.md` | 전일 로그와 현재 가격 매칭 → Top/Bottom 평균 수익률 → 역전 Top 3 각각 WebSearch → Tier-1/2/3 분류와 결론. 돌발 재료 확인 없이 가중치 변경을 제안하지 않는다. |
+| **Path-O** | 보관(옵션 도구 삭제 2026-11-21, git 이력으로 복원) | 옵션 스캔이 2026-06-04에 멈췄고 `options_scanner.py`·`options_tracker.py`·`docs/options_system.md`를 지웠다. 과거 로그 `data/options_log/`는 남긴다. 요청이 오면 먼저 `git log --diff-filter=D -- options_scanner.py`로 삭제 직전 커밋을 찾아 세 파일을 되살린 뒤 그 정본대로 수행한다(전일 로그와 현재 가격 매칭 → Top/Bottom 평균 수익률 → 역전 Top 3 각각 WebSearch → Tier-1/2/3 분류와 결론. 돌발 재료 확인 없이 가중치 변경을 제안하지 않는다). |
 | **Path-S** | `docs/earnings_framework.md` | 전체 실적 로그의 적중률과 평균 수익률 집계. |
 | **Path-I** | `docs/earnings_framework.md` | 검증 5건 이상일 때만 개선 후보 제안 → 사용자 확정 후 관련 정본과 변경 이력 갱신. `CLAUDE.md`에 독립 규칙을 추가하지 않는다. |
 | **Path-N** | 없음 | WebSearch 4회: 빅테크 → AI반도체 → 메모리 → AI인프라. 오늘 → 어제 → 이번 주 순으로 확인하고 한글로 출력. |
 | **Path-A** | `docs/analyst_system.md` | 업데이트: WebSearch로 3인(가브리엘·윌슨·카토네) 신규 발언 수집 → 신규 콜 `data/analyst_log/` 기록 → `py analyst_tracker.py verify` → 이전 전망 대비 변화·행동 조건 표 출력. 신규 없으면 "신규 없음" 종결. 성적표: `py analyst_tracker.py scorecard`. 3인 의견만으로 매도 제안을 하지 않는다. |
-| **Path-Q** | 해당 영역 정본 | 요청 자체를 수행한다. 다루는 영역에 정본이 있으면 먼저 읽고 그 검증을 통과시킨다: AI 종목 전고점 거리 `py ai_ath_gap.py`(유니버스 `watchlist.AI_UNIVERSE`, 결과 `data/derived/analysis/ai_ath_gap/`), AI 탐방 갱신 `docs/desk_system.md` §8.1, 설명 사이트 `py -m aimap deploy` §8.3, 저평가 표시 `desk/value.py` §8.4, 거인의 어깨 §9, 급락 후 담기 §10, 추세 등급 §11, 뉴스 근거 조회·업데이트 §13, 바닥 감지기 `py -m desk bottom` §13.6, 인정된 바닥 매수 신호 점검 `py data/derived/analysis/bottom_zone_20261111/belt/code/now_update.py` §17(신호 목록이며 비중·수량은 넣지 않음), 예측 점검 `py -m desk forecast` §14, 실적 반응 예측(발표 전 잠금·반응일 종가 채점) `py -m desk forecast prep`→`record` §14.2, 실적 뒤 흐름(2026 엄선 실적 후 조건부 규칙 K1~K5·X1~X3 자동 추적·경보) `py -m desk erules` §15. 연구·백테스트는 아래 연구 보고 규칙을 따른다. 매수 추천·주문 계산은 하지 않는다. 사용자가 요청한 탑픽 예측만 예외로, §14 원장에 근거·확률과 함께 잠가 기록하고 비중·수량은 넣지 않는다(2026-10-28). |
+| **Path-Q** | 해당 영역 정본 | 요청 자체를 수행한다. 다루는 영역에 정본이 있으면 먼저 읽고 그 검증을 통과시킨다: AI 종목 전고점 거리 `py ai_ath_gap.py`(유니버스 `watchlist.AI_UNIVERSE`, 결과 `data/derived/analysis/ai_ath_gap/`), AI 탐방 갱신 `docs/desk_system.md` §8.1, 설명 사이트 `py -m aimap deploy` §8.3, 저평가 표시 `desk/value.py` §8.4, 거인의 어깨 §9, 급락 후 담기 §10, 추세 등급 §11, 뉴스 근거 조회·업데이트 §13, 바닥 감지기 `py -m desk bottom` §13.6, 인정된 바닥 매수 신호 점검 `py data/derived/analysis/bottom_zone_20261111/belt/code/now_update.py` §17(신호 목록이며 비중·수량은 넣지 않음), 예측 점검 `py -m desk forecast` §14, 실적 반응 예측(발표 전 잠금·반응일 종가 채점) `py -m desk forecast prep`→`record` §14.2, 실적 뒤 흐름(2026 엄선 실적 후 조건부 규칙 K1~K5·X1~X3 자동 추적·경보) `py -m desk erules` §15. 연구·백테스트는 아래 연구 보고 규칙을 따르고, 끝나면 `docs/research_index.md`에 판정 한 줄을 더한다. 매수 추천·주문 계산은 하지 않는다. 사용자가 요청한 탑픽 예측만 예외로, §14 원장에 근거·확률과 함께 잠가 기록하고 비중·수량은 넣지 않는다(2026-10-28). |
 
 ## Gate C. 응답 종결 자기검증
 
@@ -112,11 +113,12 @@
 - 작업 디렉터리: `C:\Users\geunt\OneDrive\Desktop\주식`(로컬 Windows). 클라우드 세션은 저장소 루트이고, 리눅스라 `py` 대신 `python3`를 쓴다. 트레이딩뷰 MCP·크롬 같은 로컬 도구와 예약 작업(`.codex/schedule/`)은 클라우드에 없다
 - ETF 원본 v1 보존: `data/etf_holdings/`
 - ETF 검증 스냅샷 정본: `data/normalized/etf_holdings/`
-- 옵션 로그: `data/options_log/`
+- 옵션 로그(보관, 도구 삭제): `data/options_log/`
 - 실적 로그: `data/earnings_log/`, `data/earnings_prefill/`
 - 애널리스트 콜 로그: `data/analyst_log/`
 - 야간 데스크 매매 기록: `data/journal/` (Git 제외 개인 데이터, 전략 설정 `settings.json`만 올림)
-- 연구 결과: `data/derived/analysis/<주제>/`(보고서·코드·10MB 이하 결과는 Git에 올림, 캐시·큰 파일은 코드로 다시 만든다)
+- 연구 결과: `data/derived/analysis/<주제>/`(보고서·코드·10MB 이하 결과는 Git에 올림, 캐시·큰 파일은 코드로 다시 만든다). 루트 `research/` 폴더는 2026-11-21에 이곳으로 합쳤다. 새 연구도 이곳에만 둔다. 판정 색인은 `docs/research_index.md`
+- 데스크 기록: 예측 원장 `data/forecast/`, 뉴스 원장·바닥 예상 발행 기록 `data/news_evidence/`, 데스크 관찰 기록 `data/derived/desk/`(다시 만들 수 있는 캐시는 Git 제외, `docs/desk_system.md` §2)
 
 ## 규칙 변경 원칙
 

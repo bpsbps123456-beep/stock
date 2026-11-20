@@ -1,6 +1,6 @@
 # ETF 두 펀드 추종 시스템
 
-> 활성 기준일: **2026-09-27**  
+> 활성 기준일: **2026-11-21**  
 > Path-B(브리핑)와 Path-F(펀드 포트폴리오 점검)의 계산·출력·저장 규칙 정본이다.
 
 ## 1. 운영 범위
@@ -12,7 +12,7 @@
 
 - 두 Path는 위 두 펀드만 추종한다.
 - 결과는 ETF-only다. 옵션, 옵션 순위, 옵션×ETF 합치 등급, 개별 종목 목표가와 PER를 포함하지 않는다.
-- Path-B/F에서는 `options_scanner.py`, `options_tracker.py`, PER WebSearch를 실행하지 않는다.
+- Path-B/F에서는 옵션 조회와 PER WebSearch를 하지 않는다(옵션 도구는 2026-11-21 보관 삭제).
 - 섹터와 종목의 분류 정본은 `watchlist.py`다. 옵션·실적 워치리스트 밖의 ETF 보유종목 분류도 그 파일의 `ETF_SECTORS`에서 관리한다. 매핑이 없으면 `미분류`로 표시하고 수동 분류 후보로 남긴다.
 
 ## 2. 필수 실행 순서
@@ -47,7 +47,7 @@ py gbrc.py briefing
 - 스냅샷 사이의 같은 보유는 `holding_key`로 잇는다. 대소문자·공백 차이(`NQM6 Index`), 지수선물 월물 롤오버(NQU6→NQZ6), 운용사 티커 변경(SKHYV→SKHY)은 신규·편출이 아니다. 두 펀드를 교차 비교할 때만 클래스주(GOOGL=GOOG)를 같은 회사로 본다. 규칙 코드 정본은 `gbrc/etf/market.py`다.
 - KoAct를 포함한 모든 펀드는 주식과 현금을 같은 NAV 분모로 정규화한다. 현금을 주식 비중 합계에 다시 더하는 이중 반영을 금지한다.
 - 원천 비중과 NAV 기준 비중의 의미가 다르면 `source_weight_pct`, `nav_weight_pct`, `cash_weight_pct`, `gross_exposure_pct`처럼 필드를 분리한다. 의미가 다른 값을 하나의 `weight`로 덮지 않는다.
-- 중복 종목, 비정상 합계, 음수 현금, 기준일 불일치 또는 필수 필드 누락 자료는 정본에 올리지 않고 격리한다.
+- 중복 종목, 비정상 합계, 음수 현금, 기준일 불일치 또는 필수 필드 누락 자료는 정본에 올리지 않는다. 저장된 정본 전체는 `py gbrc.py etf validate`(`gbrc/etf/storage.py`의 `validate_normalized_directory`)로 다시 검증한다.
 
 ## 4. 데이터 계층
 
@@ -59,10 +59,8 @@ py gbrc.py briefing
 | 파생 결과 | `data/derived/briefings/` | 비교표·성과표·브리핑 결과 |
 | 심화 분석 | `data/derived/analysis/` | 실매매 타이밍·월별 수익·Top N 보유 백테스트(§10) |
 | 실행 상태 | `data/state/` | 실행 manifest, 성공·실패 상태, 입력 checksum |
-| 격리 | `data/quarantine/etf_holdings/` | 검증 실패 또는 기준일 의심 자료 |
-| 장기 보존 | `data/archive/` | 전환 완료 후 비활성 레거시 자료 |
 
-검증 스냅샷 파일명은 `YYYY-MM-DD_456600.json`, `YYYY-MM-DD_2ETFQ1.json`이며 날짜는 `as_of_date`다. 전환 기간에도 분석 정본은 `data/normalized/etf_holdings/`이고 `data/etf_holdings/`는 v1 원본으로 남긴다.
+검증 스냅샷 파일명은 `YYYY-MM-DD_456600.json`, `YYYY-MM-DD_2ETFQ1.json`이며 날짜는 `as_of_date`다. 분석 정본은 `data/normalized/etf_holdings/`이고 `data/etf_holdings/`는 v1 원본으로 남긴다. 검증에 실패한 자료(§3 마지막 줄)는 정본에 올리지 않는다. v1→v2 이관 도구(`etf migrate`)와 그 격리 폴더 `data/quarantine/`은 이관이 끝나 2026-11-21에 지웠다. 장기 보존 폴더 `data/archive/`는 쓰지 않는다.
 
 ## 5. 보고서 출력 순서
 
@@ -148,7 +146,6 @@ py gbrc.py briefing
 ## 9. 보조 명령
 
 ```bash
-py gbrc.py etf migrate
 py gbrc.py etf validate
 py gbrc.py etf daily --no-fetch --date 2026-07-08
 py gbrc.py etf report --fund time --date 2026-07-08
@@ -157,7 +154,7 @@ py gbrc.py etf cumulative --start 2026-09-04 --end 2026-09-09
 py gbrc.py etf trades --fund time --end 2026-09-23 --top 10
 ```
 
-`etf cumulative`는 마지막 전달 브리핑 이후 구간을 한 보고서로 묶는 누적 브리핑 생성기다. 수집을 하지 않고 `data/normalized/etf_holdings/`의 검증 스냅샷만 재사용하며, 인자를 생략하면 최신 공통 스냅샷과 그 직전 공통 스냅샷을 쓴다. 출력은 `data/derived/briefings/<END>_cumulative.md`와 같은 이름의 요약 JSON이다. 일일 보고서와 같은 12개 섹션·전 보유종목·임계값·가격 기준일 규칙을 그대로 따르고(12번은 D-5·D-20·누적 구간의 실매매), D-n은 두 ETF의 실제 공통 거래 세션으로 센다. 해당 거래일의 구성종목 스냅샷이 없으면 가장 가까운 과거 스냅샷으로 물러서되 물러선 사실과 거래일 기준 D-n을 보고서에 함께 남긴다. END가 당일이고 KRX 정규장 마감 전이면 종가 미확정 경고를 보고서 머리에 넣는다.
+`etf cumulative`는 마지막 전달 브리핑 이후 구간을 한 보고서로 묶는 누적 브리핑 생성기다. 수집을 하지 않고 `data/normalized/etf_holdings/`의 검증 스냅샷만 재사용하며, 인자를 생략하면 최신 공통 스냅샷과 그 직전 공통 스냅샷을 쓴다. 출력은 `data/derived/briefings/<END>_cumulative.md`와 같은 이름의 요약 JSON이다. 일일 보고서와 같은 12개 섹션·전 보유종목·임계값·가격 기준일 규칙을 그대로 따르고(12번은 D-5·D-20·누적 구간의 실매매), D-n은 두 ETF의 실제 공통 거래 세션으로 센다. 해당 거래일의 구성종목 스냅샷이 없으면 가장 가까운 과거 스냅샷으로 물러서되 물러선 사실과 거래일 기준 D-n을 보고서에 함께 남긴다. END가 당일이고 KRX 정규장 마감 전이면 종가 미확정 경고를 보고서 머리에 넣는다. 가격 캐시 `<END>_cumulative_prices.json`에는 `provisional` 표시를 남긴다. 캐시가 provisional이거나 받은 시각이 없거나 END 15:40 KST 전에 받은 것이면 버리고 다시 받는다. 받기에 실패하면 캐시를 쓰지 않고 멈춘다(두 ETF 티커가 없으면 SystemExit). 시각은 Asia/Seoul 기준이다(2026-11-21 수정).
 
 `etf report`는 저장된 검증 스냅샷으로 한 펀드의 보고서 구역만 출력한다(수집 없음). `etf backfill`은 구간 안에서 검증 스냅샷이 없는 평일을 운용사에서 받는다. 날짜 없는 `briefing`의 자동 채우기와 같이 운용사 기준일이 요청일과 같을 때만 저장한다. 기존 `data/etf_holdings/` v1 파일을 제자리에서 수정하지 않는다.
 
@@ -181,7 +178,7 @@ py gbrc.py etf trades --fund time --end 2026-09-23 --top 10
 `py gbrc.py etf trades [--fund time|koact] [--end YYYY-MM-DD] [--top 10]`는 한 펀드의 검증 스냅샷 전체를 읽어 `data/derived/analysis/<END>_<펀드코드>_trades.md`와 같은 이름의 JSON을 만든다. 가격은 yfinance 종가(비수정)를 쓰며 Path-F 심화 요청이나 금요일 주간 복기에서만 실행한다.
 
 1. **월별 수익과 매매 효과**: PDF 평가가격(평가액/수량) 기반 일별 보유 수익을 월별로 복리 합산한다. 매매 효과 = 실제 − 월초 보유 종목을 그대로 들고 있었을 때. 보수·매매비용 전이다. 만기 지난 선물 월물은 연속물(NQ=F)로, 현지 휴장 구간은 가격 변화 0으로 계산하고 가격이 끝내 없는 구간 수를 보고서에 적는다.
-2. **실매매 뒤 주가**: 미국 상장 종목의 하루 단위 실매매(§5-1)마다 +5·+20 거래일 QQQ 대비 초과수익을 두 기준으로 잰다. 매니저 기준은 PDF 평가 종가, 추종 기준은 PDF 날짜 이후 첫 미국 종가(21:45 브리핑을 보고 살 수 있는 시점)다. 매수 적중은 초과수익 > 0, 매도 적중은 < 0이다.
+2. **실매매 뒤 주가**: 미국 상장 종목의 하루 단위 실매매(§5-1)마다 +5·+20 거래일 QQQ 대비 초과수익을 두 기준으로 잰다. 매니저 기준은 PDF 평가 종가, 추종 기준은 PDF 날짜 이후 첫 미국 종가(21:45 브리핑을 보고 살 수 있는 시점)다. 매수 적중은 초과수익 > 0, 매도 적중은 < 0이다. 표에는 평균과 함께 중앙값, 종목 단위 적중(종목마다 평균 초과수익 하나로 셈)과 종목 수를 싣는다. 같은 종목의 수익 창이 겹치므로 건수 적중을 독립 표본으로 읽지 않는다. 분기별 추종 표와 가장 최근 분기 줄을 따로 둔다. JSON에는 `event_stats`(period 키), `event_stats_quarterly`, `latest_quarter`, 이벤트 목록 `events`를 저장한다.
 3. **종목별 누적 기여**(NAV %p)와 **현재 미국 상장 Top N의 주요 실매매 이력**(추정 매매 0.25%p 이상과 신규·편출).
 4. **미국 상장 Top N 보유 백테스트**: 월 1회·주 1회·매일 교체 × 5개·N개·미국 전체 × 펀드 비중·동일 비중. 교체일 PDF 날짜 이후 첫 미국 종가에 사서 원화로 평가하며 비용·세금은 빼지 않는다. ETF 보유(공개 다음 KRX 거래일 매수)와 원화 QQQ를 함께 표시한다.
 
@@ -192,14 +189,16 @@ py gbrc.py etf trades --fund time --end 2026-09-23 --top 10
 사용자가 두 펀드의 매매 기록을 조합한 전략 연구를 요청하면 §2·§10의 선행 작업 후 연구 모듈을 사용한다. 아래 명령은 기존 일반 실험의 재현용이며, 현재 사용자의 **미국 주식·매매비용 0원** 조건은 §11-1을 따른다. 원본과 검증 스냅샷은 수정하지 않는다.
 
 ```bash
-py -m gbrc.etf.research
-py -m gbrc.etf.research_subgroups
-py -m gbrc.etf.research_robust
-py -m gbrc.etf.research_stress
-py -m gbrc.etf.research_report
+cd data/derived/analysis/2026-09-23_strategy_research/code
+py -m etf_research.research
+py -m etf_research.research_subgroups
+py -m etf_research.research_robust
+py -m etf_research.research_stress
+py -m etf_research.research_report
 ```
 
-- 계산 정본은 `gbrc/etf/research_data.py`, `research_engine.py`, `research_validation.py`와 각 실험의 `protocol.json`이다. 결과는 `data/derived/analysis/<END>_strategy_research/`에 저장한다.
+- 연구 코드는 2026-11-21에 `gbrc/etf/research*.py`에서 `data/derived/analysis/2026-09-23_strategy_research/code/etf_research/`로 옮겼다(계산 로직 변경 없음). 패키지 `__init__.py`가 저장소 루트를 `sys.path`에 넣는다. numba·pyarrow 등은 `pip install -e ".[research]"`로 설치한다.
+- 계산 정본은 `etf_research/research_data.py`, `research_engine.py`, `research_validation.py`와 각 실험의 `protocol.json`이다. 종목군 규칙(`exclusion_reason`·`CORPORATE_ALIASES`)의 정본은 운영 코드 `gbrc/etf/market.py`이고 연구 코드는 가져다 쓰기만 한다. 결과는 `data/derived/analysis/<END>_strategy_research/`에 저장한다. 옛 결과 JSON에 기록된 `gbrc/etf/research*.py` 경로와 sha256은 이동 전 내용 기준이다(커밋 6d9a1fb1 이력).
 - 검증된 보유 이력이 있는 기간만 연구하며 편출된 종목도 포함한다. 실제 매매 신호는 §5-1의 수량 보정을 따른다. 최대 10종목, 무차입, 현금 허용이며 일간·달력 주간·달력 월간 교체를 비교한다.
 - 신호 공개 이후 거래 시점, 환율, 매매비용 가정, 휴장·결측 가격, 실제 보유 종목 수를 명시한다. 과거 공개 시각이 입증되지 않으면 추가 지연 검사를 한다. 가정한 비용과 현금 이자를 관측값처럼 쓰지 않는다.
 - 전체 기간 사후 최고값, 과거 구간으로 고른 후보, 회고적 후속 구간, 이후 추가 탐색을 구분한다. 대량 탐색의 중복과 선택편향을 공개하고, 사후 최고 수익을 미래 성과로 단정하지 않는다.
@@ -210,9 +209,9 @@ py -m gbrc.etf.research_report
 
 - 사용자 확정 범위는 **미국 상장 주식만**, 최대 10종목이다. 주문 가능 시간·수수료는 `docs/desk_system.md` §1의 사용자 매매 조건을 따른다(이 절의 기존 실험은 정정 전 08:00~23:00 기준으로 수행했다). TIME·KoAct 전체 보유 자료는 신호 계산과 비교에 쓰되, 연구 포트폴리오 편입은 `market == "US"`로 제한한다. 기존 글로벌 연구의 수익률은 미국 전용 성과로 사용하지 않는다.
 - 수량 신호의 공통 배율·분할 보정은 전체 펀드 자료로 먼저 계산하고 이후 미국 종목을 선별한다. 미국 종목만으로 공통 배율을 다시 추정하거나 남은 펀드 비중을 사전에 100%로 재정규화하지 않는다.
-- `py -m gbrc.etf.research_us_only`는 이미 선택한 후보를 고정한 채 종목 제한의 영향만 재계산한다. 기존 날짜 축·종가 체결 가정은 유지하며 결과는 기존 실험 아래 `us_only_feasibility/`에 분리한다. 이 진단은 새로운 전수 탐색이나 실제 주문 시간 검증이 아니다.
-- `py -m gbrc.etf.research_us_experiment`는 미국 상장 주식과 미국 가격 관측 거래일로 제한한 기존 15/30bp 비용 가정 실험을 `us_only_experiment/`에 보존한다. 원래 수량 신호·스냅샷 날짜는 보존한다. 과거 글로벌 실험을 확인한 뒤의 추가 탐색이므로 8~9월을 새로운 독립 검증으로 부르지 않는다.
-- 사용자가 매수·매도 비용 **0원**을 확인했다. 현재 기본 연구는 거래금액에 대한 명시적 매매비용 차감을 **0%**로 두며, 기존 0.15%·0.30% 일괄 비용 가정을 사용자의 실제 수수료로 적용하지 않는다. `py -m gbrc.etf.research_zero_cost`로 `us_only_experiment/zero_cost/`에 무비용 전수 탐색과 고정 후보 비교를 저장한다. 기본·추가 1미국거래일 지연 시나리오와 비교 ETF를 모두 비용 0으로 맞춰 매매 지연 효과를 분리한다.
+- `py -m etf_research.research_us_only`(위 `code/` 폴더에서)는 이미 선택한 후보를 고정한 채 종목 제한의 영향만 재계산한다. 기존 날짜 축·종가 체결 가정은 유지하며 결과는 기존 실험 아래 `us_only_feasibility/`에 분리한다. 이 진단은 새로운 전수 탐색이나 실제 주문 시간 검증이 아니다.
+- `py -m etf_research.research_us_experiment`는 미국 상장 주식과 미국 가격 관측 거래일로 제한한 기존 15/30bp 비용 가정 실험을 `us_only_experiment/`에 보존한다. 원래 수량 신호·스냅샷 날짜는 보존한다. 과거 글로벌 실험을 확인한 뒤의 추가 탐색이므로 8~9월을 새로운 독립 검증으로 부르지 않는다.
+- 사용자가 매수·매도 비용 **0원**을 확인했다. 현재 기본 연구는 거래금액에 대한 명시적 매매비용 차감을 **0%**로 두며, 기존 0.15%·0.30% 일괄 비용 가정을 사용자의 실제 수수료로 적용하지 않는다. `py -m etf_research.research_zero_cost`로 `us_only_experiment/zero_cost/`에 무비용 전수 탐색과 고정 후보 비교를 저장한다. 기본·추가 1미국거래일 지연 시나리오와 비교 ETF를 모두 비용 0으로 맞춰 매매 지연 효과를 분리한다.
 - 비용 0 계산은 가정한 종가 체결에서 명시적 비용 차감이 없다는 뜻이다. 실제 호가·체결가격 차이, 환전 조건이나 세금까지 관측상 모두 0임을 뜻하지 않는다. 세금·배당은 기존대로 제외하며, 없는 실측 비용을 임의의 비율로 다시 차감하지 않는다.
 - 실전 재현 검증에는 미국 거래일, 자료 확보 시각, 주문 전 잔고·수량, 실제 주문 방식에 맞는 가격·미체결·비용을 반영한다. 같은 날짜의 여러 시장 종가로 총자산을 평가한 뒤 앞서 마감한 시장의 주문액을 정하는 기존 글로벌 근사치는 엄격한 시간 순서의 계좌 재현으로 보지 않는다.
 - 사용자가 주문을 넣을 수 있다고 확인했으므로 주문 가능을 전제로 연구를 진행하며 증권사·시간대를 다시 확인하는 것을 선행 조건으로 삼지 않는다. 주문 가능 여부와 백테스트 체결 가정의 정확성은 구분한다. 장전 주문의 수익률을 평가할 때는 장전 가격을 따로 검증하며 정규장 종가 수익률로 대체하지 않는다.

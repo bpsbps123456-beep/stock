@@ -60,6 +60,5 @@ ETF 비중 증가는 매수 체결의 증거가 아니다. 종목 가격, 펀드
 
 - 당일 브리핑: `py gbrc.py briefing`
 - 저장 자료 재검증: `py gbrc.py etf validate`
-- 과거 옵션·실적 로그 읽기 전용 감사: `py gbrc.py system audit`
 
 브리핑 명령이 `success`가 아니거나 두 펀드 기준일이 당일과 다르면 새 투자 판단을 만들지 않고 데이터 지연으로 처리한다.

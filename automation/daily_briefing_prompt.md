@@ -5,11 +5,12 @@
 이 작업은 Path-B다. 다음 순서를 빠짐없이 수행한다.
 
 1. `AGENTS.md`와 `docs/etf_system.md`를 전부 읽는다.
-2. `py gbrc.py briefing`을 실행한다.
-3. 출력된 run manifest를 읽고 `status`, 두 펀드의 `as_of_date`, `quality_status`, `performance_status`를 확인한다.
-4. `status`가 `success`가 아니면 최신 자료인 것처럼 해석하지 않는다. 첫 줄에 `데이터 지연/부분 실패`를 표시하고 실패 원인과 재확인할 항목만 보고한다.
-5. `git status --short data/normalized/etf_holdings/`에 보이는 새 검증 스냅샷만 경로를 지정해 커밋한다: `git add <경로…>` → `git commit -m "data: YYYY-MM-DD TIME·KoAct 스냅샷 (codex)" -- <경로…>`. 새 파일이 없거나 커밋이 실패하면 브리핑은 그대로 진행하고 그 사실만 한 줄로 적는다.
-6. 성공이면 생성된 `data/derived/briefings/YYYY-MM-DD.md`를 읽고 아래 순서로 한국어 브리핑을 작성한다.
+2. `AGENTS.md` 공동 작업 규칙대로 `git status --short`로 남의 미커밋 작업을 확인하고 `git pull --ff-only origin master`로 원격 변경을 받는다. 앞서 나가지 못하면 작업 트리가 깨끗할 때만 `git pull --rebase origin master`를 쓴다. 받기에 실패해도 브리핑은 진행하고 그 사실만 한 줄로 적는다.
+3. `py gbrc.py briefing`을 실행한다.
+4. 출력된 run manifest를 읽고 `status`, 두 펀드의 `as_of_date`, `quality_status`, `performance_status`를 확인한다.
+5. `status`가 `success`가 아니면 최신 자료인 것처럼 해석하지 않는다. 첫 줄에 `데이터 지연/부분 실패`를 표시하고 실패 원인과 재확인할 항목만 보고한다.
+6. 이번 실행이 만든 추적 데이터만 경로를 지정해 `data:` 커밋으로 넣는다. 대상은 `git status --short -- data/normalized/etf_holdings/ data/raw/etf_holdings/ data/derived/briefings/ data/state/`에 보이는 새·바뀐 파일이다: `git add <경로…>` → `git commit -m "data: YYYY-MM-DD TIME·KoAct 브리핑 자료 (codex|claude)" -- <경로…>` → `git push origin master`(거부되면 `git pull --rebase origin master` 뒤 다시). `git add -A`·`git add .`·강제 푸시는 쓰지 않는다. 새 파일이 없거나 커밋·푸시가 실패하면 브리핑은 그대로 진행하고 그 사실만 한 줄로 적는다.
+7. 성공이면 생성된 `data/derived/briefings/YYYY-MM-DD.md`를 읽고 아래 순서로 한국어 브리핑을 작성한다.
 
 출력 순서:
 

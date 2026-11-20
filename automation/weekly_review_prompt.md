@@ -2,9 +2,9 @@
 
 작업 디렉터리는 `C:\Users\geunt\OneDrive\Desktop\주식`이다.
 
-이 작업은 Path-F다. `AGENTS.md`와 `docs/etf_system.md`를 전부 읽고 `py gbrc.py briefing --no-fetch`를 실행한다. 21:45 메인 브리핑에서 검증한 스냅샷을 재사용하며, run manifest가 `success`가 아니거나 두 펀드 `as_of_date`가 실행일과 다르면 `데이터 지연/부분 실패`만 알리고 주간 투자 해석을 만들지 않는다.
+이 작업은 Path-F다. `AGENTS.md`와 `docs/etf_system.md`를 전부 읽는다. `AGENTS.md` 공동 작업 규칙대로 `git status --short`를 확인하고 `git pull --ff-only origin master`로 원격 변경을 받은 뒤(실패하면 그 사실만 적고 계속) `py gbrc.py briefing --no-fetch`를 실행한다. 21:45 메인 브리핑에서 검증한 스냅샷을 재사용하며, run manifest가 `success`가 아니거나 두 펀드 `as_of_date`가 실행일과 다르면 `데이터 지연/부분 실패`만 알리고 주간 투자 해석을 만들지 않는다.
 
-브리핑이 성공하면 `py gbrc.py etf trades --fund time`과 `py gbrc.py etf trades --fund koact`를 실행해 `data/derived/analysis/`의 심화 분석을 갱신한다. 가격 조회가 실패하면 그 사실만 적고 주간 복기는 브리핑 보고서로 계속한다.
+브리핑이 성공하면 `py gbrc.py etf trades --fund time`과 `py gbrc.py etf trades --fund koact`를 실행해 `data/derived/analysis/`의 심화 분석을 갱신한다. 가격 조회가 실패하면 그 사실만 적고 주간 복기는 브리핑 보고서로 계속한다. 새로 생긴 `data/derived/analysis/<END>_<펀드코드>_trades.md`·`.json`과 이번 실행이 바꾼 `data/derived/briefings/`·`data/state/` 파일은 경로를 지정해 `data: YYYY-MM-DD 주간 복기 자료 (codex|claude)` 커밋으로 넣고 `git push origin master`로 올린다(거부되면 `git pull --rebase origin master` 뒤 다시, `git add -A`·강제 푸시 금지). 실패하면 그 사실만 한 줄로 적는다.
 
 생성된 전체 보고서를 읽고 아래 순서로 한국어 주간 복기를 작성한다.
 

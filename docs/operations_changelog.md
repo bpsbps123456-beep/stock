@@ -2,15 +2,30 @@
 
 이 문서는 변경의 시행일과 이유를 보존한다. 현재 실행 규칙은 `AGENTS.md`와 해당 도메인 정본 문서를 따른다. 과거 항목이 활성 정본보다 우선하지 않는다.
 
-## 2026-11-20 — 내 계좌·주문에 FINVIZ 30·40·175일선 모의 등록
+## 2026-11-21 — 저장소 정리(리팩토링)
 
-- 사용자가 등록을 승인했다. 탐색 결과에서 현행보다 하반기 수익과 낙폭이 개선됐고 하루 지연에서는 연초 누적 성과 순위가 뒤집혔다. 수동 주문 초안은 §3.1의 기준을 따르며 관찰 후보의 조건, 월초 명단, 개장 전 신호 기록은 `docs/desk_system.md` §3.2에 등록했다.
+사용자 요청: 폴더 전체 리팩토링(통합·삭제·버그 수정·틀린 연구 개선·데스크에 좋은 아이디어 반영). 읽기 전용 감사 뒤 담당별로 고쳤다. 판정 규칙과 7종목 규칙은 바꾸지 않았다.
+
+- 사용자 결정 4개
+  1. 주문 초안 기본값(§3.1 SOXX 100일선 → FINVIZ 전환)은 그대로 두고 새 주간 규칙(60일 잔차)으로 재측정한 뒤 결정한다. 재측정 `data/derived/analysis/desk_etf_validation_20261121/`(규칙 변경 없음): 원화 10bp 1/2~11/19 전환 +169.4% 대 주간 모델만 +135.0%, 끝난 대피 4번 합계 −6.5%, 이득은 열린 10/13 대피(+22.6%)에서 나온다. 시험 범위는 대안 6 × 체결 3 × 비용 3 × 규칙 2이고 새 탐색은 없다. 두 구성 요소의 사후 선택편향은 남는다.
+  2. 다시 만들 수 있는 데스크 캐시 15개(`data/derived/desk/`의 가격 CSV 3개·`prices_meta.json`·탭 결과 JSON 11개)는 Git 추적에서 뺀다. 종이·관찰 기록(`finviz_observations/`, `season_paper.json`, `erules.json`, `forecast_market.json`)은 계속 추적한다.
+  3. 옵션 도구를 보관으로 내렸다: `options_scanner.py`, `options_tracker.py`, `docs/options_system.md` 삭제(git 이력으로 복원), `data/options_log/`는 남김, `AGENTS.md` Path-O는 보관 표시.
+  4. 공개 저장소: 제3자 기사 본문은 그대로 두고, 연구 코드의 사용자 이름이 든 절대 경로만 파일 위치 기준 상대 경로로 바꿨다(연구 코드 93개, `Path(__file__).resolve().parents[n]` 기준). 옛 세션 임시 경로는 Git 제외 `data/derived/analysis/cache/scratch/<세션>/`로 옮겼다.
+- 문서: `docs/desk_system.md`(1,279 → 823줄)의 채택 안 한 연구 서술(§7 본문·§7.1~§7.6.1, §10 사용자 규칙 5개, §11 시간 단위·추가 펀드, §12.2~§12.7.3, §13.2~§13.5·§13.7, §16)을 새 `docs/research_index.md`(판정 색인 + 원문)로 옮기고 절 번호에는 안내만 남겼다. 탭 표를 실제 여덟 탭에 맞췄고, §11.2 재현 문장을 교체 전 규칙 기준으로 한정했으며, 깨진 경로(`season_regime_20261119/report.md` → `desk_defense_check_20261119/report.md`, `research/…` → `data/derived/analysis/…`)를 고쳤다. `docs/archive/v40_handoff.md`는 살아 있는 S&N ①③⑥ 후보만 `docs/earnings_framework.md` 개선 루프로 옮기고 지웠다(되살리기: `git show 6d9a1fb1:docs/archive/v40_handoff.md`). `docs/earnings_framework.md`의 '가정은 명시' 문장을 'N/A로 두고 생략'으로 바로잡았다. `docs/etf_system.md` §4의 없는 경로(`data/quarantine/etf_holdings/`, `data/archive/`)를 지웠다. `automation/*.md`에 시작 pull, 추적 산출물 `data:` 커밋·push를 넣어 2026-10-26 공동 작업 규칙과 맞췄다. `AGENTS.md` 활성 기준일을 갱신하고 연구 색인을 정본 표에 더했다.
+- gbrc: `gbrc/etf/research*.py` 13개를 `data/derived/analysis/2026-09-23_strategy_research/code/etf_research/`로 옮겼다(실행은 그 `code/` 폴더에서 `py -m etf_research.<모듈>`). 종목군 상수·`exclusion_reason`은 `gbrc/etf/market.py`로 옮겼다(두 번째 정본 없음). 이동하며 13개 모두 import 줄과 'Run:' 문구가 바뀌어, 옛 결과 JSON(`completion_manifest.json`, `robust_research.json`, `concentration_research/{protocol,results,result_audit}.json`, `us_only_experiment/robust_research.json`, `us_only_feasibility/{protocol,results}.json`, `strategy_comparison/section16_review/contribution_audit.json`)에 적힌 `gbrc/etf/research*.py` 경로와 sha256은 이동 전 내용 기준이다(원본은 커밋 6d9a1fb1). 계산 로직은 바뀌지 않았다. `system audit`·baseline·`etf migrate`(`gbrc/system.py`, `gbrc/data_quality.py`, `gbrc/etf/migration.py`, `data/state/baselines/2026-07-10_181540.json`)를 지웠다(audit은 schema_version 근거가 없어 항상 exit 2였다). yfinance 종가 다운로드를 `gbrc/etf/prices.py` 하나로 합쳤고, 누적 브리핑이 장중 잠정 종가 캐시를 계속 재사용하던 버그를 고쳤다. numba·pyarrow는 추가 의존성 `[research]`로 옮겼다. `etf trades`에 중앙값·종목 단위 적중·분기별 표를 더했다.
+- 데스크(검증·화면 변경, 7종목 신호 엔진 불변): 계좌 지수가 종가 누락일에 0원 평가로 끊기던 문제(직전 유효 가격으로 평가, 화면 경고), 가격을 못 받은 종목 기록·재시도, 테스트 서버의 한 번만 쓰는 기록을 `<DESK_JOURNAL_DIR>/records/`로 분리, 뉴스 가격 스냅숏 자동 갱신, 깨진 캐시 재계산(종이 기록은 덮어쓰지 않음), digest의 마지막 완료 세션 한정, 브리핑 실행을 잠금 밖으로, 매매 입력의 NaN·inf 거부, `validate`가 #774 입력 없으면 실패(`--skip-774`는 '미검증'), AI 산업 지도의 '120일 수익률' 표기를 잔차 모멘텀으로. 공용 `desk/common.py`와 XNYS 달력 하나로 합치고 손으로 적은 휴장일을 지웠다(`tests/test_desk_robustness.py`). 관찰 추가: 시즌 계기판 잔차 점수 보조 줄(종이 기록 새 필드 `ic_res`), 바닥 예상 구간 카드의 하락 국면 하단 이탈 공개 문구.
+- 연구 폴더: 루트 `research/` 두 폴더(`news_turning_points_20261025`, `pb_flow_census_20261026`)를 `data/derived/analysis/`로 합쳤다(바이트 동일 결과는 하나만, 동결 지문 일치). 작은 연구 4개를 상위 주제로 옮겼다(`bottleneck_returns` → `ai_axes_returns/`, `leader_resilience` → `recovery_factors/`, `strategy_comparison_audit` → `strategy_lab/audit_isin/`, `bottom_recheck_20261108` → `seibro_bottoms/recheck_20261108/`). 참조 0건인 `classify_2026-10-10/`, `desk_ui/`, `giant_ui/`, `desk_ui_check.py`, `giant_ui_check.py`, `news_turning_points_20261025/reproduction/`, 2026-09-23·10-15 `*_trades.md/json` 8개를 지웠다. 다시 만들 수 있는 큰 결과 약 3,998개(약 327MB, 13개 연구)는 추적에서 빼고 각 보고서에 재생성 명령을 적었다.
+- 연구 보강(판정 규칙 불변): SOXX 100일선 대피 회차 분해, SEIBRO SOXS 2026 분할 재계산(상반기 26건 +8.60%, 하반기 9건 +2.32%, 감사 메모의 29·14건은 사건표를 겹쳐 센 오류), 5일저가선 `box_trade` 전방 검증 불합격으로 닫음, ISIN 정정 주석, 데스크·연구 엔진 차이 원인은 배당 반영 여부(+167.5% 대 +168.1%, 46회 바구니 동일), 하따봉 ①★ 7~9월 실측 −0.09% 표기(알림 기본값 3% 유지), 하락 국면 조건부 바닥 범위 사전 등록.
 
 ## 2026-11-21 — 7종목 순위 점수를 60일 잔차 모멘텀으로 교체
 
 - 사용자가 "모멘텀을 더 짧게·길게, 종목은 더 넓게" 조합을 다시 찾으라고 요청했다. 공동 탐색(`data/derived/analysis/momentum_variants_20261120/`, 설정 10,004개, 독립 재계산·회의적 감사)에서 종목군 확대와 기간 변경은 하반기를 낫게 하지 못했다. 시장(QQQ) 영향을 뺀 60일 잔차 모멘텀만 상반기 선택·하반기 확인·지연·비용 기준을 넘었다.
 - 사용자가 종이 기록 대신 즉시 교체를 골랐다. `desk/config.py` `RULE`에 `score: res, lookback: 60`을 넣고 `desk/strategies.py`에 `residual_momentum`을 더했다. #774 재생은 `CODEX_774_RULE`(120일 수익률)로 그대로 통과한다(39/39, +216.4%).
 - 데스크 구조 그대로 2026(USD): +167.5%(이전 +127.4%), 하반기 −14.2%(−26.9%), 최대 낙폭 −21.2%(−32.5%). 원화 9/23까지는 +184.2%(+211.1%)로 9월 차이 때문에 낮다. 2025 하반기 보조에서는 수익 우위가 일관되지 않아 장세 전환 위험이 있다(`docs/desk_system.md` §3).
+
+## 2026-11-20 — 내 계좌·주문에 FINVIZ 30·40·175일선 모의 등록
+
+- 사용자가 등록을 승인했다. 탐색 결과에서 현행보다 하반기 수익과 낙폭이 개선됐고 하루 지연에서는 연초 누적 성과 순위가 뒤집혔다. 수동 주문 초안은 §3.1의 기준을 따르며 관찰 후보의 조건, 월초 명단, 개장 전 신호 기록은 `docs/desk_system.md` §3.2에 등록했다.
 
 ## 2026-11-20 — 추세 등급 탭에 시즌 계기판·종이 기록 추가 (규칙 변경 없음)
 
@@ -184,7 +199,6 @@
 
 - 이유: 사용자가 “아니 앞으로를 왜 검증해 과거기록을 보라고”라고 정정했다. 앞선 이어가기 요청을 에이전트가 미래 기록 설치로 잘못 해석했다.
 - 변경: 잘못 추가한 종이 기록 기능과 최초 등록을 철회했다. 수집·모의매매 0건 상태에서 해제했으며, 기존 연구와 다른 에이전트의 진행 작업은 보존했다. 요청 범위의 정본은 `docs/desk_system.md` §16이다.
-
 
 ## 2026-11-05 — SOXL 프리장 급등 뒤 SOXS 매수 연구 (규칙 변경 없음)
 
@@ -1075,7 +1089,6 @@
   - 신설 섹터: `인터넷 인프라/CDN`(NET·AKAM), `반도체 소재`(AXTI). CDN·엣지는 광통신 하드웨어가 아니어서 `네트워크/광통신`에 넣으면 광모듈 수급 신호가 흐려지고, 화합물 반도체 기판은 설계도 장비도 아니어서 기존 두 섹터 어디에도 맞지 않는다. 섹터는 상장지가 아니라 사업으로 묶는다.
   - PANW·CRWD·FTNT를 별도 `사이버보안`으로 떼는 안은 과거 섹터 시계열을 소급해서 바꾸므로 이번에는 하지 않았다.
 - 매핑 변경 뒤 결측 복원분과 9/9까지 총 7일치 일일 보고서를 `--no-fetch`로 재생성해 섹터 열을 일치시켰다.
-
 
 ## 2026-08-03 — 섹터 매핑 전수 보강과 클래스주 가격 티커 정규화
 
