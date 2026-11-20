@@ -1,0 +1,86 @@
+// This Pine Script® code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// SOXL 경고선·재매수선 — 2026-11-20
+// 연구: data/derived/analysis/soxl_escape_20261120/lines/report.md (Claude + Codex gpt-6.2-astra 공동)
+// 생각: 정확한 바닥은 못 맞히니, 경고선 아래로 내려가면 대피하고 재매수선 위로 올라타면 그때 다시 산다. 두 선 사이에서는 직전 상태를 유지한다.
+// 규칙(기본 = 느린 선)
+//   느린 선: 일봉 EMA10·20 중 낮은 쪽이 경고선, 높은 쪽이 재매수선. 일봉 종가로 판정하고 다음 정규장 시가(겨울 한국 23:30)에 실행하는 것으로 검증했다.
+//   빠른 선: 연장시간 5분봉 EMA200의 −2%가 경고선, +2%가 재매수선. 신호 뒤 바로(프리장·애프터 포함) 실행해야 통했다. 정규장까지 미루면 무너졌다.
+// 판정은 기준 봉의 완성된 값으로만 한다(미래 정보 없음). 기준 봉 이하의 분봉 차트(연장시간 켬)에서 쓴다.
+//   '종가 확인': 기준 봉 종가가 경고선 아래면 대피.   '닿으면': 직전 기준 봉의 경고선에 가격이 닿는 순간 대피(스탑 주문 자리, 일봉이면 정규장만).
+// 보유 중이면 경고선(빨강)이, 대피 중이면 재매수선(초록)이 진하게 보인다.
+//@version=6
+indicator("SOXL 경고선·재매수선", shorttitle = "경고·재매수", overlay = true)
+
+// ── 입력 ──────────────────────────────────────────────
+const string P_SLOW = "느린 선: 일봉 EMA10·20"
+const string P_FAST = "빠른 선: 5분 EMA200 ±2%"
+const string P_OWN  = "직접 설정"
+preset   = input.string(P_SLOW, "규칙", options = [P_SLOW, P_FAST, P_OWN], display = display.none)
+stopMode = input.string("종가 확인", "대피 방식", options = ["종가 확인", "닿으면"], display = display.none) == "닿으면"
+const string G1 = "직접 설정일 때"
+ownTf    = input.timeframe("D", "기준 봉", group = G1, display = display.none)
+ownA     = input.int(10, "이평선 1 (EMA 길이)", minval = 2, group = G1, display = display.none)
+ownB     = input.int(20, "이평선 2 (EMA 길이)", minval = 2, group = G1, display = display.none)
+ownBand  = input.float(0.0, "띠 % (경고선 = 낮은 선 −띠, 재매수선 = 높은 선 +띠)", minval = 0.0, step = 0.5, group = G1, display = display.none)
+
+bool   isFast = preset == P_FAST
+bool   isOwn  = preset == P_OWN
+string baseTf = isOwn ? ownTf : isFast ? "5" : "D"
+int    lenA   = isOwn ? ownA : isFast ? 200 : 10
+int    lenB   = isOwn ? ownB : isFast ? 200 : 20
+float  band   = (isOwn ? ownBand : isFast ? 2.0 : 0.0) / 100
+
+if timeframe.in_seconds() > timeframe.in_seconds(baseTf)
+    runtime.error("차트 봉이 기준 봉보다 큽니다. 기준 봉 이하의 차트에서 쓰세요")
+
+// ── 기준 봉에서 상태 계산(완성된 봉마다 한 번) ─────────────
+core() =>
+    float ea = ta.ema(close, lenA)
+    float eb = ta.ema(close, lenB)
+    float w  = math.min(ea, eb) * (1 - band)      // 경고선
+    float r  = math.max(ea, eb) * (1 + band)      // 재매수선
+    float wPrev = w[1]
+    var bool inPos = true
+    if inPos
+        bool out = stopMode ? (not na(wPrev) and low <= wPrev) : close < w
+        if out
+            inPos := false
+    else if close > r                              // 한 봉에 한 번만: 이 봉을 대피 상태로 시작했을 때만 복귀를 본다
+        inPos := true
+    [inPos, w, r, time]
+
+// 완성된 직전 기준 봉의 값(미래 정보 없음)
+corePrev() =>
+    [s, w, r, t] = core()
+    [s[1], w[1], r[1], t[1]]
+
+[stDone, wLine, rLine, baseT] = request.security(syminfo.tickerid, baseTf, corePrev(), lookahead = barmerge.lookahead_on)
+
+// ── '닿으면' 방식: 기준 봉이 끝나기 전에도 닿는 순간 대피로 바꾼다 ──
+bool newBase = baseT != baseT[1]
+bool dayBase = timeframe.in_seconds(baseTf) >= 86400
+bool countBar = not dayBase or session.ismarket          // 일봉 기준이면 정규장에서 닿은 것만 센다
+var bool stopped = false
+if newBase
+    stopped := false
+if stopMode and stDone and countBar and not na(wLine) and low <= wLine
+    stopped := true
+
+bool holding = stDone and not stopped
+bool toOut   = bar_index > 0 and not holding and holding[1]
+bool toIn    = bar_index > 0 and holding and not holding[1]
+
+// ── 그리기 ──────────────────────────────────────────────
+color cW = holding ? color.new(color.red, 0) : color.new(color.red, 70)
+color cR = holding ? color.new(color.green, 70) : color.new(color.green, 0)
+plot(wLine, "경고선", color = cW, linewidth = 2, style = plot.style_stepline, display = display.pane)
+plot(rLine, "재매수선", color = cR, linewidth = 2, style = plot.style_stepline, display = display.pane)
+plotshape(toOut, "대피", style = shape.labeldown, location = location.abovebar, color = color.red, text = "대피", textcolor = color.white, size = size.small)
+plotshape(toIn, "재매수", style = shape.labelup, location = location.belowbar, color = color.green, text = "재매수", textcolor = color.white, size = size.small)
+alertcondition(toOut, "대피", "SOXL 경고선 이탈 — 대피")
+alertcondition(toIn, "재매수", "SOXL 재매수선 회복 — 재매수")
+
+// 기준 봉 이력이 모자라 선이 아직 안 나오면 오른쪽 위에 알린다
+var table note = table.new(position.top_right, 1, 1)
+if barstate.islast and na(wLine)
+    table.cell(note, 0, 0, "기준 봉 이력 부족 — 더 큰 봉 차트에서 확인", text_color = color.white, bgcolor = color.new(color.red, 20))
