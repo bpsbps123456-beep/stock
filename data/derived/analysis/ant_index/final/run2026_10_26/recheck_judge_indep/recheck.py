@@ -18,7 +18,9 @@ import numpy as np
 import pandas as pd
 from scipy import stats
 
-ROOT = r"C:/Users/geunt/OneDrive/Desktop/주식/data/derived/analysis/ant_index/final"
+import pathlib as _pathlib
+_REPO = _pathlib.Path(__file__).resolve().parents[7]  # 저장소 루트(파일 위치 기준)
+ROOT = str(_REPO / "data/derived/analysis/ant_index/final")
 RES = ROOT + "/run2026_10_26/results"
 OUT = ROOT + "/run2026_10_26/recheck_judge_indep"
 JUDGE_SHA = "ddb1dec40a91364e148c4eb411bd184fd6b7da7a67efcb3affa8519a99575c8c"
