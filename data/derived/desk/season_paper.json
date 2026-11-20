@@ -1,0 +1,39 @@
+{
+ "schema": 1,
+ "note": "시즌 계기판 종이 기록(docs/desk_system.md §11.2). 세션마다 처음 계산한 선택을 잠근다. 수량·비중·개인 계좌 정보 없음.",
+ "records": [
+  {
+   "session": "2026-11-20",
+   "recorded_at": "2026-11-20T21:36:59+09:00",
+   "after_open": false,
+   "basis_close": "2026-11-19",
+   "ic_h20_k20": -0.25695704647080364,
+   "ic_h10_k10": 0.0383614441509178,
+   "soxx_close": 137.9499969482422,
+   "soxx_sma20": 151.82183227539062,
+   "soxx_up": false,
+   "dial1": "REV",
+   "dial2": "CASH",
+   "season": "급락 경계",
+   "mom_basket": [
+    "ACN",
+    "CRWD",
+    "NTAP",
+    "OKTA",
+    "PANW",
+    "SNOW",
+    "WDAY"
+   ],
+   "rev_basket": [
+    "ACN",
+    "BABA",
+    "EBAY",
+    "IONQ",
+    "MELI",
+    "MSFT",
+    "NVDA"
+   ]
+  }
+ ],
+ "start": "2026-11-20"
+}
