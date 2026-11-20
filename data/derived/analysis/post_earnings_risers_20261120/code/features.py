@@ -26,7 +26,7 @@ SEIBRO = ROOT / "data/derived/analysis/seibro_flows"
 def seibro_daily(tickers: set[str]) -> pd.DataFrame:
     """SEIBRO 날짜 × 종목: 네 Top50 목록 중 하나라도 든 날의 매수·매도·순매수(달러)."""
     master = pd.read_csv(SEIBRO / "derived/isin_master.csv", encoding="utf-8-sig")
-    isin2tk = dict(zip(master.isin, master.figi_ticker))
+    isin2tk = dict(zip(master["isin"], master["figi_ticker"]))
     recs = {}
     for f in glob.glob(str(SEIBRO / "raw/daily/d*/2025*.json")) + glob.glob(str(SEIBRO / "raw/daily/d*/2026*.json")):
         d = json.load(open(f, encoding="utf-8"))
@@ -45,7 +45,7 @@ def seibro_daily(tickers: set[str]) -> pd.DataFrame:
 
 def seibro_custody(tickers: set[str]) -> pd.DataFrame:
     master = pd.read_csv(SEIBRO / "derived/isin_master.csv", encoding="utf-8-sig")
-    isin2tk = dict(zip(master.isin, master.figi_ticker))
+    isin2tk = dict(zip(master["isin"], master["figi_ticker"]))
     rows = []
     for f in glob.glob(str(SEIBRO / "raw/custody/amt/2025*.json")) + glob.glob(str(SEIBRO / "raw/custody/amt/2026*.json")):
         d = json.load(open(f, encoding="utf-8"))
