@@ -1,0 +1,37 @@
+{
+  "case_id": "C12",
+  "ticker": "DRUG",
+  "ann_date": "2026-02-12",
+  "reaction_date": "2026-02-13",
+  "window": [
+    "2026-02-02",
+    "2026-03-15"
+  ],
+  "observed_through": "2026-03-15",
+  "catalysts": [
+    {
+      "code": "C0",
+      "date": "2026-03-15",
+      "one_line": "검토한 공개 자료에서 이 기간의 추가 분류 사건을 확인하지 못했다.",
+      "url": "https://www.sec.gov/Archives/edgar/data/1827401/000106299326000881/exhibit99-1.htm"
+    }
+  ],
+  "date_basis": "공식 발표일 또는 자료에서 사실을 확인할 수 있는 보도일. 이전 분기 거래는 창 안 실제 공시가 있는 경우 그 공시 내용을 명시했다.",
+  "pre_retail_hype": {
+    "value": "모름",
+    "one_line": "발표 전 10일간 개인 쏠림을 확인할 직접 자료 부족.",
+    "url": "https://news.google.com/search?q=%22Bright+Minds+Biosciences%22+(WallStreetBets+OR+%22retail+investors%22+OR+%22retail+traders%22+OR+%22most+bought%22+OR+%22meme+stock%22)+after:2026-02-01+before:2026-02-12&hl=en-US&gl=US&ceid=US:en"
+  },
+  "expectation_before": {
+    "value": "모름",
+    "one_line": "발표 전 시장 기대의 방향을 확인할 근거가 부족하다.",
+    "url": "https://news.google.com/search?q=%22Bright+Minds+Biosciences%22+(earnings+preview+OR+expectations+OR+outlook+OR+ahead+of+earnings)+after:2026-02-01+before:2026-02-12&hl=en-US&gl=US&ceid=US:en"
+  },
+  "confidence": "낮음",
+  "narrative_new": {
+    "value": "아니오",
+    "one_line": "분기 재무제표의 1월 증자는 조사 창 전에 끝났고, 소송은 2023년에 시작됐다.",
+    "url": "https://www.sec.gov/Archives/edgar/data/1827401/000106299326000881/exhibit99-1.htm"
+  },
+  "earnings_source": "https://www.sec.gov/Archives/edgar/data/1827401/000106299326000881/exhibit99-1.htm"
+}

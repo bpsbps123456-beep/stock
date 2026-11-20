@@ -1,0 +1,37 @@
+{
+  "case_id": "C25",
+  "ticker": "FTNT",
+  "ann_date": "2026-05-06",
+  "reaction_date": "2026-05-07",
+  "window": [
+    "2026-04-26",
+    "2026-06-06"
+  ],
+  "observed_through": "2026-06-06",
+  "catalysts": [
+    {
+      "code": "C2",
+      "date": "2026-05-07",
+      "one_line": "AI 트래픽 관리를 위한 신규 방화벽을 출시했다.",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQOXk5bGVVdTNiajF1dWhLQ2d3a3ZzVUNEVjg4SHRxbGFQODNiNGdqaDFSQWxQUGZyRXg4WTFSSWhHQjBNdWI1Z1I0Nk5Jd19CVnlUSjFXQUVoTUJxTEZVZ190UGVSS0p0SU1FcWx6YmN5QTNjeGc3Sm44SkNtNEpVUFZtZGdGOXdLTElranpqZWxScHM?oc=5"
+    }
+  ],
+  "date_basis": "공식 발표일 또는 자료에서 사실을 확인할 수 있는 보도일. 이전 분기 거래는 창 안 실제 공시가 있는 경우 그 공시 내용을 명시했다.",
+  "pre_retail_hype": {
+    "value": "모름",
+    "one_line": "발표 전 10일간 개인 쏠림을 확인할 직접 자료 부족.",
+    "url": "https://news.google.com/search?q=%22Fortinet%22+(WallStreetBets+OR+%22retail+investors%22+OR+%22retail+traders%22+OR+%22most+bought%22+OR+%22meme+stock%22)+after:2026-04-25+before:2026-05-06&hl=en-US&gl=US&ceid=US:en"
+  },
+  "expectation_before": {
+    "value": "모름",
+    "one_line": "발표 전 시장 기대의 방향을 확인할 근거가 부족하다.",
+    "url": "https://news.google.com/search?q=%22Fortinet%22+(earnings+preview+OR+expectations+OR+outlook+OR+ahead+of+earnings)+after:2026-04-25+before:2026-05-06&hl=en-US&gl=US&ceid=US:en"
+  },
+  "confidence": "중간",
+  "narrative_new": {
+    "value": "아니오",
+    "one_line": "FortiOS 8.0을 분기 중 소개한 제품으로 정리했다. 발표 당일 최초 공개라는 근거는 없었다.",
+    "url": "https://www.sec.gov/Archives/edgar/data/1262039/000126203926000010/ftntq1-2026ex991.htm"
+  },
+  "earnings_source": "https://www.sec.gov/Archives/edgar/data/1262039/000126203926000010/ftntq1-2026ex991.htm"
+}

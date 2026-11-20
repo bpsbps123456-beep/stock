@@ -1,0 +1,43 @@
+{
+  "case_id": "C27",
+  "ticker": "TEM",
+  "ann_date": "2026-07-30",
+  "reaction_date": "2026-07-31",
+  "window": [
+    "2026-07-20",
+    "2026-08-30"
+  ],
+  "observed_through": "2026-08-30",
+  "catalysts": [
+    {
+      "code": "C5",
+      "date": "2026-07-20",
+      "one_line": "Personalis 인수 합의를 실적 발표 10일 전에 공개했다.",
+      "url": "https://news.google.com/rss/articles/CBMimAJBVV95cUxOX2tRZmFKM1NJSjRqM2MzYXVsd2h2bHlQZzRoOWJZTy1HbVZzaGJpWVluMk1PWDk3OXpCRUNHdUVpeGdqTW5MRVhnNXJjZ3lCNEFtT3JtMHpKVUk5SzRtTldwQjZ6WURNbGpINDJuSUdFd3ZhT2RJVGExNzcyQWtpd2ltcVo2LUF2dXZ6d3BOMXNYdkpXY0ZDMW1jUEtpRjExWVpHVTNwZ2VXMFRxaVVRY21PamhRcW5yR0tKbGZkZjZndDI2VmJiMUp1eFdweTJvWXVvRDk2aUhVU01JbEotaVRHLU9HVW11OUFONmF0QjlIZFFLZzFzSmZpWjFKOVFmUThiMVpRTlYzRk85NlByeFgzcldhTHZT?oc=5"
+    },
+    {
+      "code": "C1",
+      "date": "2026-07-30",
+      "one_line": "AstraZeneca에 첫 종양학 파운데이션 모델을 납품했다고 공시했다.",
+      "url": "https://www.sec.gov/Archives/edgar/data/1717115/000119312526326083/tem-ex99_1.htm"
+    }
+  ],
+  "date_basis": "공식 발표일 또는 자료에서 사실을 확인할 수 있는 보도일. 이전 분기 거래는 창 안 실제 공시가 있는 경우 그 공시 내용을 명시했다.",
+  "pre_retail_hype": {
+    "value": "모름",
+    "one_line": "발표 전 10일간 개인 쏠림을 확인할 직접 자료 부족.",
+    "url": "https://news.google.com/search?q=%22Tempus+AI%22+(WallStreetBets+OR+%22retail+investors%22+OR+%22retail+traders%22+OR+%22most+bought%22+OR+%22meme+stock%22)+after:2026-07-19+before:2026-07-30&hl=en-US&gl=US&ceid=US:en"
+  },
+  "expectation_before": {
+    "value": "모름",
+    "one_line": "발표 전 시장 기대의 방향을 확인할 근거가 부족하다.",
+    "url": "https://news.google.com/search?q=%22Tempus+AI%22+(earnings+preview+OR+expectations+OR+outlook+OR+ahead+of+earnings)+after:2026-07-19+before:2026-07-30&hl=en-US&gl=US&ceid=US:en"
+  },
+  "confidence": "높음",
+  "narrative_new": {
+    "value": "예",
+    "one_line": "AstraZeneca에 첫 모델을 납품한 사실과 신규 데이터 사용계약 규모를 공개했다.",
+    "url": "https://www.sec.gov/Archives/edgar/data/1717115/000119312526326083/tem-ex99_1.htm"
+  },
+  "earnings_source": "https://www.sec.gov/Archives/edgar/data/1717115/000119312526326083/tem-ex99_1.htm"
+}
