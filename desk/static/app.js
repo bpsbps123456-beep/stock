@@ -231,7 +231,7 @@ function renderTicket() {
   const hasBook = acct.positions.length > 0 || acct.funded;
   const route = S.finviz_switch;
   const applied = route?.applied ?? S.settings.finviz_orders === true;
-  const blocked = applied && (route?.mode !== "desk" && route?.mode !== "finviz");
+  const blocked = !route || (applied && route.mode !== "desk" && route.mode !== "finviz");
   const finviz = applied && route?.mode === "finviz";
   const head = h("div", { class: "t-head" },
     h("div", null,
@@ -247,7 +247,8 @@ function renderTicket() {
   if (blocked) {
     mount($("#ticket"), head, summary, h("div", { class: "banner ticket-status", role: "status" },
       h("span", { class: "ico", "aria-hidden": "true" }, "!"),
-      h("span", null, route?.reason || "시장 전환 자료를 확인할 수 없어 목표 비중과 주문 수량 계산을 보류합니다.")));
+      h("span", null, !route ? "실행 중인 데스크 서버가 이전 버전입니다. 야간 데스크 서버 창을 닫고 야간데스크.cmd를 다시 열면 저장된 주문 초안을 확인할 수 있습니다."
+        : route.reason || "시장 전환 자료를 확인할 수 없어 목표 비중과 주문 수량 계산을 보류합니다.")));
     return;
   }
   if (applied && route.order_due !== true) {
@@ -339,7 +340,7 @@ function renderTiles() {
 /* ------------------------------------------------------------- allocation */
 function renderAlloc() {
   const route = S.finviz_switch;
-  if ((route?.applied ?? S.settings.finviz_orders === true) && (route?.mode !== "desk" && route?.mode !== "finviz")) {
+  if (!route || (route.applied && route.mode !== "desk" && route.mode !== "finviz")) {
     $("#alloc-sub").textContent = "목표 비중 보류";
     mount($("#alloc-body"), h("p", { class: "muted" }, "시장 전환 자료를 확인한 뒤 목표 비중을 표시합니다. 현재 보유 비중은 ‘내 보유 종목’에서 확인하세요."));
     return;

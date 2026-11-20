@@ -59,9 +59,9 @@ class JournalTest(unittest.TestCase):
             path = Path(tmp) / "settings.json"
             path.write_text(json.dumps({"strategy": "c239120", "split": 0.5, "tolerance": 0.03}), encoding="utf-8")
             with mock.patch.object(config, "SETTINGS", path):
-                self.assertEqual(journal.load_settings(), {"tolerance": 0.03, "finviz_orders": config.DEFAULT_SETTINGS["finviz_orders"]})
-                self.assertTrue(journal.save_settings({"finviz_orders": True})["finviz_orders"])
-                self.assertTrue(journal.save_settings({"tolerance": 0.04})["finviz_orders"])
+                self.assertEqual(journal.load_settings(), {"tolerance": 0.03, "finviz_orders": True})
+                self.assertFalse(journal.save_settings({"finviz_orders": False})["finviz_orders"])
+                self.assertFalse(journal.save_settings({"tolerance": 0.04})["finviz_orders"])
                 with self.assertRaises(journal.JournalError):
                     journal.save_settings({"finviz_orders": "false"})
 
