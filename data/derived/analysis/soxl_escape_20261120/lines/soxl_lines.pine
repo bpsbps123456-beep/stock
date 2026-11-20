@@ -7,7 +7,7 @@
 //   빠른 선: 연장시간 5분봉 EMA200의 −2%가 경고선, +2%가 재매수선. 신호 뒤 바로(프리장·애프터 포함) 실행해야 통했다. 정규장까지 미루면 무너졌다.
 // 판정은 기준 봉의 완성된 값으로만 한다(미래 정보 없음). 기준 봉 이하의 분봉 차트(연장시간 켬)에서 쓴다.
 //   '종가 확인': 기준 봉 종가가 경고선 아래면 대피.   '닿으면': 직전 기준 봉의 경고선에 가격이 닿는 순간 대피(스탑 주문 자리, 일봉이면 정규장만).
-// 보유 중이면 경고선(빨강)이, 대피 중이면 재매수선(초록)이 진하게 보인다.
+// 보유 중이면 경고선(빨강)이, 대피 중이면 재매수선(초록)이 진하게 보인다. 대피 구간은 옅은 빨강 배경, 마지막 봉 오른쪽에 지금 상태와 지켜볼 선을 띄운다.
 //@version=6
 indicator("SOXL 경고선·재매수선", shorttitle = "경고·재매수", overlay = true)
 
@@ -22,6 +22,7 @@ ownTf    = input.timeframe("D", "기준 봉", group = G1, display = display.none
 ownA     = input.int(10, "이평선 1 (EMA 길이)", minval = 2, group = G1, display = display.none)
 ownB     = input.int(20, "이평선 2 (EMA 길이)", minval = 2, group = G1, display = display.none)
 ownBand  = input.float(0.0, "띠 % (경고선 = 낮은 선 −띠, 재매수선 = 높은 선 +띠)", minval = 0.0, step = 0.5, group = G1, display = display.none)
+showBg   = input.bool(true, "대피 구간 배경색", display = display.none)
 
 bool   isFast = preset == P_FAST
 bool   isOwn  = preset == P_OWN
@@ -41,20 +42,24 @@ core() =>
     float r  = math.max(ea, eb) * (1 + band)      // 재매수선
     float wPrev = w[1]
     var bool inPos = true
+    bool before = inPos
     if inPos
         bool out = stopMode ? (not na(wPrev) and low <= wPrev) : close < w
         if out
             inPos := false
     else if close > r                              // 한 봉에 한 번만: 이 봉을 대피 상태로 시작했을 때만 복귀를 본다
         inPos := true
-    [inPos, w, r, time]
+    var int chgT = na                              // 마지막으로 상태가 바뀐 기준 봉의 끝 시각(신호 시각)
+    if inPos != before
+        chgT := time_close
+    [inPos, w, r, time, chgT]
 
 // 완성된 직전 기준 봉의 값(미래 정보 없음)
 corePrev() =>
-    [s, w, r, t] = core()
-    [s[1], w[1], r[1], t[1]]
+    [s, w, r, t, c] = core()
+    [s[1], w[1], r[1], t[1], c[1]]
 
-[stDone, wLine, rLine, baseT] = request.security(syminfo.tickerid, baseTf, corePrev(), lookahead = barmerge.lookahead_on)
+[stDone, wLine, rLine, baseT, chgT] = request.security(syminfo.tickerid, baseTf, corePrev(), lookahead = barmerge.lookahead_on)
 
 // ── '닿으면' 방식: 기준 봉이 끝나기 전에도 닿는 순간 대피로 바꾼다 ──
 bool newBase = baseT != baseT[1]
@@ -80,7 +85,18 @@ plotshape(toIn, "재매수", style = shape.labelup, location = location.belowbar
 alertcondition(toOut, "대피", "SOXL 경고선 이탈 — 대피")
 alertcondition(toIn, "재매수", "SOXL 재매수선 회복 — 재매수")
 
-// 기준 봉 이력이 모자라 선이 아직 안 나오면 오른쪽 위에 알린다
-var table note = table.new(position.top_right, 1, 1)
-if barstate.islast and na(wLine)
-    table.cell(note, 0, 0, "기준 봉 이력 부족 — 더 큰 봉 차트에서 확인", text_color = color.white, bgcolor = color.new(color.red, 20))
+// 대피 구간은 옅은 빨강 배경
+bgcolor(showBg and not holding and not na(wLine) ? color.new(color.red, 93) : na, title = "대피 구간")
+
+// ── 지금 상태(마지막 봉 오른쪽) — 느린 선은 한 달에 두어 번만 바뀌어 1분 차트에서는 지난 신호가 화면 밖일 때가 많다 ──
+var label st = na
+if barstate.islast
+    label.delete(st)
+    string txt = "기준 봉 이력 부족 — 더 큰 봉 차트에서 확인"
+    if not na(wLine)
+        float  tgt   = holding ? wLine : rLine
+        float  dist  = (tgt / close - 1) * 100
+        string when  = na(chgT) ? "" : dayBase ? str.format_time(chgT, "M/d", "America/New_York") + " 종가" : str.format_time(chgT, "M/d HH:mm", "Asia/Seoul")
+        string since = stopped ? " (지금 닿음)" : when == "" ? "" : " (" + when + " 신호)"
+        txt := (holding ? "보유 중" : "대피 중") + since + "\n" + (holding ? "경고선 " : "재매수선 ") + str.tostring(tgt, format.mintick) + " (" + (dist >= 0 ? "+" : "") + str.tostring(dist, "0.0") + "%)"
+    st := label.new(bar_index + 3, close, txt, xloc = xloc.bar_index, style = label.style_label_left, color = na(wLine) ? color.gray : holding ? color.new(color.green, 15) : color.new(color.red, 15), textcolor = color.white, size = size.normal)
