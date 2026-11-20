@@ -1,0 +1,123 @@
+{
+  "audit": {
+    "signal_is_previous_session": true,
+    "soxx_gate_recomputed_sessions": 222,
+    "finviz_cells_checked": 7988,
+    "finviz_cells_not_equal_to_signal_close_relvol": 0,
+    "archived_decisions_checked": 1395,
+    "earnings_cells_checked": 118307,
+    "earnings_cells_inconsistent": 0,
+    "semi_monthly_dates": [
+      "2026-01-16",
+      "2026-02-17",
+      "2026-03-16",
+      "2026-04-16",
+      "2026-05-18",
+      "2026-06-16",
+      "2026-07-16",
+      "2026-08-17",
+      "2026-09-16",
+      "2026-10-16",
+      "2026-11-16"
+    ],
+    "spells": [
+      [
+        "2026-03-30",
+        "2026-03-31",
+        2
+      ],
+      [
+        "2026-07-30",
+        "2026-07-30",
+        1
+      ],
+      [
+        "2026-08-25",
+        "2026-08-27",
+        3
+      ],
+      [
+        "2026-08-31",
+        "2026-09-21",
+        15
+      ],
+      [
+        "2026-10-13",
+        "2026-11-18",
+        27
+      ]
+    ],
+    "R0_reproduces_seven_sleeves_switch": true,
+    "last_spell_ongoing_at": "2026-11-18"
+  },
+  "verdicts": {
+    "R2": {
+      "checks": {
+        "1_full_10bp_beats_R0": "False",
+        "2_mdd_within_1pp_of_R0": "True",
+        "3_spells_won_3of5_incl_long": false,
+        "4_leave_one_spell_out_positive": false,
+        "5_late_execution_improvement_positive": true,
+        "1b_full_10bp_beats_R1": "True"
+      },
+      "passed": false,
+      "spells_won": 2,
+      "leave_one_out_min": -0.05125593734414269,
+      "late_improvement": 0.028624289889130683
+    },
+    "RF": {
+      "checks": {
+        "1_full_10bp_beats_R0": "False",
+        "2_mdd_within_1pp_of_R0": "False",
+        "3_spells_won_3of5_incl_long": false,
+        "4_leave_one_spell_out_positive": false,
+        "5_late_execution_improvement_positive": false
+      },
+      "passed": false,
+      "spells_won": 1,
+      "leave_one_out_min": -0.06508151767503856,
+      "late_improvement": -0.187011123247808
+    }
+  },
+  "placebo_percentiles": {
+    "R0": {
+      "schedule": "monthly",
+      "percentile": 94.0,
+      "placebo_median": 1.1686871142802717,
+      "placebo_p10": 1.0415477477662107,
+      "placebo_p90": 1.329384169700088
+    },
+    "R1": {
+      "schedule": "semi",
+      "percentile": 92.66666666666666,
+      "placebo_median": 1.1223284964222087,
+      "placebo_p10": 0.989387613752099,
+      "placebo_p90": 1.260206214433282
+    },
+    "R2": {
+      "schedule": "semi",
+      "percentile": 93.66666666666667,
+      "placebo_median": 1.1223284964222087,
+      "placebo_p10": 0.989387613752099,
+      "placebo_p90": 1.260206214433282
+    },
+    "RF": {
+      "schedule": "monthly",
+      "percentile": 66.33333333333333,
+      "placebo_median": 1.1686871142802717,
+      "placebo_p10": 1.0415477477662107,
+      "placebo_p90": 1.329384169700088
+    }
+  },
+  "fixed": {
+    "buffer": 14,
+    "slots": 7,
+    "seed": 20261120,
+    "draws": 300,
+    "long_spells": [
+      "2026-08-31",
+      "2026-10-13"
+    ]
+  },
+  "runtime_seconds": 264.9
+}

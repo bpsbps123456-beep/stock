@@ -1,0 +1,360 @@
+{
+  "original": {
+    "name": "원본 검색식",
+    "changes": "원본 12개 조건, 상대거래량 내림차순",
+    "url": "https://finviz.com/screener?v=111&f=cap_midover%2Cfa_curratio_o1%2Cfa_debteq_u1%2Cgeo_usa%2Csh_avgvol_o500%2Csh_instown_o40%2Csh_price_o10%2Csh_relvol_o1%2Cta_rsi_nos40%2Cta_sma20_sa50%2Cta_sma200_pa%2Cta_sma50_pa&ft=4&ta=0&o=-relativevolume",
+    "order": "-relativevolume",
+    "filters": [
+      "cap_midover",
+      "fa_curratio_o1",
+      "fa_debteq_u1",
+      "geo_usa",
+      "sh_avgvol_o500",
+      "sh_instown_o40",
+      "sh_price_o10",
+      "sh_relvol_o1",
+      "ta_rsi_nos40",
+      "ta_sma20_sa50",
+      "ta_sma200_pa",
+      "ta_sma50_pa"
+    ],
+    "historical_proxy": "실제 FINVIZ의 설정 링크. 과거 순위는 당시 대형·중형 표본, SEC 공시·13F, 정규장 종가로 재구성."
+  },
+  "vol150": {
+    "name": "상대거래량 1.5배",
+    "changes": "상대거래량 > 1.5",
+    "url": "https://finviz.com/screener?v=111&f=cap_midover%2Cfa_curratio_o1%2Cfa_debteq_u1%2Cgeo_usa%2Csh_avgvol_o500%2Csh_instown_o40%2Csh_price_o10%2Csh_relvol_o1.5%2Cta_rsi_nos40%2Cta_sma20_sa50%2Cta_sma200_pa%2Cta_sma50_pa&ft=4&ta=0&o=-relativevolume",
+    "order": "-relativevolume",
+    "filters": [
+      "cap_midover",
+      "fa_curratio_o1",
+      "fa_debteq_u1",
+      "geo_usa",
+      "sh_avgvol_o500",
+      "sh_instown_o40",
+      "sh_price_o10",
+      "sh_relvol_o1.5",
+      "ta_rsi_nos40",
+      "ta_sma20_sa50",
+      "ta_sma200_pa",
+      "ta_sma50_pa"
+    ],
+    "historical_proxy": "실제 FINVIZ의 설정 링크. 과거 순위는 당시 대형·중형 표본, SEC 공시·13F, 정규장 종가로 재구성."
+  },
+  "vol200": {
+    "name": "상대거래량 2배",
+    "changes": "상대거래량 > 2",
+    "url": "https://finviz.com/screener?v=111&f=cap_midover%2Cfa_curratio_o1%2Cfa_debteq_u1%2Cgeo_usa%2Csh_avgvol_o500%2Csh_instown_o40%2Csh_price_o10%2Csh_relvol_o2%2Cta_rsi_nos40%2Cta_sma20_sa50%2Cta_sma200_pa%2Cta_sma50_pa&ft=4&ta=0&o=-relativevolume",
+    "order": "-relativevolume",
+    "filters": [
+      "cap_midover",
+      "fa_curratio_o1",
+      "fa_debteq_u1",
+      "geo_usa",
+      "sh_avgvol_o500",
+      "sh_instown_o40",
+      "sh_price_o10",
+      "sh_relvol_o2",
+      "ta_rsi_nos40",
+      "ta_sma20_sa50",
+      "ta_sma200_pa",
+      "ta_sma50_pa"
+    ],
+    "historical_proxy": "실제 FINVIZ의 설정 링크. 과거 순위는 당시 대형·중형 표본, SEC 공시·13F, 정규장 종가로 재구성."
+  },
+  "rsi50": {
+    "name": "RSI 50 초과",
+    "changes": "RSI(14) > 50",
+    "url": "https://finviz.com/screener?v=111&f=cap_midover%2Cfa_curratio_o1%2Cfa_debteq_u1%2Cgeo_usa%2Csh_avgvol_o500%2Csh_instown_o40%2Csh_price_o10%2Csh_relvol_o1%2Cta_rsi_nos50%2Cta_sma20_sa50%2Cta_sma200_pa%2Cta_sma50_pa&ft=4&ta=0&o=-relativevolume",
+    "order": "-relativevolume",
+    "filters": [
+      "cap_midover",
+      "fa_curratio_o1",
+      "fa_debteq_u1",
+      "geo_usa",
+      "sh_avgvol_o500",
+      "sh_instown_o40",
+      "sh_price_o10",
+      "sh_relvol_o1",
+      "ta_rsi_nos50",
+      "ta_sma20_sa50",
+      "ta_sma200_pa",
+      "ta_sma50_pa"
+    ],
+    "historical_proxy": "실제 FINVIZ의 설정 링크. 과거 순위는 당시 대형·중형 표본, SEC 공시·13F, 정규장 종가로 재구성."
+  },
+  "liquid": {
+    "name": "하루 평균 100만 주",
+    "changes": "3개월 평균 거래량 > 100만 주",
+    "url": "https://finviz.com/screener?v=111&f=cap_midover%2Cfa_curratio_o1%2Cfa_debteq_u1%2Cgeo_usa%2Csh_avgvol_o1000%2Csh_instown_o40%2Csh_price_o10%2Csh_relvol_o1%2Cta_rsi_nos40%2Cta_sma20_sa50%2Cta_sma200_pa%2Cta_sma50_pa&ft=4&ta=0&o=-relativevolume",
+    "order": "-relativevolume",
+    "filters": [
+      "cap_midover",
+      "fa_curratio_o1",
+      "fa_debteq_u1",
+      "geo_usa",
+      "sh_avgvol_o1000",
+      "sh_instown_o40",
+      "sh_price_o10",
+      "sh_relvol_o1",
+      "ta_rsi_nos40",
+      "ta_sma20_sa50",
+      "ta_sma200_pa",
+      "ta_sma50_pa"
+    ],
+    "historical_proxy": "실제 FINVIZ의 설정 링크. 과거 순위는 당시 대형·중형 표본, SEC 공시·13F, 정규장 종가로 재구성."
+  },
+  "balance": {
+    "name": "높은 유동비율·낮은 부채",
+    "changes": "유동비율 > 1.5, 부채/자본 < 0.5",
+    "url": "https://finviz.com/screener?v=111&f=cap_midover%2Cfa_curratio_o1.5%2Cfa_debteq_u0.5%2Cgeo_usa%2Csh_avgvol_o500%2Csh_instown_o40%2Csh_price_o10%2Csh_relvol_o1%2Cta_rsi_nos40%2Cta_sma20_sa50%2Cta_sma200_pa%2Cta_sma50_pa&ft=4&ta=0&o=-relativevolume",
+    "order": "-relativevolume",
+    "filters": [
+      "cap_midover",
+      "fa_curratio_o1.5",
+      "fa_debteq_u0.5",
+      "geo_usa",
+      "sh_avgvol_o500",
+      "sh_instown_o40",
+      "sh_price_o10",
+      "sh_relvol_o1",
+      "ta_rsi_nos40",
+      "ta_sma20_sa50",
+      "ta_sma200_pa",
+      "ta_sma50_pa"
+    ],
+    "historical_proxy": "실제 FINVIZ의 설정 링크. 과거 순위는 당시 대형·중형 표본, SEC 공시·13F, 정규장 종가로 재구성."
+  },
+  "ownership60": {
+    "name": "기관 지분 60% 초과",
+    "changes": "기관 지분 > 60%",
+    "url": "https://finviz.com/screener?v=111&f=cap_midover%2Cfa_curratio_o1%2Cfa_debteq_u1%2Cgeo_usa%2Csh_avgvol_o500%2Csh_instown_o60%2Csh_price_o10%2Csh_relvol_o1%2Cta_rsi_nos40%2Cta_sma20_sa50%2Cta_sma200_pa%2Cta_sma50_pa&ft=4&ta=0&o=-relativevolume",
+    "order": "-relativevolume",
+    "filters": [
+      "cap_midover",
+      "fa_curratio_o1",
+      "fa_debteq_u1",
+      "geo_usa",
+      "sh_avgvol_o500",
+      "sh_instown_o60",
+      "sh_price_o10",
+      "sh_relvol_o1",
+      "ta_rsi_nos40",
+      "ta_sma20_sa50",
+      "ta_sma200_pa",
+      "ta_sma50_pa"
+    ],
+    "historical_proxy": "실제 FINVIZ의 설정 링크. 과거 순위는 당시 대형·중형 표본, SEC 공시·13F, 정규장 종가로 재구성."
+  },
+  "growth10": {
+    "name": "분기 매출 10% 성장",
+    "changes": "최근 분기 매출 전년 동기 대비 > 10%",
+    "url": "https://finviz.com/screener?v=111&f=cap_midover%2Cfa_curratio_o1%2Cfa_debteq_u1%2Cgeo_usa%2Csh_avgvol_o500%2Csh_instown_o40%2Csh_price_o10%2Csh_relvol_o1%2Cta_rsi_nos40%2Cta_sma20_sa50%2Cta_sma200_pa%2Cta_sma50_pa%2Cfa_salesqoq_o10&ft=4&ta=0&o=-relativevolume",
+    "order": "-relativevolume",
+    "filters": [
+      "cap_midover",
+      "fa_curratio_o1",
+      "fa_debteq_u1",
+      "geo_usa",
+      "sh_avgvol_o500",
+      "sh_instown_o40",
+      "sh_price_o10",
+      "sh_relvol_o1",
+      "ta_rsi_nos40",
+      "ta_sma20_sa50",
+      "ta_sma200_pa",
+      "ta_sma50_pa",
+      "fa_salesqoq_o10"
+    ],
+    "historical_proxy": "실제 FINVIZ의 설정 링크. 과거 순위는 당시 대형·중형 표본, SEC 공시·13F, 정규장 종가로 재구성."
+  },
+  "growth25": {
+    "name": "분기 매출 25% 성장",
+    "changes": "최근 분기 매출 전년 동기 대비 > 25%",
+    "url": "https://finviz.com/screener?v=111&f=cap_midover%2Cfa_curratio_o1%2Cfa_debteq_u1%2Cgeo_usa%2Csh_avgvol_o500%2Csh_instown_o40%2Csh_price_o10%2Csh_relvol_o1%2Cta_rsi_nos40%2Cta_sma20_sa50%2Cta_sma200_pa%2Cta_sma50_pa%2Cfa_salesqoq_o25&ft=4&ta=0&o=-relativevolume",
+    "order": "-relativevolume",
+    "filters": [
+      "cap_midover",
+      "fa_curratio_o1",
+      "fa_debteq_u1",
+      "geo_usa",
+      "sh_avgvol_o500",
+      "sh_instown_o40",
+      "sh_price_o10",
+      "sh_relvol_o1",
+      "ta_rsi_nos40",
+      "ta_sma20_sa50",
+      "ta_sma200_pa",
+      "ta_sma50_pa",
+      "fa_salesqoq_o25"
+    ],
+    "historical_proxy": "실제 FINVIZ의 설정 링크. 과거 순위는 당시 대형·중형 표본, SEC 공시·13F, 정규장 종가로 재구성."
+  },
+  "rank_month": {
+    "name": "1개월 수익률 순",
+    "changes": "원본 조건을 통과한 종목 중 21거래일 수익률 내림차순",
+    "url": "https://finviz.com/screener?v=111&f=cap_midover%2Cfa_curratio_o1%2Cfa_debteq_u1%2Cgeo_usa%2Csh_avgvol_o500%2Csh_instown_o40%2Csh_price_o10%2Csh_relvol_o1%2Cta_rsi_nos40%2Cta_sma20_sa50%2Cta_sma200_pa%2Cta_sma50_pa&ft=4&ta=0&o=-perf4w",
+    "order": "-perf4w",
+    "filters": [
+      "cap_midover",
+      "fa_curratio_o1",
+      "fa_debteq_u1",
+      "geo_usa",
+      "sh_avgvol_o500",
+      "sh_instown_o40",
+      "sh_price_o10",
+      "sh_relvol_o1",
+      "ta_rsi_nos40",
+      "ta_sma20_sa50",
+      "ta_sma200_pa",
+      "ta_sma50_pa"
+    ],
+    "historical_proxy": "실제 FINVIZ의 설정 링크. 과거 순위는 당시 대형·중형 표본, SEC 공시·13F, 정규장 종가로 재구성."
+  },
+  "rank_quarter": {
+    "name": "3개월 수익률 순",
+    "changes": "원본 조건을 통과한 종목 중 63거래일 수익률 내림차순",
+    "url": "https://finviz.com/screener?v=111&f=cap_midover%2Cfa_curratio_o1%2Cfa_debteq_u1%2Cgeo_usa%2Csh_avgvol_o500%2Csh_instown_o40%2Csh_price_o10%2Csh_relvol_o1%2Cta_rsi_nos40%2Cta_sma20_sa50%2Cta_sma200_pa%2Cta_sma50_pa&ft=4&ta=0&o=-perf13w",
+    "order": "-perf13w",
+    "filters": [
+      "cap_midover",
+      "fa_curratio_o1",
+      "fa_debteq_u1",
+      "geo_usa",
+      "sh_avgvol_o500",
+      "sh_instown_o40",
+      "sh_price_o10",
+      "sh_relvol_o1",
+      "ta_rsi_nos40",
+      "ta_sma20_sa50",
+      "ta_sma200_pa",
+      "ta_sma50_pa"
+    ],
+    "historical_proxy": "실제 FINVIZ의 설정 링크. 과거 순위는 당시 대형·중형 표본, SEC 공시·13F, 정규장 종가로 재구성."
+  },
+  "month_momentum": {
+    "name": "1개월 10% 상승",
+    "changes": "상대거래량 조건 해제, 21거래일 수익률 > 10%, 같은 수익률 내림차순",
+    "url": "https://finviz.com/screener?v=111&f=cap_midover%2Cfa_curratio_o1%2Cfa_debteq_u1%2Cgeo_usa%2Csh_avgvol_o500%2Csh_instown_o40%2Csh_price_o10%2Cta_rsi_nos40%2Cta_sma20_sa50%2Cta_sma200_pa%2Cta_sma50_pa%2Cta_perf_4w10o&ft=4&ta=0&o=-perf4w",
+    "order": "-perf4w",
+    "filters": [
+      "cap_midover",
+      "fa_curratio_o1",
+      "fa_debteq_u1",
+      "geo_usa",
+      "sh_avgvol_o500",
+      "sh_instown_o40",
+      "sh_price_o10",
+      "ta_rsi_nos40",
+      "ta_sma20_sa50",
+      "ta_sma200_pa",
+      "ta_sma50_pa",
+      "ta_perf_4w10o"
+    ],
+    "historical_proxy": "실제 FINVIZ의 설정 링크. 과거 순위는 당시 대형·중형 표본, SEC 공시·13F, 정규장 종가로 재구성."
+  },
+  "quarter_momentum": {
+    "name": "3개월 10% 상승",
+    "changes": "상대거래량 조건 해제, 63거래일 수익률 > 10%, 같은 수익률 내림차순",
+    "url": "https://finviz.com/screener?v=111&f=cap_midover%2Cfa_curratio_o1%2Cfa_debteq_u1%2Cgeo_usa%2Csh_avgvol_o500%2Csh_instown_o40%2Csh_price_o10%2Cta_rsi_nos40%2Cta_sma20_sa50%2Cta_sma200_pa%2Cta_sma50_pa%2Cta_perf_13w10o&ft=4&ta=0&o=-perf13w",
+    "order": "-perf13w",
+    "filters": [
+      "cap_midover",
+      "fa_curratio_o1",
+      "fa_debteq_u1",
+      "geo_usa",
+      "sh_avgvol_o500",
+      "sh_instown_o40",
+      "sh_price_o10",
+      "ta_rsi_nos40",
+      "ta_sma20_sa50",
+      "ta_sma200_pa",
+      "ta_sma50_pa",
+      "ta_perf_13w10o"
+    ],
+    "historical_proxy": "실제 FINVIZ의 설정 링크. 과거 순위는 당시 대형·중형 표본, SEC 공시·13F, 정규장 종가로 재구성."
+  },
+  "pullback": {
+    "name": "상승 추세의 RSI 눌림",
+    "changes": "RSI(14) < 50, 상대거래량 조건 해제, 63거래일 수익률 내림차순",
+    "url": "https://finviz.com/screener?v=111&f=cap_midover%2Cfa_curratio_o1%2Cfa_debteq_u1%2Cgeo_usa%2Csh_avgvol_o500%2Csh_instown_o40%2Csh_price_o10%2Cta_rsi_nob50%2Cta_sma20_sa50%2Cta_sma200_pa%2Cta_sma50_pa&ft=4&ta=0&o=-perf13w",
+    "order": "-perf13w",
+    "filters": [
+      "cap_midover",
+      "fa_curratio_o1",
+      "fa_debteq_u1",
+      "geo_usa",
+      "sh_avgvol_o500",
+      "sh_instown_o40",
+      "sh_price_o10",
+      "ta_rsi_nob50",
+      "ta_sma20_sa50",
+      "ta_sma200_pa",
+      "ta_sma50_pa"
+    ],
+    "historical_proxy": "실제 FINVIZ의 설정 링크. 과거 순위는 당시 대형·중형 표본, SEC 공시·13F, 정규장 종가로 재구성."
+  },
+  "near_high": {
+    "name": "52주 고가 5% 이내",
+    "changes": "종가가 최근 52주 장중 최고가의 95% 이상",
+    "url": "https://finviz.com/screener?v=111&f=cap_midover%2Cfa_curratio_o1%2Cfa_debteq_u1%2Cgeo_usa%2Csh_avgvol_o500%2Csh_instown_o40%2Csh_price_o10%2Csh_relvol_o1%2Cta_rsi_nos40%2Cta_sma20_sa50%2Cta_sma200_pa%2Cta_sma50_pa%2Cta_highlow52w_b0to5h&ft=4&ta=0&o=-relativevolume",
+    "order": "-relativevolume",
+    "filters": [
+      "cap_midover",
+      "fa_curratio_o1",
+      "fa_debteq_u1",
+      "geo_usa",
+      "sh_avgvol_o500",
+      "sh_instown_o40",
+      "sh_price_o10",
+      "sh_relvol_o1",
+      "ta_rsi_nos40",
+      "ta_sma20_sa50",
+      "ta_sma200_pa",
+      "ta_sma50_pa",
+      "ta_highlow52w_b0to5h"
+    ],
+    "historical_proxy": "실제 FINVIZ의 설정 링크. 과거 순위는 당시 대형·중형 표본, SEC 공시·13F, 정규장 종가로 재구성."
+  },
+  "relaxed_volume": {
+    "name": "상대거래량 문턱 해제",
+    "changes": "상대거래량 하한 해제, 상대거래량 내림차순",
+    "url": "https://finviz.com/screener?v=111&f=cap_midover%2Cfa_curratio_o1%2Cfa_debteq_u1%2Cgeo_usa%2Csh_avgvol_o500%2Csh_instown_o40%2Csh_price_o10%2Cta_rsi_nos40%2Cta_sma20_sa50%2Cta_sma200_pa%2Cta_sma50_pa&ft=4&ta=0&o=-relativevolume",
+    "order": "-relativevolume",
+    "filters": [
+      "cap_midover",
+      "fa_curratio_o1",
+      "fa_debteq_u1",
+      "geo_usa",
+      "sh_avgvol_o500",
+      "sh_instown_o40",
+      "sh_price_o10",
+      "ta_rsi_nos40",
+      "ta_sma20_sa50",
+      "ta_sma200_pa",
+      "ta_sma50_pa"
+    ],
+    "historical_proxy": "실제 FINVIZ의 설정 링크. 과거 순위는 당시 대형·중형 표본, SEC 공시·13F, 정규장 종가로 재구성."
+  },
+  "quiet_growth": {
+    "name": "거래량 문턱 없는 매출 성장",
+    "changes": "상대거래량 하한 해제, 분기 매출 전년 동기 대비 > 10%, 63거래일 수익률 내림차순",
+    "url": "https://finviz.com/screener?v=111&f=cap_midover%2Cfa_curratio_o1%2Cfa_debteq_u1%2Cgeo_usa%2Csh_avgvol_o500%2Csh_instown_o40%2Csh_price_o10%2Cta_rsi_nos40%2Cta_sma20_sa50%2Cta_sma200_pa%2Cta_sma50_pa%2Cfa_salesqoq_o10&ft=4&ta=0&o=-perf13w",
+    "order": "-perf13w",
+    "filters": [
+      "cap_midover",
+      "fa_curratio_o1",
+      "fa_debteq_u1",
+      "geo_usa",
+      "sh_avgvol_o500",
+      "sh_instown_o40",
+      "sh_price_o10",
+      "ta_rsi_nos40",
+      "ta_sma20_sa50",
+      "ta_sma200_pa",
+      "ta_sma50_pa",
+      "fa_salesqoq_o10"
+    ],
+    "historical_proxy": "실제 FINVIZ의 설정 링크. 과거 순위는 당시 대형·중형 표본, SEC 공시·13F, 정규장 종가로 재구성."
+  }
+}
