@@ -7,8 +7,9 @@ include pre- and post-market minutes so the evening KST view shows a current pri
 from __future__ import annotations
 
 import json
+import os
 import time as _time
-from datetime import date, datetime, timedelta
+from datetime import date, datetime, time, timedelta
 
 import numpy as np
 import pandas as pd
@@ -87,3 +88,101 @@ def ffill_on(series: pd.Series, days: list[str]) -> np.ndarray:
     s = series.copy()
     s.index = s.index.strftime("%Y-%m-%d")
     return s.reindex(sorted(set(s.index) | set(days))).ffill().reindex(days).to_numpy(float)
+
+
+def _sip_basket_bars(symbols, first, last, cutoff):
+    """One batch of split-adjusted (dividends excluded) daily bars, market data only."""
+    import requests
+    env = dict(os.environ)
+    dotenv = config.ROOT / ".env"
+    if dotenv.exists():
+        for line in dotenv.read_text(encoding="utf-8-sig").splitlines():
+            if "=" in line and not line.lstrip().startswith("#"):
+                k, v = line.split("=", 1)
+                env.setdefault(k.strip(), v.strip().strip("\"'"))
+    key = env.get("ALPACA_KEY_ID") or env.get("APCA_API_KEY_ID")
+    secret = env.get("ALPACA_SECRET_KEY") or env.get("APCA_API_SECRET_KEY")
+    if not (key and secret):
+        return {}
+    vendor = {s.replace("-", "."):s for s in symbols}
+    # A free data key can read SIP past the 15-minute delay. Limit the end to
+    # the observed clock even when the final session closed earlier today.
+    end = min(datetime.combine(date.fromisoformat(last) + timedelta(days=1), time.min, config.NY), cutoff)
+    response = requests.get("https://data.alpaca.markets/v2/stocks/bars",
+                            headers={"APCA-API-KEY-ID":key, "APCA-API-SECRET-KEY":secret},
+                            params={"symbols":",".join(vendor), "timeframe":"1Day", "start":first,
+                                    "end":end.isoformat(), "adjustment":"split", "asof":"-",
+                                    "feed":"sip", "limit":10000}, timeout=12)
+    response.raise_for_status()
+    data = response.json()
+    if data.get("next_page_token"):
+        return {}  # At most 7 tickers across a single month.
+    result = {}
+    for name, bars in data["bars"].items():
+        if name not in vendor:
+            continue
+        out = {}
+        for r in bars:
+            day = datetime.fromisoformat(r["t"].replace("Z","+00:00")).astimezone(config.NY).date().isoformat()
+            if day in (first,last) and r["v"] > 0:
+                out[day] = float(r["o"]), float(r["c"])
+        result[vendor[name]] = out
+    return result
+
+
+def repair_basket_bars(book, basket: dict | None, completed: str, *, now=None) -> dict:
+    """Fill missing month-open / latest-close values in this book. Return provenance of filled cells.
+
+    Both endpoints must be present in the same SIP split-adjusted series. Any available
+    Yahoo endpoint must agree with that basis. A data outage leaves blanks for a retry.
+    """
+    import requests
+    from .news import market_calendar
+    if not basket or not completed:
+        return {}
+    first = basket["effective_date"]
+    if (first[:7] != completed[:7] or first > completed or first not in book.opn.index
+            or completed not in book.cls.index):
+        return {}
+    def value(frame, day, symbol):
+        return frame.at[day,symbol] if symbol in frame and day in frame.index else np.nan
+
+    def valid(v):
+        return np.isfinite(v) and v > 0
+
+    wanted = [s for s in basket["symbols"] if not valid(value(book.opn,first,s))
+              or not valid(value(book.cls,completed,s))]
+    if not wanted:
+        return {}
+    calendar = market_calendar()
+    if not calendar.is_session(completed):
+        return {}
+    cutoff = (now or datetime.now(config.NY)) - timedelta(minutes=16)
+    if calendar.session_close(completed).to_pydatetime() > cutoff:
+        return {}
+    try:
+        bars = _sip_basket_bars(wanted,first,completed,cutoff)
+    except (requests.RequestException, OSError, KeyError, ValueError, TypeError, AttributeError):
+        return {}
+    report = {}
+    for s, data in bars.items():
+        if s not in wanted or first not in data or completed not in data:
+            continue
+        # Check all available corresponding Yahoo quotes at those endpoints.
+        # No conversion is inferred from a large disagreement (e.g. a split).
+        matches = True
+        for day in {first,completed}:
+            for frame, quote in zip((book.opn,book.cls), data[day]):
+                current = value(frame,day,s)
+                if not valid(quote) or (valid(current) and not np.isclose(current,quote,rtol=.002,atol=.01)):
+                    matches = False
+        if not matches:
+            continue
+        notes = {"source":"Alpaca SIP, split-adjusted daily bars"}
+        for frame,day,quote,tag in [(book.opn,first,data[first][0],"open_date"),
+                                    (book.cls,completed,data[completed][1],"close_date")]:
+            if not valid(value(frame,day,s)):
+                frame.at[day,s] = quote
+                notes[tag] = day
+        report[s] = notes
+    return report

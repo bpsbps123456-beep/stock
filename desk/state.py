@@ -11,13 +11,14 @@ import subprocess
 import sys
 import threading
 import time
-from datetime import date, datetime, time as dtime
+from datetime import date, datetime, timedelta
 
 import numpy as np
 
 from gbrc.etf.storage import NORMALIZED_HOLDINGS_DIR
 
-from . import alerts, config, journal, marketdata, strategies as S
+from . import alerts, config, finviz_basket, finviz_switch, journal, marketdata, strategies as S
+from .bottom_paper import latest_completed
 
 WEEKDAY = "월화수목금토일"
 
@@ -46,13 +47,7 @@ def _label(day: str) -> str:
 
 
 def last_completed_session(now: datetime | None = None) -> str:
-    now_ny = (now or datetime.now(config.NY)).astimezone(config.NY)
-    day = now_ny.date()
-    if not (config.is_us_session(day) and now_ny.time() >= dtime(16, 5)):
-        day = date.fromordinal(day.toordinal() - 1)
-        while not config.is_us_session(day):
-            day = date.fromordinal(day.toordinal() - 1)
-    return day.isoformat()
+    return latest_completed((now or datetime.now(config.NY)) - timedelta(minutes=5))
 
 
 def _drawdown(values: np.ndarray) -> tuple[float, float]:
@@ -83,20 +78,54 @@ class Desk:
         self.quotes: dict = {}
         self.quotes_at = 0.0
         self.busy = None
+        self.capture_attempt = None
+        self.capture_issue = None
+        self.basket = None
+        self.basket_issue = None
+        self.last_bar_repair = None
+        self.repaired_bars = {}
 
     # -- cache control ------------------------------------------------------
     def _data_key(self):
         return max((p.stem[:10] for p in NORMALIZED_HOLDINGS_DIR.glob(f"*_{S.TIME_FUND}.json")), default=None)
 
+    def capture_month(self, now):
+        with self.lock:
+            stamp = time.monotonic()
+            if self.capture_attempt is None or stamp - self.capture_attempt >= 300:
+                self.capture_attempt = stamp
+                try:
+                    finviz_basket.capture_due(now=now)
+                    self.capture_issue = None
+                except finviz_basket.BasketError as exc:
+                    self.capture_issue = str(exc)
+
     def ensure(self, force: bool = False) -> None:
         with self.lock:
-            key = self._data_key()
-            stale_close = self.book is not None and self.book.days[-1] < last_completed_session()
+            now = datetime.now(config.NY)
+            session, _ = config.next_us_session(now)
+            self.capture_month(now)
+            self.basket_issue = self.capture_issue
+            try:
+                self.basket = finviz_basket.load_basket(session)
+            except finviz_basket.BasketError as exc:
+                self.basket, self.basket_issue = None, str(exc)
+            extra = {e["ticker"] for e in journal.load_entries() if e.get("ticker")}
+            extra.add("SOXX")
+            if self.basket:
+                extra.update(self.basket["symbols"])
+            key = self._data_key(), tuple(sorted(extra))
+            completed = last_completed_session(now)
+            stale_close = self.book is not None and self.book.days[-1] < completed
             if force or self.book is None or key != self.key or stale_close:
-                extra = sorted({e["ticker"] for e in journal.load_entries() if e.get("ticker")})
-                self.book = S.load_book(force_prices=force or stale_close, extra=extra)
-                self.path = S.run_model(self.book)
-                self.key = key
+                book = S.load_book(force_prices=force or stale_close, extra=sorted(extra), through=completed)
+                path = S.run_model(book)
+                self.book, self.path, self.key = book, path, key
+                self.last_bar_repair = None
+                self.repaired_bars = {}
+            if self.basket and (self.last_bar_repair is None or time.monotonic() - self.last_bar_repair >= 300):
+                self.last_bar_repair = time.monotonic()
+                self.repaired_bars.update(marketdata.repair_basket_bars(self.book, self.basket, completed))
 
     def _get_quotes(self, tickers: set[str], force: bool) -> dict:
         missing = tickers - set(self.quotes)
@@ -124,15 +153,46 @@ class Desk:
             finally:
                 self.busy = None
 
+    def _decision(self):
+        with self.lock:
+            self.ensure()
+            book, path, basket, basket_issue = self.book, self.path, self.basket, self.basket_issue
+            now = datetime.now(config.KST)
+            session, open_kst = config.next_us_session(now)
+            if basket and basket["effective_date"][:7] != session[:7]:
+                basket = None
+            tg = S.next_target(book, path, session)
+            switch = finviz_switch.decision(book, tg, session, last_completed_session(now), basket, basket_issue)
+            if self.repaired_bars:
+                switch["bar_sources"] = dict(self.repaired_bars)
+            weekly_target = {book.ticker[k]: w for k, w in tg["target"].items()}
+            try:
+                finviz_switch.record_decision(switch, weekly_target, session, now)
+            except OSError:
+                switch["record_error"] = "이번 신호를 모의 관찰 기록에 저장하지 못했습니다."
+            return book, path, now, session, open_kst, tg, switch
+
+    def maintain_paper(self):
+        now = datetime.now(config.NY)
+        self.capture_month(now)
+        session, _ = config.next_us_session(now)
+        if not (config.CACHE / "finviz_observations" / (session + ".json")).exists():
+            if last_completed_session(now) == finviz_switch.market_calendar().previous_session(session).date().isoformat():
+                self._decision()
+
     # -- state ------------------------------------------------------------------
     def state(self, force_quotes: bool = False) -> dict:
-        self.ensure()
-        book, path = self.book, self.path
+        book, path, now, session, open_kst, tg, switch = self._decision()
         settings = journal.load_settings()
-        now = datetime.now(config.KST)
-        session, open_kst = config.next_us_session()
-        tg = S.next_target(book, path, session)
-        target, ranked = tg["target"], tg["ranked"]
+        applied = switch["applied"] = settings["finviz_orders"]
+        alt = applied and switch["mode"] == "finviz"
+        blocked = applied and switch["mode"] == "blocked"
+        target = {} if blocked else tg["target"]
+        ranked = tg["ranked"]
+        tickers = book.ticker
+        if alt:
+            target = {r["ticker"]: r["weight"] for r in switch["new_targets"]}
+            tickers = {tk: tk for tk in target}
         entries = journal.load_entries()
         last_close = {}
         for tk in book.cls.columns:
@@ -141,7 +201,7 @@ class Desk:
             if len(ok):
                 last_close[tk] = (book.days[ok[-1]], float(col[ok[-1]]))
 
-        relevant = ({book.ticker[k] for k in target} | {r["ticker"] for r in ranked[:12]}
+        relevant = ({tickers[k] for k in target} | {r["ticker"] for r in ranked[:12]}
                     | {e["ticker"] for e in entries if e.get("ticker")})
         quotes = self._get_quotes(relevant, force_quotes)
         price = {}
@@ -149,6 +209,22 @@ class Desk:
             q = quotes.get(tk)
             price[tk] = q["price"] if q else (last_close.get(tk, (None, None))[1])
         acct = journal.compute(entries, price)
+        if applied and switch["order_due"]:
+            needed = {tickers[k] for k in target} | {p["ticker"] for p in acct["positions"]}
+            missing = []
+            for tk in sorted(needed):
+                quoted_at = (quotes.get(tk) or {}).get("epoch")
+                current = quoted_at and datetime.fromtimestamp(quoted_at, config.NY).date().isoformat() >= switch["signal_date"]
+                close_day, closing = last_close.get(tk, (None, None))
+                if (not current or not price.get(tk)) and close_day == switch["signal_date"]:
+                    price[tk] = closing
+                elif not current or not price.get(tk):
+                    missing.append(tk)
+            acct = journal.compute(entries, price)
+            if missing:
+                switch = dict(switch, mode="blocked", order_due=False, new_targets=[], new_cash_target=None,
+                              reason="주문 평가 가격 확인 대기 · " + ", ".join(missing))
+                blocked, alt, target = True, False, {}
 
         # model and TIME ETF in KRW; the ETF is read at the KRX close that prices each US day
         ms = S.model_status(book, path, alerts.LONG_WINDOW)
@@ -162,12 +238,16 @@ class Desk:
                 since[ev["key"]] = ev["date"]
         rows = []
         for key, wv in sorted(target.items(), key=lambda x: -x[1]):
-            tk, sector, r = book.ticker[key], book.sector.get(key, S.UNKNOWN), rank.get(key)
+            tk = tickers[key]
+            sector, r = (S.sector_of(key, tk), None) if alt else (book.sector.get(key, S.UNKNOWN), rank.get(key))
             reasons = ([f"120거래일 수익률 {r['mom120']:+.0%} · {r['rank']}위 · TIME 비중 {r['time_weight']:.1%}"]
                        if r else ["수익률 순위에 없음 · 다음 재조정일에 다시 판단합니다"])
             note = _cap_note(wv, tg["raw"].get(key), sector)
             if note:
                 reasons.append(note)
+            if alt:
+                pos = switch["basket_symbols"].index(tk) + 1
+                reasons = [f"월말 재무·추세 조건 통과 · 상대거래량 {pos}위 · 월초 한 자리 1/7"]
             q = quotes.get(tk) or {}
             lc = last_close.get(tk)
             rows.append({"key": key, "ticker": tk, "name": book.names.get(key, ""), "weight": wv,
@@ -175,15 +255,18 @@ class Desk:
                          "price": price.get(tk), "quote": q, "last_close": lc[1] if lc else None,
                          "last_close_date": lc[0] if lc else None,
                          "change": (price.get(tk) / lc[1] - 1) if lc and price.get(tk) else None,
-                         "since": since.get(key), "reasons": reasons})
-        cash_target = max(0.0, 1.0 - sum(target.values()))
+                         "since": switch["effective_date"] if alt else since.get(key), "reasons": reasons})
+        cash_target = None if blocked else max(0.0, 1.0 - sum(target.values()))
 
         # actions: target weights vs the journal account at current prices
         equity = acct["market_value"] + max(acct["cash"], 0.0)
         tol = float(settings["tolerance"])
         held = {p["ticker"]: p for p in acct["positions"]}
         actions = []
-        for tk in sorted({r["ticker"] for r in rows} | set(held)):
+        order_tickers = {r["ticker"] for r in rows} | set(held)
+        if applied and not switch["order_due"]:
+            order_tickers = set()
+        for tk in sorted(order_tickers):
             tw = next((r["weight"] for r in rows if r["ticker"] == tk), 0.0)
             px = price.get(tk)
             cur = held.get(tk)
@@ -249,16 +332,22 @@ class Desk:
                       for ev in path.events if ev["key"] in keys and ev["date"] >= book.days[begin]]
             series[tk] = {"dates": book.days[begin:], "close": col, "marks": marks}
 
-        rebalance_on = session if tg["rebalance_day"] else config.next_rebalance(session)
+        due = switch["order_due"] if applied else tg["rebalance_day"]
+        rebalance_on = session if due else config.next_rebalance(session)
+        if alt and not due:
+            next_month = (date.fromisoformat(session).replace(day=28) + timedelta(days=4)).replace(day=1)
+            rebalance_on = finviz_basket.month_dates(next_month)[1]
         return clean({
             "generated_at": now.strftime("%Y-%m-%d %H:%M:%S"),
             "busy": self.busy,
             "settings": settings,
-            "strategy": config.STRATEGY_NAME,
+            "strategy": "SOXX 100일선 · 주간 TIME / 월간 FINVIZ" if applied else config.STRATEGY_NAME,
+            "finviz_switch": switch,
+            "research_comparison": finviz_switch.research_comparison(),
             "rule": dict(config.RULE),
             "session": {"date": session, "label": _label(session),
                         "open_kst": open_kst.strftime("%m월 %d일 %H:%M"),
-                        "rebalance_day": tg["rebalance_day"], "next_rebalance": _label(rebalance_on)},
+                        "rebalance_day": due, "next_rebalance": None if blocked else _label(rebalance_on)},
             "status": {"pdf": book.pdfs[-1], "pdf_used": tg["pdf"], "last_close": book.days[-1],
                        "quotes_at": datetime.fromtimestamp(self.quotes_at, config.KST).strftime("%H:%M")
                        if self.quotes_at else None,
@@ -269,7 +358,7 @@ class Desk:
             "rankings": [{"ticker": r["ticker"], "rank": r["rank"], "mom120": r["mom120"],
                           "time_weight": r["time_weight"], "sector": r["sector"],
                           "detail": S.subsector_of(r["key"], r["ticker"]),
-                          "semis": S.in_semis_budget(r["sector"]), "in_target": r["key"] in target}
+                          "semis": S.in_semis_budget(r["sector"]), "in_target": r["key"] in tg["target"]}
                          for r in ranked[:15]],
             "account": {**acct, "history": acct_hist},
             "journal": sorted(entries, key=lambda e: (e["date"], e.get("created_at", "")), reverse=True),

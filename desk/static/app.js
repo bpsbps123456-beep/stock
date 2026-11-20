@@ -136,7 +136,7 @@ async function post(path, body) {
 /* ------------------------------------------------------------------ render */
 function render() {
   renderChips(); renderWarnings(); renderTicket(); renderTiles();
-  renderAlloc(); renderRank(); renderModel(); renderPrice(); renderPositions();
+  renderAlloc(); renderRank(); renderModel(); renderResearchComparison(); renderPrice(); renderPositions();
   renderAccount(); renderJournal(); renderRisk(); renderNotes();
   document.dispatchEvent(new CustomEvent("desk:state"));  // other tabs (AI 탐방) light 7종목·내 보유 from S
 }
@@ -191,12 +191,70 @@ function orderLine(a, i, hasBook) {
     h("div", { class: "o-qty" }, qty));
 }
 
+async function chooseOrderRule(event) {
+  const select = event.currentTarget;
+  select.disabled = true;
+  try {
+    S = await post("/api/settings", { finviz_orders: select.value === "switch" });
+    render();
+    toast("주문 초안 기준을 저장했습니다.");
+  } catch (error) {
+    renderTicket();
+    toast("주문 초안 기준을 저장하지 못했습니다. " + error.message);
+  }
+}
+
+function switchSummary(route) {
+  if (!route) return null;
+  const finviz = route.mode === "finviz";
+  const status = route.mode === "desk" ? "100일선 이상 · TIME 주간 7종목" :
+    finviz ? "100일선 이탈 · FINVIZ 월초 바스켓" : "전환 판단 보류";
+  const source = { research_reconstruction: "당시 자료로 복원", finviz_close: "FINVIZ 종가 명단" }[route.source];
+  const targets = (route.new_targets || []).map((r) => `${r.ticker} ${pctAbs(r.weight)}`);
+  if (route.new_cash_target > 0.0005) targets.push(`달러 현금 ${pctAbs(route.new_cash_target)}`);
+  return h("section", { class: "switch-summary", "aria-label": "SOXX 전환 신호" },
+    h("div", { class: "switch-title" }, h("b", null, route.applied ? "적용 중인 전환 신호" : "개선안 모의 점검"), h("span", { class: "flag" }, status)),
+    h("div", { class: "t-meta" }, "신호일 ", h("b", null, route.signal_date || "미확인"),
+      " · SOXX 종가 ", h("b", null, usd(route.close)), " · 100일선 ", h("b", null, usd(route.sma100))),
+    route.basket_month && route.mode !== "desk"
+      ? h("div", { class: "t-meta" }, "월초 바스켓 ", h("b", null, route.basket_month),
+        route.basket_signal_date ? ` · 명단 기준 ${route.basket_signal_date} 종가` : null,
+        source ? ` · ${source}` : null) : null,
+    finviz && targets.length ? h("div", { class: "basket-targets" }, targets.join(" · ")) : null,
+    route.order_due && route.reason ? h("p", { class: "t-meta" }, `이번 거래일 · ${route.reason}`) : null,
+    route.mode === "blocked" && !route.applied ? h("p", { class: "t-meta" }, route.reason || "개선안의 목표 비중을 확인할 수 없습니다.") : null,
+    route.record_error ? h("p", { class: "t-meta", role: "status" }, route.record_error) : null);
+}
+
 function renderTicket() {
   const ses = S.session, acct = S.account;
   const hasBook = acct.positions.length > 0 || acct.funded;
-  const flag = ses.rebalance_day
-    ? "주간 재조정일 · 7종목 구성과 비중을 조정합니다"
-    : `보유 유지 기간 · 다음 재조정일 ${ses.next_rebalance}`;
+  const route = S.finviz_switch;
+  const applied = route?.applied ?? S.settings.finviz_orders === true;
+  const blocked = applied && (route?.mode !== "desk" && route?.mode !== "finviz");
+  const finviz = applied && route?.mode === "finviz";
+  const head = h("div", { class: "t-head" },
+    h("div", null,
+      h("div", { class: "eyebrow" }, "내 계좌 주문 초안"),
+      h("div", { class: "t-title" }, `${ses.label} 미국장`),
+      h("div", { class: "t-meta" }, "정규장 개장 ", h("b", null, hhmm(ses.open_kst)), " (한국시간)"),
+      !blocked && !finviz ? h("div", { class: "t-meta" }, "판단 기준 TIME PDF ", h("b", null, md(S.status.pdf_used)),
+        " · ", ses.rebalance_day ? "주간 재조정일" : `다음 주간 재조정일 ${ses.next_rebalance}`) : null),
+    route ? h("label", { class: "order-rule" }, "주문 초안 기준",
+      h("select", { onchange: chooseOrderRule }, h("option", { value: "desk", selected: !applied }, "기존 TIME 주간 전략"),
+        h("option", { value: "switch", selected: applied }, "SOXX 100일선 전환 전략"))) : null);
+  const summary = switchSummary(route);
+  if (blocked) {
+    mount($("#ticket"), head, summary, h("div", { class: "banner ticket-status", role: "status" },
+      h("span", { class: "ico", "aria-hidden": "true" }, "!"),
+      h("span", null, route?.reason || "시장 전환 자료를 확인할 수 없어 목표 비중과 주문 수량 계산을 보류합니다.")));
+    return;
+  }
+  if (applied && route.order_due !== true) {
+    mount($("#ticket"), head, summary, h("p", { class: "ticket-status", role: "status" },
+      "보유 유지일입니다. 다음 시장 전환이나 정기 재조정 때 주문 초안을 계산합니다."));
+    return;
+  }
   let orders = S.actions;
   if (!hasBook) {
     orders = S.targets.map((r) => {
@@ -209,8 +267,10 @@ function renderTicket() {
   const holds = orders.filter((a) => a.side === "HOLD");
   const body = active.map((a, i) => orderLine(a, i, hasBook));
   if (!active.length) {
+    const unchanged = finviz && !S.targets.length ? "월초 검색 조건을 통과한 종목이 없어 달러 현금을 유지합니다." :
+      `현재 비중과 목표 비중의 차이가 허용 범위(${pctAbs(S.settings.tolerance, 0)}) 안이므로 추가 주문이 없습니다.`;
     body.push(h("div", { class: "order", style: "cursor:default" }, h("span", { class: "stamp hold" }, "— 유지"),
-      h("div", { class: "o-why" }, `현재 비중과 목표 비중의 차이가 허용 범위(${pctAbs(S.settings.tolerance, 0)}) 안이므로 추가 주문이 없습니다.`), h("div")));
+      h("div", { class: "o-why" }, unchanged), h("div")));
   }
   if (holds.length) {
     body.push(h("div", { class: "holds" }, h("span", { class: "muted", style: "font-size:12px;align-self:center" }, "유지"),
@@ -219,8 +279,8 @@ function renderTicket() {
   }
   if (S.cash_target > 0.005) {
     body.push(h("div", { class: "holds" }, h("span", { class: "muted", style: "font-size:12px;align-self:center" }, "현금"),
-      h("span", { class: "hold-pill", title: "종목·섹터별 비중 상한을 적용하고 남은 금액은 현금으로 둡니다" },
-        h("b", null, pctAbs(S.cash_target, 0)), "비중 상한 적용 후 남은 현금")));
+      h("span", { class: "hold-pill" }, h("b", null, pctAbs(S.cash_target, 0)),
+        finviz ? "월초 바스켓의 달러 현금" : "비중 상한 적용 후 남은 현금")));
   }
   const steps = hasBook ? null : h("ol", { class: "empty-steps" },
     h("li", null, "아래 ‘매매 기록’에서 계좌의 달러 예수금(주문 가능한 현금)을 ", h("b", null, "입금"), "으로 먼저 기록하세요."),
@@ -230,14 +290,7 @@ function renderTicket() {
     h("input", { id: "plan", class: "mono", type: "number", min: "0", step: "100", value: planAmount ?? "", placeholder: "10000",
                  onchange: (e) => { planAmount = e.target.value ? +e.target.value : null; renderTicket(); } }));
   mount($("#ticket"),
-    h("div", { class: "t-head" },
-      h("div", null,
-        h("div", { class: "eyebrow" }, "주문 안내 · 다음 미국 거래일"),
-        h("div", { class: "t-title" }, `${ses.label} 미국장`),
-        h("div", { class: "t-meta" }, "개장 ", h("b", null, hhmm(ses.open_kst)), " (한국시간) · 판단 기준 PDF ",
-          h("b", null, md(S.status.pdf_used)), " · 종가 ", h("b", null, md(S.status.last_close))),
-        h("span", { class: "flag" }, flag)),
-      h("div", { class: "t-serial" }, S.strategy, h("br"), `NO. ${ses.date.replaceAll("-", "")}`)),
+    head, summary,
     steps,
     h("div", { class: "orders" }, body),
     h("div", { class: "t-foot" },
@@ -274,10 +327,10 @@ function renderTiles() {
     tile(120, "전체 손익 (매도 손익 + 보유 손익)",
       [arw(pnl) + usd(pnl), a.contributed > 0 ? h("small", null, pct(pnl / a.contributed)) : null],
       `매도한 종목 ${usd(a.realized)} · 보유 종목 ${usd(a.unrealized)}`, cls(pnl)),
-    tile(180, [swatch("var(--s-strategy)"), `7종목 전략 모의 성과 · ${md(S.model.start)} 이후 원화`],
+    tile(180, [swatch("var(--s-strategy)"), `기존 TIME 주간 모의 성과 · ${md(S.model.start)} 이후 원화`],
       [pct(st.total), h("small", null, `TIME ETF ${pct(S.model.etf_total)} (${md(S.model.etf_through)}까지)`)],
       `전략 최대 하락폭 ${pct(st.mdd)} · 과거 자료로 계산한 성과입니다`),
-    tile(240, "전략의 고점 대비 하락폭",
+    tile(240, "기존 TIME 주간 모델의 고점 대비 하락폭",
       [st.dd_now > -0.0005 ? "고점" : pct(st.dd_now),
        h("small", null, `최근 20거래일 ETF 대비 ${S.model.vs_etf_20d == null ? "—" : pct(S.model.vs_etf_20d) + "p"}`)],
       "하락폭이 커지면 아래 ‘투자 점검’을 확인하세요"));
@@ -285,6 +338,12 @@ function renderTiles() {
 
 /* ------------------------------------------------------------- allocation */
 function renderAlloc() {
+  const route = S.finviz_switch;
+  if ((route?.applied ?? S.settings.finviz_orders === true) && (route?.mode !== "desk" && route?.mode !== "finviz")) {
+    $("#alloc-sub").textContent = "목표 비중 보류";
+    mount($("#alloc-body"), h("p", { class: "muted" }, "시장 전환 자료를 확인한 뒤 목표 비중을 표시합니다. 현재 보유 비중은 ‘내 보유 종목’에서 확인하세요."));
+    return;
+  }
   const rows = new Map();
   S.targets.forEach((r) => rows.set(r.ticker, { tk: r.ticker, tgt: r.weight, cur: 0 }));
   S.account.positions.forEach((p) => {
@@ -320,7 +379,7 @@ function renderRank() {
     h("td", { class: `r ${cls(r.mom120)}` }, pct(r.mom120, 0)), h("td", { class: "r" }, pctAbs(r.time_weight)),
     h("td", null, h("span", { class: r.semis ? "tag semi" : "tag",
       title: `상한 계산 섹터: ${r.sector}${r.semis ? ` · 반도체 ${capPct("semis_cap")} 한도에 포함` : ""}` }, r.detail || r.sector)),
-    h("td", null, r.in_target ? h("span", { class: "tag in" }, "목표")
+    h("td", null, r.in_target ? h("span", { class: "tag in" }, "주간 목표")
       : r.rank <= 7 ? h("span", { class: "tag", title: "기존 종목이 유지 기준을 충족해 새로 편입할 자리가 없습니다" }, "편입 대기") : null,
       r.rank === 7 ? h("span", { class: "cut-label" }, " — 신규 편입 기준") : null,
       r.rank === 12 ? h("span", { class: "cut-label" }, " — 보유 유지선") : null)));
@@ -476,7 +535,7 @@ function tableView(host, dates, cols) {
 function renderModel() {
   const ser = S.model.series;
   const series = [
-    { label: "7종목 전략(모의)", values: ser.model, color: "var(--s-strategy)" },
+    { label: "TIME 주간 모델", values: ser.model, color: "var(--s-strategy)" },
     { label: "TIME ETF", values: ser.etf, color: "var(--s-etf)" },
   ];
   $("#model-sub").textContent = `${md(S.model.start)}부터 누적 수익률 · 원화·종가 기준 · ETF는 해당 미국장 이후의 한국 종가로 비교`;
@@ -486,7 +545,21 @@ function renderModel() {
     return;
   }
   lineChart(host, { dates: S.model.dates, series, fmtY: (v) => pct(v / 100 - 1, 0), fmtTip: (v) => pct(v / 100 - 1),
-    endLabels: true, baseline: 100, height: 300, aria: "7종목 전략 모의 성과와 TIME ETF 누적 수익률" });
+    endLabels: true, baseline: 100, height: 300, aria: "기존 TIME 주간 모델과 TIME ETF 누적 수익률" });
+}
+
+function renderResearchComparison() {
+  const host = $("#research-comparison");
+  const data = S.research_comparison;
+  host.hidden = !data?.rows?.length;
+  if (host.hidden) { mount(host); return; }
+  const rows = data.rows.map((r) => h("tr", null, h("td", null, r.label),
+    h("td", { class: `r ${cls(r.ytd)}` }, pct(r.ytd, 2)),
+    h("td", { class: `r ${cls(r.h2)}` }, pct(r.h2, 2))));
+  mount(host, h("h3", null, "전환 전략과 ETF · 원화 수익률 비교"),
+    h("p", null, `전략은 과거 자료로 계산한 모의 성과입니다. 미국 ${data.through_us} 종가 · 한국 ${data.through_krx} 종가 기준.`),
+    table([["전략 · ETF"], ["연초 이후", 1], ["7월 이후", 1]], rows),
+    data.note ? h("p", null, data.note) : null);
 }
 
 function renderPrice() {
@@ -496,7 +569,7 @@ function renderPrice() {
   const tri = (fill, stroke) => { const s = svg("svg", { width: 12, height: 10 }); svg("polygon", { points: "6,1 1,9 11,9", style: `fill:${fill};stroke:${stroke};stroke-width:1.6` }, s); return s; };
   mount($("#price-legend"),
     h("span", null, tri("var(--s-account)", "var(--s-account)"), "내 매수(▲)·매도(▼)"),
-    h("span", null, tri("var(--surface)", "var(--s-strategy)"), "7종목 전략 편입·편출"));
+    h("span", null, tri("var(--surface)", "var(--s-strategy)"), "TIME 주간 모델 편입·편출"));
   const s = S.series[priceTicker];
   if (!s) { mount($("#price-chart"), h("p", { class: "muted" }, "표시할 종목이 없습니다.")); return; }
   $("#price-title").textContent = `${priceTicker} 차트`;
@@ -504,7 +577,7 @@ function renderPrice() {
     const me = mk.kind.startsWith("me_"), buy = mk.kind.endsWith("buy");
     return { date: mk.date, value: mk.price, shape: buy ? "up" : "down",
              fill: me ? "var(--s-account)" : "var(--surface)", stroke: me ? "var(--s-account)" : "var(--s-strategy)",
-             label: `${me ? "내" : "전략(모의)"} ${buy ? "매수" : "매도"}${mk.qty ? ` ${qtyFmt(mk.qty)}주` : ""} @ ${usd(mk.price)}` };
+             label: `${me ? "내" : "TIME 주간 모델"} ${buy ? "매수" : "매도"}${mk.qty ? ` ${qtyFmt(mk.qty)}주` : ""} @ ${usd(mk.price)}` };
   });
   lineChart($("#price-chart"), { dates: s.dates, series: [{ label: priceTicker, values: s.close, color: "var(--ink-2)", width: 1.8 }],
     markers, fmtY: (v) => usd(v, v < 20 ? 2 : 0), fmtTip: (v) => usd(v), height: 280, aria: `${priceTicker} 종가와 매매 시점` });
@@ -592,9 +665,10 @@ function renderRisk() {
 function renderNotes() {
   const st = S.model.stats;
   mount($("#notes"),
-    h("b", null, "운용 규칙"), " — TIME이 보유한 미국 종목의 최근 120거래일 수익률을 기준으로 7종목을 구성합니다. 기존 종목은 12위 이내면 유지하고, 빈자리를 높은 순위부터 채웁니다. 매주 첫 미국 거래일 개장가를 기준으로 조정하며, 기본 비중은 TIME 보유 비중에 비례합니다. ",
+    h("b", null, "SOXX 100일선 전환 전략"), "은 직전 미국장 종가가 SOXX 100일선 아래면 FINVIZ 월초 바스켓을 사용합니다. 유동비율 1.5 초과, 부채/자본 0.5 미만 등 검색 조건을 통과한 종목을 전월 마지막 거래일의 상대거래량 순으로 최대 7개 정합니다. 빈자리는 달러 현금으로 두며 SOXX가 100일선을 회복하면 다음 미국장 시가에 TIME 주간 전략으로 돌아갑니다.", h("br"),
+    h("b", null, "기존 TIME 주간 전략"), "은 TIME이 보유한 미국 종목의 최근 120거래일 수익률을 기준으로 7종목을 구성합니다. 기존 종목은 12위 이내면 유지하고, 빈자리를 높은 순위부터 채웁니다. 매주 첫 미국 거래일 개장가를 기준으로 조정하며, 기본 비중은 TIME 보유 비중에 비례합니다. ",
     `비중 상한은 한 종목 ${capPct("stock_cap")}, 같은 섹터 ${capPct("sector_cap")}, 반도체(미분류 포함) 합계 ${capPct("semis_cap")}입니다(반도체는 2026-10-10에 60%에서 낮춤). 배분하고 남은 금액은 현금으로 둡니다. 판단에는 해당 거래일 이전의 PDF와 전일 종가만 사용합니다.`, h("br"),
-    h("b", null, `전략 모의 성과 (${md(S.model.start)} 이후, 원화, 수수료 0원, 개장가 체결 가정)`),
+    h("b", null, `기존 TIME 주간 전략 모의 성과 (${md(S.model.start)} 이후, 원화, 수수료 0원, 개장가 체결 가정)`),
     ` — 7종목 ${pct(st.total)} (최대 하락폭 ${pct(st.mdd)}), TIME ETF ${pct(S.model.etf_total)}. `,
     "과거 성과가 좋았던 규칙을 801개 중에서 골랐고(#774·반도체 60%), 반도체 50%는 2026-10-10에 변형 20개를 더 비교해 골랐으므로 결과가 유리하게 보일 수 있습니다. 2023~2025년 수익률은 #774 기준 TIME ETF의 0.9~1.1배였습니다(50%는 다시 재지 않음). 미래 수익을 보장하지 않습니다.", h("br"),
     h("b", null, "자료 출처"), " — 검증한 TIME 운용사 PDF와 Yahoo Finance 일별·1분 시세를 사용합니다. 장전·장후 시세를 포함하며 지연될 수 있습니다. 주문은 증권사에서 직접 실행하세요. ",

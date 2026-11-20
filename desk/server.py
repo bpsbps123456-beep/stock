@@ -205,6 +205,14 @@ def _warm() -> None:
         print(f"준비 완료 ({time.time() - started:.0f}초)", flush=True)
 
 
+def _observe_while_open(stop: threading.Event) -> None:
+    while not stop.wait(300):
+        try:
+            DESK.maintain_paper()
+        except Exception:
+            traceback.print_exc(limit=3)
+
+
 def main(argv: list[str] | None = None) -> int:
     argv = sys.argv[2:] if argv is None else argv
     if "--launcher" in argv:
@@ -235,6 +243,8 @@ def main(argv: list[str] | None = None) -> int:
     # downloading, and a bare console window meanwhile looked like a desk that never started.
     print("가격과 7종목 신호를 계산합니다 — 화면은 먼저 열리고, 계산이 끝나면 채워집니다.", flush=True)
     threading.Thread(target=_warm, name="desk-warm", daemon=True).start()
+    stop_observer = threading.Event()
+    threading.Thread(target=_observe_while_open, args=(stop_observer,), name="desk-observe", daemon=True).start()
     if "--launcher" in argv:
         print(f"열기: {url}\n이 창은 최소화해 두세요. 끄려면 창을 닫으면 됩니다.", flush=True)
     else:
@@ -249,6 +259,7 @@ def main(argv: list[str] | None = None) -> int:
     except KeyboardInterrupt:
         pass
     finally:
+        stop_observer.set()
         server.server_close()
     return 0
 

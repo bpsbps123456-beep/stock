@@ -59,7 +59,11 @@ class JournalTest(unittest.TestCase):
             path = Path(tmp) / "settings.json"
             path.write_text(json.dumps({"strategy": "c239120", "split": 0.5, "tolerance": 0.03}), encoding="utf-8")
             with mock.patch.object(config, "SETTINGS", path):
-                self.assertEqual(journal.load_settings(), {"tolerance": 0.03})
+                self.assertEqual(journal.load_settings(), {"tolerance": 0.03, "finviz_orders": config.DEFAULT_SETTINGS["finviz_orders"]})
+                self.assertTrue(journal.save_settings({"finviz_orders": True})["finviz_orders"])
+                self.assertTrue(journal.save_settings({"tolerance": 0.04})["finviz_orders"])
+                with self.assertRaises(journal.JournalError):
+                    journal.save_settings({"finviz_orders": "false"})
 
     def test_history_twr_ignores_money_moving_in_and_out(self):
         days = ["2026-09-21", "2026-09-22", "2026-09-23"]

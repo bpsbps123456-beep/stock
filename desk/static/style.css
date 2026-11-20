@@ -185,7 +185,16 @@ main { width: 100%; margin: 0 auto; padding: 24px var(--page-pad) 60px; display:
 .ticket .t-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; }
 .ticket .t-meta { color: var(--ink-2); font-size: 12.5px; margin-top: 4px; }
 .ticket .t-meta b { font-family: var(--mono); font-weight: 600; color: var(--ink); }
-.ticket .t-serial { margin-left: auto; text-align: right; font: 500 11px/1.6 var(--mono); color: var(--muted); }
+.order-rule { margin-left: auto; display: grid; gap: 4px; font-size: 12px; color: var(--ink-2); }
+.order-rule select { max-width: 100%; }
+.switch-summary { margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--ticket-edge); }
+.switch-title { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.switch-title .flag { margin-top: 0; }
+.basket-targets { margin-top: 6px; font: 500 12px/1.6 var(--mono); color: var(--ink-2); }
+.ticket-status { margin: 14px 0 0; }
+.research-comparison { margin-top: 16px; border-top: 1px solid var(--line); padding-top: 14px; }
+.research-comparison h3 { margin: 0 0 4px; font-size: 15px; }
+.research-comparison p { margin: 4px 0 9px; color: var(--ink-2); font-size: 12px; }
 .flag {
   display: inline-block; margin-top: 10px; padding: 3px 9px; border-radius: 6px;
   background: var(--accent-soft); color: var(--accent); font: 600 11.5px/1.4 var(--sans);
@@ -372,7 +381,7 @@ main [id] { scroll-margin-top: calc(var(--bar-height) + 78px); }
   .ticket::before { left: 8px; }
   .ticket::after { left: 22px; }
   .ticket .t-title { font-size: 19px; }
-  .ticket .t-serial { margin-left: 0; text-align: left; }
+  .order-rule { margin-left: 0; }
   .order { grid-template-columns: 58px minmax(0, 1fr); gap: 10px; }
   .order .o-qty { grid-column: 2; text-align: left; }
   .order .o-ticker { font-size: 18px; }

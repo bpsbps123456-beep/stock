@@ -106,7 +106,7 @@ class Book:
         return self._w[pdf]
 
 
-def load_book(force_prices: bool = False, extra: list[str] | None = None) -> Book:
+def load_book(force_prices: bool = False, extra: list[str] | None = None, *, through: str | None = None) -> Book:
     snaps = load_fund_snapshots(TIME_FUND, "9999-12-31")
     keys, names = set(), {}
     for snap in snaps.values():
@@ -122,6 +122,8 @@ def load_book(force_prices: bool = False, extra: list[str] | None = None) -> Boo
                                 force=force_prices)
     adj = prices["Adj Close"]
     days = [d.strftime("%Y-%m-%d") for d in adj["QQQ"].dropna().index]
+    if through is not None:
+        days = [day for day in days if day <= through]
 
     def on_days(df):
         out = df.copy()

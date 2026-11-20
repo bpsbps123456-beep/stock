@@ -32,7 +32,7 @@ RULE = {"lookback": 120, "n": 7, "buffer": 5, "stock_cap": 0.25, "sector_cap": 0
 CODEX_774_RULE = {"lookback": 120, "n": 7, "buffer": 5, "stock_cap": 0.25, "sector_cap": 0.60, "semis_cap": 0.60}
 # watchlist.py labels that share the semiconductor budget (unclassified names count too).
 SEMIS_SECTORS = {"AI 반도체", "메모리", "반도체 장비", "반도체 장비(적자)", "반도체(적자)", "반도체 소재"}
-DEFAULT_SETTINGS = {"tolerance": 0.02}
+DEFAULT_SETTINGS = {"tolerance": 0.02, "finviz_orders": False}
 
 KST = ZoneInfo("Asia/Seoul")
 NY = ZoneInfo("America/New_York")
