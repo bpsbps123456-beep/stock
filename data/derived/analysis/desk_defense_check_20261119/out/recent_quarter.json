@@ -1,0 +1,111 @@
+{
+ "pool": 6894,
+ "recent_window": [
+  "2026-09-01",
+  "2026-11-17"
+ ],
+ "fixed": {
+  "base": {
+   "label": "현행 주간 7종목",
+   "recent_usd": -0.2125847266599783,
+   "recent_usd_mdd": -0.325449857458705,
+   "recent_krw": -0.23627959717626934,
+   "full_usd": 1.2492623616616543,
+   "full_usd_mdd": -0.325449857458705
+  },
+  "half": {
+   "label": "현행 절반 고정",
+   "recent_usd": -0.10513253446489823,
+   "recent_usd_mdd": -0.17344717147055633,
+   "recent_krw": -0.13206085227000586,
+   "full_usd": 0.5559243018827575,
+   "full_usd_mdd": -0.17344717147055633
+  },
+  "weekly_SOXX100r1": {
+   "label": "SOXX 100일선 대피(Codex 남은 후보)",
+   "recent_usd": -0.07290570826874965,
+   "recent_usd_mdd": -0.08714886949813072,
+   "recent_krw": -0.10080379450447163,
+   "full_usd": 1.452740177447939,
+   "full_usd_mdd": -0.2572888046205357
+  },
+  "stock100_cash_SOXX100r1": {
+   "label": "SOXX·개별 100일선(Codex 상반기 선택)",
+   "recent_usd": -0.033191125858364146,
+   "recent_usd_mdd": -0.04478824486141186,
+   "recent_krw": -0.06228430180047595,
+   "full_usd": 1.5214455377897025,
+   "full_usd_mdd": -0.24992575606283196
+  },
+  "oos:sr_soxx50_cash20": {
+   "label": "SOXX 50일선 → 20거래일 현금(10/10 동결)",
+   "recent_usd": -0.07259996974061234,
+   "recent_usd_mdd": -0.2049292798728024,
+   "recent_krw": -0.10050725624851775,
+   "full_usd": 1.7026628050983983,
+   "full_usd_mdd": -0.2049292798728024
+  },
+  "reentry:E1_R1_wait5_orgate": {
+   "label": "SOXX 10일선 → 5거래일 대피",
+   "recent_usd": 0.012301528650384475,
+   "recent_usd_mdd": -0.11160082787361847,
+   "recent_krw": -0.018160610524374232,
+   "full_usd": 2.600605107081127,
+   "full_usd_mdd": -0.1471064752190191
+  },
+  "crowd:C4r_SOXX10_cash": {
+   "label": "SOXX 10일선 + BB-1 복귀",
+   "recent_usd": -0.0678121201497982,
+   "recent_usd_mdd": -0.1997586750404411,
+   "recent_krw": -0.09586348244585108,
+   "full_usd": 2.187904422405258,
+   "full_usd_mdd": -0.1997586750404411
+  },
+  "season:M2_h20_K20_REV": {
+   "label": "성격 다이얼",
+   "recent_usd": -0.16395956686087898,
+   "recent_usd_mdd": -0.2645344092764803,
+   "recent_krw": -0.1891176638401092,
+   "full_usd": 2.4336290486847783,
+   "full_usd_mdd": -0.2645344092764803
+  },
+  "season:M5_SOXX20r1_h10_K10_CASH": {
+   "label": "두 다이얼",
+   "recent_usd": -0.057160394852653784,
+   "recent_usd_mdd": -0.0871488694981305,
+   "recent_krw": -0.08553228846202554,
+   "full_usd": 1.5848266827749304,
+   "full_usd_mdd": -0.18267910908796947
+  }
+ },
+ "walk_forward": {
+  "1": {
+   "jul_nov_pick": -0.4489246909592802,
+   "jul_nov_base": -0.30107081607987174,
+   "recent_pick": -0.22544118107594668,
+   "recent_base": -0.2125847266599783,
+   "months_pick_beats_base": 5,
+   "months": 10,
+   "distinct_picks": 10
+  },
+  "3": {
+   "jul_nov_pick": -0.4015059929411702,
+   "jul_nov_base": -0.30107081607987174,
+   "recent_pick": -0.29094276986626866,
+   "recent_base": -0.2125847266599783,
+   "months_pick_beats_base": 1,
+   "months": 8,
+   "distinct_picks": 7
+  },
+  "6": {
+   "jul_nov_pick": 0.06463849323192772,
+   "jul_nov_base": -0.30107081607987174,
+   "recent_pick": 0.320916066650464,
+   "recent_base": -0.2125847266599783,
+   "months_pick_beats_base": 2,
+   "months": 5,
+   "distinct_picks": 4
+  }
+ },
+ "note": "month hand-overs chained close to close, zero commission"
+}
