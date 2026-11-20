@@ -156,9 +156,10 @@ function tgRender() {
   if (!TG.ready || !$("#tg-board", root)) {
     mount(root,
       h("section", { class: "page-heading tg-head", id: "tg-head" }),
-      sectionNav("추세 등급 바로가기", [["tg-kpis", "요약"], ["tg-board", "등급별 종목"], ["tg-detail", "종목 차트"],
+      sectionNav("추세 등급 바로가기", [["tg-season", "시즌 계기판"], ["tg-kpis", "요약"], ["tg-board", "등급별 종목"], ["tg-detail", "종목 차트"],
         ["tg-table", "전체 표"], ["tg-evidence", "등급 검증"]]),
       h("section", { class: "alerts", id: "tg-alerts", "aria-live": "polite" }),
+      h("section", { class: "card tg-season", id: "tg-season", "aria-label": "시즌 계기판" }),  // season.js(§11.2)
       h("section", { class: "gi-kpis tg-kpis", id: "tg-kpis", "aria-label": "추세 등급 요약" }),
       h("section", { class: "card tg-board", id: "tg-board" }),
       h("section", { class: "card tg-detail", id: "tg-detail" }),
@@ -167,6 +168,7 @@ function tgRender() {
       h("details", { class: "notes-panel" }, h("summary", {}, "계산 기준·등급 읽는 법·자료 출처"),
         h("footer", { class: "notes", id: "tg-notes" })));
     TG.ready = true;
+    if (typeof ssRender === "function") ssRender();  // 시즌 계기판은 따로 불러와 같은 탭에 그린다
   }
   tgRenderHead(); tgRenderAlerts(); tgRenderKpis(); tgRenderBoard(); tgRenderDetail(); tgRenderTable();
   tgRenderEvidence(); tgRenderNotes();

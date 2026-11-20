@@ -115,3 +115,16 @@
 /* 등급 기준(일별·주간) 전환과 실적 꼬리표 */
 .tg-head-tools { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: end; }
 .tag.tg-earn { color: var(--warn); border-color: color-mix(in srgb, var(--warn) 45%, var(--line)); }
+
+/* 시즌 계기판(season.js, §11.2) — 관찰용. 시즌 이름은 글자로 항상 함께 쓰고 색은 보조다. */
+.tg-season .ss-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.tg-season .ss-head h2 { margin: 4px 0; font-size: 20px; }
+.tg-season .ss-kpis { margin: 12px 0; }
+.tg-season .ss-season.ss-mom { color: var(--up); }
+.tg-season .ss-season.ss-rev { color: var(--tg-A); }
+.tg-season .ss-season.ss-down { color: var(--down); }
+.tg-season .ss-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 16px; margin-top: 12px; }
+.tg-season .ss-basket { margin-bottom: 10px; }
+.tg-season .ss-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+@media (max-width: 760px) { .tg-season .ss-grid { grid-template-columns: minmax(0, 1fr); } }
+
