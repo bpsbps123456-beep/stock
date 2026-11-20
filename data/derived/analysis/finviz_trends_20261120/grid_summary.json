@@ -1,0 +1,64 @@
+{
+  "configurations": 89856,
+  "stock_schedules": 6912,
+  "unique_scheduled_rankings": 6080,
+  "beats_baseline_ytd": 1089,
+  "beats_all_five": 8,
+  "tied_ytd_winners": 1,
+  "fixed": {
+    "baseline": [
+      "20-50-200/base/balance/rv/monthly1",
+      "sma100"
+    ],
+    "hindsight": [
+      "15-40-150/stack/balance/rv/monthly1",
+      "confirm2_100"
+    ],
+    "hindsight_stock_only": [
+      "15-40-150/stack/balance/rv/monthly1",
+      "sma100"
+    ],
+    "hindsight_gate_only": [
+      "20-50-200/base/balance/rv/monthly1",
+      "sma150"
+    ],
+    "short10_only": [
+      "10-50-200/base/balance/rv/monthly1",
+      "sma100"
+    ],
+    "short15_only": [
+      "15-50-200/base/balance/rv/monthly1",
+      "sma100"
+    ],
+    "short25_only": [
+      "25-50-200/base/balance/rv/monthly1",
+      "sma100"
+    ],
+    "short30_only": [
+      "30-50-200/base/balance/rv/monthly1",
+      "sma100"
+    ],
+    "short35_only": [
+      "35-50-200/base/balance/rv/monthly1",
+      "sma100"
+    ]
+  },
+  "train_choices": {
+    "h1": [
+      "35-100-125/base/balance/trend/weekly1",
+      "band1_75"
+    ],
+    "q1": [
+      "15-75-100/stack/loose/rv/weekly1",
+      "sma100"
+    ],
+    "q2": [
+      "25-100-175/stack/active/trend/monthly1",
+      "sma75"
+    ],
+    "q3": [
+      "35-40-150/base/loose/rv/monthly1_11",
+      "sma150"
+    ]
+  }
+}
