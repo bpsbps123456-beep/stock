@@ -17,7 +17,7 @@ import numpy as np
 
 from gbrc.etf.storage import NORMALIZED_HOLDINGS_DIR
 
-from . import alerts, config, finviz_basket, finviz_switch, journal, marketdata, strategies as S
+from . import alerts, config, finviz_basket, finviz_switch, finviz_trend, journal, marketdata, strategies as S
 from .bottom_paper import latest_completed
 
 WEEKDAY = "월화수목금토일"
@@ -84,6 +84,7 @@ class Desk:
         self.basket_issue = None
         self.last_bar_repair = None
         self.repaired_bars = {}
+        self.trend_paper = finviz_trend.Paper()
 
     # -- cache control ------------------------------------------------------
     def _data_key(self):
@@ -99,6 +100,7 @@ class Desk:
                     self.capture_issue = None
                 except finviz_basket.BasketError as exc:
                     self.capture_issue = str(exc)
+                self.trend_paper.capture(now)
 
     def ensure(self, force: bool = False) -> None:
         with self.lock:
@@ -162,7 +164,8 @@ class Desk:
             if basket and basket["effective_date"][:7] != session[:7]:
                 basket = None
             tg = S.next_target(book, path, session)
-            switch = finviz_switch.decision(book, tg, session, last_completed_session(now), basket, basket_issue)
+            completed = last_completed_session(now)
+            switch = finviz_switch.decision(book, tg, session, completed, basket, basket_issue)
             if self.repaired_bars:
                 switch["bar_sources"] = dict(self.repaired_bars)
             weekly_target = {book.ticker[k]: w for k, w in tg["target"].items()}
@@ -170,19 +173,22 @@ class Desk:
                 finviz_switch.record_decision(switch, weekly_target, session, now)
             except OSError:
                 switch["record_error"] = "이번 신호를 모의 관찰 기록에 저장하지 못했습니다."
-            return book, path, now, session, open_kst, tg, switch
+            paper = self.trend_paper.observe(book, tg, session, completed, now, weekly_target)
+            return book, path, now, session, open_kst, tg, switch, paper
 
     def maintain_paper(self):
         now = datetime.now(config.NY)
         self.capture_month(now)
         session, _ = config.next_us_session(now)
-        if not (config.CACHE / "finviz_observations" / (session + ".json")).exists():
+        filename = session + ".json"
+        if not all((folder / filename).exists() for folder in
+                   (config.CACHE / "finviz_observations", finviz_trend.observation_dir())):
             if last_completed_session(now) == finviz_switch.market_calendar().previous_session(session).date().isoformat():
                 self._decision()
 
     # -- state ------------------------------------------------------------------
     def state(self, force_quotes: bool = False) -> dict:
-        book, path, now, session, open_kst, tg, switch = self._decision()
+        book, path, now, session, open_kst, tg, switch, paper = self._decision()
         settings = journal.load_settings()
         applied = switch["applied"] = settings["finviz_orders"]
         alt = applied and switch["mode"] == "finviz"
@@ -343,6 +349,7 @@ class Desk:
             "settings": settings,
             "strategy": "SOXX 100일선 · 주간 TIME / 월간 FINVIZ" if applied else config.STRATEGY_NAME,
             "finviz_switch": switch,
+            "finviz_trend_paper": paper,
             "research_comparison": finviz_switch.research_comparison(),
             "rule": dict(config.RULE),
             "session": {"date": session, "label": _label(session),

@@ -83,7 +83,7 @@ class DeskRegimeTest(unittest.TestCase):
             self.assertEqual((saved["mode"],saved["weekly_targets"]),("desk",{"W":.8}))
 
     def test_account_endpoint_never_turns_a_missing_basket_into_sell_orders(self):
-        b, weekly, session, end, _ = self.inputs()
+        b, weekly, session, end, basket = self.inputs()
         b.cls["W"] = 100.
         b.pdfs = [end]
         b.fx = np.ones(len(b.days))
@@ -101,11 +101,13 @@ class DeskRegimeTest(unittest.TestCase):
         held = [dict(type="deposit",date=b.days[0],amount=1000),
                 dict(type="buy",date=b.days[0],ticker="W",qty=3.,price=100.)]
         desk = Desk()
-        with patch.object(desk,"_decision",return_value=(b,path,now,session,now,weekly,route)), \
+        paper = switch.decision(b, weekly, session, end, basket)
+        with patch.object(desk,"_decision",return_value=(b,path,now,session,now,weekly,route,paper)), \
              patch.object(desk,"_get_quotes",return_value={}), patch.object(strategies,"model_status",return_value=stats), \
              patch.object(journal,"load_entries",return_value=held), \
              patch.object(journal,"load_settings",return_value={"tolerance":.02,"finviz_orders":True}):
             state = desk.state()
+            self.assertEqual(state["finviz_trend_paper"]["mode"], "finviz")
             self.assertIsNone(state["cash_target"])
             self.assertEqual(state["actions"],[])
             self.assertEqual(state["targets"],[])

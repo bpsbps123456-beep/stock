@@ -90,7 +90,7 @@ def ffill_on(series: pd.Series, days: list[str]) -> np.ndarray:
     return s.reindex(sorted(set(s.index) | set(days))).ffill().reindex(days).to_numpy(float)
 
 
-def _sip_basket_bars(symbols, first, last, cutoff):
+def _sip_basket_bars(symbols, first, last, cutoff, *, full=False):
     """One batch of split-adjusted (dividends excluded) daily bars, market data only."""
     import requests
     env = dict(os.environ)
@@ -116,7 +116,7 @@ def _sip_basket_bars(symbols, first, last, cutoff):
     response.raise_for_status()
     data = response.json()
     if data.get("next_page_token"):
-        return {}  # At most 7 tickers across a single month.
+        return {}  # Callers batch requests below the page size. Partial results are unusable.
     result = {}
     for name, bars in data["bars"].items():
         if name not in vendor:
@@ -124,7 +124,7 @@ def _sip_basket_bars(symbols, first, last, cutoff):
         out = {}
         for r in bars:
             day = datetime.fromisoformat(r["t"].replace("Z","+00:00")).astimezone(config.NY).date().isoformat()
-            if day in (first,last) and r["v"] > 0:
+            if (first <= day <= last if full else day in (first, last)) and r["v"] > 0:
                 out[day] = float(r["o"]), float(r["c"])
         result[vendor[name]] = out
     return result

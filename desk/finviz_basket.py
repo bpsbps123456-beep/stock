@@ -43,17 +43,17 @@ def _window(signal: str) -> tuple[datetime, datetime]:
     return close + timedelta(minutes=25), datetime.combine(day + timedelta(days=1), time(4), config.NY)
 
 
-def _check(record: dict, signal: str, effective: str) -> dict:
+def _check(record: dict, signal: str, effective: str, screen_url: str, live_source: str) -> dict:
     try:
         symbols = record["symbols"]
         source = record["source"]
         captured = datetime.fromisoformat(record["captured_at"])
-        valid = (source in ("research_reconstruction", "finviz_close") and captured.tzinfo is not None
+        valid = (source in ("research_reconstruction", live_source) and captured.tzinfo is not None
                  and record["signal_date"] == signal and record["effective_date"] == effective
-                 and record["screen_url"] == SCREEN_URL and isinstance(symbols, list)
+                 and record["screen_url"] == screen_url and isinstance(symbols, list)
                  and len(symbols) <= 7 and all(isinstance(s, str) and SYMBOL.fullmatch(s) for s in symbols)
                  and len(set(symbols)) == len(symbols) and record["cash_slots"] == 7 - len(symbols))
-        if source == "finviz_close":
+        if source == live_source:
             start, end = _window(signal)
             valid = valid and start <= captured < end
     except (KeyError, ValueError, TypeError) as exc:
@@ -63,7 +63,8 @@ def _check(record: dict, signal: str, effective: str) -> dict:
     return record
 
 
-def load_basket(execution_day: str | date, directory: Path | None = None) -> dict | None:
+def load_basket(execution_day: str | date, directory: Path | None = None, *,
+                screen_url: str = SCREEN_URL, live_source: str = "finviz_close") -> dict | None:
     day = date.fromisoformat(execution_day) if isinstance(execution_day, str) else execution_day
     signal, effective = month_dates(day)
     path = (directory or DIRECTORY) / (effective[:7] + ".json")
@@ -75,11 +76,11 @@ def load_basket(execution_day: str | date, directory: Path | None = None) -> dic
         return None
     except (OSError, ValueError) as exc:
         raise BasketError(f"{effective} FINVIZ 월초 기록을 읽을 수 없습니다") from exc
-    return _check(data, signal, effective)
+    return _check(data, signal, effective, screen_url, live_source)
 
 
-def _parse_screen(html: str, now: datetime, signal: str) -> list[str]:
-    # Parse the site's own ranked first-page data, including explicit empty
+def _screen_page(html: str, now: datetime, signal: str, url: str, first: int = 0) -> dict:
+    # Parse the site's own ranked page, including explicit empty
     # results. A login, rate limit, or HTML change is never a zero-stock month.
     for match in SSR.finditer(html):
         page = json.loads(match[1])
@@ -88,7 +89,7 @@ def _parse_screen(html: str, now: datetime, signal: str) -> list[str]:
     else:
         raise BasketError("FINVIZ 종목 검색 결과를 확인할 수 없습니다")
     query = parse_qs(urlsplit(page["url"]).query)
-    if query != parse_qs(urlsplit(SCREEN_URL).query) or page.get("origin") != "https://finviz.com":
+    if query != parse_qs(urlsplit(url).query) or page.get("origin") != "https://finviz.com":
         raise BasketError("FINVIZ 검색 조건 또는 정렬이 다릅니다")
     info_time = datetime.fromisoformat(page["today"])
     if info_time.tzinfo is None:
@@ -98,11 +99,15 @@ def _parse_screen(html: str, now: datetime, signal: str) -> list[str]:
         raise BasketError("FINVIZ 응답 시각이 월말 종가 수집 시간과 다릅니다")
     data = page["data"]
     total, rows = data["totalCount"], data["rows"]
-    if (type(total) is not int or total < 0 or data["firstRow"] != 0 or data["pageSize"] < 7
-            or not isinstance(rows, list) or len(rows) != min(total, data["pageSize"])):
+    if (type(total) is not int or total < first or data["firstRow"] != first or data["pageSize"] < 7
+            or not isinstance(rows, list) or len(rows) != min(total - first, data["pageSize"])):
         raise BasketError("FINVIZ 상위 7개 순위를 온전히 확인할 수 없습니다")
+    return data
+
+
+def _screen_symbols(rows, first=0):
     symbols = []
-    for rank, row in enumerate(rows[:7]):
+    for rank, row in enumerate(rows, start=first):
         symbol = row["text"]["ticker"].upper().replace(".", "-")
         if (row["numbers"]["order"] != rank or not SYMBOL.fullmatch(symbol) or symbol in symbols
                 or row["numbers"]["price"] <= 0 or row["text"]["country"] != "USA"):
@@ -111,37 +116,51 @@ def _parse_screen(html: str, now: datetime, signal: str) -> list[str]:
     return symbols
 
 
-def _fetch(now: datetime, signal: str) -> tuple[list[str], list[str]]:
+def _parse_screen(html: str, now: datetime, signal: str) -> list[str]:
+    page = _screen_page(html, now, signal, SCREEN_URL)
+    return _screen_symbols(page["rows"][:7])
+
+
+def _get_screen(url: str) -> str:
+    response = requests.get(url, headers={"User-Agent": "Mozilla/5.0", "Cache-Control": "no-cache"},
+                            timeout=12)
+    response.raise_for_status()
+    return response.text
+
+
+def _distinct_issuers(ranked):
     from .erules import SEC_HEADERS
+    if not ranked:
+        return []
+    response = requests.get(SEC_TICKERS, headers=SEC_HEADERS, timeout=12)
+    response.raise_for_status()
+    issuers = {r["ticker"].replace(".", "-"): int(r["cik_str"]) for r in response.json().values()}
+    seen = set()
+    held = []
+    for s in ranked:
+        cik = issuers[s]
+        if cik <= 0:
+            raise BasketError("SEC 발행사 식별자가 유효하지 않습니다")
+        if cik not in seen:
+            held.append(s)
+            seen.add(cik)
+    return held
+
+
+def _fetch(now: datetime, signal: str) -> tuple[list[str], list[str]]:
     try:
-        response = requests.get(SCREEN_URL, headers={"User-Agent": "Mozilla/5.0", "Cache-Control": "no-cache"},
-                                timeout=12)
-        response.raise_for_status()
-        ranked = _parse_screen(response.text, now, signal)
-        if not ranked:
-            return [], []
-        response = requests.get(SEC_TICKERS, headers=SEC_HEADERS, timeout=12)
-        response.raise_for_status()
-        issuers = {r["ticker"].replace(".", "-"): int(r["cik_str"]) for r in response.json().values()}
-        seen = set()
-        held = []
-        for s in ranked:
-            cik = issuers[s]
-            if cik <= 0:
-                raise BasketError("SEC 발행사 식별자가 유효하지 않습니다")
-            if cik not in seen:
-                held.append(s)
-                seen.add(cik)
-        return ranked, held
+        ranked = _parse_screen(_get_screen(SCREEN_URL), now, signal)
+        return ranked, _distinct_issuers(ranked)
     except BasketError:
         raise
     except (requests.RequestException, ValueError, KeyError, TypeError, AttributeError) as exc:
         raise BasketError("FINVIZ 검색 결과 또는 SEC 발행사 확인에 실패했습니다") from exc
 
 
-def _freeze(record: dict, directory: Path) -> dict:
+def _freeze(record: dict, directory: Path, *,
+            screen_url: str = SCREEN_URL, live_source: str = "finviz_close") -> dict:
     signal, effective = month_dates(record["effective_date"])
-    _check(record, signal, effective)
+    _check(record, signal, effective, screen_url, live_source)
     path = directory / (effective[:7] + ".json")
     temp = None
     try:
@@ -157,7 +176,7 @@ def _freeze(record: dict, directory: Path) -> dict:
             # the same capture first; subsequent refreshes keep that exact record.
             os.link(temp, path)
         except FileExistsError:
-            return load_basket(effective, directory)
+            return load_basket(effective, directory, screen_url=screen_url, live_source=live_source)
         return record
     except OSError as exc:
         raise BasketError("FINVIZ 월초 명단을 저장하지 못했습니다") from exc
@@ -166,7 +185,9 @@ def _freeze(record: dict, directory: Path) -> dict:
             temp.unlink(missing_ok=True)
 
 
-def capture_due(now: datetime | None = None, directory: Path | None = None) -> dict | None:
+def capture_due(now: datetime | None = None, directory: Path | None = None, *,
+                screen_url: str = SCREEN_URL, live_source: str = "finviz_close",
+                fetch=None) -> dict | None:
     """Capture only inside the final session's closing window. Never backfill a missed scan."""
     now = now or datetime.now(config.NY)
     if now.tzinfo is None:
@@ -183,13 +204,14 @@ def capture_due(now: datetime | None = None, directory: Path | None = None) -> d
     if not start <= now < end:
         return None
     directory = directory or DIRECTORY
-    saved = load_basket(effective, directory)
+    saved = load_basket(effective, directory, screen_url=screen_url, live_source=live_source)
     if saved is not None:
         return saved
-    ranked, held = _fetch(now, signal)
-    return _freeze({"source": "finviz_close", "signal_date": signal, "effective_date": effective,
-                    "captured_at": now.isoformat(timespec="seconds"), "screen_url": SCREEN_URL,
-                    "ranked_symbols": ranked, "symbols": held, "cash_slots": 7 - len(held)}, directory)
+    ranked, held = (fetch or _fetch)(now, signal)
+    return _freeze({"source": live_source, "signal_date": signal, "effective_date": effective,
+                    "captured_at": now.isoformat(timespec="seconds"), "screen_url": screen_url,
+                    "ranked_symbols": ranked, "symbols": held, "cash_slots": 7 - len(held)}, directory,
+                   screen_url=screen_url, live_source=live_source)
 
 
 if __name__ == "__main__":

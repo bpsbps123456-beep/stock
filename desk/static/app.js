@@ -226,6 +226,24 @@ function switchSummary(route) {
     route.record_error ? h("p", { class: "t-meta", role: "status" }, route.record_error) : null);
 }
 
+function trendPaperSummary(paper) {
+  if (!paper) return null;
+  const source = { research_reconstruction: "당시 자료로 복원", finviz_sip_close: "FINVIZ·SIP 월말 종가" }[paper.source];
+  const mode = { desk: "TIME 주간 전략", finviz: "월초 FINVIZ 바스켓", blocked: "신호 확인 대기" }[paper.mode];
+  const targets = paper.new_targets.map((r) => `${r.ticker} ${pctAbs(r.weight)}`);
+  if (paper.new_cash_target > 0.0005) targets.push(`달러 현금 ${pctAbs(paper.new_cash_target)}`);
+  return h("section", { class: "switch-summary", "aria-label": "FINVIZ 30·40·175일선 모의 관찰" },
+    h("div", { class: "switch-title" }, h("b", null, "FINVIZ 30·40·175일선"), h("span", { class: "flag" }, "모의 관찰")),
+    h("div", { class: "t-meta" }, "다음 개장 기준 ", h("b", null, mode), " · 신호일 ", paper.signal_date),
+    paper.effective_date ? h("div", { class: "t-meta" }, "월초 명단 기준 ", h("b", null, paper.basket_signal_date),
+      source ? ` · ${source}` : null) : null,
+    paper.mode === "finviz" ? h("div", { class: "basket-targets" }, targets.join(" · ")) :
+      paper.effective_date ? h("div", { class: "basket-targets" }, paper.basket_symbols.join(" · ") || "달러 현금 100%") : null,
+    paper.mode === "blocked" || paper.basket_issue ? h("p", { class: "t-meta" },
+      paper.mode === "blocked" ? paper.reason : paper.basket_issue) : null,
+    paper.record_error ? h("p", { class: "t-meta", role: "status" }, paper.record_error) : null);
+}
+
 function renderTicket() {
   const ses = S.session, acct = S.account;
   const hasBook = acct.positions.length > 0 || acct.funded;
@@ -243,7 +261,7 @@ function renderTicket() {
     route ? h("label", { class: "order-rule" }, "주문 초안 기준",
       h("select", { onchange: chooseOrderRule }, h("option", { value: "desk", selected: !applied }, "기존 TIME 주간 전략"),
         h("option", { value: "switch", selected: applied }, "SOXX 100일선 전환 전략"))) : null);
-  const summary = switchSummary(route);
+  const summary = [switchSummary(route), trendPaperSummary(S.finviz_trend_paper)];
   if (blocked) {
     mount($("#ticket"), head, summary, h("div", { class: "banner ticket-status", role: "status" },
       h("span", { class: "ico", "aria-hidden": "true" }, "!"),
