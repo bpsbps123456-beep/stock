@@ -1,0 +1,69 @@
+{
+  "mode": "finviz",
+  "order_due": false,
+  "signal_date": "2026-11-19",
+  "close": 137.9499969482422,
+  "sma100": 173.4102328491211,
+  "basket_month": "2026-11",
+  "effective_date": "2026-11-02",
+  "source": "research_reconstruction",
+  "reason": "월초 FINVIZ 보유",
+  "new_targets": [
+    {
+      "ticker": "CART",
+      "weight": 0.14550647479080445
+    },
+    {
+      "ticker": "CBOE",
+      "weight": 0.15108269505155825
+    },
+    {
+      "ticker": "EXEL",
+      "weight": 0.13442890923647477
+    },
+    {
+      "ticker": "WST",
+      "weight": 0.1364136736325592
+    },
+    {
+      "ticker": "EW",
+      "weight": 0.15832279998336182
+    },
+    {
+      "ticker": "RVTY",
+      "weight": 0.13446263169868403
+    },
+    {
+      "ticker": "WAT",
+      "weight": 0.13978281560655736
+    }
+  ],
+  "new_cash_target": 1.1102230246251565e-16,
+  "basket_symbols": [
+    "CART",
+    "CBOE",
+    "EXEL",
+    "WST",
+    "EW",
+    "RVTY",
+    "WAT"
+  ],
+  "basket_signal_date": "2026-10-30",
+  "bar_sources": {
+    "CART": {
+      "source": "Alpaca SIP, split-adjusted daily bars",
+      "close_date": "2026-11-19"
+    }
+  },
+  "execution_session": "2026-11-20",
+  "observed_at": "2026-11-20T14:59:07+09:00",
+  "weekly_targets": {
+    "OKTA": 0.07505674535235693,
+    "SNOW": 0.13917690005699418,
+    "WDAY": 0.0323042049611665,
+    "ACN": 0.2027569003255408,
+    "CRWD": 0.07894074993152585,
+    "NTAP": 0.2435894185044731,
+    "PANW": 0.0745325352366661
+  }
+}
