@@ -14,7 +14,7 @@ from add_midcaps import ALIASES
 
 
 def rebuild():
-    source = HERE.parent/"hatta_bar/code/fetch_alpaca.py"
+    source = HERE.parent/"alpaca_sip/fetch_alpaca.py"
     spec = importlib.util.spec_from_file_location("sip_client", source)
     api = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(api)

@@ -22,7 +22,7 @@ PREVIOUS, NEXT = '2026-11-18', '2026-11-19'
 
 
 def sip_api():
-    spec = importlib.util.spec_from_file_location('sip_client', HERE.parent / 'hatta_bar/code/fetch_alpaca.py')
+    spec = importlib.util.spec_from_file_location('sip_client', HERE.parent / 'alpaca_sip/fetch_alpaca.py')
     api = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(api)
     return api

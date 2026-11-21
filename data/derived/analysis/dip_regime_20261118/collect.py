@@ -8,7 +8,7 @@ import pandas as pd
 import requests
 
 HERE = Path(__file__).resolve().parent
-sys.path.insert(0, str(HERE.parent / "hatta_bar/code"))
+sys.path.insert(0, str(HERE.parent / "alpaca_sip"))
 sys.path.insert(0, str(HERE.parent / "dip_reason/code"))
 from fetch import user_universe
 from fetch_alpaca import ET, URL, Pace, keys

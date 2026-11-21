@@ -5,7 +5,7 @@ from concurrent.futures import ThreadPoolExecutor
 import pandas as pd
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(HERE, "../../hatta_bar/code"))
+sys.path.insert(0, os.path.join(HERE, "../../alpaca_sip"))
 from fetch_alpaca import keys, Pace, one  # noqa: E402  같은 받기 함수를 다시 쓴다
 
 SYMS = ["SOXL", "SOXS", "SOXX", "QQQ", "NVDA"]

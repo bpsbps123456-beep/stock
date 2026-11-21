@@ -1,6 +1,6 @@
 """Freeze SOXL 2026 SIP bars through Nov 10 for the fixed close bracket study.
 
-Credentials and minute fetching reuse hatta_bar/code/fetch_alpaca.py. No prior
+Credentials and minute fetching reuse alpaca_sip/fetch_alpaca.py. No prior
 study cache is changed. Repeat runs reuse this study's frozen caches by default.
 """
 from __future__ import annotations
@@ -32,7 +32,7 @@ DOCS = {
 
 
 def fetcher():
-    path = ANALYSIS / "hatta_bar/code/fetch_alpaca.py"
+    path = ANALYSIS / "alpaca_sip/fetch_alpaca.py"
     spec = importlib.util.spec_from_file_location("close_bracket_shared_fetch", path)
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)

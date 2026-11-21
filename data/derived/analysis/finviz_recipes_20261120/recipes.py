@@ -57,7 +57,7 @@ def metadata():
 
 def historic_highs(symbols):
     """Fetch true SIP daily highs for the names whose previous SIP freeze contains close/open only."""
-    path = market.PRIOR.parent / 'hatta_bar/code/fetch_alpaca.py'
+    path = market.PRIOR.parent / 'alpaca_sip/fetch_alpaca.py'
     spec = importlib.util.spec_from_file_location('past_sip_bars', path)
     api = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(api)

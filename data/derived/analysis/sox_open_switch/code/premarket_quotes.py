@@ -283,7 +283,7 @@ def main(argv: list[str] | None = None) -> None:
     have = {(r["sym"], aware_timestamp(r["target"]).isoformat()) for r in records}
     missing = [x for x in want if x not in have]
     if missing and not args.offline:
-        sys.path.insert(0, str(ROOT.parent / "hatta_bar/code"))
+        sys.path.insert(0, str(ROOT.parent / "alpaca_sip"))
         from fetch_alpaca import keys, Pace  # noqa: E402
         headers, pace = keys(), Pace(3.0)
         args.cache.parent.mkdir(parents=True, exist_ok=True)

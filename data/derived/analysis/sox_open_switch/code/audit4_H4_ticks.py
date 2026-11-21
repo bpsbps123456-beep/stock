@@ -14,7 +14,7 @@ import requests
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
-sys.path.insert(0, os.path.join(HERE, "../../hatta_bar/code"))
+sys.path.insert(0, os.path.join(HERE, "../../alpaca_sip"))
 from fetch_alpaca import keys, Pace  # noqa: E402
 
 RES = os.path.normpath(os.path.join(HERE, "..", "results"))

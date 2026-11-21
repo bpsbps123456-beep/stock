@@ -3,7 +3,7 @@
 import os, sys
 import pandas as pd
 HERE = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(HERE, "../../../hatta_bar/code"))
+sys.path.insert(0, os.path.join(HERE, "../../../alpaca_sip"))
 from fetch_alpaca import keys, Pace, one  # noqa: E402
 ET = "America/New_York"
 if __name__ == "__main__":

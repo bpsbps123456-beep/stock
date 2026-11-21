@@ -1,15 +1,16 @@
-"""Alpaca SIP 1분봉(연장시간 04:00~20:00 ET, 분할 반영)을 종목별로 받는다. 무료 키는 15분 지난 SIP 이력을 준다.
+"""연구 공용 Alpaca SIP 1분봉 받기(연장시간 04:00~20:00 ET, 분할 반영). 무료 키는 15분 지난 SIP 이력을 준다.
 키: 저장소 루트 .env(Git 제외)의 ALPACA_KEY_ID·ALPACA_SECRET_KEY(또는 APCA_API_KEY_ID·APCA_API_SECRET_KEY).
+여러 연구가 keys·Pace·one·URL·ET를 가져다 쓴다. 원래 하따봉 연구(hatta_bar/code/)에 있었고, 2026-11-22 하따봉을
+지우며 이곳으로 옮겼다(함수는 그대로).
 결과: cache/alp1m<접미사>/<TICKER>.parquet — ET 시각 인덱스, Open·High·Low·Close·Volume·Trades·VWAP.
-사용: py fetch_alpaca.py 2026-06-24 2026-10-29           (끝 날짜는 포함 안 함)
-      py fetch_alpaca.py 2025-06-24 2025-11-01 _2025
-      py fetch_alpaca.py 2026-06-24 2026-10-29 - u2        (2차 넓힌 400종목, 없는 파일만)"""
+사용: py fetch_alpaca.py 2026-06-24 2026-10-29           (끝 날짜는 포함 안 함, watchlist.AI_SUBSECTOR + SPY·QQQ)
+      py fetch_alpaca.py 2025-06-24 2025-11-01 _2025"""
 import os, sys, time, threading
 from concurrent.futures import ThreadPoolExecutor
 import pandas as pd, requests
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.abspath(os.path.join(HERE, "../../../../.."))
+ROOT = os.path.abspath(os.path.join(HERE, "../../../.."))
 sys.path.insert(0, ROOT)
 import watchlist  # noqa: E402
 
@@ -88,10 +89,7 @@ def one(sym, start, end, head, pace, out):
 if __name__ == "__main__":
     a, b = sys.argv[1], sys.argv[2]
     suffix = sys.argv[3] if len(sys.argv) > 3 and sys.argv[3] != "-" else ""
-    if len(sys.argv) > 4 and sys.argv[4] == "u2":           # 2차: results/universe2.json 400종목
-        import json
-        SYMS = sorted(json.load(open(os.path.join(HERE, "../results/universe2.json"), encoding="utf-8"))) + ["SPY", "QQQ"]
-    out = os.path.join(HERE, f"../cache/alp1m{suffix}")
+    out = os.path.join(HERE, f"cache/alp1m{suffix}")
     os.makedirs(out, exist_ok=True)
     start = pd.Timestamp(a, tz=ET).tz_convert("UTC").strftime("%Y-%m-%dT%H:%M:%SZ")
     end = pd.Timestamp(b, tz=ET).tz_convert("UTC").strftime("%Y-%m-%dT%H:%M:%SZ")

@@ -17,7 +17,7 @@ import requests
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
 sys.path.insert(0, str(ROOT))
-sys.path.insert(0, str(HERE.parent / "hatta_bar" / "code"))
+sys.path.insert(0, str(HERE.parent / "alpaca_sip"))
 from desk.config import market_calendar
 from fetch_alpaca import URL, keys
 

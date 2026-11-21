@@ -108,7 +108,7 @@ def main():
     have = {QUOTE.aware_timestamp(r["target"]).isoformat() for r in records}
     todo = [t for t in want if t not in have]
     if todo and not args.offline:
-        sys.path.insert(0, str(ANALYSIS / "hatta_bar/code"))
+        sys.path.insert(0, str(ANALYSIS / "alpaca_sip"))
         from fetch_alpaca import keys, Pace
         head, pace = keys(), Pace(3.0)
         CACHE.parent.mkdir(parents=True, exist_ok=True)

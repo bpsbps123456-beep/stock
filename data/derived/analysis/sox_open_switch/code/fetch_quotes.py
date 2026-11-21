@@ -7,7 +7,7 @@ from concurrent.futures import ThreadPoolExecutor
 import numpy as np, pandas as pd, requests
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(HERE, "../../hatta_bar/code"))
+sys.path.insert(0, os.path.join(HERE, "../../alpaca_sip"))
 from fetch_alpaca import keys, Pace  # noqa: E402
 
 URL = "https://data.alpaca.markets/v2/stocks/{sym}/quotes"

@@ -36,7 +36,7 @@ def _module(name, path):
 
 
 M = _module('ma_daily_for_intraday_inputs', HERE/'review.py')
-A = _module('alpaca_for_intraday_inputs', HERE.parent/'hatta_bar/code/fetch_alpaca.py')
+A = _module('alpaca_for_intraday_inputs', HERE.parent/'alpaca_sip/fetch_alpaca.py')
 
 
 def sha(path):

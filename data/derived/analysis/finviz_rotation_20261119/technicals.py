@@ -72,7 +72,7 @@ def sip_bars(symbol):
     path = CACHE.parent / f"sip_{symbol}.csv"
     if path.exists():
         return pd.read_csv(path, index_col=0, parse_dates=True)
-    script = HERE.parent / "hatta_bar" / "code" / "fetch_alpaca.py"
+    script = HERE.parent / "alpaca_sip" / "fetch_alpaca.py"
     spec = importlib.util.spec_from_file_location("historical_sip", script)
     api = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(api)
