@@ -54,7 +54,6 @@ QUOTE_MAX_AGE_SEC = 90
 # The one strategy (docs/desk_system.md §3): Codex concentration study #774, chosen by
 # the user on 2026-09-27. The semiconductor budget was lowered from #774's 60% to 50% on
 # 2026-10-10 (user decision; evidence in docs/operations_changelog.md).
-STRATEGY_NAME = "7종목 · 60일 잔차 모멘텀 · TIME 비중 · 주간 조정"
 # score "res": 60거래일 잔차 모멘텀(종목 일간 로그수익 합 - 베타 x QQQ 합). 2026-11-21 사용자 결정으로 120일 수익률("ret")에서
 # 바꿈(docs/desk_system.md §3, data/derived/analysis/momentum_variants_20261120/report.md). CODEX_774_RULE은 score 없이 120일 수익률.
 RULE = {"score": "res", "lookback": 60, "n": 7, "buffer": 5, "stock_cap": 0.25, "sector_cap": 0.60, "semis_cap": 0.50}
@@ -63,7 +62,10 @@ RULE = {"score": "res", "lookback": 60, "n": 7, "buffer": 5, "stock_cap": 0.25, 
 CODEX_774_RULE = {"lookback": 120, "n": 7, "buffer": 5, "stock_cap": 0.25, "sector_cap": 0.60, "semis_cap": 0.60}
 # watchlist.py labels that share the semiconductor budget (unclassified names count too).
 SEMIS_SECTORS = {"AI 반도체", "메모리", "반도체 장비", "반도체 장비(적자)", "반도체(적자)", "반도체 소재"}
-DEFAULT_SETTINGS = {"tolerance": 0.02, "finviz_orders": True}
+# The manual order draft follows the §3.1 SOXX 100-day switch only (2026-11-22 user decision: the
+# "기존 TIME 주간 전략" choice was removed). The weekly rule still runs inside it above the line.
+DEFAULT_SETTINGS = {"tolerance": 0.02}
+ORDER_RULE_NAME = "SOXX 100일선 · 주간 TIME / 월간 FINVIZ"
 
 KST = ZoneInfo("Asia/Seoul")
 NY = ZoneInfo("America/New_York")

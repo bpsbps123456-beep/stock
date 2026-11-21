@@ -186,7 +186,7 @@ main { width: 100%; margin: 0 auto; padding: 24px var(--page-pad) 60px; display:
 .ticket .t-meta { color: var(--ink-2); font-size: 12.5px; margin-top: 4px; }
 .ticket .t-meta b { font-family: var(--mono); font-weight: 600; color: var(--ink); }
 .order-rule { margin-left: auto; display: grid; gap: 4px; font-size: 12px; color: var(--ink-2); }
-.order-rule select { max-width: 100%; }
+.order-rule b { color: var(--ink); font-size: 13px; }
 .switch-summary { margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--ticket-edge); }
 .switch-title { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
 .switch-title .flag { margin-top: 0; }

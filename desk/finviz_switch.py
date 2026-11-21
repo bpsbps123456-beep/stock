@@ -86,7 +86,7 @@ def record_decision(signal, weekly_targets, session, now, directory=None):
     dest = folder / (session + ".json")
     if dest.exists():
         return
-    observation = {k: v for k, v in signal.items() if k != "applied"}
+    observation = dict(signal)
     observation.update(execution_session=session, observed_at=now.isoformat(timespec="seconds"),
                        weekly_targets=weekly_targets)
     write_once(dest, observation)  # two servers at once keep the first lock

@@ -191,19 +191,6 @@ function orderLine(a, i, hasBook) {
     h("div", { class: "o-qty" }, qty));
 }
 
-async function chooseOrderRule(event) {
-  const select = event.currentTarget;
-  select.disabled = true;
-  try {
-    S = await post("/api/settings", { finviz_orders: select.value === "switch" });
-    render();
-    toast("주문 초안 기준을 저장했습니다.");
-  } catch (error) {
-    renderTicket();
-    toast("주문 초안 기준을 저장하지 못했습니다. " + error.message);
-  }
-}
-
 function switchSummary(route) {
   if (!route) return null;
   const finviz = route.mode === "finviz";
@@ -213,7 +200,7 @@ function switchSummary(route) {
   const targets = (route.new_targets || []).map((r) => `${r.ticker} ${pctAbs(r.weight)}`);
   if (route.new_cash_target > 0.0005) targets.push(`달러 현금 ${pctAbs(route.new_cash_target)}`);
   return h("section", { class: "switch-summary", "aria-label": "SOXX 전환 신호" },
-    h("div", { class: "switch-title" }, h("b", null, route.applied ? "적용 중인 전환 신호" : "개선안 모의 점검"), h("span", { class: "flag" }, status)),
+    h("div", { class: "switch-title" }, h("b", null, "적용 중인 전환 신호"), h("span", { class: "flag" }, status)),
     h("div", { class: "t-meta" }, "신호일 ", h("b", null, route.signal_date || "미확인"),
       " · SOXX 종가 ", h("b", null, usd(route.close)), " · 100일선 ", h("b", null, usd(route.sma100))),
     route.basket_month && route.mode !== "desk"
@@ -222,7 +209,6 @@ function switchSummary(route) {
         source ? ` · ${source}` : null) : null,
     finviz && targets.length ? h("div", { class: "basket-targets" }, targets.join(" · ")) : null,
     route.order_due && route.reason ? h("p", { class: "t-meta" }, `이번 거래일 · ${route.reason}`) : null,
-    route.mode === "blocked" && !route.applied ? h("p", { class: "t-meta" }, route.reason || "개선안의 목표 비중을 확인할 수 없습니다.") : null,
     route.record_error ? h("p", { class: "t-meta", role: "status" }, route.record_error) : null);
 }
 
@@ -248,9 +234,8 @@ function renderTicket() {
   const ses = S.session, acct = S.account;
   const hasBook = acct.positions.length > 0 || acct.funded;
   const route = S.finviz_switch;
-  const applied = route?.applied ?? S.settings.finviz_orders === true;
-  const blocked = !route || (applied && route.mode !== "desk" && route.mode !== "finviz");
-  const finviz = applied && route?.mode === "finviz";
+  const blocked = !route || (route.mode !== "desk" && route.mode !== "finviz");
+  const finviz = route?.mode === "finviz";
   const head = h("div", { class: "t-head" },
     h("div", null,
       h("div", { class: "eyebrow" }, "내 계좌 주문 초안"),
@@ -258,9 +243,7 @@ function renderTicket() {
       h("div", { class: "t-meta" }, "정규장 개장 ", h("b", null, hhmm(ses.open_kst)), " (한국시간)"),
       !blocked && !finviz ? h("div", { class: "t-meta" }, "판단 기준 TIME PDF ", h("b", null, md(S.status.pdf_used)),
         " · ", ses.rebalance_day ? "주간 재조정일" : `다음 주간 재조정일 ${ses.next_rebalance}`) : null),
-    route ? h("label", { class: "order-rule" }, "주문 초안 기준",
-      h("select", { onchange: chooseOrderRule }, h("option", { value: "desk", selected: !applied }, "기존 TIME 주간 전략"),
-        h("option", { value: "switch", selected: applied }, "SOXX 100일선 전환 전략"))) : null);
+    route ? h("div", { class: "order-rule" }, "주문 초안 기준", h("b", null, "SOXX 100일선 전환 전략")) : null);
   const summary = [switchSummary(route), trendPaperSummary(S.finviz_trend_paper)];
   if (blocked) {
     mount($("#ticket"), head, summary, h("div", { class: "banner ticket-status", role: "status" },
@@ -269,7 +252,7 @@ function renderTicket() {
         : route.reason || "시장 전환 자료를 확인할 수 없어 목표 비중과 주문 수량 계산을 보류합니다.")));
     return;
   }
-  if (applied && route.order_due !== true) {
+  if (route.order_due !== true) {
     mount($("#ticket"), head, summary, h("p", { class: "ticket-status", role: "status" },
       "보유 유지일입니다. 다음 시장 전환이나 정기 재조정 때 주문 초안을 계산합니다."));
     return;
@@ -358,7 +341,7 @@ function renderTiles() {
 /* ------------------------------------------------------------- allocation */
 function renderAlloc() {
   const route = S.finviz_switch;
-  if (!route || (route.applied && route.mode !== "desk" && route.mode !== "finviz")) {
+  if (!route || (route.mode !== "desk" && route.mode !== "finviz")) {
     $("#alloc-sub").textContent = "목표 비중 보류";
     mount($("#alloc-body"), h("p", { class: "muted" }, "시장 전환 자료를 확인한 뒤 목표 비중을 표시합니다. 현재 보유 비중은 ‘내 보유 종목’에서 확인하세요."));
     return;

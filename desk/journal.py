@@ -53,20 +53,15 @@ def load_entries() -> list[dict]:
 def load_settings() -> dict:
     """Known settings only; keys left over from retired strategies are ignored."""
     stored = _read(config.SETTINGS, {})
-    settings = {key: stored.get(key, default) for key, default in config.DEFAULT_SETTINGS.items()}
-    if type(settings["finviz_orders"]) is not bool:
-        settings["finviz_orders"] = config.DEFAULT_SETTINGS["finviz_orders"]
-    return settings
+    return {key: stored.get(key, default) for key, default in config.DEFAULT_SETTINGS.items()}
 
 
 def save_settings(changes: dict) -> dict:
     current = load_settings()
     if "tolerance" in changes:
         current["tolerance"] = min(0.2, max(0.0, _number(changes, "tolerance", "허용 오차", blank_ok=False)))
-    if "finviz_orders" in changes:
-        if type(changes["finviz_orders"]) is not bool:
-            raise JournalError("주문 초안 기준을 다시 선택하세요.")
-        current["finviz_orders"] = changes["finviz_orders"]
+    if "finviz_orders" in changes:  # a page opened before 2026-11-22 still shows the old choice
+        raise JournalError("주문 초안 기준은 SOXX 100일선 전환 하나로 정했습니다. 화면을 새로 고치세요.")
     _write(config.SETTINGS, current)
     return current
 

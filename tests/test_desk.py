@@ -59,11 +59,21 @@ class JournalTest(unittest.TestCase):
             path = Path(tmp) / "settings.json"
             path.write_text(json.dumps({"strategy": "c239120", "split": 0.5, "tolerance": 0.03}), encoding="utf-8")
             with mock.patch.object(config, "SETTINGS", path):
-                self.assertEqual(journal.load_settings(), {"tolerance": 0.03, "finviz_orders": True})
-                self.assertFalse(journal.save_settings({"finviz_orders": False})["finviz_orders"])
-                self.assertFalse(journal.save_settings({"tolerance": 0.04})["finviz_orders"])
-                with self.assertRaises(journal.JournalError):
-                    journal.save_settings({"finviz_orders": "false"})
+                self.assertEqual(journal.load_settings(), {"tolerance": 0.03})
+                self.assertEqual(journal.save_settings({"tolerance": 0.04}), {"tolerance": 0.04})
+
+    def test_order_basis_is_no_longer_a_choice(self):
+        # 2026-11-22: the manual order draft follows the §3.1 switch only; an old "finviz_orders"
+        # key in settings.json is ignored and a stale page that still sends it is refused
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "settings.json"
+            path.write_text(json.dumps({"tolerance": 0.02, "finviz_orders": False}), encoding="utf-8")
+            with mock.patch.object(config, "SETTINGS", path):
+                self.assertEqual(journal.load_settings(), {"tolerance": 0.02})
+                for value in (False, True):
+                    with self.assertRaises(journal.JournalError):
+                        journal.save_settings({"finviz_orders": value})
+                self.assertEqual(json.loads(path.read_text(encoding="utf-8")), {"tolerance": 0.02, "finviz_orders": False})
 
     def test_history_twr_ignores_money_moving_in_and_out(self):
         days = ["2026-09-21", "2026-09-22", "2026-09-23"]
@@ -199,7 +209,7 @@ class PauseRuleTest(unittest.TestCase):
         self.assertIn("매매 규칙 유지", out[0]["title"])
 
     def test_drawdown_takes_the_worse_of_account_and_model(self):
-        # 2026 worst drawdown -30.3%: out of range only past -35.3%
+        # model: 2026 worst -30.3% (#774), out of range only past -35.3%; account: switch path past -33.2%
         self.assertEqual(alerts.my_pause_rule(pause_ctx(model_drawdown=-0.34)), [])
         out = alerts.my_pause_rule(pause_ctx(account_drawdown=-0.36, model_drawdown=-0.10))
         self.assertEqual([a["level"] for a in out], ["serious"])

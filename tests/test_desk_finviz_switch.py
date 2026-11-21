@@ -105,7 +105,7 @@ class DeskRegimeTest(unittest.TestCase):
         with patch.object(desk,"_decision",return_value=(b,path,now,session,now,weekly,route,paper)), \
              patch.object(desk,"_get_quotes",return_value={}), patch.object(strategies,"model_status",return_value=stats), \
              patch.object(journal,"load_entries",return_value=held), \
-             patch.object(journal,"load_settings",return_value={"tolerance":.02,"finviz_orders":True}):
+             patch.object(journal,"load_settings",return_value={"tolerance":.02}):
             state = desk.state()
             self.assertEqual(state["finviz_trend_paper"]["mode"], "finviz")
             self.assertIsNone(state["cash_target"])

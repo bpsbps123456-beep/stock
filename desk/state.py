@@ -192,9 +192,8 @@ class Desk:
     def state(self, force_quotes: bool = False) -> dict:
         book, path, now, session, open_kst, tg, switch, paper = self._decision()
         settings = journal.load_settings()
-        applied = switch["applied"] = settings["finviz_orders"]
-        alt = applied and switch["mode"] == "finviz"
-        blocked = applied and switch["mode"] == "blocked"
+        alt = switch["mode"] == "finviz"
+        blocked = switch["mode"] == "blocked"
         target = {} if blocked else tg["target"]
         ranked = tg["ranked"]
         tickers = book.ticker
@@ -217,7 +216,7 @@ class Desk:
             q = quotes.get(tk)
             price[tk] = q["price"] if q else (last_close.get(tk, (None, None))[1])
         acct = journal.compute(entries, price)
-        if applied and switch["order_due"]:
+        if switch["order_due"]:
             needed = {tickers[k] for k in target} | {p["ticker"] for p in acct["positions"]}
             missing = []
             for tk in sorted(needed):
@@ -272,7 +271,7 @@ class Desk:
         held = {p["ticker"]: p for p in acct["positions"]}
         actions = []
         order_tickers = {r["ticker"] for r in rows} | set(held)
-        if applied and not switch["order_due"]:
+        if not switch["order_due"]:
             order_tickers = set()
         for tk in sorted(order_tickers):
             tw = next((r["weight"] for r in rows if r["ticker"] == tk), 0.0)
@@ -317,7 +316,7 @@ class Desk:
 
         ctx = {"account_drawdown": None, "model_drawdown": dd_now,
                "model_vs_etf_20d": ms["vs_etf_20d"], "model_vs_etf_120d": ms["vs_etf_long"],
-               "switch_applied": bool(applied), "account_vs_etf_20d": None}
+               "account_vs_etf_20d": None}
         acct_hist = journal.history(entries, book.cls, book.days, book.fx)
         if acct_hist["filled"]:
             gaps = {}
@@ -353,7 +352,7 @@ class Desk:
                       for ev in path.events if ev["key"] in keys and ev["date"] >= book.days[begin]]
             series[tk] = {"dates": book.days[begin:], "close": col, "marks": marks}
 
-        due = switch["order_due"] if applied else tg["rebalance_day"]
+        due = switch["order_due"]
         rebalance_on = session if due else config.next_rebalance(session)
         if alt and not due:
             next_month = (date.fromisoformat(session).replace(day=28) + timedelta(days=4)).replace(day=1)
@@ -362,7 +361,7 @@ class Desk:
             "generated_at": now.strftime("%Y-%m-%d %H:%M:%S"),
             "busy": self.busy,
             "settings": settings,
-            "strategy": "SOXX 100일선 · 주간 TIME / 월간 FINVIZ" if applied else config.STRATEGY_NAME,
+            "strategy": config.ORDER_RULE_NAME,
             "finviz_switch": switch,
             "finviz_trend_paper": paper,
             "research_comparison": finviz_switch.research_comparison(),
@@ -388,7 +387,7 @@ class Desk:
                       "stats": {"total": model[-1] / 100 - 1, "mdd": mdd, "dd_now": dd_now},
                       "etf_total": etf[j] / 100 - 1, "etf_through": path.days[j], "vs_etf_20d": ms["vs_etf_20d"]},
             "risk": risk,
-            "risk_rules": alerts.describe(switch_applied=bool(applied)),
+            "risk_rules": alerts.describe(),
             "series": series,
             "fx": float(book.fx[-1]),
         })

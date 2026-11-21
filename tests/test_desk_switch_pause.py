@@ -1,4 +1,4 @@
-"""§5 전환 경로 멈춤 기준(2026-11-21 사용자 결정 '기본값 유지 + 멈춤 기준 고정')."""
+"""§5 전환 경로 멈춤 기준(2026-11-21 '기본값 유지 + 멈춤 기준 고정', 2026-11-22 주문 기준을 전환 하나로)."""
 
 import unittest
 
@@ -17,33 +17,38 @@ def ctx(**kw):
 class SwitchPauseRuleTest(unittest.TestCase):
     def test_frozen_values(self):
         self.assertEqual(alerts.BACKTEST_SWITCH_2026, {"mdd": -0.282, "gap20": -0.110})
-        self.assertEqual(alerts.BACKTEST_2026, {"mdd": -0.303, "gap20": -0.081})  # 주간 기준은 그대로
+        self.assertEqual(alerts.BACKTEST_2026, {"mdd": -0.303, "gap20": -0.081})  # 모델 기준은 그대로
 
-    def test_account_uses_switch_limit_only_when_switch_orders_apply(self):
-        # -34%: 전환 경로 기준(-33.2%)은 넘고, 주간(#774) 기준(-35.3%)은 넘지 않는다
-        weekly = alerts.my_pause_rule(ctx(account_drawdown=-0.34))
-        switch = alerts.my_pause_rule(ctx(account_drawdown=-0.34, switch_applied=True))
-        self.assertFalse([r for r in weekly if r["level"] == "serious"])
-        serious = [r for r in switch if r["level"] == "serious"]
+    def test_account_uses_the_switch_limit(self):
+        # -34%: 전환 경로 기준(-33.2%)은 넘고, 모델(#774) 기준(-35.3%)은 넘지 않는다
+        serious = [r for r in alerts.my_pause_rule(ctx(account_drawdown=-0.34)) if r["level"] == "serious"]
         self.assertEqual(len(serious), 1)
         self.assertIn("내 계좌", serious[0]["title"])
         self.assertIn(alerts.SWITCH_BASIS, serious[0]["body"])
+        self.assertFalse(alerts.my_pause_rule(ctx(account_drawdown=-0.33)))
 
     def test_model_keeps_the_weekly_limit(self):
-        out = alerts.my_pause_rule(ctx(model_drawdown=-0.36, switch_applied=True))
+        out = alerts.my_pause_rule(ctx(model_drawdown=-0.36))
         self.assertTrue(any("7종목 전략(모의)" in r["title"] for r in out if r["level"] == "serious"))
-        self.assertFalse(alerts.my_pause_rule(ctx(model_drawdown=-0.34, switch_applied=True)))
+        self.assertFalse(alerts.my_pause_rule(ctx(model_drawdown=-0.34)))
 
-    def test_switch_gap_warning(self):
-        hit = alerts.my_pause_rule(ctx(switch_applied=True, account_vs_etf_20d=-0.17))
+    def test_one_serious_alert_for_the_deeper_of_the_two(self):
+        out = [r for r in alerts.my_pause_rule(ctx(account_drawdown=-0.34, model_drawdown=-0.40)) if r["level"] == "serious"]
+        self.assertEqual(len(out), 1)
+        self.assertIn("7종목 전략(모의) 고점 대비 -40.0%", out[0]["title"])
+
+    def test_account_gap_warning(self):
+        hit = alerts.my_pause_rule(ctx(account_vs_etf_20d=-0.17))
         self.assertTrue(any("전환 경로 검증 범위 밖" in r["title"] for r in hit))
-        self.assertFalse(alerts.my_pause_rule(ctx(switch_applied=True, account_vs_etf_20d=-0.15)))
-        self.assertFalse(alerts.my_pause_rule(ctx(account_vs_etf_20d=-0.20)))  # 주간 주문이면 이 칸은 보지 않는다
+        self.assertFalse(alerts.my_pause_rule(ctx(account_vs_etf_20d=-0.15)))
+        self.assertFalse(alerts.my_pause_rule(ctx(account_vs_etf_20d=None)))
 
-    def test_describe_adds_switch_line(self):
-        self.assertEqual(len(alerts.describe()), 3)
-        lines = alerts.describe(switch_applied=True)
+    def test_describe_names_both_paths(self):
+        lines = alerts.describe()
         self.assertEqual(len(lines), 4)
+        self.assertIn("7종목 전략(모의)의 고점 대비 하락률이 -35.3%", lines[1])
+        self.assertNotIn("내 계좌", lines[1])
+        self.assertIn("내 계좌(SOXX 100일선 전환 경로)", lines[-1])
         self.assertIn("-33.2%", lines[-1])
         self.assertIn("-16.0%p", lines[-1])
 
