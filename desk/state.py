@@ -29,6 +29,18 @@ def _label(day: str) -> str:
     return f"{d.month}월 {d.day}일({WEEKDAY[d.weekday()]})"
 
 
+def account_gap(twr, etf, n: int):
+    """내 계좌 시간가중 지수의 최근 n거래일 수익 − TIME ETF(그 미국 날을 가격 매긴 KRX 종가)의 같은 구간 수익.
+
+    ETF가 아직 가격을 매기지 않은 마지막 날들은 빼고, 둘 다 값이 있는 마지막 날 기준. 이력이 짧으면 None."""
+    twr, etf = np.asarray(twr, float), np.asarray(etf, float)
+    ok = np.flatnonzero(np.isfinite(twr) & np.isfinite(etf) & (twr > 0) & (etf > 0))
+    if not len(ok) or ok[-1] < n or not (np.isfinite(etf[ok[-1] - n]) and np.isfinite(twr[ok[-1] - n])):
+        return None
+    j = ok[-1]
+    return float((twr[j] / twr[j - n] - 1) - (etf[j] / etf[j - n] - 1))
+
+
 def last_completed_session(now: datetime | None = None) -> str:
     return latest_completed((now or datetime.now(config.NY)) - timedelta(minutes=5))
 
@@ -301,10 +313,11 @@ class Desk:
             warnings.append(f"{self.busy}입니다. 끝나면 새 자료로 다시 계산합니다.")
         lost = sorted(set(marketdata.missing_tickers()) & (set(book.ticker.values()) | relevant))
         if lost:
-            warnings.append("가격을 받지 못한 종목이 있어 순위·계산에서 빠졌습니다(몇 분 뒤 다시 받습니다): " + ", ".join(lost))
+            warnings.append("가격을 받지 못한 종목이 있어 순위·계산에서 빠졌습니다(몇 분 뒤 한 번 더 받아 봅니다): " + ", ".join(lost))
 
         ctx = {"account_drawdown": None, "model_drawdown": dd_now,
-               "model_vs_etf_20d": ms["vs_etf_20d"], "model_vs_etf_120d": ms["vs_etf_long"]}
+               "model_vs_etf_20d": ms["vs_etf_20d"], "model_vs_etf_120d": ms["vs_etf_long"],
+               "switch_applied": bool(applied), "account_vs_etf_20d": None}
         acct_hist = journal.history(entries, book.cls, book.days, book.fx)
         if acct_hist["filled"]:
             gaps = {}
@@ -315,6 +328,7 @@ class Desk:
         twr = np.array(acct_hist["twr"], float)
         if acct["funded"] and len(twr) and np.all(np.isfinite(twr) & (twr > 0)):
             ctx["account_drawdown"] = _drawdown(twr)[1]
+            ctx["account_vs_etf_20d"] = account_gap(twr, S.etf_index(book, acct_hist["dates"]), 20)
         try:
             risk = alerts.my_pause_rule(ctx)
         except Exception as exc:  # an edited rule must not take the page down
@@ -374,7 +388,7 @@ class Desk:
                       "stats": {"total": model[-1] / 100 - 1, "mdd": mdd, "dd_now": dd_now},
                       "etf_total": etf[j] / 100 - 1, "etf_through": path.days[j], "vs_etf_20d": ms["vs_etf_20d"]},
             "risk": risk,
-            "risk_rules": alerts.describe(),
+            "risk_rules": alerts.describe(switch_applied=bool(applied)),
             "series": series,
             "fx": float(book.fx[-1]),
         })

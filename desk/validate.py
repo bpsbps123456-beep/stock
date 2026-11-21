@@ -82,6 +82,26 @@ def pause_evidence(book, path) -> bool:
     return same
 
 
+SWITCH_LEDGER = config.ROOT / "data/derived/analysis/desk_etf_validation_20261121/results/paired_daily.csv"
+
+
+def switch_pause_evidence() -> bool:
+    """§5 전환 경로 기준값(alerts.BACKTEST_SWITCH_2026)이 근거 원장에서 그대로 나오는지(0.5%p 안)."""
+    import pandas as pd
+    if not SWITCH_LEDGER.exists():
+        print(f"pause rule (§3.1 switch): FAIL — 근거 원장이 없습니다 ({SWITCH_LEDGER})")
+        return False
+    p = pd.read_csv(SWITCH_LEDGER)
+    sw, etf = p["switch"].to_numpy(float), p["time"].to_numpy(float)
+    mdd = float((sw / np.maximum.accumulate(sw) - 1).min())
+    gap20 = float(((sw[20:] / sw[:-20] - 1) - (etf[20:] / etf[:-20] - 1)).min())
+    want = alerts.BACKTEST_SWITCH_2026
+    same = abs(mdd - want["mdd"]) < 0.005 and abs(gap20 - want["gap20"]) < 0.005
+    print(f"pause rule (§3.1 switch, KRW 10bp): worst drawdown {mdd:.1%} (frozen {want['mdd']:.1%}), worst 20-session gap "
+          f"{gap20:+.1%} (frozen {want['gap20']:+.1%}) {'ok' if same else 'CHANGED'}")
+    return same
+
+
 def codex_sectors(book) -> dict[str, str]:
     """The watchlist sectors #774 was tested with (Codex sector_map.json, 2026-09-27).
     watchlist.py keeps growing (e.g. TIME's unclassified names classified on 2026-10-10), so
@@ -163,7 +183,7 @@ def main(argv: list[str] | None = None) -> int:
         path = S.run_model(book)
     live = S.run_model(book)
     ok, status = check_774(book, path, skip="--skip-774" in args)
-    pause_ok = pause_evidence(book, path)
+    pause_ok = pause_evidence(book, path) & switch_pause_evidence()
     ok &= pause_ok
     lm = S.model_index(book, live)
     mdd, gap20 = pause_measures(book, live)
