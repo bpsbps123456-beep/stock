@@ -1,50 +1,46 @@
 // This Pine Script® code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
-// SOXL 경고선·재매수선 — 2026-11-20
-// 연구: data/derived/analysis/soxl_escape_20261120/lines/report.md (Claude + Codex gpt-6.2-astra 공동)
-// 생각: 정확한 바닥은 못 맞히니, 경고선 아래로 내려가면 대피하고 재매수선 위로 올라타면 그때 다시 산다. 두 선 사이에서는 직전 상태를 유지한다.
-// 규칙(기본 = 보통 선, 2026-11-20 사용자 요청 "더 기민하게")
-//   보통 선: 일봉 EMA3·15 중 낮은 쪽이 경고선, 높은 쪽이 재매수선. 전날 확정된 경고선에 정규장 중 닿으면 대피(미리 걸어 두는 손절 주문 자리),
-//            일봉 종가가 재매수선 위면 다음 정규장 시가(겨울 한국 23:30)에 재매수. 느린 선보다 1.7배 자주 움직인다.
-//   느린 선: 일봉 EMA10·20 두 줄, 일봉 종가로 대피·재매수. 한 달에 두어 번 움직인다.
-//   빠른 선: 연장시간 5분봉 EMA200의 −2%가 경고선, +2%가 재매수선. 신호 뒤 바로(프리장·애프터 포함) 실행해야 통했다. 정규장까지 미루면 무너졌다.
-// 판정은 기준 봉의 완성된 값으로만 한다(미래 정보 없음). 기준 봉 이하의 분봉 차트(연장시간 켬)에서 쓴다.
-//   '종가 확인': 기준 봉 종가가 경고선 아래면 대피.   '닿으면': 직전 기준 봉의 경고선에 가격이 닿는 순간 대피(스탑 주문 자리, 일봉이면 정규장만).
-// 보유 중이면 경고선(빨강)이, 대피 중이면 재매수선(초록)이 진하게 보인다. 대피 구간은 옅은 빨강 배경, 마지막 봉 오른쪽에 지금 상태와 지켜볼 선을 띄운다.
+// 경고·대피·재매수 — 2026-11-22 (이전 이름 'SOXL 경고선·재매수선')
+// 연구: data/derived/analysis/exit40_20261122/report.md (9종목: SOXL MU AMD ARM DELL INTC SNDK STX WDC, 2026 고르는·확인 구간 + 최근 분기)
+// 대피·재매수(일봉): 일봉 EMA10·20 중 낮은 쪽이 대피선, 높은 쪽이 재매수선. 일봉 종가가 대피선 아래면 다음 정규장 시가에 대피,
+//   재매수선 위면 다음 정규장 시가에 재매수(겨울 한국 23:30). 두 선 사이는 그대로. 9종목 중 가장 튼튼했다(2025 9종목 모두 시점 값 양수).
+//   더 빠른 대피(일봉 EMA3·15, 40분봉 선, 5분봉 선)는 9종목 중앙값으로 성적이 떨어졌다(MU 2026: 느린 선 +185%, 40분 선 +76%, 보유 +107%).
+// 경고(정규장 40분봉): 보유 중에 정규장 가격이 '전날 마지막 40분봉의 EMA100(약 10거래일)'에 처음 닿으면 경고. 한 달 3~4번.
+//   경고 뒤 5거래일 안에 실제 대피가 나온 비율 60%(경고 없는 날 17%). 경고 뒤 5일 수익은 평균 +2.1%라 경고만으로 파는 건 손해였다.
+// 대피·재매수 신호는 일봉 마감 뒤 첫 봉(연장 차트는 16:00 애프터 봉)에 뜨고, 표시는 실제 체결 봉(다음 정규장 첫 봉)에 찍는다.
+//   대피 표시에 그 진입의 손익을 적는다. 오른쪽에 지금 상태를 띄운다.
 //@version=6
-indicator("SOXL 경고선·재매수선", shorttitle = "경고·재매수", overlay = true)
+indicator("경고·대피·재매수", shorttitle = "경고·대피", overlay = true, max_labels_count = 500)
 
 // ── 입력 ──────────────────────────────────────────────
-const string P_MID  = "보통 선: 일봉 EMA3·15 (닿으면 대피)"
-const string P_SLOW = "느린 선: 일봉 EMA10·20 (종가 대피)"
-const string P_FAST = "빠른 선: 5분 EMA200 ±2% (종가 대피)"
-const string P_OWN  = "직접 설정"
-preset   = input.string(P_MID, "규칙", options = [P_MID, P_SLOW, P_FAST, P_OWN], display = display.none)
-showBg   = input.bool(true, "대피 구간 배경색", display = display.none)
-const string G1 = "직접 설정일 때"
-ownTf    = input.timeframe("D", "기준 봉", group = G1, display = display.none)
-ownA     = input.int(10, "이평선 1 (EMA 길이)", minval = 2, group = G1, display = display.none)
-ownB     = input.int(20, "이평선 2 (EMA 길이)", minval = 2, group = G1, display = display.none)
-ownBand  = input.float(0.0, "띠 % (경고선 = 낮은 선 −띠, 재매수선 = 높은 선 +띠)", minval = 0.0, step = 0.5, group = G1, display = display.none)
-ownStop  = input.string("종가 확인", "대피 방식", options = ["종가 확인", "닿으면"], group = G1, display = display.none) == "닿으면"
-
-bool   isMid    = preset == P_MID
-bool   isFast   = preset == P_FAST
-bool   isOwn    = preset == P_OWN
-string baseTf   = isOwn ? ownTf : isFast ? "5" : "D"
-int    lenA     = isOwn ? ownA : isFast ? 200 : isMid ? 3 : 10
-int    lenB     = isOwn ? ownB : isFast ? 200 : isMid ? 15 : 20
-float  band     = (isOwn ? ownBand : isFast ? 2.0 : 0.0) / 100
-bool   stopMode = isOwn ? ownStop : isMid          // 보통 선은 닿으면 대피, 느린·빠른 선은 종가 확인
+const string G1 = "대피·재매수 (일봉)"
+baseTf   = input.timeframe("D", "기준 봉", group = G1, display = display.none)
+lenA     = input.int(10, "이평선 1 (EMA 길이)", minval = 2, group = G1, display = display.none)
+lenB     = input.int(20, "이평선 2 (EMA 길이)", minval = 2, group = G1, display = display.none)
+bandPct  = input.float(0.0, "띠 % (대피선 = 낮은 선 −띠, 재매수선 = 높은 선 +띠)", minval = 0.0, step = 0.5, group = G1, display = display.none)
+stopMode = input.string("종가 확인", "대피 방식", options = ["종가 확인", "닿으면"], group = G1, display = display.none) == "닿으면"
+const string G2 = "경고 (정규장 40분봉)"
+showWarn = input.bool(true, "경고 표시", group = G2, display = display.none)
+warnLen  = input.int(100, "경고선 = 40분봉 EMA 길이 (100 = 약 10거래일)", minval = 10, group = G2, display = display.none)
+const string G3 = "내 진입"
+showMine = input.bool(false, "내 진입 따라가기", group = G3, display = display.none)
+myTime   = input.time(timestamp("2026-11-20T09:30:00-05:00"), "진입 시각", group = G3, display = display.none)
+myPrice  = input.float(0.0, "진입가 (0이면 그 시각이 든 봉의 종가)", minval = 0.0, group = G3, display = display.none)
 
 if timeframe.in_seconds() > timeframe.in_seconds(baseTf)
     runtime.error("차트 봉이 기준 봉보다 큽니다. 기준 봉 이하의 차트에서 쓰세요")
 
-// ── 기준 봉에서 상태 계산(완성된 봉마다 한 번) ─────────────
+const string NY = "America/New_York"
+string tReg = ticker.modify(syminfo.tickerid, session.regular)   // 정규장 자료로만 계산(차트의 조정 설정은 그대로)
+
+pct(float x) =>
+    (x >= 0 ? "+" : "") + str.tostring(x * 100, "0.0") + "%"
+
+// ── 일봉 상태(완성된 봉마다 한 번) ─────────────────────────
 core() =>
     float ea = ta.ema(close, lenA)
     float eb = ta.ema(close, lenB)
-    float w  = math.min(ea, eb) * (1 - band)      // 경고선
-    float r  = math.max(ea, eb) * (1 + band)      // 재매수선
+    float w  = math.min(ea, eb) * (1 - bandPct / 100)    // 대피선
+    float r  = math.max(ea, eb) * (1 + bandPct / 100)    // 재매수선
     float wPrev = w[1]
     var bool inPos = true
     bool before = inPos
@@ -52,56 +48,146 @@ core() =>
         bool out = stopMode ? (not na(wPrev) and low <= wPrev) : close < w
         if out
             inPos := false
-    else if close > r                              // 한 봉에 한 번만: 이 봉을 대피 상태로 시작했을 때만 복귀를 본다
+    else if close > r                                     // 한 봉에 한 번만 바뀐다
         inPos := true
-    var int chgT = na                              // 마지막으로 상태가 바뀐 기준 봉의 끝 시각(신호 시각)
+    var int chgT = na                                     // 마지막으로 상태가 바뀐 봉의 끝 시각
     if inPos != before
         chgT := time_close
     [inPos, w, r, time, chgT]
 
-// 완성된 직전 기준 봉의 값(미래 정보 없음)
-corePrev() =>
+corePair() =>
     [s, w, r, t, c] = core()
-    [s[1], w[1], r[1], t[1], c[1]]
+    [s, w, r, t, c, s[1], w[1], r[1], t[1], c[1], time_close]
 
-[stDone, wLine, rLine, baseT, chgT] = request.security(syminfo.tickerid, baseTf, corePrev(), lookahead = barmerge.lookahead_on)
+[s0, w0, r0, t0, c0, s1, w1, r1, t1, c1, dEnd] = request.security(tReg, baseTf, corePair(), lookahead = barmerge.lookahead_on)
+// 차트 봉이 받은 기준 봉의 마감 뒤에 시작하면 그 봉(이미 끝남) 값, 아니면 직전 봉 값.
+// lookahead_on 은 봉 시작 시각으로 붙어서 [1]만 쓰면 애프터·프리장·09:20 봉이 그저께 값을 보인다. 끝난 봉만 쓰므로 미래 정보는 없다.
+bool  baseDone = not na(dEnd) and time >= dEnd
+bool  stDone   = baseDone ? s0 : s1
+float wLine    = baseDone ? w0 : w1
+float rLine    = baseDone ? r0 : r1
+int   baseT    = baseDone ? t0 : t1
+int   chgT     = baseDone ? c0 : c1
 
-// ── '닿으면' 방식: 기준 봉이 끝나기 전에도 닿는 순간 대피로 바꾼다 ──
-bool newBase = baseT != baseT[1]
-bool dayBase = timeframe.in_seconds(baseTf) >= 86400
-bool countBar = not dayBase or session.ismarket          // 일봉 기준이면 정규장에서 닿은 것만 센다
+// ── 경고선: 오늘 하루 고정 = 전날 마지막 정규장 40분봉의 EMA ──────
+warnCalc() =>
+    float e = ta.ema(close, warnLen)
+    var float today = na
+    if session.isfirstbar_regular
+        today := e[1]                                     // 정규장 자료라 직전 봉 = 전날 마지막 정규장 40분봉
+    [today, e, time_close]
+
+[wToday, wEma, wEnd] = request.security(tReg, "40", warnCalc(), lookahead = barmerge.lookahead_on)
+// 받은 40분봉이 차트 봉 시작 전에 끝났으면(애프터·프리장·09:20 봉) 그 봉이 그날 마지막 정규장 봉이라 그 EMA가 다음 정규장 경고선
+float warnLvl = not na(wEnd) and time >= wEnd ? wEma : wToday
+float dayOpen = request.security(tReg, "D", open, lookahead = barmerge.lookahead_on)   // 오늘 정규장 시가(정규장 첫 봉부터 씀)
+
+// ── 차트 봉의 시간 구분 ───────────────────────────────────
+int  bs        = hour(time, NY) * 60 + minute(time, NY)
+int  be        = hour(time_close, NY) * 60 + minute(time_close, NY)
+bool newDay    = bar_index == 0 or dayofmonth(time, NY) != dayofmonth(time[1], NY)
+bool regBar    = not timeframe.isintraday or session.ismarket             // 봉 시작이 정규장(일봉 이상은 늘 정규장 봉)
+bool regTouch  = regBar or (bs < 570 and be > 570)                        // 정규장과 겹치는 봉(40분 연장 차트의 09:20~10:00 봉 포함)
+bool execBar   = regBar and (newDay or not regBar[1])                     // 그날 첫 정규장 봉 = 종가 신호의 체결 봉
+
+// 09:20~10:00 봉의 프리장 10분을 뺀 정규장 저가·첫 시가(정규장 5분봉으로 잰다, 연구는 정규장 1분봉만 본다)
+string ltf = timeframe.in_seconds() > 300 ? "5" : timeframe.period
+[oArr, lArr] = request.security_lower_tf(tReg, ltf, [open, low])
+float lowR   = regBar ? low : array.size(lArr) > 0 ? array.min(lArr) : na     // 09:30 전(실시간)에는 na → 프리장 가격으로 경고·대피하지 않는다
+float openR  = regBar ? open : array.size(oArr) > 0 ? array.first(oArr) : na
+
+// ── '닿으면' 방식: 기준 봉 안에서 정규장 가격이 닿는 순간 대피 ──────────────
+bool newBase  = baseT != baseT[1]
+bool dayBase  = timeframe.in_seconds(baseTf) >= 86400
 var bool stopped = false
 if newBase
     stopped := false
-if stopMode and stDone and countBar and not na(wLine) and low <= wLine
+bool touchNow = stopMode and stDone and not stopped and regTouch and not na(wLine) and not na(lowR) and lowR <= wLine
+if touchNow
     stopped := true
 
 bool holding = stDone and not stopped
-bool toOut   = bar_index > 0 and not holding and holding[1]
-bool toIn    = bar_index > 0 and holding and not holding[1]
+bool sigOut  = bar_index > 0 and not holding and holding[1]
+bool sigIn   = bar_index > 0 and holding and not holding[1]
+
+// ── 체결과 표시(대피·재매수는 체결 봉에, 대피에 손익) ──────────────
+var bool  pendIn  = false
+var bool  pendOut = false
+var float entryPx = na
+bool didOut = false
+if sigOut
+    if touchNow
+        if pendIn                                         // 재매수 대기 중 개장 직후 닿음: 연구는 시가에 산 뒤 같은 날 대피
+            entryPx := regBar ? dayOpen : openR
+            label.new(bar_index, low, "재매수", style = label.style_label_up, color = color.green, textcolor = color.white, size = size.small)
+        float px = math.min(openR, wLine)
+        label.new(bar_index, high, "대피" + (na(entryPx) ? "" : " " + pct(px / entryPx - 1)), style = label.style_label_down, color = color.red, textcolor = color.white, size = size.small)
+        entryPx := na
+        didOut := true
+    else
+        pendOut := true
+    pendIn := false
+if sigIn
+    pendOut := false
+    pendIn  := true
+if execBar                                                // 대기 상태는 앞 봉에서 이미 확정돼 봉 안에서 바뀌지 않는다
+    if pendOut
+        label.new(bar_index, high, "대피" + (na(entryPx) or na(dayOpen) ? "" : " " + pct(dayOpen / entryPx - 1)), style = label.style_label_down, color = color.red, textcolor = color.white, size = size.small)
+        entryPx := na
+        pendOut := false
+        didOut := true
+    if pendIn
+        entryPx := dayOpen
+        label.new(bar_index, low, "재매수", style = label.style_label_up, color = color.green, textcolor = color.white, size = size.small)
+        pendIn := false
+
+// ── 경고: 보유 중 정규장 가격이 오늘 경고선에 처음 닿을 때 ────────
+var bool warnedToday = false
+if newDay
+    warnedToday := false
+bool warnNow = showWarn and holding and not pendOut and regTouch and not na(warnLvl) and not na(lowR) and lowR <= warnLvl and not warnedToday
+if warnNow
+    warnedToday := true
+
+// ── 내 진입 따라가기 ──────────────────────────────────────
+var bool  myOn   = false
+var bool  myDone = false
+var float myPx   = na
+bool myBar = showMine and not myOn and time_close > myTime and (bar_index == 0 ? time <= myTime : time_close[1] <= myTime)   // 진입 시각이 든 봉
+if myBar
+    myOn := true
+    myPx := myPrice > 0 ? myPrice : close
+    label.new(bar_index, low, holding ? "내 진입" : "내 진입 (대피 구간)", style = label.style_label_up, color = color.blue, textcolor = color.white, size = size.small)
+    myDone := not holding
+if showMine and myOn and not myDone and didOut
+    label.new(bar_index, high, "내 진입 대피 " + pct((touchNow ? math.min(openR, wLine) : dayOpen) / myPx - 1), style = label.style_label_down, color = color.navy, textcolor = color.white, size = size.small)
+    myDone := true
 
 // ── 그리기 ──────────────────────────────────────────────
-color cW = holding ? color.new(color.red, 0) : color.new(color.red, 70)
-color cR = holding ? color.new(color.green, 70) : color.new(color.green, 0)
-plot(wLine, "경고선", color = cW, linewidth = 2, style = plot.style_stepline, display = display.pane)
+color cW = holding ? color.new(color.red, 0) : color.new(color.red, 75)
+color cR = holding ? color.new(color.green, 75) : color.new(color.green, 0)
+plot(wLine, "대피선", color = cW, linewidth = 2, style = plot.style_stepline, display = display.pane)
 plot(rLine, "재매수선", color = cR, linewidth = 2, style = plot.style_stepline, display = display.pane)
-plotshape(toOut, "대피", style = shape.labeldown, location = location.abovebar, color = color.red, text = "대피", textcolor = color.white, size = size.small)
-plotshape(toIn, "재매수", style = shape.labelup, location = location.belowbar, color = color.green, text = "재매수", textcolor = color.white, size = size.small)
-alertcondition(toOut, "대피", "SOXL 경고선 이탈 — 대피")
-alertcondition(toIn, "재매수", "SOXL 재매수선 회복 — 재매수")
+plot(showWarn and holding ? warnLvl : na, "경고선", color = color.new(color.orange, 0), linewidth = 1, style = plot.style_linebr, display = display.pane)
+plot(showMine and myOn and not myDone ? myPx : na, "내 진입가", color = color.new(color.blue, 30), linewidth = 1, style = plot.style_linebr, display = display.pane)
+plotshape(warnNow, "경고", style = shape.labeldown, location = location.abovebar, color = color.orange, text = "경고", textcolor = color.white, size = size.tiny)
+alertcondition(warnNow, "경고", "경고선 닿음 — 대피 주의")
+alertcondition(sigOut, "대피", "대피 신호 — 다음 정규장 시가 대피(닿으면 방식은 지금)")
+alertcondition(sigIn, "재매수", "재매수 신호 — 다음 정규장 시가 재매수")
 
-// 대피 구간은 옅은 빨강 배경
-bgcolor(showBg and not holding and not na(wLine) ? color.new(color.red, 93) : na, title = "대피 구간")
-
-// ── 지금 상태(마지막 봉 오른쪽) — 느린 선은 한 달에 두어 번만 바뀌어 1분 차트에서는 지난 신호가 화면 밖일 때가 많다 ──
+// ── 지금 상태(마지막 봉 오른쪽) ───────────────────────────────
 var label st = na
 if barstate.islast
     label.delete(st)
     string txt = "기준 봉 이력 부족 — 더 큰 봉 차트에서 확인"
     if not na(wLine)
-        float  tgt   = holding ? wLine : rLine
-        float  dist  = (tgt / close - 1) * 100
-        string when  = na(chgT) ? "" : dayBase ? str.format_time(chgT, "M/d", "America/New_York") + (not holding and stopMode ? " 닿음" : " 종가 신호") : str.format_time(chgT, "M/d HH:mm", "Asia/Seoul") + " 신호"
-        string since = stopped ? " (지금 닿음)" : when == "" ? "" : " (" + when + ")"
-        txt := (holding ? "보유 중" : "대피 중") + since + "\n" + (holding ? "경고선 " : "재매수선 ") + str.tostring(tgt, format.mintick) + " (" + (dist >= 0 ? "+" : "") + str.tostring(dist, "0.0") + "%)"
-    st := label.new(bar_index + 3, close, txt, xloc = xloc.bar_index, style = label.style_label_left, color = na(wLine) ? color.gray : holding ? color.new(color.green, 15) : color.new(color.red, 15), textcolor = color.white, size = size.normal)
+        string when = na(chgT) ? "" : dayBase ? str.format_time(chgT, "M/d", NY) + (not holding and stopMode ? " 닿음" : " 종가 신호") : str.format_time(chgT, "M/d HH:mm", "Asia/Seoul") + " 신호"
+        if pendOut
+            txt := "대피 대기 — 다음 정규장 시가"
+        else if pendIn
+            txt := "재매수 대기 — 다음 정규장 시가"
+        else if holding
+            txt := "보유 중" + (when == "" ? "" : " (" + when + ")") + "\n대피선 " + str.tostring(wLine, format.mintick) + " (" + pct(wLine / close - 1) + ")" + (showWarn and not na(warnLvl) ? "\n경고선 " + str.tostring(warnLvl, format.mintick) + " (" + pct(warnLvl / close - 1) + ")" : "")
+        else
+            txt := "대피 중" + (stopped ? " (지금 닿음)" : when == "" ? "" : " (" + when + ")") + "\n재매수선 " + str.tostring(rLine, format.mintick) + " (" + pct(rLine / close - 1) + ")"
+    st := label.new(bar_index + 3, close, txt, xloc = xloc.bar_index, style = label.style_label_left, color = na(wLine) ? color.gray : holding and not pendOut ? color.new(color.green, 15) : color.new(color.red, 15), textcolor = color.white, size = size.normal)
