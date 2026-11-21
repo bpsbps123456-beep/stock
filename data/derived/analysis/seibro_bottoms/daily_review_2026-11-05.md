@@ -15,7 +15,7 @@
 
 - [원거래일 CSV](results/soxs_daily_ledger_20261105/source_daily.csv), [관찰일 CSV](results/soxs_daily_ledger_20261105/entry_daily.csv), [2023 준비 CSV](results/soxs_daily_ledger_20261105/warmup_daily.csv), [월별 CSV](results/soxs_daily_ledger_20261105/monthly.csv).
 - [모든 열 설명](results/soxs_daily_ledger_20261105/column_dictionary.json), [범위·누락·원본 대조](results/soxs_daily_ledger_20261105/coverage.json), [6정의 연도별·상태별·5/10/20세션 집계](results/soxs_daily_ledger_20261105/review_statistics.json).
-- 읽기용 엑셀과 대화형 전체 일별 표는 저장소 `outputs/soxs_ledger_20261105/`에 보존한다. ON만 필터하지 않고 OFF·불명·미공개·새 자료 없음도 조회한다.
+- 읽기용 엑셀과 대화형 전체 일별 표는 `results/soxs_daily_ledger_20261105/readable/`에 보존한다(2026-11-22 루트 `outputs/`에서 옮김). ON만 필터하지 않고 OFF·불명·미공개·새 자료 없음도 조회한다.
 
 ## 결측과 시점의 구분
 

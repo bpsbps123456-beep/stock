@@ -19,7 +19,7 @@ const {Workbook,SpreadsheetFile}=await import(pathToFileURL(runtimeRequire.resol
 // Presentation only: all ranks, flags and price responses come from the CSVs.
 let repo=process.env.SOXS_LEDGER_REPO_ROOT||path.dirname(fileURLToPath(import.meta.url));
 while(true){try{await fs.access(path.join(repo,'AGENTS.md'));break;}catch{const up=path.dirname(repo);if(up===repo)throw new Error('Set SOXS_LEDGER_REPO_ROOT to the repository root.');repo=up;}}
-const outputDir = path.join(repo,'outputs/soxs_ledger_20261105');
+const outputDir = path.join(repo,'data/derived/analysis/seibro_bottoms/results/soxs_daily_ledger_20261105/readable');
 const sourceDir = path.join(repo,'data/derived/analysis/seibro_bottoms/results/soxs_daily_ledger_20261105');
 const wb = Workbook.create();
 const font = 'Arial';

@@ -3,7 +3,7 @@ from datetime import datetime
 
 # Read-only standard-library verification. Run with py <this file> from any cwd.
 REPO=next(p for p in pathlib.Path(__file__).resolve().parents if (p/'AGENTS.md').exists())
-OUT=REPO/'outputs/soxs_ledger_20261105'
+OUT=REPO/'data/derived/analysis/seibro_bottoms/results/soxs_daily_ledger_20261105/readable'
 SRC=REPO/'data/derived/analysis/seibro_bottoms/results/soxs_daily_ledger_20261105'
 N={'s':'http://schemas.openxmlformats.org/spreadsheetml/2006/main'}
 book=OUT/'SOXS_일별전체원장_20261105.xlsx'
