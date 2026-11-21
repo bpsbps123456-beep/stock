@@ -34,6 +34,16 @@ WINDOWS = {
 }
 REG_OPEN, REG_CLOSE, EXT_OPEN, EXT_CLOSE = 570, 960, 240, 1200
 _C: dict = {}
+SYM = "SOXL"          # 체결·손익을 계산하는 종목. use()로 바꾼다(기본 SOXL — 기존 스크립트는 그대로 돈다).
+
+
+def use(sym: str) -> None:
+    """체결·손익 종목을 바꾼다. 종목별 1분봉·봉 캐시(("1m",종목), ("b",종목,…))는 남기고 나머지 캐시는 비운다."""
+    global SYM
+    SYM = sym
+    for k in list(_C):
+        if not (isinstance(k, tuple) and k and k[0] in ("1m", "b")):
+            del _C[k]
 
 
 # ───────────────────────── 자료 ─────────────────────────
@@ -103,7 +113,7 @@ def atr(b: pd.DataFrame, n: int = 14) -> pd.Series:
 # ───────────────────────── 체결·보유 경로 ─────────────────────────
 def _base():
     if "base" not in _C:
-        d = load("SOXL")
+        d = load(SYM)
         O = d["Open"].to_numpy(float)
         r = np.zeros(len(O))
         r[:-1] = np.log(O[1:] / O[:-1])
@@ -126,7 +136,7 @@ def simulate(b: pd.DataFrame, exit_close=None, entry_close=None, exit_touch=None
     nb = len(b)
     naive = lambda x: pd.DatetimeIndex(x).tz_convert("UTC").tz_localize(None).to_numpy()   # noqa: E731
     if "t_naive" not in _C:
-        _C["t_naive"] = naive(load("SOXL").index)
+        _C["t_naive"] = naive(load(SYM).index)
     tn = _C["t_naive"]
     ends = naive(b["end"])
 
