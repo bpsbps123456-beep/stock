@@ -17,7 +17,7 @@ import webbrowser
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import parse_qs, urlparse
 
-from . import bottom, config, dip, erules, forecast, giant, journal, news, season, tour, trend, value
+from . import bottom, config, dip, erules, finviz_score, forecast, giant, journal, news, season, tour, trend, value
 from .common import clean
 from .state import Desk
 
@@ -207,6 +207,15 @@ def _warm() -> None:
         print("계산 실패 — 화면을 새로 고치면 다시 시도합니다.\n" + traceback.format_exc(limit=3), flush=True)
     else:
         print(f"준비 완료 ({time.time() - started:.0f}초)", flush=True)
+    _score()
+
+
+def _score() -> None:
+    """§3.2 30·40·175 자동 채점 캐시(한 시간마다 다시 계산). 실패해도 화면은 그대로다."""
+    try:
+        finviz_score.payload()
+    except Exception:
+        traceback.print_exc(limit=3)
 
 
 def _observe_while_open(stop: threading.Event) -> None:
@@ -215,6 +224,7 @@ def _observe_while_open(stop: threading.Event) -> None:
             DESK.maintain_paper()
         except Exception:
             traceback.print_exc(limit=3)
+        _score()
 
 
 def main(argv: list[str] | None = None) -> int:

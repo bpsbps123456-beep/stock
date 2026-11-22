@@ -212,7 +212,21 @@ function switchSummary(route) {
     route.record_error ? h("p", { class: "t-meta", role: "status" }, route.record_error) : null);
 }
 
-function trendPaperSummary(paper) {
+function scoreLines(score) {
+  if (!score) return null;
+  if (score.error) return h("p", { class: "t-meta", role: "status" }, score.error);
+  const L = "30·40·175", C = "현행";
+  const shown = [...(score.months || [])].reverse().find((m) => m.returns);
+  return [
+    h("div", { class: "t-meta" }, "자동 채점 ", h("b", null, score.verdict)),
+    score.closed > 0 ? h("div", { class: "t-meta" }, `닫힌 달 ${score.closed}개 합계 · ${L} `, h("b", null, pct(score.total.sma30_40_175)),
+      ` · ${C} `, h("b", null, pct(score.total.current)), ` · ${L}이 이긴 달 ${score.wins}/${score.closed} · 대피에 쓴 달 ${score.evacuation_months}`) : null,
+    shown ? h("div", { class: "t-meta" }, `${shown.month} 바스켓${shown.forward ? "" : "(참고·연구 복원, 판정에 안 씀)"} ${shown.status} ~${shown.end} · ${L} `,
+      h("b", null, pct(shown.returns.sma30_40_175)), ` · ${C} `, h("b", null, pct(shown.returns.current))) : null,
+  ];
+}
+
+function trendPaperSummary(paper, score) {
   if (!paper) return null;
   const source = { research_reconstruction: "당시 자료로 복원", finviz_sip_close: "FINVIZ·SIP 월말 종가" }[paper.source];
   const mode = { desk: "TIME 주간 전략", finviz: "월초 FINVIZ 바스켓", blocked: "신호 확인 대기" }[paper.mode];
@@ -227,7 +241,8 @@ function trendPaperSummary(paper) {
       paper.effective_date ? h("div", { class: "basket-targets" }, paper.basket_symbols.join(" · ") || "달러 현금 100%") : null,
     paper.mode === "blocked" || paper.basket_issue ? h("p", { class: "t-meta" },
       paper.mode === "blocked" ? paper.reason : paper.basket_issue) : null,
-    paper.record_error ? h("p", { class: "t-meta", role: "status" }, paper.record_error) : null);
+    paper.record_error ? h("p", { class: "t-meta", role: "status" }, paper.record_error) : null,
+    scoreLines(score));
 }
 
 function renderTicket() {
@@ -244,7 +259,7 @@ function renderTicket() {
       !blocked && !finviz ? h("div", { class: "t-meta" }, "판단 기준 TIME PDF ", h("b", null, md(S.status.pdf_used)),
         " · ", ses.rebalance_day ? "주간 재조정일" : `다음 주간 재조정일 ${ses.next_rebalance}`) : null),
     route ? h("div", { class: "order-rule" }, "주문 초안 기준", h("b", null, "SOXX 100일선 전환 전략")) : null);
-  const summary = [switchSummary(route), trendPaperSummary(S.finviz_trend_paper)];
+  const summary = [switchSummary(route), trendPaperSummary(S.finviz_trend_paper, S.finviz_score)];
   if (blocked) {
     mount($("#ticket"), head, summary, h("div", { class: "banner ticket-status", role: "status" },
       h("span", { class: "ico", "aria-hidden": "true" }, "!"),

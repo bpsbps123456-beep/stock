@@ -17,7 +17,7 @@ import numpy as np
 
 from gbrc.etf.storage import NORMALIZED_HOLDINGS_DIR
 
-from . import alerts, config, finviz_basket, finviz_switch, finviz_trend, journal, marketdata, strategies as S
+from . import alerts, config, finviz_basket, finviz_score, finviz_switch, finviz_trend, journal, marketdata, strategies as S
 from .bottom_paper import latest_completed
 from .common import clean  # noqa: F401  (server and older imports use state.clean)
 
@@ -364,6 +364,7 @@ class Desk:
             "strategy": config.ORDER_RULE_NAME,
             "finviz_switch": switch,
             "finviz_trend_paper": paper,
+            "finviz_score": finviz_score.cached(),
             "research_comparison": finviz_switch.research_comparison(),
             "rule": dict(config.RULE),
             "session": {"date": session, "label": _label(session),
