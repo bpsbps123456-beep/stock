@@ -47,9 +47,10 @@ class Pace:
         time.sleep(max(0.0, t - now))
 
 
-def one(sym, start, end, head, pace, out):
+def one(sym, start, end, head, pace, out, timeframe="1Min"):
+    """timeframe: Alpaca 시간봉(기본 1Min. 2026-11-23 10Min 등을 받으려고 인자로 열었다 — 기존 호출은 그대로)."""
     rows, token = [], None
-    params = {"symbols": sym, "timeframe": "1Min", "start": start, "end": end, "limit": 10000,
+    params = {"symbols": sym, "timeframe": timeframe, "start": start, "end": end, "limit": 10000,
               "adjustment": "split", "feed": "sip", "sort": "asc"}
     while True:
         if token:
