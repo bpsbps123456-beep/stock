@@ -1,5 +1,5 @@
 // This Pine Script® code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
-// 경고·대피·재매수 — 2026-11-23 (이전 이름 'SOXL 경고선·재매수선')
+// 경고·대피·재매수 — 2026-11-24 (이전 이름 'SOXL 경고선·재매수선')
 // 연구: data/derived/analysis/exit40_20261122/report.md (9종목: SOXL MU AMD ARM DELL INTC SNDK STX WDC, 2026 고르는·확인 구간 + 최근 분기)
 // 대피·재매수(일봉): 일봉 EMA10·20 중 낮은 쪽이 대피선, 높은 쪽이 재매수선. 일봉 종가가 대피선 아래면 다음 정규장 시가에 대피,
 //   재매수선 위면 다음 정규장 시가에 재매수(겨울 한국 23:30). 두 선 사이는 그대로. 9종목 중 가장 튼튼했다(2025 9종목 모두 시점 값 양수).
@@ -111,18 +111,31 @@ priorBand() =>
         direction := 1
     [floorPrice[1], direction[1]]
 
-vvixDay() =>
-    float threshold = ta.percentile_linear_interpolation(close[1], 63, 80)
-    bool elevated = close >= threshold
-    int waitToday = na(threshold[2]) ? int(na) : (elevated[1] or elevated[2] ? 1 : 0)
-    [threshold, waitToday, time_tradingday]
+vvixCloses() =>
+    float nextThreshold = ta.percentile_linear_interpolation(close, 63, 80)
+    bool elevated = close >= nextThreshold[1]
+    int nextWait = na(nextThreshold[2]) ? int(na) : (elevated or elevated[1] ? 1 : 0)
+    [nextThreshold, nextWait, time_close, nextThreshold[1], nextWait[1], time_close[1]]
+
+// VVIX 당일 봉은 SOXX 개장보다 늦게 들어올 수 있다. 두 후보 중 기준 시각까지 마감된 마지막 봉만 선택한다.
+vvixAt(int cutoff) =>
+    [level, waitState, ending, priorLevel, priorWait, priorEnd] = request.security(VVIX, "D", vvixCloses(), lookahead = barmerge.lookahead_on, ignore_invalid_symbol = true)
+    if ending <= cutoff
+        [level, waitState, ending]
+    else if priorEnd <= cutoff
+        [priorLevel, priorWait, priorEnd]
+    else
+        [float(na), int(na), int(na)]
+
+soxxSession() =>
+    request.security(soxx, "D", [time, time_close, time[1]], lookahead = barmerge.lookahead_on)
 
 // 각 시세의 1분봉에서 최초 접촉 시각을 보존한다. 큰 차트 봉 안에서 반등해도 경고가 남는다.
 soxxWatch() =>
     [hourFloor, hourDir] = request.security(soxx, "60", priorBand(), lookahead = barmerge.lookahead_on)
     [dayFloor, dayDir] = request.security(soxx, "D", priorBand(), lookahead = barmerge.lookahead_on)
-    [_, volWait, volDay] = request.security(VVIX, "D", vvixDay(), lookahead = barmerge.lookahead_on, ignore_invalid_symbol = true)
-    int opening = time("D")
+    [opening, ending, previousOpen] = soxxSession()
+    [_, volWait, volClose] = vvixAt(opening)
     var int sectorDir = na
     if not na(hourDir) and hourDir == dayDir
         sectorDir := hourDir
@@ -132,21 +145,23 @@ soxxWatch() =>
     var int sectorHit = na
     if (na(sectorHit) or sectorHit < opening) and low < math.min(hourFloor, dayFloor)
         sectorHit := time
-    [sectorHit, openingDir, sectorDir, volDay == time_tradingday ? volWait : int(na), opening, time_close("D")]
+    // 이전 SOXX 세션의 VVIX 종가까지 들어왔는지 확인한다.
+    [sectorHit, openingDir, sectorDir, volClose > previousOpen ? volWait : int(na), opening, ending]
 
 vvixWatch() =>
-    [opening, ending] = request.security(soxx, "D", [time, time_close], lookahead = barmerge.lookahead_on)
-    [threshold, _, volDay] = request.security(VVIX, "D", vvixDay(), lookahead = barmerge.lookahead_on, ignore_invalid_symbol = true)
+    [opening, ending, previousOpen] = soxxSession()
+    [threshold, _, volClose] = vvixAt(opening)
     var int volHit = na
     var int lastQuote = na
-    if time >= opening and time < ending and volDay == time_tradingday
+    if time >= opening and time < ending
         lastQuote := time
-        if (na(volHit) or volHit < opening) and high >= threshold
+        if (na(volHit) or volHit < opening) and volClose > previousOpen and high >= threshold
             volHit := time
     [volHit, lastQuote, opening, ending]
 
 [sectorHitTime, openSectorDir, sectorDirNow, volWaitToday, marketOpen, marketEnd] = request.security(soxx, "1", soxxWatch(), lookahead = barmerge.lookahead_off)
 [volHitTime, volQuoteTime, volOpen, volEnd] = request.security(VVIX, "1", vvixWatch(), lookahead = barmerge.lookahead_off, ignore_invalid_symbol = true)
+[_, latestVolWait, latestVolClose] = vvixAt(barstate.isrealtime ? timenow : time_close)
 bool marketBar = showMarket and not na(marketOpen) and time < marketEnd and time_close > marketOpen
 newHit(int stamp, int opening, int ending) =>
     showMarket and bar_index > 0 and time < ending and time_close > opening and stamp >= opening and (na(stamp[1]) or stamp != stamp[1])
@@ -276,8 +291,13 @@ if barstate.islast
             txt += "\n" + str.format_time(marketOpen, "M/d", NY) + " 정규장 신규 진입 대기 · " + caution
         if sectorHitTime >= marketOpen or volHitTime >= marketOpen
             txt += "\n" + str.format_time(marketOpen, "M/d", NY) + " 장중 경고" + (sectorHitTime >= marketOpen ? " · SOXX" : "") + (volHitTime >= marketOpen ? " · VVIX" : "")
-        if na(volWaitToday)
-            txt += "\nVVIX 종가 자료 미확인"
         if marketBar and (na(volQuoteTime) or volQuoteTime < marketOpen)
             txt += "\nVVIX 정규장 시세 대기"
+        if marketBar and na(volWaitToday) and not na(latestVolWait)
+            txt += "\n개장 기준 VVIX 종가 확인 대기"
+    if showMarket
+        if na(latestVolWait)
+            txt += "\nVVIX 종가 자료 미확인"
+        else
+            txt += "\nVVIX " + str.format_time(latestVolClose, "M/d", NY) + " 종가 · " + (latestVolWait == 1 ? "경계" : "대기 해제")
     st := label.new(bar_index + 3, close, txt, xloc = xloc.bar_index, style = label.style_label_left, color = na(wLine) ? color.gray : holding and not pendOut ? color.new(color.green, 15) : color.new(color.red, 15), textcolor = color.white, size = size.normal)
